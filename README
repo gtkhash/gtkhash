@@ -1,0 +1,12 @@
+GtkHash is a GTK+ utility for computing message digests or checksums using
+the mhash library.
+
+http://gtkhash.sourceforge.net/
+
+Dependencies:
+    Required: mhash, GTK+ 2
+    Optional (Nautilus extension): Nautilus, GConf
+
+Translations:
+    Please submit any new or updated translations here:
+    https://translations.launchpad.net/gtkhash

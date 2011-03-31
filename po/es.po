@@ -1,0 +1,136 @@
+# Spanish translation for gtkhash
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the gtkhash package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtkhash\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-15 23:59+0000\n"
+"PO-Revision-Date: 2009-03-15 13:22+0000\n"
+"Last-Translator: DiegoJ <diegojromerolopez@gmail.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2009-11-15 22:44+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: ../data/gtkhash.xml.h:1
+msgid "File _List"
+msgstr "_Lista de archivos"
+
+#: ../data/gtkhash.xml.h:2
+msgid "File:"
+msgstr "Archivo:"
+
+#: ../data/gtkhash.xml.h:3
+msgid "Hash"
+msgstr "Hash"
+
+#: ../data/gtkhash.xml.h:4
+msgid "Hash functions:"
+msgstr "Funciones de hash:"
+
+#: ../data/gtkhash.xml.h:5
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: ../data/gtkhash.xml.h:6
+msgid "Text:"
+msgstr "Texto:"
+
+#: ../data/gtkhash.xml.h:7
+msgid "_Edit"
+msgstr "_Editar"
+
+#: ../data/gtkhash.xml.h:8
+msgid "_File"
+msgstr "_Archivo"
+
+#: ../data/gtkhash.xml.h:9
+msgid "_Help"
+msgstr "_Ayuda"
+
+#: ../data/gtkhash.xml.h:10
+msgid "_Text"
+msgstr "_Texto"
+
+#: ../data/gtkhash.xml.h:11
+msgid "_View"
+msgstr "_Ver"
+
+#: ../data/nautilus/gtkhash-properties.xml.h:1
+#, fuzzy
+msgid "H_ash"
+msgstr "Hash"
+
+#: ../src/callbacks.c:99
+msgid "Save Digests To File"
+msgstr "Guardar resúmenes a un archivo"
+
+#: ../src/callbacks.c:310
+msgid "A GTK+ utility for computing digests using the mhash library."
+msgstr "Una utilidad GTK+ para generar resúmenes usando la librería mhash."
+
+#: ../src/callbacks.c:314
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  DiegoJ https://launchpad.net/~diegojromerolopez\n"
+"  juancarlospaco https://launchpad.net/~juancarlospaco"
+
+#: ../src/callbacks.c:339
+msgid "Select Files"
+msgstr "Seleccionar archivos"
+
+#: ../src/gui.c:75
+#, c-format
+msgid ""
+"Failed to read %s:\n"
+"%s"
+msgstr ""
+"Falló al leer %s:\n"
+"%s"
+
+#: ../src/list.c:56
+msgid "Path"
+msgstr "Ruta"
+
+#: ../src/list.c:62
+msgid "Filename"
+msgstr "Nombre de archivo"
+
+#: ../src/main.c:56
+msgid "[FILE...]"
+msgstr "[ARCHIVO...]"
+
+#: ../src/main.c:67
+#, c-format
+msgid "Unknown option, try %s --help\n"
+msgstr "Opcion desconocida, pruebe %s --help\n"
+
+#: ../src/nautilus/properties.c:178
+msgid "Digests"
+msgstr ""
+
+#: ../src/nautilus/properties-hash.c:357
+#, c-format
+msgid "Estimated time remaining: %d minute"
+msgstr ""
+
+#: ../src/nautilus/properties-hash.c:360
+#, c-format
+msgid "Estimated time remaining: %d minutes"
+msgstr ""
+
+#: ../src/nautilus/properties-hash.c:364
+#, c-format
+msgid "Estimated time remaining: %d second"
+msgstr ""
+
+#: ../src/nautilus/properties-hash.c:367
+#, c-format
+msgid "Estimated time remaining: %d seconds"
+msgstr ""

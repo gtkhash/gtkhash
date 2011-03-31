@@ -1,0 +1,21 @@
+Summary of changes for each release:
+
+0.4.0 -
+	* Added support for hashing remote files using GIO
+	* General usability improvements
+
+0.3.0 - 2009-11-22
+	* Added optional Nautilus (GNOME file manager) extension
+
+0.2.1 - 2008-12-31
+	* Fixed progress bar display for large files
+	* Removed dependency on libglade
+
+0.2.0 - 2007-08-14
+	* Added file list mode for hashing multiple files
+
+0.1.1 - 2007-07-21
+	* Added gettext support
+
+0.1.0 - 2007-06-29
+	* Initial release

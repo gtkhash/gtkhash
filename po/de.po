@@ -1,0 +1,137 @@
+# German translation for gtkhash
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the gtkhash package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtkhash\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-15 23:59+0000\n"
+"PO-Revision-Date: 2009-10-04 09:27+0000\n"
+"Last-Translator: Trip McKay <Unknown>\n"
+"Language-Team: German <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2009-11-15 22:44+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: ../data/gtkhash.xml.h:1
+msgid "File _List"
+msgstr "Dateiliste"
+
+#: ../data/gtkhash.xml.h:2
+msgid "File:"
+msgstr "Datei:"
+
+#: ../data/gtkhash.xml.h:3
+msgid "Hash"
+msgstr "Hash"
+
+#: ../data/gtkhash.xml.h:4
+msgid "Hash functions:"
+msgstr "Hashfunktionen:"
+
+#: ../data/gtkhash.xml.h:5
+msgid "Preferences"
+msgstr "Einstellungen"
+
+#: ../data/gtkhash.xml.h:6
+msgid "Text:"
+msgstr "Text:"
+
+#: ../data/gtkhash.xml.h:7
+msgid "_Edit"
+msgstr "_Bearbeiten"
+
+#: ../data/gtkhash.xml.h:8
+msgid "_File"
+msgstr "_Datei"
+
+#: ../data/gtkhash.xml.h:9
+msgid "_Help"
+msgstr "_Hilfe"
+
+#: ../data/gtkhash.xml.h:10
+msgid "_Text"
+msgstr "_Text"
+
+#: ../data/gtkhash.xml.h:11
+msgid "_View"
+msgstr "_Ansicht"
+
+#: ../data/nautilus/gtkhash-properties.xml.h:1
+#, fuzzy
+msgid "H_ash"
+msgstr "Hash"
+
+#: ../src/callbacks.c:99
+msgid "Save Digests To File"
+msgstr "Hashwerte in Datei speichern"
+
+#: ../src/callbacks.c:310
+msgid "A GTK+ utility for computing digests using the mhash library."
+msgstr ""
+"Ein GTK+ Werkzeug, um Hashwerte mithilfe der mhash-Bibliothek zu berechnen."
+
+#: ../src/callbacks.c:314
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Patrick Kolesa https://launchpad.net/~pkol.\n"
+"  Trip McKay https://launchpad.net/~trip-mckay"
+
+#: ../src/callbacks.c:339
+msgid "Select Files"
+msgstr "Dateien auswählen"
+
+#: ../src/gui.c:75
+#, c-format
+msgid ""
+"Failed to read %s:\n"
+"%s"
+msgstr ""
+"Lesen von %s fehlgeschlagen:\n"
+"%s"
+
+#: ../src/list.c:56
+msgid "Path"
+msgstr "Pfad"
+
+#: ../src/list.c:62
+msgid "Filename"
+msgstr "Dateiname"
+
+#: ../src/main.c:56
+msgid "[FILE...]"
+msgstr "[DATEI …]"
+
+#: ../src/main.c:67
+#, c-format
+msgid "Unknown option, try %s --help\n"
+msgstr "Unbekannte Einstellung, versuche %s --help\n"
+
+#: ../src/nautilus/properties.c:178
+msgid "Digests"
+msgstr ""
+
+#: ../src/nautilus/properties-hash.c:357
+#, c-format
+msgid "Estimated time remaining: %d minute"
+msgstr ""
+
+#: ../src/nautilus/properties-hash.c:360
+#, c-format
+msgid "Estimated time remaining: %d minutes"
+msgstr ""
+
+#: ../src/nautilus/properties-hash.c:364
+#, c-format
+msgid "Estimated time remaining: %d second"
+msgstr ""
+
+#: ../src/nautilus/properties-hash.c:367
+#, c-format
+msgid "Estimated time remaining: %d seconds"
+msgstr ""

@@ -1,0 +1,135 @@
+# Czech translation for gtkhash
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the gtkhash package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gtkhash\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-15 23:59+0000\n"
+"PO-Revision-Date: 2009-01-18 08:39+0000\n"
+"Last-Translator: Jakub Žáček <dawon.cz@gmail.com>\n"
+"Language-Team: Czech <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2009-11-15 22:44+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: ../data/gtkhash.xml.h:1
+msgid "File _List"
+msgstr "Sezna_m souborů"
+
+#: ../data/gtkhash.xml.h:2
+msgid "File:"
+msgstr "Soubor:"
+
+#: ../data/gtkhash.xml.h:3
+msgid "Hash"
+msgstr "Kontrolní součet"
+
+#: ../data/gtkhash.xml.h:4
+msgid "Hash functions:"
+msgstr "Funkce kontr. součtu:"
+
+#: ../data/gtkhash.xml.h:5
+msgid "Preferences"
+msgstr "Nastavení"
+
+#: ../data/gtkhash.xml.h:6
+msgid "Text:"
+msgstr "Text:"
+
+#: ../data/gtkhash.xml.h:7
+msgid "_Edit"
+msgstr "Ú_pravy"
+
+#: ../data/gtkhash.xml.h:8
+msgid "_File"
+msgstr "_Soubor"
+
+#: ../data/gtkhash.xml.h:9
+msgid "_Help"
+msgstr "_Nápověda"
+
+#: ../data/gtkhash.xml.h:10
+msgid "_Text"
+msgstr "_Text"
+
+#: ../data/gtkhash.xml.h:11
+msgid "_View"
+msgstr "_Zobrazit"
+
+#: ../data/nautilus/gtkhash-properties.xml.h:1
+#, fuzzy
+msgid "H_ash"
+msgstr "Kontrolní součet"
+
+#: ../src/callbacks.c:99
+msgid "Save Digests To File"
+msgstr "Uložit součty do souboru"
+
+#: ../src/callbacks.c:310
+msgid "A GTK+ utility for computing digests using the mhash library."
+msgstr "Utilita GTK+ pro počítání součtů pomocí knihovny mhash."
+
+#: ../src/callbacks.c:314
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Jakub Žáček https://launchpad.net/~dawon"
+
+#: ../src/callbacks.c:339
+msgid "Select Files"
+msgstr "Vyberte soubory"
+
+#: ../src/gui.c:75
+#, c-format
+msgid ""
+"Failed to read %s:\n"
+"%s"
+msgstr ""
+"Selhalo čtení %s:\n"
+"%s"
+
+#: ../src/list.c:56
+msgid "Path"
+msgstr "Umístění"
+
+#: ../src/list.c:62
+msgid "Filename"
+msgstr "Název souboru"
+
+#: ../src/main.c:56
+msgid "[FILE...]"
+msgstr "[SOUBOR...]"
+
+#: ../src/main.c:67
+#, c-format
+msgid "Unknown option, try %s --help\n"
+msgstr "Neplatná možnost, zkuste %s --help\n"
+
+#: ../src/nautilus/properties.c:178
+msgid "Digests"
+msgstr ""
+
+#: ../src/nautilus/properties-hash.c:357
+#, c-format
+msgid "Estimated time remaining: %d minute"
+msgstr ""
+
+#: ../src/nautilus/properties-hash.c:360
+#, c-format
+msgid "Estimated time remaining: %d minutes"
+msgstr ""
+
+#: ../src/nautilus/properties-hash.c:364
+#, c-format
+msgid "Estimated time remaining: %d second"
+msgstr ""
+
+#: ../src/nautilus/properties-hash.c:367
+#, c-format
+msgid "Estimated time remaining: %d seconds"
+msgstr ""
