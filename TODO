@@ -1,4 +1,6 @@
+* Libgcrypt support
 * Uppercase/Lowercase output option
 * Digest compare/check/verify (Need UI ideas)
 * Drag and drop integration
 * Multithreaded hashing
+* Thunar plugin
