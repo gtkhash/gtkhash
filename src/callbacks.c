@@ -274,7 +274,7 @@ static void on_menuitem_about_activate(void)
 	gtk_show_about_dialog(
 			gui.window,
 			"authors", authors,
-			"comments", _("A GTK+ utility for computing digests using the mhash library."),
+			"comments", _("A GTK+ utility for computing message digests or checksums."),
 			"license", license,
 			"program-name", PACKAGE_NAME,
 #if ENABLE_NLS
