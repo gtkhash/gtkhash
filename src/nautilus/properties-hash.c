@@ -45,29 +45,37 @@ void gtkhash_hash_file_report_cb(void *data, goffset file_size,
 		(double)total_read /
 		(double)file_size);
 
-	if (total_read < FILE_BUFFER_SIZE * 3)
+	double elapsed = g_timer_elapsed(timer, NULL);
+	if (elapsed <= 1)
 		return;
 
 	// Update progres bar text...
-	int remaining = g_timer_elapsed(timer, NULL) /
-		total_read * (file_size - total_read);
+	unsigned int s = elapsed / total_read * (file_size - total_read);
+	char *total_read_str = g_format_size_for_display(total_read);
+	char *file_size_str = g_format_size_for_display(file_size);
+	char *speed_str = g_format_size_for_display(total_read / elapsed);
 	char *text;
-	if (remaining > 60) {
-		int minutes = remaining / 60;
-		if (minutes == 1)
-			text = g_strdup_printf(_("Estimated time remaining: 1 minute"));
+	if (s > 60) {
+		unsigned int m = s / 60;
+		if (m == 1)
+			text = g_strdup_printf(_("%s of %s - 1 minute left (%s/sec)"),
+				total_read_str, file_size_str, speed_str);
 		else
-			text = g_strdup_printf(_("Estimated time remaining: %d minutes"),
-				minutes);
+			text = g_strdup_printf(_("%s of %s - %u minutes left (%s/sec)"),
+				total_read_str, file_size_str, m, speed_str);
 	} else {
-		if (remaining == 1)
-			text = g_strdup_printf(_("Estimated time remaining: 1 second"));
+		if (s == 1)
+			text = g_strdup_printf(_("%s of %s - 1 second left (%s/sec)"),
+				total_read_str, file_size_str, speed_str);
 		else
-			text = g_strdup_printf(_("Estimated time remaining: %d seconds"),
-				remaining);
+			text = g_strdup_printf(_("%s of %s - %u seconds left (%s/sec)"),
+				total_read_str, file_size_str, s, speed_str);
 	}
 	gtk_progress_bar_set_text(page->progressbar, text);
 	g_free(text);
+	g_free(speed_str);
+	g_free(file_size_str);
+	g_free(total_read_str);
 }
 
 void gtkhash_hash_file_finish_cb(void *data)
