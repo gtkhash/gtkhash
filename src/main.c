@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2010 Tristan Heaven <tristanheaven@gmail.com>
+ *   Copyright (C) 2007-2011 Tristan Heaven <tristanheaven@gmail.com>
  *
  *   This file is part of GtkHash.
  *
