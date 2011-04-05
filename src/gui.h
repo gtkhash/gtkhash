@@ -49,6 +49,7 @@ struct {
 	GtkFileChooserButton *filechooserbutton;
 	GtkLabel *label_text, *label_file;
 	GtkTreeView *treeview;
+	GtkTreeSelection *treeselection;
 	GtkTreeModel *treemodel;
 	GtkListStore *liststore;
 	GtkHSeparator *hseparator_buttons;

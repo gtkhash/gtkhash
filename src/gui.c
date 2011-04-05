@@ -118,6 +118,8 @@ static void gui_get_objects(GtkBuilder *builder)
 
 	// Tree View
 	gui.treeview = GTK_TREE_VIEW(gui_get_object(builder, "treeview"));
+	gui.treeselection = GTK_TREE_SELECTION(gtk_tree_view_get_selection(
+		gui.treeview));
 
 	// Buttons
 	gui.hseparator_buttons = GTK_HSEPARATOR(gui_get_object(builder,

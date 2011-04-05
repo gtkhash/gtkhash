@@ -340,6 +340,13 @@ static void on_toolbutton_clear_clicked(void)
 	list_clear();
 }
 
+static void on_treeselection_changed(void)
+{
+	const int count = gtk_tree_selection_count_selected_rows(gui.treeselection);
+
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_remove), count);
+}
+
 static void on_button_hash_clicked(void)
 {
 	if (gui_get_view() == VIEW_FILE) {
@@ -417,6 +424,7 @@ void callbacks_init(void)
 		{ G_OBJECT(gui.toolbutton_add),          "clicked",           on_toolbutton_add_clicked },
 		{ G_OBJECT(gui.toolbutton_remove),       "clicked",           on_toolbutton_remove_clicked },
 		{ G_OBJECT(gui.toolbutton_clear),        "clicked",           on_toolbutton_clear_clicked },
+		{ G_OBJECT(gui.treeselection),           "changed",           on_treeselection_changed },
 		{ G_OBJECT(gui.button_hash),             "clicked",           on_button_hash_clicked },
 		{ G_OBJECT(gui.button_stop),             "clicked",           on_button_stop_clicked },
 		{ G_OBJECT(gui.dialog),                  "delete-event",      G_CALLBACK(on_dialog_delete_event) },

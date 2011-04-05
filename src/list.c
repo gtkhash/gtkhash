@@ -86,6 +86,7 @@ void list_append_row(const char *uri)
 		COL_FILE, pname, -1);
 	g_free(pname);
 
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_clear), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), true);
 
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
@@ -120,8 +121,10 @@ void list_remove_selection(void)
 
 	g_list_free(rows);
 
-	if (list_count_rows() == 0)
+	if (list_count_rows() == 0) {
+		gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_clear), false);
 		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
+	}
 }
 
 char *list_get_uri(const unsigned int row)
@@ -271,5 +274,6 @@ void list_clear_digests(void)
 void list_clear(void)
 {
 	gtk_list_store_clear(gui.liststore);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_clear), false);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
 }
