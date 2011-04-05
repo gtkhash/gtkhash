@@ -119,6 +119,9 @@ void list_remove_selection(void)
 	}
 
 	g_list_free(rows);
+
+	if (list_count_rows() == 0)
+		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
 }
 
 char *list_get_uri(const unsigned int row)

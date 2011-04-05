@@ -312,16 +312,13 @@ static void on_toolbutton_add_clicked(void)
 
 	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
 		GSList *uris = gtk_file_chooser_get_uris(chooser);
-//		bool has_selected = false;
 
 		for (unsigned int i = 0; i < g_slist_length(uris); i++) {
 			char *uri = g_slist_nth(uris, i)->data;
 			list_append_row(uri);
 			g_free(uri);
-//			has_selected = true;
 		}
 
-//		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), has_selected);
 		g_slist_free(uris);
 	}
 
