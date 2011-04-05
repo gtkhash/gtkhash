@@ -275,7 +275,6 @@ void gui_update(void)
 				g_free(uri);
 			} else
 				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
-
 			break;
 		case VIEW_TEXT:
 			gtk_widget_hide(GTK_WIDGET(gui.toolbar));
@@ -290,8 +289,9 @@ void gui_update(void)
 			gtk_widget_show(GTK_WIDGET(gui.vbox_single));
 			gtk_widget_show(GTK_WIDGET(gui.vbox_digests_text));
 
-			g_signal_emit_by_name(gui.button_hash, "clicked");
+			gtk_widget_grab_focus(GTK_WIDGET(gui.entry));
 
+			g_signal_emit_by_name(gui.button_hash, "clicked");
 			break;
 		case VIEW_FILE_LIST:
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_single));
@@ -300,8 +300,8 @@ void gui_update(void)
 			gtk_widget_show(GTK_WIDGET(gui.vbox_list));
 			gtk_widget_show(GTK_WIDGET(gui.button_hash));
 
-			gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), list_count_rows());
-
+			gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash),
+				list_count_rows());
 			break;
 		default:
 			g_assert_not_reached();

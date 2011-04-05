@@ -291,6 +291,9 @@ static void on_filechooserbutton_selection_changed(void)
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), uri ? true : false);
 
+	if (uri)
+		gtk_widget_grab_focus(GTK_WIDGET(gui.button_hash));
+
 	gui_clear_digests();
 }
 
@@ -320,6 +323,8 @@ static void on_toolbutton_add_clicked(void)
 		}
 
 		g_slist_free(uris);
+
+		gtk_widget_grab_focus(GTK_WIDGET(gui.button_hash));
 	}
 
 	gtk_widget_destroy(GTK_WIDGET(chooser));

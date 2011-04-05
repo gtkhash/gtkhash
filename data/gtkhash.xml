@@ -184,7 +184,6 @@
         <child>
           <object class="GtkToolbar" id="toolbar">
             <property name="visible">True</property>
-            <property name="toolbar_style">both-horiz</property>
             <child>
               <object class="GtkToolButton" id="toolbutton_add">
                 <property name="visible">True</property>
@@ -199,6 +198,7 @@
             <child>
               <object class="GtkToolButton" id="toolbutton_remove">
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="is_important">True</property>
                 <property name="stock_id">gtk-remove</property>
               </object>
@@ -277,6 +277,7 @@
                           <object class="GtkFileChooserButton" id="filechooserbutton">
                             <property name="visible">True</property>
                             <property name="local_only">False</property>
+                            <property name="focus_on_click">False</property>
                           </object>
                           <packing>
                             <property name="fill">False</property>
@@ -287,7 +288,6 @@
                           <object class="GtkEntry" id="entry">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="activates_default">True</property>
                           </object>
                           <packing>
                             <property name="position">1</property>
@@ -465,39 +465,14 @@
                         <property name="layout_style">end</property>
                         <child>
                           <object class="GtkButton" id="button_hash">
+                            <property name="label" translatable="yes">Ha_sh</property>
                             <property name="visible">True</property>
                             <property name="sensitive">False</property>
                             <property name="can_focus">True</property>
                             <property name="can_default">True</property>
-                            <property name="has_default">True</property>
                             <property name="receives_default">True</property>
-                            <child>
-                              <object class="GtkHBox" id="hbox_button_hash">
-                                <property name="visible">True</property>
-                                <property name="spacing">3</property>
-                                <child>
-                                  <object class="GtkImage" id="image_button_hash">
-                                    <property name="visible">True</property>
-                                    <property name="xalign">1</property>
-                                    <property name="stock">gtk-execute</property>
-                                  </object>
-                                  <packing>
-                                    <property name="position">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkAccelLabel" id="accellabel_button_hash">
-                                    <property name="visible">True</property>
-                                    <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Hash</property>
-                                    <property name="accel_widget">button_hash</property>
-                                  </object>
-                                  <packing>
-                                    <property name="position">1</property>
-                                  </packing>
-                                </child>
-                              </object>
-                            </child>
+                            <property name="image">image_execute</property>
+                            <property name="use_underline">True</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -594,7 +569,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
-                <property name="has_default">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
               </object>
@@ -616,5 +590,9 @@
     <action-widgets>
       <action-widget response="0">dialog_button_close</action-widget>
     </action-widgets>
+  </object>
+  <object class="GtkImage" id="image_execute">
+    <property name="visible">True</property>
+    <property name="stock">gtk-execute</property>
   </object>
 </interface>
