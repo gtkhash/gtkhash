@@ -49,7 +49,7 @@ void gtkhash_hash_file_report_cb(void *data, goffset file_size,
 	if (elapsed <= 1)
 		return;
 
-	// Update progres bar text...
+	// Update progressbar text...
 	unsigned int s = elapsed / total_read * (file_size - total_read);
 	char *total_read_str = g_format_size_for_display(total_read);
 	char *file_size_str = g_format_size_for_display(file_size);

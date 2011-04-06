@@ -77,8 +77,10 @@ else
 	AM_GLIB_GNU_GETTEXT
 fi
 
-AC_DEFINE_UNQUOTED(FILE_BUFFER_SIZE, 131072, Define file buffer size)
 AC_DEFINE_UNQUOTED(G_LOG_DOMAIN, "${PACKAGE_NAME}", Define the Glib log domain)
+
+AC_DEFINE_UNQUOTED(HASH_FILE_BUFFER_SIZE, 131072, Define file read buffer size (bytes))
+AC_DEFINE_UNQUOTED(HASH_FILE_REPORT_INTERVAL, 166, Define progress report interval (milliseconds))
 
 AC_CONFIG_FILES(Makefile)
 AC_CONFIG_FILES(data/Makefile)

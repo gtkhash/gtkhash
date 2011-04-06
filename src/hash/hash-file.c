@@ -107,6 +107,38 @@ void gtkhash_hash_file_set_uri(struct hash_file_s *data, const char *uri)
 	data->uri = uri;
 }
 
+static bool gtkhash_hash_file_report(struct hash_file_s *data)
+{
+	g_mutex_lock(data->priv.mutex);
+	if (data->priv.report_source)
+		gtkhash_hash_file_report_cb(data->cb_data, data->file_size,
+			data->priv.total_read, data->timer);
+	g_mutex_unlock(data->priv.mutex);
+
+	return true;
+}
+
+static void gtkhash_hash_file_add_report_source(struct hash_file_s *data)
+{
+	g_mutex_lock(data->priv.mutex);
+	if (G_UNLIKELY(data->priv.report_source != 0))
+		g_critical("report source was already added");
+	data->priv.report_source = gdk_threads_add_timeout(
+		HASH_FILE_REPORT_INTERVAL, (GSourceFunc)gtkhash_hash_file_report, data);
+	g_mutex_unlock(data->priv.mutex);
+}
+
+static void gtkhash_hash_file_remove_report_source(struct hash_file_s *data)
+{
+	g_mutex_lock(data->priv.mutex);
+	if (data->priv.report_source) {
+		if (G_UNLIKELY(!g_source_remove(data->priv.report_source)))
+			g_critical("failed to remove report source");
+		data->priv.report_source = 0;
+	}
+	g_mutex_unlock(data->priv.mutex);
+}
+
 static void gtkhash_hash_file_start(struct hash_file_s *data)
 {
 	g_assert(data->uri);
@@ -115,12 +147,12 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 		if (data->funcs[i].enabled)
 			gtkhash_hash_lib_start(&data->funcs[i]);
 
-	data->buffer = g_malloc(FILE_BUFFER_SIZE);
+	data->buffer = g_malloc(HASH_FILE_BUFFER_SIZE);
 	data->file = g_file_new_for_uri(data->uri);
 	data->current_func = 0;
 	data->just_read = 0;
-	data->total_read = 0;
 	data->timer = g_timer_new();
+	data->priv.total_read = 0;
 
 	gtkhash_hash_file_set_state(data, HASH_FILE_STATE_OPEN);
 }
@@ -169,8 +201,10 @@ static void gtkhash_hash_file_get_size_finish(
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_CLOSE);
 	else if (data->file_size == 0)
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_HASH);
-	else
+	else {
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_READ);
+		gtkhash_hash_file_add_report_source(data);
+	}
 
 	gtkhash_hash_file_add_source(data);
 }
@@ -201,11 +235,14 @@ static void gtkhash_hash_file_read_finish(
 		g_warning("file_read_finish: unexpected EOF");
 		gtkhash_hash_file_set_stop(data, true);
 	} else {
-		data->total_read += data->just_read;
-		if (G_UNLIKELY(data->total_read > data->file_size)) {
+		g_mutex_lock(data->priv.mutex);
+		data->priv.total_read += data->just_read;
+		const goffset total_read = data->priv.total_read;
+		g_mutex_unlock(data->priv.mutex);
+		if (G_UNLIKELY(total_read > data->file_size)) {
 			g_warning("file_read_finish: read %" G_GOFFSET_FORMAT
 				" bytes more than expected",
-				data->total_read - data->file_size);
+				total_read - data->file_size);
 			gtkhash_hash_file_set_stop(data, true);
 		} else
 			gtkhash_hash_file_set_state(data, HASH_FILE_STATE_HASH);
@@ -226,7 +263,7 @@ static void gtkhash_hash_file_read(struct hash_file_s *data)
 
 	gtkhash_hash_file_remove_source(data);
 	g_input_stream_read_async(G_INPUT_STREAM(data->stream),
-		data->buffer, FILE_BUFFER_SIZE, G_PRIORITY_DEFAULT, NULL,
+		data->buffer, HASH_FILE_BUFFER_SIZE, G_PRIORITY_DEFAULT, NULL,
 		(GAsyncReadyCallback)gtkhash_hash_file_read_finish, data);
 }
 
@@ -246,21 +283,10 @@ static void gtkhash_hash_file_hash(struct hash_file_s *data)
 
 	data->current_func = 0;
 
-	gtkhash_hash_file_set_state(data, HASH_FILE_STATE_REPORT);
-}
-
-static void gtkhash_hash_file_report(struct hash_file_s *data)
-{
-	if (data->total_read >= data->file_size)
+	if (data->priv.total_read >= data->file_size)
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_CLOSE);
 	else
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_READ);
-
-	if (data->file_size == 0)
-		return;
-
-	gtkhash_hash_file_report_cb(data->cb_data, data->file_size,
-		data->total_read, data->timer);
 }
 
 static void gtkhash_hash_file_close_finish(
@@ -274,6 +300,7 @@ static void gtkhash_hash_file_close_finish(
 
 	g_object_unref(data->stream);
 
+	gtkhash_hash_file_remove_report_source(data);
 	gtkhash_hash_file_set_state(data, HASH_FILE_STATE_FINISH);
 	gtkhash_hash_file_add_source(data);
 }
@@ -314,7 +341,6 @@ static bool gtkhash_hash_file(struct hash_file_s *data)
 		gtkhash_hash_file_get_size,
 		gtkhash_hash_file_read,
 		gtkhash_hash_file_hash,
-		gtkhash_hash_file_report,
 		gtkhash_hash_file_close,
 		gtkhash_hash_file_finish
 	};
@@ -338,6 +364,7 @@ void gtkhash_hash_file_init(struct hash_file_s *data, struct hash_func_s *funcs,
 {
 	data->priv.mutex = g_mutex_new();
 	data->priv.source = 0;
+	data->priv.report_source = 0;
 	data->priv.state = HASH_FILE_STATE_IDLE;
 	data->priv.stop = false;
 	data->funcs = funcs;

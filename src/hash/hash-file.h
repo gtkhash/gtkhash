@@ -33,7 +33,6 @@ enum hash_file_state_e {
 	HASH_FILE_STATE_GET_SIZE,
 	HASH_FILE_STATE_READ,
 	HASH_FILE_STATE_HASH,
-	HASH_FILE_STATE_REPORT,
 	HASH_FILE_STATE_CLOSE,
 	HASH_FILE_STATE_FINISH,
 	HASH_FILE_STATE_TERM,
@@ -46,7 +45,6 @@ struct hash_file_s {
 		GFile *file;
 		GFileInputStream *stream;
 		goffset file_size;
-		goffset total_read;
 		gssize just_read;
 		uint8_t *buffer;
 		GTimer *timer;
@@ -54,9 +52,10 @@ struct hash_file_s {
 		struct hash_func_s *funcs;
 		struct {
 			GMutex *mutex;
-			unsigned int source;
+			unsigned int source, report_source;
 			bool stop;
 			enum hash_file_state_e state;
+			goffset total_read;
 		} priv;
 };
 
