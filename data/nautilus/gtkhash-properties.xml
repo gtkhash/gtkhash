@@ -1,7 +1,18 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk+" version="2.16"/>
+  <requires lib="gtk+" version="2.22"/>
   <!-- interface-naming-policy project-wide -->
+  <object class="GtkImage" id="image_copy">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-copy</property>
+    <property name="icon-size">1</property>
+  </object>
+  <object class="GtkImage" id="image_execute">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-execute</property>
+  </object>
   <object class="GtkListStore" id="liststore">
     <columns>
       <!-- column-name id -->
@@ -14,12 +25,43 @@
       <column type="gchararray"/>
     </columns>
   </object>
+  <object class="GtkMenu" id="menu">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkImageMenuItem" id="imagemenuitem_copy">
+        <property name="label" translatable="yes">_Copy Digest</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="use_underline">True</property>
+        <property name="image">image_copy</property>
+        <property name="use_stock">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separatormenuitem">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="checkmenuitem_show_funcs">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Show _Disabled Hash Functions</property>
+        <property name="use_underline">True</property>
+        <property name="active">True</property>
+      </object>
+    </child>
+  </object>
   <object class="GtkTreeModelFilter" id="treemodelfilter">
     <property name="child_model">liststore</property>
   </object>
   <object class="GtkVBox" id="vbox">
     <property name="visible">True</property>
-    <property name="orientation">vertical</property>
+    <property name="can_focus">False</property>
     <child>
       <object class="GtkScrolledWindow" id="scrolledwindow">
         <property name="visible">True</property>
@@ -72,6 +114,8 @@
         </child>
       </object>
       <packing>
+        <property name="expand">True</property>
+        <property name="fill">True</property>
         <property name="position">0</property>
       </packing>
     </child>
@@ -79,15 +123,18 @@
       <object class="GtkProgressBar" id="progressbar">
         <property name="visible">True</property>
         <property name="sensitive">False</property>
+        <property name="can_focus">False</property>
       </object>
       <packing>
         <property name="expand">False</property>
+        <property name="fill">True</property>
         <property name="position">1</property>
       </packing>
     </child>
     <child>
       <object class="GtkHButtonBox" id="hbuttonbox">
         <property name="visible">True</property>
+        <property name="can_focus">False</property>
         <property name="border_width">15</property>
         <property name="spacing">8</property>
         <property name="layout_style">end</property>
@@ -98,6 +145,7 @@
             <property name="sensitive">False</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="use_action_appearance">False</property>
             <property name="use_stock">True</property>
           </object>
           <packing>
@@ -112,6 +160,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="use_action_appearance">False</property>
             <property name="image">image_execute</property>
             <property name="use_underline">True</property>
           </object>
@@ -124,42 +173,9 @@
       </object>
       <packing>
         <property name="expand">False</property>
+        <property name="fill">True</property>
         <property name="position">2</property>
       </packing>
     </child>
-  </object>
-  <object class="GtkImage" id="image_execute">
-    <property name="visible">True</property>
-    <property name="stock">gtk-execute</property>
-  </object>
-  <object class="GtkMenu" id="menu">
-    <property name="visible">True</property>
-    <child>
-      <object class="GtkImageMenuItem" id="imagemenuitem_copy">
-        <property name="label" translatable="yes">_Copy Digest</property>
-        <property name="visible">True</property>
-        <property name="image">image_copy</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">False</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkSeparatorMenuItem" id="separatormenuitem">
-        <property name="visible">True</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkCheckMenuItem" id="checkmenuitem_show_funcs">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Show _Disabled Hash Functions</property>
-        <property name="use_underline">True</property>
-        <property name="active">True</property>
-      </object>
-    </child>
-  </object>
-  <object class="GtkImage" id="image_copy">
-    <property name="visible">True</property>
-    <property name="stock">gtk-copy</property>
-    <property name="icon-size">1</property>
   </object>
 </interface>
