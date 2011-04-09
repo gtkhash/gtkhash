@@ -94,6 +94,7 @@ static void gtkhash_hash_func_init(struct hash_func_s *func,
 	const enum hash_func_e id)
 {
 	func->id = id;
+	func->supported = gtkhash_hash_lib_is_supported(id);
 	func->enabled = false;
 	func->name = hash_func_names[id];
 	func->priv.digest = NULL;

@@ -32,16 +32,50 @@
 
 static void load_hash_funcs(GKeyFile *keyfile)
 {
+	bool has_enabled = false;
+
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		GError *error = NULL;
 		bool active = g_key_file_get_boolean(keyfile, "hash-funcs", hash.funcs[i].name, &error);
 
 		if (!error) {
-			hash.funcs[i].enabled = active;
-			gtk_toggle_button_set_active(gui.hash_widgets[i].button, active);
+			if (hash.funcs[i].supported) {
+				if (active)
+					has_enabled = true;
+				hash.funcs[i].enabled = active;
+				gtk_toggle_button_set_active(gui.hash_widgets[i].button,
+					active);
+			} else
+				hash.funcs[i].enabled = false;
 		} else
 			g_error_free(error); // Ignore the error
 	}
+
+	if (has_enabled)
+		return;
+
+	// Try to enable default functions
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		if (HASH_FUNC_IS_DEFAULT(i) && hash.funcs[i].supported) {
+			gtk_toggle_button_set_active(gui.hash_widgets[i].button, true);
+			has_enabled = true;
+		}
+
+	if (has_enabled)
+		return;
+
+	// Try to enable any supported function
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		if (hash.funcs[i].supported) {
+			gtk_toggle_button_set_active(gui.hash_widgets[i].button, true);
+			return;
+		}
+
+	GtkWidget *dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
+		GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
+		_("Failed to enable any supported hash functions."));
+	gtk_dialog_run(GTK_DIALOG(dialog));
+	exit(EXIT_FAILURE);
 }
 
 static void load_view(GKeyFile *keyfile)

@@ -38,95 +38,114 @@ struct hash_lib_s {
 	MHASH thread;
 };
 
+static bool gtkhash_hash_lib_mhash_set_type(const enum hash_func_e id,
+	hashid *type)
+{
+	switch (id) {
+		case HASH_FUNC_MD2:
+			*type = MHASH_MD2;
+			break;
+		case HASH_FUNC_MD4:
+			*type = MHASH_MD4;
+			break;
+		case HASH_FUNC_MD5:
+			*type = MHASH_MD5;
+			break;
+		case HASH_FUNC_SHA1:
+			*type = MHASH_SHA1;
+			break;
+		case HASH_FUNC_SHA224:
+			*type = MHASH_SHA224;
+			break;
+		case HASH_FUNC_SHA256:
+			*type = MHASH_SHA256;
+			break;
+		case HASH_FUNC_SHA384:
+			*type = MHASH_SHA384;
+			break;
+		case HASH_FUNC_SHA512:
+			*type = MHASH_SHA512;
+			break;
+		case HASH_FUNC_RIPEMD128:
+			*type = MHASH_RIPEMD128;
+			break;
+		case HASH_FUNC_RIPEMD160:
+			*type = MHASH_RIPEMD160;
+			break;
+		case HASH_FUNC_RIPEMD256:
+			*type = MHASH_RIPEMD256;
+			break;
+		case HASH_FUNC_RIPEMD320:
+			*type = MHASH_RIPEMD320;
+			break;
+		case HASH_FUNC_HAVAL128:
+			*type = MHASH_HAVAL128;
+			break;
+		case HASH_FUNC_HAVAL160:
+			*type = MHASH_HAVAL160;
+			break;
+		case HASH_FUNC_HAVAL192:
+			*type = MHASH_HAVAL192;
+			break;
+		case HASH_FUNC_HAVAL224:
+			*type = MHASH_HAVAL224;
+			break;
+		case HASH_FUNC_HAVAL256:
+			*type = MHASH_HAVAL256;
+			break;
+		case HASH_FUNC_TIGER128:
+			*type = MHASH_TIGER128;
+			break;
+		case HASH_FUNC_TIGER160:
+			*type = MHASH_TIGER160;
+			break;
+		case HASH_FUNC_TIGER192:
+			*type = MHASH_TIGER192;
+			break;
+		case HASH_FUNC_GOST:
+			*type = MHASH_GOST;
+			break;
+		case HASH_FUNC_WHIRLPOOL:
+			*type = MHASH_WHIRLPOOL;
+			break;
+		case HASH_FUNC_SNEFRU128:
+			*type = MHASH_SNEFRU128;
+			break;
+		case HASH_FUNC_SNEFRU256:
+			*type = MHASH_SNEFRU256;
+			break;
+		case HASH_FUNC_CRC32:
+			*type = MHASH_CRC32;
+			break;
+		case HASH_FUNC_CRC32B:
+			*type = MHASH_CRC32B;
+			break;
+		case HASH_FUNC_ADLER32:
+			*type = MHASH_ADLER32;
+			break;
+		default:
+			return false;
+	}
+
+	return true;
+}
+
+bool gtkhash_hash_lib_mhash_is_supported(const enum hash_func_e id)
+{
+	hashid type;
+
+	if (!gtkhash_hash_lib_mhash_set_type(id, &type))
+		return false;
+
+	return true;
+}
+
 void gtkhash_hash_lib_mhash_start(struct hash_func_s *func)
 {
 	func->priv.lib_data = g_new(struct hash_lib_s, 1);
 
-	switch (func->id) {
-		case HASH_FUNC_MD2:
-			LIB_DATA->type = MHASH_MD2;
-			break;
-		case HASH_FUNC_MD4:
-			LIB_DATA->type = MHASH_MD4;
-			break;
-		case HASH_FUNC_MD5:
-			LIB_DATA->type = MHASH_MD5;
-			break;
-		case HASH_FUNC_SHA1:
-			LIB_DATA->type = MHASH_SHA1;
-			break;
-		case HASH_FUNC_SHA224:
-			LIB_DATA->type = MHASH_SHA224;
-			break;
-		case HASH_FUNC_SHA256:
-			LIB_DATA->type = MHASH_SHA256;
-			break;
-		case HASH_FUNC_SHA384:
-			LIB_DATA->type = MHASH_SHA384;
-			break;
-		case HASH_FUNC_SHA512:
-			LIB_DATA->type = MHASH_SHA512;
-			break;
-		case HASH_FUNC_RIPEMD128:
-			LIB_DATA->type = MHASH_RIPEMD128;
-			break;
-		case HASH_FUNC_RIPEMD160:
-			LIB_DATA->type = MHASH_RIPEMD160;
-			break;
-		case HASH_FUNC_RIPEMD256:
-			LIB_DATA->type = MHASH_RIPEMD256;
-			break;
-		case HASH_FUNC_RIPEMD320:
-			LIB_DATA->type = MHASH_RIPEMD320;
-			break;
-		case HASH_FUNC_HAVAL128:
-			LIB_DATA->type = MHASH_HAVAL128;
-			break;
-		case HASH_FUNC_HAVAL160:
-			LIB_DATA->type = MHASH_HAVAL160;
-			break;
-		case HASH_FUNC_HAVAL192:
-			LIB_DATA->type = MHASH_HAVAL192;
-			break;
-		case HASH_FUNC_HAVAL224:
-			LIB_DATA->type = MHASH_HAVAL224;
-			break;
-		case HASH_FUNC_HAVAL256:
-			LIB_DATA->type = MHASH_HAVAL256;
-			break;
-		case HASH_FUNC_TIGER128:
-			LIB_DATA->type = MHASH_TIGER128;
-			break;
-		case HASH_FUNC_TIGER160:
-			LIB_DATA->type = MHASH_TIGER160;
-			break;
-		case HASH_FUNC_TIGER192:
-			LIB_DATA->type = MHASH_TIGER192;
-			break;
-		case HASH_FUNC_GOST:
-			LIB_DATA->type = MHASH_GOST;
-			break;
-		case HASH_FUNC_WHIRLPOOL:
-			LIB_DATA->type = MHASH_WHIRLPOOL;
-			break;
-		case HASH_FUNC_SNEFRU128:
-			LIB_DATA->type = MHASH_SNEFRU128;
-			break;
-		case HASH_FUNC_SNEFRU256:
-			LIB_DATA->type = MHASH_SNEFRU256;
-			break;
-		case HASH_FUNC_CRC32:
-			LIB_DATA->type = MHASH_CRC32;
-			break;
-		case HASH_FUNC_CRC32B:
-			LIB_DATA->type = MHASH_CRC32B;
-			break;
-		case HASH_FUNC_ADLER32:
-			LIB_DATA->type = MHASH_ADLER32;
-			break;
-		default:
-			g_assert_not_reached();
-	}
+	if (!gtkhash_hash_lib_mhash_set_type(func->id, &LIB_DATA->type))
+		g_assert_not_reached();
 
 	LIB_DATA->thread = mhash_init(LIB_DATA->type);
 	g_assert(LIB_DATA->thread != MHASH_FAILED);

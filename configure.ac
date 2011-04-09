@@ -28,10 +28,6 @@ AX_CFLAGS_GCC_OPTION(-Wwrite-strings)
 
 PKG_PROG_PKG_CONFIG
 
-AC_CHECK_LIB(mhash, mhash, :, AC_MSG_ERROR(mhash library not found))
-MHASH_LIBS="-lmhash"
-AC_SUBST(MHASH_LIBS)
-
 PKG_CHECK_MODULES(GTHREAD, gthread-2.0)
 AC_SUBST(GTHREAD_CFLAGS)
 AC_SUBST(GTHREAD_LIBS)
@@ -44,11 +40,64 @@ PKG_CHECK_MODULES(GTK, gtk+-2.0)
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
 
-AC_ARG_ENABLE(nautilus, AS_HELP_STRING(--disable-nautilus, disable building the nautilus extension))
-AM_CONDITIONAL(ENABLE_NAUTILUS, test "${enable_nautilus}" != "no")
+hash_libs=""
+
+AC_MSG_CHECKING(whether to use the Linux-2.6.38+ hash algorithm interface)
+AC_ARG_ENABLE(linux-crypto,
+	AS_HELP_STRING(--enable-linux-crypto, use the Linux-2.6.38+ hash algorithm interface),
+	enable_linux_crypto="${enableval}", enable_linux_crypto="no")
+AC_MSG_RESULT("${enable_linux_crypto}")
+AM_CONDITIONAL(ENABLE_LINUX_CRYPTO, test "${enable_linux_crypto}" = "yes")
+AC_DEFINE_UNQUOTED(ENABLE_LINUX_CRYPTO, 0, Use Linux Crypto)
+
+if test "${enable_linux_crypto}" = "yes" ; then
+	AC_CHECK_HEADER(linux/if_alg.h, :, AC_MSG_ERROR(linux/if_alg.h not found))
+	hash_libs="${hash_libs} linux_crypto"
+	AC_DEFINE_UNQUOTED(ENABLE_LINUX_CRYPTO, 1)
+fi
+
+AC_MSG_CHECKING(whether to use the Glib Data Checksums API)
+AC_ARG_ENABLE(glib-checksums,
+	AS_HELP_STRING(--disable-glib-checksums, do not use the Glib Data Checksums API),
+	enable_glib_checksums="${enableval}", enable_glib_checksums="yes")
+AC_MSG_RESULT("${enable_glib_checksums}")
+AM_CONDITIONAL(ENABLE_GLIB_CHECKSUMS, test "${enable_glib_checksums}" = "yes")
+AC_DEFINE_UNQUOTED(ENABLE_GLIB_CHECKSUMS, 0, Use Glib Checksums)
+
+if test "${enable_glib_checksums}" = "yes" ; then
+	hash_libs="${hash_libs} glib_checksums"
+	AC_DEFINE_UNQUOTED(ENABLE_GLIB_CHECKSUMS, 1)
+fi
+
+AC_MSG_CHECKING(whether to use the mhash library)
+AC_ARG_ENABLE(mhash,
+	AS_HELP_STRING(--disable-mhash, do not use the mhash library),
+	enable_mhash="${enableval}", enable_mhash="yes")
+AC_MSG_RESULT("${enable_mhash}")
+AM_CONDITIONAL(ENABLE_MHASH, test "${enable_mhash}" = "yes")
+AC_DEFINE_UNQUOTED(ENABLE_MHASH, 0, Use mhash)
+
+if test "${enable_mhash}" = "yes" ; then
+	AC_CHECK_HEADER(mhash.h, :, AC_MSG_ERROR(mhash.h not found))
+	AC_CHECK_LIB(mhash, mhash, :, AC_MSG_ERROR(mhash library not found))
+	MHASH_LIBS="-lmhash"
+	AC_SUBST(MHASH_LIBS)
+	hash_libs="${hash_libs} mhash"
+	AC_DEFINE_UNQUOTED(ENABLE_MHASH, 1)
+fi
+
+test -z "${hash_libs}" && AC_MSG_ERROR(No hash libraries enabled)
+
+AC_MSG_CHECKING(whether to build the Nautilus extension)
+AC_ARG_ENABLE(nautilus,
+	AS_HELP_STRING(--disable-nautilus, disable building the Nautilus extension),
+	enable_nautilus="${enableval}", enable_nautilus="yes")
+AC_MSG_RESULT("${enable_nautilus}")
+AM_CONDITIONAL(ENABLE_NAUTILUS, test "${enable_nautilus}" = "yes")
+
 AM_GCONF_SOURCE_2
 
-if test "${enable_nautilus}" != "no" ; then
+if test "${enable_nautilus}" = "yes" ; then
 	# Check for nautilus
 	PKG_CHECK_MODULES(NAUTILUS, libnautilus-extension)
 	AC_SUBST(NAUTILUS_CFLAGS)
@@ -92,3 +141,30 @@ AC_CONFIG_FILES(src/hash/Makefile)
 AC_CONFIG_FILES(src/hash/mutils/Makefile)
 AC_CONFIG_FILES(src/nautilus/Makefile)
 AC_OUTPUT
+
+glib_checksums_funcs="MD5 SHA1 SHA256"
+linux_crypto_funcs="MD5 SHA1 SHA224 SHA256 SHA384 SHA512"
+mhash_funcs="
+	MD2 MD4 MD5 SHA1 SHA224 SHA256 SHA384 SHA512 RIPEMD128 RIPEMD160 RIPEMD256
+	RIPEMD320 HAVAL128 HAVAL160 HAVAL192 HAVAL224 HAVAL256 TIGER128 TIGER160
+	TIGER192 GOST WHIRLPOOL SNEFRU128 SNEFRU256 CRC32 CRC32B ADLER32"
+
+echo
+echo "Supported Hash Functions:"
+for func in MD2 MD4 MD5 SHA1 SHA224 SHA256 SHA384 SHA512 RIPEMD128 RIPEMD160 \
+	RIPEMD256 RIPEMD320 HAVAL128 HAVAL160 HAVAL192 HAVAL224 HAVAL256 TIGER128 \
+	TIGER160 TIGER192 GOST WHIRLPOOL SNEFRU128 SNEFRU256 CRC32 CRC32B ADLER32
+do
+	printf "  %-14s" "${func}"
+	enabled=""
+	for lib in ${hash_libs} ; do
+		if eval echo \${${lib}_funcs} | tr ' ' '\n' \
+			| grep -q "^${func}$"
+		then
+			test -n "${enabled}" && printf ","
+			printf "${lib}"
+			enabled="yes"
+		fi
+	done
+	test -n "${enabled}" && echo || echo "<disabled>"
+done

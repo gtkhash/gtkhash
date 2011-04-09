@@ -29,6 +29,7 @@
 
 #include "hash-func.h"
 
+bool gtkhash_hash_lib_glib_is_supported(const enum hash_func_e id);
 void gtkhash_hash_lib_glib_start(struct hash_func_s *func);
 void gtkhash_hash_lib_glib_update(struct hash_func_s *func,
 	const uint8_t *buffer, const size_t size);

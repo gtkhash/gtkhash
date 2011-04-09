@@ -68,12 +68,10 @@ void gtkhash_properties_idle(struct page_s *page)
 	gtk_widget_set_sensitive(GTK_WIDGET(page->button_hash), true);
 }
 
-static void gtkhash_properties_on_cell_toggled(struct page_s *page, char *path)
+static void gtkhash_properties_on_cell_toggled(struct page_s *page,
+	char *path_str)
 {
-	int id = gtkhash_properties_list_get_row_id(page, path);
-	page->hash_file.funcs[id].enabled = !page->hash_file.funcs[id].enabled;
-
-	gtkhash_properties_list_update_enabled(page, id);
+	gtkhash_properties_list_update_enabled(page, path_str);
 }
 
 static void gtkhash_properties_on_treeview_popup_menu(struct page_s *page)

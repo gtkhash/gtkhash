@@ -121,7 +121,7 @@ void list_remove_selection(void)
 
 	g_list_free(rows);
 
-	if (list_count_rows() == 0) {
+	if (!list_count_rows()) {
 		gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_clear), false);
 		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
 	}
@@ -212,12 +212,12 @@ unsigned int list_count_rows(void)
 	return count;
 }
 
-void list_set_digest(const char *uri, const int hash_func_id,
+void list_set_digest(const char *uri, const enum hash_func_e id,
 	const char *digest)
 {
 	g_assert(uri);
-	g_assert(hash_func_id >= 0);
-	g_assert(hash_func_id < HASH_FUNCS_N);
+	g_assert(id >= 0);
+	g_assert(id < HASH_FUNCS_N);
 
 	GtkTreeIter iter;
 	int row = list_find_row(uri);
@@ -229,15 +229,14 @@ void list_set_digest(const char *uri, const int hash_func_id,
 	for (int i = 0; i < row; i++)
 		gtk_tree_model_iter_next(gui.treemodel, &iter);
 
-	gtk_list_store_set(gui.liststore, &iter, COL_HASH + hash_func_id, digest,
-		-1);
+	gtk_list_store_set(gui.liststore, &iter, COL_HASH + id, digest, -1);
 }
 
-char *list_get_digest(const unsigned int row, const int hash_func_id)
+char *list_get_digest(const unsigned int row, const enum hash_func_e id)
 {
 	g_assert(row <= list_count_rows());
-	g_assert(hash_func_id >= 0);
-	g_assert(hash_func_id < HASH_FUNCS_N);
+	g_assert(id >= 0);
+	g_assert(id < HASH_FUNCS_N);
 
 	GtkTreeIter iter;
 	char *digest;
@@ -250,8 +249,7 @@ char *list_get_digest(const unsigned int row, const int hash_func_id)
 	for (unsigned int i = 0; i < row; i++)
 		gtk_tree_model_iter_next(gui.treemodel, &iter);
 
-	gtk_tree_model_get_value(gui.treemodel, &iter, COL_HASH + hash_func_id,
-		&value);
+	gtk_tree_model_get_value(gui.treemodel, &iter, COL_HASH + id, &value);
 	digest = g_strdup(g_value_get_string(&value));
 	g_value_unset(&value);
 

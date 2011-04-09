@@ -146,6 +146,9 @@ static void init_hash_funcs(void)
 			gtk_check_button_new_with_label(hash.funcs[i].name));
 		g_signal_connect(G_OBJECT(gui.hash_widgets[i].button), "toggled",
 			gui_update, NULL);
+		if (!hash.funcs[i].supported)
+			gtk_widget_set_sensitive(GTK_WIDGET(gui.hash_widgets[i].button),
+				false);
 
 		// Label the digest outputs
 		char *label = g_strdup_printf("%s:", hash.funcs[i].name);
@@ -234,7 +237,11 @@ void gui_update(void)
 	bool has_enabled = false;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		hash.funcs[i].enabled = gtk_toggle_button_get_active(gui.hash_widgets[i].button);
+		if (hash.funcs[i].supported)
+			hash.funcs[i].enabled = gtk_toggle_button_get_active(gui.hash_widgets[i].button);
+		else {
+			hash.funcs[i].enabled = false;
+		}
 		if (hash.funcs[i].enabled) {
 			gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].label));
 			gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].entry_file));
@@ -245,13 +252,6 @@ void gui_update(void)
 			gtk_widget_hide(GTK_WIDGET(gui.hash_widgets[i].entry_file));
 			gtk_widget_hide(GTK_WIDGET(gui.hash_widgets[i].entry_text));
 		}
-	}
-
-	if (!has_enabled) {
-		for (int i = 0; i < HASH_FUNCS_N; i++)
-			if (HASH_FUNC_IS_DEFAULT(i))
-				gtk_toggle_button_set_active(gui.hash_widgets[i].button, true);
-		return;
 	}
 
 	list_update();
@@ -273,7 +273,7 @@ void gui_update(void)
 			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
 				gui.filechooserbutton));
 			if (uri) {
-				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), true);
+				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), has_enabled);
 				g_free(uri);
 			} else
 				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);

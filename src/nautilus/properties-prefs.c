@@ -46,7 +46,7 @@ static void gtkhash_properties_prefs_load_hash_functions(struct page_s *page,
 	GSList *element = list;
 	do {
 		enum hash_func_e id = gtkhash_hash_func_get_id_from_name(element->data);
-		if (id != HASH_FUNC_INVALID)
+		if (page->hash_file.funcs[id].supported && id != HASH_FUNC_INVALID)
 			page->hash_file.funcs[id].enabled = true;
 		g_free(element->data);
 	} while ((element = element->next));

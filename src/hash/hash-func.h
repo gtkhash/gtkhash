@@ -60,7 +60,7 @@ enum hash_func_e {
 
 struct hash_func_s {
 	enum hash_func_e id;
-	bool enabled;
+	bool supported, enabled;
 	const char *name;
 	struct {
 		char *digest;

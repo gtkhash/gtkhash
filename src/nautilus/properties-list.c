@@ -54,27 +54,21 @@ static GtkListStore *gtkhash_properties_list_get_store(struct page_s *page)
 	return GTK_LIST_STORE(gtkhash_properties_list_get_model(page));
 }
 
-int gtkhash_properties_list_get_row_id(struct page_s *page, const char *path)
-{
-	GtkTreeModel *model = gtkhash_properties_list_get_model(page);
-	GtkTreeIter iter;
-	int id;
-
-	gtk_tree_model_get_iter_from_string(model, &iter, path);
-	gtk_tree_model_get(model, &iter, COL_ID, &id, -1);
-
-	return id;
-}
-
-void gtkhash_properties_list_update_enabled(struct page_s *page, const int id)
+void gtkhash_properties_list_update_enabled(struct page_s *page, char *path_str)
 {
 	GtkTreeModel *model = gtkhash_properties_list_get_model(page);
 	GtkListStore *store = gtkhash_properties_list_get_store(page);
 	GtkTreeIter iter;
 
-	gtk_tree_model_iter_nth_child(model, &iter, NULL, id);
-	gtk_list_store_set(store, &iter, COL_ENABLED,
-		page->hash_file.funcs[id].enabled, -1);
+	gtk_tree_model_get_iter_from_string(model, &iter, path_str);
+
+	int id;
+	gboolean enabled;
+	gtk_tree_model_get(model, &iter, COL_ID, &id, COL_ENABLED, &enabled, -1);
+	enabled = !enabled;
+	gtk_list_store_set(store, &iter, COL_ENABLED, enabled, -1);
+
+	page->hash_file.funcs[id].enabled = enabled;
 }
 
 void gtkhash_properties_list_update_digests(struct page_s *page)
@@ -87,10 +81,10 @@ void gtkhash_properties_list_update_digests(struct page_s *page)
 		return;
 
 	do {
-		int i;
-		gtk_tree_model_get(model, &iter, COL_ID, &i, -1);
+		int id;
+		gtk_tree_model_get(model, &iter, COL_ID, &id, -1);
 		gtk_list_store_set(store, &iter, COL_DIGEST,
-			gtkhash_hash_func_get_digest(&page->hash_file.funcs[i]), -1);
+			gtkhash_hash_func_get_digest(&page->hash_file.funcs[id]), -1);
 	} while (gtk_tree_model_iter_next(model, &iter));
 
 	gtk_tree_view_columns_autosize(page->treeview);
@@ -145,6 +139,8 @@ void gtkhash_properties_list_init(struct page_s *page)
 	GtkListStore *store = gtkhash_properties_list_get_store(page);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!page->hash_file.funcs[i].supported)
+			continue;
 		gtk_list_store_insert_with_values(store, NULL, i,
 			COL_ID, i,
 			COL_ENABLED, page->hash_file.funcs[i].enabled,

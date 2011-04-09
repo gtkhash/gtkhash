@@ -17,23 +17,23 @@
  *   along with GtkHash. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTKHASH_LIST_H
-#define GTKHASH_LIST_H
+#ifndef GTKHASH_HASH_LIB_LINUX_H
+#define GTKHASH_HASH_LIB_LINUX_H
 
-#include "hash/hash-func.h"
+#ifndef IN_HASH_LIB
+	#error "don't use directly"
+#endif
 
-void list_init(void);
-void list_update(void);
-void list_append_row(const char *uri);
-void list_remove_selection(void);
-char *list_get_uri(const unsigned int row);
-GSList *list_get_all_uris(void);
-int list_find_row(const char *path);
-unsigned int list_count_rows(void);
-void list_set_digest(const char *uri, const enum hash_func_e id,
-	const char *digest);
-char *list_get_digest(const unsigned int row, const enum hash_func_e id);
-void list_clear_digests(void);
-void list_clear(void);
+#include <stdlib.h>
+#include <stdint.h>
+
+#include "hash-func.h"
+
+bool gtkhash_hash_lib_linux_is_supported(const enum hash_func_e id);
+void gtkhash_hash_lib_linux_start(struct hash_func_s *func);
+void gtkhash_hash_lib_linux_update(struct hash_func_s *func,
+	const uint8_t *buffer, const size_t size);
+void gtkhash_hash_lib_linux_stop(struct hash_func_s *func);
+char *gtkhash_hash_lib_linux_finish(struct hash_func_s *func);
 
 #endif

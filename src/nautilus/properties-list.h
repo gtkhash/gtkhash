@@ -22,8 +22,7 @@
 
 #include "properties.h"
 
-int gtkhash_properties_list_get_row_id(struct page_s *page, const char *path);
-void gtkhash_properties_list_update_enabled(struct page_s *page, const int id);
+void gtkhash_properties_list_update_enabled(struct page_s *page, char *path_str);
 void gtkhash_properties_list_update_digests(struct page_s *page);
 char *gtkhash_properties_list_get_selected_digest(struct page_s *page);
 void gtkhash_properties_list_refilter(struct page_s *page);
