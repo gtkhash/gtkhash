@@ -28,15 +28,23 @@ AX_CFLAGS_GCC_OPTION(-Wwrite-strings)
 
 PKG_PROG_PKG_CONFIG
 
+PKG_CHECK_MODULES(GLIB, glib-2.0)
+
 PKG_CHECK_MODULES(GTHREAD, gthread-2.0)
 AC_SUBST(GTHREAD_CFLAGS)
 AC_SUBST(GTHREAD_LIBS)
 
-PKG_CHECK_MODULES(GDK, gdk-2.0)
+AC_MSG_CHECKING(which GTK+ version to use)
+AC_ARG_WITH(gtk,
+	AS_HELP_STRING(--with-gtk=2.0|3.0, GTK+ version to use [[2.0]]),
+	with_gtk="${withval}", with_gtk="2.0")
+AC_MSG_RESULT("${with_gtk}")
+
+PKG_CHECK_MODULES(GDK, "gdk-${with_gtk}")
 AC_SUBST(GDK_CFLAGS)
 AC_SUBST(GDK_LIBS)
 
-PKG_CHECK_MODULES(GTK, gtk+-2.0)
+PKG_CHECK_MODULES(GTK, "gtk+-${with_gtk}")
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
 
@@ -104,6 +112,9 @@ if test "${enable_nautilus}" = "yes" ; then
 	AC_SUBST(NAUTILUS_LIBS)
 	NAUTILUS_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensiondir libnautilus-extension`
 	AC_SUBST(NAUTILUS_EXTENSION_DIR)
+	if test "`basename \"${NAUTILUS_EXTENSION_DIR}\"`" != "extensions-${with_gtk}" ; then
+		AC_MSG_ERROR(Nautilus version must match GTK+ version or bad things will happen)
+	fi
 
 	# Check for gconf
 	PKG_CHECK_MODULES(GCONF, gconf-2.0)

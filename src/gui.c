@@ -368,7 +368,7 @@ void gui_set_busy(const bool busy)
 
 bool gui_is_maximised(void)
 {
-	GdkWindow *window = GTK_WIDGET(gui.window)->window;
+	GdkWindow *window = gtk_widget_get_window(GTK_WIDGET(gui.window));
 
 	if (!window)
 		return false;
