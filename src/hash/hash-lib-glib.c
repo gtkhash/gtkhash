@@ -30,11 +30,11 @@
 #include "hash-lib.h"
 #include "hash-func.h"
 
-#define LIB_DATA ((struct hash_lib_s *)func->priv.lib_data)
+#define LIB_DATA ((struct hash_lib_glib_s *)func->priv.lib_data)
 
-struct hash_lib_s {
-	GChecksumType type;
+struct hash_lib_glib_s {
 	GChecksum *checksum;
+	GChecksumType type;
 };
 
 static bool gtkhash_hash_lib_glib_set_type(const enum hash_func_e id,
@@ -69,7 +69,7 @@ bool gtkhash_hash_lib_glib_is_supported(const enum hash_func_e id)
 
 void gtkhash_hash_lib_glib_start(struct hash_func_s *func)
 {
-	func->priv.lib_data = g_new(struct hash_lib_s, 1);
+	func->priv.lib_data = g_new(struct hash_lib_glib_s, 1);
 
 	if (!gtkhash_hash_lib_glib_set_type(func->id, &LIB_DATA->type))
 		g_assert_not_reached();

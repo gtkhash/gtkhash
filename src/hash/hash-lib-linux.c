@@ -34,9 +34,9 @@
 #include "hash-lib.h"
 #include "hash-func.h"
 
-#define LIB_DATA ((struct hash_lib_s *)func->priv.lib_data)
+#define LIB_DATA ((struct hash_lib_linux_s *)func->priv.lib_data)
 
-struct hash_lib_s {
+struct hash_lib_linux_s {
 	const char *name;
 	int sockfd, connfd;
 };
@@ -92,7 +92,7 @@ bool gtkhash_hash_lib_linux_is_supported(const enum hash_func_e id)
 
 void gtkhash_hash_lib_linux_start(struct hash_func_s *func)
 {
-	func->priv.lib_data = g_new(struct hash_lib_s, 1);
+	func->priv.lib_data = g_new(struct hash_lib_linux_s, 1);
 
 	struct sockaddr_alg addr = {
 		.salg_family = AF_ALG,
