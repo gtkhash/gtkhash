@@ -50,6 +50,8 @@ G_GNUC_NORETURN static void gtkhash_hash_lib_linux_error(
 static const char *gtkhash_hash_lib_linux_get_name(const enum hash_func_e id)
 {
 	switch (id) {
+		case HASH_FUNC_MD4:
+			return "md4";
 		case HASH_FUNC_MD5:
 			return "md5";
 		case HASH_FUNC_SHA1:
@@ -62,6 +64,22 @@ static const char *gtkhash_hash_lib_linux_get_name(const enum hash_func_e id)
 			return "sha384";
 		case HASH_FUNC_SHA512:
 			return "sha512";
+		case HASH_FUNC_RIPEMD128:
+			return "rmd128";
+		case HASH_FUNC_RIPEMD160:
+			return "rmd160";
+		case HASH_FUNC_RIPEMD256:
+			return "rmd256";
+		case HASH_FUNC_RIPEMD320:
+			return "rmd320";
+		case HASH_FUNC_TIGER128:
+			return "tgr128";
+		case HASH_FUNC_TIGER160:
+			return "tgr160";
+		case HASH_FUNC_TIGER192:
+			return "tgr192";
+		case HASH_FUNC_WHIRLPOOL:
+			return "wp512";
 		default:
 			return NULL;
 	}

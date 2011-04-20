@@ -40,23 +40,23 @@ enum hash_file_state_e {
 };
 
 struct hash_file_s {
-		void *cb_data;
-		const char *uri;
-		GFile *file;
-		GFileInputStream *stream;
-		goffset file_size;
-		gssize just_read;
-		uint8_t *buffer;
-		GTimer *timer;
-		enum hash_func_e current_func;
-		struct hash_func_s *funcs;
-		struct {
-			GMutex *mutex;
-			unsigned int source, report_source;
-			bool stop;
-			enum hash_file_state_e state;
-			goffset total_read;
-		} priv;
+	void *cb_data;
+	const char *uri;
+	GFile *file;
+	GFileInputStream *stream;
+	goffset file_size;
+	gssize just_read;
+	uint8_t *buffer;
+	GTimer *timer;
+	enum hash_func_e current_func;
+	struct hash_func_s *funcs;
+	struct {
+		GMutex *mutex;
+		unsigned int source, report_source;
+		bool stop;
+		enum hash_file_state_e state;
+		goffset total_read;
+	} priv;
 };
 
 unsigned int gtkhash_hash_file_get_source(struct hash_file_s *data);
