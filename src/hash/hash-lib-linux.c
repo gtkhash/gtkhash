@@ -54,6 +54,14 @@ static const char *gtkhash_hash_lib_linux_get_name(const enum hash_func_e id)
 			return "md4";
 		case HASH_FUNC_MD5:
 			return "md5";
+		case HASH_FUNC_RIPEMD128:
+			return "rmd128";
+		case HASH_FUNC_RIPEMD160:
+			return "rmd160";
+		case HASH_FUNC_RIPEMD256:
+			return "rmd256";
+		case HASH_FUNC_RIPEMD320:
+			return "rmd320";
 		case HASH_FUNC_SHA1:
 			return "sha1";
 		case HASH_FUNC_SHA224:
@@ -64,14 +72,6 @@ static const char *gtkhash_hash_lib_linux_get_name(const enum hash_func_e id)
 			return "sha384";
 		case HASH_FUNC_SHA512:
 			return "sha512";
-		case HASH_FUNC_RIPEMD128:
-			return "rmd128";
-		case HASH_FUNC_RIPEMD160:
-			return "rmd160";
-		case HASH_FUNC_RIPEMD256:
-			return "rmd256";
-		case HASH_FUNC_RIPEMD320:
-			return "rmd320";
 		case HASH_FUNC_TIGER128:
 			return "tgr128";
 		case HASH_FUNC_TIGER160:
@@ -148,19 +148,19 @@ void gtkhash_hash_lib_linux_stop(struct hash_func_s *func)
 
 char *gtkhash_hash_lib_linux_finish(struct hash_func_s *func)
 {
-	uint8_t buf[64];
-	ssize_t count = read(LIB_DATA->connfd, buf, sizeof(buf));
-	GString *digest = g_string_sized_new(128);
+	uint8_t bin[64 + 1];
+	ssize_t size = read(LIB_DATA->connfd, bin, sizeof(bin));
 
-	if (count == -1)
+	g_assert(size < (ssize_t)sizeof(bin));
+
+	if (size == -1)
 		gtkhash_hash_lib_linux_error(func, "read failed");
 
-	for (ssize_t i = 0; i < count; i++)
-		g_string_append_printf(digest, "%.2x", buf[i]);
+	char *digest = gtkhash_hash_lib_bin2hex(bin, size);
 
 	close(LIB_DATA->connfd);
 	close(LIB_DATA->sockfd);
 	g_free(LIB_DATA);
 
-	return g_string_free(digest, false);
+	return digest;
 }

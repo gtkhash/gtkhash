@@ -8,6 +8,10 @@ hash_la_SOURCES = \
 	hash-lib.c hash-lib.h \
 	hash-string.c hash-string.h
 
+if ENABLE_GCRYPT
+hash_la_SOURCES += hash-lib-gcrypt.c hash-lib-gcrypt.h
+endif
+
 if ENABLE_GLIB_CHECKSUMS
 hash_la_SOURCES += hash-lib-glib.c hash-lib-glib.h
 endif
@@ -20,8 +24,8 @@ if ENABLE_MHASH
 hash_la_SOURCES += hash-lib-mhash.c hash-lib-mhash.h
 endif
 
-hash_la_CPPFLAGS = -DIN_HASH_LIB $(GDK_CFLAGS)
+hash_la_CPPFLAGS = -DIN_HASH_LIB $(GDK_CFLAGS) $(LIBGCRYPT_CFLAGS)
 
 hash_la_LDFLAGS = -avoid-version -module
 
-hash_la_LIBADD = $(GDK_LIBS) $(MHASH_LIBS)
+hash_la_LIBADD = $(GDK_LIBS) $(LIBGCRYPT_LIBS) $(MHASH_LIBS)

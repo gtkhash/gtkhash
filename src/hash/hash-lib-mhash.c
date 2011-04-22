@@ -42,6 +42,33 @@ static bool gtkhash_hash_lib_mhash_set_type(const enum hash_func_e id,
 	hashid *type)
 {
 	switch (id) {
+		case HASH_FUNC_ADLER32:
+			*type = MHASH_ADLER32;
+			break;
+		case HASH_FUNC_CRC32:
+			*type = MHASH_CRC32;
+			break;
+		case HASH_FUNC_CRC32B:
+			*type = MHASH_CRC32B;
+			break;
+		case HASH_FUNC_GOST:
+			*type = MHASH_GOST;
+			break;
+		case HASH_FUNC_HAVAL128_3:
+			*type = MHASH_HAVAL128;
+			break;
+		case HASH_FUNC_HAVAL160_3:
+			*type = MHASH_HAVAL160;
+			break;
+		case HASH_FUNC_HAVAL192_3:
+			*type = MHASH_HAVAL192;
+			break;
+		case HASH_FUNC_HAVAL224_3:
+			*type = MHASH_HAVAL224;
+			break;
+		case HASH_FUNC_HAVAL256_3:
+			*type = MHASH_HAVAL256;
+			break;
 		case HASH_FUNC_MD2:
 			*type = MHASH_MD2;
 			break;
@@ -50,6 +77,18 @@ static bool gtkhash_hash_lib_mhash_set_type(const enum hash_func_e id,
 			break;
 		case HASH_FUNC_MD5:
 			*type = MHASH_MD5;
+			break;
+		case HASH_FUNC_RIPEMD128:
+			*type = MHASH_RIPEMD128;
+			break;
+		case HASH_FUNC_RIPEMD160:
+			*type = MHASH_RIPEMD160;
+			break;
+		case HASH_FUNC_RIPEMD256:
+			*type = MHASH_RIPEMD256;
+			break;
+		case HASH_FUNC_RIPEMD320:
+			*type = MHASH_RIPEMD320;
 			break;
 		case HASH_FUNC_SHA1:
 			*type = MHASH_SHA1;
@@ -66,32 +105,11 @@ static bool gtkhash_hash_lib_mhash_set_type(const enum hash_func_e id,
 		case HASH_FUNC_SHA512:
 			*type = MHASH_SHA512;
 			break;
-		case HASH_FUNC_RIPEMD128:
-			*type = MHASH_RIPEMD128;
+		case HASH_FUNC_SNEFRU128:
+			*type = MHASH_SNEFRU128;
 			break;
-		case HASH_FUNC_RIPEMD160:
-			*type = MHASH_RIPEMD160;
-			break;
-		case HASH_FUNC_RIPEMD256:
-			*type = MHASH_RIPEMD256;
-			break;
-		case HASH_FUNC_RIPEMD320:
-			*type = MHASH_RIPEMD320;
-			break;
-		case HASH_FUNC_HAVAL128:
-			*type = MHASH_HAVAL128;
-			break;
-		case HASH_FUNC_HAVAL160:
-			*type = MHASH_HAVAL160;
-			break;
-		case HASH_FUNC_HAVAL192:
-			*type = MHASH_HAVAL192;
-			break;
-		case HASH_FUNC_HAVAL224:
-			*type = MHASH_HAVAL224;
-			break;
-		case HASH_FUNC_HAVAL256:
-			*type = MHASH_HAVAL256;
+		case HASH_FUNC_SNEFRU256:
+			*type = MHASH_SNEFRU256;
 			break;
 		case HASH_FUNC_TIGER128:
 			*type = MHASH_TIGER128;
@@ -102,26 +120,8 @@ static bool gtkhash_hash_lib_mhash_set_type(const enum hash_func_e id,
 		case HASH_FUNC_TIGER192:
 			*type = MHASH_TIGER192;
 			break;
-		case HASH_FUNC_GOST:
-			*type = MHASH_GOST;
-			break;
 		case HASH_FUNC_WHIRLPOOL:
 			*type = MHASH_WHIRLPOOL;
-			break;
-		case HASH_FUNC_SNEFRU128:
-			*type = MHASH_SNEFRU128;
-			break;
-		case HASH_FUNC_SNEFRU256:
-			*type = MHASH_SNEFRU256;
-			break;
-		case HASH_FUNC_CRC32:
-			*type = MHASH_CRC32;
-			break;
-		case HASH_FUNC_CRC32B:
-			*type = MHASH_CRC32B;
-			break;
-		case HASH_FUNC_ADLER32:
-			*type = MHASH_ADLER32;
 			break;
 		default:
 			return false;
@@ -166,13 +166,12 @@ void gtkhash_hash_lib_mhash_stop(struct hash_func_s *func)
 char *gtkhash_hash_lib_mhash_finish(struct hash_func_s *func)
 {
 	uint8_t *bin = mhash_end_m(LIB_DATA->thread, g_malloc);
-	GString *digest = g_string_sized_new(128);
+	size_t size = mhash_get_block_size(LIB_DATA->type);
 
-	for (unsigned int i = 0; i < mhash_get_block_size(LIB_DATA->type); i++)
-		g_string_append_printf(digest, "%.2x", bin[i]);
+	char *digest = gtkhash_hash_lib_bin2hex(bin, size);
 
 	g_free(bin);
 	g_free(LIB_DATA);
 
-	return g_string_free(digest, false);
+	return digest;
 }

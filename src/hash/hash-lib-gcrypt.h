@@ -17,8 +17,8 @@
  *   along with GtkHash. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTKHASH_HASH_LIB_H
-#define GTKHASH_HASH_LIB_H
+#ifndef GTKHASH_HASH_LIB_GCRYPT_H
+#define GTKHASH_HASH_LIB_GCRYPT_H
 
 #ifndef IN_HASH_LIB
 	#error "don't use directly"
@@ -29,12 +29,11 @@
 
 #include "hash-func.h"
 
-bool gtkhash_hash_lib_is_supported(const enum hash_func_e id);
-void gtkhash_hash_lib_start(struct hash_func_s *func);
-void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
-	const size_t size);
-void gtkhash_hash_lib_stop(struct hash_func_s *func);
-void gtkhash_hash_lib_finish(struct hash_func_s *func);
-char *gtkhash_hash_lib_bin2hex(const uint8_t *bin, const size_t size);
+bool gtkhash_hash_lib_gcrypt_is_supported(const enum hash_func_e id);
+void gtkhash_hash_lib_gcrypt_start(struct hash_func_s *func);
+void gtkhash_hash_lib_gcrypt_update(struct hash_func_s *func,
+	const uint8_t *buffer, const size_t size);
+void gtkhash_hash_lib_gcrypt_stop(struct hash_func_s *func);
+char *gtkhash_hash_lib_gcrypt_finish(struct hash_func_s *func);
 
 #endif

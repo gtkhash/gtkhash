@@ -1,6 +1,8 @@
 Summary of changes for each release:
 
 0.4.0 -
+	* Made mhash an optional dependency
+	* Added support for Libgcrypt as a partial alternative to mhash
 	* Added support for hashing remote files using GIO
 	* General usability improvements
 

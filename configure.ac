@@ -64,6 +64,20 @@ if test "${enable_linux_crypto}" = "yes" ; then
 	AC_DEFINE_UNQUOTED(ENABLE_LINUX_CRYPTO, 1)
 fi
 
+AC_MSG_CHECKING(whether to use Libgcrypt)
+AC_ARG_ENABLE(gcrypt,
+	AS_HELP_STRING(--enable-gcrypt, use Libgcrypt),
+	enable_gcrypt="${enableval}", enable_gcrypt="no")
+AC_MSG_RESULT("${enable_gcrypt}")
+AM_CONDITIONAL(ENABLE_GCRYPT, test "${enable_gcrypt}" = "yes")
+AC_DEFINE_UNQUOTED(ENABLE_GCRYPT, 0, Use Libgcrypt)
+
+if test "${enable_gcrypt}" = "yes" ; then
+	AM_PATH_LIBGCRYPT(1.4.0, :, AC_MSG_ERROR(Libgcrypt not found))
+	hash_libs="${hash_libs} gcrypt"
+	AC_DEFINE_UNQUOTED(ENABLE_GCRYPT, 1)
+fi
+
 AC_MSG_CHECKING(whether to use the Glib Data Checksums API)
 AC_ARG_ENABLE(glib-checksums,
 	AS_HELP_STRING(--disable-glib-checksums, do not use the Glib Data Checksums API),
@@ -79,8 +93,8 @@ fi
 
 AC_MSG_CHECKING(whether to use the mhash library)
 AC_ARG_ENABLE(mhash,
-	AS_HELP_STRING(--disable-mhash, do not use the mhash library),
-	enable_mhash="${enableval}", enable_mhash="yes")
+	AS_HELP_STRING(--enable-mhash, use the mhash library),
+	enable_mhash="${enableval}", enable_mhash="no")
 AC_MSG_RESULT("${enable_mhash}")
 AM_CONDITIONAL(ENABLE_MHASH, test "${enable_mhash}" = "yes")
 AC_DEFINE_UNQUOTED(ENABLE_MHASH, 0, Use mhash)
@@ -98,8 +112,8 @@ test -z "${hash_libs}" && AC_MSG_ERROR(No hash libraries enabled)
 
 AC_MSG_CHECKING(whether to build the Nautilus extension)
 AC_ARG_ENABLE(nautilus,
-	AS_HELP_STRING(--disable-nautilus, disable building the Nautilus extension),
-	enable_nautilus="${enableval}", enable_nautilus="yes")
+	AS_HELP_STRING(--enable-nautilus, build the Nautilus extension),
+	enable_nautilus="${enableval}", enable_nautilus="no")
 AC_MSG_RESULT("${enable_nautilus}")
 AM_CONDITIONAL(ENABLE_NAUTILUS, test "${enable_nautilus}" = "yes")
 
@@ -153,18 +167,45 @@ AC_CONFIG_FILES(src/hash/mutils/Makefile)
 AC_CONFIG_FILES(src/nautilus/Makefile)
 AC_OUTPUT
 
-glib_checksums_funcs="MD5 SHA1 SHA256"
-linux_crypto_funcs="MD4 MD5 SHA1 SHA224 SHA256 SHA384 SHA512 RIPEMD128
-	RIPEMD160 RIPEMD256 RIPEMD320 TIGER128 TIGER160 TIGER192 WHIRLPOOL"
-mhash_funcs="MD2 MD4 MD5 SHA1 SHA224 SHA256 SHA384 SHA512 RIPEMD128 RIPEMD160
-	RIPEMD256 RIPEMD320 HAVAL128 HAVAL160 HAVAL192 HAVAL224 HAVAL256 TIGER128
-	TIGER160 TIGER192 GOST WHIRLPOOL SNEFRU128 SNEFRU256 CRC32 CRC32B ADLER32"
-
+gcrypt_funcs="
+	MD4 MD5
+	SHA1 SHA224 SHA256 SHA384 SHA512
+	RIPEMD160
+	TIGER192
+	WHIRLPOOL"
+glib_checksums_funcs="
+	MD5
+	SHA1 SHA256"
+linux_crypto_funcs="
+	MD4 MD5
+	SHA1 SHA224 SHA256 SHA384 SHA512
+	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320
+	TIGER128 TIGER160 TIGER192
+	WHIRLPOOL"
+mhash_funcs="
+	MD2 MD4 MD5
+	SHA1 SHA224 SHA256 SHA384 SHA512
+	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320
+	TIGER128 TIGER160 TIGER192
+	WHIRLPOOL
+	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3
+	GOST
+	SNEFRU128 SNEFRU256
+	CRC32 CRC32B
+	ADLER32"
 echo
 echo "Supported Hash Functions:"
-for func in MD2 MD4 MD5 SHA1 SHA224 SHA256 SHA384 SHA512 RIPEMD128 RIPEMD160 \
-	RIPEMD256 RIPEMD320 HAVAL128 HAVAL160 HAVAL192 HAVAL224 HAVAL256 TIGER128 \
-	TIGER160 TIGER192 GOST WHIRLPOOL SNEFRU128 SNEFRU256 CRC32 CRC32B ADLER32
+for func in \
+	MD2 MD4 MD5 \
+	SHA1 SHA224 SHA256 SHA384 SHA512 \
+	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320 \
+	TIGER128 TIGER160 TIGER192 \
+	WHIRLPOOL \
+	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3 \
+	GOST \
+	SNEFRU128 SNEFRU256 \
+	CRC32 CRC32B \
+	ADLER32
 do
 	printf "  %-14s" "${func}"
 	enabled=""
