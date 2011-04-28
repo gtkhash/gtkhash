@@ -1,7 +1,7 @@
-if ENABLE_NLS
-SUBDIRS = data src po
-else
 SUBDIRS = data src
+
+if ENABLE_NLS
+SUBDIRS += po
 endif
 
 ACLOCAL_AMFLAGS = -I m4 --install

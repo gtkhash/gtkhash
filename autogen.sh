@@ -10,4 +10,4 @@ set -x
 
 glib-gettextize --copy --force
 intltoolize --automake --copy --force
-autoreconf --force --install --warnings=all
+autoreconf --force --install
