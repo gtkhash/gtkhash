@@ -30,29 +30,9 @@
 #include "hash.h"
 #include "gui.h"
 
-static void load_hash_funcs(GKeyFile *keyfile)
+static void load_default_hash_funcs(void)
 {
 	bool has_enabled = false;
-
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		GError *error = NULL;
-		bool active = g_key_file_get_boolean(keyfile, "hash-funcs", hash.funcs[i].name, &error);
-
-		if (!error) {
-			if (hash.funcs[i].supported) {
-				if (active)
-					has_enabled = true;
-				hash.funcs[i].enabled = active;
-				gtk_toggle_button_set_active(gui.hash_widgets[i].button,
-					active);
-			} else
-				hash.funcs[i].enabled = false;
-		} else
-			g_error_free(error); // Ignore the error
-	}
-
-	if (has_enabled)
-		return;
 
 	// Try to enable default functions
 	for (int i = 0; i < HASH_FUNCS_N; i++)
@@ -76,6 +56,32 @@ static void load_hash_funcs(GKeyFile *keyfile)
 		_("Failed to enable any supported hash functions."));
 	gtk_dialog_run(GTK_DIALOG(dialog));
 	exit(EXIT_FAILURE);
+}
+
+static void load_hash_funcs(GKeyFile *keyfile)
+{
+	bool has_enabled = false;
+
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		GError *error = NULL;
+		bool active = g_key_file_get_boolean(keyfile, "hash-funcs",
+			hash.funcs[i].name, &error);
+
+		if (!error) {
+			if (hash.funcs[i].supported) {
+				if (active)
+					has_enabled = true;
+				hash.funcs[i].enabled = active;
+				gtk_toggle_button_set_active(gui.hash_widgets[i].button,
+					active);
+			} else
+				hash.funcs[i].enabled = false;
+		} else
+			g_error_free(error); // Ignore the error
+	}
+
+	if (!has_enabled)
+		load_default_hash_funcs();
 }
 
 static void load_view(GKeyFile *keyfile)
@@ -136,7 +142,8 @@ void prefs_load(void)
 		load_hash_funcs(keyfile);
 		load_view(keyfile);
 		load_window_size(keyfile);
-	}
+	} else
+		load_default_hash_funcs();
 
 	g_free(filename);
 	g_key_file_free(keyfile);
