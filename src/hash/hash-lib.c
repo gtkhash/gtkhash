@@ -30,6 +30,7 @@
 #include "hash-lib.h"
 #include "hash-func.h"
 #include "hash-lib-gcrypt.h"
+#include "hash-lib-nss.h"
 #include "hash-lib-glib.h"
 #include "hash-lib-linux.h"
 #include "hash-lib-mhash.h"
@@ -37,6 +38,7 @@
 enum hash_lib_e {
 	HASH_LIB_INVALID,
 	HASH_LIB_GCRYPT,
+	HASH_LIB_NSS,
 	HASH_LIB_GLIB,
 	HASH_LIB_LINUX,
 	HASH_LIB_MHASH
@@ -54,6 +56,10 @@ static void gtkhash_hash_lib_init_once(void)
 #if ENABLE_GCRYPT
 		if (!hash_libs[i] && gtkhash_hash_lib_gcrypt_is_supported(i))
 			hash_libs[i] = HASH_LIB_GCRYPT;
+#endif
+#if ENABLE_NSS
+		if (!hash_libs[i] && gtkhash_hash_lib_nss_is_supported(i))
+			hash_libs[i] = HASH_LIB_NSS;
 #endif
 #if ENABLE_GLIB_CHECKSUMS
 		if (!hash_libs[i] && gtkhash_hash_lib_glib_is_supported(i))
@@ -86,6 +92,9 @@ void gtkhash_hash_lib_start(struct hash_func_s *func)
 #if ENABLE_GCRYPT
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_start,
 #endif
+#if ENABLE_NSS
+		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_start,
+#endif
 #if ENABLE_GLIB_CHECKSUMS
 		[HASH_LIB_GLIB]  = gtkhash_hash_lib_glib_start,
 #endif
@@ -116,6 +125,9 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 #if ENABLE_GCRYPT
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_update,
 #endif
+#if ENABLE_NSS
+		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_update,
+#endif
 #if ENABLE_GLIB_CHECKSUMS
 		[HASH_LIB_GLIB]  = gtkhash_hash_lib_glib_update,
 #endif
@@ -141,6 +153,9 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 	static void (* const stop_funcs[])(struct hash_func_s *) = {
 #if ENABLE_GCRYPT
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_stop,
+#endif
+#if ENABLE_NSS
+		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_stop,
 #endif
 #if ENABLE_GLIB_CHECKSUMS
 		[HASH_LIB_GLIB]  = gtkhash_hash_lib_glib_stop,
@@ -169,6 +184,9 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 #if ENABLE_GCRYPT
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_finish,
 #endif
+#if ENABLE_NSS
+		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_finish,
+#endif
 #if ENABLE_GLIB_CHECKSUMS
 		[HASH_LIB_GLIB]  = gtkhash_hash_lib_glib_finish,
 #endif
@@ -186,7 +204,7 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 	gtkhash_hash_func_set_digest(func, digest);
 }
 
-char *gtkhash_hash_lib_bin2hex(const uint8_t *bin, const size_t size)
+char *gtkhash_hash_lib_bin_to_hex(const uint8_t *bin, const size_t size)
 {
 	g_assert(bin);
 	g_assert(size);

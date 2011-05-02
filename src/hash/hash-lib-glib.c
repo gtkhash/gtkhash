@@ -59,10 +59,17 @@ static bool gtkhash_hash_lib_glib_set_type(const enum hash_func_e id,
 
 bool gtkhash_hash_lib_glib_is_supported(const enum hash_func_e id)
 {
-	GChecksumType type;
+	struct hash_lib_glib_s data;
 
-	if (!gtkhash_hash_lib_glib_set_type(id, &type))
+	if (!gtkhash_hash_lib_glib_set_type(id, &data.type))
 		return false;
+
+	if (G_UNLIKELY(!(data.checksum = g_checksum_new(data.type)))) {
+		g_warning("g_checksum_new failed (%d)", id);
+		return false;
+	}
+
+	g_checksum_free(data.checksum);
 
 	return true;
 }

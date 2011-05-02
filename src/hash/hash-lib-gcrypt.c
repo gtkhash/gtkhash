@@ -81,16 +81,17 @@ static bool gtkhash_hash_lib_gcrypt_set_algo(const enum hash_func_e id,
 
 bool gtkhash_hash_lib_gcrypt_is_supported(const enum hash_func_e id)
 {
-	gcry_md_hd_t h;
-	int algo;
+	struct hash_lib_gcrypt_s data;
 
-	if (!gtkhash_hash_lib_gcrypt_set_algo(id, &algo))
+	if (!gtkhash_hash_lib_gcrypt_set_algo(id, &data.algo))
 		return false;
 
-	if (gcry_md_open(&h, algo, 0) != GPG_ERR_NO_ERROR)
+	if (G_UNLIKELY(gcry_md_open(&data.h, data.algo, 0) != GPG_ERR_NO_ERROR)) {
+		g_warning("gcry_md_open failed (%d)", id);
 		return false;
+	}
 
-	gcry_md_close(h);
+	gcry_md_close(data.h);
 
 	return true;
 }
@@ -123,7 +124,7 @@ char *gtkhash_hash_lib_gcrypt_finish(struct hash_func_s *func)
 	unsigned char *bin = gcry_md_read(LIB_DATA->h, LIB_DATA->algo);
 	size_t size = gcry_md_get_algo_dlen(LIB_DATA->algo);
 
-	char *digest = gtkhash_hash_lib_bin2hex(bin, size);
+	char *digest = gtkhash_hash_lib_bin_to_hex(bin, size);
 
 	gcry_md_close(LIB_DATA->h);
 	g_free(LIB_DATA);

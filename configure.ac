@@ -79,6 +79,22 @@ if test "${enable_gcrypt}" = "yes" ; then
 	AC_DEFINE([ENABLE_GCRYPT], [1])
 fi
 
+AC_MSG_CHECKING([whether to use NSS])
+AC_ARG_ENABLE([nss],
+	[AS_HELP_STRING([--enable-nss], [use NSS])],
+	[enable_nss="${enableval}"], [enable_nss="no"])
+AC_MSG_RESULT(["${enable_nss}"])
+AM_CONDITIONAL([ENABLE_NSS], [test "${enable_nss}" = "yes"])
+AC_DEFINE([ENABLE_NSS], [0], [Use NSS])
+
+if test "${enable_nss}" = "yes" ; then
+	PKG_CHECK_MODULES([NSS], [nss])
+	AC_SUBST([NSS_CFLAGS])
+	AC_SUBST([NSS_LIBS])
+	hash_libs="${hash_libs} nss"
+	AC_DEFINE([ENABLE_NSS], [1])
+fi
+
 AC_MSG_CHECKING([whether to use the Glib Data Checksums API])
 AC_ARG_ENABLE([glib-checksums],
 	[AS_HELP_STRING([--disable-glib-checksums], [do not use the Glib Data Checksums API])],
@@ -174,6 +190,9 @@ gcrypt_funcs="
 	RIPEMD160
 	TIGER192
 	WHIRLPOOL"
+nss_funcs="
+	MD2 MD5
+	SHA1 SHA256 SHA384 SHA512"
 glib_checksums_funcs="
 	MD5
 	SHA1 SHA256"

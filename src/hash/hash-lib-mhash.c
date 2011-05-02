@@ -132,10 +132,17 @@ static bool gtkhash_hash_lib_mhash_set_type(const enum hash_func_e id,
 
 bool gtkhash_hash_lib_mhash_is_supported(const enum hash_func_e id)
 {
-	hashid type;
+	struct hash_lib_mhash_s data;
 
-	if (!gtkhash_hash_lib_mhash_set_type(id, &type))
+	if (!gtkhash_hash_lib_mhash_set_type(id, &data.type))
 		return false;
+
+	if (G_UNLIKELY((data.thread = mhash_init(data.type)) == MHASH_FAILED)) {
+		g_warning("mhash_init failed (%d)", id);
+		return false;
+	}
+
+	mhash_deinit(data.thread, NULL);
 
 	return true;
 }
@@ -168,7 +175,7 @@ char *gtkhash_hash_lib_mhash_finish(struct hash_func_s *func)
 	uint8_t *bin = mhash_end_m(LIB_DATA->thread, g_malloc);
 	size_t size = mhash_get_block_size(LIB_DATA->type);
 
-	char *digest = gtkhash_hash_lib_bin2hex(bin, size);
+	char *digest = gtkhash_hash_lib_bin_to_hex(bin, size);
 
 	g_free(bin);
 	g_free(LIB_DATA);

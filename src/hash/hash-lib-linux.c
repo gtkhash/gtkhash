@@ -87,23 +87,17 @@ static const char *gtkhash_hash_lib_linux_get_name(const enum hash_func_e id)
 
 bool gtkhash_hash_lib_linux_is_supported(const enum hash_func_e id)
 {
-	struct sockaddr_alg addr = {
-		.salg_family = AF_ALG,
-		.salg_type = "hash",
-	};
+	struct hash_lib_linux_s data;
 
-	const char *name = gtkhash_hash_lib_linux_get_name(id);
-	if (!name)
+	if (!(data.name = gtkhash_hash_lib_linux_get_name(id)))
 		return false;
 
-	strcpy((char *)addr.salg_name, name);
-
-	int fd;
-	if ((fd = socket(AF_ALG, SOCK_SEQPACKET, 0)) == -1) {
-		g_warning("kernel hash alg '%s' unavailable", name);
+	if ((data.sockfd = socket(AF_ALG, SOCK_SEQPACKET, 0)) == -1) {
+		g_warning("kernel hash alg '%s' unavailable", data.name);
 		return false;
-	} else
-		close(fd);
+	}
+
+	close(data.sockfd);
 
 	return true;
 }
@@ -118,15 +112,21 @@ void gtkhash_hash_lib_linux_start(struct hash_func_s *func)
 	};
 
 	LIB_DATA->name = gtkhash_hash_lib_linux_get_name(func->id);
+	g_assert(LIB_DATA->name);
 	strcpy((char *)addr.salg_name, LIB_DATA->name);
 
-	if ((LIB_DATA->sockfd = socket(AF_ALG, SOCK_SEQPACKET, 0)) == -1)
+	LIB_DATA->sockfd = socket(AF_ALG, SOCK_SEQPACKET, 0);
+	if (G_UNLIKELY(LIB_DATA->sockfd == -1))
 		gtkhash_hash_lib_linux_error(func, "create socket failed");
 
-    if (bind(LIB_DATA->sockfd, (struct sockaddr *)&addr, sizeof(addr)) == -1)
+	if (G_UNLIKELY(bind(LIB_DATA->sockfd, (struct sockaddr *)&addr,
+		sizeof(addr)) == -1))
+	{
 		gtkhash_hash_lib_linux_error(func, "bind failed");
+	}
 
-	if ((LIB_DATA->connfd = accept(LIB_DATA->sockfd, NULL, NULL)) == -1)
+	LIB_DATA->connfd = accept(LIB_DATA->sockfd, NULL, NULL);
+	if (G_UNLIKELY(LIB_DATA->connfd == -1))
 		gtkhash_hash_lib_linux_error(func, "accept failed");
 }
 
@@ -135,7 +135,7 @@ void gtkhash_hash_lib_linux_update(struct hash_func_s *func,
 {
 	ssize_t count = send(LIB_DATA->connfd, buffer, size, MSG_MORE);
 
-	if (count != (ssize_t)size)
+	if (G_UNLIKELY(count != (ssize_t)size))
 		gtkhash_hash_lib_linux_error(func, "write failed");
 }
 
@@ -153,10 +153,10 @@ char *gtkhash_hash_lib_linux_finish(struct hash_func_s *func)
 
 	g_assert(size < (ssize_t)sizeof(bin));
 
-	if (size == -1)
+	if (G_UNLIKELY(size == -1))
 		gtkhash_hash_lib_linux_error(func, "read failed");
 
-	char *digest = gtkhash_hash_lib_bin2hex(bin, size);
+	char *digest = gtkhash_hash_lib_bin_to_hex(bin, size);
 
 	close(LIB_DATA->connfd);
 	close(LIB_DATA->sockfd);
