@@ -180,7 +180,6 @@ AC_CONFIG_FILES([data/nautilus/Makefile])
 AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([src/Makefile])
 AC_CONFIG_FILES([src/hash/Makefile])
-AC_CONFIG_FILES([src/hash/mutils/Makefile])
 AC_CONFIG_FILES([src/nautilus/Makefile])
 AC_OUTPUT
 
@@ -190,9 +189,6 @@ gcrypt_funcs="
 	RIPEMD160
 	TIGER192
 	WHIRLPOOL"
-nss_funcs="
-	MD2 MD5
-	SHA1 SHA256 SHA384 SHA512"
 glib_checksums_funcs="
 	MD5
 	SHA1 SHA256"
@@ -213,6 +209,9 @@ mhash_funcs="
 	SNEFRU128 SNEFRU256
 	CRC32 CRC32B
 	ADLER32"
+nss_funcs="
+	MD2 MD5
+	SHA1 SHA256 SHA384 SHA512"
 echo
 echo "Supported Hash Functions:"
 for func in \

@@ -1,5 +1,3 @@
-SUBDIRS = mutils
-
 noinst_LTLIBRARIES = hash.la
 
 hash_la_SOURCES = \
@@ -8,12 +6,18 @@ hash_la_SOURCES = \
 	hash-lib.c hash-lib.h \
 	hash-string.c hash-string.h
 
+hash_la_CPPFLAGS = -DIN_HASH_LIB $(GDK_CFLAGS)
+
+hash_la_LDFLAGS = -avoid-version -module
+
+hash_la_LIBADD = $(GDK_LIBS)
+
+EXTRA_DIST = mutils/mhash_config.h
+
 if ENABLE_GCRYPT
 hash_la_SOURCES += hash-lib-gcrypt.c hash-lib-gcrypt.h
-endif
-
-if ENABLE_NSS
-hash_la_SOURCES += hash-lib-nss.c hash-lib-nss.h
+hash_la_CPPFLAGS += $(LIBGCRYPT_CFLAGS)
+hash_la_LIBADD += $(LIBGCRYPT_LIBS)
 endif
 
 if ENABLE_GLIB_CHECKSUMS
@@ -26,10 +30,11 @@ endif
 
 if ENABLE_MHASH
 hash_la_SOURCES += hash-lib-mhash.c hash-lib-mhash.h
+hash_la_LIBADD += $(MHASH_LIBS)
 endif
 
-hash_la_CPPFLAGS = -DIN_HASH_LIB $(GDK_CFLAGS) $(LIBGCRYPT_CFLAGS) $(NSS_CFLAGS)
-
-hash_la_LDFLAGS = -avoid-version -module
-
-hash_la_LIBADD = $(GDK_LIBS) $(LIBGCRYPT_LIBS) $(NSS_LIBS) $(MHASH_LIBS)
+if ENABLE_NSS
+hash_la_SOURCES += hash-lib-nss.c hash-lib-nss.h
+hash_la_CPPFLAGS += $(NSS_CFLAGS)
+hash_la_LIBADD += $(NSS_LIBS)
+endif
