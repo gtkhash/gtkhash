@@ -161,8 +161,8 @@ static void gtkhash_hash_file_open_finish(
 	G_GNUC_UNUSED GObject *source, GAsyncResult *res, struct hash_file_s *data)
 {
 	data->stream = g_file_read_finish(data->file, res, NULL);
-	if (!data->stream) {
-		g_warning("file_open_finish: failed to open file");
+	if (G_UNLIKELY(!data->stream)) {
+		g_warning("failed to open file (%s)", data->uri);
 		gtkhash_hash_file_set_stop(data, true);
 	}
 
@@ -229,10 +229,10 @@ static void gtkhash_hash_file_read_finish(
 		G_INPUT_STREAM(data->stream), res, NULL);
 
 	if (G_UNLIKELY(data->just_read == -1)) {
-		g_warning("file_read_finish: failed to read file");
+		g_warning("failed to read file (%s)", data->uri);
 		gtkhash_hash_file_set_stop(data, true);
 	} else if (G_UNLIKELY(!data->just_read)) {
-		g_warning("file_read_finish: unexpected EOF");
+		g_warning("unexpected EOF (%s)", data->uri);
 		gtkhash_hash_file_set_stop(data, true);
 	} else {
 		g_mutex_lock(data->priv.mutex);
@@ -240,9 +240,9 @@ static void gtkhash_hash_file_read_finish(
 		const goffset total_read = data->priv.total_read;
 		g_mutex_unlock(data->priv.mutex);
 		if (G_UNLIKELY(total_read > data->file_size)) {
-			g_warning("file_read_finish: read %" G_GOFFSET_FORMAT
-				" bytes more than expected",
-				total_read - data->file_size);
+			g_warning("read %" G_GOFFSET_FORMAT
+				" more bytes than expected (%s)", total_read - data->file_size,
+				data->uri);
 			gtkhash_hash_file_set_stop(data, true);
 		} else
 			gtkhash_hash_file_set_state(data, HASH_FILE_STATE_HASH);
@@ -292,10 +292,10 @@ static void gtkhash_hash_file_hash(struct hash_file_s *data)
 static void gtkhash_hash_file_close_finish(
 	G_GNUC_UNUSED GObject *source, GAsyncResult *res, struct hash_file_s *data)
 {
-	if (!g_input_stream_close_finish(G_INPUT_STREAM(data->stream),
-		res, NULL))
+	if (G_UNLIKELY(!g_input_stream_close_finish(G_INPUT_STREAM(data->stream),
+		res, NULL)))
 	{
-		g_warning("file_close_finish: failed to close file");
+		g_warning("failed to close file (%s)", data->uri);
 	}
 
 	g_object_unref(data->stream);
