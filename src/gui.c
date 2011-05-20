@@ -40,7 +40,7 @@ static GObject *gui_get_object(GtkBuilder *builder, const char *name)
 
 	GObject *obj = gtk_builder_get_object(builder, name);
 	if (!obj)
-		g_error("unknown object: \"%s\"\n", name);
+		g_error("unknown object: \"%s\"", name);
 
 	return obj;
 }
@@ -195,6 +195,7 @@ void gui_init(void)
 		GtkWidget *dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
 			GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, _("Failed to read %s:\n%s"),
 			BUILDER_XML, g_strerror(errno));
+		gtk_window_set_title(GTK_WINDOW(dialog), PACKAGE_NAME);
 		gtk_dialog_run(GTK_DIALOG(dialog));
 		exit(EXIT_FAILURE);
 	}
