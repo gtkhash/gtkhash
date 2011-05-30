@@ -11,21 +11,30 @@ AC_PROG_CC_C99
 AM_PROG_CC_C_O
 LT_INIT
 
-AX_CFLAGS_GCC_OPTION([-pedantic])
-AX_CFLAGS_GCC_OPTION([-Wall])
-AX_CFLAGS_GCC_OPTION([-Wextra])
-
-AX_CFLAGS_GCC_OPTION([-Waggregate-return])
-AX_CFLAGS_GCC_OPTION([-Wbad-function-cast])
-AX_CFLAGS_GCC_OPTION([-Wcast-align])
-AX_CFLAGS_GCC_OPTION([-Wfloat-equal])
-AX_CFLAGS_GCC_OPTION([-Wlogical-op])
-AX_CFLAGS_GCC_OPTION([-Wmissing-declarations])
-AX_CFLAGS_GCC_OPTION([-Wmissing-noreturn])
-AX_CFLAGS_GCC_OPTION([-Wredundant-decls])
-AX_CFLAGS_GCC_OPTION([-Wshadow])
-AX_CFLAGS_GCC_OPTION([-Wswitch-default])
-AX_CFLAGS_GCC_OPTION([-Wwrite-strings])
+for opt in \
+	-pedantic \
+	-Wall \
+	-Wextra \
+	-Waggregate-return \
+	-Wbad-function-cast \
+	-Wcast-align \
+	-Wfloat-equal \
+	-Wlogical-op \
+	-Wmissing-declarations \
+	-Wmissing-noreturn \
+	-Wredundant-decls \
+	-Wshadow \
+	-Wswitch-default \
+	-Wwrite-strings
+do
+	AC_MSG_CHECKING([whether "${CC}" accepts option "${opt}"])
+	ac_save_CFLAGS="${CFLAGS}"
+	CFLAGS="${CFLAGS} ${opt}"
+	AC_COMPILE_IFELSE(
+		[AC_LANG_PROGRAM([], [])],
+		[AC_MSG_RESULT([yes])],
+		[CFLAGS="${ac_save_CFLAGS}" ; AC_MSG_RESULT([no])])
+done
 
 PKG_PROG_PKG_CONFIG
 
