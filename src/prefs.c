@@ -56,6 +56,7 @@ static void load_default_hash_funcs(void)
 		_("Failed to enable any supported hash functions."));
 	gtk_window_set_title(GTK_WINDOW(dialog), PACKAGE_NAME);
 	gtk_dialog_run(GTK_DIALOG(dialog));
+	gtk_widget_destroy(dialog);
 	exit(EXIT_FAILURE);
 }
 
@@ -95,59 +96,59 @@ static void load_view(GKeyFile *keyfile)
 		return;
 	}
 
-	switch (view) {
-		case VIEW_FILE:
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
-				gui.radiomenuitem_file), true);
-			break;
-		case VIEW_TEXT:
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
-				gui.radiomenuitem_text), true);
-			break;
-		case VIEW_FILE_LIST:
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
-				gui.radiomenuitem_file_list), true);
-			break;
-		default:
-			g_assert_not_reached();
-	}
+	if (GUI_VIEW_IS_VALID(view))
+		gui_set_view((enum gui_view_e)view);
 }
 
 static void load_window_size(GKeyFile *keyfile)
 {
 	GError *error = NULL;
-	int width, height;
 
-	width = g_key_file_get_integer(keyfile, "window", "width", &error);
+	bool max = g_key_file_get_boolean(keyfile, "window", "max", &error);
+	if (error)
+		g_error_free(error);
+	else if (max) {
+		gtk_window_maximize(gui.window);
+		return;
+	}
+
+	int width = g_key_file_get_integer(keyfile, "window", "width", &error);
 	if (error) {
 		g_error_free(error);
 		error = NULL;
+		width = -1;
 	}
 
-	height = g_key_file_get_integer(keyfile, "window", "height", &error);
+	int height = g_key_file_get_integer(keyfile, "window", "height", &error);
 	if (error) {
 		g_error_free(error);
 		error = NULL;
+		height = -1;
 	}
 
-	prefs.width = width;
-	prefs.height = height;
+	if ((width > 0) && (height > 0))
+		gtk_window_resize(gui.window, width, height);
 }
 
 void prefs_load(void)
 {
 	GKeyFile *keyfile = g_key_file_new();
 	char *filename = g_build_filename(g_get_user_config_dir(), PACKAGE, NULL);
+	bool loaded;
 
-	if (g_key_file_load_from_file(keyfile, filename, G_KEY_FILE_NONE, NULL)) {
+	if ((loaded = g_key_file_load_from_file(keyfile, filename, G_KEY_FILE_NONE,
+		NULL)))
+	{
 		load_hash_funcs(keyfile);
 		load_view(keyfile);
 		load_window_size(keyfile);
-	} else
-		load_default_hash_funcs();
+	}
 
 	g_free(filename);
 	g_key_file_free(keyfile);
+
+	if (!loaded)
+		load_default_hash_funcs();
 
 	gui_update();
 }
@@ -166,8 +167,15 @@ static void save_view(GKeyFile *keyfile)
 
 static void save_window_size(GKeyFile *keyfile)
 {
-	g_key_file_set_integer(keyfile, "window", "width", prefs.width);
-	g_key_file_set_integer(keyfile, "window", "height", prefs.height);
+	bool max = gui_is_maximised();
+	g_key_file_set_boolean(keyfile, "window", "max", max);
+
+	if (!max) {
+		int width, height;
+		gtk_window_get_size(gui.window, &width, &height);
+		g_key_file_set_integer(keyfile, "window", "width", width);
+		g_key_file_set_integer(keyfile, "window", "height", height);
+	}
 }
 
 void prefs_save(void)

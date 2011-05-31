@@ -33,5 +33,6 @@ void hash_file_start(const char *uri);
 void hash_file_list_start(void);
 void hash_file_stop(void);
 void hash_init(void);
+void hash_deinit(void);
 
 #endif

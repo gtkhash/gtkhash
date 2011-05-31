@@ -33,21 +33,10 @@
 #include "list.h"
 #include "hash/hash-string.h"
 
-static bool on_window_destroy(void)
+static bool on_window_delete_event(void)
 {
 	gtk_main_quit();
 	return true;
-}
-
-static void on_window_size_request(void)
-{
-	if (gui_is_maximised())
-		return;
-
-	int width, height;
-	gtk_window_get_size(gui.window, &width, &height);
-	prefs.width = width;
-	prefs.height = height;
 }
 
 static void on_menuitem_file_activate(void)
@@ -58,7 +47,7 @@ static void on_menuitem_file_activate(void)
 	bool sensitive = false;
 
 	switch (gui_get_view()) {
-		case VIEW_FILE:
+		case GUI_VIEW_FILE:
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
 				if (hash.funcs[i].enabled &&
 					*gtk_entry_get_text(gui.hash_widgets[i].entry_file))
@@ -68,10 +57,10 @@ static void on_menuitem_file_activate(void)
 				}
 			}
 			break;
-		case VIEW_TEXT:
+		case GUI_VIEW_TEXT:
 			sensitive = true;
 			break;
-		case VIEW_FILE_LIST:
+		case GUI_VIEW_FILE_LIST:
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
 				if (hash.funcs[i].enabled) {
 					char *digest = list_get_digest(0, i);
@@ -109,7 +98,7 @@ static void on_menuitem_save_as_activate(void)
 				continue;
 
 			switch (gui_get_view()) {
-				case VIEW_FILE: {
+				case GUI_VIEW_FILE: {
 					const char *digest = gtk_entry_get_text(
 						gui.hash_widgets[i].entry_file);
 					if (digest && *digest)
@@ -127,13 +116,13 @@ static void on_menuitem_save_as_activate(void)
 					g_free(basename);
 					break;
 				}
-				case VIEW_TEXT:
+				case GUI_VIEW_TEXT:
 					g_string_append_printf(string, "# %s\n", hash.funcs[i].name);
 					g_string_append_printf(string, "%s  \"%s\"\n",
 						gtk_entry_get_text(gui.hash_widgets[i].entry_text),
 						gtk_entry_get_text(gui.entry));
 					break;
-				case VIEW_FILE_LIST: {
+				case GUI_VIEW_FILE_LIST: {
 					int prev = -1;
 					for (unsigned int row = 0; row < list_count_rows(); row++)
 					{
@@ -182,27 +171,30 @@ static void on_menuitem_quit_activate(void)
 static void on_menuitem_edit_activate(void)
 {
 	GtkWidget *widget = gtk_window_get_focus(gui.window);
-	bool selection, editable, clipboard;
+	bool selectable = false;
+	bool editable = false;
+	bool selection_ready = false;
+	bool clipboard_ready = false;
 
 	if (GTK_IS_ENTRY(widget)) {
-		selection = gtk_editable_get_selection_bounds(
-			GTK_EDITABLE(widget), NULL, NULL);
+		selectable = gtk_entry_get_text_length(GTK_ENTRY(widget));
 		editable = gtk_editable_get_editable(GTK_EDITABLE(widget));
-		clipboard = gtk_clipboard_wait_is_text_available(
+		selection_ready = gtk_editable_get_selection_bounds(
+			GTK_EDITABLE(widget), NULL, NULL);
+		clipboard_ready = gtk_clipboard_wait_is_text_available(
 			gtk_clipboard_get(GDK_NONE));
-
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_cut), selection && editable);
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_copy), selection);
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_paste), editable && clipboard);
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_delete), selection && editable);
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_select_all), true);
-	} else {
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_cut), false);
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_copy), false);
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_paste), false);
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_delete), false);
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_select_all), false);
 	}
+
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_cut),
+		selection_ready && editable);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_copy),
+		selection_ready);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_paste),
+		editable && clipboard_ready);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_delete),
+		selection_ready && editable);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_select_all),
+		selectable);
 }
 
 static void on_menuitem_cut_activate(void)
@@ -315,16 +307,8 @@ static void on_toolbutton_add_clicked(void)
 
 	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
 		GSList *uris = gtk_file_chooser_get_uris(chooser);
-
-		for (unsigned int i = 0; i < g_slist_length(uris); i++) {
-			char *uri = g_slist_nth(uris, i)->data;
-			list_append_row(uri);
-			g_free(uri);
-		}
-
-		g_slist_free(uris);
-
-		gtk_widget_grab_focus(GTK_WIDGET(gui.button_hash));
+		gui_add_uris(uris, GUI_VIEW_FILE_LIST);
+		g_slist_free_full(uris, g_free);
 	}
 
 	gtk_widget_destroy(GTK_WIDGET(chooser));
@@ -340,16 +324,42 @@ static void on_toolbutton_clear_clicked(void)
 	list_clear();
 }
 
+static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget,
+	GdkDragContext *context, G_GNUC_UNUSED gint x, G_GNUC_UNUSED gint y,
+	GtkSelectionData *selection, G_GNUC_UNUSED guint info, guint t,
+	G_GNUC_UNUSED gpointer data)
+{
+	char **uris = gtk_selection_data_get_uris(selection);
+	GSList *list = NULL;
+
+	if (!uris) {
+		gtk_drag_finish(context, false, true, t);
+		return;
+	}
+
+	for (int i = 0; uris[i]; i++)
+		list = g_slist_prepend(list, uris[i]);
+
+	list = g_slist_reverse(list);
+
+	gui_add_uris(list, GUI_VIEW_FILE_LIST);
+
+	g_slist_free(list);
+	g_strfreev(uris);
+
+	gtk_drag_finish(context, true, true, t);
+}
+
 static void on_treeselection_changed(void)
 {
 	const int count = gtk_tree_selection_count_selected_rows(gui.treeselection);
 
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_remove), count);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_remove), count > 0);
 }
 
 static void on_button_hash_clicked(void)
 {
-	if (gui_get_view() == VIEW_FILE) {
+	if (gui_get_view() == GUI_VIEW_FILE) {
 		// XXX: Workaround for when user clicks Cancel in FileChooserDialog and
 		// XXX: uri is changed without emitting the "selection-changed" signal
 		on_filechooserbutton_selection_changed();
@@ -361,19 +371,19 @@ static void on_button_hash_clicked(void)
 	gui_clear_digests();
 
 	switch (gui_get_view()) {
-		case VIEW_FILE: {
+		case GUI_VIEW_FILE: {
 			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
 				gui.filechooserbutton));
 			hash_file_start(uri);
 			break;
 		}
-		case VIEW_TEXT: {
+		case GUI_VIEW_TEXT: {
 			const char *str = gtk_entry_get_text(gui.entry);
 			gtkhash_hash_string(hash.funcs, str);
 			gui_set_busy(false);
 			break;
 		}
-		case VIEW_FILE_LIST:
+		case GUI_VIEW_FILE_LIST:
 			hash_file_list_start();
 			break;
 		default:
@@ -394,44 +404,34 @@ static bool on_dialog_delete_event(void)
 
 void callbacks_init(void)
 {
-	const struct {
-		GObject *obj;
-		const char *sig;
-		GCallback cb;
-	} callbacks[] = {
-		{ G_OBJECT(gui.window),                  "destroy",           G_CALLBACK(on_window_destroy) },
-		{ G_OBJECT(gui.window),                  "destroy-event",     G_CALLBACK(on_window_destroy) },
-		{ G_OBJECT(gui.window),                  "delete-event",      G_CALLBACK(on_window_destroy) },
-		{ G_OBJECT(gui.window),                  "size-request",      on_window_size_request },
-		{ G_OBJECT(gui.menuitem_file),           "activate",          on_menuitem_file_activate },
-		{ G_OBJECT(gui.menuitem_save_as),        "activate",          on_menuitem_save_as_activate },
-		{ G_OBJECT(gui.menuitem_quit),           "activate",          on_menuitem_quit_activate },
-		{ G_OBJECT(gui.menuitem_edit),           "activate",          on_menuitem_edit_activate },
-		{ G_OBJECT(gui.menuitem_cut),            "activate",          on_menuitem_cut_activate },
-		{ G_OBJECT(gui.menuitem_copy),           "activate",          on_menuitem_copy_activate },
-		{ G_OBJECT(gui.menuitem_paste),          "activate",          on_menuitem_paste_activate },
-		{ G_OBJECT(gui.menuitem_delete),         "activate",          on_menuitem_delete_activate },
-		{ G_OBJECT(gui.menuitem_select_all),     "activate",          on_menuitem_select_all_activate },
-		{ G_OBJECT(gui.menuitem_prefs),          "activate",          on_menuitem_prefs_activate },
-		{ G_OBJECT(gui.radiomenuitem_file),      "toggled",           on_radiomenuitem_toggled },
-		{ G_OBJECT(gui.radiomenuitem_text),      "toggled",           on_radiomenuitem_toggled },
-		{ G_OBJECT(gui.radiomenuitem_file_list), "toggled",           on_radiomenuitem_toggled },
-		{ G_OBJECT(gui.menuitem_about),          "activate",          on_menuitem_about_activate },
-//		file-set isn't emitted when file is deleted
-//		{ G_OBJECT(gui.filechooserbutton),       "file-set",          on_filechooserbutton_file_set },
-		{ G_OBJECT(gui.filechooserbutton),       "selection-changed", on_filechooserbutton_selection_changed },
-		{ G_OBJECT(gui.entry),                   "changed",           on_entry_changed },
-		{ G_OBJECT(gui.toolbutton_add),          "clicked",           on_toolbutton_add_clicked },
-		{ G_OBJECT(gui.toolbutton_remove),       "clicked",           on_toolbutton_remove_clicked },
-		{ G_OBJECT(gui.toolbutton_clear),        "clicked",           on_toolbutton_clear_clicked },
-		{ G_OBJECT(gui.treeselection),           "changed",           on_treeselection_changed },
-		{ G_OBJECT(gui.button_hash),             "clicked",           on_button_hash_clicked },
-		{ G_OBJECT(gui.button_stop),             "clicked",           on_button_stop_clicked },
-		{ G_OBJECT(gui.dialog),                  "delete-event",      G_CALLBACK(on_dialog_delete_event) },
-		{ G_OBJECT(gui.dialog_button_close),     "clicked",           G_CALLBACK(on_dialog_delete_event) }
-	};
-
-	for (unsigned int i = 0; i < G_N_ELEMENTS(callbacks); i++)
-		g_signal_connect(callbacks[i].obj, callbacks[i].sig, callbacks[i].cb,
-			NULL);
+#define CON(OBJ, SIG, CB) g_signal_connect(G_OBJECT(OBJ), SIG, CB, NULL)
+	CON(gui.window,                  "delete-event",        G_CALLBACK(on_window_delete_event));
+	CON(gui.menuitem_file,           "activate",            on_menuitem_file_activate);
+	CON(gui.menuitem_save_as,        "activate",            on_menuitem_save_as_activate);
+	CON(gui.menuitem_quit,           "activate",            on_menuitem_quit_activate);
+	CON(gui.menuitem_edit,           "activate",            on_menuitem_edit_activate);
+	CON(gui.menuitem_cut,            "activate",            on_menuitem_cut_activate);
+	CON(gui.menuitem_copy,           "activate",            on_menuitem_copy_activate);
+	CON(gui.menuitem_paste,          "activate",            on_menuitem_paste_activate);
+	CON(gui.menuitem_delete,         "activate",            on_menuitem_delete_activate);
+	CON(gui.menuitem_select_all,     "activate",            on_menuitem_select_all_activate);
+	CON(gui.menuitem_prefs,          "activate",            on_menuitem_prefs_activate);
+	CON(gui.radiomenuitem_file,      "toggled",             on_radiomenuitem_toggled);
+	CON(gui.radiomenuitem_text,      "toggled",             on_radiomenuitem_toggled);
+	CON(gui.radiomenuitem_file_list, "toggled",             on_radiomenuitem_toggled);
+	CON(gui.menuitem_about,          "activate",            on_menuitem_about_activate);
+//	file-set isn't emitted when file is deleted
+//	CON(gui.filechooserbutton,       "file-set",            on_filechooserbutton_file_set);
+	CON(gui.filechooserbutton,       "selection-changed",   on_filechooserbutton_selection_changed);
+	CON(gui.entry,                   "changed",             on_entry_changed);
+	CON(gui.toolbutton_add,          "clicked",             on_toolbutton_add_clicked);
+	CON(gui.toolbutton_remove,       "clicked",             on_toolbutton_remove_clicked);
+	CON(gui.toolbutton_clear,        "clicked",             on_toolbutton_clear_clicked);
+	CON(gui.treeview,                "drag-data-received",  G_CALLBACK(on_treeview_drag_data_received));
+	CON(gui.treeselection,           "changed",             on_treeselection_changed);
+	CON(gui.button_hash,             "clicked",             on_button_hash_clicked);
+	CON(gui.button_stop,             "clicked",             on_button_stop_clicked);
+	CON(gui.dialog,                  "delete-event",        G_CALLBACK(on_dialog_delete_event));
+	CON(gui.dialog_button_close,     "clicked",             G_CALLBACK(on_dialog_delete_event));
+#undef CON
 }

@@ -139,7 +139,7 @@ static void gui_get_objects(GtkBuilder *builder)
 		"dialog_button_close"));
 }
 
-static void init_hash_funcs(void)
+static void gui_init_hash_funcs(void)
 {
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		gui.hash_widgets[i].button = GTK_TOGGLE_BUTTON(
@@ -183,8 +183,17 @@ static void init_hash_funcs(void)
 	}
 }
 
-void gui_init(void)
+void gui_init(int *argc, char ***argv, GOptionEntry *entries)
 {
+	const char *domain = (ENABLE_NLS) ? PACKAGE : NULL;
+	const char *usage = _("[FILE|URI...]");
+	GError *error = NULL;
+	if (!gtk_init_with_args(argc, argv, usage, entries, domain, &error)) {
+		g_warning("%s", error->message);
+		g_error_free(error);
+		exit(EXIT_FAILURE);
+	}
+
 	GtkBuilder *builder = gtk_builder_new();
 
 #if ENABLE_NLS
@@ -193,26 +202,142 @@ void gui_init(void)
 
 	if (!gtk_builder_add_from_file(builder, BUILDER_XML, NULL)) {
 		GtkWidget *dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
-			GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, _("Failed to read %s:\n%s"),
-			BUILDER_XML, g_strerror(errno));
+			GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
+			_("Failed to read \"%s\":\n%s"), BUILDER_XML, g_strerror(errno));
 		gtk_window_set_title(GTK_WINDOW(dialog), PACKAGE_NAME);
 		gtk_dialog_run(GTK_DIALOG(dialog));
+		gtk_widget_destroy(dialog);
+		g_object_unref(builder);
 		exit(EXIT_FAILURE);
 	}
 
 	gui_get_objects(builder);
-	callbacks_init();
-	init_hash_funcs();
-
 	g_object_unref(builder);
+
+	callbacks_init();
+	gui_init_hash_funcs();
+}
+
+static bool gui_can_add_uri(char *uri, char **error_str)
+{
+	g_assert(uri);
+
+	bool can_add = false;
+	GFile *file = g_file_new_for_uri(uri);
+	GError *error = NULL;
+	GFileInfo *info = g_file_query_info(file,
+		G_FILE_ATTRIBUTE_STANDARD_TYPE "," G_FILE_ATTRIBUTE_ACCESS_CAN_READ,
+		G_FILE_QUERY_INFO_NONE, NULL, &error);
+
+	if (info) {
+		bool can_read = g_file_info_get_attribute_boolean(info,
+			G_FILE_ATTRIBUTE_ACCESS_CAN_READ);
+		GFileType type = g_file_info_get_file_type(info);
+		g_object_unref(info);
+		if (!can_read)
+			*error_str = g_strdup(g_strerror(EACCES));
+		else if (type == G_FILE_TYPE_DIRECTORY)
+			*error_str = g_strdup(g_strerror(EISDIR));
+		else if (type != G_FILE_TYPE_REGULAR)
+			*error_str = g_strdup(_("Not a regular file"));
+		else
+			can_add = true;
+	} else {
+		*error_str = g_strdup(error->message);
+		g_error_free(error);
+	}
+
+	g_object_unref(file);
+
+	return can_add;
+}
+
+unsigned int gui_add_uris(GSList *uris, enum gui_view_e view)
+{
+	g_assert(uris);
+	g_assert(GUI_VIEW_IS_VALID(view));
+
+	GSList *readable = NULL;
+	unsigned int readable_len = 0;
+	{
+		GSList *tmp = uris;
+		do {
+			char *error = g_strdup(_("Unknown error"));
+			if (!gui_can_add_uri(tmp->data, &error)) {
+				GtkWidget *dialog = gtk_message_dialog_new(NULL,
+					GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
+					_("Failed to add \"%s\":\n%s"), (char *)tmp->data, error);
+				g_free(error);
+				gtk_window_set_title(GTK_WINDOW(dialog), PACKAGE_NAME);
+				gtk_dialog_run(GTK_DIALOG(dialog));
+				gtk_widget_destroy(dialog);
+				continue;
+			}
+			if (!g_slist_find_custom(readable, tmp->data,
+				(GCompareFunc)g_strcmp0))
+			{
+				readable = g_slist_prepend(readable, tmp->data);
+				readable_len++;
+			}
+		} while ((tmp = tmp->next));
+	}
+	readable = g_slist_reverse(readable);
+
+	if (view == GUI_VIEW_INVALID) {
+		if (readable_len == 1)
+			view = GUI_VIEW_FILE;
+		else if (readable_len > 1)
+			view = GUI_VIEW_FILE_LIST;
+	}
+
+	if (readable_len && (view == GUI_VIEW_FILE)) {
+		gtk_file_chooser_set_uri(GTK_FILE_CHOOSER(gui.filechooserbutton),
+			readable->data);
+	} else if (readable_len && (view == GUI_VIEW_FILE_LIST)) {
+		GSList *tmp = readable;
+		do {
+			list_append_row(tmp->data);
+		} while ((tmp = tmp->next));
+	}
+
+	g_slist_free(readable);
+
+	return readable_len;
 }
 
 void gui_run(void)
 {
-	// Show window here so it doesn't resize just after it's opened
+	// Show window here so it isn't resized just after it's opened
 	gtk_widget_show(GTK_WIDGET(gui.window));
 
 	gtk_main();
+}
+
+void gui_deinit(void)
+{
+	hash_file_stop();
+
+	gtk_widget_destroy(GTK_WIDGET(gui.window));
+}
+
+void gui_set_view(const enum gui_view_e view)
+{
+	switch (view) {
+		case GUI_VIEW_FILE:
+			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
+				gui.radiomenuitem_file), true);
+			break;
+		case GUI_VIEW_TEXT:
+			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
+				gui.radiomenuitem_text), true);
+			break;
+		case GUI_VIEW_FILE_LIST:
+			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
+				gui.radiomenuitem_file_list), true);
+			break;
+		default:
+			g_assert_not_reached();
+	}
 }
 
 enum gui_view_e gui_get_view(void)
@@ -220,15 +345,15 @@ enum gui_view_e gui_get_view(void)
 	if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
 		gui.radiomenuitem_file)))
 	{
-		return VIEW_FILE;
+		return GUI_VIEW_FILE;
 	} else if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
 		gui.radiomenuitem_text)))
 	{
-		return VIEW_TEXT;
+		return GUI_VIEW_TEXT;
 	} else if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
 		gui.radiomenuitem_file_list)))
 	{
-		return VIEW_FILE_LIST;
+		return GUI_VIEW_FILE_LIST;
 	} else
 		g_assert_not_reached();
 }
@@ -239,7 +364,8 @@ void gui_update(void)
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (hash.funcs[i].supported)
-			hash.funcs[i].enabled = gtk_toggle_button_get_active(gui.hash_widgets[i].button);
+			hash.funcs[i].enabled = gtk_toggle_button_get_active(
+				gui.hash_widgets[i].button);
 		else {
 			hash.funcs[i].enabled = false;
 		}
@@ -258,7 +384,7 @@ void gui_update(void)
 	list_update();
 
 	switch (gui_get_view()) {
-		case VIEW_FILE:
+		case GUI_VIEW_FILE: {
 			gtk_widget_hide(GTK_WIDGET(gui.toolbar));
 			gtk_widget_hide(GTK_WIDGET(gui.label_text));
 			gtk_widget_hide(GTK_WIDGET(gui.entry));
@@ -274,12 +400,14 @@ void gui_update(void)
 			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
 				gui.filechooserbutton));
 			if (uri) {
-				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), has_enabled);
+				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash),
+					has_enabled);
 				g_free(uri);
 			} else
 				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
 			break;
-		case VIEW_TEXT:
+		}
+		case GUI_VIEW_TEXT:
 			gtk_widget_hide(GTK_WIDGET(gui.toolbar));
 			gtk_widget_hide(GTK_WIDGET(gui.label_file));
 			gtk_widget_hide(GTK_WIDGET(gui.filechooserbutton));
@@ -296,7 +424,7 @@ void gui_update(void)
 
 			g_signal_emit_by_name(gui.button_hash, "clicked");
 			break;
-		case VIEW_FILE_LIST:
+		case GUI_VIEW_FILE_LIST:
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_single));
 			gtk_widget_hide(GTK_WIDGET(gui.hseparator_buttons));
 			gtk_widget_show(GTK_WIDGET(gui.toolbar));
@@ -310,23 +438,20 @@ void gui_update(void)
 			g_assert_not_reached();
 	}
 
-	gtk_window_resize(gui.window,
-		CLAMP(prefs.width, 1, prefs.width),
-		CLAMP(prefs.height, 1, prefs.height));
 }
 
 void gui_clear_digests(void)
 {
 	switch (gui_get_view()) {
-		case VIEW_FILE:
+		case GUI_VIEW_FILE:
 			for (int i = 0; i < HASH_FUNCS_N; i++)
 				gtk_entry_set_text(gui.hash_widgets[i].entry_file, "");
 			break;
-		case VIEW_TEXT:
+		case GUI_VIEW_TEXT:
 			for (int i = 0; i < HASH_FUNCS_N; i++)
 				gtk_entry_set_text(gui.hash_widgets[i].entry_text, "");
 			break;
-		case VIEW_FILE_LIST:
+		case GUI_VIEW_FILE_LIST:
 			list_clear_digests();
 			break;
 		default:
@@ -338,7 +463,7 @@ void gui_set_busy(const bool busy)
 {
 	gui.busy = busy;
 
-	if (gui_get_view() == VIEW_TEXT)
+	if (gui_get_view() == GUI_VIEW_TEXT)
 		return;
 
 	gtk_widget_set_visible(GTK_WIDGET(gui.button_hash), !busy);
@@ -377,12 +502,4 @@ bool gui_is_maximised(void)
 	GdkWindowState state = gdk_window_get_state(window);
 
 	return (state & GDK_WINDOW_STATE_MAXIMIZED);
-}
-
-void gui_chooser_set_uri(const char *uri)
-{
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(gui.radiomenuitem_file),
-		true);
-
-	gtk_file_chooser_set_uri(GTK_FILE_CHOOSER(gui.filechooserbutton), uri);
 }

@@ -54,7 +54,7 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 	const bool stop = gtkhash_hash_file_get_stop(&hash.file_data);
 
 	switch (gui_get_view()) {
-		case VIEW_FILE: {
+		case GUI_VIEW_FILE: {
 			if (stop)
 				break;
 
@@ -65,7 +65,7 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 
 			break;
 		}
-		case VIEW_FILE_LIST: {
+		case GUI_VIEW_FILE_LIST: {
 			g_assert(hash.uris);
 			g_assert(hash.uris->data);
 
@@ -94,7 +94,7 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 
 void hash_file_start(const char *uri)
 {
-	if (gui_get_view() != VIEW_FILE_LIST)
+	if (gui_get_view() != GUI_VIEW_FILE_LIST)
 		gtkhash_hash_file_clear_digests(&hash.file_data);
 
 	gtkhash_hash_file_set_uri(&hash.file_data, uri);
@@ -129,4 +129,10 @@ void hash_init(void)
 	gtkhash_hash_func_init_all(hash.funcs);
 	gtkhash_hash_file_init(&hash.file_data, hash.funcs, NULL);
 	hash.uris = NULL;
+}
+
+void hash_deinit(void)
+{
+	gtkhash_hash_file_deinit(&hash.file_data);
+	gtkhash_hash_func_deinit_all(hash.funcs);
 }

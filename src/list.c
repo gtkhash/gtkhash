@@ -59,6 +59,12 @@ void list_init(void)
 	gui.treemodel = GTK_TREE_MODEL(gui.liststore);
 
 	gtk_tree_view_set_model(gui.treeview, gui.treemodel);
+
+	const GtkTargetEntry targets[] = {
+		{ (char *)"text/uri-list", 0, 0 }
+	};
+	gtk_drag_dest_set(GTK_WIDGET(gui.treeview), GTK_DEST_DEFAULT_ALL, targets,
+		G_N_ELEMENTS(targets), GDK_ACTION_COPY);
 }
 
 void list_update(void)
@@ -88,9 +94,7 @@ void list_append_row(const char *uri)
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_clear), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), true);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
-		gui.radiomenuitem_file_list), true);
+	gtk_widget_grab_focus(GTK_WIDGET(gui.button_hash));
 }
 
 void list_remove_selection(void)
@@ -157,10 +161,10 @@ GSList *list_get_all_uris(void)
 
 	for (unsigned int i = 0; i < list_count_rows(); i++) {
 		char *uri = list_get_uri(i);
-		uris = g_slist_append(uris, uri);
+		uris = g_slist_prepend(uris, uri);
 	}
 
-	return uris;
+	return g_slist_reverse(uris);;
 }
 
 // Returns the row number with matching uri or -1 if not found
@@ -216,8 +220,7 @@ void list_set_digest(const char *uri, const enum hash_func_e id,
 	const char *digest)
 {
 	g_assert(uri);
-	g_assert(id >= 0);
-	g_assert(id < HASH_FUNCS_N);
+	g_assert(HASH_FUNC_IS_VALID(id));
 
 	GtkTreeIter iter;
 	int row = list_find_row(uri);
@@ -235,8 +238,7 @@ void list_set_digest(const char *uri, const enum hash_func_e id,
 char *list_get_digest(const unsigned int row, const enum hash_func_e id)
 {
 	g_assert(row <= list_count_rows());
-	g_assert(id >= 0);
-	g_assert(id < HASH_FUNCS_N);
+	g_assert(HASH_FUNC_IS_VALID(id));
 
 	GtkTreeIter iter;
 	char *digest;

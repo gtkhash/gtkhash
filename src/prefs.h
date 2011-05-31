@@ -20,10 +20,6 @@
 #ifndef GTKHASH_PREFS_H
 #define GTKHASH_PREFS_H
 
-struct {
-	int width, height; // Window size
-} prefs;
-
 void prefs_load(void);
 void prefs_save(void);
 

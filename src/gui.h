@@ -25,10 +25,13 @@
 
 #include "hash.h"
 
+#define GUI_VIEW_IS_VALID(X) (((X) >= 0) && ((X) <= GUI_VIEW_FILE_LIST))
+
 enum gui_view_e {
-	VIEW_FILE,
-	VIEW_TEXT,
-	VIEW_FILE_LIST
+	GUI_VIEW_INVALID = -1,
+	GUI_VIEW_FILE,
+	GUI_VIEW_TEXT,
+	GUI_VIEW_FILE_LIST
 };
 
 struct {
@@ -65,13 +68,15 @@ struct {
 	} hash_widgets[HASH_FUNCS_N];
 } gui;
 
-void gui_init(void);
+void gui_init(int *argc, char ***argv, GOptionEntry *entries);
+unsigned int gui_add_uris(GSList *uris, enum gui_view_e view);
 void gui_run(void);
+void gui_deinit(void);
+void gui_set_view(const enum gui_view_e view);
 enum gui_view_e gui_get_view(void);
 void gui_update(void);
 void gui_clear_digests(void);
 void gui_set_busy(const bool set);
 bool gui_is_maximised(void);
-void gui_chooser_set_uri(const char *path);
 
 #endif

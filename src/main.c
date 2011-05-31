@@ -22,8 +22,9 @@
 #endif
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <stdbool.h>
-#include <gtk/gtk.h>
+#include <gdk/gdk.h>
 
 #include "main.h"
 #include "hash.h"
@@ -60,43 +61,30 @@ static char *filename_arg_to_uri(const char *arg)
 	return uri;
 }
 
-static void parse_opts(int *argc, char ***argv)
+static void read_opts(void)
 {
-	GOptionContext *context = g_option_context_new(_("[FILE|URI...]"));
-
-#if ENABLE_NLS
-	g_option_context_add_main_entries(context, entries, PACKAGE);
-#else
-	g_option_context_add_main_entries(context, entries, NULL);
-#endif
-
-	g_option_context_add_group(context, gtk_get_option_group(false));
-
-	if (!g_option_context_parse(context, argc, argv, NULL)) {
-		printf(_("Unknown option, try %s --help\n"), g_get_prgname());
-		exit(EXIT_FAILURE);
-	}
-
 	if (opts.version) {
 		printf("%s\n", PACKAGE_STRING);
 		exit(EXIT_SUCCESS);
 	}
 
 	if (opts.files) {
-		if (!opts.files[1]) {
-			char *uri = filename_arg_to_uri(opts.files[0]);
-			gui_chooser_set_uri(uri);
-			g_free(uri);
-		} else {
-			for (int i = 0; opts.files[i]; i++) {
-				char *uri = filename_arg_to_uri(opts.files[i]);
-				list_append_row(uri);
-				g_free(uri);
-			}
-		}
-	}
+		GSList *uris = NULL;
 
-	g_option_context_free(context);
+		for (int i = 0; opts.files[i]; i++)
+			uris = g_slist_prepend(uris, filename_arg_to_uri(opts.files[i]));
+
+		uris = g_slist_reverse(uris);
+
+		unsigned int added = gui_add_uris(uris, GUI_VIEW_INVALID);
+		if (added == 1)
+			gui_set_view(GUI_VIEW_FILE);
+		else if (added > 1)
+			gui_set_view(GUI_VIEW_FILE_LIST);
+
+		g_slist_free_full(uris, g_free);
+		g_strfreev(opts.files);
+	}
 }
 
 int main(int argc, char *argv[])
@@ -111,18 +99,20 @@ int main(int argc, char *argv[])
 	gdk_threads_init();
 	gdk_threads_enter();
 
-	gtk_init(&argc, &argv);
 	hash_init();
-	gui_init();
+	g_atexit(hash_deinit);
+
+	gui_init(&argc, &argv, entries);
+	g_atexit(gui_deinit);
+
 	list_init();
 
 	prefs_load();
+	g_atexit(prefs_save);
 
-	parse_opts(&argc, &argv);
+	read_opts();
 
 	gui_run();
-
-	prefs_save();
 
 	gdk_threads_leave();
 

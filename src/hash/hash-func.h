@@ -23,6 +23,7 @@
 #include <stdbool.h>
 
 #define HASH_FUNCS_N (HASH_FUNC_ADLER32 + 1)
+#define HASH_FUNC_IS_VALID(X) (((X) >= 0) && ((X) < HASH_FUNCS_N))
 #define HASH_FUNC_IS_DEFAULT(X) \
 	((X) == HASH_FUNC_MD5 || (X) == HASH_FUNC_SHA1 || (X) == HASH_FUNC_SHA256)
 
