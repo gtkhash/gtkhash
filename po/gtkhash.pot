@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-09 20:59+0100\n"
+"POT-Creation-Date: 2011-05-31 15:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,15 +26,15 @@ msgid "File:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:3
-msgid "Ha_sh"
+msgid "GtkHash Preferences"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:4
-msgid "Hash functions:"
+msgid "Ha_sh"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:5
-msgid "Preferences"
+msgid "Hash functions:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:6
@@ -81,39 +81,49 @@ msgstr ""
 msgid "_Copy Digest"
 msgstr ""
 
-#: ../src/callbacks.c:96
+#: ../src/callbacks.c:85
 msgid "Save Digests"
 msgstr ""
 
-#: ../src/callbacks.c:277
+#: ../src/callbacks.c:269
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 
-#: ../src/callbacks.c:281
+#: ../src/callbacks.c:273
 msgid "translator-credits"
 msgstr ""
 
-#: ../src/callbacks.c:308
+#: ../src/callbacks.c:300
 msgid "Select Files"
 msgstr ""
 
-#: ../src/gui.c:196
-#, c-format
-msgid ""
-"Failed to read %s:\n"
-"%s"
-msgstr ""
-
-#: ../src/main.c:65
+#: ../src/gui.c:189
 msgid "[FILE|URI...]"
 msgstr ""
 
-#: ../src/main.c:76
+#: ../src/gui.c:206
 #, c-format
-msgid "Unknown option, try %s --help\n"
+msgid ""
+"Failed to read \"%s\":\n"
+"%s"
 msgstr ""
 
-#: ../src/prefs.c:76
+#: ../src/gui.c:242
+msgid "Not a regular file"
+msgstr ""
+
+#: ../src/gui.c:265
+msgid "Unknown error"
+msgstr ""
+
+#: ../src/gui.c:269
+#, c-format
+msgid ""
+"Failed to add \"%s\":\n"
+"%s"
+msgstr ""
+
+#: ../src/prefs.c:56
 msgid "Failed to enable any supported hash functions."
 msgstr ""
 
