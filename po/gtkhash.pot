@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-31 15:00+0100\n"
+"POT-Creation-Date: 2011-06-02 00:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,30 +97,35 @@ msgstr ""
 msgid "Select Files"
 msgstr ""
 
-#: ../src/gui.c:189
-msgid "[FILE|URI...]"
-msgstr ""
-
-#: ../src/gui.c:206
-#, c-format
-msgid ""
-"Failed to read \"%s\":\n"
-"%s"
-msgstr ""
-
-#: ../src/gui.c:242
+#: ../src/gui.c:239
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:265
+#: ../src/gui.c:261
 msgid "Unknown error"
 msgstr ""
 
-#: ../src/gui.c:269
+#: ../src/gui.c:265
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
 "%s"
+msgstr ""
+
+#: ../src/main.c:72
+msgid "Read program data from the specified directory"
+msgstr ""
+
+#: ../src/main.c:72
+msgid "DIRECTORY"
+msgstr ""
+
+#: ../src/main.c:76
+msgid "Show version information"
+msgstr ""
+
+#: ../src/main.c:80
+msgid "[FILE|URI...]"
 msgstr ""
 
 #: ../src/prefs.c:56

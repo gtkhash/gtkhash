@@ -183,30 +183,27 @@ static void gui_init_hash_funcs(void)
 	}
 }
 
-void gui_init(int *argc, char ***argv, GOptionEntry *entries)
+void gui_init(const char *datadir)
 {
-	const char *domain = (ENABLE_NLS) ? PACKAGE : NULL;
-	const char *usage = _("[FILE|URI...]");
-	GError *error = NULL;
-	if (!gtk_init_with_args(argc, argv, usage, entries, domain, &error)) {
-		g_warning("%s", error->message);
-		g_error_free(error);
-		exit(EXIT_FAILURE);
-	}
+	gtk_init(NULL, NULL);
 
 	GtkBuilder *builder = gtk_builder_new();
+	gtk_builder_set_translation_domain(builder, GETTEXT_PACKAGE);
 
-#if ENABLE_NLS
-	gtk_builder_set_translation_domain(builder, PACKAGE);
-#endif
+	char *filename = g_build_filename(datadir, PACKAGE ".xml", NULL);
+	GError *error = NULL;
 
-	if (!gtk_builder_add_from_file(builder, BUILDER_XML, NULL)) {
+	gtk_builder_add_from_file(builder, filename, &error);
+
+	g_free(filename);
+
+	if (error) {
 		GtkWidget *dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
-			GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
-			_("Failed to read \"%s\":\n%s"), BUILDER_XML, g_strerror(errno));
+			GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", error->message);
 		gtk_window_set_title(GTK_WINDOW(dialog), PACKAGE_NAME);
 		gtk_dialog_run(GTK_DIALOG(dialog));
 		gtk_widget_destroy(dialog);
+		g_error_free(error);
 		g_object_unref(builder);
 		exit(EXIT_FAILURE);
 	}
@@ -255,7 +252,6 @@ static bool gui_can_add_uri(char *uri, char **error_str)
 unsigned int gui_add_uris(GSList *uris, enum gui_view_e view)
 {
 	g_assert(uris);
-	g_assert(GUI_VIEW_IS_VALID(view));
 
 	GSList *readable = NULL;
 	unsigned int readable_len = 0;

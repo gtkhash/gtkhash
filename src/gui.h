@@ -68,7 +68,7 @@ struct {
 	} hash_widgets[HASH_FUNCS_N];
 } gui;
 
-void gui_init(int *argc, char ***argv, GOptionEntry *entries);
+void gui_init(const char *datadir);
 unsigned int gui_add_uris(GSList *uris, enum gui_view_e view);
 void gui_run(void);
 void gui_deinit(void);

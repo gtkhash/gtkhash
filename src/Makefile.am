@@ -16,7 +16,7 @@ gtkhash_SOURCES = \
 
 gtkhash_CPPFLAGS = \
 	$(GTHREAD_CFLAGS) $(GTK_CFLAGS) \
-	-DBUILDER_XML="\"$(pkgdatadir)/gtkhash.xml\"" \
+	-DDATADIR="\"$(pkgdatadir)\"" \
 	-DLOCALEDIR="\"$(localedir)\""
 
 gtkhash_LDADD = hash/hash.la $(GTHREAD_LIBS) $(GTK_LIBS)

@@ -24,7 +24,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include <gdk/gdk.h>
+#include <gtk/gtk.h>
 
 #include "main.h"
 #include "hash.h"
@@ -33,24 +33,27 @@
 #include "prefs.h"
 
 static struct {
-	bool version;
+	char *datadir;
 	char **files;
+	gboolean version;
 } opts = {
+	.datadir = NULL,
+	.files = NULL,
 	.version = false,
-	.files = NULL
 };
 
-static GOptionEntry entries[] = {
-	{
-		"version", 'v', 0, G_OPTION_ARG_NONE, &opts.version,
-		"Display version information", NULL
-	},
-	{
-		G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY, &opts.files,
-		NULL, NULL
-	},
-	{ NULL, 0, 0, 0, NULL, NULL, NULL }
-};
+static void free_opts(void)
+{
+	if (opts.datadir) {
+		g_free(opts.datadir);
+		opts.datadir = NULL;
+	}
+
+	if (opts.files) {
+		g_strfreev(opts.files);
+		opts.files = NULL;
+	}
+}
 
 static char *filename_arg_to_uri(const char *arg)
 {
@@ -61,13 +64,48 @@ static char *filename_arg_to_uri(const char *arg)
 	return uri;
 }
 
-static void read_opts(void)
+static void read_opts_preinit(int *argc, char ***argv)
 {
+	GOptionEntry entries[] = {
+		{
+			"datadir", 'd', 0, G_OPTION_ARG_FILENAME, &opts.datadir,
+			_("Read program data from the specified directory"), _("DIRECTORY")
+		},
+		{
+			"version", 'v', 0, G_OPTION_ARG_NONE, &opts.version,
+			_("Show version information"), NULL
+		},
+		{
+			G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY, &opts.files,
+			NULL, _("[FILE|URI...]")
+		},
+		{ NULL, 0, 0, 0, NULL, NULL, NULL }
+	};
+
+	GOptionContext *context = g_option_context_new(NULL);
+	GError *error = NULL;
+
+	g_atexit(free_opts);
+
+	g_option_context_add_main_entries(context, entries, GETTEXT_PACKAGE);
+	g_option_context_add_group(context, gtk_get_option_group(false));
+	g_option_context_parse(context, argc, argv, &error);
+	g_option_context_free(context);
+
+	if (error) {
+		g_warning("%s", error->message);
+		g_error_free(error);
+		exit(EXIT_FAILURE);
+	}
+
 	if (opts.version) {
 		printf("%s\n", PACKAGE_STRING);
 		exit(EXIT_SUCCESS);
 	}
+}
 
+static void read_opts_postinit(void)
+{
 	if (opts.files) {
 		GSList *uris = NULL;
 
@@ -83,26 +121,29 @@ static void read_opts(void)
 			gui_set_view(GUI_VIEW_FILE_LIST);
 
 		g_slist_free_full(uris, g_free);
-		g_strfreev(opts.files);
 	}
+
+	free_opts();
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 #if ENABLE_NLS
-	bindtextdomain(PACKAGE, LOCALEDIR);
-	bind_textdomain_codeset(PACKAGE, "UTF-8");
-	textdomain(PACKAGE);
+	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
+	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+	textdomain(GETTEXT_PACKAGE);
 #endif
 
 	g_thread_init(NULL);
 	gdk_threads_init();
 	gdk_threads_enter();
 
+	read_opts_preinit(&argc, &argv);
+
 	hash_init();
 	g_atexit(hash_deinit);
 
-	gui_init(&argc, &argv, entries);
+	gui_init(opts.datadir ? opts.datadir : DATADIR);
 	g_atexit(gui_deinit);
 
 	list_init();
@@ -110,7 +151,7 @@ int main(int argc, char *argv[])
 	prefs_load();
 	g_atexit(prefs_save);
 
-	read_opts();
+	read_opts_postinit();
 
 	gui_run();
 
