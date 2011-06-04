@@ -435,7 +435,7 @@ void gui_update(void)
 			gtk_widget_show(GTK_WIDGET(gui.button_hash));
 
 			gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash),
-				list_count_rows());
+				has_enabled && list_count_rows());
 			break;
 		default:
 			g_assert_not_reached();
