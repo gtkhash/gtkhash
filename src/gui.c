@@ -48,7 +48,8 @@ static GObject *gui_get_object(GtkBuilder *builder, const char *name)
 static void gui_get_objects(GtkBuilder *builder)
 {
 	// Window
-	gui.window = GTK_WINDOW(gui_get_object(builder, "window"));
+	gui.window = GTK_WINDOW(gui_get_object(builder,
+		"window"));
 
 	// Menus
 	gui.menuitem_file = GTK_MENU_ITEM(gui_get_object(builder,
@@ -113,22 +114,28 @@ static void gui_get_objects(GtkBuilder *builder)
 		"filechooserbutton"));
 
 	// Labels
-	gui.label_text = GTK_LABEL(gui_get_object(builder, "label_text"));
-	gui.label_file = GTK_LABEL(gui_get_object(builder, "label_file"));
+	gui.label_text = GTK_LABEL(gui_get_object(builder,
+		"label_text"));
+	gui.label_file = GTK_LABEL(gui_get_object(builder,
+		"label_file"));
 
 	// Tree View
-	gui.treeview = GTK_TREE_VIEW(gui_get_object(builder, "treeview"));
-	gui.treeselection = GTK_TREE_SELECTION(gtk_tree_view_get_selection(
-		gui.treeview));
+	gui.treeview = GTK_TREE_VIEW(gui_get_object(builder,
+		"treeview"));
+	gui.treeselection = GTK_TREE_SELECTION(gui_get_object(builder,
+		"treeselection"));
 
 	// Buttons
 	gui.hseparator_buttons = GTK_HSEPARATOR(gui_get_object(builder,
 		"hseparator_buttons"));
-	gui.button_hash = GTK_BUTTON(gui_get_object(builder, "button_hash"));
-	gui.button_stop = GTK_BUTTON(gui_get_object(builder, "button_stop"));
+	gui.button_hash = GTK_BUTTON(gui_get_object(builder,
+		"button_hash"));
+	gui.button_stop = GTK_BUTTON(gui_get_object(builder,
+		"button_stop"));
 
 	// Progress Bar
-	gui.progressbar = GTK_PROGRESS_BAR(gui_get_object(builder, "progressbar"));
+	gui.progressbar = GTK_PROGRESS_BAR(gui_get_object(builder,
+		"progressbar"));
 
 	// Dialog
 	gui.dialog = GTK_DIALOG(gui_get_object(builder,

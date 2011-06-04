@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk+" version="2.22"/>
-  <!-- interface-naming-policy project-wide -->
+  <requires lib="gtk+" version="2.24"/>
   <object class="GtkImage" id="image_copy">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -66,8 +65,6 @@
       <object class="GtkScrolledWindow" id="scrolledwindow">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
-        <property name="hscrollbar_policy">automatic</property>
-        <property name="vscrollbar_policy">automatic</property>
         <property name="shadow_type">in</property>
         <child>
           <object class="GtkTreeView" id="treeview">
@@ -78,6 +75,9 @@
             <property name="enable_search">False</property>
             <property name="search_column">0</property>
             <property name="show_expanders">False</property>
+            <child internal-child="selection">
+              <object class="GtkTreeSelection" id="treeselection"/>
+            </child>
             <child>
               <object class="GtkTreeViewColumn" id="treeviewcolumn_enabled">
                 <child>
