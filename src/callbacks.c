@@ -379,7 +379,7 @@ static void on_button_hash_clicked(void)
 		}
 		case GUI_VIEW_TEXT: {
 			const char *str = gtk_entry_get_text(gui.entry);
-			gtkhash_hash_string(hash.funcs, str);
+			gtkhash_hash_string(hash.funcs, str, gui_get_digest_format());
 			gui_set_busy(false);
 			break;
 		}
@@ -400,6 +400,14 @@ static bool on_dialog_delete_event(void)
 {
 	gtk_widget_hide(GTK_WIDGET(gui.dialog));
 	return true;
+}
+
+static void on_dialog_combobox_changed(void)
+{
+	gui_clear_digests();
+
+	if (gui_get_view() == GUI_VIEW_TEXT)
+		g_signal_emit_by_name(gui.button_hash, "clicked");
 }
 
 void callbacks_init(void)
@@ -433,5 +441,6 @@ void callbacks_init(void)
 	CON(gui.button_stop,             "clicked",             on_button_stop_clicked);
 	CON(gui.dialog,                  "delete-event",        G_CALLBACK(on_dialog_delete_event));
 	CON(gui.dialog_button_close,     "clicked",             G_CALLBACK(on_dialog_delete_event));
+	CON(gui.dialog_combobox,         "changed",             on_dialog_combobox_changed);
 #undef CON
 }

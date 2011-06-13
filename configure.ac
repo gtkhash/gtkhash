@@ -25,7 +25,8 @@ for opt in \
 	-Wredundant-decls \
 	-Wshadow \
 	-Wswitch-default \
-	-Wwrite-strings
+	-Wwrite-strings \
+	-Werror=implicit-function-declaration
 do
 	AC_MSG_CHECKING([whether "${CC}" accepts option "${opt}"])
 	ac_save_CFLAGS="${CFLAGS}"
@@ -50,11 +51,11 @@ AC_ARG_WITH([gtk],
 	[with_gtk="${withval}"], [with_gtk="2.0"])
 AC_MSG_RESULT(["${with_gtk}"])
 
-PKG_CHECK_MODULES([GDK], ["gdk-${with_gtk}"])
+PKG_CHECK_MODULES([GDK], ["gdk-${with_gtk}" >= 2.24])
 AC_SUBST([GDK_CFLAGS])
 AC_SUBST([GDK_LIBS])
 
-PKG_CHECK_MODULES([GTK], ["gtk+-${with_gtk}"])
+PKG_CHECK_MODULES([GTK], ["gtk+-${with_gtk}" >= 2.24])
 AC_SUBST([GTK_CFLAGS])
 AC_SUBST([GTK_LIBS])
 
@@ -153,7 +154,7 @@ if test "${enable_nautilus}" = "yes" ; then
 	NAUTILUS_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensiondir libnautilus-extension`
 	AC_SUBST([NAUTILUS_EXTENSION_DIR])
 	if test "`basename \"${NAUTILUS_EXTENSION_DIR}\"`" != "extensions-${with_gtk}" ; then
-		AC_MSG_ERROR([Nautilus version must match GTK+ version or bad things will happen])
+		AC_MSG_ERROR([Installed Nautilus version appears to be incompatible with GTK+ "${with_gtk}" extensions])
 	fi
 
 	# Check for gconf

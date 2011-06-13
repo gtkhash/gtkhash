@@ -17,8 +17,8 @@
  *   along with GtkHash. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTKHASH_HASH_FILE_H
-#define GTKHASH_HASH_FILE_H
+#ifndef GTKHASH_HASH_HASH_FILE_H
+#define GTKHASH_HASH_HASH_FILE_H
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -59,7 +59,6 @@ struct hash_file_s {
 	} priv;
 };
 
-unsigned int gtkhash_hash_file_get_source(struct hash_file_s *data);
 void gtkhash_hash_file_add_source(struct hash_file_s *data);
 bool gtkhash_hash_file_get_stop(struct hash_file_s *data);
 void gtkhash_hash_file_set_stop(struct hash_file_s *data, const bool stop);

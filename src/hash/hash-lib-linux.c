@@ -34,7 +34,7 @@
 #include "hash-lib.h"
 #include "hash-func.h"
 
-#define LIB_DATA ((struct hash_lib_linux_s *)func->priv.lib_data)
+#define LIB_DATA ((struct hash_lib_linux_s *)func->lib_data)
 
 struct hash_lib_linux_s {
 	const char *name;
@@ -104,7 +104,7 @@ bool gtkhash_hash_lib_linux_is_supported(const enum hash_func_e id)
 
 void gtkhash_hash_lib_linux_start(struct hash_func_s *func)
 {
-	func->priv.lib_data = g_new(struct hash_lib_linux_s, 1);
+	func->lib_data = g_new(struct hash_lib_linux_s, 1);
 
 	struct sockaddr_alg addr = {
 		.salg_family = AF_ALG,
@@ -133,9 +133,9 @@ void gtkhash_hash_lib_linux_start(struct hash_func_s *func)
 void gtkhash_hash_lib_linux_update(struct hash_func_s *func,
 	const uint8_t *buffer, const size_t size)
 {
-	ssize_t count = send(LIB_DATA->connfd, buffer, size, MSG_MORE);
+	ssize_t send_size = send(LIB_DATA->connfd, buffer, size, MSG_MORE);
 
-	if (G_UNLIKELY(count != (ssize_t)size))
+	if (G_UNLIKELY(send_size != (ssize_t)size))
 		gtkhash_hash_lib_linux_error(func, "write failed");
 }
 
@@ -146,21 +146,22 @@ void gtkhash_hash_lib_linux_stop(struct hash_func_s *func)
 	g_free(LIB_DATA);
 }
 
-char *gtkhash_hash_lib_linux_finish(struct hash_func_s *func)
+uint8_t *gtkhash_hash_lib_linux_finish(struct hash_func_s *func, size_t *size)
 {
-	uint8_t bin[64 + 1];
-	ssize_t size = read(LIB_DATA->connfd, bin, sizeof(bin));
+	uint8_t buf[64 + 1];
+	ssize_t read_size = read(LIB_DATA->connfd, buf, sizeof(buf));
 
-	g_assert(size < (ssize_t)sizeof(bin));
+	g_assert(read_size < (ssize_t)sizeof(buf));
 
-	if (G_UNLIKELY(size == -1))
+	if (G_UNLIKELY(read_size == -1))
 		gtkhash_hash_lib_linux_error(func, "read failed");
-
-	char *digest = gtkhash_hash_lib_bin_to_hex(bin, size);
 
 	close(LIB_DATA->connfd);
 	close(LIB_DATA->sockfd);
 	g_free(LIB_DATA);
+
+	uint8_t *digest = g_memdup(buf, read_size);
+	*size = read_size;
 
 	return digest;
 }

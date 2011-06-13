@@ -33,15 +33,6 @@
 
 static bool gtkhash_hash_file(struct hash_file_s *data);
 
-unsigned int gtkhash_hash_file_get_source(struct hash_file_s *data)
-{
-	g_mutex_lock(data->priv.mutex);
-	unsigned int source = data->priv.source;
-	g_mutex_unlock(data->priv.mutex);
-
-	return source;
-}
-
 static void gtkhash_hash_file_set_source(struct hash_file_s *data,
 	const unsigned int source)
 {
@@ -353,7 +344,6 @@ static bool gtkhash_hash_file(struct hash_file_s *data)
 		return false;
 	}
 
-	// Call func
 	state_funcs[state](data);
 
 	return true;
@@ -374,7 +364,9 @@ void gtkhash_hash_file_init(struct hash_file_s *data, struct hash_func_s *funcs,
 
 void gtkhash_hash_file_deinit(struct hash_file_s *data)
 {
-	g_assert(!data->priv.source);
+	// Shouldn't still be running
+	g_assert(data->priv.source == 0);
+	g_assert(data->priv.report_source == 0);
 
 	g_mutex_free(data->priv.mutex);
 }
@@ -382,5 +374,5 @@ void gtkhash_hash_file_deinit(struct hash_file_s *data)
 void gtkhash_hash_file_clear_digests(struct hash_file_s *data)
 {
 	for (int i = 0; i < HASH_FUNCS_N; i++)
-		gtkhash_hash_func_set_digest(&data->funcs[i], NULL);
+		gtkhash_hash_func_clear_digest(&data->funcs[i]);
 }

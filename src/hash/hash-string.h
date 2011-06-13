@@ -17,12 +17,13 @@
  *   along with GtkHash. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTKHASH_HASH_STRING_H
-#define GTKHASH_HASH_STRING_H
+#ifndef GTKHASH_HASH_HASH_STRING_H
+#define GTKHASH_HASH_HASH_STRING_H
 
 #include "hash-func.h"
 
-void gtkhash_hash_string(struct hash_func_s *funcs, const char *str);
+void gtkhash_hash_string(struct hash_func_s *funcs, const char *str,
+	const enum digest_format_e format);
 
 void gtkhash_hash_string_finish_cb(const enum hash_func_e id,
 	const char *digest);

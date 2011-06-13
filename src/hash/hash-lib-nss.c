@@ -32,7 +32,7 @@
 #include "hash-lib.h"
 #include "hash-func.h"
 
-#define LIB_DATA ((struct hash_lib_nss_s *)func->priv.lib_data)
+#define LIB_DATA ((struct hash_lib_nss_s *)func->lib_data)
 
 struct hash_lib_nss_s {
 	SECOidTag alg;
@@ -101,7 +101,7 @@ bool gtkhash_hash_lib_nss_is_supported(const enum hash_func_e id)
 
 void gtkhash_hash_lib_nss_start(struct hash_func_s *func)
 {
-	func->priv.lib_data = g_new(struct hash_lib_nss_s, 1);
+	func->lib_data = g_new(struct hash_lib_nss_s, 1);
 
 	if (G_UNLIKELY(!gtkhash_hash_lib_nss_set_alg(func->id, &LIB_DATA->alg)))
 		g_assert_not_reached();
@@ -130,21 +130,21 @@ void gtkhash_hash_lib_nss_stop(struct hash_func_s *func)
 	g_free(LIB_DATA);
 }
 
-char *gtkhash_hash_lib_nss_finish(struct hash_func_s *func)
+uint8_t *gtkhash_hash_lib_nss_finish(struct hash_func_s *func, size_t *size)
 {
-	uint8_t bin[64 + 1];
+	uint8_t buf[64 + 1];
 	unsigned int len = 0;
 
-	SECStatus s = PK11_DigestFinal(LIB_DATA->pk11, bin, &len, sizeof(bin));
+	SECStatus s = PK11_DigestFinal(LIB_DATA->pk11, buf, &len, sizeof(buf));
 	g_assert(s == SECSuccess);
-	g_assert(len);
-	g_assert(len < sizeof(bin));
-
-	char *digest = gtkhash_hash_lib_bin_to_hex(bin, len);
+	g_assert(len < sizeof(buf));
 
 	PK11_DestroyContext(LIB_DATA->pk11, PR_TRUE);
 	NSS_ShutdownContext(LIB_DATA->nss);
 	g_free(LIB_DATA);
+
+	uint8_t *digest = g_memdup(buf, len);
+	*size = len;
 
 	return digest;
 }

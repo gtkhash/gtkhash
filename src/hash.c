@@ -59,7 +59,8 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 				break;
 
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
-				const char *digest = gtkhash_hash_func_get_digest(&hash.funcs[i]);
+				const char *digest = gtkhash_hash_func_get_digest(&hash.funcs[i],
+					gui_get_digest_format());
 				gtk_entry_set_text(gui.hash_widgets[i].entry_file, digest);
 			}
 
@@ -73,7 +74,8 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 				break;
 
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
-				const char *digest = gtkhash_hash_func_get_digest(&hash.funcs[i]);
+				const char *digest = gtkhash_hash_func_get_digest(&hash.funcs[i],
+					gui_get_digest_format());
 				list_set_digest(hash.uris->data, i, digest);
 			}
 

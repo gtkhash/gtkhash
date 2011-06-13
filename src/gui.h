@@ -60,6 +60,7 @@ struct {
 	GtkButton *button_hash, *button_stop;
 	GtkDialog *dialog;
 	GtkTable *dialog_table;
+	GtkComboBox *dialog_combobox;
 	GtkButton *dialog_button_close;
 	struct {
 		GtkToggleButton *button;
@@ -74,6 +75,8 @@ void gui_run(void);
 void gui_deinit(void);
 void gui_set_view(const enum gui_view_e view);
 enum gui_view_e gui_get_view(void);
+void gui_set_digest_format(const enum digest_format_e format);
+enum digest_format_e gui_get_digest_format(void);
 void gui_update(void);
 void gui_clear_digests(void);
 void gui_set_busy(const bool set);

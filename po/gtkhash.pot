@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-02 00:42+0100\n"
+"POT-Creation-Date: 2011-06-13 19:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,46 +18,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../data/gtkhash.xml.h:1
-msgid "File _List"
+msgid "Base64"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:2
-msgid "File:"
+msgid "Digest Format:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:3
-msgid "GtkHash Preferences"
+msgid "File _List"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:4
-msgid "Ha_sh"
+msgid "File:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:5
-msgid "Hash functions:"
+msgid "GtkHash Preferences"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:6
-msgid "Text:"
+msgid "Ha_sh"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:7
-msgid "_Edit"
+msgid "Hash Functions:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:8
-msgid "_File"
+msgid "Lowercase Hexadecimal"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:9
-msgid "_Help"
+msgid "Text:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:10
-msgid "_Text"
+msgid "Uppercase Hexadecimal"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:11
+msgid "_Edit"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:12
+msgid "_File"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:13
+msgid "_Help"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:14
+msgid "_Text"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:15
 msgid "_View"
 msgstr ""
 
@@ -97,15 +113,15 @@ msgstr ""
 msgid "Select Files"
 msgstr ""
 
-#: ../src/gui.c:239
+#: ../src/gui.c:251
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:261
+#: ../src/gui.c:273
 msgid "Unknown error"
 msgstr ""
 
-#: ../src/gui.c:265
+#: ../src/gui.c:277
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -128,7 +144,7 @@ msgstr ""
 msgid "[FILE|URI...]"
 msgstr ""
 
-#: ../src/prefs.c:56
+#: ../src/prefs.c:57
 msgid "Failed to enable any supported hash functions."
 msgstr ""
 

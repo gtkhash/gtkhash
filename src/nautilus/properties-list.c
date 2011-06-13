@@ -83,8 +83,10 @@ void gtkhash_properties_list_update_digests(struct page_s *page)
 	do {
 		int id;
 		gtk_tree_model_get(model, &iter, COL_ID, &id, -1);
-		gtk_list_store_set(store, &iter, COL_DIGEST,
-			gtkhash_hash_func_get_digest(&page->hash_file.funcs[id]), -1);
+
+		const char *digest = gtkhash_hash_func_get_digest(
+			&page->hash_file.funcs[id], DIGEST_FORMAT_HEX_LOWER);
+		gtk_list_store_set(store, &iter, COL_DIGEST, digest, -1);
 	} while (gtk_tree_model_iter_next(model, &iter));
 
 	gtk_tree_view_columns_autosize(page->treeview);
@@ -141,11 +143,13 @@ void gtkhash_properties_list_init(struct page_s *page)
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!page->hash_file.funcs[i].supported)
 			continue;
+		const char *digest = gtkhash_hash_func_get_digest(
+			&page->hash_file.funcs[i], DIGEST_FORMAT_HEX_LOWER);
 		gtk_list_store_insert_with_values(store, NULL, i,
 			COL_ID, i,
 			COL_ENABLED, page->hash_file.funcs[i].enabled,
 			COL_HASH_FUNC, page->hash_file.funcs[i].name,
-			COL_DIGEST, gtkhash_hash_func_get_digest(&page->hash_file.funcs[i]),
+			COL_DIGEST, digest,
 			-1);
 	}
 

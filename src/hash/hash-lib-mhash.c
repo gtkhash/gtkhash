@@ -31,7 +31,7 @@
 #include "hash-lib.h"
 #include "hash-func.h"
 
-#define LIB_DATA ((struct hash_lib_mhash_s *)func->priv.lib_data)
+#define LIB_DATA ((struct hash_lib_mhash_s *)func->lib_data)
 
 struct hash_lib_mhash_s {
 	MHASH thread;
@@ -149,7 +149,7 @@ bool gtkhash_hash_lib_mhash_is_supported(const enum hash_func_e id)
 
 void gtkhash_hash_lib_mhash_start(struct hash_func_s *func)
 {
-	func->priv.lib_data = g_new(struct hash_lib_mhash_s, 1);
+	func->lib_data = g_new(struct hash_lib_mhash_s, 1);
 
 	if (!gtkhash_hash_lib_mhash_set_type(func->id, &LIB_DATA->type))
 		g_assert_not_reached();
@@ -170,14 +170,11 @@ void gtkhash_hash_lib_mhash_stop(struct hash_func_s *func)
 	g_free(LIB_DATA);
 }
 
-char *gtkhash_hash_lib_mhash_finish(struct hash_func_s *func)
+uint8_t *gtkhash_hash_lib_mhash_finish(struct hash_func_s *func, size_t *size)
 {
-	uint8_t *bin = mhash_end_m(LIB_DATA->thread, g_malloc);
-	size_t size = mhash_get_block_size(LIB_DATA->type);
+	uint8_t *digest = mhash_end_m(LIB_DATA->thread, g_malloc);
+	*size = mhash_get_block_size(LIB_DATA->type);
 
-	char *digest = gtkhash_hash_lib_bin_to_hex(bin, size);
-
-	g_free(bin);
 	g_free(LIB_DATA);
 
 	return digest;

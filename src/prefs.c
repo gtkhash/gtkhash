@@ -29,6 +29,7 @@
 #include "main.h"
 #include "hash.h"
 #include "gui.h"
+#include "hash/digest-format.h"
 
 static void load_default_hash_funcs(void)
 {
@@ -79,11 +80,25 @@ static void load_hash_funcs(GKeyFile *keyfile)
 			} else
 				hash.funcs[i].enabled = false;
 		} else
-			g_error_free(error); // Ignore the error
+			g_error_free(error);
 	}
 
 	if (!has_enabled)
 		load_default_hash_funcs();
+}
+
+static void load_digest_format(GKeyFile *keyfile)
+{
+	GError *error = NULL;
+	int format = g_key_file_get_integer(keyfile, "digest", "format", &error);
+
+	if (error) {
+		g_error_free(error);
+		return;
+	}
+
+	if (DIGEST_FORMAT_IS_VALID(format))
+		gui_set_digest_format(format);
 }
 
 static void load_view(GKeyFile *keyfile)
@@ -140,6 +155,7 @@ void prefs_load(void)
 		NULL)))
 	{
 		load_hash_funcs(keyfile);
+		load_digest_format(keyfile);
 		load_view(keyfile);
 		load_window_size(keyfile);
 	}
@@ -158,6 +174,11 @@ static void save_hash_funcs(GKeyFile *keyfile)
 	for (int i = 0; i < HASH_FUNCS_N; i++)
 		g_key_file_set_boolean(keyfile, "hash-funcs", hash.funcs[i].name,
 			hash.funcs[i].enabled);
+}
+
+static void save_digest_format(GKeyFile *keyfile)
+{
+	g_key_file_set_integer(keyfile, "digest", "format", gui_get_digest_format());
 }
 
 static void save_view(GKeyFile *keyfile)
@@ -185,6 +206,7 @@ void prefs_save(void)
 	char *data;
 
 	save_hash_funcs(keyfile);
+	save_digest_format(keyfile);
 	save_view(keyfile);
 	save_window_size(keyfile);
 

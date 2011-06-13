@@ -31,7 +31,7 @@
 #include "hash-lib.h"
 #include "hash-func.h"
 
-#define LIB_DATA ((struct hash_lib_gcrypt_s *)func->priv.lib_data)
+#define LIB_DATA ((struct hash_lib_gcrypt_s *)func->lib_data)
 
 struct hash_lib_gcrypt_s {
 	gcry_md_hd_t h;
@@ -98,7 +98,7 @@ bool gtkhash_hash_lib_gcrypt_is_supported(const enum hash_func_e id)
 
 void gtkhash_hash_lib_gcrypt_start(struct hash_func_s *func)
 {
-	func->priv.lib_data = g_new(struct hash_lib_gcrypt_s, 1);
+	func->lib_data = g_new(struct hash_lib_gcrypt_s, 1);
 
 	if (!gtkhash_hash_lib_gcrypt_set_algo(func->id, &LIB_DATA->algo))
 		g_assert_not_reached();
@@ -119,12 +119,11 @@ void gtkhash_hash_lib_gcrypt_stop(struct hash_func_s *func)
 	g_free(LIB_DATA);
 }
 
-char *gtkhash_hash_lib_gcrypt_finish(struct hash_func_s *func)
+uint8_t *gtkhash_hash_lib_gcrypt_finish(struct hash_func_s *func, size_t *size)
 {
-	unsigned char *bin = gcry_md_read(LIB_DATA->h, LIB_DATA->algo);
-	size_t size = gcry_md_get_algo_dlen(LIB_DATA->algo);
-
-	char *digest = gtkhash_hash_lib_bin_to_hex(bin, size);
+	unsigned char *digest_tmp = gcry_md_read(LIB_DATA->h, LIB_DATA->algo);
+	*size = gcry_md_get_algo_dlen(LIB_DATA->algo);
+	uint8_t *digest = g_memdup(digest_tmp, *size);
 
 	gcry_md_close(LIB_DATA->h);
 	g_free(LIB_DATA);

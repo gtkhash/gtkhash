@@ -1,6 +1,8 @@
 noinst_LTLIBRARIES = hash.la
 
 hash_la_SOURCES = \
+	digest.c digest.h \
+	digest-format.h \
 	hash-file.c hash-file.h \
 	hash-func.c hash-func.h \
 	hash-lib.c hash-lib.h \

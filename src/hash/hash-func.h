@@ -17,10 +17,13 @@
  *   along with GtkHash. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTKHASH_HASH_FUNC_H
-#define GTKHASH_HASH_FUNC_H
+#ifndef GTKHASH_HASH_HASH_FUNC_H
+#define GTKHASH_HASH_HASH_FUNC_H
 
 #include <stdbool.h>
+#include <stdint.h>
+
+#include "digest-format.h"
 
 #define HASH_FUNCS_N (HASH_FUNC_ADLER32 + 1)
 #define HASH_FUNC_IS_VALID(X) (((X) >= 0) && ((X) < HASH_FUNCS_N))
@@ -28,6 +31,7 @@
 	((X) == HASH_FUNC_MD5 || (X) == HASH_FUNC_SHA1 || (X) == HASH_FUNC_SHA256)
 
 // All supported hash functions
+// Note: Default ordering is defined here
 enum hash_func_e {
 	HASH_FUNC_INVALID = -1,
 	HASH_FUNC_MD2,
@@ -63,15 +67,16 @@ struct hash_func_s {
 	enum hash_func_e id;
 	bool supported, enabled;
 	const char *name;
-	struct {
-		char *digest;
-		void *lib_data;
-	} priv;
+	struct digest_s *digest;
+	void *lib_data;
 };
 
 enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name);
-void gtkhash_hash_func_set_digest(struct hash_func_s *func, char *digest);
-const char *gtkhash_hash_func_get_digest(struct hash_func_s *func);
+void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest,
+	size_t size);
+const char *gtkhash_hash_func_get_digest(struct hash_func_s *func,
+	const enum digest_format_e format);
+void gtkhash_hash_func_clear_digest(struct hash_func_s *func);
 void gtkhash_hash_func_init_all(struct hash_func_s *funcs);
 void gtkhash_hash_func_deinit_all(struct hash_func_s *funcs);
 

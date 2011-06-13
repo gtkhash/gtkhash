@@ -22,10 +22,12 @@
 #endif
 
 #include <stdlib.h>
+#include <stdint.h>
 #include <glib.h>
 
 #include "hash-func.h"
 #include "hash-lib.h"
+#include "digest.h"
 
 static const char * const hash_func_names[HASH_FUNCS_N] = {
 	[HASH_FUNC_ADLER32]      = "ADLER32",
@@ -70,35 +72,45 @@ enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name)
 	return HASH_FUNC_INVALID;
 }
 
-void gtkhash_hash_func_set_digest(struct hash_func_s *func, char *digest)
+void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest,
+	size_t size)
 {
 	g_assert(func);
+	g_assert(digest);
+	g_assert(size);
 
-	if (func->priv.digest)
-		g_free(func->priv.digest);
-
-	func->priv.digest = digest;
+	gtkhash_digest_set_data(func->digest, digest, size);
 }
 
-const char *gtkhash_hash_func_get_digest(struct hash_func_s *func)
+const char *gtkhash_hash_func_get_digest(struct hash_func_s *func,
+	const enum digest_format_e format)
 {
 	g_assert(func);
 
-	if (func->priv.digest)
-		return func->priv.digest;
-	else
-		return "";
+	const char *digest = gtkhash_digest_get_data(func->digest, format);
+
+	return digest ? digest : "";
+}
+
+void gtkhash_hash_func_clear_digest(struct hash_func_s *func)
+{
+	g_assert(func);
+
+	gtkhash_digest_free_data(func->digest);
 }
 
 static void gtkhash_hash_func_init(struct hash_func_s *func,
 	const enum hash_func_e id)
 {
+	g_assert(func);
+	g_assert(HASH_FUNC_IS_VALID(id));
+
 	func->id = id;
 	func->supported = gtkhash_hash_lib_is_supported(id);
 	func->enabled = false;
 	func->name = hash_func_names[id];
-	func->priv.digest = NULL;
-	func->priv.lib_data = NULL;
+	func->digest = gtkhash_digest_new();
+	func->lib_data = NULL;
 }
 
 void gtkhash_hash_func_init_all(struct hash_func_s *funcs)
@@ -113,9 +125,6 @@ void gtkhash_hash_func_deinit_all(struct hash_func_s *funcs)
 {
 	g_assert(funcs);
 
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		gtkhash_hash_func_set_digest(&funcs[i], NULL);
-		funcs[i].name = NULL;
-		funcs[i].id = HASH_FUNC_INVALID;
-	}
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		gtkhash_digest_free(funcs[i].digest);
 }

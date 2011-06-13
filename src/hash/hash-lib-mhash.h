@@ -17,8 +17,8 @@
  *   along with GtkHash. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTKHASH_HASH_LIB_MHASH_H
-#define GTKHASH_HASH_LIB_MHASH_H
+#ifndef GTKHASH_HASH_HASH_LIB_MHASH_H
+#define GTKHASH_HASH_HASH_LIB_MHASH_H
 
 #ifndef IN_HASH_LIB
 	#error "don't use directly"
@@ -34,6 +34,6 @@ void gtkhash_hash_lib_mhash_start(struct hash_func_s *func);
 void gtkhash_hash_lib_mhash_update(struct hash_func_s *func,
 	const uint8_t *buffer, const size_t size);
 void gtkhash_hash_lib_mhash_stop(struct hash_func_s *func);
-char *gtkhash_hash_lib_mhash_finish(struct hash_func_s *func);
+uint8_t *gtkhash_hash_lib_mhash_finish(struct hash_func_s *func, size_t *size);
 
 #endif

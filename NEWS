@@ -4,6 +4,7 @@ Summary of changes for each release:
 	* Added support for hashing non-local files using GIO
 	* Made mhash an optional dependency
 	* Added optional support for other hash libraries/interfaces
+	* Added Digest Format option
 	* General usability improvements
 
 0.3.0 - 2009-11-22

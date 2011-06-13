@@ -17,23 +17,29 @@
  *   along with GtkHash. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTKHASH_HASH_HASH_LIB_GLIB_H
-#define GTKHASH_HASH_HASH_LIB_GLIB_H
+#ifndef GTKHASH_HASH_DIGEST_H
+#define GTKHASH_HASH_DIGEST_H
 
 #ifndef IN_HASH_LIB
 	#error "don't use directly"
 #endif
 
-#include <stdlib.h>
 #include <stdint.h>
 
-#include "hash-func.h"
+#include "digest-format.h"
 
-bool gtkhash_hash_lib_glib_is_supported(const enum hash_func_e id);
-void gtkhash_hash_lib_glib_start(struct hash_func_s *func);
-void gtkhash_hash_lib_glib_update(struct hash_func_s *func,
-	const uint8_t *buffer, const size_t size);
-void gtkhash_hash_lib_glib_stop(struct hash_func_s *func);
-uint8_t *gtkhash_hash_lib_glib_finish(struct hash_func_s *func, size_t *size);
+struct digest_s {
+	uint8_t *bin;
+	size_t size;
+	char *data[DIGEST_FORMATS_N];
+};
+
+struct digest_s *gtkhash_digest_new(void);
+void gtkhash_digest_set_data(struct digest_s *digest, uint8_t *bin,
+	size_t size);
+const char *gtkhash_digest_get_data(struct digest_s *digest,
+	const enum digest_format_e format);
+void gtkhash_digest_free_data(struct digest_s *digest);
+void gtkhash_digest_free(struct digest_s *digest);
 
 #endif

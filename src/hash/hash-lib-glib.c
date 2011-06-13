@@ -30,7 +30,7 @@
 #include "hash-lib.h"
 #include "hash-func.h"
 
-#define LIB_DATA ((struct hash_lib_glib_s *)func->priv.lib_data)
+#define LIB_DATA ((struct hash_lib_glib_s *)func->lib_data)
 
 struct hash_lib_glib_s {
 	GChecksum *checksum;
@@ -76,7 +76,7 @@ bool gtkhash_hash_lib_glib_is_supported(const enum hash_func_e id)
 
 void gtkhash_hash_lib_glib_start(struct hash_func_s *func)
 {
-	func->priv.lib_data = g_new(struct hash_lib_glib_s, 1);
+	func->lib_data = g_new(struct hash_lib_glib_s, 1);
 
 	if (!gtkhash_hash_lib_glib_set_type(func->id, &LIB_DATA->type))
 		g_assert_not_reached();
@@ -97,9 +97,15 @@ void gtkhash_hash_lib_glib_stop(struct hash_func_s *func)
 	g_free(LIB_DATA);
 }
 
-char *gtkhash_hash_lib_glib_finish(struct hash_func_s *func)
+uint8_t *gtkhash_hash_lib_glib_finish(struct hash_func_s *func, size_t *size)
 {
-	char *digest = g_strdup(g_checksum_get_string(LIB_DATA->checksum));
+	gssize len = g_checksum_type_get_length(LIB_DATA->type);
+	g_assert(len > 0);
+
+	*size = len;
+	uint8_t *digest = g_malloc0(*size);
+	g_checksum_get_digest(LIB_DATA->checksum, digest, size);
+	g_assert(*size == (size_t)len);
 
 	g_checksum_free(LIB_DATA->checksum);
 	g_free(LIB_DATA);

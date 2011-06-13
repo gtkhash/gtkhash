@@ -33,6 +33,7 @@
 #include "hash.h"
 #include "list.h"
 #include "prefs.h"
+#include "hash/digest-format.h"
 
 static GObject *gui_get_object(GtkBuilder *builder, const char *name)
 {
@@ -142,6 +143,8 @@ static void gui_get_objects(GtkBuilder *builder)
 		"dialog"));
 	gui.dialog_table = GTK_TABLE(gui_get_object(builder,
 		"dialog_table"));
+	gui.dialog_combobox = GTK_COMBO_BOX(gui_get_object(builder,
+		"dialog_combobox"));
 	gui.dialog_button_close = GTK_BUTTON(gui_get_object(builder,
 		"dialog_button_close"));
 }
@@ -220,6 +223,8 @@ void gui_init(const char *datadir)
 
 	callbacks_init();
 	gui_init_hash_funcs();
+
+	gtk_window_set_transient_for(GTK_WINDOW(gui.dialog), gui.window);
 }
 
 static bool gui_can_add_uri(char *uri, char **error_str)
@@ -359,6 +364,21 @@ enum gui_view_e gui_get_view(void)
 		return GUI_VIEW_FILE_LIST;
 	} else
 		g_assert_not_reached();
+}
+
+void gui_set_digest_format(const enum digest_format_e format)
+{
+	g_assert(DIGEST_FORMAT_IS_VALID(format));
+
+	gtk_combo_box_set_active(gui.dialog_combobox, format);
+}
+
+enum digest_format_e gui_get_digest_format(void)
+{
+	enum digest_format_e format = gtk_combo_box_get_active(gui.dialog_combobox);
+	g_assert(DIGEST_FORMAT_IS_VALID(format));
+
+	return format;
 }
 
 void gui_update(void)
