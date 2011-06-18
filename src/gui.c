@@ -510,12 +510,14 @@ void gui_set_state(const enum gui_state_e state)
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.hbox_input), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.hbox_output), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbar), !busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.treeview), !busy);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_text), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_file), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_file_list), !busy);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_table), !busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_combobox), !busy);
 
 	if (busy) {
 		gtk_window_set_default(gui.window, GTK_WIDGET(gui.button_stop));
