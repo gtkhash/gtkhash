@@ -107,6 +107,12 @@ void hash_file_start(const char *uri)
 	if (gui_get_view() != GUI_VIEW_FILE_LIST)
 		gtkhash_hash_file_clear_digests(&hash_priv.file_data);
 
+	GFile *file = g_file_new_for_uri(uri);
+	char *pname = g_file_get_parse_name(file);
+	gtk_progress_bar_set_text(gui.progressbar, pname);
+	g_free(pname);
+	g_object_unref(file);
+
 	gtkhash_hash_file_set_uri(&hash_priv.file_data, uri);
 	gtkhash_hash_file_set_stop(&hash_priv.file_data, false);
 	gtkhash_hash_file_set_state(&hash_priv.file_data, HASH_FILE_STATE_START);
