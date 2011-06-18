@@ -25,8 +25,6 @@
 
 struct {
 	struct hash_func_s funcs[HASH_FUNCS_N];
-	struct hash_file_s file_data;
-	GSList *uris;
 } hash;
 
 void hash_file_start(const char *uri);

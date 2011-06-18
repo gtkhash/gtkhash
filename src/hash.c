@@ -35,6 +35,13 @@
 #include "hash/hash-string.h"
 #include "hash/hash-file.h"
 
+static struct {
+	struct hash_file_s file_data;
+	GSList *uris;
+} hash_priv = {
+	.uris = NULL,
+};
+
 void gtkhash_hash_string_finish_cb(const enum hash_func_e id,
 	const char *digest)
 {
@@ -51,7 +58,7 @@ void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data, goffset file_size,
 
 void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 {
-	const bool stop = gtkhash_hash_file_get_stop(&hash.file_data);
+	const bool stop = gtkhash_hash_file_get_stop(&hash_priv.file_data);
 
 	switch (gui_get_view()) {
 		case GUI_VIEW_FILE: {
@@ -67,8 +74,8 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 			break;
 		}
 		case GUI_VIEW_FILE_LIST: {
-			g_assert(hash.uris);
-			g_assert(hash.uris->data);
+			g_assert(hash_priv.uris);
+			g_assert(hash_priv.uris->data);
 
 			if (stop)
 				break;
@@ -76,12 +83,13 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
 				const char *digest = gtkhash_hash_func_get_digest(&hash.funcs[i],
 					gui_get_digest_format());
-				list_set_digest(hash.uris->data, i, digest);
+				list_set_digest(hash_priv.uris->data, i, digest);
 			}
 
-			g_free(hash.uris->data);
-			if ((hash.uris = g_slist_delete_link(hash.uris, hash.uris))) {
-				hash_file_start(hash.uris->data);
+			g_free(hash_priv.uris->data);
+			hash_priv.uris = g_slist_delete_link(hash_priv.uris, hash_priv.uris);
+			if (hash_priv.uris) {
+				hash_file_start(hash_priv.uris->data);
 				return;
 			}
 
@@ -91,50 +99,61 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 			g_assert_not_reached();
 	}
 
-	gui_set_busy(false);
+	gui_set_state(GUI_STATE_IDLE);
 }
 
 void hash_file_start(const char *uri)
 {
 	if (gui_get_view() != GUI_VIEW_FILE_LIST)
-		gtkhash_hash_file_clear_digests(&hash.file_data);
+		gtkhash_hash_file_clear_digests(&hash_priv.file_data);
 
-	gtkhash_hash_file_set_uri(&hash.file_data, uri);
-	gtkhash_hash_file_set_stop(&hash.file_data, false);
-	gtkhash_hash_file_set_state(&hash.file_data, HASH_FILE_STATE_START);
-	gtkhash_hash_file_add_source(&hash.file_data);
+	gtkhash_hash_file_set_uri(&hash_priv.file_data, uri);
+	gtkhash_hash_file_set_stop(&hash_priv.file_data, false);
+	gtkhash_hash_file_set_state(&hash_priv.file_data, HASH_FILE_STATE_START);
+	gtkhash_hash_file_add_source(&hash_priv.file_data);
 }
 
 void hash_file_list_start(void)
 {
-	gtkhash_hash_file_clear_digests(&hash.file_data);
+	g_assert(!hash_priv.uris);
 
-	if (hash.uris)
-		g_slist_free_full(hash.uris, g_free);
+	gtkhash_hash_file_clear_digests(&hash_priv.file_data);
 
-	hash.uris = list_get_all_uris();
-	g_assert(hash.uris);
+	hash_priv.uris = list_get_all_uris();
+	g_assert(hash_priv.uris);
 
-	hash_file_start(hash.uris->data);
+	hash_file_start(hash_priv.uris->data);
 }
 
 void hash_file_stop(void)
 {
-	gtkhash_hash_file_set_stop(&hash.file_data, true);
+	gtkhash_hash_file_set_stop(&hash_priv.file_data, true);
 
-	while (gtkhash_hash_file_get_state(&hash.file_data) != HASH_FILE_STATE_IDLE)
+	while (gtkhash_hash_file_get_state(&hash_priv.file_data)
+		!= HASH_FILE_STATE_IDLE)
+	{
 		gtk_main_iteration_do(false);
+	}
+
+	if (hash_priv.uris) {
+		g_slist_free_full(hash_priv.uris, g_free);
+		hash_priv.uris = NULL;
+	}
 }
 
 void hash_init(void)
 {
 	gtkhash_hash_func_init_all(hash.funcs);
-	gtkhash_hash_file_init(&hash.file_data, hash.funcs, NULL);
-	hash.uris = NULL;
+	gtkhash_hash_file_init(&hash_priv.file_data, hash.funcs, NULL);
 }
 
 void hash_deinit(void)
 {
-	gtkhash_hash_file_deinit(&hash.file_data);
+	gtkhash_hash_file_deinit(&hash_priv.file_data);
 	gtkhash_hash_func_deinit_all(hash.funcs);
+
+	if (hash_priv.uris) {
+		g_slist_free_full(hash_priv.uris, g_free);
+		hash_priv.uris = NULL;
+	}
 }

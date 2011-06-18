@@ -41,7 +41,7 @@ static bool on_window_delete_event(void)
 
 static void on_menuitem_file_activate(void)
 {
-	if (gui.busy)
+	if (gui_get_state() == GUI_STATE_BUSY)
 		return;
 
 	bool sensitive = false;
@@ -367,7 +367,7 @@ static void on_button_hash_clicked(void)
 			return;
 	}
 
-	gui_set_busy(true);
+	gui_set_state(GUI_STATE_BUSY);
 	gui_clear_digests();
 
 	switch (gui_get_view()) {
@@ -380,7 +380,7 @@ static void on_button_hash_clicked(void)
 		case GUI_VIEW_TEXT: {
 			const char *str = gtk_entry_get_text(gui.entry);
 			gtkhash_hash_string(hash.funcs, str, gui_get_digest_format());
-			gui_set_busy(false);
+			gui_set_state(GUI_STATE_IDLE);
 			break;
 		}
 		case GUI_VIEW_FILE_LIST:
@@ -404,10 +404,10 @@ static bool on_dialog_delete_event(void)
 
 static void on_dialog_combobox_changed(void)
 {
-	gui_clear_digests();
-
 	if (gui_get_view() == GUI_VIEW_TEXT)
 		g_signal_emit_by_name(gui.button_hash, "clicked");
+	else
+		gui_clear_digests();
 }
 
 void callbacks_init(void)

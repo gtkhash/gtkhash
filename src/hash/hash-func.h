@@ -20,6 +20,7 @@
 #ifndef GTKHASH_HASH_HASH_FUNC_H
 #define GTKHASH_HASH_HASH_FUNC_H
 
+#include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
 

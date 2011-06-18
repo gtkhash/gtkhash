@@ -35,6 +35,12 @@
 #include "prefs.h"
 #include "hash/digest-format.h"
 
+static struct {
+	enum gui_state_e state;
+} gui_priv = {
+	.state = GUI_STATE_INVALID,
+};
+
 static GObject *gui_get_object(GtkBuilder *builder, const char *name)
 {
 	g_assert(name);
@@ -225,6 +231,8 @@ void gui_init(const char *datadir)
 	gui_init_hash_funcs();
 
 	gtk_window_set_transient_for(GTK_WINDOW(gui.dialog), gui.window);
+
+	gui_set_state(GUI_STATE_IDLE);
 }
 
 static bool gui_can_add_uri(char *uri, char **error_str)
@@ -482,12 +490,16 @@ void gui_clear_digests(void)
 	}
 }
 
-void gui_set_busy(const bool busy)
+void gui_set_state(const enum gui_state_e state)
 {
-	gui.busy = busy;
+	g_assert(GUI_STATE_IS_VALID(state));
+
+	gui_priv.state = state;
 
 	if (gui_get_view() == GUI_VIEW_TEXT)
 		return;
+
+	const bool busy = (state == GUI_STATE_BUSY);
 
 	gtk_widget_set_visible(GTK_WIDGET(gui.button_hash), !busy);
 	gtk_widget_set_visible(GTK_WIDGET(gui.button_stop), busy);
@@ -513,6 +525,13 @@ void gui_set_busy(const bool busy)
 		// User may already have menu open, so make sure save_as gets updated
 		g_signal_emit_by_name(gui.menuitem_file, "activate");
 	}
+}
+
+enum gui_state_e gui_get_state(void)
+{
+	g_assert(GUI_STATE_IS_VALID(gui_priv.state));
+
+	return gui_priv.state;
 }
 
 bool gui_is_maximised(void)

@@ -24,6 +24,7 @@
 	#error "don't use directly"
 #endif
 
+#include <stdlib.h>
 #include <stdint.h>
 
 #include "digest-format.h"

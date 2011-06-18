@@ -26,16 +26,22 @@
 #include "hash.h"
 
 #define GUI_VIEW_IS_VALID(X) (((X) >= 0) && ((X) <= GUI_VIEW_FILE_LIST))
+#define GUI_STATE_IS_VALID(X) (((X) >= 0) && ((X) <= GUI_STATE_BUSY))
 
 enum gui_view_e {
 	GUI_VIEW_INVALID = -1,
 	GUI_VIEW_FILE,
 	GUI_VIEW_TEXT,
-	GUI_VIEW_FILE_LIST
+	GUI_VIEW_FILE_LIST,
+};
+
+enum gui_state_e {
+	GUI_STATE_INVALID = -1,
+	GUI_STATE_IDLE,
+	GUI_STATE_BUSY,
 };
 
 struct {
-	bool busy;
 	GtkWindow *window;
 	GtkMenuItem *menuitem_file, *menuitem_save_as, *menuitem_quit;
 	GtkMenuItem *menuitem_edit;
@@ -79,7 +85,8 @@ void gui_set_digest_format(const enum digest_format_e format);
 enum digest_format_e gui_get_digest_format(void);
 void gui_update(void);
 void gui_clear_digests(void);
-void gui_set_busy(const bool set);
+void gui_set_state(const enum gui_state_e state);
+enum gui_state_e gui_get_state(void);
 bool gui_is_maximised(void);
 
 #endif

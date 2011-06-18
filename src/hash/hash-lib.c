@@ -50,7 +50,7 @@
 #endif
 
 enum hash_lib_e {
-	HASH_LIB_INVALID,
+	HASH_LIB_INVALID = 0,
 #if ENABLE_GCRYPT
 	HASH_LIB_GCRYPT,
 #endif
