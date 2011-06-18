@@ -19,4 +19,6 @@ gtkhash_CPPFLAGS = \
 	-DDATADIR="\"$(pkgdatadir)\"" \
 	-DLOCALEDIR="\"$(localedir)\""
 
+gtkhash_CFLAGS = $(GTKHASH_CFLAGS)
+
 gtkhash_LDADD = hash/hash.la $(GTHREAD_LIBS) $(GTK_LIBS)

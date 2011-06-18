@@ -12,6 +12,8 @@ libgtkhash_properties_la_CPPFLAGS = \
 	-DBUILDER_XML="\"$(pkgdatadir)/nautilus/gtkhash-properties.xml\"" \
 	-DLOCALEDIR="\"$(localedir)\""
 
+libgtkhash_properties_la_CFLAGS = $(GTKHASH_CFLAGS)
+
 libgtkhash_properties_la_LDFLAGS = \
 	-avoid-version \
 	-export-symbols-regex ^nautilus_module_ \

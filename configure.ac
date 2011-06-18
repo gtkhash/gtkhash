@@ -11,6 +11,8 @@ AC_PROG_CC_C99
 AM_PROG_CC_C_O
 LT_INIT
 
+GTKHASH_CFLAGS=""
+
 for opt in \
 	-pedantic \
 	-Wall \
@@ -30,12 +32,15 @@ for opt in \
 do
 	AC_MSG_CHECKING([whether "${CC}" accepts option "${opt}"])
 	ac_save_CFLAGS="${CFLAGS}"
-	CFLAGS="${CFLAGS} ${opt}"
+	CFLAGS="${GTKHASH_CFLAGS} ${opt} ${CFLAGS}"
 	AC_COMPILE_IFELSE(
 		[AC_LANG_PROGRAM([], [])],
-		[AC_MSG_RESULT([yes])],
-		[CFLAGS="${ac_save_CFLAGS}" ; AC_MSG_RESULT([no])])
+		[AC_MSG_RESULT([yes]) ; GTKHASH_CFLAGS="${GTKHASH_CFLAGS} ${opt}"],
+		[AC_MSG_RESULT([no])])
+	CFLAGS="${ac_save_CFLAGS}"
 done
+
+AC_SUBST([GTKHASH_CFLAGS])
 
 PKG_PROG_PKG_CONFIG
 

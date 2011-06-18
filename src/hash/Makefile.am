@@ -8,7 +8,9 @@ hash_la_SOURCES = \
 	hash-lib.c hash-lib.h \
 	hash-string.c hash-string.h
 
-hash_la_CPPFLAGS = -DIN_HASH_LIB $(GDK_CFLAGS)
+hash_la_CPPFLAGS = $(GDK_CFLAGS) -DIN_HASH_LIB
+
+hash_la_CFLAGS = $(GTKHASH_CFLAGS)
 
 hash_la_LDFLAGS = -avoid-version -module
 
