@@ -31,7 +31,7 @@
 #include "gui.h"
 #include "hash/digest-format.h"
 
-static void load_default_hash_funcs(void)
+static void default_hash_funcs(void)
 {
 	bool has_enabled = false;
 
@@ -61,6 +61,12 @@ static void load_default_hash_funcs(void)
 	exit(EXIT_FAILURE);
 }
 
+static void default_window_show_toolbar(void)
+{
+	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
+		gui.menuitem_treeview_show_toolbar), true);
+}
+
 static void load_hash_funcs(GKeyFile *keyfile)
 {
 	bool has_enabled = false;
@@ -84,7 +90,7 @@ static void load_hash_funcs(GKeyFile *keyfile)
 	}
 
 	if (!has_enabled)
-		load_default_hash_funcs();
+		default_hash_funcs();
 }
 
 static void load_digest_format(GKeyFile *keyfile)
@@ -101,7 +107,7 @@ static void load_digest_format(GKeyFile *keyfile)
 		gui_set_digest_format(format);
 }
 
-static void load_view(GKeyFile *keyfile)
+static void load_window_view(GKeyFile *keyfile)
 {
 	GError *error = NULL;
 	int view = g_key_file_get_integer(keyfile, "window", "view", &error);
@@ -113,6 +119,21 @@ static void load_view(GKeyFile *keyfile)
 
 	if (GUI_VIEW_IS_VALID(view))
 		gui_set_view((enum gui_view_e)view);
+}
+
+static void load_window_show_toolbar(GKeyFile *keyfile)
+{
+	GError *error = NULL;
+	bool show_toolbar = g_key_file_get_boolean(keyfile, "window",
+		"show-toolbar", &error);
+
+	if (error) {
+		g_error_free(error);
+		show_toolbar = true;
+	}
+
+	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
+		gui.menuitem_treeview_show_toolbar), show_toolbar);
 }
 
 static void load_window_size(GKeyFile *keyfile)
@@ -156,15 +177,18 @@ void prefs_load(void)
 	{
 		load_hash_funcs(keyfile);
 		load_digest_format(keyfile);
-		load_view(keyfile);
+		load_window_view(keyfile);
+		load_window_show_toolbar(keyfile);
 		load_window_size(keyfile);
 	}
 
 	g_free(filename);
 	g_key_file_free(keyfile);
 
-	if (!loaded)
-		load_default_hash_funcs();
+	if (!loaded) {
+		default_hash_funcs();
+		default_window_show_toolbar();
+	}
 
 	gui_update();
 }
@@ -181,9 +205,17 @@ static void save_digest_format(GKeyFile *keyfile)
 	g_key_file_set_integer(keyfile, "digest", "format", gui_get_digest_format());
 }
 
-static void save_view(GKeyFile *keyfile)
+static void save_window_view(GKeyFile *keyfile)
 {
 	g_key_file_set_integer(keyfile, "window", "view", gui_get_view());
+}
+
+static void save_window_show_toolbar(GKeyFile *keyfile)
+{
+	const bool show_toolbar = gtk_check_menu_item_get_active(
+		GTK_CHECK_MENU_ITEM(gui.menuitem_treeview_show_toolbar));
+
+	g_key_file_set_boolean(keyfile, "window", "show-toolbar", show_toolbar);
 }
 
 static void save_window_size(GKeyFile *keyfile)
@@ -207,7 +239,8 @@ void prefs_save(void)
 
 	save_hash_funcs(keyfile);
 	save_digest_format(keyfile);
-	save_view(keyfile);
+	save_window_view(keyfile);
+	save_window_show_toolbar(keyfile);
 	save_window_size(keyfile);
 
 	data = g_key_file_to_data(keyfile, NULL, NULL);

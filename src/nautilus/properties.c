@@ -80,8 +80,8 @@ static void gtkhash_properties_on_treeview_popup_menu(struct page_s *page)
 		gtk_get_current_event_time());
 }
 
-static bool gtkhash_properties_on_treeview_button_press(struct page_s *page,
-	GdkEventButton *event)
+static bool gtkhash_properties_on_treeview_button_press_event(
+	struct page_s *page, GdkEventButton *event)
 {
 	// Right click
 	if (event->type == GDK_BUTTON_PRESS && event->button == 3) {
@@ -92,7 +92,7 @@ static bool gtkhash_properties_on_treeview_button_press(struct page_s *page,
 	return false;
 }
 
-static void gtkhash_properties_on_treeview_cursor_changed(struct page_s *page)
+static void gtkhash_properties_on_treeselection_changed(struct page_s *page)
 {
 	bool sensitive = false;
 	char *digest = gtkhash_properties_list_get_selected_digest(page);
@@ -148,7 +148,8 @@ static void gtkhash_properties_get_objects(struct page_s *page,
 	GtkBuilder *builder)
 {
 	// Main container
-	page->box = GTK_WIDGET(gtkhash_properties_get_object(builder, "vbox"));
+	page->box = GTK_WIDGET(gtkhash_properties_get_object(builder,
+		"vbox"));
 
 	// Progress bar
 	page->progressbar = GTK_PROGRESS_BAR(gtkhash_properties_get_object(builder,
@@ -157,6 +158,8 @@ static void gtkhash_properties_get_objects(struct page_s *page,
 	// Treeview
 	page->treeview = GTK_TREE_VIEW(gtkhash_properties_get_object(builder,
 		"treeview"));
+	page->treeselection = GTK_TREE_SELECTION(gtkhash_properties_get_object(builder,
+		"treeselection"));
 	page->cellrendtoggle = GTK_CELL_RENDERER_TOGGLE(gtkhash_properties_get_object(builder,
 		"cellrenderertoggle"));
 
@@ -187,9 +190,9 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 	g_signal_connect_swapped(page->treeview, "popup-menu",
 		G_CALLBACK(gtkhash_properties_on_treeview_popup_menu), page);
 	g_signal_connect_swapped(page->treeview, "button-press-event",
-		G_CALLBACK(gtkhash_properties_on_treeview_button_press), page);
-	g_signal_connect_swapped(page->treeview, "cursor-changed",
-		G_CALLBACK(gtkhash_properties_on_treeview_cursor_changed), page);
+		G_CALLBACK(gtkhash_properties_on_treeview_button_press_event), page);
+	g_signal_connect_swapped(page->treeselection, "changed",
+		G_CALLBACK(gtkhash_properties_on_treeselection_changed), page);
 
 	// Popup menu
 	g_signal_connect_swapped(page->menuitem_copy, "activate",

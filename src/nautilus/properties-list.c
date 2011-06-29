@@ -94,11 +94,9 @@ void gtkhash_properties_list_update_digests(struct page_s *page)
 
 char *gtkhash_properties_list_get_selected_digest(struct page_s *page)
 {
-	GtkTreeSelection *selection = gtk_tree_view_get_selection(page->treeview);
-
 	GtkTreeIter iter;
 	GtkTreeModel *model;
-	if (!gtk_tree_selection_get_selected(selection, &model, &iter))
+	if (!gtk_tree_selection_get_selected(page->treeselection, &model, &iter))
 		return NULL;
 
 	char *digest = NULL;;

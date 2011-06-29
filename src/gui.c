@@ -131,6 +131,20 @@ static void gui_get_objects(GtkBuilder *builder)
 		"treeview"));
 	gui.treeselection = GTK_TREE_SELECTION(gui_get_object(builder,
 		"treeselection"));
+	gui.menu_treeview = GTK_MENU(gui_get_object(builder,
+		"menu_treeview"));
+	gui.menuitem_treeview_add = GTK_MENU_ITEM(gui_get_object(builder,
+		"menuitem_treeview_add"));
+	gui.menuitem_treeview_remove = GTK_MENU_ITEM(gui_get_object(builder,
+		"menuitem_treeview_remove"));
+	gui.menuitem_treeview_clear = GTK_MENU_ITEM(gui_get_object(builder,
+		"menuitem_treeview_clear"));
+	gui.menu_treeview_copy = GTK_MENU(gui_get_object(builder,
+		"menu_treeview_copy"));
+	gui.menuitem_treeview_copy = GTK_MENU_ITEM(gui_get_object(builder,
+		"menuitem_treeview_copy"));
+	gui.menuitem_treeview_show_toolbar = GTK_MENU_ITEM(gui_get_object(builder,
+		"menuitem_treeview_show_toolbar"));
 
 	// Buttons
 	gui.hseparator_buttons = GTK_HSEPARATOR(gui_get_object(builder,
@@ -158,22 +172,39 @@ static void gui_get_objects(GtkBuilder *builder)
 static void gui_init_hash_funcs(void)
 {
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		gui.hash_widgets[i].button = GTK_TOGGLE_BUTTON(
-			gtk_check_button_new_with_label(hash.funcs[i].name));
-		g_signal_connect(G_OBJECT(gui.hash_widgets[i].button), "toggled",
-			gui_update, NULL);
-		if (!hash.funcs[i].supported)
-			gtk_widget_set_sensitive(GTK_WIDGET(gui.hash_widgets[i].button),
-				false);
-
-		// Label the digest outputs
+		// File/Text view func labels
 		char *label = g_strdup_printf("%s:", hash.funcs[i].name);
 		gui.hash_widgets[i].label = GTK_LABEL(gtk_label_new(label));
 		g_free(label);
+		gtk_container_add(GTK_CONTAINER(gui.vbox_outputlabels),
+			GTK_WIDGET(gui.hash_widgets[i].label));
+		gtk_misc_set_alignment(GTK_MISC(gui.hash_widgets[i].label),
+			// Left align
+			0.0, 0.5);
 
+		// File view digests
 		gui.hash_widgets[i].entry_file = GTK_ENTRY(gtk_entry_new());
-		gui.hash_widgets[i].entry_text = GTK_ENTRY(gtk_entry_new());
+		gtk_container_add(GTK_CONTAINER(gui.vbox_digests_file),
+			GTK_WIDGET(gui.hash_widgets[i].entry_file));
+		gtk_editable_set_editable(GTK_EDITABLE(gui.hash_widgets[i].entry_file), false);
 
+		// Text view digests
+		gui.hash_widgets[i].entry_text = GTK_ENTRY(gtk_entry_new());
+		gtk_container_add(GTK_CONTAINER(gui.vbox_digests_text),
+			GTK_WIDGET(gui.hash_widgets[i].entry_text));
+		gtk_editable_set_editable(GTK_EDITABLE(gui.hash_widgets[i].entry_text), false);
+
+		// File list treeview popup menu
+		gui.hash_widgets[i].menuitem_treeview_copy =
+			GTK_MENU_ITEM(gtk_menu_item_new_with_label(hash.funcs[i].name));
+		gtk_menu_shell_append(GTK_MENU_SHELL(gui.menu_treeview_copy),
+			GTK_WIDGET(gui.hash_widgets[i].menuitem_treeview_copy));
+
+		// Dialog checkbuttons
+		gui.hash_widgets[i].button = GTK_TOGGLE_BUTTON(
+			gtk_check_button_new_with_label(hash.funcs[i].name));
+		gtk_widget_set_sensitive(GTK_WIDGET(gui.hash_widgets[i].button),
+			hash.funcs[i].supported);
 		gtk_table_attach_defaults(gui.dialog_table,
 			GTK_WIDGET(gui.hash_widgets[i].button),
 			// Sort checkbuttons into 2 columns
@@ -181,20 +212,6 @@ static void gui_init_hash_funcs(void)
 			i % 2 ? 2 : 1,
 			i / 2,
 			i / 2 + 1);
-
-		gtk_container_add(GTK_CONTAINER(gui.vbox_outputlabels),
-			GTK_WIDGET(gui.hash_widgets[i].label));
-		// Left align
-		gtk_misc_set_alignment(GTK_MISC(gui.hash_widgets[i].label), 0.0, 0.5);
-
-		gtk_container_add(GTK_CONTAINER(gui.vbox_digests_file),
-			GTK_WIDGET(gui.hash_widgets[i].entry_file));
-		gtk_editable_set_editable(GTK_EDITABLE(gui.hash_widgets[i].entry_file), false);
-
-		gtk_container_add(GTK_CONTAINER(gui.vbox_digests_text),
-			GTK_WIDGET(gui.hash_widgets[i].entry_text));
-		gtk_editable_set_editable(GTK_EDITABLE(gui.hash_widgets[i].entry_text), false);
-
 		gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].button));
 	}
 }
@@ -225,14 +242,16 @@ void gui_init(const char *datadir)
 	}
 
 	gui_get_objects(builder);
+	g_object_ref(gui.menu_treeview);
 	g_object_unref(builder);
 
-	callbacks_init();
 	gui_init_hash_funcs();
 
 	gtk_window_set_transient_for(GTK_WINDOW(gui.dialog), gui.window);
 
 	gui_set_state(GUI_STATE_IDLE);
+
+	callbacks_init();
 }
 
 static bool gui_can_add_uri(char *uri, char **error_str)
@@ -394,22 +413,22 @@ void gui_update(void)
 	bool has_enabled = false;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (hash.funcs[i].supported)
+		if (hash.funcs[i].supported) {
 			hash.funcs[i].enabled = gtk_toggle_button_get_active(
 				gui.hash_widgets[i].button);
-		else {
+			if (hash.funcs[i].enabled)
+				has_enabled = true;
+		} else
 			hash.funcs[i].enabled = false;
-		}
-		if (hash.funcs[i].enabled) {
-			gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].label));
-			gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].entry_file));
-			gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].entry_text));
-			has_enabled = true;
-		} else {
-			gtk_widget_hide(GTK_WIDGET(gui.hash_widgets[i].label));
-			gtk_widget_hide(GTK_WIDGET(gui.hash_widgets[i].entry_file));
-			gtk_widget_hide(GTK_WIDGET(gui.hash_widgets[i].entry_text));
-		}
+
+		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].label),
+			hash.funcs[i].enabled);
+		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].entry_file),
+			hash.funcs[i].enabled);
+		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].entry_text),
+			hash.funcs[i].enabled);
+		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].menuitem_treeview_copy),
+			hash.funcs[i].enabled);
 	}
 
 	list_update();
@@ -458,17 +477,18 @@ void gui_update(void)
 		case GUI_VIEW_FILE_LIST:
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_single));
 			gtk_widget_hide(GTK_WIDGET(gui.hseparator_buttons));
-			gtk_widget_show(GTK_WIDGET(gui.toolbar));
 			gtk_widget_show(GTK_WIDGET(gui.vbox_list));
 			gtk_widget_show(GTK_WIDGET(gui.button_hash));
 
+			gtk_widget_set_visible(GTK_WIDGET(gui.toolbar),
+				gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
+					gui.menuitem_treeview_show_toolbar)));
 			gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash),
-				has_enabled && list_count_rows());
+				has_enabled && (list_count_rows() > 0));
 			break;
 		default:
 			g_assert_not_reached();
 	}
-
 }
 
 void gui_clear_digests(void)

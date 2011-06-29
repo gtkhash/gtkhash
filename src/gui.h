@@ -61,6 +61,12 @@ struct {
 	GtkTreeSelection *treeselection;
 	GtkTreeModel *treemodel;
 	GtkListStore *liststore;
+	GtkMenu *menu_treeview;
+	GtkMenuItem *menuitem_treeview_add, *menuitem_treeview_remove;
+	GtkMenuItem *menuitem_treeview_clear;
+	GtkMenu *menu_treeview_copy;
+	GtkMenuItem *menuitem_treeview_copy;
+	GtkMenuItem *menuitem_treeview_show_toolbar;
 	GtkHSeparator *hseparator_buttons;
 	GtkProgressBar *progressbar;
 	GtkButton *button_hash, *button_stop;
@@ -72,6 +78,7 @@ struct {
 		GtkToggleButton *button;
 		GtkLabel *label;
 		GtkEntry *entry_file, *entry_text;
+		GtkMenuItem *menuitem_treeview_copy;
 	} hash_widgets[HASH_FUNCS_N];
 } gui;
 

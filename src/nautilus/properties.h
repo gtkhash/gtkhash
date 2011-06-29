@@ -35,6 +35,7 @@ struct page_s {
 	GtkWidget *box;
 	GtkProgressBar *progressbar;
 	GtkTreeView *treeview;
+	GtkTreeSelection *treeselection;
 	GtkCellRendererToggle *cellrendtoggle;
 	GtkMenu *menu;
 	GtkImageMenuItem *menuitem_copy;

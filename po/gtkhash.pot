@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-13 19:44+0100\n"
+"POT-Creation-Date: 2011-06-29 15:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,58 +22,66 @@ msgid "Base64"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:2
-msgid "Digest Format:"
+msgid "Copy _Digest"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:3
-msgid "File _List"
+msgid "Digest Format:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:4
-msgid "File:"
+msgid "File _List"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:5
-msgid "GtkHash Preferences"
+msgid "File:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:6
-msgid "Ha_sh"
+msgid "GtkHash Preferences"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:7
-msgid "Hash Functions:"
+msgid "Ha_sh"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:8
-msgid "Lowercase Hexadecimal"
+msgid "Hash Functions:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:9
-msgid "Text:"
+msgid "Lowercase Hexadecimal"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:10
-msgid "Uppercase Hexadecimal"
+msgid "Show _Toolbar"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:11
-msgid "_Edit"
+msgid "Text:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:12
-msgid "_File"
+msgid "Uppercase Hexadecimal"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:13
-msgid "_Help"
+msgid "_Edit"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:14
-msgid "_Text"
+msgid "_File"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:15
+msgid "_Help"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:16
+msgid "_Text"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:17
 msgid "_View"
 msgstr ""
 
@@ -113,15 +121,15 @@ msgstr ""
 msgid "Select Files"
 msgstr ""
 
-#: ../src/gui.c:251
+#: ../src/gui.c:278
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:273
+#: ../src/gui.c:300
 msgid "Unknown error"
 msgstr ""
 
-#: ../src/gui.c:277
+#: ../src/gui.c:304
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -148,7 +156,7 @@ msgstr ""
 msgid "Failed to enable any supported hash functions."
 msgstr ""
 
-#: ../src/nautilus/properties.c:256
+#: ../src/nautilus/properties.c:259
 msgid "Digests"
 msgstr ""
 

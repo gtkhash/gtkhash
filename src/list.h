@@ -33,6 +33,7 @@ unsigned int list_count_rows(void);
 void list_set_digest(const char *uri, const enum hash_func_e id,
 	const char *digest);
 char *list_get_digest(const unsigned int row, const enum hash_func_e id);
+char *list_get_selected_digest(const enum hash_func_e id);
 void list_clear_digests(void);
 void list_clear(void);
 

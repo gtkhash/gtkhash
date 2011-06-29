@@ -60,6 +60,8 @@ void list_init(void)
 
 	gtk_tree_view_set_model(gui.treeview, gui.treemodel);
 
+	gtk_tree_selection_set_mode(gui.treeselection, GTK_SELECTION_MULTIPLE);
+
 	const GtkTargetEntry targets[] = {
 		{ (char *)"text/uri-list", 0, 0 }
 	};
@@ -93,14 +95,14 @@ void list_append_row(const char *uri)
 	g_free(pname);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_clear), true);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_clear), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), true);
 	gtk_widget_grab_focus(GTK_WIDGET(gui.button_hash));
 }
 
 void list_remove_selection(void)
 {
-	GtkTreeSelection *selection = gtk_tree_view_get_selection(gui.treeview);
-	GList *rows = gtk_tree_selection_get_selected_rows(selection,
+	GList *rows = gtk_tree_selection_get_selected_rows(gui.treeselection,
 		&gui.treemodel);
 
 	for (GList *i = rows; i != NULL; i = i->next) {
@@ -125,8 +127,9 @@ void list_remove_selection(void)
 
 	g_list_free(rows);
 
-	if (!list_count_rows()) {
+	if (list_count_rows() == 0) {
 		gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_clear), false);
+		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_clear), false);
 		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
 	}
 }
@@ -258,6 +261,23 @@ char *list_get_digest(const unsigned int row, const enum hash_func_e id)
 	return digest;
 }
 
+char *list_get_selected_digest(const enum hash_func_e id)
+{
+	GList *rows = gtk_tree_selection_get_selected_rows(gui.treeselection,
+		&gui.treemodel);
+
+	// Should only have one row selected
+	g_assert(!rows->next);
+
+	GtkTreePath *path = rows->data;
+	unsigned int row = *gtk_tree_path_get_indices(path);
+
+	gtk_tree_path_free(path);
+	g_list_free(rows);
+
+	return list_get_digest(row, id);
+}
+
 void list_clear_digests(void)
 {
 	GtkTreeIter iter;
@@ -275,5 +295,6 @@ void list_clear(void)
 {
 	gtk_list_store_clear(gui.liststore);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_clear), false);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_clear), false);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
 }
