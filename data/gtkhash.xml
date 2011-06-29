@@ -720,7 +720,7 @@
                               <object class="GtkTreeViewColumn" id="treeviewcolumn_file">
                                 <property name="resizable">True</property>
                                 <property name="sizing">autosize</property>
-                                <property name="title">File</property>
+                                <property name="title" translatable="yes">File</property>
                                 <child>
                                   <object class="GtkCellRendererText" id="cellrenderertext_file"/>
                                   <attributes>
