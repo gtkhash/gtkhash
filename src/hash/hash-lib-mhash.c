@@ -42,15 +42,6 @@ static bool gtkhash_hash_lib_mhash_set_type(const enum hash_func_e id,
 	hashid *type)
 {
 	switch (id) {
-		case HASH_FUNC_ADLER32:
-			*type = MHASH_ADLER32;
-			break;
-		case HASH_FUNC_CRC32:
-			*type = MHASH_CRC32;
-			break;
-		case HASH_FUNC_CRC32B:
-			*type = MHASH_CRC32B;
-			break;
 		case HASH_FUNC_GOST:
 			*type = MHASH_GOST;
 			break;

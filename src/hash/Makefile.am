@@ -42,3 +42,9 @@ hash_la_SOURCES += hash-lib-nss.c hash-lib-nss.h
 hash_la_CPPFLAGS += $(NSS_CFLAGS)
 hash_la_LIBADD += $(NSS_LIBS)
 endif
+
+if ENABLE_ZLIB
+hash_la_SOURCES += hash-lib-zlib.c hash-lib-zlib.h
+hash_la_CPPFLAGS += $(ZLIB_CFLAGS)
+hash_la_LIBADD += $(ZLIB_LIBS)
+endif

@@ -32,7 +32,6 @@
 static const char * const hash_func_names[HASH_FUNCS_N] = {
 	[HASH_FUNC_ADLER32]      = "ADLER32",
 	[HASH_FUNC_CRC32]        = "CRC32",
-	[HASH_FUNC_CRC32B]       = "CRC32B",
 	[HASH_FUNC_GOST]         = "GOST",
 	[HASH_FUNC_HAVAL128_3]   = "HAVAL128-3",
 	[HASH_FUNC_HAVAL160_3]   = "HAVAL160-3",

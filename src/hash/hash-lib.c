@@ -49,6 +49,10 @@
 	#include "hash-lib-nss.h"
 #endif
 
+#if ENABLE_ZLIB
+	#include "hash-lib-zlib.h"
+#endif
+
 enum hash_lib_e {
 	HASH_LIB_INVALID = 0,
 #if ENABLE_GCRYPT
@@ -66,6 +70,9 @@ enum hash_lib_e {
 #if ENABLE_NSS
 	HASH_LIB_NSS,
 #endif
+#if ENABLE_ZLIB
+	HASH_LIB_ZLIB,
+#endif
 };
 
 // Currently selected lib for each hash func
@@ -75,6 +82,10 @@ static void gtkhash_hash_lib_init_once(void)
 {
 	// Note: Preferred lib selections are defined by the order used here
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
+#if ENABLE_ZLIB
+		if (!hash_libs[i] && gtkhash_hash_lib_zlib_is_supported(i))
+			hash_libs[i] = HASH_LIB_ZLIB;
+#endif
 #if ENABLE_LINUX_CRYPTO
 		if (!hash_libs[i] && gtkhash_hash_lib_linux_is_supported(i))
 			hash_libs[i] = HASH_LIB_LINUX;
@@ -130,6 +141,9 @@ void gtkhash_hash_lib_start(struct hash_func_s *func)
 #if ENABLE_NSS
 		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_start,
 #endif
+#if ENABLE_ZLIB
+		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_start,
+#endif
 	};
 
 	start_funcs[hash_libs[func->id]](func);
@@ -163,6 +177,9 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 #if ENABLE_NSS
 		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_update,
 #endif
+#if ENABLE_ZLIB
+		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_update,
+#endif
 	};
 
 	update_funcs[hash_libs[func->id]](func, buffer, size);
@@ -191,6 +208,9 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 #endif
 #if ENABLE_NSS
 		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_stop,
+#endif
+#if ENABLE_ZLIB
+		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_stop,
 #endif
 	};
 
@@ -221,6 +241,9 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 #endif
 #if ENABLE_NSS
 		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_finish,
+#endif
+#if ENABLE_ZLIB
+		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_finish,
 #endif
 	};
 

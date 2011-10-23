@@ -66,6 +66,22 @@ AC_SUBST([GTK_LIBS])
 
 hash_libs=""
 
+AC_MSG_CHECKING([whether to use zlib])
+AC_ARG_ENABLE([zlib],
+	[AS_HELP_STRING([--disable-zlib], [do not use zlib])],
+	[enable_zlib="${enableval}"], [enable_zlib="yes"])
+AC_MSG_RESULT(["${enable_zlib}"])
+AM_CONDITIONAL([ENABLE_ZLIB], [test "${enable_zlib}" = "yes"])
+AC_DEFINE([ENABLE_ZLIB], [0], [Use zlib])
+
+if test "${enable_zlib}" = "yes" ; then
+	PKG_CHECK_MODULES([ZLIB], [zlib])
+	AC_SUBST([ZLIB_CFLAGS])
+	AC_SUBST([ZLIB_LIBS])
+	hash_libs="${hash_libs} zlib"
+	AC_DEFINE([ENABLE_ZLIB], [1])
+fi
+
 AC_MSG_CHECKING([whether to use the Linux-2.6.38+ hash algorithm interface])
 AC_ARG_ENABLE([linux-crypto],
 	[AS_HELP_STRING([--enable-linux-crypto], [use the Linux-2.6.38+ hash algorithm interface])],
@@ -221,12 +237,13 @@ mhash_funcs="
 	WHIRLPOOL
 	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3
 	GOST
-	SNEFRU128 SNEFRU256
-	CRC32 CRC32B
-	ADLER32"
+	SNEFRU128 SNEFRU256"
 nss_funcs="
 	MD2 MD5
 	SHA1 SHA256 SHA384 SHA512"
+zlib_funcs="
+	CRC32
+	ADLER32"
 echo
 echo "Supported Hash Functions:"
 for func in \
@@ -238,7 +255,7 @@ for func in \
 	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3 \
 	GOST \
 	SNEFRU128 SNEFRU256 \
-	CRC32 CRC32B \
+	CRC32 \
 	ADLER32
 do
 	printf "  %-14s" "${func}"
