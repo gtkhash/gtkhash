@@ -1,16 +1,16 @@
-# German translation for gtkhash
-# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# Galician translation for gtkhash
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 # This file is distributed under the same license as the gtkhash package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-06-29 15:45+0100\n"
-"PO-Revision-Date: 2010-03-29 14:28+0000\n"
-"Last-Translator: Jonas Endersch <Unknown>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2011-04-25 21:04+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
+"Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -35,11 +35,11 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:5
 msgid "File _List"
-msgstr "Dateiliste"
+msgstr "_Lista de ficheiros"
 
 #: ../data/gtkhash.xml.h:6
 msgid "File:"
-msgstr "Datei:"
+msgstr "Ficheiro:"
 
 #: ../data/gtkhash.xml.h:7
 msgid "GtkHash Preferences"
@@ -47,7 +47,7 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:8
 msgid "Ha_sh"
-msgstr ""
+msgstr "Ha_sh"
 
 #: ../data/gtkhash.xml.h:9
 msgid "Hash Functions:"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:12
 msgid "Text:"
-msgstr "Text:"
+msgstr "Texto:"
 
 #: ../data/gtkhash.xml.h:13
 msgid "Uppercase Hexadecimal"
@@ -71,47 +71,47 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:14
 msgid "_Edit"
-msgstr "_Bearbeiten"
+msgstr "_Editar"
 
 #: ../data/gtkhash.xml.h:15
 msgid "_File"
-msgstr "_Datei"
+msgstr "_Ficheiro"
 
 #: ../data/gtkhash.xml.h:16
 msgid "_Help"
-msgstr "_Hilfe"
+msgstr "_Axuda"
 
 #: ../data/gtkhash.xml.h:17
 msgid "_Text"
-msgstr "_Text"
+msgstr "_Texto"
 
 #: ../data/gtkhash.xml.h:18
 msgid "_View"
-msgstr "_Ansicht"
+msgstr "_Ver"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "Digest"
-msgstr ""
+msgstr "Valor hash"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "H_ash"
-msgstr ""
+msgstr "H_ash"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
-msgstr "Hash Funktion"
+msgstr "Función de hash"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Show _Disabled Hash Functions"
-msgstr ""
+msgstr "Mostrar as funcións de hash _desactivadas"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "_Copy Digest"
-msgstr ""
+msgstr "_Copiar o valor hash"
 
 #: ../src/callbacks.c:85
 msgid "Save Digests"
-msgstr ""
+msgstr "Gardar o valor hash"
 
 #: ../src/callbacks.c:269
 msgid "A GTK+ utility for computing message digests or checksums."
@@ -121,12 +121,12 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Patrick Kolesa https://launchpad.net/~pkol.\n"
-"  u2ix https://launchpad.net/~u2ix"
+"  Marcos Lans https://launchpad.net/~markooss\n"
+"  Miguel Anxo Bouzada https://launchpad.net/~mbouzada"
 
 #: ../src/callbacks.c:300
 msgid "Select Files"
-msgstr "Dateien auswählen"
+msgstr "Seleccionar os ficheiros"
 
 #: ../src/gui.c:278
 msgid "Not a regular file"
@@ -157,32 +157,32 @@ msgstr ""
 
 #: ../src/main.c:80
 msgid "[FILE|URI...]"
-msgstr ""
+msgstr "[FICHEIRO|URI...]"
 
 #: ../src/prefs.c:57
 msgid "Failed to enable any supported hash functions."
-msgstr ""
+msgstr "Produciuse un fallo ao activar todas as funcións hash admitidas."
 
 #: ../src/nautilus/properties.c:259
 msgid "Digests"
-msgstr ""
+msgstr "Valores hash"
 
 #: ../src/nautilus/properties-hash.c:61
 #, c-format
 msgid "%s of %s - 1 minute left (%s/sec)"
-msgstr ""
+msgstr "%s de %s - resta 1 minuto (%s/seg)"
 
 #: ../src/nautilus/properties-hash.c:64
 #, c-format
 msgid "%s of %s - %u minutes left (%s/sec)"
-msgstr ""
+msgstr "%s de %s - restan %u minutos (%s/seg)"
 
 #: ../src/nautilus/properties-hash.c:68
 #, c-format
 msgid "%s of %s - 1 second left (%s/sec)"
-msgstr ""
+msgstr "%s de %s - resta 1 segundo (%s/seg)"
 
 #: ../src/nautilus/properties-hash.c:71
 #, c-format
 msgid "%s of %s - %u seconds left (%s/sec)"
-msgstr ""
+msgstr "%s de %s - restan %u segundos (%s/seg)"

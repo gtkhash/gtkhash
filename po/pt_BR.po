@@ -1,16 +1,16 @@
-# German translation for gtkhash
-# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# Brazilian Portuguese translation for gtkhash
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the gtkhash package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-06-29 15:45+0100\n"
-"PO-Revision-Date: 2010-03-29 14:28+0000\n"
-"Last-Translator: Jonas Endersch <Unknown>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2011-02-17 17:04+0000\n"
+"Last-Translator: André Gondim <Unknown>\n"
+"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -35,11 +35,11 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:5
 msgid "File _List"
-msgstr "Dateiliste"
+msgstr "_Lista de arquivos"
 
 #: ../data/gtkhash.xml.h:6
 msgid "File:"
-msgstr "Datei:"
+msgstr "Arquivo:"
 
 #: ../data/gtkhash.xml.h:7
 msgid "GtkHash Preferences"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:12
 msgid "Text:"
-msgstr "Text:"
+msgstr "Texto:"
 
 #: ../data/gtkhash.xml.h:13
 msgid "Uppercase Hexadecimal"
@@ -71,43 +71,43 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:14
 msgid "_Edit"
-msgstr "_Bearbeiten"
+msgstr "_Editar"
 
 #: ../data/gtkhash.xml.h:15
 msgid "_File"
-msgstr "_Datei"
+msgstr "_Arquivo"
 
 #: ../data/gtkhash.xml.h:16
 msgid "_Help"
-msgstr "_Hilfe"
+msgstr "Aj_uda"
 
 #: ../data/gtkhash.xml.h:17
 msgid "_Text"
-msgstr "_Text"
+msgstr "_Texto"
 
 #: ../data/gtkhash.xml.h:18
 msgid "_View"
-msgstr "_Ansicht"
+msgstr "_Visualizar"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "Digest"
-msgstr ""
+msgstr "Resenha"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "H_ash"
-msgstr ""
+msgstr "H_ash"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
-msgstr "Hash Funktion"
+msgstr "Função Hash"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Show _Disabled Hash Functions"
-msgstr ""
+msgstr "Mostrar funções hash _desabilitadas"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "_Copy Digest"
-msgstr ""
+msgstr "_Copiar resenha"
 
 #: ../src/callbacks.c:85
 msgid "Save Digests"
@@ -121,12 +121,12 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Patrick Kolesa https://launchpad.net/~pkol.\n"
-"  u2ix https://launchpad.net/~u2ix"
+"  André Gondim https://launchpad.net/~andregondim\n"
+"  Cristiano Nunes https://launchpad.net/~cfgnunes"
 
 #: ../src/callbacks.c:300
 msgid "Select Files"
-msgstr "Dateien auswählen"
+msgstr "Selecionar arquivos"
 
 #: ../src/gui.c:278
 msgid "Not a regular file"
@@ -165,7 +165,7 @@ msgstr ""
 
 #: ../src/nautilus/properties.c:259
 msgid "Digests"
-msgstr ""
+msgstr "Resenhas"
 
 #: ../src/nautilus/properties-hash.c:61
 #, c-format

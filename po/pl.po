@@ -1,16 +1,16 @@
-# German translation for gtkhash
-# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# Polish translation for gtkhash
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the gtkhash package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-06-29 15:45+0100\n"
-"PO-Revision-Date: 2010-03-29 14:28+0000\n"
-"Last-Translator: Jonas Endersch <Unknown>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2011-10-19 16:00+0000\n"
+"Last-Translator: Łukasz Szeremeta <Unknown>\n"
+"Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,39 +19,39 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:1
 msgid "Base64"
-msgstr ""
+msgstr "Base64"
 
 #: ../data/gtkhash.xml.h:2
 msgid "Copy _Digest"
-msgstr ""
+msgstr "Skopiuj _sumę kontroną"
 
 #: ../data/gtkhash.xml.h:3
 msgid "Digest Format:"
-msgstr ""
+msgstr "Format sumy kontrolnej:"
 
 #: ../data/gtkhash.xml.h:4
 msgid "File"
-msgstr ""
+msgstr "Plik"
 
 #: ../data/gtkhash.xml.h:5
 msgid "File _List"
-msgstr "Dateiliste"
+msgstr "_Lista plików"
 
 #: ../data/gtkhash.xml.h:6
 msgid "File:"
-msgstr "Datei:"
+msgstr "Plik:"
 
 #: ../data/gtkhash.xml.h:7
 msgid "GtkHash Preferences"
-msgstr ""
+msgstr "GtkHash Preferencje"
 
 #: ../data/gtkhash.xml.h:8
 msgid "Ha_sh"
-msgstr ""
+msgstr "Ha_sh"
 
 #: ../data/gtkhash.xml.h:9
 msgid "Hash Functions:"
-msgstr ""
+msgstr "Hash Funkcje:"
 
 #: ../data/gtkhash.xml.h:10
 msgid "Lowercase Hexadecimal"
@@ -59,11 +59,11 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:11
 msgid "Show _Toolbar"
-msgstr ""
+msgstr "Pokaż pasek _narzędzi"
 
 #: ../data/gtkhash.xml.h:12
 msgid "Text:"
-msgstr "Text:"
+msgstr "Tekst:"
 
 #: ../data/gtkhash.xml.h:13
 msgid "Uppercase Hexadecimal"
@@ -71,70 +71,69 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:14
 msgid "_Edit"
-msgstr "_Bearbeiten"
+msgstr "_Edytuj"
 
 #: ../data/gtkhash.xml.h:15
 msgid "_File"
-msgstr "_Datei"
+msgstr "_Plik"
 
 #: ../data/gtkhash.xml.h:16
 msgid "_Help"
-msgstr "_Hilfe"
+msgstr "_Pomoc"
 
 #: ../data/gtkhash.xml.h:17
 msgid "_Text"
-msgstr "_Text"
+msgstr "_Tekst"
 
 #: ../data/gtkhash.xml.h:18
 msgid "_View"
-msgstr "_Ansicht"
+msgstr "_Widok"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "Digest"
-msgstr ""
+msgstr "Sumy kontrolne"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "H_ash"
-msgstr ""
+msgstr "H_ash"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
-msgstr "Hash Funktion"
+msgstr "Funkcje Hash"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Show _Disabled Hash Functions"
-msgstr ""
+msgstr "Pokaż _Niekatywne Funkcje Hash"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "_Copy Digest"
-msgstr ""
+msgstr "_Skopiuj sumę kontrolną"
 
 #: ../src/callbacks.c:85
 msgid "Save Digests"
-msgstr ""
+msgstr "Zapisz sumę kontrolną"
 
 #: ../src/callbacks.c:269
 msgid "A GTK+ utility for computing message digests or checksums."
-msgstr ""
+msgstr "Narzędzie GTK+ do wyświetlania sum kontrolnych"
 
 #: ../src/callbacks.c:273
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Patrick Kolesa https://launchpad.net/~pkol.\n"
-"  u2ix https://launchpad.net/~u2ix"
+"  Łukasz Szeremeta https://launchpad.net/~l-szeremeta"
 
 #: ../src/callbacks.c:300
 msgid "Select Files"
-msgstr "Dateien auswählen"
+msgstr "Wybierz pliki"
 
 #: ../src/gui.c:278
 msgid "Not a regular file"
-msgstr ""
+msgstr "Nie jest zwykłym plikiem"
 
 #: ../src/gui.c:300
 msgid "Unknown error"
-msgstr ""
+msgstr "Nieznany błąd"
 
 #: ../src/gui.c:304
 #, c-format
@@ -142,35 +141,37 @@ msgid ""
 "Failed to add \"%s\":\n"
 "%s"
 msgstr ""
+"Nie można dodać \"%s\":\n"
+"%s"
 
 #: ../src/main.c:72
 msgid "Read program data from the specified directory"
-msgstr ""
+msgstr "Odczyt danych programu z określonego katalogu"
 
 #: ../src/main.c:72
 msgid "DIRECTORY"
-msgstr ""
+msgstr "KATALOG"
 
 #: ../src/main.c:76
 msgid "Show version information"
-msgstr ""
+msgstr "Pokaż informacje o wersji"
 
 #: ../src/main.c:80
 msgid "[FILE|URI...]"
-msgstr ""
+msgstr "[PLIK|URI...]"
 
 #: ../src/prefs.c:57
 msgid "Failed to enable any supported hash functions."
-msgstr ""
+msgstr "Nie udało się włączyć wszystkich obsługiwanych funkcji haszujących."
 
 #: ../src/nautilus/properties.c:259
 msgid "Digests"
-msgstr ""
+msgstr "Sumy kontrolne"
 
 #: ../src/nautilus/properties-hash.c:61
 #, c-format
 msgid "%s of %s - 1 minute left (%s/sec)"
-msgstr ""
+msgstr "%s of %s - 1 minuta (%s/sec)"
 
 #: ../src/nautilus/properties-hash.c:64
 #, c-format

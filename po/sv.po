@@ -6,130 +6,180 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-15 23:59+0000\n"
-"PO-Revision-Date: 2009-01-09 14:23+0000\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-06-29 15:45+0100\n"
+"PO-Revision-Date: 2009-12-02 14:36+0000\n"
 "Last-Translator: Mattias Ohlsson <mattias_oh@hotmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-15 22:44+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-10-26 05:14+0000\n"
+"X-Generator: Launchpad (build 14189)\n"
 
 #: ../data/gtkhash.xml.h:1
+msgid "Base64"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:2
+msgid "Copy _Digest"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:3
+msgid "Digest Format:"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:4
+msgid "File"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:5
 msgid "File _List"
 msgstr "Fil_lista"
 
-#: ../data/gtkhash.xml.h:2
+#: ../data/gtkhash.xml.h:6
 msgid "File:"
 msgstr "Fil:"
 
-#: ../data/gtkhash.xml.h:3
-msgid "Hash"
-msgstr "Hash"
+#: ../data/gtkhash.xml.h:7
+msgid "GtkHash Preferences"
+msgstr ""
 
-#: ../data/gtkhash.xml.h:4
-msgid "Hash functions:"
-msgstr "Hashfunktioner:"
+#: ../data/gtkhash.xml.h:8
+msgid "Ha_sh"
+msgstr ""
 
-#: ../data/gtkhash.xml.h:5
-msgid "Preferences"
-msgstr "Inställningar"
+#: ../data/gtkhash.xml.h:9
+msgid "Hash Functions:"
+msgstr ""
 
-#: ../data/gtkhash.xml.h:6
+#: ../data/gtkhash.xml.h:10
+msgid "Lowercase Hexadecimal"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:11
+msgid "Show _Toolbar"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:12
 msgid "Text:"
 msgstr "Text:"
 
-#: ../data/gtkhash.xml.h:7
+#: ../data/gtkhash.xml.h:13
+msgid "Uppercase Hexadecimal"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:14
 msgid "_Edit"
 msgstr "_Redigera"
 
-#: ../data/gtkhash.xml.h:8
+#: ../data/gtkhash.xml.h:15
 msgid "_File"
 msgstr "_Arkiv"
 
-#: ../data/gtkhash.xml.h:9
+#: ../data/gtkhash.xml.h:16
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: ../data/gtkhash.xml.h:10
+#: ../data/gtkhash.xml.h:17
 msgid "_Text"
 msgstr "_Text"
 
-#: ../data/gtkhash.xml.h:11
+#: ../data/gtkhash.xml.h:18
 msgid "_View"
 msgstr "_Visa"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
-#, fuzzy
+msgid "Digest"
+msgstr ""
+
+#: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "H_ash"
-msgstr "Hash"
-
-#: ../src/callbacks.c:99
-msgid "Save Digests To File"
 msgstr ""
 
-#: ../src/callbacks.c:310
-msgid "A GTK+ utility for computing digests using the mhash library."
+#: ../data/nautilus/gtkhash-properties.xml.h:3
+msgid "Hash Function"
 msgstr ""
 
-#: ../src/callbacks.c:314
+#: ../data/nautilus/gtkhash-properties.xml.h:4
+msgid "Show _Disabled Hash Functions"
+msgstr ""
+
+#: ../data/nautilus/gtkhash-properties.xml.h:5
+msgid "_Copy Digest"
+msgstr ""
+
+#: ../src/callbacks.c:85
+msgid "Save Digests"
+msgstr ""
+
+#: ../src/callbacks.c:269
+msgid "A GTK+ utility for computing message digests or checksums."
+msgstr ""
+
+#: ../src/callbacks.c:273
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
-"  Mattias Ohlsson https://launchpad.net/~mattias-oh"
 
-#: ../src/callbacks.c:339
+#: ../src/callbacks.c:300
 msgid "Select Files"
 msgstr "Välj filer"
 
-#: ../src/gui.c:75
+#: ../src/gui.c:278
+msgid "Not a regular file"
+msgstr ""
+
+#: ../src/gui.c:300
+msgid "Unknown error"
+msgstr ""
+
+#: ../src/gui.c:304
 #, c-format
 msgid ""
-"Failed to read %s:\n"
+"Failed to add \"%s\":\n"
 "%s"
 msgstr ""
-"Kunde inte läsa %s:\n"
-"%s"
 
-#: ../src/list.c:56
-msgid "Path"
-msgstr "Sökväg"
-
-#: ../src/list.c:62
-msgid "Filename"
-msgstr "Filnamn"
-
-#: ../src/main.c:56
-msgid "[FILE...]"
-msgstr "[FIL...]"
-
-#: ../src/main.c:67
-#, c-format
-msgid "Unknown option, try %s --help\n"
+#: ../src/main.c:72
+msgid "Read program data from the specified directory"
 msgstr ""
 
-#: ../src/nautilus/properties.c:178
+#: ../src/main.c:72
+msgid "DIRECTORY"
+msgstr ""
+
+#: ../src/main.c:76
+msgid "Show version information"
+msgstr ""
+
+#: ../src/main.c:80
+msgid "[FILE|URI...]"
+msgstr ""
+
+#: ../src/prefs.c:57
+msgid "Failed to enable any supported hash functions."
+msgstr ""
+
+#: ../src/nautilus/properties.c:259
 msgid "Digests"
 msgstr ""
 
-#: ../src/nautilus/properties-hash.c:357
+#: ../src/nautilus/properties-hash.c:61
 #, c-format
-msgid "Estimated time remaining: %d minute"
+msgid "%s of %s - 1 minute left (%s/sec)"
 msgstr ""
 
-#: ../src/nautilus/properties-hash.c:360
+#: ../src/nautilus/properties-hash.c:64
 #, c-format
-msgid "Estimated time remaining: %d minutes"
+msgid "%s of %s - %u minutes left (%s/sec)"
 msgstr ""
 
-#: ../src/nautilus/properties-hash.c:364
+#: ../src/nautilus/properties-hash.c:68
 #, c-format
-msgid "Estimated time remaining: %d second"
+msgid "%s of %s - 1 second left (%s/sec)"
 msgstr ""
 
-#: ../src/nautilus/properties-hash.c:367
+#: ../src/nautilus/properties-hash.c:71
 #, c-format
-msgid "Estimated time remaining: %d seconds"
+msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr ""
