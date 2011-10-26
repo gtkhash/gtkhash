@@ -1,6 +1,6 @@
 Summary of changes for each release:
 
-0.4.0 -
+0.4.0 - 2011-10-26
 	* Added support for hashing non-local files using GIO
 	* Made mhash an optional dependency
 	* Added optional support for other hash libraries/interfaces
