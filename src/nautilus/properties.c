@@ -25,8 +25,13 @@
 #include <stdbool.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
-#include <libnautilus-extension/nautilus-property-page.h>
-#include <libnautilus-extension/nautilus-property-page-provider.h>
+
+#if IN_NAUTILUS_EXTENSION
+	#include <libnautilus-extension/nautilus-property-page.h>
+	#include <libnautilus-extension/nautilus-property-page-provider.h>
+#elif IN_THUNAR_EXTENSION
+	#include <thunarx/thunarx.h>
+#endif
 
 #include "properties.h"
 #include "properties-list.h"
@@ -240,30 +245,57 @@ static struct page_s *gtkhash_properties_new_page(char *uri)
 }
 
 static GList *gtkhash_properties_get_pages(
-	G_GNUC_UNUSED NautilusPropertyPageProvider *provider, GList *files)
+#if IN_NAUTILUS_EXTENSION
+	G_GNUC_UNUSED NautilusPropertyPageProvider *provider,
+#elif IN_THUNAR_EXTENSION
+	G_GNUC_UNUSED ThunarxPropertyPageProvider *provider,
+#endif
+	GList *files)
 {
 	// Only display page for a single file
 	if (!files || files->next)
 		return NULL;
 
-	// Only display page for regular files
-	if (nautilus_file_info_get_file_type(files->data) != G_FILE_TYPE_REGULAR)
-		return NULL;
+#if IN_NAUTILUS_EXTENSION
+	GFileType type = nautilus_file_info_get_file_type(files->data);
 
 	char *uri = nautilus_file_info_get_uri(files->data);
+#elif IN_THUNAR_EXTENSION
+	GFileInfo *info = thunarx_file_info_get_file_info(files->data);
+	GFileType type = g_file_info_get_file_type(info);
+	g_object_unref(info);
+
+	char *uri = thunarx_file_info_get_uri(files->data);
+#endif
+
+	// Only display page for regular files
+	if (type != G_FILE_TYPE_REGULAR)
+		return NULL;
+
 	struct page_s *page = gtkhash_properties_new_page(uri);
 	if (!page)
 		return NULL;
 
+#if IN_NAUTILUS_EXTENSION
 	NautilusPropertyPage *ppage = nautilus_property_page_new(
 		"GtkHash::properties", gtk_label_new(_("Digests")), page->box);
+#elif IN_THUNAR_EXTENSION
+	GtkWidget *ppage = thunarx_property_page_new(_("Digests"));
+	gtk_container_add(GTK_CONTAINER(ppage), page->box);
+#endif
 
 	GList *pages = g_list_append(NULL, ppage);
 
 	return pages;
 }
 
-static void gtkhash_properties_iface_init(NautilusPropertyPageProviderIface *iface)
+static void gtkhash_properties_iface_init(
+#if IN_NAUTILUS_EXTENSION
+	NautilusPropertyPageProviderIface *iface
+#elif IN_THUNAR_EXTENSION
+	ThunarxPropertyPageProviderIface *iface
+#endif
+	)
 {
 	iface->get_pages = gtkhash_properties_get_pages;
 }
@@ -293,10 +325,20 @@ static void gtkhash_properties_register_type(GTypeModule *module)
 	};
 
 	g_type_module_add_interface(module, page_type,
-		NAUTILUS_TYPE_PROPERTY_PAGE_PROVIDER, &iface_info);
+#if IN_NAUTILUS_EXTENSION
+		NAUTILUS_TYPE_PROPERTY_PAGE_PROVIDER,
+#elif IN_THUNAR_EXTENSION
+		THUNARX_TYPE_PROPERTY_PAGE_PROVIDER,
+#endif
+		&iface_info);
 }
 
+#if IN_NAUTILUS_EXTENSION
 void nautilus_module_initialize(GTypeModule *module)
+#elif IN_THUNAR_EXTENSION
+void thunar_extension_initialize(GTypeModule *module);
+void thunar_extension_initialize(GTypeModule *module)
+#endif
 {
 	gtkhash_properties_register_type(module);
 
@@ -306,11 +348,21 @@ void nautilus_module_initialize(GTypeModule *module)
 #endif
 }
 
+#if IN_NAUTILUS_EXTENSION
 void nautilus_module_shutdown(void)
+#elif IN_THUNAR_EXTENSION
+void thunar_extension_shutdown(void);
+void thunar_extension_shutdown(void)
+#endif
 {
 }
 
+#if IN_NAUTILUS_EXTENSION
 void nautilus_module_list_types(const GType **types, int *num_types)
+#elif IN_THUNAR_EXTENSION
+void thunar_extension_list_types(const GType **types, int *num_types);
+void thunar_extension_list_types(const GType **types, int *num_types)
+#endif
 {
 	static GType type_list[1];
 

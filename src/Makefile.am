@@ -4,6 +4,12 @@ if ENABLE_NAUTILUS
 SUBDIRS += nautilus
 endif
 
+if ENABLE_THUNAR
+SUBDIRS += thunar
+endif
+
+if ENABLE_GTKHASH
+
 bin_PROGRAMS = gtkhash
 
 gtkhash_SOURCES = \
@@ -22,3 +28,5 @@ gtkhash_CPPFLAGS = \
 gtkhash_CFLAGS = $(GTKHASH_CFLAGS)
 
 gtkhash_LDADD = hash/hash.la $(GTHREAD_LIBS) $(GTK_LIBS)
+
+endif

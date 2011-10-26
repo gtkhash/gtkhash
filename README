@@ -12,11 +12,13 @@ Dependencies:
         Glib 2
         GTK+ 2 or 3
     Optional:
-        mhash
+        zlib
         Libgcrypt
         NSS
+        mhash
         Linux-2.6.38 (with CONFIG_CRYPTO_USER_API_HASH)
-        Nautilus and GConf
+        Nautilus (and GConf)
+        Thunar (and GConf)
 
 Translations:
     Please submit any new or updated translations here:

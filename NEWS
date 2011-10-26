@@ -5,6 +5,8 @@ Summary of changes for each release:
 	* Made mhash an optional dependency
 	* Added optional support for other hash libraries/interfaces
 	* Added Digest Format option
+	* Added optional Thunar (Xfce file manager) plugin
+	* Added support for GTK+ 3
 	* General usability improvements
 
 0.3.0 - 2009-11-22

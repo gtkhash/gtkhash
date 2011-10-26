@@ -4,7 +4,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
-AM_INIT_AUTOMAKE([1.11 check-news dist-xz])
+AM_INIT_AUTOMAKE([1.11 check-news])
 AM_SILENT_RULES([yes])
 
 AC_PROG_CC_C99
@@ -158,14 +158,19 @@ fi
 
 test -z "${hash_libs}" && AC_MSG_ERROR([No hash libraries enabled])
 
+AC_MSG_CHECKING([whether to build gtkhash])
+AC_ARG_ENABLE([gtkhash],
+	[AS_HELP_STRING([--disable-gtkhash], [do not build gtkhash])],
+	[enable_gtkhash="${enableval}"], [enable_gtkhash="yes"])
+AC_MSG_RESULT(["${enable_gtkhash}"])
+AM_CONDITIONAL([ENABLE_GTKHASH], [test "${enable_gtkhash}" = "yes"])
+
 AC_MSG_CHECKING([whether to build the Nautilus extension])
 AC_ARG_ENABLE([nautilus],
 	[AS_HELP_STRING([--enable-nautilus], [build the Nautilus extension])],
 	[enable_nautilus="${enableval}"], [enable_nautilus="no"])
 AC_MSG_RESULT(["${enable_nautilus}"])
 AM_CONDITIONAL([ENABLE_NAUTILUS], [test "${enable_nautilus}" = "yes"])
-
-AM_GCONF_SOURCE_2
 
 if test "${enable_nautilus}" = "yes" ; then
 	# Check for nautilus
@@ -177,7 +182,32 @@ if test "${enable_nautilus}" = "yes" ; then
 	if test "`basename \"${NAUTILUS_EXTENSION_DIR}\"`" != "extensions-${with_gtk}" ; then
 		AC_MSG_ERROR([Installed Nautilus version appears to be incompatible with GTK+ "${with_gtk}" extensions])
 	fi
+fi
 
+AC_MSG_CHECKING([whether to build the Thunar extension])
+AC_ARG_ENABLE([thunar],
+	[AS_HELP_STRING([--enable-thunar], [build the Thunar extension])],
+	[enable_thunar="${enableval}"], [enable_thunar="no"])
+AC_MSG_RESULT(["${enable_thunar}"])
+AM_CONDITIONAL([ENABLE_THUNAR], [test "${enable_thunar}" = "yes"])
+
+if test "${enable_thunar}" = "yes" ; then
+	# Check for thunar
+	PKG_CHECK_MODULES([THUNAR], [thunarx-2])
+	AC_SUBST([THUNAR_CFLAGS])
+	AC_SUBST([THUNAR_LIBS])
+	THUNAR_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensionsdir thunarx-2`
+	AC_SUBST([THUNAR_EXTENSION_DIR])
+	if test "${with_gtk}" != "2.0" ; then
+		AC_MSG_ERROR([Thunar extension does not support GTK+ "${with_gtk}"])
+	fi
+fi
+
+AM_CONDITIONAL([ENABLE_NAUTILUS_DATA], [test "${enable_nautilus}" = "yes" || test "${enable_thunar}" = "yes"])
+
+AM_GCONF_SOURCE_2
+
+if test "${enable_nautilus}" = "yes" || test "${enable_thunar}" = "yes" ; then
 	# Check for gconf
 	PKG_CHECK_MODULES([GCONF], [gconf-2.0])
 	AC_SUBST([GCONF_CFLAGS])
@@ -212,7 +242,14 @@ AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([src/Makefile])
 AC_CONFIG_FILES([src/hash/Makefile])
 AC_CONFIG_FILES([src/nautilus/Makefile])
+AC_CONFIG_FILES([src/thunar/Makefile])
 AC_OUTPUT
+
+echo
+echo "Interfaces:"
+echo "  gtkhash: ${enable_gtkhash}"
+echo "  gtkhash-nautilus: ${enable_nautilus}"
+echo "  gtkhash-thunar: ${enable_thunar}"
 
 gcrypt_funcs="
 	MD4 MD5
