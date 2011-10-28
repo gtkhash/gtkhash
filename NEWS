@@ -1,5 +1,8 @@
 Summary of changes for each release:
 
+0.5.0 -
+	* Improved hashing speed on SMP systems
+
 0.4.0 - 2011-10-26
 	* Added support for hashing non-local files using GIO
 	* Made mhash an optional dependency

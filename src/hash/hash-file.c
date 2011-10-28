@@ -24,6 +24,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <unistd.h>
 #include <gdk/gdk.h>
 #include <glib.h>
 
@@ -32,6 +33,7 @@
 #include "hash-lib.h"
 
 static bool gtkhash_hash_file(struct hash_file_s *data);
+static void gtkhash_hash_file_hash_thread(void *func, struct hash_file_s *data);
 
 static void gtkhash_hash_file_set_source(struct hash_file_s *data,
 	const unsigned int source)
@@ -134,16 +136,26 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 {
 	g_assert(data->uri);
 
-	for (int i = 0; i < HASH_FUNCS_N; i++)
-		if (data->funcs[i].enabled)
+	int funcs_n = 0;
+
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (data->funcs[i].enabled) {
 			gtkhash_hash_lib_start(&data->funcs[i]);
+			funcs_n++;
+		}
+	}
+
+	int threads_n = CLAMP(MIN(funcs_n, sysconf(_SC_NPROCESSORS_ONLN)), 1,
+		HASH_FUNCS_N);
+	g_atomic_int_set(&data->pool_threads_n, 0);
+	data->thread_pool = g_thread_pool_new((GFunc)gtkhash_hash_file_hash_thread,
+		data, threads_n, true, NULL);
 
 	data->buffer = g_malloc(HASH_FILE_BUFFER_SIZE);
 	data->file = g_file_new_for_uri(data->uri);
-	data->current_func = 0;
 	data->just_read = 0;
-	data->timer = g_timer_new();
 	data->priv.total_read = 0;
+	data->timer = g_timer_new();
 
 	gtkhash_hash_file_set_state(data, HASH_FILE_STATE_OPEN);
 }
@@ -258,21 +270,45 @@ static void gtkhash_hash_file_read(struct hash_file_s *data)
 		(GAsyncReadyCallback)gtkhash_hash_file_read_finish, data);
 }
 
+static void gtkhash_hash_file_hash_thread(void *func, struct hash_file_s *data)
+{
+	gtkhash_hash_lib_update(&data->funcs[GPOINTER_TO_UINT(func) - 1],
+		data->buffer, data->just_read);
+
+	if (g_atomic_int_dec_and_test(&data->pool_threads_n))
+		gtkhash_hash_file_add_source(data);
+}
+
 static void gtkhash_hash_file_hash(struct hash_file_s *data)
 {
 	if (G_UNLIKELY(gtkhash_hash_file_get_stop(data))) {
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_CLOSE);
 		return;
-	} else if (data->current_func < HASH_FUNCS_N) {
-		if (data->funcs[data->current_func].enabled) {
-			gtkhash_hash_lib_update(&data->funcs[data->current_func],
-				data->buffer, data->just_read);
-		}
-		data->current_func++;
-		return;
 	}
 
-	data->current_func = 0;
+	gtkhash_hash_file_remove_source(data);
+	gtkhash_hash_file_set_state(data, HASH_FILE_STATE_HASH_FINISH);
+
+	g_atomic_int_inc(&data->pool_threads_n);
+	for (unsigned int i = 0; i < HASH_FUNCS_N; i++) {
+		if (data->funcs[i].enabled) {
+			g_atomic_int_inc(&data->pool_threads_n);
+			g_thread_pool_push(data->thread_pool, GUINT_TO_POINTER(i + 1), NULL);
+		}
+	}
+
+	if (G_UNLIKELY(g_atomic_int_dec_and_test(&data->pool_threads_n)))
+		gtkhash_hash_file_add_source(data);
+}
+
+static void gtkhash_hash_file_hash_finish(struct hash_file_s *data)
+{
+	g_assert(g_atomic_int_get(&data->pool_threads_n) == 0);
+
+	if (G_UNLIKELY(gtkhash_hash_file_get_stop(data))) {
+		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_CLOSE);
+		return;
+	}
 
 	if (data->priv.total_read >= data->file_size)
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_CLOSE);
@@ -316,6 +352,7 @@ static void gtkhash_hash_file_finish(struct hash_file_s *data)
 				gtkhash_hash_lib_finish(&data->funcs[i]);
 	}
 
+	g_thread_pool_free(data->thread_pool, true, false);
 	g_timer_destroy(data->timer);
 	g_free(data->buffer);
 	g_object_unref(data->file);
@@ -327,13 +364,16 @@ static void gtkhash_hash_file_finish(struct hash_file_s *data)
 static bool gtkhash_hash_file(struct hash_file_s *data)
 {
 	static void (* const state_funcs[])(struct hash_file_s *) = {
-		gtkhash_hash_file_start,
-		gtkhash_hash_file_open,
-		gtkhash_hash_file_get_size,
-		gtkhash_hash_file_read,
-		gtkhash_hash_file_hash,
-		gtkhash_hash_file_close,
-		gtkhash_hash_file_finish
+		[HASH_FILE_STATE_START]       = gtkhash_hash_file_start,
+		[HASH_FILE_STATE_OPEN]        = gtkhash_hash_file_open,
+		[HASH_FILE_STATE_GET_SIZE]    = gtkhash_hash_file_get_size,
+		[HASH_FILE_STATE_READ]        = gtkhash_hash_file_read,
+		[HASH_FILE_STATE_HASH]        = gtkhash_hash_file_hash,
+		[HASH_FILE_STATE_HASH_FINISH] = gtkhash_hash_file_hash_finish,
+		[HASH_FILE_STATE_CLOSE]       = gtkhash_hash_file_close,
+		[HASH_FILE_STATE_FINISH]      = gtkhash_hash_file_finish,
+		[HASH_FILE_STATE_TERM]        = NULL,
+		[HASH_FILE_STATE_IDLE]        = NULL,
 	};
 
 	const enum hash_file_state_e state = gtkhash_hash_file_get_state(data);

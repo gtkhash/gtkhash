@@ -33,6 +33,7 @@ enum hash_file_state_e {
 	HASH_FILE_STATE_GET_SIZE,
 	HASH_FILE_STATE_READ,
 	HASH_FILE_STATE_HASH,
+	HASH_FILE_STATE_HASH_FINISH,
 	HASH_FILE_STATE_CLOSE,
 	HASH_FILE_STATE_FINISH,
 	HASH_FILE_STATE_TERM,
@@ -48,7 +49,8 @@ struct hash_file_s {
 	gssize just_read;
 	uint8_t *buffer;
 	GTimer *timer;
-	enum hash_func_e current_func;
+	GThreadPool *thread_pool;
+	int pool_threads_n;
 	struct hash_func_s *funcs;
 	struct {
 		GMutex *mutex;
