@@ -110,6 +110,22 @@ if test "${enable_gcrypt}" = "yes" ; then
 	AC_DEFINE([ENABLE_GCRYPT], [1])
 fi
 
+AC_MSG_CHECKING([whether to use libcrypto])
+AC_ARG_ENABLE([libcrypto],
+	[AS_HELP_STRING([--enable-libcrypto], [use libcrypto])],
+	[enable_libcrypto="${enableval}"], [enable_libcrypto="no"])
+AC_MSG_RESULT(["${enable_libcrypto}"])
+AM_CONDITIONAL([ENABLE_LIBCRYPTO], [test "${enable_libcrypto}" = "yes"])
+AC_DEFINE([ENABLE_LIBCRYPTO], [0], [Use libcrypto])
+
+if test "${enable_libcrypto}" = "yes" ; then
+	PKG_CHECK_MODULES([LIBCRYPTO], [libcrypto])
+	AC_SUBST([LIBCRYPTO_CFLAGS])
+	AC_SUBST([LIBCRYPTO_LIBS])
+	hash_libs="${hash_libs} libcrypto"
+	AC_DEFINE([ENABLE_LIBCRYPTO], [1])
+fi
+
 AC_MSG_CHECKING([whether to use NSS])
 AC_ARG_ENABLE([nss],
 	[AS_HELP_STRING([--enable-nss], [use NSS])],
@@ -260,6 +276,11 @@ gcrypt_funcs="
 glib_checksums_funcs="
 	MD5
 	SHA1 SHA256"
+libcrypto_funcs="
+	MD4 MD5
+	SHA0 SHA1
+	RIPEMD160
+	MDC2"
 linux_crypto_funcs="
 	MD4 MD5
 	SHA1 SHA224 SHA256 SHA384 SHA512
@@ -285,13 +306,14 @@ echo
 echo "Supported Hash Functions:"
 for func in \
 	MD2 MD4 MD5 \
-	SHA1 SHA224 SHA256 SHA384 SHA512 \
+	SHA0 SHA1 SHA224 SHA256 SHA384 SHA512 \
 	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320 \
 	TIGER128 TIGER160 TIGER192 \
 	WHIRLPOOL \
 	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3 \
 	GOST \
 	SNEFRU128 SNEFRU256 \
+	MDC2 \
 	CRC32 \
 	ADLER32
 do

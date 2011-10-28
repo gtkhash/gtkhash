@@ -28,6 +28,12 @@ if ENABLE_GLIB_CHECKSUMS
 hash_la_SOURCES += hash-lib-glib.c hash-lib-glib.h
 endif
 
+if ENABLE_LIBCRYPTO
+hash_la_SOURCES += hash-lib-crypto.c hash-lib-crypto.h
+hash_la_CPPFLAGS += $(LIBCRYPTO_CFLAGS)
+hash_la_LIBADD += $(LIBCRYPTO_LIBS)
+endif
+
 if ENABLE_LINUX_CRYPTO
 hash_la_SOURCES += hash-lib-linux.c hash-lib-linux.h
 endif

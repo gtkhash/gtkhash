@@ -32,23 +32,21 @@
 #if ENABLE_GCRYPT
 	#include "hash-lib-gcrypt.h"
 #endif
-
 #if ENABLE_GLIB_CHECKSUMS
 	#include "hash-lib-glib.h"
 #endif
-
+#if ENABLE_LIBCRYPTO
+	#include "hash-lib-crypto.h"
+#endif
 #if ENABLE_LINUX_CRYPTO
 	#include "hash-lib-linux.h"
 #endif
-
 #if ENABLE_MHASH
 	#include "hash-lib-mhash.h"
 #endif
-
 #if ENABLE_NSS
 	#include "hash-lib-nss.h"
 #endif
-
 #if ENABLE_ZLIB
 	#include "hash-lib-zlib.h"
 #endif
@@ -60,6 +58,9 @@ enum hash_lib_e {
 #endif
 #if ENABLE_GLIB_CHECKSUMS
 	HASH_LIB_GLIB,
+#endif
+#if ENABLE_LIBCRYPTO
+	HASH_LIB_CRYPTO,
 #endif
 #if ENABLE_LINUX_CRYPTO
 	HASH_LIB_LINUX,
@@ -93,6 +94,10 @@ static void gtkhash_hash_lib_init_once(void)
 #if ENABLE_GCRYPT
 		if (!hash_libs[i] && gtkhash_hash_lib_gcrypt_is_supported(i))
 			hash_libs[i] = HASH_LIB_GCRYPT;
+#endif
+#if ENABLE_LIBCRYPTO
+		if (!hash_libs[i] && gtkhash_hash_lib_crypto_is_supported(i))
+			hash_libs[i] = HASH_LIB_CRYPTO;
 #endif
 #if ENABLE_NSS
 		if (!hash_libs[i] && gtkhash_hash_lib_nss_is_supported(i))
@@ -132,6 +137,9 @@ void gtkhash_hash_lib_start(struct hash_func_s *func)
 #if ENABLE_GLIB_CHECKSUMS
 		[HASH_LIB_GLIB]  = gtkhash_hash_lib_glib_start,
 #endif
+#if ENABLE_LIBCRYPTO
+		[HASH_LIB_CRYPTO] = gtkhash_hash_lib_crypto_start,
+#endif
 #if ENABLE_LINUX_CRYPTO
 		[HASH_LIB_LINUX] = gtkhash_hash_lib_linux_start,
 #endif
@@ -168,6 +176,9 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 #if ENABLE_GLIB_CHECKSUMS
 		[HASH_LIB_GLIB]  = gtkhash_hash_lib_glib_update,
 #endif
+#if ENABLE_LIBCRYPTO
+		[HASH_LIB_CRYPTO] = gtkhash_hash_lib_crypto_update,
+#endif
 #if ENABLE_LINUX_CRYPTO
 		[HASH_LIB_LINUX] = gtkhash_hash_lib_linux_update,
 #endif
@@ -199,6 +210,9 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 #endif
 #if ENABLE_GLIB_CHECKSUMS
 		[HASH_LIB_GLIB]  = gtkhash_hash_lib_glib_stop,
+#endif
+#if ENABLE_LIBCRYPTO
+		[HASH_LIB_CRYPTO] = gtkhash_hash_lib_crypto_stop,
 #endif
 #if ENABLE_LINUX_CRYPTO
 		[HASH_LIB_LINUX] = gtkhash_hash_lib_linux_stop,
@@ -232,6 +246,9 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 #endif
 #if ENABLE_GLIB_CHECKSUMS
 		[HASH_LIB_GLIB]  = gtkhash_hash_lib_glib_finish,
+#endif
+#if ENABLE_LIBCRYPTO
+		[HASH_LIB_CRYPTO] = gtkhash_hash_lib_crypto_finish,
 #endif
 #if ENABLE_LINUX_CRYPTO
 		[HASH_LIB_LINUX] = gtkhash_hash_lib_linux_finish,
