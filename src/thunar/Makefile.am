@@ -8,7 +8,7 @@ libgtkhash_properties_la_SOURCES = \
 	../nautilus/properties-prefs.c ../nautilus/properties-prefs.h
 
 libgtkhash_properties_la_CPPFLAGS = \
-	$(THUNAR_CFLAGS) $(GTK_CFLAGS) $(GCONF_CFLAGS) \
+	$(THUNAR_CFLAGS) $(GCONF_CFLAGS) \
 	-DBUILDER_XML="\"$(pkgdatadir)/nautilus/gtkhash-properties.xml\"" \
 	-DLOCALEDIR="\"$(localedir)\"" \
 	-DIN_THUNAR_EXTENSION=1
@@ -22,4 +22,4 @@ libgtkhash_properties_la_LDFLAGS = \
 	-shared
 
 libgtkhash_properties_la_LIBADD = \
-	../hash/hash.la $(THUNAR_LIBS) $(GTK_LIBS) $(GCONF_LIBS)
+	../hash/hash.la $(THUNAR_LIBS) $(GCONF_LIBS)

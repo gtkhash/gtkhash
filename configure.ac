@@ -195,9 +195,6 @@ if test "${enable_nautilus}" = "yes" ; then
 	AC_SUBST([NAUTILUS_LIBS])
 	NAUTILUS_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensiondir libnautilus-extension`
 	AC_SUBST([NAUTILUS_EXTENSION_DIR])
-	if test "`basename \"${NAUTILUS_EXTENSION_DIR}\"`" != "extensions-${with_gtk}" ; then
-		AC_MSG_ERROR([Installed Nautilus version appears to be incompatible with GTK+ "${with_gtk}" extensions])
-	fi
 fi
 
 AC_MSG_CHECKING([whether to build the Thunar extension])
@@ -214,9 +211,6 @@ if test "${enable_thunar}" = "yes" ; then
 	AC_SUBST([THUNAR_LIBS])
 	THUNAR_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensionsdir thunarx-2`
 	AC_SUBST([THUNAR_EXTENSION_DIR])
-	if test "${with_gtk}" != "2.0" ; then
-		AC_MSG_ERROR([Thunar extension does not support GTK+ "${with_gtk}"])
-	fi
 fi
 
 AM_CONDITIONAL([ENABLE_NAUTILUS_DATA], [test "${enable_nautilus}" = "yes" || test "${enable_thunar}" = "yes"])
