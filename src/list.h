@@ -28,7 +28,6 @@ void list_append_row(const char *uri);
 void list_remove_selection(void);
 char *list_get_uri(const unsigned int row);
 GSList *list_get_all_uris(void);
-int list_find_row(const char *path);
 unsigned int list_count_rows(void);
 void list_set_digest(const char *uri, const enum hash_func_e id,
 	const char *digest);

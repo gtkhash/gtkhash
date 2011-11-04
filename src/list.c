@@ -39,6 +39,41 @@ enum {
 	COL_HASH
 };
 
+// Returns the row number with matching uri or -1 if not found
+static int list_find_row(const char *uri)
+{
+	g_assert(uri);
+
+	GtkTreeIter iter;
+
+	GFile *file = g_file_new_for_uri(uri);
+	char *pname = g_file_get_parse_name(file);
+	g_object_unref(file);
+
+	if (gtk_tree_model_get_iter_first(gui.treemodel, &iter)) {
+		int row = 0;
+		do {
+			GValue value;
+			value.g_type = 0;
+			gtk_tree_model_get_value(gui.treemodel, &iter, COL_FILE, &value);
+			const char *string = g_value_get_string(&value);
+
+			if (strcmp(string, pname) == 0) {
+				g_free(pname);
+				g_value_unset(&value);
+				return row;
+			} else {
+				g_value_unset(&value);
+				row++;
+			}
+		} while (gtk_tree_model_iter_next(gui.treemodel, &iter));
+	}
+
+	g_free(pname);
+
+	return -1;
+}
+
 void list_init(void)
 {
 	GType types[COL_N];
@@ -168,41 +203,6 @@ GSList *list_get_all_uris(void)
 	}
 
 	return g_slist_reverse(uris);;
-}
-
-// Returns the row number with matching uri or -1 if not found
-int list_find_row(const char *uri)
-{
-	g_assert(uri);
-
-	GtkTreeIter iter;
-
-	GFile *file = g_file_new_for_uri(uri);
-	char *pname = g_file_get_parse_name(file);
-	g_object_unref(file);
-
-	if (gtk_tree_model_get_iter_first(gui.treemodel, &iter)) {
-		int row = 0;
-		do {
-			GValue value;
-			value.g_type = 0;
-			gtk_tree_model_get_value(gui.treemodel, &iter, COL_FILE, &value);
-			const char *string = g_value_get_string(&value);
-
-			if (strcmp(string, pname) == 0) {
-				g_free(pname);
-				g_value_unset(&value);
-				return row;
-			} else {
-				g_value_unset(&value);
-				row++;
-			}
-		} while (gtk_tree_model_iter_next(gui.treemodel, &iter));
-	}
-
-	g_free(pname);
-
-	return -1;
 }
 
 unsigned int list_count_rows(void)
