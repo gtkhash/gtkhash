@@ -44,6 +44,7 @@ struct hash_file_s {
 	void *cb_data;
 	const char *uri;
 	GFile *file;
+	GCancellable *cancellable;
 	GFileInputStream *stream;
 	goffset file_size;
 	gssize just_read;
@@ -55,19 +56,18 @@ struct hash_file_s {
 	struct {
 		GMutex *mutex;
 		unsigned int source, report_source;
-		bool stop;
 		enum hash_file_state_e state;
 		goffset total_read;
 	} priv;
 };
 
 void gtkhash_hash_file_add_source(struct hash_file_s *data);
-bool gtkhash_hash_file_get_stop(struct hash_file_s *data);
-void gtkhash_hash_file_set_stop(struct hash_file_s *data, const bool stop);
 enum hash_file_state_e gtkhash_hash_file_get_state(struct hash_file_s *data);
 void gtkhash_hash_file_set_state(struct hash_file_s *data,
 	const enum hash_file_state_e state);
 void gtkhash_hash_file_set_uri(struct hash_file_s *data, const char *uri);
+void gtkhash_hash_file_cancel(struct hash_file_s *data);
+bool gtkhash_hash_file_is_cancelled(struct hash_file_s *data);
 void gtkhash_hash_file_init(struct hash_file_s *data, struct hash_func_s *funcs,
 	void *cb_data);
 void gtkhash_hash_file_deinit(struct hash_file_s *data);

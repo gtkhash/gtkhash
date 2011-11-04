@@ -82,7 +82,7 @@ void gtkhash_hash_file_finish_cb(void *data)
 {
 	struct page_s *page = data;
 
-	if (!gtkhash_hash_file_get_stop(&page->hash_file))
+	if (!gtkhash_hash_file_is_cancelled(&page->hash_file))
 		gtkhash_properties_list_update_digests(page);
 
 	gtkhash_properties_idle(page);
@@ -90,14 +90,13 @@ void gtkhash_hash_file_finish_cb(void *data)
 
 void gtkhash_properties_hash_start(struct page_s *page)
 {
-	gtkhash_hash_file_set_stop(&page->hash_file, false);
 	gtkhash_hash_file_set_state(&page->hash_file, HASH_FILE_STATE_START);
 	gtkhash_hash_file_add_source(&page->hash_file);
 }
 
 void gtkhash_properties_hash_stop(struct page_s *page)
 {
-	gtkhash_hash_file_set_stop(&page->hash_file, true);
+	gtkhash_hash_file_cancel(&page->hash_file);
 
 	while (gtkhash_hash_file_get_state(&page->hash_file) != HASH_FILE_STATE_IDLE)
 		gtk_main_iteration_do(false);

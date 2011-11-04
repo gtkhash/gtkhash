@@ -62,22 +62,6 @@ static void gtkhash_hash_file_remove_source(struct hash_file_s *data)
 	g_mutex_unlock(data->priv.mutex);
 }
 
-bool gtkhash_hash_file_get_stop(struct hash_file_s *data)
-{
-	g_mutex_lock(data->priv.mutex);
-	bool stop = data->priv.stop;
-	g_mutex_unlock(data->priv.mutex);
-
-	return stop;
-}
-
-void gtkhash_hash_file_set_stop(struct hash_file_s *data, const bool stop)
-{
-	g_mutex_lock(data->priv.mutex);
-	data->priv.stop = stop;
-	g_mutex_unlock(data->priv.mutex);
-}
-
 enum hash_file_state_e gtkhash_hash_file_get_state(struct hash_file_s *data)
 {
 	g_mutex_lock(data->priv.mutex);
@@ -98,6 +82,16 @@ void gtkhash_hash_file_set_state(struct hash_file_s *data,
 void gtkhash_hash_file_set_uri(struct hash_file_s *data, const char *uri)
 {
 	data->uri = uri;
+}
+
+void gtkhash_hash_file_cancel(struct hash_file_s *data)
+{
+	g_cancellable_cancel(data->cancellable);
+}
+
+bool gtkhash_hash_file_is_cancelled(struct hash_file_s *data)
+{
+	return g_cancellable_is_cancelled(data->cancellable);
 }
 
 static bool gtkhash_hash_file_report(struct hash_file_s *data)
@@ -136,6 +130,8 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 {
 	g_assert(data->uri);
 
+	g_cancellable_reset(data->cancellable);
+
 	int funcs_n = 0;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
@@ -164,17 +160,19 @@ static void gtkhash_hash_file_open_finish(
 	G_GNUC_UNUSED GObject *source, GAsyncResult *res, struct hash_file_s *data)
 {
 	data->stream = g_file_read_finish(data->file, res, NULL);
-	if (G_UNLIKELY(!data->stream)) {
+	if (G_UNLIKELY(!data->stream &&
+		!g_cancellable_is_cancelled(data->cancellable)))
+	{
 		g_warning("failed to open file (%s)", data->uri);
-		gtkhash_hash_file_set_stop(data, true);
+		g_cancellable_cancel(data->cancellable);
 	}
 
-	if (gtkhash_hash_file_get_stop(data))
+	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable))) {
 		if (data->stream)
 			gtkhash_hash_file_set_state(data, HASH_FILE_STATE_CLOSE);
 		else
 			gtkhash_hash_file_set_state(data, HASH_FILE_STATE_FINISH);
-	else
+	} else
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_GET_SIZE);
 
 	gtkhash_hash_file_add_source(data);
@@ -182,13 +180,13 @@ static void gtkhash_hash_file_open_finish(
 
 static void gtkhash_hash_file_open(struct hash_file_s *data)
 {
-	if (gtkhash_hash_file_get_stop(data)) {
+	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable))) {
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_FINISH);
 		return;
 	}
 
 	gtkhash_hash_file_remove_source(data);
-	g_file_read_async(data->file, G_PRIORITY_DEFAULT, NULL,
+	g_file_read_async(data->file, G_PRIORITY_DEFAULT, data->cancellable,
 		(GAsyncReadyCallback)gtkhash_hash_file_open_finish, data);
 }
 
@@ -200,9 +198,9 @@ static void gtkhash_hash_file_get_size_finish(
 	data->file_size = g_file_info_get_size(info);
 	g_object_unref(info);
 
-	if (gtkhash_hash_file_get_stop(data))
+	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable)))
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_CLOSE);
-	else if (!data->file_size)
+	else if (data->file_size == 0)
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_HASH);
 	else {
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_READ);
@@ -214,14 +212,14 @@ static void gtkhash_hash_file_get_size_finish(
 
 static void gtkhash_hash_file_get_size(struct hash_file_s *data)
 {
-	if (gtkhash_hash_file_get_stop(data)) {
+	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable))) {
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_CLOSE);
 		return;
 	}
 
 	gtkhash_hash_file_remove_source(data);
 	g_file_input_stream_query_info_async(data->stream,
-		G_FILE_ATTRIBUTE_STANDARD_SIZE, G_PRIORITY_DEFAULT, NULL,
+		G_FILE_ATTRIBUTE_STANDARD_SIZE, G_PRIORITY_DEFAULT, data->cancellable,
 		(GAsyncReadyCallback)gtkhash_hash_file_get_size_finish, data);
 }
 
@@ -231,12 +229,14 @@ static void gtkhash_hash_file_read_finish(
 	data->just_read = g_input_stream_read_finish(
 		G_INPUT_STREAM(data->stream), res, NULL);
 
-	if (G_UNLIKELY(data->just_read == -1)) {
+	if (G_UNLIKELY(data->just_read == -1) &&
+		!g_cancellable_is_cancelled(data->cancellable))
+	{
 		g_warning("failed to read file (%s)", data->uri);
-		gtkhash_hash_file_set_stop(data, true);
-	} else if (G_UNLIKELY(!data->just_read)) {
+		g_cancellable_cancel(data->cancellable);
+	} else if (G_UNLIKELY(data->just_read == 0)) {
 		g_warning("unexpected EOF (%s)", data->uri);
-		gtkhash_hash_file_set_stop(data, true);
+		g_cancellable_cancel(data->cancellable);
 	} else {
 		g_mutex_lock(data->priv.mutex);
 		data->priv.total_read += data->just_read;
@@ -246,12 +246,12 @@ static void gtkhash_hash_file_read_finish(
 			g_warning("read %" G_GOFFSET_FORMAT
 				" more bytes than expected (%s)", total_read - data->file_size,
 				data->uri);
-			gtkhash_hash_file_set_stop(data, true);
+			g_cancellable_cancel(data->cancellable);
 		} else
 			gtkhash_hash_file_set_state(data, HASH_FILE_STATE_HASH);
 	}
 
-	if (G_UNLIKELY(gtkhash_hash_file_get_stop(data)))
+	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable)))
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_CLOSE);
 
 	gtkhash_hash_file_add_source(data);
@@ -259,15 +259,16 @@ static void gtkhash_hash_file_read_finish(
 
 static void gtkhash_hash_file_read(struct hash_file_s *data)
 {
-	if (G_UNLIKELY(gtkhash_hash_file_get_stop(data))) {
+	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable))) {
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_CLOSE);
 		return;
 	}
 
 	gtkhash_hash_file_remove_source(data);
 	g_input_stream_read_async(G_INPUT_STREAM(data->stream),
-		data->buffer, HASH_FILE_BUFFER_SIZE, G_PRIORITY_DEFAULT, NULL,
-		(GAsyncReadyCallback)gtkhash_hash_file_read_finish, data);
+		data->buffer, HASH_FILE_BUFFER_SIZE, G_PRIORITY_DEFAULT,
+		data->cancellable, (GAsyncReadyCallback)gtkhash_hash_file_read_finish,
+		data);
 }
 
 static void gtkhash_hash_file_hash_thread(void *func, struct hash_file_s *data)
@@ -281,7 +282,7 @@ static void gtkhash_hash_file_hash_thread(void *func, struct hash_file_s *data)
 
 static void gtkhash_hash_file_hash(struct hash_file_s *data)
 {
-	if (G_UNLIKELY(gtkhash_hash_file_get_stop(data))) {
+	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable))) {
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_CLOSE);
 		return;
 	}
@@ -297,7 +298,7 @@ static void gtkhash_hash_file_hash(struct hash_file_s *data)
 		}
 	}
 
-	if (G_UNLIKELY(g_atomic_int_dec_and_test(&data->pool_threads_n)))
+	if (g_atomic_int_dec_and_test(&data->pool_threads_n))
 		gtkhash_hash_file_add_source(data);
 }
 
@@ -305,7 +306,7 @@ static void gtkhash_hash_file_hash_finish(struct hash_file_s *data)
 {
 	g_assert(g_atomic_int_get(&data->pool_threads_n) == 0);
 
-	if (G_UNLIKELY(gtkhash_hash_file_get_stop(data))) {
+	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable))) {
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_CLOSE);
 		return;
 	}
@@ -319,8 +320,8 @@ static void gtkhash_hash_file_hash_finish(struct hash_file_s *data)
 static void gtkhash_hash_file_close_finish(
 	G_GNUC_UNUSED GObject *source, GAsyncResult *res, struct hash_file_s *data)
 {
-	if (G_UNLIKELY(!g_input_stream_close_finish(G_INPUT_STREAM(data->stream),
-		res, NULL)))
+	if (G_UNLIKELY(!g_input_stream_close_finish(G_INPUT_STREAM(data->stream), res, NULL) &&
+		!g_cancellable_is_cancelled(data->cancellable)))
 	{
 		g_warning("failed to close file (%s)", data->uri);
 	}
@@ -336,13 +337,13 @@ static void gtkhash_hash_file_close(struct hash_file_s *data)
 {
 	gtkhash_hash_file_remove_source(data);
 	g_input_stream_close_async(G_INPUT_STREAM(data->stream),
-		G_PRIORITY_DEFAULT, NULL,
+		G_PRIORITY_DEFAULT, data->cancellable,
 		(GAsyncReadyCallback)gtkhash_hash_file_close_finish, data);
 }
 
 static void gtkhash_hash_file_finish(struct hash_file_s *data)
 {
-	if (gtkhash_hash_file_get_stop(data)) {
+	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable))) {
 		for (int i = 0; i < HASH_FUNCS_N; i++)
 			if (data->funcs[i].enabled)
 				gtkhash_hash_lib_stop(&data->funcs[i]);
@@ -396,10 +397,10 @@ void gtkhash_hash_file_init(struct hash_file_s *data, struct hash_func_s *funcs,
 	data->priv.source = 0;
 	data->priv.report_source = 0;
 	data->priv.state = HASH_FILE_STATE_IDLE;
-	data->priv.stop = false;
 	data->funcs = funcs;
 	data->cb_data = cb_data;
 	data->uri = NULL;
+	data->cancellable = g_cancellable_new();
 }
 
 void gtkhash_hash_file_deinit(struct hash_file_s *data)

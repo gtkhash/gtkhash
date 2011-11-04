@@ -58,7 +58,7 @@ void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data, goffset file_size,
 
 void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 {
-	const bool stop = gtkhash_hash_file_get_stop(&hash_priv.file_data);
+	const bool stop = gtkhash_hash_file_is_cancelled(&hash_priv.file_data);
 
 	switch (gui_get_view()) {
 		case GUI_VIEW_FILE: {
@@ -114,7 +114,6 @@ void hash_file_start(const char *uri)
 	g_object_unref(file);
 
 	gtkhash_hash_file_set_uri(&hash_priv.file_data, uri);
-	gtkhash_hash_file_set_stop(&hash_priv.file_data, false);
 	gtkhash_hash_file_set_state(&hash_priv.file_data, HASH_FILE_STATE_START);
 	gtkhash_hash_file_add_source(&hash_priv.file_data);
 }
@@ -133,7 +132,7 @@ void hash_file_list_start(void)
 
 void hash_file_stop(void)
 {
-	gtkhash_hash_file_set_stop(&hash_priv.file_data, true);
+	gtkhash_hash_file_cancel(&hash_priv.file_data);
 
 	while (gtkhash_hash_file_get_state(&hash_priv.file_data)
 		!= HASH_FILE_STATE_IDLE)
