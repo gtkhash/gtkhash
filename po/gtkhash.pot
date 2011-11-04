@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 11:24+0000\n"
+"POT-Creation-Date: 2011-11-04 19:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,70 +22,74 @@ msgid "Base64"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:2
-msgid "Copy _Digest"
+msgid "Check:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:3
-msgid "Digest Format:"
+msgid "Copy _Digest"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:4
-msgid "File"
+msgid "Digest Format:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:5
-msgid "File _List"
+msgid "File"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:6
-msgid "File:"
+msgid "File _List"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:7
-msgid "GtkHash Preferences"
+msgid "File:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:8
-msgid "Ha_sh"
+msgid "GtkHash Preferences"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:9
-msgid "Hash Functions:"
+msgid "Ha_sh"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:10
-msgid "Lowercase Hexadecimal"
+msgid "Hash Functions:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:11
-msgid "Show _Toolbar"
+msgid "Lowercase Hexadecimal"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:12
-msgid "Text:"
+msgid "Show _Toolbar"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:13
-msgid "Uppercase Hexadecimal"
+msgid "Text:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:14
-msgid "_Edit"
+msgid "Uppercase Hexadecimal"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:15
-msgid "_File"
+msgid "_Edit"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:16
-msgid "_Help"
+msgid "_File"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:17
-msgid "_Text"
+msgid "_Help"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:18
+msgid "_Text"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:19
 msgid "_View"
 msgstr ""
 
@@ -113,27 +117,27 @@ msgstr ""
 msgid "Save Digests"
 msgstr ""
 
-#: ../src/callbacks.c:269
+#: ../src/callbacks.c:259
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 
-#: ../src/callbacks.c:273
+#: ../src/callbacks.c:263
 msgid "translator-credits"
 msgstr ""
 
-#: ../src/callbacks.c:300
+#: ../src/callbacks.c:285
 msgid "Select Files"
 msgstr ""
 
-#: ../src/gui.c:278
+#: ../src/gui.c:292
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:300
+#: ../src/gui.c:314
 msgid "Unknown error"
 msgstr ""
 
-#: ../src/gui.c:304
+#: ../src/gui.c:318
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"

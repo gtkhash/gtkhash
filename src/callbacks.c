@@ -120,7 +120,7 @@ static void on_menuitem_save_as_activate(void)
 					g_string_append_printf(string, "# %s\n", hash.funcs[i].name);
 					g_string_append_printf(string, "%s  \"%s\"\n",
 						gtk_entry_get_text(gui.hash_widgets[i].entry_text),
-						gtk_entry_get_text(gui.entry));
+						gtk_entry_get_text(gui.entry_text));
 					break;
 				case GUI_VIEW_FILE_LIST: {
 					int prev = -1;
@@ -161,11 +161,6 @@ static void on_menuitem_save_as_activate(void)
 	}
 
 	gtk_widget_destroy(GTK_WIDGET(chooser));
-}
-
-static void on_menuitem_quit_activate(void)
-{
-	gtk_main_quit();
 }
 
 static void on_menuitem_edit_activate(void)
@@ -238,11 +233,6 @@ static void on_menuitem_prefs_activate(void)
 	gtk_widget_show(GTK_WIDGET(gui.dialog));
 }
 
-static void on_radiomenuitem_toggled(void)
-{
-	gui_update();
-}
-
 static void on_menuitem_about_activate(void)
 {
 	const char *license = {
@@ -289,11 +279,6 @@ static void on_filechooserbutton_selection_changed(void)
 	gui_clear_digests();
 }
 
-static void on_entry_changed(void)
-{
-	g_signal_emit_by_name(gui.button_hash, "clicked");
-}
-
 static void on_toolbutton_add_clicked(void)
 {
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
@@ -312,16 +297,6 @@ static void on_toolbutton_add_clicked(void)
 	}
 
 	gtk_widget_destroy(GTK_WIDGET(chooser));
-}
-
-static void on_toolbutton_remove_clicked(void)
-{
-	list_remove_selection();
-}
-
-static void on_toolbutton_clear_clicked(void)
-{
-	list_clear();
 }
 
 static void on_treeview_popup_menu(void)
@@ -430,9 +405,10 @@ static void on_button_hash_clicked(void)
 			break;
 		}
 		case GUI_VIEW_TEXT: {
-			const char *str = gtk_entry_get_text(gui.entry);
+			const char *str = gtk_entry_get_text(gui.entry_text);
 			gtkhash_hash_string(hash.funcs, str, gui_get_digest_format());
 			gui_set_state(GUI_STATE_IDLE);
+			gui_check_digests();
 			break;
 		}
 		case GUI_VIEW_FILE_LIST:
@@ -441,11 +417,6 @@ static void on_button_hash_clicked(void)
 		default:
 			g_assert_not_reached();
 	}
-}
-
-static void on_button_stop_clicked(void)
-{
-	hash_file_stop();
 }
 
 static bool on_dialog_delete_event(void)
@@ -468,7 +439,7 @@ void callbacks_init(void)
 	CON(gui.window,                         "delete-event",        G_CALLBACK(on_window_delete_event));
 	CON(gui.menuitem_file,                  "activate",            on_menuitem_file_activate);
 	CON(gui.menuitem_save_as,               "activate",            on_menuitem_save_as_activate);
-	CON(gui.menuitem_quit,                  "activate",            on_menuitem_quit_activate);
+	CON(gui.menuitem_quit,                  "activate",            gtk_main_quit);
 	CON(gui.menuitem_edit,                  "activate",            on_menuitem_edit_activate);
 	CON(gui.menuitem_cut,                   "activate",            on_menuitem_cut_activate);
 	CON(gui.menuitem_copy,                  "activate",            on_menuitem_copy_activate);
@@ -476,27 +447,29 @@ void callbacks_init(void)
 	CON(gui.menuitem_delete,                "activate",            on_menuitem_delete_activate);
 	CON(gui.menuitem_select_all,            "activate",            on_menuitem_select_all_activate);
 	CON(gui.menuitem_prefs,                 "activate",            on_menuitem_prefs_activate);
-	CON(gui.radiomenuitem_file,             "toggled",             on_radiomenuitem_toggled);
-	CON(gui.radiomenuitem_text,             "toggled",             on_radiomenuitem_toggled);
-	CON(gui.radiomenuitem_file_list,        "toggled",             on_radiomenuitem_toggled);
+	CON(gui.radiomenuitem_file,             "toggled",             gui_update);
+	CON(gui.radiomenuitem_text,             "toggled",             gui_update);
+	CON(gui.radiomenuitem_file_list,        "toggled",             gui_update);
 	CON(gui.menuitem_about,                 "activate",            on_menuitem_about_activate);
 //	file-set isn't emitted when file is deleted
 //	CON(gui.filechooserbutton,              "file-set",            on_filechooserbutton_file_set);
 	CON(gui.filechooserbutton,              "selection-changed",   on_filechooserbutton_selection_changed);
-	CON(gui.entry,                          "changed",             on_entry_changed);
+	CON(gui.entry_text,                     "changed",             on_button_hash_clicked);
+	CON(gui.entry_check_file,               "changed",             gui_check_digests);
+	CON(gui.entry_check_text,               "changed",             gui_check_digests);
 	CON(gui.toolbutton_add,                 "clicked",             on_toolbutton_add_clicked);
-	CON(gui.toolbutton_remove,              "clicked",             on_toolbutton_remove_clicked);
-	CON(gui.toolbutton_clear,               "clicked",             on_toolbutton_clear_clicked);
+	CON(gui.toolbutton_remove,              "clicked",             list_remove_selection);
+	CON(gui.toolbutton_clear,               "clicked",             list_clear);
 	CON(gui.treeview,                       "popup-menu",          on_treeview_popup_menu);
 	CON(gui.treeview,                       "button-press-event",  G_CALLBACK(on_treeview_button_press_event));
 	CON(gui.treeview,                       "drag-data-received",  G_CALLBACK(on_treeview_drag_data_received));
 	CON(gui.treeselection,                  "changed",             on_treeselection_changed);
 	CON(gui.menuitem_treeview_add,          "activate",            on_toolbutton_add_clicked);
-	CON(gui.menuitem_treeview_remove,       "activate",            on_toolbutton_remove_clicked);
-	CON(gui.menuitem_treeview_clear,        "activate",            on_toolbutton_clear_clicked);
+	CON(gui.menuitem_treeview_remove,       "activate",            list_remove_selection);
+	CON(gui.menuitem_treeview_clear,        "activate",            list_clear);
 	CON(gui.menuitem_treeview_show_toolbar, "toggled",             on_menuitem_treeview_show_toolbar_toggled);
 	CON(gui.button_hash,                    "clicked",             on_button_hash_clicked);
-	CON(gui.button_stop,                    "clicked",             on_button_stop_clicked);
+	CON(gui.button_stop,                    "clicked",             hash_file_stop);
 	CON(gui.dialog,                         "delete-event",        G_CALLBACK(on_dialog_delete_event));
 	CON(gui.dialog_button_close,            "clicked",             G_CALLBACK(on_dialog_delete_event));
 	CON(gui.dialog_combobox,                "changed",             on_dialog_combobox_changed);

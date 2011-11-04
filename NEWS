@@ -1,5 +1,8 @@
 Summary of changes for each release:
 
+0.6.0 -
+	* Added "Check" feature
+
 0.5.0 - 2011-10-31
 	* Improved hashing speed on SMP systems
 	* Added support for libcrypto

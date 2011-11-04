@@ -100,6 +100,7 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 	}
 
 	gui_set_state(GUI_STATE_IDLE);
+	gui_check_digests();
 }
 
 void hash_file_start(const char *uri)
