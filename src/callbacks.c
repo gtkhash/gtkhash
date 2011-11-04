@@ -430,7 +430,7 @@ static void on_dialog_combobox_changed(void)
 	gui_clear_all_digests();
 
 	if (gui_get_view() == GUI_VIEW_TEXT)
-		g_signal_emit_by_name(gui.button_hash, "clicked");
+		on_button_hash_clicked();
 }
 
 void callbacks_init(void)
