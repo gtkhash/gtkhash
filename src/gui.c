@@ -534,35 +534,49 @@ void gui_clear_digests(void)
 	}
 }
 
+void gui_clear_all_digests(void)
+{
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		gtk_entry_set_text(gui.hash_widgets[i].entry_file, "");
+
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		gtk_entry_set_text(gui.hash_widgets[i].entry_text, "");
+
+	list_clear_digests();
+
+	gui_check_digests();
+}
+
 void gui_check_digests(void)
 {
 	const char *str_in_file = gtk_entry_get_text(gui.entry_check_file);
 	const char *str_in_text = gtk_entry_get_text(gui.entry_check_text);
-	size_t len_in_file = strlen(str_in_file);
-	size_t len_in_text = strlen(str_in_text);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		const char *str_out_file = gtk_entry_get_text(
 			gui.hash_widgets[i].entry_file);
 		const char *str_out_text = gtk_entry_get_text(
 			gui.hash_widgets[i].entry_text);
-		size_t len_out_file = strlen(str_out_file);
-		size_t len_out_text = strlen(str_out_text);
+
 		const char *icon_file = NULL;
 		const char *icon_text = NULL;
 
-		if ((len_in_file > 0) && (len_out_file > 0) &&
-			(len_in_file == len_out_file) &&
-			(g_ascii_strncasecmp(str_in_file, str_out_file, len_in_file) == 0))
-		{
-			icon_file = GTK_STOCK_YES;
-		}
-
-		if ((len_in_text > 0) && (len_out_text > 0) &&
-			(len_in_text == len_out_text) &&
-			(g_ascii_strncasecmp(str_in_text, str_out_text, len_in_text) == 0))
-		{
-			icon_text = GTK_STOCK_YES;
+		switch (gui_get_digest_format()) {
+			case DIGEST_FORMAT_HEX_LOWER:
+			case DIGEST_FORMAT_HEX_UPPER:
+				if (*str_in_file && (strcasecmp(str_in_file, str_out_file) == 0))
+					icon_file = GTK_STOCK_YES;
+				if (*str_in_text && (strcasecmp(str_in_text, str_out_text) == 0))
+					icon_text = GTK_STOCK_YES;
+				break;
+			case DIGEST_FORMAT_BASE64:
+				if (*str_in_file && (strcmp(str_in_file, str_out_file) == 0))
+					icon_file = GTK_STOCK_YES;
+				if (*str_in_text && (strcmp(str_in_text, str_out_text) == 0))
+					icon_text = GTK_STOCK_YES;
+				break;
+			default:
+				g_assert_not_reached();
 		}
 
 		gtk_entry_set_icon_from_stock(gui.hash_widgets[i].entry_file,

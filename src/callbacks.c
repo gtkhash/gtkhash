@@ -427,10 +427,10 @@ static bool on_dialog_delete_event(void)
 
 static void on_dialog_combobox_changed(void)
 {
+	gui_clear_all_digests();
+
 	if (gui_get_view() == GUI_VIEW_TEXT)
 		g_signal_emit_by_name(gui.button_hash, "clicked");
-	else
-		gui_clear_digests();
 }
 
 void callbacks_init(void)

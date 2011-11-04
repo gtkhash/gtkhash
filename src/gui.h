@@ -92,6 +92,7 @@ void gui_set_digest_format(const enum digest_format_e format);
 enum digest_format_e gui_get_digest_format(void);
 void gui_update(void);
 void gui_clear_digests(void);
+void gui_clear_all_digests(void);
 void gui_check_digests(void);
 void gui_set_state(const enum gui_state_e state);
 enum gui_state_e gui_get_state(void);
