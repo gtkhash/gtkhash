@@ -65,6 +65,7 @@
       <object class="GtkScrolledWindow" id="scrolledwindow">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
+        <property name="border_width">8</property>
         <property name="shadow_type">in</property>
         <child>
           <object class="GtkTreeView" id="treeview">
@@ -133,10 +134,54 @@
       </packing>
     </child>
     <child>
+      <object class="GtkAlignment" id="alignment_check">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="bottom_padding">4</property>
+        <property name="left_padding">8</property>
+        <property name="right_padding">8</property>
+        <child>
+          <object class="GtkHBox" id="hbox_check">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="spacing">8</property>
+            <child>
+              <object class="GtkLabel" id="label_check">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Check:</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_check">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">2</property>
+      </packing>
+    </child>
+    <child>
       <object class="GtkHButtonBox" id="hbuttonbox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="border_width">15</property>
+        <property name="border_width">8</property>
         <property name="spacing">8</property>
         <property name="layout_style">end</property>
         <child>
@@ -177,7 +222,8 @@
       <packing>
         <property name="expand">False</property>
         <property name="fill">True</property>
-        <property name="position">2</property>
+        <property name="padding">6</property>
+        <property name="position">3</property>
       </packing>
     </child>
   </object>
