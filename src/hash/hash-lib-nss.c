@@ -35,9 +35,9 @@
 #define LIB_DATA ((struct hash_lib_nss_s *)func->lib_data)
 
 struct hash_lib_nss_s {
-	SECOidTag alg;
 	NSSInitContext *nss;
 	PK11Context *pk11;
+	SECOidTag alg;
 };
 
 static bool gtkhash_hash_lib_nss_set_alg(const enum hash_func_e id,

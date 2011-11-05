@@ -66,11 +66,11 @@ enum hash_func_e {
 };
 
 struct hash_func_s {
-	enum hash_func_e id;
-	bool supported, enabled;
 	const char *name;
 	struct digest_s *digest;
 	void *lib_data;
+	enum hash_func_e id;
+	bool supported, enabled;
 };
 
 enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name);
