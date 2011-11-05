@@ -23,6 +23,7 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include <gtk/gtk.h>
 
 #include "properties.h"
@@ -90,6 +91,27 @@ void gtkhash_properties_list_update_digests(struct page_s *page)
 	} while (gtk_tree_model_iter_next(model, &iter));
 
 	gtk_tree_view_columns_autosize(page->treeview);
+}
+
+void gtkhash_properties_list_check_digests(struct page_s *page)
+{
+	const char *str_in = gtk_entry_get_text(page->entry_check);
+	const char *icon = NULL;
+
+	if (*str_in) {
+		for (int i = 0; i < HASH_FUNCS_N; i++) {
+			if (!page->hash_file.funcs[i].enabled)
+				continue;
+
+			const char *str_out = gtkhash_hash_func_get_digest(
+				&page->hash_file.funcs[i], DIGEST_FORMAT_HEX_LOWER);
+			if (strcasecmp(str_in, str_out) == 0)
+				icon = GTK_STOCK_YES;
+		}
+	}
+
+	gtk_entry_set_icon_from_stock(page->entry_check, GTK_ENTRY_ICON_SECONDARY,
+		icon);
 }
 
 char *gtkhash_properties_list_get_selected_digest(struct page_s *page)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 19:23+0000\n"
+"POT-Creation-Date: 2011-11-05 16:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Base64"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:2
+#: ../data/gtkhash.xml.h:2 ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "Check:"
 msgstr ""
 
@@ -93,23 +93,23 @@ msgstr ""
 msgid "_View"
 msgstr ""
 
-#: ../data/nautilus/gtkhash-properties.xml.h:1
+#: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Digest"
 msgstr ""
 
-#: ../data/nautilus/gtkhash-properties.xml.h:2
+#: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "H_ash"
 msgstr ""
 
-#: ../data/nautilus/gtkhash-properties.xml.h:3
+#: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Hash Function"
 msgstr ""
 
-#: ../data/nautilus/gtkhash-properties.xml.h:4
+#: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Show _Disabled Hash Functions"
 msgstr ""
 
-#: ../data/nautilus/gtkhash-properties.xml.h:5
+#: ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "_Copy Digest"
 msgstr ""
 
@@ -129,15 +129,15 @@ msgstr ""
 msgid "Select Files"
 msgstr ""
 
-#: ../src/gui.c:292
+#: ../src/gui.c:294
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:314
+#: ../src/gui.c:316
 msgid "Unknown error"
 msgstr ""
 
-#: ../src/gui.c:318
+#: ../src/gui.c:320
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -164,7 +164,7 @@ msgstr ""
 msgid "Failed to enable any supported hash functions."
 msgstr ""
 
-#: ../src/nautilus/properties.c:281 ../src/nautilus/properties.c:283
+#: ../src/nautilus/properties.c:296 ../src/nautilus/properties.c:298
 msgid "Digests"
 msgstr ""
 

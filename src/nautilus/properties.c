@@ -71,6 +71,8 @@ void gtkhash_properties_idle(struct page_s *page)
 	gtk_widget_set_sensitive(GTK_WIDGET(page->treeview), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->button_stop), false);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->button_hash), true);
+
+	gtkhash_properties_list_check_digests(page);
 }
 
 static void gtkhash_properties_on_cell_toggled(struct page_s *page,
@@ -125,6 +127,11 @@ static void gtkhash_properties_on_menuitem_show_funcs_toggled(
 	gtkhash_properties_list_refilter(page);
 }
 
+static void gtkhash_properties_on_entry_check_changed(struct page_s *page)
+{
+	gtkhash_properties_list_check_digests(page);
+}
+
 static void gtkhash_properties_on_button_hash_clicked(struct page_s *page)
 {
 	gtkhash_properties_busy(page);
@@ -176,6 +183,10 @@ static void gtkhash_properties_get_objects(struct page_s *page,
 	page->menuitem_show_funcs = GTK_CHECK_MENU_ITEM(gtkhash_properties_get_object(builder,
 		"checkmenuitem_show_funcs"));
 
+	// Check
+	page->entry_check = GTK_ENTRY(gtkhash_properties_get_object(builder,
+		"entry_check"));
+
 	// Buttons
 	page->button_hash = GTK_BUTTON(gtkhash_properties_get_object(builder,
 		"button_hash"));
@@ -204,6 +215,10 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 		G_CALLBACK(gtkhash_properties_on_menuitem_copy_activate), page);
 	g_signal_connect_swapped(page->menuitem_show_funcs, "toggled",
 		G_CALLBACK(gtkhash_properties_on_menuitem_show_funcs_toggled), page);
+
+	// Check
+	g_signal_connect_swapped(page->entry_check, "changed",
+		G_CALLBACK(gtkhash_properties_on_entry_check_changed), page);
 
 	// Buttons
 	g_signal_connect_swapped(page->button_hash, "clicked",

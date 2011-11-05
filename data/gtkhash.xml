@@ -629,8 +629,6 @@
                           <object class="GtkEntry" id="entry_text">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="primary_icon_activatable">False</property>
-                            <property name="secondary_icon_activatable">False</property>
                           </object>
                           <packing>
                             <property name="expand">True</property>

@@ -24,6 +24,7 @@
 
 void gtkhash_properties_list_update_enabled(struct page_s *page, char *path_str);
 void gtkhash_properties_list_update_digests(struct page_s *page);
+void gtkhash_properties_list_check_digests(struct page_s *page);
 char *gtkhash_properties_list_get_selected_digest(struct page_s *page);
 void gtkhash_properties_list_refilter(struct page_s *page);
 void gtkhash_properties_list_init(struct page_s *page);

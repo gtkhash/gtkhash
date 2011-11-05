@@ -40,6 +40,7 @@ struct page_s {
 	GtkMenu *menu;
 	GtkImageMenuItem *menuitem_copy;
 	GtkCheckMenuItem *menuitem_show_funcs;
+	GtkEntry *entry_check;
 	GtkButton *button_hash, *button_stop;
 	struct hash_func_s funcs[HASH_FUNCS_N];
 	struct hash_file_s hash_file;
