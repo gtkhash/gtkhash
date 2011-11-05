@@ -23,7 +23,7 @@
 #include "hash/hash-func.h"
 #include "hash/hash-file.h"
 
-struct {
+extern struct hash_s {
 	struct hash_func_s funcs[HASH_FUNCS_N];
 } hash;
 

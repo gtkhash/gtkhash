@@ -41,7 +41,7 @@ enum gui_state_e {
 	GUI_STATE_BUSY,
 };
 
-struct {
+extern struct gui_s {
 	GtkWindow *window;
 	GtkMenuItem *menuitem_file, *menuitem_save_as, *menuitem_quit;
 	GtkMenuItem *menuitem_edit;

@@ -35,6 +35,8 @@
 #include "prefs.h"
 #include "hash/digest-format.h"
 
+struct gui_s gui;
+
 static struct {
 	enum gui_state_e state;
 } gui_priv = {

@@ -14,12 +14,15 @@ LT_INIT
 GTKHASH_CFLAGS=""
 
 for opt in \
+	-fno-common \
+	-fvisibility=hidden \
 	-pedantic \
 	-Wall \
 	-Wextra \
 	-Waggregate-return \
 	-Wbad-function-cast \
 	-Wcast-align \
+	-Winit-self \
 	-Wfloat-equal \
 	-Wlogical-op \
 	-Wmissing-declarations \

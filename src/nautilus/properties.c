@@ -333,11 +333,17 @@ static void gtkhash_properties_register_type(GTypeModule *module)
 		&iface_info);
 }
 
+#if __GNUC__
+	#define PUBLIC __attribute__((visibility("default")))
+#else
+	#define PUBLIC G_MODULE_EXPORT
+#endif
+
 #if IN_NAUTILUS_EXTENSION
-void nautilus_module_initialize(GTypeModule *module)
+PUBLIC void nautilus_module_initialize(GTypeModule *module)
 #elif IN_THUNAR_EXTENSION
-void thunar_extension_initialize(GTypeModule *module);
-void thunar_extension_initialize(GTypeModule *module)
+PUBLIC void thunar_extension_initialize(GTypeModule *module);
+PUBLIC void thunar_extension_initialize(GTypeModule *module)
 #endif
 {
 	gtkhash_properties_register_type(module);
@@ -349,19 +355,19 @@ void thunar_extension_initialize(GTypeModule *module)
 }
 
 #if IN_NAUTILUS_EXTENSION
-void nautilus_module_shutdown(void)
+PUBLIC void nautilus_module_shutdown(void)
 #elif IN_THUNAR_EXTENSION
-void thunar_extension_shutdown(void);
-void thunar_extension_shutdown(void)
+PUBLIC void thunar_extension_shutdown(void);
+PUBLIC void thunar_extension_shutdown(void)
 #endif
 {
 }
 
 #if IN_NAUTILUS_EXTENSION
-void nautilus_module_list_types(const GType **types, int *num_types)
+PUBLIC void nautilus_module_list_types(const GType **types, int *num_types)
 #elif IN_THUNAR_EXTENSION
-void thunar_extension_list_types(const GType **types, int *num_types);
-void thunar_extension_list_types(const GType **types, int *num_types)
+PUBLIC void thunar_extension_list_types(const GType **types, int *num_types);
+PUBLIC void thunar_extension_list_types(const GType **types, int *num_types)
 #endif
 {
 	static GType type_list[1];
