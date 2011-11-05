@@ -105,8 +105,10 @@ void gtkhash_properties_list_check_digests(struct page_s *page)
 
 			const char *str_out = gtkhash_hash_func_get_digest(
 				&page->hash_file.funcs[i], DIGEST_FORMAT_HEX_LOWER);
-			if (strcasecmp(str_in, str_out) == 0)
+			if (strcasecmp(str_in, str_out) == 0) {
 				icon = GTK_STOCK_YES;
+				break;
+			}
 		}
 	}
 
