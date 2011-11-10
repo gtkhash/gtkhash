@@ -397,16 +397,22 @@ enum gui_view_e gui_get_view(void)
 		gui.radiomenuitem_file)))
 	{
 		return GUI_VIEW_FILE;
-	} else if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
+	}
+
+	if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
 		gui.radiomenuitem_text)))
 	{
 		return GUI_VIEW_TEXT;
-	} else if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
+	}
+
+	if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
 		gui.radiomenuitem_file_list)))
 	{
 		return GUI_VIEW_FILE_LIST;
-	} else
-		g_assert_not_reached();
+	}
+
+	g_assert_not_reached();
+	return GUI_VIEW_INVALID;
 }
 
 void gui_set_digest_format(const enum digest_format_e format)

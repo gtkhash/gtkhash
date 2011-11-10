@@ -113,6 +113,7 @@ void gtkhash_hash_lib_nss_start(struct hash_func_s *func)
 	g_assert(LIB_DATA->pk11);
 
 	SECStatus s = PK11_DigestBegin(LIB_DATA->pk11);
+	(void)s;
 	g_assert(s == SECSuccess);
 }
 
@@ -120,6 +121,7 @@ void gtkhash_hash_lib_nss_update(struct hash_func_s *func,
 	const uint8_t *buffer, const size_t size)
 {
 	SECStatus s = PK11_DigestOp(LIB_DATA->pk11, buffer, size);
+	(void)s;
 	g_assert(s == SECSuccess);
 }
 
@@ -136,6 +138,7 @@ uint8_t *gtkhash_hash_lib_nss_finish(struct hash_func_s *func, size_t *size)
 	unsigned int len = 0;
 
 	SECStatus s = PK11_DigestFinal(LIB_DATA->pk11, buf, &len, sizeof(buf));
+	(void)s;
 	g_assert(s == SECSuccess);
 	g_assert(len < sizeof(buf));
 

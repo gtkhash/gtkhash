@@ -23,6 +23,15 @@
 #include <stdbool.h>
 #include <gtk/gtk.h>
 
+#if (GTK_MAJOR_VERSION > 2)
+	#define GtkHBox GtkBox
+	#define GTK_HBOX GTK_BOX
+	#define GtkVBox GtkBox
+	#define GTK_VBOX GTK_BOX
+	#define GtkHSeparator GtkSeparator
+	#define GTK_HSEPARATOR GTK_SEPARATOR
+#endif
+
 #include "hash.h"
 
 #define GUI_VIEW_IS_VALID(X) (((X) >= 0) && ((X) <= GUI_VIEW_FILE_LIST))

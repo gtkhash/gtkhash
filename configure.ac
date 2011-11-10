@@ -67,6 +67,21 @@ PKG_CHECK_MODULES([GTK], ["gtk+-${with_gtk}" >= 2.24])
 AC_SUBST([GTK_CFLAGS])
 AC_SUBST([GTK_LIBS])
 
+AC_MSG_CHECKING([whether to enable debugging])
+AC_ARG_ENABLE([debug],
+	[AS_HELP_STRING([--enable-debug], [enable debugging])],
+	[enable_debug="${enableval}"], [enable_debug="no"])
+AC_MSG_RESULT(["${enable_debug}"])
+
+if test "${enable_debug}" = "yes" ; then
+	AC_DEFINE([G_DISABLE_DEPRECATED], [1], [disable glib deprecated])
+	AC_DEFINE([GDK_DISABLE_DEPRECATED], [1], [disable gdk deprecated])
+	AC_DEFINE([GTK_DISABLE_DEPRECATED], [1], [disable gtk+ deprecated])
+else
+	AC_DEFINE([G_DISABLE_ASSERT], [1], [disable glib assert])
+	AC_DEFINE([G_DISABLE_CAST_CHECKS], [1], [disable glib cast checks])
+fi
+
 hash_libs=""
 
 AC_MSG_CHECKING([whether to use zlib])

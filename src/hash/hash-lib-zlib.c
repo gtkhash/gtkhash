@@ -48,6 +48,8 @@ static uLong gtkhash_hash_lib_zlib_checksum(const enum hash_func_e id,
 		default:
 			g_assert_not_reached();
 	}
+
+	return 0;
 }
 
 bool gtkhash_hash_lib_zlib_is_supported(const enum hash_func_e id)
