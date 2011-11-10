@@ -23,7 +23,7 @@
 #include <stdbool.h>
 #include <gtk/gtk.h>
 
-#if (GTK_MAJOR_VERSION > 2)
+#ifndef GTK_HBOX // Gtk+ 3
 	#define GtkHBox GtkBox
 	#define GTK_HBOX GTK_BOX
 	#define GtkVBox GtkBox
