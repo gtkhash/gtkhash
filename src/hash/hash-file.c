@@ -379,7 +379,7 @@ static bool gtkhash_hash_file(struct hash_file_s *data)
 
 	const enum hash_file_state_e state = gtkhash_hash_file_get_state(data);
 
-	if (state == HASH_FILE_STATE_TERM) {
+	if (G_UNLIKELY(state == HASH_FILE_STATE_TERM)) {
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_IDLE);
 		gtkhash_hash_file_finish_cb(data->cb_data);
 		return false;
@@ -410,6 +410,8 @@ void gtkhash_hash_file_deinit(struct hash_file_s *data)
 	g_assert(data->priv.report_source == 0);
 
 	g_mutex_free(data->priv.mutex);
+
+	g_object_unref(data->cancellable);
 }
 
 void gtkhash_hash_file_clear_digests(struct hash_file_s *data)
