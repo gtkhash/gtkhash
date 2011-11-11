@@ -35,7 +35,9 @@
 
 static bool on_window_delete_event(void)
 {
+	gtk_widget_hide(GTK_WIDGET(gui.window));
 	gtk_main_quit();
+
 	return true;
 }
 
@@ -161,6 +163,12 @@ static void on_menuitem_save_as_activate(void)
 	}
 
 	gtk_widget_destroy(GTK_WIDGET(chooser));
+}
+
+static void on_menuitem_quit_activate(void)
+{
+	gtk_widget_hide(GTK_WIDGET(gui.window));
+	gtk_main_quit();
 }
 
 static void on_menuitem_edit_activate(void)
@@ -439,7 +447,7 @@ void callbacks_init(void)
 	CON(gui.window,                         "delete-event",        G_CALLBACK(on_window_delete_event));
 	CON(gui.menuitem_file,                  "activate",            on_menuitem_file_activate);
 	CON(gui.menuitem_save_as,               "activate",            on_menuitem_save_as_activate);
-	CON(gui.menuitem_quit,                  "activate",            gtk_main_quit);
+	CON(gui.menuitem_quit,                  "activate",            on_menuitem_quit_activate);
 	CON(gui.menuitem_edit,                  "activate",            on_menuitem_edit_activate);
 	CON(gui.menuitem_cut,                   "activate",            on_menuitem_cut_activate);
 	CON(gui.menuitem_copy,                  "activate",            on_menuitem_copy_activate);
