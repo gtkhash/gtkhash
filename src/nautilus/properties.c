@@ -66,13 +66,27 @@ static void gtkhash_properties_busy(struct page_s *page)
 	gtk_widget_show(GTK_WIDGET(page->progressbar));
 }
 
+static void gtkhash_properties_button_hash_set_sensitive(struct page_s *page)
+{
+	bool has_enabled = false;
+
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (page->hash_file.funcs[i].enabled) {
+			has_enabled = true;
+			break;
+		}
+	}
+
+	gtk_widget_set_sensitive(GTK_WIDGET(page->button_hash), has_enabled);
+}
+
 void gtkhash_properties_idle(struct page_s *page)
 {
 	gtk_widget_hide(GTK_WIDGET(page->progressbar));
 
 	gtk_widget_set_sensitive(GTK_WIDGET(page->treeview), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->button_stop), false);
-	gtk_widget_set_sensitive(GTK_WIDGET(page->button_hash), true);
+	gtkhash_properties_button_hash_set_sensitive(page);
 
 	gtkhash_properties_list_check_digests(page);
 }
@@ -81,6 +95,8 @@ static void gtkhash_properties_on_cell_toggled(struct page_s *page,
 	char *path_str)
 {
 	gtkhash_properties_list_update_enabled(page, path_str);
+	gtkhash_properties_list_check_digests(page);
+	gtkhash_properties_button_hash_set_sensitive(page);
 }
 
 static void gtkhash_properties_on_treeview_popup_menu(struct page_s *page)

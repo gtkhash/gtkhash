@@ -69,6 +69,14 @@ void gtkhash_properties_list_update_enabled(struct page_s *page, char *path_str)
 	enabled = !enabled;
 	gtk_list_store_set(store, &iter, COL_ENABLED, enabled, -1);
 
+	if (!enabled) {
+		// Clear digest for disabled func
+		gtkhash_hash_func_clear_digest(&page->hash_file.funcs[id]);
+		const char *digest = gtkhash_hash_func_get_digest(
+			&page->hash_file.funcs[id], DIGEST_FORMAT_HEX_LOWER);
+		gtk_list_store_set(store, &iter, COL_DIGEST, digest, -1);
+	}
+
 	page->hash_file.funcs[id].enabled = enabled;
 }
 
