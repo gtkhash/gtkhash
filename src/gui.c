@@ -25,6 +25,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <errno.h>
+#include <gio/gio.h>
 #include <gtk/gtk.h>
 
 #include "gui.h"
@@ -232,30 +233,85 @@ static void gui_init_hash_funcs(void)
 	}
 }
 
+static char *gui_get_xml(const char *filename)
+{
+	GMappedFile *map = g_mapped_file_new(filename, false, NULL);
+
+	if (!map)
+		return NULL;
+
+	gsize map_len = g_mapped_file_get_length(map);
+	if (map_len == 0) {
+		g_mapped_file_unref(map);
+		return NULL;
+	}
+
+	const char *map_data = g_mapped_file_get_contents(map);
+	g_assert(map_data);
+
+	GInputStream *input_mem = g_memory_input_stream_new_from_data(map_data,
+		map_len, NULL);
+	GConverter *converter = G_CONVERTER(g_zlib_decompressor_new(
+		G_ZLIB_COMPRESSOR_FORMAT_GZIP));
+
+	GInputStream *input_conv = g_converter_input_stream_new(input_mem,
+		converter);
+
+	g_object_unref(input_mem);
+	g_object_unref(converter);
+
+	GString *string = g_string_new(NULL);
+
+	for (char buf[1024];;) {
+		gssize len = g_input_stream_read(input_conv, buf, 1024, NULL, NULL);
+		if (len <= 0)
+			break;
+
+		g_string_append_len(string, buf, len);
+	}
+
+	g_object_unref(input_conv);
+	g_mapped_file_unref(map);
+
+	return g_string_free(string, false);
+}
+
 void gui_init(const char *datadir)
 {
 	gtk_init(NULL, NULL);
 
+	char *filename = g_build_filename(datadir, PACKAGE ".xml.gz", NULL);
+	char *xml = gui_get_xml(filename);
+
+	if (!xml || !*xml) {
+		char *message = g_strdup_printf(_("Failed to read \"%s\""), filename);
+		gui_error(message);
+		g_free(message);
+		g_free(xml);
+		g_free(filename);
+		exit(EXIT_FAILURE);
+	}
+
 	GtkBuilder *builder = gtk_builder_new();
 	gtk_builder_set_translation_domain(builder, GETTEXT_PACKAGE);
 
-	char *filename = g_build_filename(datadir, PACKAGE ".xml", NULL);
 	GError *error = NULL;
+	gtk_builder_add_from_string(builder, xml, -1, &error);
 
-	gtk_builder_add_from_file(builder, filename, &error);
-
-	g_free(filename);
+	g_free(xml);
 
 	if (error) {
-		GtkWidget *dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
-			GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", error->message);
-		gtk_window_set_title(GTK_WINDOW(dialog), PACKAGE_NAME);
-		gtk_dialog_run(GTK_DIALOG(dialog));
-		gtk_widget_destroy(dialog);
+		char *message = g_strdup_printf(_("Failed to read \"%s\":\n%s"),
+			filename, error->message);
+		gui_error(message);
+		g_free(message);
+		g_free(filename);
 		g_error_free(error);
 		g_object_unref(builder);
 		exit(EXIT_FAILURE);
 	}
+
+	g_free(filename);
 
 	gui_get_objects(builder);
 	g_object_ref(gui.menu_treeview);
@@ -315,13 +371,11 @@ unsigned int gui_add_uris(GSList *uris, enum gui_view_e view)
 		do {
 			char *error = g_strdup(_("Unknown error"));
 			if (!gui_can_add_uri(tmp->data, &error)) {
-				GtkWidget *dialog = gtk_message_dialog_new(NULL,
-					GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
-					_("Failed to add \"%s\":\n%s"), (char *)tmp->data, error);
+				char *message = g_strdup_printf(_("Failed to add \"%s\":\n%s"),
+					(char *)tmp->data, error);
+				gui_error(message);
 				g_free(error);
-				gtk_window_set_title(GTK_WINDOW(dialog), PACKAGE_NAME);
-				gtk_dialog_run(GTK_DIALOG(dialog));
-				gtk_widget_destroy(dialog);
+				g_free(message);
 				continue;
 			}
 			if (!g_slist_find_custom(readable, tmp->data,
@@ -354,6 +408,15 @@ unsigned int gui_add_uris(GSList *uris, enum gui_view_e view)
 	g_slist_free(readable);
 
 	return readable_len;
+}
+
+void gui_error(const char *message)
+{
+	GtkWidget *dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
+		GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", message);
+	gtk_window_set_title(GTK_WINDOW(dialog), PACKAGE_NAME);
+	gtk_dialog_run(GTK_DIALOG(dialog));
+	gtk_widget_destroy(dialog);
 }
 
 void gui_run(void)

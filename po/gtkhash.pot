@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-05 16:29+0000\n"
+"POT-Creation-Date: 2011-11-18 17:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,31 +113,43 @@ msgstr ""
 msgid "_Copy Digest"
 msgstr ""
 
-#: ../src/callbacks.c:85
+#: ../src/callbacks.c:87
 msgid "Save Digests"
 msgstr ""
 
-#: ../src/callbacks.c:259
+#: ../src/callbacks.c:267
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 
-#: ../src/callbacks.c:263
+#: ../src/callbacks.c:271
 msgid "translator-credits"
 msgstr ""
 
-#: ../src/callbacks.c:285
+#: ../src/callbacks.c:293
 msgid "Select Files"
 msgstr ""
 
-#: ../src/gui.c:294
+#: ../src/gui.c:287
+#, c-format
+msgid "Failed to read \"%s\""
+msgstr ""
+
+#: ../src/gui.c:304
+#, c-format
+msgid ""
+"Failed to read \"%s\":\n"
+"%s"
+msgstr ""
+
+#: ../src/gui.c:350
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:316
+#: ../src/gui.c:372
 msgid "Unknown error"
 msgstr ""
 
-#: ../src/gui.c:320
+#: ../src/gui.c:374
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -160,30 +172,30 @@ msgstr ""
 msgid "[FILE|URI...]"
 msgstr ""
 
-#: ../src/prefs.c:57
+#: ../src/prefs.c:55
 msgid "Failed to enable any supported hash functions."
 msgstr ""
 
-#: ../src/nautilus/properties.c:296 ../src/nautilus/properties.c:298
+#: ../src/nautilus/properties.c:353 ../src/nautilus/properties.c:355
 msgid "Digests"
 msgstr ""
 
-#: ../src/nautilus/properties-hash.c:61
+#: ../src/nautilus/properties-hash.c:67
 #, c-format
 msgid "%s of %s - 1 minute left (%s/sec)"
 msgstr ""
 
-#: ../src/nautilus/properties-hash.c:64
+#: ../src/nautilus/properties-hash.c:70
 #, c-format
 msgid "%s of %s - %u minutes left (%s/sec)"
 msgstr ""
 
-#: ../src/nautilus/properties-hash.c:68
+#: ../src/nautilus/properties-hash.c:74
 #, c-format
 msgid "%s of %s - 1 second left (%s/sec)"
 msgstr ""
 
-#: ../src/nautilus/properties-hash.c:71
+#: ../src/nautilus/properties-hash.c:77
 #, c-format
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr ""

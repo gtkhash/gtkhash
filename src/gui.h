@@ -93,6 +93,7 @@ extern struct gui_s {
 
 void gui_init(const char *datadir);
 unsigned int gui_add_uris(GSList *uris, enum gui_view_e view);
+void gui_error(const char *message);
 void gui_run(void);
 void gui_deinit(void);
 void gui_set_view(const enum gui_view_e view);

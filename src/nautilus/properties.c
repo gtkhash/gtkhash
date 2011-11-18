@@ -40,6 +40,8 @@
 #include "../hash/hash-func.h"
 #include "../hash/hash-file.h"
 
+#define BUILDER_XML DATADIR "/gtkhash-properties.xml.gz"
+
 static GType page_type;
 
 static GObject *gtkhash_properties_get_object(GtkBuilder *builder,
@@ -227,16 +229,71 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 		G_CALLBACK(gtkhash_properties_on_button_stop_clicked), page);
 }
 
+static char *gtkhash_properties_get_xml(const char *filename)
+{
+	GMappedFile *map = g_mapped_file_new(filename, false, NULL);
+
+	if (!map)
+		return NULL;
+
+	gsize map_len = g_mapped_file_get_length(map);
+	if (map_len == 0) {
+		g_mapped_file_unref(map);
+		return NULL;
+	}
+
+	const char *map_data = g_mapped_file_get_contents(map);
+	g_assert(map_data);
+
+	GInputStream *input_mem = g_memory_input_stream_new_from_data(map_data,
+		map_len, NULL);
+	GConverter *converter = G_CONVERTER(g_zlib_decompressor_new(
+		G_ZLIB_COMPRESSOR_FORMAT_GZIP));
+
+	GInputStream *input_conv = g_converter_input_stream_new(input_mem,
+		converter);
+
+	g_object_unref(input_mem);
+	g_object_unref(converter);
+
+	GString *string = g_string_new(NULL);
+
+	for (char buf[1024];;) {
+		gssize len = g_input_stream_read(input_conv, buf, 1024, NULL, NULL);
+		if (len <= 0)
+			break;
+
+		g_string_append_len(string, buf, len);
+	}
+
+	g_object_unref(input_conv);
+	g_mapped_file_unref(map);
+
+	return g_string_free(string, false);
+}
+
 static struct page_s *gtkhash_properties_new_page(char *uri)
 {
+	char *xml = gtkhash_properties_get_xml(BUILDER_XML);
+
+	if (!xml || !*xml) {
+		g_warning("failed to read \"%s\"", BUILDER_XML);
+		g_free(xml);
+		return NULL;
+	}
+
 	GtkBuilder *builder = gtk_builder_new();
+	gtk_builder_set_translation_domain(builder, GETTEXT_PACKAGE);
 
-#if ENABLE_NLS
-	gtk_builder_set_translation_domain(builder, PACKAGE);
-#endif
+	GError *error = NULL;
+	gtk_builder_add_from_string(builder, xml, -1, &error);
 
-	if (!gtk_builder_add_from_file(builder, BUILDER_XML, NULL)) {
-		g_warning("failed to read %s", BUILDER_XML);
+	g_free(xml);
+
+	if (error) {
+		g_warning("failed to read \"%s\":\n%s", BUILDER_XML, error->message);
+		g_error_free(error);
+		g_object_unref(builder);
 		return NULL;
 	}
 
@@ -364,7 +421,7 @@ PUBLIC void thunar_extension_initialize(GTypeModule *module)
 	gtkhash_properties_register_type(module);
 
 #if ENABLE_NLS
-	bindtextdomain(PACKAGE, LOCALEDIR);
+	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset(PACKAGE, "UTF-8");
 #endif
 }

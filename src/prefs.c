@@ -52,12 +52,7 @@ static void default_hash_funcs(void)
 			return;
 		}
 
-	GtkWidget *dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
-		GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
-		_("Failed to enable any supported hash functions."));
-	gtk_window_set_title(GTK_WINDOW(dialog), PACKAGE_NAME);
-	gtk_dialog_run(GTK_DIALOG(dialog));
-	gtk_widget_destroy(dialog);
+	gui_error(_("Failed to enable any supported hash functions."));
 	exit(EXIT_FAILURE);
 }
 

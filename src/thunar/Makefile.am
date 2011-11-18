@@ -9,7 +9,7 @@ libgtkhash_properties_la_SOURCES = \
 
 libgtkhash_properties_la_CPPFLAGS = \
 	$(THUNAR_CFLAGS) $(GCONF_CFLAGS) \
-	-DBUILDER_XML="\"$(pkgdatadir)/nautilus/gtkhash-properties.xml\"" \
+	-DDATADIR="\"$(pkgdatadir)/nautilus\"" \
 	-DLOCALEDIR="\"$(localedir)\"" \
 	-DIN_THUNAR_EXTENSION=1
 
