@@ -7,105 +7,109 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-06-29 15:45+0100\n"
+"POT-Creation-Date: 2011-11-05 16:29+0000\n"
 "PO-Revision-Date: 2011-10-19 16:00+0000\n"
 "Last-Translator: Łukasz Szeremeta <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-26 05:14+0000\n"
-"X-Generator: Launchpad (build 14189)\n"
+"X-Launchpad-Export-Date: 2011-11-06 05:24+0000\n"
+"X-Generator: Launchpad (build 14231)\n"
 
 #: ../data/gtkhash.xml.h:1
 msgid "Base64"
 msgstr "Base64"
 
-#: ../data/gtkhash.xml.h:2
+#: ../data/gtkhash.xml.h:2 ../data/nautilus/gtkhash-properties.xml.h:1
+msgid "Check:"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:3
 msgid "Copy _Digest"
 msgstr "Skopiuj _sumę kontroną"
 
-#: ../data/gtkhash.xml.h:3
+#: ../data/gtkhash.xml.h:4
 msgid "Digest Format:"
 msgstr "Format sumy kontrolnej:"
 
-#: ../data/gtkhash.xml.h:4
+#: ../data/gtkhash.xml.h:5
 msgid "File"
 msgstr "Plik"
 
-#: ../data/gtkhash.xml.h:5
+#: ../data/gtkhash.xml.h:6
 msgid "File _List"
 msgstr "_Lista plików"
 
-#: ../data/gtkhash.xml.h:6
+#: ../data/gtkhash.xml.h:7
 msgid "File:"
 msgstr "Plik:"
 
-#: ../data/gtkhash.xml.h:7
+#: ../data/gtkhash.xml.h:8
 msgid "GtkHash Preferences"
 msgstr "GtkHash Preferencje"
 
-#: ../data/gtkhash.xml.h:8
+#: ../data/gtkhash.xml.h:9
 msgid "Ha_sh"
 msgstr "Ha_sh"
 
-#: ../data/gtkhash.xml.h:9
+#: ../data/gtkhash.xml.h:10
 msgid "Hash Functions:"
 msgstr "Hash Funkcje:"
 
-#: ../data/gtkhash.xml.h:10
+#: ../data/gtkhash.xml.h:11
 msgid "Lowercase Hexadecimal"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:11
+#: ../data/gtkhash.xml.h:12
 msgid "Show _Toolbar"
 msgstr "Pokaż pasek _narzędzi"
 
-#: ../data/gtkhash.xml.h:12
+#: ../data/gtkhash.xml.h:13
 msgid "Text:"
 msgstr "Tekst:"
 
-#: ../data/gtkhash.xml.h:13
+#: ../data/gtkhash.xml.h:14
 msgid "Uppercase Hexadecimal"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:14
+#: ../data/gtkhash.xml.h:15
 msgid "_Edit"
 msgstr "_Edytuj"
 
-#: ../data/gtkhash.xml.h:15
+#: ../data/gtkhash.xml.h:16
 msgid "_File"
 msgstr "_Plik"
 
-#: ../data/gtkhash.xml.h:16
+#: ../data/gtkhash.xml.h:17
 msgid "_Help"
 msgstr "_Pomoc"
 
-#: ../data/gtkhash.xml.h:17
+#: ../data/gtkhash.xml.h:18
 msgid "_Text"
 msgstr "_Tekst"
 
-#: ../data/gtkhash.xml.h:18
+#: ../data/gtkhash.xml.h:19
 msgid "_View"
 msgstr "_Widok"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:1
+#: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Digest"
 msgstr "Sumy kontrolne"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:2
+#: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "H_ash"
 msgstr "H_ash"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:3
+#: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Hash Function"
 msgstr "Funkcje Hash"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:4
+#: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Show _Disabled Hash Functions"
 msgstr "Pokaż _Niekatywne Funkcje Hash"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:5
+#: ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "_Copy Digest"
 msgstr "_Skopiuj sumę kontrolną"
 
@@ -113,29 +117,29 @@ msgstr "_Skopiuj sumę kontrolną"
 msgid "Save Digests"
 msgstr "Zapisz sumę kontrolną"
 
-#: ../src/callbacks.c:269
+#: ../src/callbacks.c:259
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "Narzędzie GTK+ do wyświetlania sum kontrolnych"
 
-#: ../src/callbacks.c:273
+#: ../src/callbacks.c:263
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Łukasz Szeremeta https://launchpad.net/~l-szeremeta"
 
-#: ../src/callbacks.c:300
+#: ../src/callbacks.c:285
 msgid "Select Files"
 msgstr "Wybierz pliki"
 
-#: ../src/gui.c:278
+#: ../src/gui.c:294
 msgid "Not a regular file"
 msgstr "Nie jest zwykłym plikiem"
 
-#: ../src/gui.c:300
+#: ../src/gui.c:316
 msgid "Unknown error"
 msgstr "Nieznany błąd"
 
-#: ../src/gui.c:304
+#: ../src/gui.c:320
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -164,7 +168,7 @@ msgstr "[PLIK|URI...]"
 msgid "Failed to enable any supported hash functions."
 msgstr "Nie udało się włączyć wszystkich obsługiwanych funkcji haszujących."
 
-#: ../src/nautilus/properties.c:259
+#: ../src/nautilus/properties.c:296 ../src/nautilus/properties.c:298
 msgid "Digests"
 msgstr "Sumy kontrolne"
 

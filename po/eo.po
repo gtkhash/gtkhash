@@ -7,105 +7,109 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-06-29 15:45+0100\n"
+"POT-Creation-Date: 2011-11-05 16:29+0000\n"
 "PO-Revision-Date: 2011-04-09 09:57+0000\n"
 "Last-Translator: Kristjan SCHMIDT <Unknown>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-26 05:14+0000\n"
-"X-Generator: Launchpad (build 14189)\n"
+"X-Launchpad-Export-Date: 2011-11-06 05:24+0000\n"
+"X-Generator: Launchpad (build 14231)\n"
 
 #: ../data/gtkhash.xml.h:1
 msgid "Base64"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:2
-msgid "Copy _Digest"
+#: ../data/gtkhash.xml.h:2 ../data/nautilus/gtkhash-properties.xml.h:1
+msgid "Check:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:3
-msgid "Digest Format:"
+msgid "Copy _Digest"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:4
-msgid "File"
+msgid "Digest Format:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:5
+msgid "File"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:6
 msgid "File _List"
 msgstr "_Listo de dosieroj"
 
-#: ../data/gtkhash.xml.h:6
+#: ../data/gtkhash.xml.h:7
 msgid "File:"
 msgstr "Dosiero:"
 
-#: ../data/gtkhash.xml.h:7
+#: ../data/gtkhash.xml.h:8
 msgid "GtkHash Preferences"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:8
+#: ../data/gtkhash.xml.h:9
 msgid "Ha_sh"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:9
+#: ../data/gtkhash.xml.h:10
 msgid "Hash Functions:"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:10
+#: ../data/gtkhash.xml.h:11
 msgid "Lowercase Hexadecimal"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:11
+#: ../data/gtkhash.xml.h:12
 msgid "Show _Toolbar"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:12
+#: ../data/gtkhash.xml.h:13
 msgid "Text:"
 msgstr "Teksto:"
 
-#: ../data/gtkhash.xml.h:13
+#: ../data/gtkhash.xml.h:14
 msgid "Uppercase Hexadecimal"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:14
+#: ../data/gtkhash.xml.h:15
 msgid "_Edit"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:15
+#: ../data/gtkhash.xml.h:16
 msgid "_File"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:16
+#: ../data/gtkhash.xml.h:17
 msgid "_Help"
 msgstr "_Helpo"
 
-#: ../data/gtkhash.xml.h:17
+#: ../data/gtkhash.xml.h:18
 msgid "_Text"
 msgstr "_Teksto"
 
-#: ../data/gtkhash.xml.h:18
+#: ../data/gtkhash.xml.h:19
 msgid "_View"
 msgstr ""
 
-#: ../data/nautilus/gtkhash-properties.xml.h:1
+#: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Digest"
 msgstr ""
 
-#: ../data/nautilus/gtkhash-properties.xml.h:2
+#: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "H_ash"
 msgstr ""
 
-#: ../data/nautilus/gtkhash-properties.xml.h:3
+#: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Hash Function"
 msgstr ""
 
-#: ../data/nautilus/gtkhash-properties.xml.h:4
+#: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Show _Disabled Hash Functions"
 msgstr ""
 
-#: ../data/nautilus/gtkhash-properties.xml.h:5
+#: ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "_Copy Digest"
 msgstr ""
 
@@ -113,30 +117,30 @@ msgstr ""
 msgid "Save Digests"
 msgstr ""
 
-#: ../src/callbacks.c:269
+#: ../src/callbacks.c:259
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 
-#: ../src/callbacks.c:273
+#: ../src/callbacks.c:263
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Kristjan SCHMIDT https://launchpad.net/~kristjan-eo\n"
 "  Lucas Larson https://launchpad.net/~lucaslarson"
 
-#: ../src/callbacks.c:300
+#: ../src/callbacks.c:285
 msgid "Select Files"
 msgstr "Elekti dosierojn"
 
-#: ../src/gui.c:278
+#: ../src/gui.c:294
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:300
+#: ../src/gui.c:316
 msgid "Unknown error"
 msgstr ""
 
-#: ../src/gui.c:304
+#: ../src/gui.c:320
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -163,7 +167,7 @@ msgstr ""
 msgid "Failed to enable any supported hash functions."
 msgstr ""
 
-#: ../src/nautilus/properties.c:259
+#: ../src/nautilus/properties.c:296 ../src/nautilus/properties.c:298
 msgid "Digests"
 msgstr ""
 
