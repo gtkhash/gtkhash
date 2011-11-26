@@ -7,19 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-11-05 16:29+0000\n"
-"PO-Revision-Date: 2010-05-01 19:12+0000\n"
-"Last-Translator: WhiteRabbit <Unknown>\n"
+"POT-Creation-Date: 2011-11-18 17:38+0000\n"
+"PO-Revision-Date: 2011-11-20 23:09+0000\n"
+"Last-Translator: Alexey Shentyakov <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-06 05:24+0000\n"
-"X-Generator: Launchpad (build 14231)\n"
+"X-Launchpad-Export-Date: 2011-11-21 05:23+0000\n"
+"X-Generator: Launchpad (build 14299)\n"
 
 #: ../data/gtkhash.xml.h:1
 msgid "Base64"
-msgstr ""
+msgstr "Base64"
 
 #: ../data/gtkhash.xml.h:2 ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "Check:"
@@ -35,7 +35,7 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:5
 msgid "File"
-msgstr ""
+msgstr "Файл"
 
 #: ../data/gtkhash.xml.h:6
 msgid "File _List"
@@ -47,7 +47,7 @@ msgstr "Файл:"
 
 #: ../data/gtkhash.xml.h:8
 msgid "GtkHash Preferences"
-msgstr ""
+msgstr "Настройки GtkHash"
 
 #: ../data/gtkhash.xml.h:9
 msgid "Ha_sh"
@@ -55,7 +55,7 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:10
 msgid "Hash Functions:"
-msgstr ""
+msgstr "Хеш функции:"
 
 #: ../data/gtkhash.xml.h:11
 msgid "Lowercase Hexadecimal"
@@ -113,33 +113,46 @@ msgstr "П_оказать Отключённые хэш функции"
 msgid "_Copy Digest"
 msgstr "_Копировать дайджест"
 
-#: ../src/callbacks.c:85
+#: ../src/callbacks.c:87
 msgid "Save Digests"
 msgstr ""
 
-#: ../src/callbacks.c:259
+#: ../src/callbacks.c:267
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 
-#: ../src/callbacks.c:263
+#: ../src/callbacks.c:271
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  Alexey Shentyakov https://launchpad.net/~alexey-shentyakov\n"
 "  WhiteRabbit https://launchpad.net/~whiterabbit"
 
-#: ../src/callbacks.c:285
+#: ../src/callbacks.c:293
 msgid "Select Files"
 msgstr "Выбрать файлы"
 
-#: ../src/gui.c:294
+#: ../src/gui.c:287
+#, c-format
+msgid "Failed to read \"%s\""
+msgstr ""
+
+#: ../src/gui.c:304
+#, c-format
+msgid ""
+"Failed to read \"%s\":\n"
+"%s"
+msgstr ""
+
+#: ../src/gui.c:350
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:316
+#: ../src/gui.c:372
 msgid "Unknown error"
 msgstr ""
 
-#: ../src/gui.c:320
+#: ../src/gui.c:374
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -162,30 +175,30 @@ msgstr ""
 msgid "[FILE|URI...]"
 msgstr ""
 
-#: ../src/prefs.c:57
+#: ../src/prefs.c:55
 msgid "Failed to enable any supported hash functions."
 msgstr ""
 
-#: ../src/nautilus/properties.c:296 ../src/nautilus/properties.c:298
+#: ../src/nautilus/properties.c:353 ../src/nautilus/properties.c:355
 msgid "Digests"
 msgstr "Дайджесты"
 
-#: ../src/nautilus/properties-hash.c:61
+#: ../src/nautilus/properties-hash.c:67
 #, c-format
 msgid "%s of %s - 1 minute left (%s/sec)"
 msgstr ""
 
-#: ../src/nautilus/properties-hash.c:64
+#: ../src/nautilus/properties-hash.c:70
 #, c-format
 msgid "%s of %s - %u minutes left (%s/sec)"
 msgstr ""
 
-#: ../src/nautilus/properties-hash.c:68
+#: ../src/nautilus/properties-hash.c:74
 #, c-format
 msgid "%s of %s - 1 second left (%s/sec)"
 msgstr ""
 
-#: ../src/nautilus/properties-hash.c:71
+#: ../src/nautilus/properties-hash.c:77
 #, c-format
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr ""
