@@ -60,6 +60,37 @@ static const char * const hash_func_names[HASH_FUNCS_N] = {
 	[HASH_FUNC_WHIRLPOOL]    = "WHIRLPOOL",
 };
 
+static const uint8_t hash_func_sizes[HASH_FUNCS_N] = {
+	[HASH_FUNC_ADLER32]      = 4,
+	[HASH_FUNC_CRC32]        = 4,
+	[HASH_FUNC_GOST]         = 32,
+	[HASH_FUNC_HAVAL128_3]   = 16,
+	[HASH_FUNC_HAVAL160_3]   = 20,
+	[HASH_FUNC_HAVAL192_3]   = 24,
+	[HASH_FUNC_HAVAL224_3]   = 28,
+	[HASH_FUNC_HAVAL256_3]   = 32,
+	[HASH_FUNC_MD2]          = 16,
+	[HASH_FUNC_MD4]          = 16,
+	[HASH_FUNC_MD5]          = 16,
+	[HASH_FUNC_MDC2]         = 16,
+	[HASH_FUNC_RIPEMD128]    = 16,
+	[HASH_FUNC_RIPEMD160]    = 20,
+	[HASH_FUNC_RIPEMD256]    = 32,
+	[HASH_FUNC_RIPEMD320]    = 40,
+	[HASH_FUNC_SHA0]         = 20,
+	[HASH_FUNC_SHA1]         = 20,
+	[HASH_FUNC_SHA224]       = 28,
+	[HASH_FUNC_SHA256]       = 32,
+	[HASH_FUNC_SHA384]       = 48,
+	[HASH_FUNC_SHA512]       = 64,
+	[HASH_FUNC_SNEFRU128]    = 16,
+	[HASH_FUNC_SNEFRU256]    = 32,
+	[HASH_FUNC_TIGER128]     = 16,
+	[HASH_FUNC_TIGER160]     = 20,
+	[HASH_FUNC_TIGER192]     = 24,
+	[HASH_FUNC_WHIRLPOOL]    = 64,
+};
+
 enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name)
 {
 	g_assert(name);
@@ -78,7 +109,7 @@ void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest,
 {
 	g_assert(func);
 	g_assert(digest);
-	g_assert(size);
+	g_assert(size == hash_func_sizes[func->id]);
 
 	gtkhash_digest_set_data(func->digest, digest, size);
 }
