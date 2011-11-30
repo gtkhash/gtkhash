@@ -31,7 +31,8 @@
 #include "hash-lib.h"
 
 void gtkhash_hash_string(struct hash_func_s *funcs, const char *str,
-	const enum digest_format_e format)
+	const enum digest_format_e format, const uint8_t *hmac_key,
+	const size_t hmac_key_size)
 {
 	g_assert(str);
 	g_assert(DIGEST_FORMAT_IS_VALID(format));
@@ -39,7 +40,8 @@ void gtkhash_hash_string(struct hash_func_s *funcs, const char *str,
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!funcs[i].enabled)
 			continue;
-		gtkhash_hash_lib_start(&funcs[i]);
+
+		gtkhash_hash_lib_start(&funcs[i], hmac_key, hmac_key_size);
 		// Assuming this won't take too long
 		gtkhash_hash_lib_update(&funcs[i], (const uint8_t *)str, strlen(str));
 		gtkhash_hash_lib_finish(&funcs[i]);

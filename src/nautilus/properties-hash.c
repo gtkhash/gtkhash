@@ -94,8 +94,14 @@ void gtkhash_hash_file_finish_cb(void *data)
 	gtkhash_properties_idle(page);
 }
 
-void gtkhash_properties_hash_start(struct page_s *page)
+void gtkhash_properties_hash_start(struct page_s *page, const uint8_t *hmac_key,
+	const size_t hmac_key_size)
 {
+	if (hmac_key) {
+		gtkhash_hash_file_set_hmac_key(&page->hash_file, hmac_key,
+			hmac_key_size);
+	}
+
 	gtkhash_hash_file_set_state(&page->hash_file, HASH_FILE_STATE_START);
 	gtkhash_hash_file_add_source(&page->hash_file);
 }

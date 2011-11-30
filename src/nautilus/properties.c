@@ -59,6 +59,7 @@ static void gtkhash_properties_busy(struct page_s *page)
 	gtk_widget_set_sensitive(GTK_WIDGET(page->button_hash), false);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->button_stop), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->treeview), false);
+	gtk_widget_set_sensitive(GTK_WIDGET(page->hbox_inputs), false);
 
 	// Reset progress bar
 	gtk_progress_bar_set_fraction(page->progressbar, 0.0);
@@ -80,12 +81,21 @@ static void gtkhash_properties_button_hash_set_sensitive(struct page_s *page)
 	gtk_widget_set_sensitive(GTK_WIDGET(page->button_hash), has_enabled);
 }
 
+static void gtkhash_properties_entry_hmac_set_sensitive(struct page_s *page)
+{
+	bool active = gtk_toggle_button_get_active(page->togglebutton_hmac);
+
+	gtk_widget_set_sensitive(GTK_WIDGET(page->entry_hmac), active);
+}
+
 void gtkhash_properties_idle(struct page_s *page)
 {
 	gtk_widget_hide(GTK_WIDGET(page->progressbar));
 
-	gtk_widget_set_sensitive(GTK_WIDGET(page->treeview), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->button_stop), false);
+	gtk_widget_set_sensitive(GTK_WIDGET(page->treeview), true);
+	gtk_widget_set_sensitive(GTK_WIDGET(page->hbox_inputs), true);
+	gtkhash_properties_entry_hmac_set_sensitive(page);
 	gtkhash_properties_button_hash_set_sensitive(page);
 
 	gtkhash_properties_list_check_digests(page);
@@ -150,13 +160,32 @@ static void gtkhash_properties_on_entry_check_changed(struct page_s *page)
 	gtkhash_properties_list_check_digests(page);
 }
 
+static void gtkhash_properties_on_entry_hmac_changed(struct page_s *page)
+{
+	gtkhash_hash_file_clear_digests(&page->hash_file);
+	gtkhash_properties_list_update_digests(page);
+	gtkhash_properties_list_check_digests(page);
+}
+
+static void gtkhash_properties_on_togglebutton_hmac_toggled(struct page_s *page)
+{
+	gtkhash_properties_entry_hmac_set_sensitive(page);
+	gtkhash_properties_on_entry_hmac_changed(page);
+}
+
 static void gtkhash_properties_on_button_hash_clicked(struct page_s *page)
 {
 	gtkhash_properties_busy(page);
 	gtkhash_hash_file_clear_digests(&page->hash_file);
 	gtkhash_properties_list_update_digests(page);
 
-	gtkhash_properties_hash_start(page);
+	if (gtk_toggle_button_get_active(page->togglebutton_hmac)) {
+		const uint8_t *hmac_key = (uint8_t *)gtk_entry_get_text(
+			page->entry_hmac);
+		const size_t hmac_key_size = gtk_entry_get_text_length(page->entry_hmac);
+		gtkhash_properties_hash_start(page, hmac_key, hmac_key_size);
+	} else
+		gtkhash_properties_hash_start(page, NULL, 0);
 }
 
 static void gtkhash_properties_on_button_stop_clicked(struct page_s *page)
@@ -201,9 +230,15 @@ static void gtkhash_properties_get_objects(struct page_s *page,
 	page->menuitem_show_funcs = GTK_CHECK_MENU_ITEM(gtkhash_properties_get_object(builder,
 		"checkmenuitem_show_funcs"));
 
-	// Check
+	// Check/MAC inputs
+	page->hbox_inputs = GTK_WIDGET(gtkhash_properties_get_object(builder,
+		"hbox_inputs"));
 	page->entry_check = GTK_ENTRY(gtkhash_properties_get_object(builder,
 		"entry_check"));
+	page->togglebutton_hmac = GTK_TOGGLE_BUTTON(gtkhash_properties_get_object(builder,
+		"togglebutton_hmac"));
+	page->entry_hmac = GTK_ENTRY(gtkhash_properties_get_object(builder,
+		"entry_hmac"));
 
 	// Buttons
 	page->button_hash = GTK_BUTTON(gtkhash_properties_get_object(builder,
@@ -237,6 +272,12 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 	// Check
 	g_signal_connect_swapped(page->entry_check, "changed",
 		G_CALLBACK(gtkhash_properties_on_entry_check_changed), page);
+
+	// HMAC
+	g_signal_connect_swapped(page->togglebutton_hmac, "toggled",
+		G_CALLBACK(gtkhash_properties_on_togglebutton_hmac_toggled), page);
+	g_signal_connect_swapped(page->entry_hmac, "changed",
+		G_CALLBACK(gtkhash_properties_on_entry_hmac_changed), page);
 
 	// Buttons
 	g_signal_connect_swapped(page->button_hash, "clicked",

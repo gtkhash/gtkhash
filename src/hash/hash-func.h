@@ -69,8 +69,10 @@ struct hash_func_s {
 	const char *name;
 	struct digest_s *digest;
 	void *lib_data;
+	struct hash_func_s *hmac_data;
 	enum hash_func_e id;
 	bool supported, enabled;
+	uint8_t block_size, digest_size;
 };
 
 enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name);
@@ -79,7 +81,10 @@ void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest,
 const char *gtkhash_hash_func_get_digest(struct hash_func_s *func,
 	const enum digest_format_e format);
 void gtkhash_hash_func_clear_digest(struct hash_func_s *func);
+void gtkhash_hash_func_init(struct hash_func_s *func,
+	const enum hash_func_e id);
 void gtkhash_hash_func_init_all(struct hash_func_s *funcs);
+void gtkhash_hash_func_deinit(struct hash_func_s *func);
 void gtkhash_hash_func_deinit_all(struct hash_func_s *funcs);
 
 #endif

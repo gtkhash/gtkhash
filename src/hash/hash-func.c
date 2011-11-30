@@ -29,66 +29,39 @@
 #include "hash-lib.h"
 #include "digest.h"
 
-static const char * const hash_func_names[HASH_FUNCS_N] = {
-	[HASH_FUNC_ADLER32]      = "ADLER32",
-	[HASH_FUNC_CRC32]        = "CRC32",
-	[HASH_FUNC_GOST]         = "GOST",
-	[HASH_FUNC_HAVAL128_3]   = "HAVAL128-3",
-	[HASH_FUNC_HAVAL160_3]   = "HAVAL160-3",
-	[HASH_FUNC_HAVAL192_3]   = "HAVAL192-3",
-	[HASH_FUNC_HAVAL224_3]   = "HAVAL224-3",
-	[HASH_FUNC_HAVAL256_3]   = "HAVAL256-3",
-	[HASH_FUNC_MD2]          = "MD2",
-	[HASH_FUNC_MD4]          = "MD4",
-	[HASH_FUNC_MD5]          = "MD5",
-	[HASH_FUNC_MDC2]         = "MDC2",
-	[HASH_FUNC_RIPEMD128]    = "RIPEMD128",
-	[HASH_FUNC_RIPEMD160]    = "RIPEMD160",
-	[HASH_FUNC_RIPEMD256]    = "RIPEMD256",
-	[HASH_FUNC_RIPEMD320]    = "RIPEMD320",
-	[HASH_FUNC_SHA0]         = "SHA0",
-	[HASH_FUNC_SHA1]         = "SHA1",
-	[HASH_FUNC_SHA224]       = "SHA224",
-	[HASH_FUNC_SHA256]       = "SHA256",
-	[HASH_FUNC_SHA384]       = "SHA384",
-	[HASH_FUNC_SHA512]       = "SHA512",
-	[HASH_FUNC_SNEFRU128]    = "SNEFRU128",
-	[HASH_FUNC_SNEFRU256]    = "SNEFRU256",
-	[HASH_FUNC_TIGER128]     = "TIGER128",
-	[HASH_FUNC_TIGER160]     = "TIGER160",
-	[HASH_FUNC_TIGER192]     = "TIGER192",
-	[HASH_FUNC_WHIRLPOOL]    = "WHIRLPOOL",
-};
-
-static const uint8_t hash_func_sizes[HASH_FUNCS_N] = {
-	[HASH_FUNC_ADLER32]      = 4,
-	[HASH_FUNC_CRC32]        = 4,
-	[HASH_FUNC_GOST]         = 32,
-	[HASH_FUNC_HAVAL128_3]   = 16,
-	[HASH_FUNC_HAVAL160_3]   = 20,
-	[HASH_FUNC_HAVAL192_3]   = 24,
-	[HASH_FUNC_HAVAL224_3]   = 28,
-	[HASH_FUNC_HAVAL256_3]   = 32,
-	[HASH_FUNC_MD2]          = 16,
-	[HASH_FUNC_MD4]          = 16,
-	[HASH_FUNC_MD5]          = 16,
-	[HASH_FUNC_MDC2]         = 16,
-	[HASH_FUNC_RIPEMD128]    = 16,
-	[HASH_FUNC_RIPEMD160]    = 20,
-	[HASH_FUNC_RIPEMD256]    = 32,
-	[HASH_FUNC_RIPEMD320]    = 40,
-	[HASH_FUNC_SHA0]         = 20,
-	[HASH_FUNC_SHA1]         = 20,
-	[HASH_FUNC_SHA224]       = 28,
-	[HASH_FUNC_SHA256]       = 32,
-	[HASH_FUNC_SHA384]       = 48,
-	[HASH_FUNC_SHA512]       = 64,
-	[HASH_FUNC_SNEFRU128]    = 16,
-	[HASH_FUNC_SNEFRU256]    = 32,
-	[HASH_FUNC_TIGER128]     = 16,
-	[HASH_FUNC_TIGER160]     = 20,
-	[HASH_FUNC_TIGER192]     = 24,
-	[HASH_FUNC_WHIRLPOOL]    = 64,
+static const struct {
+	const char * const name;
+	const uint8_t digest_size;
+	const uint8_t block_size; // for HMAC
+} hash_func_data[HASH_FUNCS_N] = {
+	[HASH_FUNC_ADLER32]    = { "ADLER32",       4,   0, },
+	[HASH_FUNC_CRC32]      = { "CRC32",         4,   0, },
+	[HASH_FUNC_GOST]       = { "GOST",         32,   0, },
+	[HASH_FUNC_HAVAL128_3] = { "HAVAL128-3",   16, 128, },
+	[HASH_FUNC_HAVAL160_3] = { "HAVAL160-3",   20, 128, },
+	[HASH_FUNC_HAVAL192_3] = { "HAVAL192-3",   24, 128, },
+	[HASH_FUNC_HAVAL224_3] = { "HAVAL224-3",   28, 128, },
+	[HASH_FUNC_HAVAL256_3] = { "HAVAL256-3",   32, 128, },
+	[HASH_FUNC_MD2]        = { "MD2",          16,  16, },
+	[HASH_FUNC_MD4]        = { "MD4",          16,  64, },
+	[HASH_FUNC_MD5]        = { "MD5",          16,  64, },
+	[HASH_FUNC_MDC2]       = { "MDC2",         16,  64, },
+	[HASH_FUNC_RIPEMD128]  = { "RIPEMD128",    16,  64, },
+	[HASH_FUNC_RIPEMD160]  = { "RIPEMD160",    20,  64, },
+	[HASH_FUNC_RIPEMD256]  = { "RIPEMD256",    32,  64, },
+	[HASH_FUNC_RIPEMD320]  = { "RIPEMD320",    40,  64, },
+	[HASH_FUNC_SHA0]       = { "SHA0",         20,  64, },
+	[HASH_FUNC_SHA1]       = { "SHA1",         20,  64, },
+	[HASH_FUNC_SHA224]     = { "SHA224",       28,  64, },
+	[HASH_FUNC_SHA256]     = { "SHA256",       32,  64, },
+	[HASH_FUNC_SHA384]     = { "SHA384",       48, 128, },
+	[HASH_FUNC_SHA512]     = { "SHA512",       64, 128, },
+	[HASH_FUNC_SNEFRU128]  = { "SNEFRU128",    16,  64, },
+	[HASH_FUNC_SNEFRU256]  = { "SNEFRU256",    32,  64, },
+	[HASH_FUNC_TIGER128]   = { "TIGER128",     16,  64, },
+	[HASH_FUNC_TIGER160]   = { "TIGER160",     20,  64, },
+	[HASH_FUNC_TIGER192]   = { "TIGER192",     24,  64, },
+	[HASH_FUNC_WHIRLPOOL]  = { "WHIRLPOOL",    64,  64, },
 };
 
 enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name)
@@ -96,7 +69,7 @@ enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name)
 	g_assert(name);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++)
-		if (g_strcmp0(name, hash_func_names[i]) == 0)
+		if (g_strcmp0(name, hash_func_data[i].name) == 0)
 			return i;
 
 	g_warning("unknown hash func name '%s'", name);
@@ -109,7 +82,7 @@ void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest,
 {
 	g_assert(func);
 	g_assert(digest);
-	g_assert(size == hash_func_sizes[func->id]);
+	g_assert(size == func->digest_size);
 
 	gtkhash_digest_set_data(func->digest, digest, size);
 }
@@ -131,7 +104,7 @@ void gtkhash_hash_func_clear_digest(struct hash_func_s *func)
 	gtkhash_digest_free_data(func->digest);
 }
 
-static void gtkhash_hash_func_init(struct hash_func_s *func,
+void gtkhash_hash_func_init(struct hash_func_s *func,
 	const enum hash_func_e id)
 {
 	g_assert(func);
@@ -140,9 +113,12 @@ static void gtkhash_hash_func_init(struct hash_func_s *func,
 	func->id = id;
 	func->supported = gtkhash_hash_lib_is_supported(id);
 	func->enabled = false;
-	func->name = hash_func_names[id];
+	func->name = hash_func_data[id].name;
 	func->digest = gtkhash_digest_new();
 	func->lib_data = NULL;
+	func->hmac_data = NULL;
+	func->digest_size = hash_func_data[id].digest_size;
+	func->block_size = hash_func_data[id].block_size;
 }
 
 void gtkhash_hash_func_init_all(struct hash_func_s *funcs)
@@ -153,10 +129,18 @@ void gtkhash_hash_func_init_all(struct hash_func_s *funcs)
 		gtkhash_hash_func_init(&funcs[i], i);
 }
 
+void gtkhash_hash_func_deinit(struct hash_func_s *func)
+{
+	g_assert(func);
+
+	gtkhash_digest_free(func->digest);
+	func->digest = NULL;
+}
+
 void gtkhash_hash_func_deinit_all(struct hash_func_s *funcs)
 {
 	g_assert(funcs);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++)
-		gtkhash_digest_free(funcs[i].digest);
+		gtkhash_hash_func_deinit(&funcs[i]);
 }

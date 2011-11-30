@@ -28,7 +28,6 @@
 #include <glib.h>
 
 #include "digest.h"
-#include "hash-func.h"
 
 static char *gtkhash_digest_get_lc_hex(struct digest_s *digest)
 {

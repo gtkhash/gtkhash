@@ -6,7 +6,8 @@ hash_la_SOURCES = \
 	hash-file.c hash-file.h \
 	hash-func.c hash-func.h \
 	hash-lib.c hash-lib.h \
-	hash-string.c hash-string.h
+	hash-string.c hash-string.h \
+	hmac.c hmac.h
 
 hash_la_CPPFLAGS = $(GDK_CFLAGS) -DIN_HASH_LIB
 

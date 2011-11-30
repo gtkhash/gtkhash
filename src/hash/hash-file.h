@@ -44,6 +44,8 @@ struct hash_file_s {
 	void *cb_data;
 	const char *uri;
 	GFile *file;
+	const uint8_t *hmac_key;
+	size_t hmac_key_size;
 	GCancellable *cancellable;
 	GFileInputStream *stream;
 	goffset file_size;
@@ -66,6 +68,8 @@ enum hash_file_state_e gtkhash_hash_file_get_state(struct hash_file_s *data);
 void gtkhash_hash_file_set_state(struct hash_file_s *data,
 	const enum hash_file_state_e state);
 void gtkhash_hash_file_set_uri(struct hash_file_s *data, const char *uri);
+void gtkhash_hash_file_set_hmac_key(struct hash_file_s *data,
+	const uint8_t *hmac_key, const size_t hmac_key_size);
 void gtkhash_hash_file_cancel(struct hash_file_s *data);
 bool gtkhash_hash_file_is_cancelled(struct hash_file_s *data);
 void gtkhash_hash_file_init(struct hash_file_s *data, struct hash_func_s *funcs,

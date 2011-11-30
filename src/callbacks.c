@@ -91,6 +91,8 @@ static void on_menuitem_save_as_activate(void)
 		NULL));
 	gtk_file_chooser_set_do_overwrite_confirmation(chooser, true);
 
+	const bool hmac_active = gtk_toggle_button_get_active(gui.togglebutton_hmac);
+
 	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
 		char *filename = gtk_file_chooser_get_filename(chooser);
 		GString *string = g_string_sized_new(1024);
@@ -103,10 +105,11 @@ static void on_menuitem_save_as_activate(void)
 				case GUI_VIEW_FILE: {
 					const char *digest = gtk_entry_get_text(
 						gui.hash_widgets[i].entry_file);
-					if (digest && *digest)
-						g_string_append_printf(string, "# %s\n",
-							hash.funcs[i].name);
-					else
+					if (digest && *digest) {
+						g_string_append_printf(string,
+							(hmac_active && (hash.funcs[i].block_size > 0)) ?
+							"# HMAC-%s\n" : "# %s\n", hash.funcs[i].name);
+					} else
 						continue;
 					char *path = gtk_file_chooser_get_filename(
 						GTK_FILE_CHOOSER(gui.filechooserbutton));
@@ -119,7 +122,9 @@ static void on_menuitem_save_as_activate(void)
 					break;
 				}
 				case GUI_VIEW_TEXT:
-					g_string_append_printf(string, "# %s\n", hash.funcs[i].name);
+					g_string_append_printf(string,
+						(hmac_active && (hash.funcs[i].block_size > 0)) ?
+						"# HMAC-%s\n" : "# %s\n", hash.funcs[i].name);
 					g_string_append_printf(string, "%s  \"%s\"\n",
 						gtk_entry_get_text(gui.hash_widgets[i].entry_text),
 						gtk_entry_get_text(gui.entry_text));
@@ -243,7 +248,7 @@ static void on_menuitem_prefs_activate(void)
 
 static void on_menuitem_about_activate(void)
 {
-	const char *license = {
+	static const char * const license = {
 		"This program is free software: you can redistribute it and/or modify\n"
 		"it under the terms of the GNU General Public License as published by\n"
 		"the Free Software Foundation, either version 2 of the License, or\n"
@@ -256,7 +261,7 @@ static void on_menuitem_about_activate(void)
 		"with this program; if not, see <http://www.gnu.org/licenses/>.\n"
 	};
 
-	const char *authors[] = {
+	static const char * const authors[] = {
 		"Tristan Heaven <tristanheaven@gmail.com>",
 		NULL
 	};
@@ -412,19 +417,40 @@ static void on_button_hash_clicked(void)
 			hash_file_start(uri);
 			break;
 		}
-		case GUI_VIEW_TEXT: {
-			const char *str = gtk_entry_get_text(gui.entry_text);
-			gtkhash_hash_string(hash.funcs, str, gui_get_digest_format());
-			gui_set_state(GUI_STATE_IDLE);
-			gui_check_digests();
+		case GUI_VIEW_TEXT:
+			hash_string();
 			break;
-		}
 		case GUI_VIEW_FILE_LIST:
 			hash_file_list_start();
 			break;
 		default:
 			g_assert_not_reached();
 	}
+}
+
+static void on_entry_hmac_changed(void)
+{
+	switch (gui_get_view()) {
+		case GUI_VIEW_FILE:
+			gui_clear_digests();
+			break;
+		case GUI_VIEW_TEXT:
+			on_button_hash_clicked();
+			break;
+		case GUI_VIEW_FILE_LIST:
+			break;
+		default:
+			g_assert_not_reached();
+	}
+}
+
+static void on_togglebutton_hmac_toggled(void)
+{
+	bool active = gtk_toggle_button_get_active(gui.togglebutton_hmac);
+
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac), active);
+
+	on_entry_hmac_changed();
 }
 
 static bool on_dialog_delete_event(void)
@@ -463,6 +489,8 @@ void callbacks_init(void)
 //	CON(gui.filechooserbutton,              "file-set",            on_filechooserbutton_file_set);
 	CON(gui.filechooserbutton,              "selection-changed",   on_filechooserbutton_selection_changed);
 	CON(gui.entry_text,                     "changed",             on_button_hash_clicked);
+	CON(gui.togglebutton_hmac,              "toggled",             on_togglebutton_hmac_toggled);
+	CON(gui.entry_hmac,                     "changed",             on_entry_hmac_changed);
 	CON(gui.entry_check_file,               "changed",             gui_check_digests);
 	CON(gui.entry_check_text,               "changed",             gui_check_digests);
 	CON(gui.toolbutton_add,                 "clicked",             on_toolbutton_add_clicked);

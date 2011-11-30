@@ -126,16 +126,16 @@ static void gui_get_objects(GtkBuilder *builder)
 		"entry_check_file"));
 	gui.entry_check_text = GTK_ENTRY(gui_get_object(builder,
 		"entry_check_text"));
+	gui.togglebutton_hmac = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"togglebutton_hmac"));
+	gui.entry_hmac = GTK_ENTRY(gui_get_object(builder,
+		"entry_hmac"));
 
 	// Labels
 	gui.label_file = GTK_LABEL(gui_get_object(builder,
 		"label_file"));
 	gui.label_text = GTK_LABEL(gui_get_object(builder,
 		"label_text"));
-	gui.label_check_file = GTK_LABEL(gui_get_object(builder,
-		"label_check_file"));
-	gui.label_check_text = GTK_LABEL(gui_get_object(builder,
-		"label_check_text"));
 
 	// Tree View
 	gui.treeview = GTK_TREE_VIEW(gui_get_object(builder,
@@ -518,20 +518,26 @@ void gui_update(void)
 
 	list_update();
 
-	switch (gui_get_view()) {
+	enum gui_view_e view = gui_get_view();
+
+	if ((view == GUI_VIEW_FILE) || (view == GUI_VIEW_TEXT)) {
+		gtk_widget_hide(GTK_WIDGET(gui.toolbar));
+		gtk_widget_hide(GTK_WIDGET(gui.vbox_list));
+		gtk_widget_show(GTK_WIDGET(gui.vbox_single));
+
+		bool active = gtk_toggle_button_get_active(gui.togglebutton_hmac);
+		gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac), active);
+	}
+
+	switch (view) {
 		case GUI_VIEW_FILE: {
-			gtk_widget_hide(GTK_WIDGET(gui.toolbar));
 			gtk_widget_hide(GTK_WIDGET(gui.label_text));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_text));
-			gtk_widget_hide(GTK_WIDGET(gui.label_check_text));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_check_text));
-			gtk_widget_hide(GTK_WIDGET(gui.vbox_list));
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_digests_text));
 			gtk_widget_show(GTK_WIDGET(gui.label_file));
 			gtk_widget_show(GTK_WIDGET(gui.filechooserbutton));
-			gtk_widget_show(GTK_WIDGET(gui.label_check_file));
 			gtk_widget_show(GTK_WIDGET(gui.entry_check_file));
-			gtk_widget_show(GTK_WIDGET(gui.vbox_single));
 			gtk_widget_show(GTK_WIDGET(gui.vbox_digests_file));
 			gtk_widget_show(GTK_WIDGET(gui.hseparator_buttons));
 			gtk_widget_show(GTK_WIDGET(gui.button_hash));
@@ -547,20 +553,15 @@ void gui_update(void)
 			break;
 		}
 		case GUI_VIEW_TEXT:
-			gtk_widget_hide(GTK_WIDGET(gui.toolbar));
 			gtk_widget_hide(GTK_WIDGET(gui.label_file));
 			gtk_widget_hide(GTK_WIDGET(gui.filechooserbutton));
-			gtk_widget_hide(GTK_WIDGET(gui.label_check_file));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_check_file));
-			gtk_widget_hide(GTK_WIDGET(gui.vbox_list));
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_digests_file));
 			gtk_widget_hide(GTK_WIDGET(gui.hseparator_buttons));
 			gtk_widget_hide(GTK_WIDGET(gui.button_hash));
 			gtk_widget_show(GTK_WIDGET(gui.label_text));
 			gtk_widget_show(GTK_WIDGET(gui.entry_text));
-			gtk_widget_show(GTK_WIDGET(gui.label_check_text));
 			gtk_widget_show(GTK_WIDGET(gui.entry_check_text));
-			gtk_widget_show(GTK_WIDGET(gui.vbox_single));
 			gtk_widget_show(GTK_WIDGET(gui.vbox_digests_text));
 
 			gtk_widget_grab_focus(GTK_WIDGET(gui.entry_text));
@@ -623,38 +624,51 @@ void gui_check_digests(void)
 	const char *str_in_file = gtk_entry_get_text(gui.entry_check_file);
 	const char *str_in_text = gtk_entry_get_text(gui.entry_check_text);
 
+	const char *icon_in_file = NULL;
+	const char *icon_in_text = NULL;
+
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		const char *str_out_file = gtk_entry_get_text(
 			gui.hash_widgets[i].entry_file);
 		const char *str_out_text = gtk_entry_get_text(
 			gui.hash_widgets[i].entry_text);
 
-		const char *icon_file = NULL;
-		const char *icon_text = NULL;
+		const char *icon_out_file = NULL;
+		const char *icon_out_text = NULL;
 
 		switch (gui_get_digest_format()) {
 			case DIGEST_FORMAT_HEX_LOWER:
 			case DIGEST_FORMAT_HEX_UPPER:
 				if (*str_in_file && (strcasecmp(str_in_file, str_out_file) == 0))
-					icon_file = GTK_STOCK_YES;
+					icon_out_file = GTK_STOCK_YES;
 				if (*str_in_text && (strcasecmp(str_in_text, str_out_text) == 0))
-					icon_text = GTK_STOCK_YES;
+					icon_out_text = GTK_STOCK_YES;
 				break;
 			case DIGEST_FORMAT_BASE64:
 				if (*str_in_file && (strcmp(str_in_file, str_out_file) == 0))
-					icon_file = GTK_STOCK_YES;
+					icon_out_file = GTK_STOCK_YES;
 				if (*str_in_text && (strcmp(str_in_text, str_out_text) == 0))
-					icon_text = GTK_STOCK_YES;
+					icon_out_text = GTK_STOCK_YES;
 				break;
 			default:
 				g_assert_not_reached();
 		}
 
 		gtk_entry_set_icon_from_stock(gui.hash_widgets[i].entry_file,
-			GTK_ENTRY_ICON_SECONDARY, icon_file);
+			GTK_ENTRY_ICON_SECONDARY, icon_out_file);
 		gtk_entry_set_icon_from_stock(gui.hash_widgets[i].entry_text,
-			GTK_ENTRY_ICON_SECONDARY, icon_text);
+			GTK_ENTRY_ICON_SECONDARY, icon_out_text);
+
+		if (icon_out_file)
+			icon_in_file = GTK_STOCK_YES;
+		if (icon_out_text)
+			icon_in_text = GTK_STOCK_YES;
 	}
+
+	gtk_entry_set_icon_from_stock(gui.entry_check_file,
+		GTK_ENTRY_ICON_SECONDARY, icon_in_file);
+	gtk_entry_set_icon_from_stock(gui.entry_check_text,
+		GTK_ENTRY_ICON_SECONDARY, icon_in_text);
 }
 
 void gui_set_state(const enum gui_state_e state)

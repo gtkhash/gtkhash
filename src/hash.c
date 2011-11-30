@@ -107,8 +107,17 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 
 void hash_file_start(const char *uri)
 {
-	if (gui_get_view() != GUI_VIEW_FILE_LIST)
+	if (gui_get_view() == GUI_VIEW_FILE) {
 		gtkhash_hash_file_clear_digests(&hash_priv.file_data);
+
+		if (gtk_toggle_button_get_active(gui.togglebutton_hmac)) {
+			const uint8_t *hmac_key = (uint8_t *)gtk_entry_get_text(
+				gui.entry_hmac);
+			const size_t hmac_key_size = gtk_entry_get_text_length(gui.entry_hmac);
+			gtkhash_hash_file_set_hmac_key(&hash_priv.file_data, hmac_key,
+				hmac_key_size);
+		}
+	}
 
 	GFile *file = g_file_new_for_uri(uri);
 	char *pname = g_file_get_parse_name(file);
@@ -147,6 +156,24 @@ void hash_file_stop(void)
 		g_slist_free_full(hash_priv.uris, g_free);
 		hash_priv.uris = NULL;
 	}
+}
+
+void hash_string(void)
+{
+	const char *str = gtk_entry_get_text(gui.entry_text);
+	const enum digest_format_e digest_format = gui_get_digest_format();
+
+	if (gtk_toggle_button_get_active(gui.togglebutton_hmac)) {
+		const uint8_t *hmac_key = (uint8_t *)gtk_entry_get_text(gui.entry_hmac);
+		const size_t hmac_key_size = gtk_entry_get_text_length(gui.entry_hmac);
+
+		gtkhash_hash_string(hash.funcs, str, digest_format, hmac_key,
+			hmac_key_size);
+	} else
+		gtkhash_hash_string(hash.funcs, str, digest_format, NULL, 0);
+
+	gui_set_state(GUI_STATE_IDLE);
+	gui_check_digests();
 }
 
 void hash_init(void)

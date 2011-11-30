@@ -275,7 +275,7 @@ AC_OUTPUT
 
 echo
 echo "Interfaces:"
-echo "  gtkhash: ${enable_gtkhash}"
+echo "  gtkhash: ${enable_gtkhash} (gtk+-${with_gtk})"
 echo "  gtkhash-nautilus: ${enable_nautilus}"
 echo "  gtkhash-thunar: ${enable_thunar}"
 

@@ -81,7 +81,20 @@ void gtkhash_hash_file_set_state(struct hash_file_s *data,
 
 void gtkhash_hash_file_set_uri(struct hash_file_s *data, const char *uri)
 {
+	g_assert(data);
+	g_assert(uri && *uri);
+
 	data->uri = uri;
+}
+
+void gtkhash_hash_file_set_hmac_key(struct hash_file_s *data,
+	const uint8_t *hmac_key, const size_t hmac_key_size)
+{
+	g_assert(data);
+	g_assert(hmac_key);
+
+	data->hmac_key = hmac_key;
+	data->hmac_key_size = hmac_key_size;
 }
 
 void gtkhash_hash_file_cancel(struct hash_file_s *data)
@@ -136,7 +149,8 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (data->funcs[i].enabled) {
-			gtkhash_hash_lib_start(&data->funcs[i]);
+			gtkhash_hash_lib_start(&data->funcs[i], data->hmac_key,
+				data->hmac_key_size);
 			funcs_n++;
 		}
 	}
@@ -353,6 +367,8 @@ static void gtkhash_hash_file_finish(struct hash_file_s *data)
 				gtkhash_hash_lib_finish(&data->funcs[i]);
 	}
 
+	data->hmac_key = NULL;
+	data->hmac_key_size = 0;
 	g_thread_pool_free(data->thread_pool, true, false);
 	g_timer_destroy(data->timer);
 	g_free(data->buffer);
@@ -400,6 +416,8 @@ void gtkhash_hash_file_init(struct hash_file_s *data, struct hash_func_s *funcs,
 	data->funcs = funcs;
 	data->cb_data = cb_data;
 	data->uri = NULL;
+	data->hmac_key = NULL;
+	data->hmac_key_size = 0;
 	data->cancellable = g_cancellable_new();
 }
 

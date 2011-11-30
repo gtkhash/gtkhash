@@ -28,6 +28,7 @@
 
 #include "hash-lib.h"
 #include "hash-func.h"
+#include "hmac.h"
 
 #if ENABLE_GCRYPT
 	#include "hash-lib-gcrypt.h"
@@ -122,7 +123,8 @@ bool gtkhash_hash_lib_is_supported(const enum hash_func_e id)
 	return (hash_libs[id] != HASH_LIB_INVALID);
 }
 
-void gtkhash_hash_lib_start(struct hash_func_s *func)
+void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
+	const size_t key_size)
 {
 	g_assert(func);
 	g_assert(func->supported);
@@ -155,6 +157,9 @@ void gtkhash_hash_lib_start(struct hash_func_s *func)
 	};
 
 	start_funcs[hash_libs[func->id]](func);
+
+	if (hmac_key && (func->block_size > 0))
+		gtkhash_hmac_start(func, hmac_key, key_size);
 }
 
 void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
@@ -230,6 +235,9 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 
 	stop_funcs[hash_libs[func->id]](func);
 	func->lib_data = NULL;
+
+	if (func->hmac_data)
+		gtkhash_hmac_stop(func);
 }
 
 void gtkhash_hash_lib_finish(struct hash_func_s *func)
@@ -268,6 +276,9 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 	uint8_t *digest = finish_libs[hash_libs[func->id]](func, &size);
 
 	gtkhash_hash_func_set_digest(func, digest, size);
+
+	if (func->hmac_data)
+		gtkhash_hmac_finish(func);
 
 	func->lib_data = NULL;
 }

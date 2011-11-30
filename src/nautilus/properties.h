@@ -32,7 +32,7 @@
 
 struct page_s {
 	char *uri;
-	GtkWidget *box;
+	GtkWidget *box, *hbox_inputs;
 	GtkProgressBar *progressbar;
 	GtkTreeView *treeview;
 	GtkTreeSelection *treeselection;
@@ -40,7 +40,8 @@ struct page_s {
 	GtkMenu *menu;
 	GtkImageMenuItem *menuitem_copy;
 	GtkCheckMenuItem *menuitem_show_funcs;
-	GtkEntry *entry_check;
+	GtkToggleButton *togglebutton_hmac;
+	GtkEntry *entry_check, *entry_hmac;
 	GtkButton *button_hash, *button_stop;
 	struct hash_func_s funcs[HASH_FUNCS_N];
 	struct hash_file_s hash_file;
