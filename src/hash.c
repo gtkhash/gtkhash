@@ -51,11 +51,49 @@ void gtkhash_hash_string_finish_cb(const enum hash_func_e id,
 }
 
 void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data, goffset file_size,
-	goffset total_read, G_GNUC_UNUSED GTimer *timer)
+	goffset total_read, GTimer *timer)
 {
 	gtk_progress_bar_set_fraction(gui.progressbar,
 		(double)total_read /
 		(double)file_size);
+
+	double elapsed = g_timer_elapsed(timer, NULL);
+	if (elapsed <= 1)
+		return;
+
+	// Update progressbar text...
+	unsigned int s = elapsed / total_read * (file_size - total_read);
+#if ((GLIB_MAJOR_VERSION == 2) && (GLIB_MINOR_VERSION < 30))
+	char *total_read_str = g_format_size_for_display(total_read);
+	char *file_size_str = g_format_size_for_display(file_size);
+	char *speed_str = g_format_size_for_display(total_read / elapsed);
+#else
+	char *total_read_str = g_format_size(total_read);
+	char *file_size_str = g_format_size(file_size);
+	char *speed_str = g_format_size(total_read / elapsed);
+#endif
+	char *text;
+	if (s > 60) {
+		unsigned int m = s / 60;
+		if (m == 1)
+			text = g_strdup_printf(_("%s of %s - 1 minute left (%s/sec)"),
+				total_read_str, file_size_str, speed_str);
+		else
+			text = g_strdup_printf(_("%s of %s - %u minutes left (%s/sec)"),
+				total_read_str, file_size_str, m, speed_str);
+	} else {
+		if (s == 1)
+			text = g_strdup_printf(_("%s of %s - 1 second left (%s/sec)"),
+				total_read_str, file_size_str, speed_str);
+		else
+			text = g_strdup_printf(_("%s of %s - %u seconds left (%s/sec)"),
+				total_read_str, file_size_str, s, speed_str);
+	}
+	gtk_progress_bar_set_text(gui.progressbar, text);
+	g_free(text);
+	g_free(speed_str);
+	g_free(file_size_str);
+	g_free(total_read_str);
 }
 
 void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
@@ -118,12 +156,6 @@ void hash_file_start(const char *uri)
 				hmac_key_size);
 		}
 	}
-
-	GFile *file = g_file_new_for_uri(uri);
-	char *pname = g_file_get_parse_name(file);
-	gtk_progress_bar_set_text(gui.progressbar, pname);
-	g_free(pname);
-	g_object_unref(file);
 
 	gtkhash_hash_file_set_uri(&hash_priv.file_data, uri);
 	gtkhash_hash_file_set_state(&hash_priv.file_data, HASH_FILE_STATE_START);

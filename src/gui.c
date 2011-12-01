@@ -686,6 +686,7 @@ void gui_set_state(const enum gui_state_e state)
 	gtk_widget_set_visible(GTK_WIDGET(gui.button_stop), busy);
 
 	gtk_progress_bar_set_fraction(gui.progressbar, 0.0);
+	gtk_progress_bar_set_text(gui.progressbar, " ");
 	gtk_widget_set_visible(GTK_WIDGET(gui.progressbar), busy);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.hbox_input), !busy);
