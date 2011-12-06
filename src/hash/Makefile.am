@@ -17,7 +17,9 @@ hash_la_LDFLAGS = -avoid-version -module
 
 hash_la_LIBADD = $(GDK_LIBS)
 
-EXTRA_DIST =
+EXTRA_DIST = \
+	md6/md6_compress.c md6/md6_mode.c \
+	mutils/mhash_config.h
 
 if ENABLE_GCRYPT
 hash_la_SOURCES += hash-lib-gcrypt.c hash-lib-gcrypt.h
@@ -40,14 +42,12 @@ hash_la_SOURCES += hash-lib-linux.c hash-lib-linux.h
 endif
 
 if ENABLE_MD6
-hash_la_SOURCES += hash-lib-md6.c hash-lib-md6.h md6/md6.c
-EXTRA_DIST += md6/md6.h md6/md6_compress.c md6/md6_mode.c
+hash_la_SOURCES += hash-lib-md6.c hash-lib-md6.h md6/md6.c md6/md6.h
 endif
 
 if ENABLE_MHASH
 hash_la_SOURCES += hash-lib-mhash.c hash-lib-mhash.h
 hash_la_LIBADD += $(MHASH_LIBS)
-EXTRA_DIST += mutils/mhash_config.h
 endif
 
 if ENABLE_NSS
