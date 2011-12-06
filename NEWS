@@ -3,6 +3,7 @@ Summary of changes for each release:
 0.6.0 -
 	* Added "Check" feature for comparing digests
 	* Added HMAC support
+	* Added MD6 function
 
 0.5.0 - 2011-10-31
 	* Improved hashing speed on SMP systems

@@ -42,6 +42,9 @@
 #if ENABLE_LINUX_CRYPTO
 	#include "hash-lib-linux.h"
 #endif
+#if ENABLE_MD6
+	#include "hash-lib-md6.h"
+#endif
 #if ENABLE_MHASH
 	#include "hash-lib-mhash.h"
 #endif
@@ -65,6 +68,9 @@ enum hash_lib_e {
 #endif
 #if ENABLE_LINUX_CRYPTO
 	HASH_LIB_LINUX,
+#endif
+#if ENABLE_MD6
+	HASH_LIB_MD6,
 #endif
 #if ENABLE_MHASH
 	HASH_LIB_MHASH,
@@ -112,6 +118,10 @@ static void gtkhash_hash_lib_init_once(void)
 		if (!hash_libs[i] && gtkhash_hash_lib_mhash_is_supported(i))
 			hash_libs[i] = HASH_LIB_MHASH;
 #endif
+#if ENABLE_MD6
+		if (!hash_libs[i] && gtkhash_hash_lib_md6_is_supported(i))
+			hash_libs[i] = HASH_LIB_MD6;
+#endif
 	}
 }
 
@@ -144,6 +154,9 @@ void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
 #endif
 #if ENABLE_LINUX_CRYPTO
 		[HASH_LIB_LINUX] = gtkhash_hash_lib_linux_start,
+#endif
+#if ENABLE_MD6
+		[HASH_LIB_MD6] = gtkhash_hash_lib_md6_start,
 #endif
 #if ENABLE_MHASH
 		[HASH_LIB_MHASH] = gtkhash_hash_lib_mhash_start,
@@ -187,6 +200,9 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 #if ENABLE_LINUX_CRYPTO
 		[HASH_LIB_LINUX] = gtkhash_hash_lib_linux_update,
 #endif
+#if ENABLE_MD6
+		[HASH_LIB_MD6] = gtkhash_hash_lib_md6_update,
+#endif
 #if ENABLE_MHASH
 		[HASH_LIB_MHASH] = gtkhash_hash_lib_mhash_update,
 #endif
@@ -221,6 +237,9 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 #endif
 #if ENABLE_LINUX_CRYPTO
 		[HASH_LIB_LINUX] = gtkhash_hash_lib_linux_stop,
+#endif
+#if ENABLE_MD6
+		[HASH_LIB_MD6] = gtkhash_hash_lib_md6_stop,
 #endif
 #if ENABLE_MHASH
 		[HASH_LIB_MHASH] = gtkhash_hash_lib_mhash_stop,
@@ -260,6 +279,9 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 #endif
 #if ENABLE_LINUX_CRYPTO
 		[HASH_LIB_LINUX] = gtkhash_hash_lib_linux_finish,
+#endif
+#if ENABLE_MD6
+		[HASH_LIB_MD6] = gtkhash_hash_lib_md6_finish,
 #endif
 #if ENABLE_MHASH
 		[HASH_LIB_MHASH] = gtkhash_hash_lib_mhash_finish,

@@ -4,7 +4,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
-AM_INIT_AUTOMAKE([1.11 check-news])
+AM_INIT_AUTOMAKE([1.11 check-news subdir-objects])
 AM_SILENT_RULES([yes])
 
 AC_PROG_CC_C99
@@ -190,6 +190,19 @@ if test "${enable_mhash}" = "yes" ; then
 	AC_DEFINE([ENABLE_MHASH], [1])
 fi
 
+AC_MSG_CHECKING([whether to use the internal MD6 library])
+AC_ARG_ENABLE([internal-md6],
+	[AS_HELP_STRING([--disable-internal-md6], [do not use the internal MD6 library])],
+	[enable_internal_md6="${enableval}"], [enable_internal_md6="yes"])
+AC_MSG_RESULT(["${enable_internal_md6}"])
+AM_CONDITIONAL([ENABLE_MD6], [test "${enable_internal_md6}" = "yes"])
+AC_DEFINE([ENABLE_MD6], [0], [Use MD6])
+
+if test "${enable_internal_md6}" = "yes" ; then
+	hash_libs="${hash_libs} md6"
+	AC_DEFINE([ENABLE_MD6], [1])
+fi
+
 test -z "${hash_libs}" && AC_MSG_ERROR([No hash libraries enabled])
 
 AC_MSG_CHECKING([whether to build gtkhash])
@@ -299,6 +312,8 @@ linux_crypto_funcs="
 	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320
 	TIGER128 TIGER160 TIGER192
 	WHIRLPOOL"
+md6_funcs="
+	MD6-224 MD6-256 MD6-384 MD6-512"
 mhash_funcs="
 	MD2 MD4 MD5
 	SHA1 SHA224 SHA256 SHA384 SHA512
@@ -317,7 +332,7 @@ zlib_funcs="
 echo
 echo "Supported Hash Functions:"
 for func in \
-	MD2 MD4 MD5 \
+	MD2 MD4 MD5 MD6-224 MD6-256 MD6-384 MD6-512 \
 	SHA0 SHA1 SHA224 SHA256 SHA384 SHA512 \
 	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320 \
 	TIGER128 TIGER160 TIGER192 \
