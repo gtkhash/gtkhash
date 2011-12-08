@@ -9,13 +9,13 @@ hash_la_SOURCES = \
 	hash-string.c hash-string.h \
 	hmac.c hmac.h
 
-hash_la_CPPFLAGS = $(GDK_CFLAGS) -DIN_HASH_LIB
+hash_la_CPPFLAGS = $(GLIB_CFLAGS) -DIN_HASH_LIB
 
 hash_la_CFLAGS = $(GTKHASH_CFLAGS)
 
 hash_la_LDFLAGS = -avoid-version -module
 
-hash_la_LIBADD = $(GDK_LIBS)
+hash_la_LIBADD = $(GLIB_LIBS)
 
 EXTRA_DIST = \
 	md6/md6_compress.c md6/md6_mode.c \

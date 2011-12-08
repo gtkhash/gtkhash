@@ -431,6 +431,9 @@ void gui_deinit(void)
 {
 	hash_file_stop();
 
+	while (gui_get_state() != GUI_STATE_IDLE)
+		gtk_main_iteration();
+
 	gtk_widget_destroy(GTK_WIDGET(gui.window));
 }
 
@@ -491,6 +494,31 @@ enum digest_format_e gui_get_digest_format(void)
 	g_assert(DIGEST_FORMAT_IS_VALID(format));
 
 	return format;
+}
+
+const uint8_t *gui_get_hmac_key(size_t *key_size)
+{
+	g_assert(key_size);
+
+	const uint8_t *hmac_key = NULL;
+	*key_size = 0;
+
+	switch (gui_get_view()) {
+		case GUI_VIEW_FILE:
+		case GUI_VIEW_TEXT:
+			if (gtk_toggle_button_get_active(gui.togglebutton_hmac)) {
+				hmac_key = (uint8_t *)gtk_entry_get_text(gui.entry_hmac);
+				*key_size = gtk_entry_get_text_length(gui.entry_hmac);
+			}
+			break;
+		case GUI_VIEW_FILE_LIST:
+			// TODO
+			break;
+		default:
+			g_assert_not_reached();
+	}
+
+	return hmac_key;
 }
 
 void gui_update(void)
@@ -566,7 +594,7 @@ void gui_update(void)
 
 			gtk_widget_grab_focus(GTK_WIDGET(gui.entry_text));
 
-			g_signal_emit_by_name(gui.button_hash, "clicked");
+			gtk_button_clicked(gui.button_hash);
 			break;
 		case GUI_VIEW_FILE_LIST:
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_single));
@@ -684,6 +712,7 @@ void gui_set_state(const enum gui_state_e state)
 
 	gtk_widget_set_visible(GTK_WIDGET(gui.button_hash), !busy);
 	gtk_widget_set_visible(GTK_WIDGET(gui.button_stop), busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_stop), busy);
 
 	gtk_progress_bar_set_fraction(gui.progressbar, 0.0);
 	gtk_progress_bar_set_text(gui.progressbar, " ");
@@ -707,7 +736,7 @@ void gui_set_state(const enum gui_state_e state)
 	} else {
 		gtk_window_set_default(gui.window, GTK_WIDGET(gui.button_hash));
 		// User may already have menu open, so make sure save_as gets updated
-		g_signal_emit_by_name(gui.menuitem_file, "activate");
+		gtk_menu_item_activate(gui.menuitem_file);
 	}
 }
 

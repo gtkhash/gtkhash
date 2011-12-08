@@ -56,6 +56,8 @@ static GObject *gtkhash_properties_get_object(GtkBuilder *builder,
 
 static void gtkhash_properties_busy(struct page_s *page)
 {
+	page->busy = true;
+
 	gtk_widget_set_sensitive(GTK_WIDGET(page->button_hash), false);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->button_stop), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->treeview), false);
@@ -90,6 +92,8 @@ static void gtkhash_properties_entry_hmac_set_sensitive(struct page_s *page)
 
 void gtkhash_properties_idle(struct page_s *page)
 {
+	page->busy = false;
+
 	gtk_widget_hide(GTK_WIDGET(page->progressbar));
 
 	gtk_widget_set_sensitive(GTK_WIDGET(page->button_stop), false);
@@ -182,8 +186,8 @@ static void gtkhash_properties_on_button_hash_clicked(struct page_s *page)
 	if (gtk_toggle_button_get_active(page->togglebutton_hmac)) {
 		const uint8_t *hmac_key = (uint8_t *)gtk_entry_get_text(
 			page->entry_hmac);
-		const size_t hmac_key_size = gtk_entry_get_text_length(page->entry_hmac);
-		gtkhash_properties_hash_start(page, hmac_key, hmac_key_size);
+		const size_t key_size = gtk_entry_get_text_length(page->entry_hmac);
+		gtkhash_properties_hash_start(page, hmac_key, key_size);
 	} else
 		gtkhash_properties_hash_start(page, NULL, 0);
 }
@@ -197,6 +201,10 @@ static void gtkhash_properties_on_button_stop_clicked(struct page_s *page)
 static void gtkhash_properties_free_page(struct page_s *page)
 {
 	gtkhash_properties_hash_stop(page);
+
+	while (page->busy)
+		gtk_main_iteration();
+
 	gtkhash_properties_prefs_save(page);
 	gtkhash_properties_hash_deinit(page);
 	g_free(page->uri);
@@ -363,7 +371,7 @@ static struct page_s *gtkhash_properties_new_page(char *uri)
 	g_object_ref(page->menu);
 	g_object_unref(builder);
 
-	gtkhash_properties_hash_init(page, uri);
+	gtkhash_properties_hash_init(page);
 	gtkhash_properties_prefs_load(page);
 	gtkhash_properties_list_init(page);
 	gtkhash_properties_idle(page);

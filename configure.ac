@@ -4,7 +4,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
-AM_INIT_AUTOMAKE([1.11 check-news subdir-objects])
+AM_INIT_AUTOMAKE([1.11 check-news])
 AM_SILENT_RULES([yes])
 
 AC_PROG_CC_C99
@@ -58,10 +58,6 @@ AC_ARG_WITH([gtk],
 	[AS_HELP_STRING([--with-gtk=2.0|3.0], [GTK+ version to use [2.0]])],
 	[with_gtk="${withval}"], [with_gtk="2.0"])
 AC_MSG_RESULT(["${with_gtk}"])
-
-PKG_CHECK_MODULES([GDK], ["gdk-${with_gtk}" >= 2.24])
-AC_SUBST([GDK_CFLAGS])
-AC_SUBST([GDK_LIBS])
 
 PKG_CHECK_MODULES([GTK], ["gtk+-${with_gtk}" >= 2.24])
 AC_SUBST([GTK_CFLAGS])

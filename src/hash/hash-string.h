@@ -24,7 +24,7 @@
 
 void gtkhash_hash_string(struct hash_func_s *funcs, const char *str,
 	const enum digest_format_e format, const uint8_t *hmac_key,
-	const size_t hmac_key_size);
+	const size_t key_size);
 
 void gtkhash_hash_string_finish_cb(const enum hash_func_e id,
 	const char *digest);

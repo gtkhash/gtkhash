@@ -28,6 +28,7 @@
 #include "hash-func.h"
 
 enum hash_file_state_e {
+	HASH_FILE_STATE_IDLE,
 	HASH_FILE_STATE_START,
 	HASH_FILE_STATE_OPEN,
 	HASH_FILE_STATE_GET_SIZE,
@@ -36,8 +37,7 @@ enum hash_file_state_e {
 	HASH_FILE_STATE_HASH_FINISH,
 	HASH_FILE_STATE_CLOSE,
 	HASH_FILE_STATE_FINISH,
-	HASH_FILE_STATE_TERM,
-	HASH_FILE_STATE_IDLE
+	HASH_FILE_STATE_CALLBACK,
 };
 
 struct hash_file_s {
@@ -45,7 +45,7 @@ struct hash_file_s {
 	const char *uri;
 	GFile *file;
 	const uint8_t *hmac_key;
-	size_t hmac_key_size;
+	size_t key_size;
 	GCancellable *cancellable;
 	GFileInputStream *stream;
 	goffset file_size;
@@ -63,22 +63,17 @@ struct hash_file_s {
 	} priv;
 };
 
-void gtkhash_hash_file_add_source(struct hash_file_s *data);
-enum hash_file_state_e gtkhash_hash_file_get_state(struct hash_file_s *data);
-void gtkhash_hash_file_set_state(struct hash_file_s *data,
-	const enum hash_file_state_e state);
-void gtkhash_hash_file_set_uri(struct hash_file_s *data, const char *uri);
-void gtkhash_hash_file_set_hmac_key(struct hash_file_s *data,
-	const uint8_t *hmac_key, const size_t hmac_key_size);
 void gtkhash_hash_file_cancel(struct hash_file_s *data);
-bool gtkhash_hash_file_is_cancelled(struct hash_file_s *data);
 void gtkhash_hash_file_init(struct hash_file_s *data, struct hash_func_s *funcs,
 	void *cb_data);
 void gtkhash_hash_file_deinit(struct hash_file_s *data);
 void gtkhash_hash_file_clear_digests(struct hash_file_s *data);
+void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
+	const uint8_t *hmac_key, const size_t key_size);
 
 void gtkhash_hash_file_report_cb(void *data, goffset file_size,
 	goffset total_read, GTimer *timer);
 void gtkhash_hash_file_finish_cb(void *data);
+void gtkhash_hash_file_stop_cb(void *data);
 
 #endif

@@ -31,7 +31,7 @@
 
 bool gtkhash_hash_lib_is_supported(const enum hash_func_e id);
 void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
-	const size_t size);
+	const size_t key_size);
 void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 	const size_t size);
 void gtkhash_hash_lib_stop(struct hash_func_s *func);

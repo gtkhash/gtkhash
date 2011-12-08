@@ -407,11 +407,10 @@ static void on_button_hash_clicked(void)
 			return;
 	}
 
-	gui_set_state(GUI_STATE_BUSY);
-	gui_clear_digests();
-
 	switch (gui_get_view()) {
 		case GUI_VIEW_FILE: {
+			gui_clear_digests();
+			gui_set_state(GUI_STATE_BUSY);
 			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
 				gui.filechooserbutton));
 			hash_file_start(uri);
@@ -421,11 +420,19 @@ static void on_button_hash_clicked(void)
 			hash_string();
 			break;
 		case GUI_VIEW_FILE_LIST:
+			gui_clear_digests();
+			gui_set_state(GUI_STATE_BUSY);
 			hash_file_list_start();
 			break;
 		default:
 			g_assert_not_reached();
 	}
+}
+
+static void on_button_stop_clicked(void)
+{
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_stop), false);
+	hash_file_stop();
 }
 
 static void on_entry_hmac_changed(void)
@@ -505,7 +512,7 @@ void callbacks_init(void)
 	CON(gui.menuitem_treeview_clear,        "activate",            list_clear);
 	CON(gui.menuitem_treeview_show_toolbar, "toggled",             on_menuitem_treeview_show_toolbar_toggled);
 	CON(gui.button_hash,                    "clicked",             on_button_hash_clicked);
-	CON(gui.button_stop,                    "clicked",             hash_file_stop);
+	CON(gui.button_stop,                    "clicked",             on_button_stop_clicked);
 	CON(gui.dialog,                         "delete-event",        G_CALLBACK(on_dialog_delete_event));
 	CON(gui.dialog_button_close,            "clicked",             G_CALLBACK(on_dialog_delete_event));
 	CON(gui.dialog_combobox,                "changed",             on_dialog_combobox_changed);
