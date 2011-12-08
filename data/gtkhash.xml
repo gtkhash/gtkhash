@@ -6,6 +6,7 @@
     <property name="title" translatable="yes">GtkHash Preferences</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
+    <property name="transient_for">window</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog_box">
         <property name="visible">True</property>
@@ -97,7 +98,7 @@
             </child>
           </object>
           <packing>
-            <property name="expand">True</property>
+            <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">0</property>
           </packing>

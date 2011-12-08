@@ -186,6 +186,8 @@ static void gui_get_objects(GtkBuilder *builder)
 
 static void gui_init_hash_funcs(void)
 {
+	int supported = 0;
+
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		// File/Text view func labels
 		char *label = g_strdup_printf("%s:", hash.funcs[i].name);
@@ -224,16 +226,18 @@ static void gui_init_hash_funcs(void)
 		// Dialog checkbuttons
 		gui.hash_widgets[i].button = GTK_TOGGLE_BUTTON(
 			gtk_check_button_new_with_label(hash.funcs[i].name));
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.hash_widgets[i].button),
-			hash.funcs[i].supported);
-		gtk_table_attach_defaults(gui.dialog_table,
-			GTK_WIDGET(gui.hash_widgets[i].button),
-			// Sort checkbuttons into 2 columns
-			i % 2 ? 1 : 0,
-			i % 2 ? 2 : 1,
-			i / 2,
-			i / 2 + 1);
-		gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].button));
+		if (hash.funcs[i].supported) {
+			gtk_table_attach_defaults(gui.dialog_table,
+				GTK_WIDGET(gui.hash_widgets[i].button),
+				// Sort checkbuttons into 2 columns
+				supported % 2 ? 1 : 0,
+				supported % 2 ? 2 : 1,
+				supported / 2,
+				supported / 2 + 1);
+			gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].button));
+
+			supported++;
+		}
 	}
 }
 
@@ -322,8 +326,6 @@ void gui_init(const char *datadir)
 	g_object_unref(builder);
 
 	gui_init_hash_funcs();
-
-	gtk_window_set_transient_for(GTK_WINDOW(gui.dialog), gui.window);
 
 	gui_set_state(GUI_STATE_IDLE);
 
@@ -631,6 +633,8 @@ void gui_update(void)
 		default:
 			g_assert_not_reached();
 	}
+
+	gui_check_digests();
 }
 
 void gui_clear_digests(void)
@@ -676,6 +680,9 @@ void gui_check_digests(void)
 	const char *icon_in_text = NULL;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!hash.funcs[i].enabled)
+			continue;
+
 		const char *str_out_file = gtk_entry_get_text(
 			gui.hash_widgets[i].entry_file);
 		const char *str_out_text = gtk_entry_get_text(
