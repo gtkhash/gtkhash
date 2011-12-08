@@ -179,7 +179,6 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="use_action_appearance">False</property>
-                    <property name="relief">none</property>
                     <property name="draw_indicator">False</property>
                   </object>
                   <packing>

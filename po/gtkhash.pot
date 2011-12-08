@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-30 18:37+0000\n"
+"POT-Creation-Date: 2011-12-08 00:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/gtkhash.xml.h:1 ../data/nautilus/gtkhash-properties.xml.h:1
-msgid "Check:"
+#: ../data/gtkhash.xml.h:1
+msgid "GtkHash Preferences"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:2
-msgid "Copy _Digest"
+msgid "Hash Functions:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:3
@@ -30,126 +30,146 @@ msgid "Digest Format:"
 msgstr ""
 
 #: ../data/gtkhash.xml.h:4
-msgid "File"
-msgstr ""
-
-#: ../data/gtkhash.xml.h:5
-msgid "File _List"
-msgstr ""
-
-#: ../data/gtkhash.xml.h:6
-msgid "File:"
-msgstr ""
-
-#: ../data/gtkhash.xml.h:7
-msgid "GtkHash Preferences"
-msgstr ""
-
-#: ../data/gtkhash.xml.h:8
-msgid "Ha_sh"
-msgstr ""
-
-#: ../data/gtkhash.xml.h:9
-msgid "Hash Functions:"
-msgstr ""
-
-#: ../data/gtkhash.xml.h:10
 msgid "Lowercase Hexadecimal"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:11
-msgid "Show _Toolbar"
-msgstr ""
-
-#: ../data/gtkhash.xml.h:12
-msgid "Text:"
-msgstr ""
-
-#: ../data/gtkhash.xml.h:13
+#: ../data/gtkhash.xml.h:5
 msgid "Uppercase Hexadecimal"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:14
-msgid "_Edit"
+#: ../data/gtkhash.xml.h:6
+msgid "Copy _Digest"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:15
+#: ../data/gtkhash.xml.h:7
+msgid "Show _Toolbar"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:8
 msgid "_File"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:16
-msgid "_Help"
+#: ../data/gtkhash.xml.h:9
+msgid "_Edit"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:17
-msgid "_Text"
-msgstr ""
-
-#: ../data/gtkhash.xml.h:18
+#: ../data/gtkhash.xml.h:10
 msgid "_View"
 msgstr ""
 
+#: ../data/gtkhash.xml.h:11
+msgid "_Text"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:12
+msgid "File _List"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:13
+msgid "_Help"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:14
+msgid "File:"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:15
+msgid "Text:"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:5
+msgid "Check:"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:17
+msgid "File"
+msgstr ""
+
+#: ../data/gtkhash.xml.h:18
+msgid "Ha_sh"
+msgstr ""
+
+#: ../data/nautilus/gtkhash-properties.xml.h:1
+msgid "_Copy Digest"
+msgstr ""
+
 #: ../data/nautilus/gtkhash-properties.xml.h:2
-msgid "Digest"
-msgstr ""
-
-#: ../data/nautilus/gtkhash-properties.xml.h:3
-msgid "H_ash"
-msgstr ""
-
-#: ../data/nautilus/gtkhash-properties.xml.h:4
-msgid "Hash Function"
-msgstr ""
-
-#: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Show _Disabled Hash Functions"
 msgstr ""
 
+#: ../data/nautilus/gtkhash-properties.xml.h:3
+msgid "Hash Function"
+msgstr ""
+
+#: ../data/nautilus/gtkhash-properties.xml.h:4
+msgid "Digest"
+msgstr ""
+
 #: ../data/nautilus/gtkhash-properties.xml.h:6
-msgid "_Copy Digest"
+msgid "H_ash"
 msgstr ""
 
 #: ../src/callbacks.c:87
 msgid "Save Digests"
 msgstr ""
 
-#: ../src/callbacks.c:272
+#: ../src/callbacks.c:276
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 
-#: ../src/callbacks.c:276
+#: ../src/callbacks.c:280
 msgid "translator-credits"
 msgstr ""
 
-#: ../src/callbacks.c:298
+#: ../src/callbacks.c:302
 msgid "Select Files"
 msgstr ""
 
-#: ../src/gui.c:287
+#: ../src/gui.c:291
 #, c-format
 msgid "Failed to read \"%s\""
 msgstr ""
 
-#: ../src/gui.c:304
+#: ../src/gui.c:308
 #, c-format
 msgid ""
 "Failed to read \"%s\":\n"
 "%s"
 msgstr ""
 
-#: ../src/gui.c:350
+#: ../src/gui.c:354
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:372
+#: ../src/gui.c:376
 msgid "Unknown error"
 msgstr ""
 
-#: ../src/gui.c:374
+#: ../src/gui.c:378
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
 "%s"
+msgstr ""
+
+#: ../src/hash.c:82 ../src/nautilus/properties-hash.c:69
+#, c-format
+msgid "%s of %s - 1 minute left (%s/sec)"
+msgstr ""
+
+#: ../src/hash.c:85 ../src/nautilus/properties-hash.c:72
+#, c-format
+msgid "%s of %s - %u minutes left (%s/sec)"
+msgstr ""
+
+#: ../src/hash.c:89 ../src/nautilus/properties-hash.c:76
+#, c-format
+msgid "%s of %s - 1 second left (%s/sec)"
+msgstr ""
+
+#: ../src/hash.c:92 ../src/nautilus/properties-hash.c:79
+#, c-format
+msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr ""
 
 #: ../src/main.c:72
@@ -172,26 +192,6 @@ msgstr ""
 msgid "Failed to enable any supported hash functions."
 msgstr ""
 
-#: ../src/nautilus/properties.c:410 ../src/nautilus/properties.c:412
+#: ../src/nautilus/properties.c:418 ../src/nautilus/properties.c:420
 msgid "Digests"
-msgstr ""
-
-#: ../src/nautilus/properties-hash.c:67
-#, c-format
-msgid "%s of %s - 1 minute left (%s/sec)"
-msgstr ""
-
-#: ../src/nautilus/properties-hash.c:70
-#, c-format
-msgid "%s of %s - %u minutes left (%s/sec)"
-msgstr ""
-
-#: ../src/nautilus/properties-hash.c:74
-#, c-format
-msgid "%s of %s - 1 second left (%s/sec)"
-msgstr ""
-
-#: ../src/nautilus/properties-hash.c:77
-#, c-format
-msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr ""

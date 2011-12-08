@@ -63,9 +63,10 @@ extern struct gui_s {
 	GtkVBox *vbox_single, *vbox_list;
 	GtkHBox *hbox_input, *hbox_output;
 	GtkVBox *vbox_outputlabels, *vbox_digests_file, *vbox_digests_text;
-	GtkEntry *entry_text, *entry_check_file, *entry_check_text, *entry_hmac;
+	GtkEntry *entry_text, *entry_check_file, *entry_check_text;
+	GtkEntry *entry_hmac_file, *entry_hmac_text;
 	GtkFileChooserButton *filechooserbutton;
-	GtkToggleButton *togglebutton_hmac;
+	GtkToggleButton *togglebutton_hmac_file, *togglebutton_hmac_text;
 	GtkLabel *label_file, *label_text;
 	GtkTreeView *treeview;
 	GtkTreeSelection *treeselection;

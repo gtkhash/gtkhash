@@ -126,10 +126,14 @@ static void gui_get_objects(GtkBuilder *builder)
 		"entry_check_file"));
 	gui.entry_check_text = GTK_ENTRY(gui_get_object(builder,
 		"entry_check_text"));
-	gui.togglebutton_hmac = GTK_TOGGLE_BUTTON(gui_get_object(builder,
-		"togglebutton_hmac"));
-	gui.entry_hmac = GTK_ENTRY(gui_get_object(builder,
-		"entry_hmac"));
+	gui.togglebutton_hmac_file = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"togglebutton_hmac_file"));
+	gui.togglebutton_hmac_text = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"togglebutton_hmac_text"));
+	gui.entry_hmac_file = GTK_ENTRY(gui_get_object(builder,
+		"entry_hmac_file"));
+	gui.entry_hmac_text = GTK_ENTRY(gui_get_object(builder,
+		"entry_hmac_text"));
 
 	// Labels
 	gui.label_file = GTK_LABEL(gui_get_object(builder,
@@ -505,10 +509,15 @@ const uint8_t *gui_get_hmac_key(size_t *key_size)
 
 	switch (gui_get_view()) {
 		case GUI_VIEW_FILE:
+			if (gtk_toggle_button_get_active(gui.togglebutton_hmac_file)) {
+				hmac_key = (uint8_t *)gtk_entry_get_text(gui.entry_hmac_file);
+				*key_size = gtk_entry_get_text_length(gui.entry_hmac_file);
+			}
+			break;
 		case GUI_VIEW_TEXT:
-			if (gtk_toggle_button_get_active(gui.togglebutton_hmac)) {
-				hmac_key = (uint8_t *)gtk_entry_get_text(gui.entry_hmac);
-				*key_size = gtk_entry_get_text_length(gui.entry_hmac);
+			if (gtk_toggle_button_get_active(gui.togglebutton_hmac_text)) {
+				hmac_key = (uint8_t *)gtk_entry_get_text(gui.entry_hmac_text);
+				*key_size = gtk_entry_get_text_length(gui.entry_hmac_text);
 			}
 			break;
 		case GUI_VIEW_FILE_LIST:
@@ -552,9 +561,6 @@ void gui_update(void)
 		gtk_widget_hide(GTK_WIDGET(gui.toolbar));
 		gtk_widget_hide(GTK_WIDGET(gui.vbox_list));
 		gtk_widget_show(GTK_WIDGET(gui.vbox_single));
-
-		bool active = gtk_toggle_button_get_active(gui.togglebutton_hmac);
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac), active);
 	}
 
 	switch (view) {
@@ -562,13 +568,20 @@ void gui_update(void)
 			gtk_widget_hide(GTK_WIDGET(gui.label_text));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_text));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_check_text));
+			gtk_widget_hide(GTK_WIDGET(gui.entry_hmac_text));
+			gtk_widget_hide(GTK_WIDGET(gui.togglebutton_hmac_text));
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_digests_text));
 			gtk_widget_show(GTK_WIDGET(gui.label_file));
 			gtk_widget_show(GTK_WIDGET(gui.filechooserbutton));
 			gtk_widget_show(GTK_WIDGET(gui.entry_check_file));
+			gtk_widget_show(GTK_WIDGET(gui.entry_hmac_file));
+			gtk_widget_show(GTK_WIDGET(gui.togglebutton_hmac_file));
 			gtk_widget_show(GTK_WIDGET(gui.vbox_digests_file));
 			gtk_widget_show(GTK_WIDGET(gui.hseparator_buttons));
 			gtk_widget_show(GTK_WIDGET(gui.button_hash));
+
+			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file),
+				gtk_toggle_button_get_active(gui.togglebutton_hmac_file));
 
 			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
 				gui.filechooserbutton));
@@ -584,13 +597,20 @@ void gui_update(void)
 			gtk_widget_hide(GTK_WIDGET(gui.label_file));
 			gtk_widget_hide(GTK_WIDGET(gui.filechooserbutton));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_check_file));
+			gtk_widget_hide(GTK_WIDGET(gui.entry_hmac_file));
+			gtk_widget_hide(GTK_WIDGET(gui.togglebutton_hmac_file));
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_digests_file));
 			gtk_widget_hide(GTK_WIDGET(gui.hseparator_buttons));
 			gtk_widget_hide(GTK_WIDGET(gui.button_hash));
 			gtk_widget_show(GTK_WIDGET(gui.label_text));
 			gtk_widget_show(GTK_WIDGET(gui.entry_text));
 			gtk_widget_show(GTK_WIDGET(gui.entry_check_text));
+			gtk_widget_show(GTK_WIDGET(gui.entry_hmac_text));
+			gtk_widget_show(GTK_WIDGET(gui.togglebutton_hmac_text));
 			gtk_widget_show(GTK_WIDGET(gui.vbox_digests_text));
+
+			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file),
+				gtk_toggle_button_get_active(gui.togglebutton_hmac_file));
 
 			gtk_widget_grab_focus(GTK_WIDGET(gui.entry_text));
 

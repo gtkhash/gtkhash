@@ -91,7 +91,6 @@ static void on_menuitem_save_as_activate(void)
 		NULL));
 	gtk_file_chooser_set_do_overwrite_confirmation(chooser, true);
 
-	const bool hmac_active = gtk_toggle_button_get_active(gui.togglebutton_hmac);
 
 	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
 		char *filename = gtk_file_chooser_get_filename(chooser);
@@ -103,6 +102,8 @@ static void on_menuitem_save_as_activate(void)
 
 			switch (gui_get_view()) {
 				case GUI_VIEW_FILE: {
+					const bool hmac_active = gtk_toggle_button_get_active(
+						gui.togglebutton_hmac_file);
 					const char *digest = gtk_entry_get_text(
 						gui.hash_widgets[i].entry_file);
 					if (digest && *digest) {
@@ -115,13 +116,15 @@ static void on_menuitem_save_as_activate(void)
 						GTK_FILE_CHOOSER(gui.filechooserbutton));
 					char *basename = g_path_get_basename(path);
 					g_free(path);
-						g_string_append_printf(string, "%s  %s\n",
-						gtk_entry_get_text(gui.hash_widgets[i].entry_file),
-							basename);
+					g_string_append_printf(string, "%s  %s\n",
+					gtk_entry_get_text(gui.hash_widgets[i].entry_file),
+						basename);
 					g_free(basename);
 					break;
 				}
-				case GUI_VIEW_TEXT:
+				case GUI_VIEW_TEXT: {
+					const bool hmac_active = gtk_toggle_button_get_active(
+						gui.togglebutton_hmac_text);
 					g_string_append_printf(string,
 						(hmac_active && (hash.funcs[i].block_size > 0)) ?
 						"# HMAC-%s\n" : "# %s\n", hash.funcs[i].name);
@@ -129,6 +132,7 @@ static void on_menuitem_save_as_activate(void)
 						gtk_entry_get_text(gui.hash_widgets[i].entry_text),
 						gtk_entry_get_text(gui.entry_text));
 					break;
+				}
 				case GUI_VIEW_FILE_LIST: {
 					int prev = -1;
 					for (unsigned int row = 0; row < list_count_rows(); row++)
@@ -444,8 +448,6 @@ static void on_entry_hmac_changed(void)
 		case GUI_VIEW_TEXT:
 			on_button_hash_clicked();
 			break;
-		case GUI_VIEW_FILE_LIST:
-			break;
 		default:
 			g_assert_not_reached();
 	}
@@ -453,9 +455,18 @@ static void on_entry_hmac_changed(void)
 
 static void on_togglebutton_hmac_toggled(void)
 {
-	bool active = gtk_toggle_button_get_active(gui.togglebutton_hmac);
-
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac), active);
+	switch (gui_get_view()) {
+		case GUI_VIEW_FILE:
+			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file),
+				gtk_toggle_button_get_active(gui.togglebutton_hmac_file));
+			break;
+		case GUI_VIEW_TEXT:
+			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_text),
+				gtk_toggle_button_get_active(gui.togglebutton_hmac_text));
+			break;
+		default:
+			g_assert_not_reached();
+	}
 
 	on_entry_hmac_changed();
 }
@@ -496,8 +507,10 @@ void callbacks_init(void)
 //	CON(gui.filechooserbutton,              "file-set",            on_filechooserbutton_file_set);
 	CON(gui.filechooserbutton,              "selection-changed",   on_filechooserbutton_selection_changed);
 	CON(gui.entry_text,                     "changed",             on_button_hash_clicked);
-	CON(gui.togglebutton_hmac,              "toggled",             on_togglebutton_hmac_toggled);
-	CON(gui.entry_hmac,                     "changed",             on_entry_hmac_changed);
+	CON(gui.togglebutton_hmac_file,         "toggled",             on_togglebutton_hmac_toggled);
+	CON(gui.togglebutton_hmac_text,         "toggled",             on_togglebutton_hmac_toggled);
+	CON(gui.entry_hmac_file,                "changed",             on_entry_hmac_changed);
+	CON(gui.entry_hmac_text,                "changed",             on_entry_hmac_changed);
 	CON(gui.entry_check_file,               "changed",             gui_check_digests);
 	CON(gui.entry_check_text,               "changed",             gui_check_digests);
 	CON(gui.toolbutton_add,                 "clicked",             on_toolbutton_add_clicked);

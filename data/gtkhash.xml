@@ -643,14 +643,13 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkCheckButton" id="togglebutton_hmac">
+                              <object class="GtkCheckButton" id="togglebutton_hmac_file">
                                 <property name="label">HMAC:</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
                                 <property name="use_action_appearance">False</property>
-                                <property name="relief">none</property>
                                 <property name="draw_indicator">False</property>
                               </object>
                               <packing>
@@ -660,7 +659,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry_hmac">
+                              <object class="GtkEntry" id="entry_hmac_file">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="visibility">False</property>
@@ -670,6 +669,35 @@
                                 <property name="expand">True</property>
                                 <property name="fill">True</property>
                                 <property name="position">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkCheckButton" id="togglebutton_hmac_text">
+                                <property name="label">HMAC:</property>
+                                <property name="use_action_appearance">False</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="use_action_appearance">False</property>
+                                <property name="draw_indicator">False</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">4</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkEntry" id="entry_hmac_text">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="visibility">False</property>
+                                <property name="caps_lock_warning">False</property>
+                              </object>
+                              <packing>
+                                <property name="expand">True</property>
+                                <property name="fill">True</property>
+                                <property name="position">5</property>
                               </packing>
                             </child>
                           </object>
