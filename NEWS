@@ -1,6 +1,6 @@
 Summary of changes for each release:
 
-0.6.0 -
+0.6.0 - 2011-12-14
 	* Added "Check" feature for comparing digests
 	* Added HMAC support
 	* Added MD6 hash function
