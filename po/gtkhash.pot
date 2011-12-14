@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-08 00:50+0000\n"
+"POT-Creation-Date: 2011-12-14 19:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,26 +89,6 @@ msgstr ""
 msgid "Ha_sh"
 msgstr ""
 
-#: ../data/nautilus/gtkhash-properties.xml.h:1
-msgid "_Copy Digest"
-msgstr ""
-
-#: ../data/nautilus/gtkhash-properties.xml.h:2
-msgid "Show _Disabled Hash Functions"
-msgstr ""
-
-#: ../data/nautilus/gtkhash-properties.xml.h:3
-msgid "Hash Function"
-msgstr ""
-
-#: ../data/nautilus/gtkhash-properties.xml.h:4
-msgid "Digest"
-msgstr ""
-
-#: ../data/nautilus/gtkhash-properties.xml.h:6
-msgid "H_ash"
-msgstr ""
-
 #: ../src/callbacks.c:87
 msgid "Save Digests"
 msgstr ""
@@ -125,27 +105,27 @@ msgstr ""
 msgid "Select Files"
 msgstr ""
 
-#: ../src/gui.c:291
+#: ../src/gui.c:295
 #, c-format
 msgid "Failed to read \"%s\""
 msgstr ""
 
-#: ../src/gui.c:308
+#: ../src/gui.c:312
 #, c-format
 msgid ""
 "Failed to read \"%s\":\n"
 "%s"
 msgstr ""
 
-#: ../src/gui.c:354
+#: ../src/gui.c:361
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:376
+#: ../src/gui.c:383
 msgid "Unknown error"
 msgstr ""
 
-#: ../src/gui.c:378
+#: ../src/gui.c:385
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -188,10 +168,30 @@ msgstr ""
 msgid "[FILE|URI...]"
 msgstr ""
 
-#: ../src/prefs.c:55
+#: ../src/prefs.c:76
 msgid "Failed to enable any supported hash functions."
 msgstr ""
 
-#: ../src/nautilus/properties.c:418 ../src/nautilus/properties.c:420
+#: ../data/nautilus/gtkhash-properties.xml.h:1
+msgid "_Copy Digest"
+msgstr ""
+
+#: ../data/nautilus/gtkhash-properties.xml.h:2
+msgid "Show _Disabled Hash Functions"
+msgstr ""
+
+#: ../data/nautilus/gtkhash-properties.xml.h:3
+msgid "Hash Function"
+msgstr ""
+
+#: ../data/nautilus/gtkhash-properties.xml.h:4
+msgid "Digest"
+msgstr ""
+
+#: ../data/nautilus/gtkhash-properties.xml.h:6
+msgid "H_ash"
+msgstr ""
+
+#: ../src/nautilus/properties.c:427 ../src/nautilus/properties.c:429
 msgid "Digests"
 msgstr ""
