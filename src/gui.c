@@ -441,6 +441,10 @@ void gui_deinit(void)
 		gtk_main_iteration();
 
 	gtk_widget_destroy(GTK_WIDGET(gui.window));
+	g_object_unref(gui.menu_treeview);
+
+	while (gtk_events_pending())
+		gtk_main_iteration();
 }
 
 void gui_set_view(const enum gui_view_e view)

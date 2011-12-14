@@ -20,7 +20,7 @@
 #ifndef GTKHASH_PREFS_H
 #define GTKHASH_PREFS_H
 
-void prefs_load(void);
-void prefs_save(void);
+void prefs_init(void);
+void prefs_deinit(void);
 
 #endif

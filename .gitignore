@@ -27,3 +27,4 @@ stamp-it
 *.la
 *.lo
 *.o
+*.valid

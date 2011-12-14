@@ -48,6 +48,7 @@ AC_SUBST([GTKHASH_CFLAGS])
 PKG_PROG_PKG_CONFIG
 
 PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.28])
+GLIB_GSETTINGS
 
 PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
 AC_SUBST([GTHREAD_CFLAGS])
@@ -241,20 +242,6 @@ if test "${enable_thunar}" = "yes" ; then
 fi
 
 AM_CONDITIONAL([ENABLE_NAUTILUS_DATA], [test "${enable_nautilus}" = "yes" || test "${enable_thunar}" = "yes"])
-
-AM_GCONF_SOURCE_2
-
-if test "${enable_nautilus}" = "yes" || test "${enable_thunar}" = "yes" ; then
-	# Check for gconf
-	PKG_CHECK_MODULES([GCONF], [gconf-2.0])
-	AC_SUBST([GCONF_CFLAGS])
-	AC_SUBST([GCONF_LIBS])
-	AC_PATH_PROG([GCONFTOOL], [gconftool-2], [no])
-	if test "${GCONFTOOL}" = "no" ; then
-		AC_MSG_ERROR([gconftool-2 not found])
-	fi
-fi
-
 AM_CONDITIONAL([ENABLE_NLS], [test "${enable_nls}" != "no"])
 
 if test "${enable_nls}" = "no" ; then

@@ -137,6 +137,7 @@ int main(int argc, char **argv)
 	g_thread_init(NULL);
 	gdk_threads_init();
 	gdk_threads_enter();
+	g_atexit(gdk_threads_leave);
 
 	read_opts_preinit(&argc, &argv);
 
@@ -148,14 +149,12 @@ int main(int argc, char **argv)
 
 	list_init();
 
-	prefs_load();
-	g_atexit(prefs_save);
+	prefs_init();
+	g_atexit(prefs_deinit);
 
 	read_opts_postinit();
 
 	gui_run();
-
-	gdk_threads_leave();
 
 	return EXIT_SUCCESS;
 }

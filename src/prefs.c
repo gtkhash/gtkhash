@@ -30,218 +30,287 @@
 #include "hash.h"
 #include "gui.h"
 #include "hash/digest-format.h"
+#include "hash/hash-func.h"
+
+#define PREFS_SCHEMA "apps.gtkhash"
+#define PREFS_KEY_DIGEST_FORMAT "digest-format"
+#define PREFS_KEY_HASH_FUNCS "hash-functions"
+#define PREFS_KEY_SHOW_TOOLBAR "show-toolbar"
+#define PREFS_KEY_VIEW "view"
+#define PREFS_KEY_WINDOW_HEIGHT "window-height"
+#define PREFS_KEY_WINDOW_MAX "window-max"
+#define PREFS_KEY_WINDOW_WIDTH "window-width"
+#define PREFS_BIND_FLAGS \
+	(G_SETTINGS_BIND_DEFAULT | \
+	 G_SETTINGS_BIND_GET_NO_CHANGES)
+
+static struct {
+	GSettings *settings;
+} prefs_priv = {
+	.settings = NULL,
+};
 
 static void default_hash_funcs(void)
 {
 	bool has_enabled = false;
 
 	// Try to enable default functions
-	for (int i = 0; i < HASH_FUNCS_N; i++)
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (HASH_FUNC_IS_DEFAULT(i) && hash.funcs[i].supported) {
 			gtk_toggle_button_set_active(gui.hash_widgets[i].button, true);
 			has_enabled = true;
 		}
+	}
 
 	if (has_enabled)
 		return;
 
 	// Try to enable any supported function
-	for (int i = 0; i < HASH_FUNCS_N; i++)
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (hash.funcs[i].supported) {
 			gtk_toggle_button_set_active(gui.hash_widgets[i].button, true);
 			return;
 		}
+	}
 
 	gui_error(_("Failed to enable any supported hash functions."));
 	exit(EXIT_FAILURE);
 }
 
-static void default_window_show_toolbar(void)
+static void default_show_toolbar(void)
 {
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
 		gui.menuitem_treeview_show_toolbar), true);
 }
 
-static void load_hash_funcs(GKeyFile *keyfile)
+static void prefs_default(void)
 {
+	default_hash_funcs();
+	default_show_toolbar();
+
+	gui_update();
+}
+
+static void load_hash_funcs(void)
+{
+	char **strv = g_settings_get_strv(prefs_priv.settings, PREFS_KEY_HASH_FUNCS);
 	bool has_enabled = false;
 
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		GError *error = NULL;
-		bool active = g_key_file_get_boolean(keyfile, "hash-funcs",
-			hash.funcs[i].name, &error);
-
-		if (!error) {
-			if (hash.funcs[i].supported) {
-				if (active)
-					has_enabled = true;
-				hash.funcs[i].enabled = active;
-				gtk_toggle_button_set_active(gui.hash_widgets[i].button,
-					active);
-			} else
-				hash.funcs[i].enabled = false;
-		} else
-			g_error_free(error);
+	for (int i = 0; strv[i]; i++) {
+		enum hash_func_e id = gtkhash_hash_func_get_id_from_name(strv[i]);
+		if (id != HASH_FUNC_INVALID && hash.funcs[id].supported) {
+			hash.funcs[id].enabled = true;
+			gtk_toggle_button_set_active(gui.hash_widgets[id].button, true);
+			has_enabled = true;
+		}
 	}
+
+	g_strfreev(strv);
 
 	if (!has_enabled)
 		default_hash_funcs();
 }
 
-static void load_digest_format(GKeyFile *keyfile)
+static void load_digest_format(void)
 {
-	GError *error = NULL;
-	int format = g_key_file_get_integer(keyfile, "digest", "format", &error);
-
-	if (error) {
-		g_error_free(error);
+	char *str = g_settings_get_string(prefs_priv.settings,
+		PREFS_KEY_DIGEST_FORMAT);
+	if (!str)
 		return;
-	}
+
+	enum digest_format_e format = DIGEST_FORMAT_INVALID;
+
+	if (g_strcmp0(str, "hex-lower") == 0)
+		format = DIGEST_FORMAT_HEX_LOWER;
+	else if (g_strcmp0(str, "hex-upper") == 0)
+		format = DIGEST_FORMAT_HEX_UPPER;
+	else if (g_strcmp0(str, "base64") == 0)
+		format = DIGEST_FORMAT_BASE64;
+
+	g_free(str);
 
 	if (DIGEST_FORMAT_IS_VALID(format))
 		gui_set_digest_format(format);
 }
 
-static void load_window_view(GKeyFile *keyfile)
+static void load_view(void)
 {
-	GError *error = NULL;
-	int view = g_key_file_get_integer(keyfile, "window", "view", &error);
-
-	if (error) {
-		g_error_free(error);
+	char *str = g_settings_get_string(prefs_priv.settings, PREFS_KEY_VIEW);
+	if (!str)
 		return;
-	}
+
+	enum gui_view_e view = GUI_VIEW_INVALID;
+
+	if (g_strcmp0(str, "file") == 0)
+		view = GUI_VIEW_FILE;
+	else if (g_strcmp0(str, "text") == 0)
+		view = GUI_VIEW_TEXT;
+	else if (g_strcmp0(str, "file-list") == 0)
+		view = GUI_VIEW_FILE_LIST;
+
+	g_free(str);
 
 	if (GUI_VIEW_IS_VALID(view))
-		gui_set_view((enum gui_view_e)view);
+		gui_set_view(view);
 }
 
-static void load_window_show_toolbar(GKeyFile *keyfile)
+static void load_show_toolbar(void)
 {
-	GError *error = NULL;
-	bool show_toolbar = g_key_file_get_boolean(keyfile, "window",
-		"show-toolbar", &error);
-
-	if (error) {
-		g_error_free(error);
-		show_toolbar = true;
-	}
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
-		gui.menuitem_treeview_show_toolbar), show_toolbar);
+	g_settings_bind(prefs_priv.settings, PREFS_KEY_SHOW_TOOLBAR,
+		gui.menuitem_treeview_show_toolbar, "active", PREFS_BIND_FLAGS);
 }
 
-static void load_window_size(GKeyFile *keyfile)
+static void load_window_size(void)
 {
-	GError *error = NULL;
-
-	bool max = g_key_file_get_boolean(keyfile, "window", "max", &error);
-	if (error)
-		g_error_free(error);
-	else if (max) {
+	if (g_settings_get_boolean(prefs_priv.settings, PREFS_KEY_WINDOW_MAX)) {
 		gtk_window_maximize(gui.window);
 		return;
 	}
 
-	int width = g_key_file_get_integer(keyfile, "window", "width", &error);
-	if (error) {
-		g_error_free(error);
-		error = NULL;
-		width = -1;
-	}
-
-	int height = g_key_file_get_integer(keyfile, "window", "height", &error);
-	if (error) {
-		g_error_free(error);
-		error = NULL;
-		height = -1;
-	}
+	int width = g_settings_get_int(prefs_priv.settings, PREFS_KEY_WINDOW_WIDTH);
+	int height = g_settings_get_int(prefs_priv.settings, PREFS_KEY_WINDOW_HEIGHT);
 
 	if ((width > 0) && (height > 0))
 		gtk_window_resize(gui.window, width, height);
 }
 
-void prefs_load(void)
+static void prefs_load(void)
 {
-	GKeyFile *keyfile = g_key_file_new();
-	char *filename = g_build_filename(g_get_user_config_dir(), PACKAGE, NULL);
-	bool loaded;
+	g_assert(prefs_priv.settings);
 
-	if ((loaded = g_key_file_load_from_file(keyfile, filename, G_KEY_FILE_NONE,
-		NULL)))
-	{
-		load_hash_funcs(keyfile);
-		load_digest_format(keyfile);
-		load_window_view(keyfile);
-		load_window_show_toolbar(keyfile);
-		load_window_size(keyfile);
-	}
-
-	g_free(filename);
-	g_key_file_free(keyfile);
-
-	if (!loaded) {
-		default_hash_funcs();
-		default_window_show_toolbar();
-	}
+	load_hash_funcs();
+	load_digest_format();
+	load_view();
+	load_show_toolbar();
+	load_window_size();
 
 	gui_update();
 }
 
-static void save_hash_funcs(GKeyFile *keyfile)
+static void save_hash_funcs(void)
 {
-	for (int i = 0; i < HASH_FUNCS_N; i++)
-		g_key_file_set_boolean(keyfile, "hash-funcs", hash.funcs[i].name,
-			hash.funcs[i].enabled);
+	const char **strv = NULL;
+	int enabled = 0;
+
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (hash.funcs[i].enabled) {
+			enabled++;
+		}
+	}
+
+	if (enabled > 0) {
+		strv = g_new0(const char *, enabled + 1);
+		for (int i = 0, j = 0; (i < HASH_FUNCS_N) && (j < enabled); i++) {
+			if (hash.funcs[i].enabled) {
+				strv[j] = hash.funcs[i].name;
+				j++;
+			}
+		}
+	}
+
+	g_settings_set_strv(prefs_priv.settings, PREFS_KEY_HASH_FUNCS, strv);
+
+	if (strv)
+		g_free(strv);
 }
 
-static void save_digest_format(GKeyFile *keyfile)
+static void save_digest_format(void)
 {
-	g_key_file_set_integer(keyfile, "digest", "format", gui_get_digest_format());
+	const char *str = NULL;
+
+	switch (gui_get_digest_format()) {
+		case DIGEST_FORMAT_HEX_LOWER:
+			str = "hex-lower";
+			break;
+		case DIGEST_FORMAT_HEX_UPPER:
+			str = "hex-upper";
+			break;
+		case DIGEST_FORMAT_BASE64:
+			str = "base64";
+			break;
+		default:
+			g_assert_not_reached();
+	}
+
+	g_settings_set_string(prefs_priv.settings, PREFS_KEY_DIGEST_FORMAT, str);
 }
 
-static void save_window_view(GKeyFile *keyfile)
+static void save_view(void)
 {
-	g_key_file_set_integer(keyfile, "window", "view", gui_get_view());
+	const char *str = NULL;
+
+	switch (gui_get_view()) {
+		case GUI_VIEW_FILE:
+			str = "file";
+			break;
+		case GUI_VIEW_TEXT:
+			str = "text";
+			break;
+		case GUI_VIEW_FILE_LIST:
+			str = "file-list";
+			break;
+		default:
+			g_assert_not_reached();
+	}
+
+	g_settings_set_string(prefs_priv.settings, PREFS_KEY_VIEW, str);
 }
 
-static void save_window_show_toolbar(GKeyFile *keyfile)
-{
-	const bool show_toolbar = gtk_check_menu_item_get_active(
-		GTK_CHECK_MENU_ITEM(gui.menuitem_treeview_show_toolbar));
-
-	g_key_file_set_boolean(keyfile, "window", "show-toolbar", show_toolbar);
-}
-
-static void save_window_size(GKeyFile *keyfile)
+static void save_window_size(void)
 {
 	bool max = gui_is_maximised();
-	g_key_file_set_boolean(keyfile, "window", "max", max);
+	g_settings_set_boolean(prefs_priv.settings, PREFS_KEY_WINDOW_MAX, max);
+	if (max)
+		return;
 
-	if (!max) {
-		int width, height;
-		gtk_window_get_size(gui.window, &width, &height);
-		g_key_file_set_integer(keyfile, "window", "width", width);
-		g_key_file_set_integer(keyfile, "window", "height", height);
+	int width, height;
+	gtk_window_get_size(gui.window, &width, &height);
+
+	g_settings_set_int(prefs_priv.settings, PREFS_KEY_WINDOW_HEIGHT, height);
+	g_settings_set_int(prefs_priv.settings, PREFS_KEY_WINDOW_WIDTH, width);
+}
+
+static void prefs_save(void)
+{
+	g_assert(prefs_priv.settings);
+
+	save_hash_funcs();
+	save_digest_format();
+	save_view();
+	save_window_size();
+}
+
+void prefs_init(void)
+{
+	g_assert(!prefs_priv.settings);
+
+	bool found = false;
+	const char * const *schemas = g_settings_list_schemas();
+
+	for (int i = 0; schemas[i]; i++) {
+		if (g_strcmp0(schemas[i], PREFS_SCHEMA) == 0) {
+			found = true;
+			break;
+		}
+	}
+
+	if (found) {
+		prefs_priv.settings = g_settings_new(PREFS_SCHEMA);
+		prefs_load();
+	} else {
+		g_warning("GSettings schema \"" PREFS_SCHEMA
+			"\" not found - using default preferences");
+		prefs_default();
 	}
 }
 
-void prefs_save(void)
+void prefs_deinit(void)
 {
-	GKeyFile *keyfile = g_key_file_new();
-	char *filename = g_build_filename(g_get_user_config_dir(), PACKAGE, NULL);
-	char *data;
+	if (!prefs_priv.settings)
+		return;
 
-	save_hash_funcs(keyfile);
-	save_digest_format(keyfile);
-	save_window_view(keyfile);
-	save_window_show_toolbar(keyfile);
-	save_window_size(keyfile);
+	prefs_save();
 
-	data = g_key_file_to_data(keyfile, NULL, NULL);
-	g_file_set_contents(filename, data, -1, NULL);
-
-	g_free(data);
-	g_free(filename);
-	g_key_file_free(keyfile);
+	g_object_unref(prefs_priv.settings);
+	prefs_priv.settings = NULL;
 }

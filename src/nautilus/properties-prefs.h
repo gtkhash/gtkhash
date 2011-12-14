@@ -22,7 +22,7 @@
 
 #include "properties.h"
 
-void gtkhash_properties_prefs_load(struct page_s *page);
-void gtkhash_properties_prefs_save(struct page_s *page);
+void gtkhash_properties_prefs_init(struct page_s *page);
+void gtkhash_properties_prefs_deinit(struct page_s *page);
 
 #endif

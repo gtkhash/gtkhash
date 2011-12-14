@@ -111,21 +111,32 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 {
 	g_assert(data->uri);
 
-	int funcs_n = 0;
+	int funcs_enabled = 0;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (data->funcs[i].enabled) {
 			gtkhash_hash_lib_start(&data->funcs[i], data->hmac_key,
 				data->key_size);
-			funcs_n++;
+			funcs_enabled++;
 		}
 	}
 
-	int threads_n = CLAMP(MIN(funcs_n, sysconf(_SC_NPROCESSORS_ONLN)), 1,
-		HASH_FUNCS_N);
+	g_assert(funcs_enabled > 0);
+
+#ifdef _SC_NPROCESSORS_ONLN
+	const long int cpus = sysconf(_SC_NPROCESSORS_ONLN);
+	if (cpus < 1)
+		g_warning("sysconf(_SC_NPROCESSORS_ONLN) returned %ld", cpus);
+#else
+	#warning "insert code to find number of CPUs here"
+	const int cpus = 1;
+#endif
+
+	const int threads = CLAMP(MIN(funcs_enabled, cpus), 1, HASH_FUNCS_N);
+
 	g_atomic_int_set(&data->pool_threads_n, 0);
 	data->thread_pool = g_thread_pool_new((GFunc)gtkhash_hash_file_hash_thread,
-		data, threads_n, true, NULL);
+		data, threads, true, NULL);
 
 	data->file = g_file_new_for_uri(data->uri);
 	data->just_read = 0;

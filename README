@@ -18,8 +18,8 @@ Dependencies:
         NSS
         mhash
         Linux-2.6.38 (with CONFIG_CRYPTO_USER_API_HASH)
-        Nautilus (and GConf)
-        Thunar (and GConf)
+        Nautilus
+        Thunar
 
 Translations:
     Please submit any new or updated translations here:

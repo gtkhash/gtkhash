@@ -122,6 +122,18 @@ void gtkhash_properties_hash_stop(struct page_s *page)
 	gtkhash_hash_file_cancel(&page->hash_file);
 }
 
+int gtkhash_properties_hash_funcs_supported(struct page_s *page)
+{
+	int supported = 0;
+
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (page->funcs[i].supported)
+			supported++;
+	}
+
+	return supported;
+}
+
 void gtkhash_properties_hash_init(struct page_s *page)
 {
 	gtkhash_hash_func_init_all(page->funcs);

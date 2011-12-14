@@ -31,6 +31,7 @@
 #endif
 
 struct page_s {
+	GSettings *settings;
 	char *uri;
 	GtkWidget *box, *hbox_inputs;
 	GtkProgressBar *progressbar;

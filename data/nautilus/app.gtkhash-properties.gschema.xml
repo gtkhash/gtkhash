@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="apps.gtkhash-properties" path="/apps/gtkhash-properties/">
+    <key name="hash-functions" type="as">
+      <default>[ 'MD5', 'SHA1', 'SHA256' ]</default>
+    </key>
+    <key name="show-disabled-hash-functions" type="b">
+      <default>true</default>
+    </key>
+  </schema>
+</schemalist>

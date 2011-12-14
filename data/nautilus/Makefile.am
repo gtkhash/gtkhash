@@ -1,19 +1,12 @@
 nautilusdir = $(pkgdatadir)/nautilus
 nautilus_DATA = gtkhash-properties.xml.gz
 
-schemadir = $(GCONF_SCHEMA_FILE_DIR)
-schema_DATA = gtkhash.schemas
-
-EXTRA_DIST = gtkhash-properties.xml gtkhash-properties.xml.gz gtkhash.schemas
+gsettings_SCHEMAS = app.gtkhash-properties.gschema.xml
+EXTRA_DIST = gtkhash-properties.xml $(gsettings_SCHEMAS)
 CLEANFILES = $(nautilus_DATA)
 
 gtkhash-properties.xml.gz: gtkhash-properties.xml
-	gzip -c9 $< > $@
+	$(AM_V_GEN) gzip -c9 $< > $@
 
-if GCONF_SCHEMAS_INSTALL
-install-data-local:
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) \
-		--makefile-install-rule $(srcdir)/$(schema_DATA)
-else
-install-data-local:
-endif
+@INTLTOOL_XML_NOMERGE_RULE@
+@GSETTINGS_RULES@

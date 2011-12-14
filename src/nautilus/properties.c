@@ -205,9 +205,11 @@ static void gtkhash_properties_free_page(struct page_s *page)
 	while (page->busy)
 		gtk_main_iteration();
 
-	gtkhash_properties_prefs_save(page);
+	gtkhash_properties_prefs_deinit(page);
 	gtkhash_properties_hash_deinit(page);
 	g_free(page->uri);
+	g_object_unref(page->menu);
+	g_object_unref(page->box);
 	g_free(page);
 }
 
@@ -363,16 +365,23 @@ static struct page_s *gtkhash_properties_new_page(char *uri)
 	}
 
 	struct page_s *page = g_new(struct page_s, 1);
-
 	page->uri = uri;
+
+	gtkhash_properties_hash_init(page);
+
+	if (gtkhash_properties_hash_funcs_supported(page) == 0) {
+		g_warning("no hash functions available");
+		gtkhash_properties_hash_deinit(page);
+		g_free(page);
+		return NULL;
+	}
 
 	gtkhash_properties_get_objects(page, builder);
 	g_object_ref(page->box);
 	g_object_ref(page->menu);
 	g_object_unref(builder);
 
-	gtkhash_properties_hash_init(page);
-	gtkhash_properties_prefs_load(page);
+	gtkhash_properties_prefs_init(page);
 	gtkhash_properties_list_init(page);
 	gtkhash_properties_idle(page);
 

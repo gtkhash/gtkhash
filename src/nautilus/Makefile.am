@@ -8,7 +8,7 @@ libgtkhash_properties_la_SOURCES = \
 	properties-prefs.c properties-prefs.h
 
 libgtkhash_properties_la_CPPFLAGS = \
-	$(NAUTILUS_CFLAGS) $(GCONF_CFLAGS) \
+	$(NAUTILUS_CFLAGS) \
 	-DDATADIR="\"$(pkgdatadir)/nautilus\"" \
 	-DLOCALEDIR="\"$(localedir)\"" \
 	-DIN_NAUTILUS_EXTENSION=1
@@ -22,4 +22,4 @@ libgtkhash_properties_la_LDFLAGS = \
 	-shared
 
 libgtkhash_properties_la_LIBADD = \
-	../hash/hash.la $(NAUTILUS_LIBS) $(GCONF_LIBS)
+	../hash/hash.la $(NAUTILUS_LIBS)

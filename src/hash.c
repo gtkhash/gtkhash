@@ -38,8 +38,8 @@
 struct hash_s hash;
 
 static struct {
-	struct hash_file_s file_data;
 	GSList *uris;
+	struct hash_file_s file_data;
 } hash_priv = {
 	.uris = NULL,
 };
