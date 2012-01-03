@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-12-08 00:50+0000\n"
-"PO-Revision-Date: 2010-03-25 17:00+0000\n"
-"Last-Translator: DiegoJ <diegojromerolopez@gmail.com>\n"
+"POT-Creation-Date: 2011-12-14 19:45+0000\n"
+"PO-Revision-Date: 2012-01-02 22:50+0000\n"
+"Last-Translator: Miguel de Dios <tres.14159@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-08 05:36+0000\n"
-"X-Generator: Launchpad (build 14443)\n"
+"X-Launchpad-Export-Date: 2012-01-03 04:55+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
 
 #: ../data/gtkhash.xml.h:1
 msgid "GtkHash Preferences"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:2
 msgid "Hash Functions:"
-msgstr ""
+msgstr "Funciones  de Hash:"
 
 #: ../data/gtkhash.xml.h:3
 msgid "Digest Format:"
@@ -43,7 +43,7 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:7
 msgid "Show _Toolbar"
-msgstr ""
+msgstr "Mostrar Barra de _Herramientas"
 
 #: ../data/gtkhash.xml.h:8
 msgid "_File"
@@ -79,14 +79,105 @@ msgstr "Texto:"
 
 #: ../data/gtkhash.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
-msgstr ""
+msgstr "Comprobar:"
 
 #: ../data/gtkhash.xml.h:17
 msgid "File"
-msgstr ""
+msgstr "Archivo"
 
 #: ../data/gtkhash.xml.h:18
 msgid "Ha_sh"
+msgstr "Ha_sh"
+
+#: ../src/callbacks.c:87
+msgid "Save Digests"
+msgstr ""
+
+#: ../src/callbacks.c:276
+msgid "A GTK+ utility for computing message digests or checksums."
+msgstr ""
+
+#: ../src/callbacks.c:280
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Miguel de Dios https://launchpad.net/~tres-14159\n"
+"  Monkey https://launchpad.net/~monkey-libre\n"
+"  juancarlospaco https://launchpad.net/~juancarlospaco"
+
+#: ../src/callbacks.c:302
+msgid "Select Files"
+msgstr "Seleccionar archivos"
+
+#: ../src/gui.c:295
+#, c-format
+msgid "Failed to read \"%s\""
+msgstr "Error en la lectura \"%s\""
+
+#: ../src/gui.c:312
+#, c-format
+msgid ""
+"Failed to read \"%s\":\n"
+"%s"
+msgstr ""
+"Error en la lectura \"%s\":\n"
+"%s"
+
+#: ../src/gui.c:361
+msgid "Not a regular file"
+msgstr "No es un archivo  valido"
+
+#: ../src/gui.c:383
+msgid "Unknown error"
+msgstr "Error desconocido"
+
+#: ../src/gui.c:385
+#, c-format
+msgid ""
+"Failed to add \"%s\":\n"
+"%s"
+msgstr ""
+"Error al añadir \"%s\":\n"
+"%s"
+
+#: ../src/hash.c:82 ../src/nautilus/properties-hash.c:69
+#, c-format
+msgid "%s of %s - 1 minute left (%s/sec)"
+msgstr "%s de %s - queda 1 minuto (%s/seg)"
+
+#: ../src/hash.c:85 ../src/nautilus/properties-hash.c:72
+#, c-format
+msgid "%s of %s - %u minutes left (%s/sec)"
+msgstr "%s de %s - quedan %u minutos (%s/seg)"
+
+#: ../src/hash.c:89 ../src/nautilus/properties-hash.c:76
+#, c-format
+msgid "%s of %s - 1 second left (%s/sec)"
+msgstr "%s de %s - queda 1 segundo (%s/seg)"
+
+#: ../src/hash.c:92 ../src/nautilus/properties-hash.c:79
+#, c-format
+msgid "%s of %s - %u seconds left (%s/sec)"
+msgstr "%s de %s - quedan %u segundos (%s/seg)"
+
+#: ../src/main.c:72
+msgid "Read program data from the specified directory"
+msgstr ""
+
+#: ../src/main.c:72
+msgid "DIRECTORY"
+msgstr "DIRECTORIO"
+
+#: ../src/main.c:76
+msgid "Show version information"
+msgstr "Mostrar información de versión"
+
+#: ../src/main.c:80
+msgid "[FILE|URI...]"
+msgstr "[ARCHIVO|URI...]"
+
+#: ../src/prefs.c:76
+msgid "Failed to enable any supported hash functions."
 msgstr ""
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
@@ -109,92 +200,6 @@ msgstr "Resumen"
 msgid "H_ash"
 msgstr "H_ash"
 
-#: ../src/callbacks.c:87
-msgid "Save Digests"
-msgstr ""
-
-#: ../src/callbacks.c:276
-msgid "A GTK+ utility for computing message digests or checksums."
-msgstr ""
-
-#: ../src/callbacks.c:280
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Monkey https://launchpad.net/~monkey-libre\n"
-"  juancarlospaco https://launchpad.net/~juancarlospaco"
-
-#: ../src/callbacks.c:302
-msgid "Select Files"
-msgstr "Seleccionar archivos"
-
-#: ../src/gui.c:291
-#, c-format
-msgid "Failed to read \"%s\""
-msgstr ""
-
-#: ../src/gui.c:308
-#, c-format
-msgid ""
-"Failed to read \"%s\":\n"
-"%s"
-msgstr ""
-
-#: ../src/gui.c:354
-msgid "Not a regular file"
-msgstr ""
-
-#: ../src/gui.c:376
-msgid "Unknown error"
-msgstr ""
-
-#: ../src/gui.c:378
-#, c-format
-msgid ""
-"Failed to add \"%s\":\n"
-"%s"
-msgstr ""
-
-#: ../src/hash.c:82 ../src/nautilus/properties-hash.c:69
-#, c-format
-msgid "%s of %s - 1 minute left (%s/sec)"
-msgstr ""
-
-#: ../src/hash.c:85 ../src/nautilus/properties-hash.c:72
-#, c-format
-msgid "%s of %s - %u minutes left (%s/sec)"
-msgstr ""
-
-#: ../src/hash.c:89 ../src/nautilus/properties-hash.c:76
-#, c-format
-msgid "%s of %s - 1 second left (%s/sec)"
-msgstr ""
-
-#: ../src/hash.c:92 ../src/nautilus/properties-hash.c:79
-#, c-format
-msgid "%s of %s - %u seconds left (%s/sec)"
-msgstr ""
-
-#: ../src/main.c:72
-msgid "Read program data from the specified directory"
-msgstr ""
-
-#: ../src/main.c:72
-msgid "DIRECTORY"
-msgstr ""
-
-#: ../src/main.c:76
-msgid "Show version information"
-msgstr ""
-
-#: ../src/main.c:80
-msgid "[FILE|URI...]"
-msgstr ""
-
-#: ../src/prefs.c:55
-msgid "Failed to enable any supported hash functions."
-msgstr ""
-
-#: ../src/nautilus/properties.c:418 ../src/nautilus/properties.c:420
+#: ../src/nautilus/properties.c:427 ../src/nautilus/properties.c:429
 msgid "Digests"
 msgstr "Resúmenes"

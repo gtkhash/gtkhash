@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-12-08 00:50+0000\n"
+"POT-Creation-Date: 2011-12-14 19:45+0000\n"
 "PO-Revision-Date: 2011-11-21 09:36+0000\n"
 "Last-Translator: Stefan Pynappels <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-08 05:36+0000\n"
-"X-Generator: Launchpad (build 14443)\n"
+"X-Launchpad-Export-Date: 2011-12-15 05:19+0000\n"
+"X-Generator: Launchpad (build 14487)\n"
 
 #: ../data/gtkhash.xml.h:1
 msgid "GtkHash Preferences"
@@ -89,26 +89,6 @@ msgstr "File"
 msgid "Ha_sh"
 msgstr "Ha_sh"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:1
-msgid "_Copy Digest"
-msgstr "_Copy Digest"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:2
-msgid "Show _Disabled Hash Functions"
-msgstr "Show _Disabled Hash Functions"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:3
-msgid "Hash Function"
-msgstr "Hash Function"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:4
-msgid "Digest"
-msgstr "Digest"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:6
-msgid "H_ash"
-msgstr "H_ash"
-
 #: ../src/callbacks.c:87
 msgid "Save Digests"
 msgstr "Save Digests"
@@ -129,12 +109,12 @@ msgstr ""
 msgid "Select Files"
 msgstr "Select Files"
 
-#: ../src/gui.c:291
+#: ../src/gui.c:295
 #, c-format
 msgid "Failed to read \"%s\""
 msgstr "Failed to read \"%s\""
 
-#: ../src/gui.c:308
+#: ../src/gui.c:312
 #, c-format
 msgid ""
 "Failed to read \"%s\":\n"
@@ -143,15 +123,15 @@ msgstr ""
 "Failed to read \"%s\":\n"
 "%s"
 
-#: ../src/gui.c:354
+#: ../src/gui.c:361
 msgid "Not a regular file"
 msgstr "Not a regular file"
 
-#: ../src/gui.c:376
+#: ../src/gui.c:383
 msgid "Unknown error"
 msgstr "Unknown error"
 
-#: ../src/gui.c:378
+#: ../src/gui.c:385
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -196,10 +176,30 @@ msgstr "Show version information"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
 
-#: ../src/prefs.c:55
+#: ../src/prefs.c:76
 msgid "Failed to enable any supported hash functions."
 msgstr "Failed to enable any supported hash functions."
 
-#: ../src/nautilus/properties.c:418 ../src/nautilus/properties.c:420
+#: ../data/nautilus/gtkhash-properties.xml.h:1
+msgid "_Copy Digest"
+msgstr "_Copy Digest"
+
+#: ../data/nautilus/gtkhash-properties.xml.h:2
+msgid "Show _Disabled Hash Functions"
+msgstr "Show _Disabled Hash Functions"
+
+#: ../data/nautilus/gtkhash-properties.xml.h:3
+msgid "Hash Function"
+msgstr "Hash Function"
+
+#: ../data/nautilus/gtkhash-properties.xml.h:4
+msgid "Digest"
+msgstr "Digest"
+
+#: ../data/nautilus/gtkhash-properties.xml.h:6
+msgid "H_ash"
+msgstr "H_ash"
+
+#: ../src/nautilus/properties.c:427 ../src/nautilus/properties.c:429
 msgid "Digests"
 msgstr "Digests"

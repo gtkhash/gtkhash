@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-12-08 00:50+0000\n"
+"POT-Creation-Date: 2011-12-14 19:45+0000\n"
 "PO-Revision-Date: 2011-04-25 21:04+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-08 05:36+0000\n"
-"X-Generator: Launchpad (build 14443)\n"
+"X-Launchpad-Export-Date: 2011-12-15 05:19+0000\n"
+"X-Generator: Launchpad (build 14487)\n"
 
 #: ../data/gtkhash.xml.h:1
 msgid "GtkHash Preferences"
@@ -89,26 +89,6 @@ msgstr ""
 msgid "Ha_sh"
 msgstr "Ha_sh"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:1
-msgid "_Copy Digest"
-msgstr "_Copiar o valor hash"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:2
-msgid "Show _Disabled Hash Functions"
-msgstr "Mostrar as funcións de hash _desactivadas"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:3
-msgid "Hash Function"
-msgstr "Función de hash"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:4
-msgid "Digest"
-msgstr "Valor hash"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:6
-msgid "H_ash"
-msgstr "H_ash"
-
 #: ../src/callbacks.c:87
 msgid "Save Digests"
 msgstr "Gardar o valor hash"
@@ -128,27 +108,27 @@ msgstr ""
 msgid "Select Files"
 msgstr "Seleccionar os ficheiros"
 
-#: ../src/gui.c:291
+#: ../src/gui.c:295
 #, c-format
 msgid "Failed to read \"%s\""
 msgstr ""
 
-#: ../src/gui.c:308
+#: ../src/gui.c:312
 #, c-format
 msgid ""
 "Failed to read \"%s\":\n"
 "%s"
 msgstr ""
 
-#: ../src/gui.c:354
+#: ../src/gui.c:361
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:376
+#: ../src/gui.c:383
 msgid "Unknown error"
 msgstr ""
 
-#: ../src/gui.c:378
+#: ../src/gui.c:385
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -191,10 +171,30 @@ msgstr ""
 msgid "[FILE|URI...]"
 msgstr "[FICHEIRO|URI...]"
 
-#: ../src/prefs.c:55
+#: ../src/prefs.c:76
 msgid "Failed to enable any supported hash functions."
 msgstr "Produciuse un fallo ao activar todas as funcións hash admitidas."
 
-#: ../src/nautilus/properties.c:418 ../src/nautilus/properties.c:420
+#: ../data/nautilus/gtkhash-properties.xml.h:1
+msgid "_Copy Digest"
+msgstr "_Copiar o valor hash"
+
+#: ../data/nautilus/gtkhash-properties.xml.h:2
+msgid "Show _Disabled Hash Functions"
+msgstr "Mostrar as funcións de hash _desactivadas"
+
+#: ../data/nautilus/gtkhash-properties.xml.h:3
+msgid "Hash Function"
+msgstr "Función de hash"
+
+#: ../data/nautilus/gtkhash-properties.xml.h:4
+msgid "Digest"
+msgstr "Valor hash"
+
+#: ../data/nautilus/gtkhash-properties.xml.h:6
+msgid "H_ash"
+msgstr "H_ash"
+
+#: ../src/nautilus/properties.c:427 ../src/nautilus/properties.c:429
 msgid "Digests"
 msgstr "Valores hash"
