@@ -620,8 +620,8 @@ void gui_update(void)
 			gtk_widget_show(GTK_WIDGET(gui.togglebutton_hmac_text));
 			gtk_widget_show(GTK_WIDGET(gui.vbox_digests_text));
 
-			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file),
-				gtk_toggle_button_get_active(gui.togglebutton_hmac_file));
+			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_text),
+				gtk_toggle_button_get_active(gui.togglebutton_hmac_text));
 
 			gtk_widget_grab_focus(GTK_WIDGET(gui.entry_text));
 
