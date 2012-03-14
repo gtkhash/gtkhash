@@ -8,42 +8,42 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-12-14 19:45+0000\n"
-"PO-Revision-Date: 2011-02-17 17:04+0000\n"
-"Last-Translator: André Gondim <Unknown>\n"
+"PO-Revision-Date: 2012-02-17 12:11+0000\n"
+"Last-Translator: Rafael Neri <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-15 05:19+0000\n"
-"X-Generator: Launchpad (build 14487)\n"
+"X-Launchpad-Export-Date: 2012-02-18 05:00+0000\n"
+"X-Generator: Launchpad (build 14814)\n"
 
 #: ../data/gtkhash.xml.h:1
 msgid "GtkHash Preferences"
-msgstr ""
+msgstr "Preferências do GtkHash"
 
 #: ../data/gtkhash.xml.h:2
 msgid "Hash Functions:"
-msgstr ""
+msgstr "Funções de hash"
 
 #: ../data/gtkhash.xml.h:3
 msgid "Digest Format:"
-msgstr ""
+msgstr "Formato do cômputo:"
 
 #: ../data/gtkhash.xml.h:4
 msgid "Lowercase Hexadecimal"
-msgstr ""
+msgstr "Hexadecimal em caixa baixa"
 
 #: ../data/gtkhash.xml.h:5
 msgid "Uppercase Hexadecimal"
-msgstr ""
+msgstr "Hexadecimal em caixa alta"
 
 #: ../data/gtkhash.xml.h:6
 msgid "Copy _Digest"
-msgstr ""
+msgstr "_Copiar cômputo"
 
 #: ../data/gtkhash.xml.h:7
 msgid "Show _Toolbar"
-msgstr ""
+msgstr "Mostrar barra de ferramen_tas"
 
 #: ../data/gtkhash.xml.h:8
 msgid "_File"
@@ -79,11 +79,11 @@ msgstr "Texto:"
 
 #: ../data/gtkhash.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
-msgstr ""
+msgstr "Verificar:"
 
 #: ../data/gtkhash.xml.h:17
 msgid "File"
-msgstr ""
+msgstr "Arquivo"
 
 #: ../data/gtkhash.xml.h:18
 msgid "Ha_sh"
@@ -91,7 +91,7 @@ msgstr ""
 
 #: ../src/callbacks.c:87
 msgid "Save Digests"
-msgstr ""
+msgstr "Salvar cômputos"
 
 #: ../src/callbacks.c:276
 msgid "A GTK+ utility for computing message digests or checksums."
@@ -102,7 +102,9 @@ msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  André Gondim https://launchpad.net/~andregondim\n"
-"  Cristiano Nunes https://launchpad.net/~cfgnunes"
+"  Cristiano Nunes https://launchpad.net/~cfgnunes\n"
+"  Marco https://launchpad.net/~marcodefreitas\n"
+"  Rafael Neri https://launchpad.net/~rafepel"
 
 #: ../src/callbacks.c:302
 msgid "Select Files"
@@ -111,7 +113,7 @@ msgstr "Selecionar arquivos"
 #: ../src/gui.c:295
 #, c-format
 msgid "Failed to read \"%s\""
-msgstr ""
+msgstr "Falha ao ler \"%s\""
 
 #: ../src/gui.c:312
 #, c-format
@@ -119,14 +121,16 @@ msgid ""
 "Failed to read \"%s\":\n"
 "%s"
 msgstr ""
+"Ocorreu uma falha ao ler \"%s\":\n"
+"%s"
 
 #: ../src/gui.c:361
 msgid "Not a regular file"
-msgstr ""
+msgstr "Não é um arquivo comum"
 
 #: ../src/gui.c:383
 msgid "Unknown error"
-msgstr ""
+msgstr "Erro desconhecido"
 
 #: ../src/gui.c:385
 #, c-format
@@ -134,26 +138,28 @@ msgid ""
 "Failed to add \"%s\":\n"
 "%s"
 msgstr ""
+"Ocorreu uma falha ao adicionar \"%s\":\n"
+"%s"
 
 #: ../src/hash.c:82 ../src/nautilus/properties-hash.c:69
 #, c-format
 msgid "%s of %s - 1 minute left (%s/sec)"
-msgstr ""
+msgstr "%s de %s - 1 minuto restante (%s/s)"
 
 #: ../src/hash.c:85 ../src/nautilus/properties-hash.c:72
 #, c-format
 msgid "%s of %s - %u minutes left (%s/sec)"
-msgstr ""
+msgstr "%s de %s - %u minutos restantes (%s/s)"
 
 #: ../src/hash.c:89 ../src/nautilus/properties-hash.c:76
 #, c-format
 msgid "%s of %s - 1 second left (%s/sec)"
-msgstr ""
+msgstr "%s de %s - 1 segundo restante (%s/s)"
 
 #: ../src/hash.c:92 ../src/nautilus/properties-hash.c:79
 #, c-format
 msgid "%s of %s - %u seconds left (%s/sec)"
-msgstr ""
+msgstr "%s de %s - %u segundos restantes (%s/s)"
 
 #: ../src/main.c:72
 msgid "Read program data from the specified directory"
@@ -161,15 +167,15 @@ msgstr ""
 
 #: ../src/main.c:72
 msgid "DIRECTORY"
-msgstr ""
+msgstr "DIRETÓRIO"
 
 #: ../src/main.c:76
 msgid "Show version information"
-msgstr ""
+msgstr "Mostrar informações da versão"
 
 #: ../src/main.c:80
 msgid "[FILE|URI...]"
-msgstr ""
+msgstr "[ARQUIVO|URI...]"
 
 #: ../src/prefs.c:76
 msgid "Failed to enable any supported hash functions."
@@ -177,7 +183,7 @@ msgstr ""
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr "_Copiar resenha"
+msgstr "_Copiar cômputo"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
@@ -189,7 +195,7 @@ msgstr "Função Hash"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
-msgstr "Resenha"
+msgstr "Cômputo"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "H_ash"
@@ -197,4 +203,4 @@ msgstr "H_ash"
 
 #: ../src/nautilus/properties.c:427 ../src/nautilus/properties.c:429
 msgid "Digests"
-msgstr "Resenhas"
+msgstr "Cômputos"

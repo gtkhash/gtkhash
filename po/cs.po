@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-12-14 19:45+0000\n"
-"PO-Revision-Date: 2009-12-02 15:16+0000\n"
-"Last-Translator: Jakub Žáček <dawon.cz@gmail.com>\n"
+"PO-Revision-Date: 2012-03-06 14:28+0000\n"
+"Last-Translator: Martin \"sachy\" Šácha <cored.coder@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-15 05:19+0000\n"
-"X-Generator: Launchpad (build 14487)\n"
+"X-Launchpad-Export-Date: 2012-03-07 05:14+0000\n"
+"X-Generator: Launchpad (build 14907)\n"
 
 #: ../data/gtkhash.xml.h:1
 msgid "GtkHash Preferences"
-msgstr ""
+msgstr "Možnosti GtkHash"
 
 #: ../data/gtkhash.xml.h:2
 msgid "Hash Functions:"
-msgstr ""
+msgstr "Hashovací funkce"
 
 #: ../data/gtkhash.xml.h:3
 msgid "Digest Format:"
@@ -43,7 +43,7 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:7
 msgid "Show _Toolbar"
-msgstr ""
+msgstr "Zobrazi_t lištu nástrojů"
 
 #: ../data/gtkhash.xml.h:8
 msgid "_File"
@@ -83,11 +83,11 @@ msgstr ""
 
 #: ../data/gtkhash.xml.h:17
 msgid "File"
-msgstr ""
+msgstr "Soubor"
 
 #: ../data/gtkhash.xml.h:18
 msgid "Ha_sh"
-msgstr ""
+msgstr "Ha_sh"
 
 #: ../src/callbacks.c:87
 msgid "Save Digests"
@@ -102,7 +102,8 @@ msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Jakub Žáček https://launchpad.net/~dawon\n"
-"  Mank https://launchpad.net/~freedcpp"
+"  Mank https://launchpad.net/~freedcpp\n"
+"  Martin \"sachy\" Šácha https://launchpad.net/~sachy"
 
 #: ../src/callbacks.c:302
 msgid "Select Files"
@@ -126,7 +127,7 @@ msgstr ""
 
 #: ../src/gui.c:383
 msgid "Unknown error"
-msgstr ""
+msgstr "Neznámá chyba"
 
 #: ../src/gui.c:385
 #, c-format
@@ -138,22 +139,22 @@ msgstr ""
 #: ../src/hash.c:82 ../src/nautilus/properties-hash.c:69
 #, c-format
 msgid "%s of %s - 1 minute left (%s/sec)"
-msgstr ""
+msgstr "%s of %s - zbývá 1 minuta (%s/sec)"
 
 #: ../src/hash.c:85 ../src/nautilus/properties-hash.c:72
 #, c-format
 msgid "%s of %s - %u minutes left (%s/sec)"
-msgstr ""
+msgstr "%s of %s - zbývají %u minuty (%s/sec)"
 
 #: ../src/hash.c:89 ../src/nautilus/properties-hash.c:76
 #, c-format
 msgid "%s of %s - 1 second left (%s/sec)"
-msgstr ""
+msgstr "%s of zbývá %s - 1 minut (%s/sec)"
 
 #: ../src/hash.c:92 ../src/nautilus/properties-hash.c:79
 #, c-format
 msgid "%s of %s - %u seconds left (%s/sec)"
-msgstr ""
+msgstr "%s of %s - zbývá %u sekund (%s/sec)"
 
 #: ../src/main.c:72
 msgid "Read program data from the specified directory"
@@ -165,15 +166,15 @@ msgstr ""
 
 #: ../src/main.c:76
 msgid "Show version information"
-msgstr ""
+msgstr "Zobrazit informace o verzi"
 
 #: ../src/main.c:80
 msgid "[FILE|URI...]"
-msgstr ""
+msgstr "[FILE|URI...]"
 
 #: ../src/prefs.c:76
 msgid "Failed to enable any supported hash functions."
-msgstr ""
+msgstr "Selhalo povolení všech podporovaných hash funkcí."
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
@@ -181,11 +182,11 @@ msgstr ""
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
-msgstr ""
+msgstr "Zobrazit _Zakázané Hash funkce"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
-msgstr ""
+msgstr "Hashovací funkce"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
@@ -193,7 +194,7 @@ msgstr ""
 
 #: ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "H_ash"
-msgstr ""
+msgstr "H_ash"
 
 #: ../src/nautilus/properties.c:427 ../src/nautilus/properties.c:429
 msgid "Digests"
