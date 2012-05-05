@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-12-14 19:45+0000\n"
-"PO-Revision-Date: 2012-03-06 14:28+0000\n"
-"Last-Translator: Martin \"sachy\" Šácha <cored.coder@gmail.com>\n"
+"PO-Revision-Date: 2012-05-04 21:05+0000\n"
+"Last-Translator: Zbyněk Schwarz <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-07 05:14+0000\n"
-"X-Generator: Launchpad (build 14907)\n"
+"X-Launchpad-Export-Date: 2012-05-05 05:00+0000\n"
+"X-Generator: Launchpad (build 15195)\n"
 
 #: ../data/gtkhash.xml.h:1
 msgid "GtkHash Preferences"
@@ -27,19 +27,19 @@ msgstr "Hashovací funkce"
 
 #: ../data/gtkhash.xml.h:3
 msgid "Digest Format:"
-msgstr ""
+msgstr "Formát Digest:"
 
 #: ../data/gtkhash.xml.h:4
 msgid "Lowercase Hexadecimal"
-msgstr ""
+msgstr "Hexadecimální malými písmeny"
 
 #: ../data/gtkhash.xml.h:5
 msgid "Uppercase Hexadecimal"
-msgstr ""
+msgstr "Hexadecimální velkými písmeny"
 
 #: ../data/gtkhash.xml.h:6
 msgid "Copy _Digest"
-msgstr ""
+msgstr "Kopírovat _Digest"
 
 #: ../data/gtkhash.xml.h:7
 msgid "Show _Toolbar"
@@ -79,7 +79,7 @@ msgstr "Text:"
 
 #: ../data/gtkhash.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
-msgstr ""
+msgstr "Kontrola:"
 
 #: ../data/gtkhash.xml.h:17
 msgid "File"
@@ -91,11 +91,11 @@ msgstr "Ha_sh"
 
 #: ../src/callbacks.c:87
 msgid "Save Digests"
-msgstr ""
+msgstr "Uložit Digest"
 
 #: ../src/callbacks.c:276
 msgid "A GTK+ utility for computing message digests or checksums."
-msgstr ""
+msgstr "Nástroj GTK+ pro výpočet digestu zpráv nebo kontrolních součtů"
 
 #: ../src/callbacks.c:280
 msgid "translator-credits"
@@ -103,7 +103,8 @@ msgstr ""
 "Launchpad Contributions:\n"
 "  Jakub Žáček https://launchpad.net/~dawon\n"
 "  Mank https://launchpad.net/~freedcpp\n"
-"  Martin \"sachy\" Šácha https://launchpad.net/~sachy"
+"  Martin \"sachy\" Šácha https://launchpad.net/~sachy\n"
+"  Zbyněk Schwarz https://launchpad.net/~tsbook"
 
 #: ../src/callbacks.c:302
 msgid "Select Files"
@@ -112,7 +113,7 @@ msgstr "Vyberte soubory"
 #: ../src/gui.c:295
 #, c-format
 msgid "Failed to read \"%s\""
-msgstr ""
+msgstr "Nelze přečíst \"%s\""
 
 #: ../src/gui.c:312
 #, c-format
@@ -120,10 +121,12 @@ msgid ""
 "Failed to read \"%s\":\n"
 "%s"
 msgstr ""
+"Nelze přečíst \"%s\":\n"
+"%s"
 
 #: ../src/gui.c:361
 msgid "Not a regular file"
-msgstr ""
+msgstr "Není běžný soubor"
 
 #: ../src/gui.c:383
 msgid "Unknown error"
@@ -135,6 +138,8 @@ msgid ""
 "Failed to add \"%s\":\n"
 "%s"
 msgstr ""
+"Nelze přidat \"%s\":\n"
+"%s"
 
 #: ../src/hash.c:82 ../src/nautilus/properties-hash.c:69
 #, c-format
@@ -158,11 +163,11 @@ msgstr "%s of %s - zbývá %u sekund (%s/sec)"
 
 #: ../src/main.c:72
 msgid "Read program data from the specified directory"
-msgstr ""
+msgstr "Přečist data programu ze zadaného adresáře"
 
 #: ../src/main.c:72
 msgid "DIRECTORY"
-msgstr ""
+msgstr "ADRESÁŘ"
 
 #: ../src/main.c:76
 msgid "Show version information"
@@ -178,7 +183,7 @@ msgstr "Selhalo povolení všech podporovaných hash funkcí."
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr ""
+msgstr "_Kopírovat Digest"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
@@ -190,7 +195,7 @@ msgstr "Hashovací funkce"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
-msgstr ""
+msgstr "Digest"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "H_ash"
@@ -198,4 +203,4 @@ msgstr "H_ash"
 
 #: ../src/nautilus/properties.c:427 ../src/nautilus/properties.c:429
 msgid "Digests"
-msgstr ""
+msgstr "Digesty"
