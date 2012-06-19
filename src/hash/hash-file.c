@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2011 Tristan Heaven <tristanheaven@gmail.com>
+ *   Copyright (C) 2007-2012 Tristan Heaven <tristanheaven@gmail.com>
  *
  *   This file is part of GtkHash.
  *
@@ -147,8 +147,8 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 	gtkhash_hash_file_set_state(data, HASH_FILE_STATE_OPEN);
 }
 
-static void gtkhash_hash_file_open_finish(
-	G_GNUC_UNUSED GObject *source, GAsyncResult *res, struct hash_file_s *data)
+static void gtkhash_hash_file_open_finish(G_GNUC_UNUSED GObject *source,
+	GAsyncResult *res, struct hash_file_s *data)
 {
 	data->stream = g_file_read_finish(data->file, res, NULL);
 	if (G_UNLIKELY(!data->stream &&
@@ -181,8 +181,8 @@ static void gtkhash_hash_file_open(struct hash_file_s *data)
 		(GAsyncReadyCallback)gtkhash_hash_file_open_finish, data);
 }
 
-static void gtkhash_hash_file_get_size_finish(
-	G_GNUC_UNUSED GObject *source, GAsyncResult *res, struct hash_file_s *data)
+static void gtkhash_hash_file_get_size_finish(G_GNUC_UNUSED GObject *source,
+	GAsyncResult *res, struct hash_file_s *data)
 {
 	GFileInfo *info = g_file_input_stream_query_info_finish(
 		data->stream, res, NULL);
@@ -214,8 +214,8 @@ static void gtkhash_hash_file_get_size(struct hash_file_s *data)
 		(GAsyncReadyCallback)gtkhash_hash_file_get_size_finish, data);
 }
 
-static void gtkhash_hash_file_read_finish(
-	G_GNUC_UNUSED GObject *source, GAsyncResult *res, struct hash_file_s *data)
+static void gtkhash_hash_file_read_finish(G_GNUC_UNUSED GObject *source,
+	GAsyncResult *res, struct hash_file_s *data)
 {
 	data->just_read = g_input_stream_read_finish(
 		G_INPUT_STREAM(data->stream), res, NULL);
@@ -308,8 +308,8 @@ static void gtkhash_hash_file_hash_finish(struct hash_file_s *data)
 		gtkhash_hash_file_set_state(data, HASH_FILE_STATE_READ);
 }
 
-static void gtkhash_hash_file_close_finish(
-	G_GNUC_UNUSED GObject *source, GAsyncResult *res, struct hash_file_s *data)
+static void gtkhash_hash_file_close_finish(G_GNUC_UNUSED GObject *source,
+	GAsyncResult *res, struct hash_file_s *data)
 {
 	if (G_UNLIKELY(!g_input_stream_close_finish(G_INPUT_STREAM(data->stream), res, NULL) &&
 		!g_cancellable_is_cancelled(data->cancellable)))

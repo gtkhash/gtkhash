@@ -13,11 +13,12 @@ Dependencies:
         GTK+ 2 or 3
     Optional:
         zlib
+        Linux-2.6.38 (with CONFIG_CRYPTO_USER_API_HASH)
         Libgcrypt
         libcrypto
+        PolarSSL
         NSS
         mhash
-        Linux-2.6.38 (with CONFIG_CRYPTO_USER_API_HASH)
         Nautilus
         Thunar
 

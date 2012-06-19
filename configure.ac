@@ -1,10 +1,10 @@
 AC_PREREQ([2.61])
-AC_INIT([GtkHash], [0.6.0])
+AC_INIT([GtkHash], [0.7.0])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
-AM_INIT_AUTOMAKE([1.11 check-news])
+AM_INIT_AUTOMAKE([1.11 check-news dist-xz])
 AM_SILENT_RULES([yes])
 
 AC_PROG_CC_C99
@@ -139,6 +139,23 @@ if test "${enable_libcrypto}" = "yes" ; then
 	AC_SUBST([LIBCRYPTO_LIBS])
 	hash_libs="${hash_libs} libcrypto"
 	AC_DEFINE([ENABLE_LIBCRYPTO], [1])
+fi
+
+AC_MSG_CHECKING([whether to use PolarSSL])
+AC_ARG_ENABLE([polarssl],
+	[AS_HELP_STRING([--enable-polarssl], [use PolarSSL])],
+	[enable_polarssl="${enableval}"], [enable_polarssl="no"])
+AC_MSG_RESULT(["${enable_polarssl}"])
+AM_CONDITIONAL([ENABLE_POLARSSL], [test "${enable_polarssl}" = "yes"])
+AC_DEFINE([ENABLE_POLARSSL], [0], [Use PolarSSL])
+
+if test "${enable_polarssl}" = "yes" ; then
+	AC_CHECK_HEADER([polarssl/md.h], [:], [AC_MSG_ERROR([polarssl headers not found])])
+	AC_CHECK_LIB([polarssl], [md_update], [:], [AC_MSG_ERROR([polarssl library not found])])
+	POLARSSL_LIBS="-lpolarssl"
+	AC_SUBST([POLARSSL_LIBS])
+	hash_libs="${hash_libs} polarssl"
+	AC_DEFINE([ENABLE_POLARSSL], [1])
 fi
 
 AC_MSG_CHECKING([whether to use NSS])
@@ -309,6 +326,9 @@ mhash_funcs="
 nss_funcs="
 	MD2 MD5
 	SHA1 SHA256 SHA384 SHA512"
+polarssl_funcs="
+	MD2 MD4 MD5
+	SHA1 SHA224 SHA256 SHA384 SHA512"
 zlib_funcs="
 	CRC32
 	ADLER32"
