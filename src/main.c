@@ -85,7 +85,7 @@ static void read_opts_preinit(int *argc, char ***argv)
 	GOptionContext *context = g_option_context_new(NULL);
 	GError *error = NULL;
 
-	g_atexit(free_opts);
+	atexit(free_opts);
 
 	g_option_context_add_main_entries(context, entries, GETTEXT_PACKAGE);
 	g_option_context_add_group(context, gtk_get_option_group(false));
@@ -137,20 +137,20 @@ int main(int argc, char **argv)
 	g_thread_init(NULL);
 	gdk_threads_init();
 	gdk_threads_enter();
-	g_atexit(gdk_threads_leave);
+	atexit(gdk_threads_leave);
 
 	read_opts_preinit(&argc, &argv);
 
 	hash_init();
-	g_atexit(hash_deinit);
+	atexit(hash_deinit);
 
 	gui_init(opts.datadir ? opts.datadir : DATADIR);
-	g_atexit(gui_deinit);
+	atexit(gui_deinit);
 
 	list_init();
 
 	prefs_init();
-	g_atexit(prefs_deinit);
+	atexit(prefs_deinit);
 
 	read_opts_postinit();
 
