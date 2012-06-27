@@ -62,8 +62,6 @@ static void gui_get_objects(GtkBuilder *builder)
 		"window"));
 
 	// Menus
-	gui.menuitem_file = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_file"));
 	gui.menuitem_save_as = GTK_MENU_ITEM(gui_get_object(builder,
 		"menuitem_save_as"));
 	gui.menuitem_quit = GTK_MENU_ITEM(gui_get_object(builder,
@@ -541,6 +539,48 @@ const uint8_t *gui_get_hmac_key(size_t *key_size)
 	return hmac_key;
 }
 
+static void gui_menuitem_save_as_set_sensitive(void)
+{
+	if (gui_get_state() == GUI_STATE_BUSY) {
+		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_save_as), false);
+		return;
+	}
+
+	bool sensitive = false;
+
+	switch (gui_get_view()) {
+		case GUI_VIEW_FILE:
+			for (int i = 0; i < HASH_FUNCS_N; i++) {
+				if (hash.funcs[i].enabled &&
+					*gtk_entry_get_text(gui.hash_widgets[i].entry_file))
+				{
+					sensitive = true;
+					break;
+				}
+			}
+			break;
+		case GUI_VIEW_TEXT:
+			sensitive = true;
+			break;
+		case GUI_VIEW_FILE_LIST:
+			for (int i = 0; i < HASH_FUNCS_N; i++) {
+				if (hash.funcs[i].enabled) {
+					char *digest = list_get_digest(0, i);
+					if (digest != NULL && *digest) {
+						g_free(digest);
+						sensitive = true;
+						break;
+					}
+				}
+			}
+			break;
+		default:
+			g_assert_not_reached();
+	}
+
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_save_as), sensitive);
+}
+
 void gui_update(void)
 {
 	bool has_enabled = false;
@@ -644,6 +684,7 @@ void gui_update(void)
 	}
 
 	gui_check_digests();
+	gui_menuitem_save_as_set_sensitive();
 }
 
 void gui_clear_digests(void)
@@ -665,6 +706,8 @@ void gui_clear_digests(void)
 		default:
 			g_assert_not_reached();
 	}
+
+	gui_menuitem_save_as_set_sensitive();
 }
 
 void gui_clear_all_digests(void)
@@ -768,11 +811,10 @@ void gui_set_state(const enum gui_state_e state)
 
 	if (busy) {
 		gtk_window_set_default(gui.window, GTK_WIDGET(gui.button_stop));
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_save_as), false);
+		gui_menuitem_save_as_set_sensitive();
 	} else {
 		gtk_window_set_default(gui.window, GTK_WIDGET(gui.button_hash));
-		// User may already have menu open, so make sure save_as gets updated
-		gtk_menu_item_activate(gui.menuitem_file);
+		gui_menuitem_save_as_set_sensitive();
 	}
 }
 

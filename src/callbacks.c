@@ -41,54 +41,14 @@ static bool on_window_delete_event(void)
 	return true;
 }
 
-static void on_menuitem_file_activate(void)
-{
-	if (gui_get_state() == GUI_STATE_BUSY)
-		return;
-
-	bool sensitive = false;
-
-	switch (gui_get_view()) {
-		case GUI_VIEW_FILE:
-			for (int i = 0; i < HASH_FUNCS_N; i++) {
-				if (hash.funcs[i].enabled &&
-					*gtk_entry_get_text(gui.hash_widgets[i].entry_file))
-				{
-					sensitive = true;
-					break;
-				}
-			}
-			break;
-		case GUI_VIEW_TEXT:
-			sensitive = true;
-			break;
-		case GUI_VIEW_FILE_LIST:
-			for (int i = 0; i < HASH_FUNCS_N; i++) {
-				if (hash.funcs[i].enabled) {
-					char *digest = list_get_digest(0, i);
-					if (digest != NULL && *digest) {
-						g_free(digest);
-						sensitive = true;
-						break;
-					}
-				}
-			}
-			break;
-		default:
-			g_assert_not_reached();
-	}
-
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_save_as), sensitive);
-}
-
 static void on_menuitem_save_as_activate(void)
 {
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
-		gtk_file_chooser_dialog_new(_("Save Digests"), NULL,
-		GTK_FILE_CHOOSER_ACTION_SAVE,
-		GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-		GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
-		NULL));
+		gtk_file_chooser_dialog_new(_("Save Digests"), gui.window,
+			GTK_FILE_CHOOSER_ACTION_SAVE,
+			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+			GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
+			NULL));
 	gtk_file_chooser_set_do_overwrite_confirmation(chooser, true);
 
 
@@ -299,11 +259,11 @@ static void on_filechooserbutton_selection_changed(void)
 static void on_toolbutton_add_clicked(void)
 {
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
-		gtk_file_chooser_dialog_new(_("Select Files"), NULL,
-		GTK_FILE_CHOOSER_ACTION_OPEN,
-		GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-		GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
-		NULL));
+		gtk_file_chooser_dialog_new(_("Select Files"), gui.window,
+			GTK_FILE_CHOOSER_ACTION_OPEN,
+			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+			GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+			NULL));
 	gtk_file_chooser_set_select_multiple(chooser, true);
 	gtk_file_chooser_set_local_only(chooser, false);
 
@@ -489,7 +449,6 @@ void callbacks_init(void)
 {
 #define CON(OBJ, SIG, CB) g_signal_connect(G_OBJECT(OBJ), SIG, CB, NULL)
 	CON(gui.window,                         "delete-event",        G_CALLBACK(on_window_delete_event));
-	CON(gui.menuitem_file,                  "activate",            on_menuitem_file_activate);
 	CON(gui.menuitem_save_as,               "activate",            on_menuitem_save_as_activate);
 	CON(gui.menuitem_quit,                  "activate",            on_menuitem_quit_activate);
 	CON(gui.menuitem_edit,                  "activate",            on_menuitem_edit_activate);
