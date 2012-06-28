@@ -33,20 +33,34 @@
 #include "prefs.h"
 
 static struct {
+	char *check;
 	char *datadir;
+	char *text;
 	char **files;
 	gboolean version;
 } opts = {
+	.check = NULL,
 	.datadir = NULL,
+	.text = NULL,
 	.files = NULL,
 	.version = false,
 };
 
 static void free_opts(void)
 {
+	if (opts.check) {
+		g_free(opts.check);
+		opts.check = NULL;
+	}
+
 	if (opts.datadir) {
 		g_free(opts.datadir);
 		opts.datadir = NULL;
+	}
+
+	if (opts.text) {
+		g_free(opts.text);
+		opts.text = NULL;
 	}
 
 	if (opts.files) {
@@ -68,8 +82,16 @@ static void read_opts_preinit(int *argc, char ***argv)
 {
 	GOptionEntry entries[] = {
 		{
+			"check", 'c', 0, G_OPTION_ARG_STRING, &opts.check,
+			_("Check against the specified digest or checksum"), _("DIGEST")
+		},
+		{
 			"datadir", 'd', 0, G_OPTION_ARG_FILENAME, &opts.datadir,
 			_("Read program data from the specified directory"), _("DIRECTORY")
+		},
+		{
+			"text", 't', 0, G_OPTION_ARG_STRING, &opts.text,
+			_("Hash the specified text"), _("TEXT")
 		},
 		{
 			"version", 'v', 0, G_OPTION_ARG_NONE, &opts.version,
@@ -121,6 +143,15 @@ static void read_opts_postinit(void)
 			gui_set_view(GUI_VIEW_FILE_LIST);
 
 		g_slist_free_full(uris, g_free);
+	}
+
+	if (opts.check && *opts.check)
+		gui_add_check(opts.check);
+
+	if (opts.text && *opts.text) {
+		gui_add_text(opts.text);
+		if (!opts.files)
+			gui_set_view(GUI_VIEW_TEXT);
 	}
 
 	free_opts();

@@ -419,6 +419,21 @@ unsigned int gui_add_uris(GSList *uris, enum gui_view_e view)
 	return readable_len;
 }
 
+void gui_add_check(const char *check)
+{
+	g_assert(check && *check);
+
+	gtk_entry_set_text(gui.entry_check_file, check);
+	gtk_entry_set_text(gui.entry_check_text, check);
+}
+
+void gui_add_text(const char *text)
+{
+	g_assert(text && *text);
+
+	gtk_entry_set_text(gui.entry_text, text);
+}
+
 void gui_error(const char *message)
 {
 	GtkWidget *dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
