@@ -41,6 +41,7 @@ enum hash_file_state_e {
 };
 
 struct hash_file_s {
+	goffset file_size, total_read;
 	void *cb_data;
 	const char *uri;
 	GFile *file;
@@ -48,18 +49,17 @@ struct hash_file_s {
 	size_t key_size;
 	GCancellable *cancellable;
 	GFileInputStream *stream;
-	goffset file_size;
 	gssize just_read;
 	uint8_t *buffer;
 	GTimer *timer;
 	GThreadPool *thread_pool;
-	int pool_threads_n;
 	struct hash_func_s *funcs;
+	int pool_threads_n;
+	unsigned int report_source;
+	enum hash_file_state_e state;
 	struct {
-		GMutex *mutex;
-		unsigned int source, report_source;
-		enum hash_file_state_e state;
-		goffset total_read;
+		GMutex mutex;
+		unsigned int source;
 	} priv;
 };
 

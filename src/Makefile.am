@@ -21,12 +21,12 @@ gtkhash_SOURCES = \
 	prefs.c prefs.h
 
 gtkhash_CPPFLAGS = \
-	$(GTHREAD_CFLAGS) $(GTK_CFLAGS) \
+	$(GTK_CFLAGS) \
 	-DDATADIR="\"$(pkgdatadir)\"" \
 	-DLOCALEDIR="\"$(localedir)\""
 
 gtkhash_CFLAGS = $(GTKHASH_CFLAGS)
 
-gtkhash_LDADD = hash/hash.la $(GTHREAD_LIBS) $(GTK_LIBS)
+gtkhash_LDADD = hash/hash.la $(GTK_LIBS)
 
 endif
