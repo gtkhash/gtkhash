@@ -1,7 +1,10 @@
 Summary of changes for each release:
 
 0.7.0 -
+	* Added more commandline options
+	* Added support for PolarSSL
 	* Added optional Nemo (Cinnamon file manager) extension
+	* UI bug fixes
 
 0.6.0 - 2011-12-14
 	* Added "Check" feature for comparing digests
