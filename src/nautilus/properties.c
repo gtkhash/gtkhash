@@ -29,6 +29,9 @@
 #if IN_NAUTILUS_EXTENSION
 	#include <libnautilus-extension/nautilus-property-page.h>
 	#include <libnautilus-extension/nautilus-property-page-provider.h>
+#elif IN_NEMO_EXTENSION
+	#include <libnemo-extension/nemo-property-page.h>
+	#include <libnemo-extension/nemo-property-page-provider.h>
 #elif IN_THUNAR_EXTENSION
 	#include <thunarx/thunarx.h>
 #endif
@@ -393,6 +396,8 @@ static struct page_s *gtkhash_properties_new_page(char *uri)
 static GList *gtkhash_properties_get_pages(
 #if IN_NAUTILUS_EXTENSION
 	G_GNUC_UNUSED NautilusPropertyPageProvider *provider,
+#elif IN_NEMO_EXTENSION
+	G_GNUC_UNUSED NemoPropertyPageProvider *provider,
 #elif IN_THUNAR_EXTENSION
 	G_GNUC_UNUSED ThunarxPropertyPageProvider *provider,
 #endif
@@ -406,6 +411,10 @@ static GList *gtkhash_properties_get_pages(
 	GFileType type = nautilus_file_info_get_file_type(files->data);
 
 	char *uri = nautilus_file_info_get_uri(files->data);
+#elif IN_NEMO_EXTENSION
+	GFileType type = nemo_file_info_get_file_type(files->data);
+
+	char *uri = nemo_file_info_get_uri(files->data);
 #elif IN_THUNAR_EXTENSION
 	GFileInfo *info = thunarx_file_info_get_file_info(files->data);
 	GFileType type = g_file_info_get_file_type(info);
@@ -425,6 +434,9 @@ static GList *gtkhash_properties_get_pages(
 #if IN_NAUTILUS_EXTENSION
 	NautilusPropertyPage *ppage = nautilus_property_page_new(
 		"GtkHash::properties", gtk_label_new(_("Digests")), page->box);
+#elif IN_NEMO_EXTENSION
+	NemoPropertyPage *ppage = nemo_property_page_new(
+		"GtkHash::properties", gtk_label_new(_("Digests")), page->box);
 #elif IN_THUNAR_EXTENSION
 	GtkWidget *ppage = thunarx_property_page_new(_("Digests"));
 	gtk_container_add(GTK_CONTAINER(ppage), page->box);
@@ -438,6 +450,8 @@ static GList *gtkhash_properties_get_pages(
 static void gtkhash_properties_iface_init(
 #if IN_NAUTILUS_EXTENSION
 	NautilusPropertyPageProviderIface *iface
+#elif IN_NEMO_EXTENSION
+	NemoPropertyPageProviderIface *iface
 #elif IN_THUNAR_EXTENSION
 	ThunarxPropertyPageProviderIface *iface
 #endif
@@ -473,6 +487,8 @@ static void gtkhash_properties_register_type(GTypeModule *module)
 	g_type_module_add_interface(module, page_type,
 #if IN_NAUTILUS_EXTENSION
 		NAUTILUS_TYPE_PROPERTY_PAGE_PROVIDER,
+#elif IN_NEMO_EXTENSION
+		NEMO_TYPE_PROPERTY_PAGE_PROVIDER,
 #elif IN_THUNAR_EXTENSION
 		THUNARX_TYPE_PROPERTY_PAGE_PROVIDER,
 #endif
@@ -487,6 +503,8 @@ static void gtkhash_properties_register_type(GTypeModule *module)
 
 #if IN_NAUTILUS_EXTENSION
 PUBLIC void nautilus_module_initialize(GTypeModule *module)
+#elif IN_NEMO_EXTENSION
+PUBLIC void nemo_module_initialize(GTypeModule *module)
 #elif IN_THUNAR_EXTENSION
 PUBLIC void thunar_extension_initialize(GTypeModule *module);
 PUBLIC void thunar_extension_initialize(GTypeModule *module)
@@ -502,6 +520,8 @@ PUBLIC void thunar_extension_initialize(GTypeModule *module)
 
 #if IN_NAUTILUS_EXTENSION
 PUBLIC void nautilus_module_shutdown(void)
+#elif IN_NEMO_EXTENSION
+PUBLIC void nemo_module_shutdown(void)
 #elif IN_THUNAR_EXTENSION
 PUBLIC void thunar_extension_shutdown(void);
 PUBLIC void thunar_extension_shutdown(void)
@@ -511,6 +531,8 @@ PUBLIC void thunar_extension_shutdown(void)
 
 #if IN_NAUTILUS_EXTENSION
 PUBLIC void nautilus_module_list_types(const GType **types, int *num_types)
+#elif IN_NEMO_EXTENSION
+PUBLIC void nemo_module_list_types(const GType **types, int *num_types)
 #elif IN_THUNAR_EXTENSION
 PUBLIC void thunar_extension_list_types(const GType **types, int *num_types);
 PUBLIC void thunar_extension_list_types(const GType **types, int *num_types)

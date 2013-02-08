@@ -238,6 +238,22 @@ if test "${enable_nautilus}" = "yes" ; then
 	AC_SUBST([NAUTILUS_EXTENSION_DIR])
 fi
 
+AC_MSG_CHECKING([whether to build the Nemo extension])
+AC_ARG_ENABLE([nemo],
+	[AS_HELP_STRING([--enable-nemo], [build the Nemo extension])],
+	[enable_nemo="${enableval}"], [enable_nemo="no"])
+AC_MSG_RESULT(["${enable_nemo}"])
+AM_CONDITIONAL([ENABLE_NEMO], [test "${enable_nemo}" = "yes"])
+
+if test "${enable_nemo}" = "yes" ; then
+	# Check for nemo
+	PKG_CHECK_MODULES([NEMO], [libnemo-extension])
+	AC_SUBST([NEMO_CFLAGS])
+	AC_SUBST([NEMO_LIBS])
+	NEMO_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensiondir libnemo-extension`
+	AC_SUBST([NEMO_EXTENSION_DIR])
+fi
+
 AC_MSG_CHECKING([whether to build the Thunar extension])
 AC_ARG_ENABLE([thunar],
 	[AS_HELP_STRING([--enable-thunar], [build the Thunar extension])],
@@ -254,7 +270,8 @@ if test "${enable_thunar}" = "yes" ; then
 	AC_SUBST([THUNAR_EXTENSION_DIR])
 fi
 
-AM_CONDITIONAL([ENABLE_NAUTILUS_DATA], [test "${enable_nautilus}" = "yes" || test "${enable_thunar}" = "yes"])
+AM_CONDITIONAL([ENABLE_NAUTILUS_DATA],
+	[test "${enable_nautilus}" = "yes" || test "${enable_nemo}" == "yes" || test "${enable_thunar}" = "yes"])
 AM_CONDITIONAL([ENABLE_NLS], [test "${enable_nls}" != "no"])
 
 if test "${enable_nls}" = "no" ; then
@@ -279,6 +296,7 @@ AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([src/Makefile])
 AC_CONFIG_FILES([src/hash/Makefile])
 AC_CONFIG_FILES([src/nautilus/Makefile])
+AC_CONFIG_FILES([src/nemo/Makefile])
 AC_CONFIG_FILES([src/thunar/Makefile])
 AC_OUTPUT
 
@@ -286,6 +304,7 @@ echo
 echo "Interfaces:"
 echo "  gtkhash: ${enable_gtkhash} (gtk+-${with_gtk})"
 echo "  gtkhash-nautilus: ${enable_nautilus}"
+echo "  gtkhash-nemo: ${enable_nemo}"
 echo "  gtkhash-thunar: ${enable_thunar}"
 
 gcrypt_funcs="

@@ -1,5 +1,8 @@
 Summary of changes for each release:
 
+0.7.0 -
+	* Added optional Nemo (Cinnamon file manager) extension
+
 0.6.0 - 2011-12-14
 	* Added "Check" feature for comparing digests
 	* Added HMAC support

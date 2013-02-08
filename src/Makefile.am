@@ -4,6 +4,10 @@ if ENABLE_NAUTILUS
 SUBDIRS += nautilus
 endif
 
+if ENABLE_NEMO
+SUBDIRS += nemo
+endif
+
 if ENABLE_THUNAR
 SUBDIRS += thunar
 endif
