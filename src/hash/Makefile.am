@@ -50,6 +50,12 @@ hash_la_SOURCES += hash-lib-mhash.c hash-lib-mhash.h
 hash_la_LIBADD += $(MHASH_LIBS)
 endif
 
+if ENABLE_NETTLE
+hash_la_SOURCES += hash-lib-nettle.c hash-lib-nettle.h
+hash_la_CPPFLAGS += $(NETTLE_CFLAGS)
+hash_la_LIBADD += $(NETTLE_LIBS)
+endif
+
 if ENABLE_NSS
 hash_la_SOURCES += hash-lib-nss.c hash-lib-nss.h
 hash_la_CPPFLAGS += $(NSS_CFLAGS)

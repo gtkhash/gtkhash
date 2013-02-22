@@ -17,6 +17,7 @@ Dependencies:
         Libgcrypt
         libcrypto
         PolarSSL
+        Nettle
         NSS
         mhash
         Nautilus

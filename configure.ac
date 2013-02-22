@@ -154,6 +154,22 @@ if test "${enable_polarssl}" = "yes" ; then
 	AC_DEFINE([ENABLE_POLARSSL], [1])
 fi
 
+AC_MSG_CHECKING([whether to use Nettle])
+AC_ARG_ENABLE([nettle],
+	[AS_HELP_STRING([--enable-nettle], [use Nettle])],
+	[enable_nettle="${enableval}"], [enable_nettle="no"])
+AC_MSG_RESULT(["${enable_nettle}"])
+AM_CONDITIONAL([ENABLE_NETTLE], [test "${enable_nettle}" = "yes"])
+AC_DEFINE([ENABLE_NETTLE], [0], [Use Nettle])
+
+if test "${enable_nettle}" = "yes" ; then
+	PKG_CHECK_MODULES([NETTLE], [nettle])
+	AC_SUBST([NETTLE_CFLAGS])
+	AC_SUBST([NETTLE_LIBS])
+	hash_libs="${hash_libs} nettle"
+	AC_DEFINE([ENABLE_NETTLE], [1])
+fi
+
 AC_MSG_CHECKING([whether to use NSS])
 AC_ARG_ENABLE([nss],
 	[AS_HELP_STRING([--enable-nss], [use NSS])],
@@ -338,6 +354,8 @@ mhash_funcs="
 	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3
 	GOST
 	SNEFRU128 SNEFRU256"
+nettle_funcs="
+	MD5"
 nss_funcs="
 	MD2 MD5
 	SHA1 SHA256 SHA384 SHA512"
