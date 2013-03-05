@@ -225,7 +225,7 @@ AM_CONDITIONAL([ENABLE_MD6], [test "${enable_internal_md6}" = "yes"])
 AC_DEFINE([ENABLE_MD6], [0], [Use MD6])
 
 if test "${enable_internal_md6}" = "yes" ; then
-	hash_libs="${hash_libs} md6"
+	hash_libs="${hash_libs} internal_md6"
 	AC_DEFINE([ENABLE_MD6], [1])
 fi
 
@@ -343,7 +343,7 @@ linux_crypto_funcs="
 	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320
 	TIGER128 TIGER160 TIGER192
 	WHIRLPOOL"
-md6_funcs="
+internal_md6_funcs="
 	MD6-224 MD6-256 MD6-384 MD6-512"
 mhash_funcs="
 	MD2 MD4 MD5
