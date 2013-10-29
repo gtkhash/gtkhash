@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-12-14 19:45+0000\n"
-"PO-Revision-Date: 2012-03-15 23:44+0000\n"
-"Last-Translator: Marco <marcodefreitas@gmail.com>\n"
+"POT-Creation-Date: 2012-06-28 20:28+0100\n"
+"PO-Revision-Date: 2012-08-13 02:00+0000\n"
+"Last-Translator: Lucas Silveira Melo <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-17 04:56+0000\n"
-"X-Generator: Launchpad (build 14951)\n"
+"X-Launchpad-Export-Date: 2012-08-14 04:46+0000\n"
+"X-Generator: Launchpad (build 15791)\n"
 
 #: ../data/gtkhash.xml.h:1
 msgid "GtkHash Preferences"
@@ -89,33 +89,37 @@ msgstr "Arquivo"
 msgid "Ha_sh"
 msgstr "Ha_sh"
 
-#: ../src/callbacks.c:87
+#: ../src/callbacks.c:47
 msgid "Save Digests"
 msgstr "Salvar cômputos"
 
-#: ../src/callbacks.c:276
+#: ../src/callbacks.c:236
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
+"Um utilitário GTK+ para computar resumos de mensagens ou somas de "
+"verificação (checksums)."
 
-#: ../src/callbacks.c:280
+#: ../src/callbacks.c:240
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  André Gondim https://launchpad.net/~andregondim\n"
 "  Cristiano Nunes https://launchpad.net/~cfgnunes\n"
+"  João Marcus P. Gomes https://launchpad.net/~joaompg\n"
+"  Lucas Silveira Melo https://launchpad.net/~lucas-silveiramelo\n"
 "  Marco https://launchpad.net/~marcodefreitas\n"
 "  Rafael Neri https://launchpad.net/~rafepel"
 
-#: ../src/callbacks.c:302
+#: ../src/callbacks.c:262
 msgid "Select Files"
 msgstr "Selecionar arquivos"
 
-#: ../src/gui.c:295
+#: ../src/gui.c:293
 #, c-format
 msgid "Failed to read \"%s\""
 msgstr "Falha ao ler \"%s\""
 
-#: ../src/gui.c:312
+#: ../src/gui.c:310
 #, c-format
 msgid ""
 "Failed to read \"%s\":\n"
@@ -124,15 +128,15 @@ msgstr ""
 "Ocorreu uma falha ao ler \"%s\":\n"
 "%s"
 
-#: ../src/gui.c:361
+#: ../src/gui.c:359
 msgid "Not a regular file"
 msgstr "Não é um arquivo comum"
 
-#: ../src/gui.c:383
+#: ../src/gui.c:381
 msgid "Unknown error"
 msgstr "Erro desconhecido"
 
-#: ../src/gui.c:385
+#: ../src/gui.c:383
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -161,25 +165,42 @@ msgstr "%s de %s - 1 segundo restante (%s/s)"
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr "%s de %s - %u segundos restantes (%s/s)"
 
-#: ../src/main.c:72
-msgid "Read program data from the specified directory"
+#: ../src/main.c:86
+msgid "Check against the specified digest or checksum"
 msgstr ""
+"Compare com o resumo especificado ou com a soma de verificação (checksum)"
 
-#: ../src/main.c:72
+#: ../src/main.c:86
+msgid "DIGEST"
+msgstr "RESUMO"
+
+#: ../src/main.c:90
+msgid "Read program data from the specified directory"
+msgstr "Ler dados do programa do diretório especificado"
+
+#: ../src/main.c:90
 msgid "DIRECTORY"
 msgstr "DIRETÓRIO"
 
-#: ../src/main.c:76
+#: ../src/main.c:94
+msgid "Hash the specified text"
+msgstr "Criptografa o texto especificado"
+
+#: ../src/main.c:94
+msgid "TEXT"
+msgstr "TEXTO"
+
+#: ../src/main.c:98
 msgid "Show version information"
 msgstr "Mostrar informações da versão"
 
-#: ../src/main.c:80
+#: ../src/main.c:102
 msgid "[FILE|URI...]"
 msgstr "[ARQUIVO|URI...]"
 
 #: ../src/prefs.c:76
 msgid "Failed to enable any supported hash functions."
-msgstr ""
+msgstr "Falha ao habilitar funções de criptografia"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
