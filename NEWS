@@ -1,9 +1,10 @@
 Summary of changes for each release:
 
-0.7.0 -
+0.7.0 - 2013-10-30
+	* Added optional Nemo (Cinnamon file manager) extension
 	* Added more commandline options
 	* Added support for PolarSSL
-	* Added optional Nemo (Cinnamon file manager) extension
+	* Added support for Nettle
 	* UI bug fixes
 
 0.6.0 - 2011-12-14
