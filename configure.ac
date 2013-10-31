@@ -47,7 +47,7 @@ AC_SUBST([GTKHASH_CFLAGS])
 
 PKG_PROG_PKG_CONFIG
 
-PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.32])
+PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.36])
 GLIB_GSETTINGS
 
 AC_MSG_CHECKING([which GTK+ version to use])
@@ -332,6 +332,8 @@ gcrypt_funcs="
 glib_checksums_funcs="
 	MD5
 	SHA1 SHA256"
+internal_md6_funcs="
+	MD6-224 MD6-256 MD6-384 MD6-512"
 libcrypto_funcs="
 	MD4 MD5
 	SHA0 SHA1
@@ -343,8 +345,6 @@ linux_crypto_funcs="
 	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320
 	TIGER128 TIGER160 TIGER192
 	WHIRLPOOL"
-internal_md6_funcs="
-	MD6-224 MD6-256 MD6-384 MD6-512"
 mhash_funcs="
 	MD2 MD4 MD5
 	SHA1 SHA224 SHA256 SHA384 SHA512

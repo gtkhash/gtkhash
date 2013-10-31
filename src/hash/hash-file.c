@@ -24,7 +24,6 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-#include <unistd.h>
 #include <glib.h>
 
 #include "hash-file.h"
@@ -99,15 +98,8 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 
 	g_assert(funcs_enabled > 0);
 
-#ifdef _SC_NPROCESSORS_ONLN
-	const long int cpus = sysconf(_SC_NPROCESSORS_ONLN);
-	if (cpus < 1)
-		g_warning("sysconf(_SC_NPROCESSORS_ONLN) returned %ld", cpus);
-#else
-	#warning "insert code to find number of CPUs here"
-	const int cpus = 1;
-#endif
-
+	// Determine max number of threads to use
+	const int cpus = g_get_num_processors();
 	const int threads = CLAMP(MIN(funcs_enabled, cpus), 1, HASH_FUNCS_N);
 
 	g_atomic_int_set(&data->pool_threads_n, 0);
