@@ -6,7 +6,7 @@ endif
 
 if ENABLE_GTKHASH
 pkgdata_DATA = gtkhash.xml.gz
-gsettings_SCHEMAS = app.gtkhash.gschema.xml
+gsettings_SCHEMAS = org.gtkhash.gschema.xml
 EXTRA_DIST = gtkhash.xml $(gsettings_SCHEMAS)
 CLEANFILES = $(pkgdata_DATA)
 endif

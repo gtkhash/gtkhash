@@ -32,7 +32,7 @@
 #include "hash/digest-format.h"
 #include "hash/hash-func.h"
 
-#define PREFS_SCHEMA "apps.gtkhash"
+#define PREFS_SCHEMA "org.gtkhash"
 #define PREFS_KEY_DIGEST_FORMAT "digest-format"
 #define PREFS_KEY_HASH_FUNCS "hash-functions"
 #define PREFS_KEY_SHOW_TOOLBAR "show-toolbar"

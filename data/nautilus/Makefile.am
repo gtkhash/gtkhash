@@ -1,7 +1,7 @@
 nautilusdir = $(pkgdatadir)/nautilus
 nautilus_DATA = gtkhash-properties.xml.gz
 
-gsettings_SCHEMAS = app.gtkhash-properties.gschema.xml
+gsettings_SCHEMAS = org.gtkhash.plugin.gschema.xml
 EXTRA_DIST = gtkhash-properties.xml $(gsettings_SCHEMAS)
 CLEANFILES = $(nautilus_DATA)
 

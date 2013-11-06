@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="apps.gtkhash" path="/apps/gtkhash/">
+  <schema id="org.gtkhash" path="/org/gtkhash/">
     <key name="digest-format" type="s">
       <choices>
         <choice value='hex-lower' />

@@ -30,7 +30,7 @@
 #include "properties-hash.h"
 #include "../hash/hash-func.h"
 
-#define PREFS_SCHEMA "apps.gtkhash-properties"
+#define PREFS_SCHEMA "org.gtkhash.plugin"
 #define PREFS_KEY_HASH_FUNCS "hash-functions"
 #define PREFS_KEY_SHOW_DISABLED_FUNCS "show-disabled-hash-functions"
 #define PREFS_BIND_FLAGS \

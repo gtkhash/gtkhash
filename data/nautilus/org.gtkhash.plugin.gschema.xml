@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="apps.gtkhash-properties" path="/apps/gtkhash-properties/">
+  <schema id="org.gtkhash.plugin" path="/org/gtkhash/plugin/">
     <key name="hash-functions" type="as">
       <default>[ 'MD5', 'SHA1', 'SHA256' ]</default>
     </key>
