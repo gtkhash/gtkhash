@@ -10,7 +10,7 @@
       <default>'hex-lower'</default>
     </key>
     <key name="hash-functions" type="as">
-      <default>[ 'MD5', 'SHA1', 'SHA256' ]</default>
+      <default>[ 'MD5', 'SHA1', 'SHA256', 'CRC32' ]</default>
     </key>
     <key name="show-toolbar" type="b">
       <default>true</default>
