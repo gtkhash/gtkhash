@@ -33,7 +33,7 @@ for opt in \
 	-Wwrite-strings \
 	-Werror=implicit-function-declaration
 do
-	AC_MSG_CHECKING([whether "${CC}" accepts option "${opt}"])
+	AC_MSG_CHECKING([whether ${CC} accepts option ${opt}])
 	ac_save_CFLAGS="${CFLAGS}"
 	CFLAGS="${GTKHASH_CFLAGS} ${opt} ${CFLAGS}"
 	AC_COMPILE_IFELSE(
@@ -54,7 +54,7 @@ AC_MSG_CHECKING([which GTK+ version to use])
 AC_ARG_WITH([gtk],
 	[AS_HELP_STRING([--with-gtk=2.0|3.0], [GTK+ version to use [2.0]])],
 	[with_gtk="${withval}"], [with_gtk="2.0"])
-AC_MSG_RESULT(["${with_gtk}"])
+AC_MSG_RESULT([${with_gtk}])
 
 PKG_CHECK_MODULES([GTK], ["gtk+-${with_gtk}" >= 2.24])
 AC_SUBST([GTK_CFLAGS])
@@ -64,7 +64,7 @@ AC_MSG_CHECKING([whether to enable debugging])
 AC_ARG_ENABLE([debug],
 	[AS_HELP_STRING([--enable-debug], [enable debugging])],
 	[enable_debug="${enableval}"], [enable_debug="no"])
-AC_MSG_RESULT(["${enable_debug}"])
+AC_MSG_RESULT([${enable_debug}])
 
 if test "${enable_debug}" = "yes" ; then
 	AC_DEFINE([G_DISABLE_DEPRECATED], [1], [disable glib deprecated])
@@ -81,7 +81,7 @@ AC_MSG_CHECKING([whether to use zlib])
 AC_ARG_ENABLE([zlib],
 	[AS_HELP_STRING([--disable-zlib], [do not use zlib])],
 	[enable_zlib="${enableval}"], [enable_zlib="yes"])
-AC_MSG_RESULT(["${enable_zlib}"])
+AC_MSG_RESULT([${enable_zlib}])
 AM_CONDITIONAL([ENABLE_ZLIB], [test "${enable_zlib}" = "yes"])
 AC_DEFINE([ENABLE_ZLIB], [0], [Use zlib])
 
@@ -97,7 +97,7 @@ AC_MSG_CHECKING([whether to use the Linux-2.6.38+ hash algorithm interface])
 AC_ARG_ENABLE([linux-crypto],
 	[AS_HELP_STRING([--enable-linux-crypto], [use the Linux-2.6.38+ hash algorithm interface])],
 	[enable_linux_crypto="${enableval}"], [enable_linux_crypto="no"])
-AC_MSG_RESULT(["${enable_linux_crypto}"])
+AC_MSG_RESULT([${enable_linux_crypto}])
 AM_CONDITIONAL([ENABLE_LINUX_CRYPTO], [test "${enable_linux_crypto}" = "yes"])
 AC_DEFINE([ENABLE_LINUX_CRYPTO], [0], [Use Linux Crypto])
 
@@ -111,7 +111,7 @@ AC_MSG_CHECKING([whether to use Libgcrypt])
 AC_ARG_ENABLE([gcrypt],
 	[AS_HELP_STRING([--enable-gcrypt], [use Libgcrypt])],
 	[enable_gcrypt="${enableval}"], [enable_gcrypt="no"])
-AC_MSG_RESULT(["${enable_gcrypt}"])
+AC_MSG_RESULT([${enable_gcrypt}])
 AM_CONDITIONAL([ENABLE_GCRYPT], [test "${enable_gcrypt}" = "yes"])
 AC_DEFINE([ENABLE_GCRYPT], [0], [Use Libgcrypt])
 
@@ -125,7 +125,7 @@ AC_MSG_CHECKING([whether to use libcrypto])
 AC_ARG_ENABLE([libcrypto],
 	[AS_HELP_STRING([--enable-libcrypto], [use libcrypto])],
 	[enable_libcrypto="${enableval}"], [enable_libcrypto="no"])
-AC_MSG_RESULT(["${enable_libcrypto}"])
+AC_MSG_RESULT([${enable_libcrypto}])
 AM_CONDITIONAL([ENABLE_LIBCRYPTO], [test "${enable_libcrypto}" = "yes"])
 AC_DEFINE([ENABLE_LIBCRYPTO], [0], [Use libcrypto])
 
@@ -141,7 +141,7 @@ AC_MSG_CHECKING([whether to use PolarSSL])
 AC_ARG_ENABLE([polarssl],
 	[AS_HELP_STRING([--enable-polarssl], [use PolarSSL])],
 	[enable_polarssl="${enableval}"], [enable_polarssl="no"])
-AC_MSG_RESULT(["${enable_polarssl}"])
+AC_MSG_RESULT([${enable_polarssl}])
 AM_CONDITIONAL([ENABLE_POLARSSL], [test "${enable_polarssl}" = "yes"])
 AC_DEFINE([ENABLE_POLARSSL], [0], [Use PolarSSL])
 
@@ -158,7 +158,7 @@ AC_MSG_CHECKING([whether to use Nettle])
 AC_ARG_ENABLE([nettle],
 	[AS_HELP_STRING([--enable-nettle], [use Nettle])],
 	[enable_nettle="${enableval}"], [enable_nettle="no"])
-AC_MSG_RESULT(["${enable_nettle}"])
+AC_MSG_RESULT([${enable_nettle}])
 AM_CONDITIONAL([ENABLE_NETTLE], [test "${enable_nettle}" = "yes"])
 AC_DEFINE([ENABLE_NETTLE], [0], [Use Nettle])
 
@@ -174,7 +174,7 @@ AC_MSG_CHECKING([whether to use NSS])
 AC_ARG_ENABLE([nss],
 	[AS_HELP_STRING([--enable-nss], [use NSS])],
 	[enable_nss="${enableval}"], [enable_nss="no"])
-AC_MSG_RESULT(["${enable_nss}"])
+AC_MSG_RESULT([${enable_nss}])
 AM_CONDITIONAL([ENABLE_NSS], [test "${enable_nss}" = "yes"])
 AC_DEFINE([ENABLE_NSS], [0], [Use NSS])
 
@@ -190,7 +190,7 @@ AC_MSG_CHECKING([whether to use the Glib Data Checksums API])
 AC_ARG_ENABLE([glib-checksums],
 	[AS_HELP_STRING([--disable-glib-checksums], [do not use the Glib Data Checksums API])],
 	[enable_glib_checksums="${enableval}"], [enable_glib_checksums="yes"])
-AC_MSG_RESULT(["${enable_glib_checksums}"])
+AC_MSG_RESULT([${enable_glib_checksums}])
 AM_CONDITIONAL([ENABLE_GLIB_CHECKSUMS], [test "${enable_glib_checksums}" = "yes"])
 AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [0], [Use Glib Checksums])
 
@@ -203,7 +203,7 @@ AC_MSG_CHECKING([whether to use the mhash library])
 AC_ARG_ENABLE([mhash],
 	[AS_HELP_STRING([--enable-mhash], [use the mhash library])],
 	[enable_mhash="${enableval}"], [enable_mhash="no"])
-AC_MSG_RESULT(["${enable_mhash}"])
+AC_MSG_RESULT([${enable_mhash}])
 AM_CONDITIONAL([ENABLE_MHASH], [test "${enable_mhash}" = "yes"])
 AC_DEFINE([ENABLE_MHASH], [0], [Use mhash])
 
@@ -220,7 +220,7 @@ AC_MSG_CHECKING([whether to use the internal MD6 library])
 AC_ARG_ENABLE([internal-md6],
 	[AS_HELP_STRING([--disable-internal-md6], [do not use the internal MD6 library])],
 	[enable_internal_md6="${enableval}"], [enable_internal_md6="yes"])
-AC_MSG_RESULT(["${enable_internal_md6}"])
+AC_MSG_RESULT([${enable_internal_md6}])
 AM_CONDITIONAL([ENABLE_MD6], [test "${enable_internal_md6}" = "yes"])
 AC_DEFINE([ENABLE_MD6], [0], [Use MD6])
 
@@ -235,14 +235,30 @@ AC_MSG_CHECKING([whether to build gtkhash])
 AC_ARG_ENABLE([gtkhash],
 	[AS_HELP_STRING([--disable-gtkhash], [do not build gtkhash])],
 	[enable_gtkhash="${enableval}"], [enable_gtkhash="yes"])
-AC_MSG_RESULT(["${enable_gtkhash}"])
+AC_MSG_RESULT([${enable_gtkhash}])
 AM_CONDITIONAL([ENABLE_GTKHASH], [test "${enable_gtkhash}" = "yes"])
+
+AC_MSG_CHECKING([whether to build the Caja extension])
+AC_ARG_ENABLE([caja],
+	[AS_HELP_STRING([--enable-caja], [build the Caja extension])],
+	[enable_caja="${enableval}"], [enable_caja="no"])
+AC_MSG_RESULT([${enable_caja}])
+AM_CONDITIONAL([ENABLE_CAJA], [test "${enable_caja}" = "yes"])
+
+if test "${enable_caja}" = "yes" ; then
+	# Check for caja
+	PKG_CHECK_MODULES([CAJA], [libcaja-extension])
+	AC_SUBST([CAJA_CFLAGS])
+	AC_SUBST([CAJA_LIBS])
+	CAJA_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensiondir libcaja-extension`
+	AC_SUBST([CAJA_EXTENSION_DIR])
+fi
 
 AC_MSG_CHECKING([whether to build the Nautilus extension])
 AC_ARG_ENABLE([nautilus],
 	[AS_HELP_STRING([--enable-nautilus], [build the Nautilus extension])],
 	[enable_nautilus="${enableval}"], [enable_nautilus="no"])
-AC_MSG_RESULT(["${enable_nautilus}"])
+AC_MSG_RESULT([${enable_nautilus}])
 AM_CONDITIONAL([ENABLE_NAUTILUS], [test "${enable_nautilus}" = "yes"])
 
 if test "${enable_nautilus}" = "yes" ; then
@@ -258,7 +274,7 @@ AC_MSG_CHECKING([whether to build the Nemo extension])
 AC_ARG_ENABLE([nemo],
 	[AS_HELP_STRING([--enable-nemo], [build the Nemo extension])],
 	[enable_nemo="${enableval}"], [enable_nemo="no"])
-AC_MSG_RESULT(["${enable_nemo}"])
+AC_MSG_RESULT([${enable_nemo}])
 AM_CONDITIONAL([ENABLE_NEMO], [test "${enable_nemo}" = "yes"])
 
 if test "${enable_nemo}" = "yes" ; then
@@ -274,7 +290,7 @@ AC_MSG_CHECKING([whether to build the Thunar extension])
 AC_ARG_ENABLE([thunar],
 	[AS_HELP_STRING([--enable-thunar], [build the Thunar extension])],
 	[enable_thunar="${enableval}"], [enable_thunar="no"])
-AC_MSG_RESULT(["${enable_thunar}"])
+AC_MSG_RESULT([${enable_thunar}])
 AM_CONDITIONAL([ENABLE_THUNAR], [test "${enable_thunar}" = "yes"])
 
 if test "${enable_thunar}" = "yes" ; then
@@ -286,8 +302,11 @@ if test "${enable_thunar}" = "yes" ; then
 	AC_SUBST([THUNAR_EXTENSION_DIR])
 fi
 
-AM_CONDITIONAL([ENABLE_NAUTILUS_DATA],
-	[test "${enable_nautilus}" = "yes" || test "${enable_nemo}" == "yes" || test "${enable_thunar}" = "yes"])
+AM_CONDITIONAL([ENABLE_NAUTILUS_DATA], [
+	test "${enable_caja}" = "yes" ||
+	test "${enable_nautilus}" = "yes" ||
+	test "${enable_nemo}" = "yes" ||
+	test "${enable_thunar}" = "yes"])
 AM_CONDITIONAL([ENABLE_NLS], [test "${enable_nls}" != "no"])
 
 if test "${enable_nls}" = "no" ; then
@@ -301,7 +320,6 @@ else
 fi
 
 AC_DEFINE_UNQUOTED([G_LOG_DOMAIN], ["${PACKAGE_NAME}"], [Define the Glib log domain])
-
 AC_DEFINE([HASH_FILE_BUFFER_SIZE], [131072], [Define file read buffer size (bytes)])
 AC_DEFINE([HASH_FILE_REPORT_INTERVAL], [166], [Define progress report interval (milliseconds)])
 
@@ -311,6 +329,7 @@ AC_CONFIG_FILES([data/nautilus/Makefile])
 AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([src/Makefile])
 AC_CONFIG_FILES([src/hash/Makefile])
+AC_CONFIG_FILES([src/caja/Makefile])
 AC_CONFIG_FILES([src/nautilus/Makefile])
 AC_CONFIG_FILES([src/nemo/Makefile])
 AC_CONFIG_FILES([src/thunar/Makefile])
@@ -319,6 +338,7 @@ AC_OUTPUT
 echo
 echo "Interfaces:"
 echo "  gtkhash: ${enable_gtkhash} (gtk+-${with_gtk})"
+echo "  gtkhash-caja: ${enable_caja}"
 echo "  gtkhash-nautilus: ${enable_nautilus}"
 echo "  gtkhash-nemo: ${enable_nemo}"
 echo "  gtkhash-thunar: ${enable_thunar}"

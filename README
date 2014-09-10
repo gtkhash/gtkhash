@@ -20,6 +20,8 @@ Dependencies:
         Nettle
         NSS
         mhash
+    File managers:
+        Caja
         Nautilus
         Nemo
         Thunar

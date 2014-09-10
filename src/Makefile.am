@@ -1,5 +1,9 @@
 SUBDIRS = hash
 
+if ENABLE_CAJA
+SUBDIRS += caja
+endif
+
 if ENABLE_NAUTILUS
 SUBDIRS += nautilus
 endif
