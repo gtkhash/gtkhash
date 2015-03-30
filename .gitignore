@@ -6,6 +6,7 @@ autom4te.cache/
 build-aux/
 m4/
 
+.dirstamp
 INSTALL
 Makefile
 Makefile.in
@@ -14,7 +15,6 @@ POTFILES
 aclocal.m4
 config.h
 config.h.in
-config.h.in~
 config.log
 config.status
 configure
@@ -22,9 +22,11 @@ libtool
 stamp-h1
 stamp-it
 
+*~
 *.gmo
 *.gz
 *.la
 *.lo
 *.o
 *.valid
+*.xz
