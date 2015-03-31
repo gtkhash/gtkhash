@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristanheaven@gmail.com>
+ *   Copyright (C) 2007-2015 Tristan Heaven <tristanheaven@gmail.com>
  *
  *   This file is part of GtkHash.
  *
@@ -25,47 +25,36 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include <glib.h>
 
 #include "digest.h"
 
-static char *gtkhash_digest_get_lc_hex(struct digest_s *digest)
+// Returns a newly-allocated string containing a digest in hex
+static char *gtkhash_digest_get_hex(struct digest_s *digest, bool upper)
 {
 	char *ret = g_malloc0((digest->size * 2) + 1);
+	const char *format_str = upper ? "%.2X" : "%.2x";
 
 	for (size_t i = 0; i < digest->size; i++)
-		snprintf(ret + (i * 2), 3, "%.2x", digest->bin[i]);
+		snprintf(&ret[i * 2], 3, format_str, digest->bin[i]);
 
 	return ret;
 }
 
-static char *gtkhash_digest_get_uc_hex(struct digest_s *digest)
-{
-	char *ret = gtkhash_digest_get_lc_hex(digest);
-
-	for (char *c = ret; *c; c++)
-		*c = g_ascii_toupper(*c);
-
-	return ret;
-}
-
+// Returns a newly-allocated string containing a digest in base64
 static char *gtkhash_digest_get_base64(struct digest_s *digest)
 {
 	return g_base64_encode(digest->bin, digest->size);
 }
 
+// Returns a newly-allocated digest_s structure
 struct digest_s *gtkhash_digest_new(void)
 {
-	struct digest_s *digest = g_new(struct digest_s, 1);
-	digest->bin = NULL;
-	digest->size = 0;
-
-	for (int i = 0; i < DIGEST_FORMATS_N; i++)
-		digest->data[i] = NULL;
-
-	return digest;
+	return g_new0(struct digest_s, 1);
 }
 
+// Sets all stored digest representations using the given binary value
 void gtkhash_digest_set_data(struct digest_s *digest, uint8_t *bin,
 	size_t size)
 {
@@ -78,11 +67,12 @@ void gtkhash_digest_set_data(struct digest_s *digest, uint8_t *bin,
 	digest->bin = bin;
 	digest->size = size;
 
-	digest->data[DIGEST_FORMAT_HEX_LOWER] = gtkhash_digest_get_lc_hex(digest);
-	digest->data[DIGEST_FORMAT_HEX_UPPER] = gtkhash_digest_get_uc_hex(digest);
+	digest->data[DIGEST_FORMAT_HEX_LOWER] = gtkhash_digest_get_hex(digest, false);
+	digest->data[DIGEST_FORMAT_HEX_UPPER] = gtkhash_digest_get_hex(digest, true);
 	digest->data[DIGEST_FORMAT_BASE64] = gtkhash_digest_get_base64(digest);
 }
 
+// Returns a digest string represented in the requested format
 const char *gtkhash_digest_get_data(struct digest_s *digest,
 	const enum digest_format_e format)
 {
@@ -92,6 +82,7 @@ const char *gtkhash_digest_get_data(struct digest_s *digest,
 	return digest->data[format];
 }
 
+// Resets a digest_s structure back to its original state
 void gtkhash_digest_free_data(struct digest_s *digest)
 {
 	g_assert(digest);
@@ -111,11 +102,11 @@ void gtkhash_digest_free_data(struct digest_s *digest)
 	}
 }
 
+// Frees a digest_s structure
 void gtkhash_digest_free(struct digest_s *digest)
 {
 	g_assert(digest);
 
 	gtkhash_digest_free_data(digest);
-
 	g_free(digest);
 }
