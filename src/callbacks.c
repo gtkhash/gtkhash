@@ -240,7 +240,7 @@ static void on_menuitem_about_activate(void)
 			"translator-credits", _("translator-credits"),
 #endif
 			"version", VERSION,
-			"website", "http://gtkhash.sourceforge.net/",
+			"website", "https://github.com/tristanheaven/gtkhash",
 			NULL);
 }
 
