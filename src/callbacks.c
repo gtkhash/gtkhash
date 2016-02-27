@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristanheaven@gmail.com>
+ *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -226,7 +226,7 @@ static void on_menuitem_about_activate(void)
 	};
 
 	static const char * const authors[] = {
-		"Tristan Heaven <tristanheaven@gmail.com>",
+		"Tristan Heaven <tristan@tristanheaven.net>",
 		NULL
 	};
 
