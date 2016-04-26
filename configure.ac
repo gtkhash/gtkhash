@@ -53,7 +53,7 @@ GLIB_GSETTINGS
 AC_MSG_CHECKING([which GTK+ version to use])
 AC_ARG_WITH([gtk],
 	[AS_HELP_STRING([--with-gtk=2.0|3.0], [GTK+ version to use [2.0]])],
-	[with_gtk="${withval}"], [with_gtk="2.0"])
+	[with_gtk="${withval}"], [with_gtk="3.0"])
 AC_MSG_RESULT([${with_gtk}])
 
 PKG_CHECK_MODULES([GTK], ["gtk+-${with_gtk}" >= 2.24])
