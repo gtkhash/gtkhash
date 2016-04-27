@@ -49,6 +49,9 @@ static bool gtkhash_hash_lib_polarssl_set_type(const enum hash_func_e id, md_typ
 		case HASH_FUNC_MD5:
 			*type = POLARSSL_MD_MD5;
 			break;
+		case HASH_FUNC_RIPEMD160:
+			*type = POLARSSL_MD_RIPEMD160;
+			break;
 		case HASH_FUNC_SHA1:
 			*type = POLARSSL_MD_SHA1;
 			break;
