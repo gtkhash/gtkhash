@@ -50,6 +50,7 @@ PKG_PROG_PKG_CONFIG
 PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.36])
 GLIB_GSETTINGS
 
+# check for gtk+ {{{
 AC_MSG_CHECKING([which GTK+ version to use])
 AC_ARG_WITH([gtk],
 	[AS_HELP_STRING([--with-gtk=2.0|3.0], [GTK+ version to use [2.0]])],
@@ -59,7 +60,9 @@ AC_MSG_RESULT([${with_gtk}])
 PKG_CHECK_MODULES([GTK], ["gtk+-${with_gtk}" >= 2.24])
 AC_SUBST([GTK_CFLAGS])
 AC_SUBST([GTK_LIBS])
+# }}}
 
+# debug option {{{
 AC_MSG_CHECKING([whether to enable debugging])
 AC_ARG_ENABLE([debug],
 	[AS_HELP_STRING([--enable-debug], [enable debugging])],
@@ -74,9 +77,11 @@ else
 	AC_DEFINE([G_DISABLE_ASSERT], [1], [disable glib assert])
 	AC_DEFINE([G_DISABLE_CAST_CHECKS], [1], [disable glib cast checks])
 fi
+# }}}
 
 hash_libs=""
 
+# check for zlib {{{
 AC_MSG_CHECKING([whether to use zlib])
 AC_ARG_ENABLE([zlib],
 	[AS_HELP_STRING([--disable-zlib], [do not use zlib])],
@@ -92,7 +97,9 @@ if test "${enable_zlib}" = "yes" ; then
 	hash_libs="${hash_libs} zlib"
 	AC_DEFINE([ENABLE_ZLIB], [1])
 fi
+# }}}
 
+# check for linux crypto {{{
 AC_MSG_CHECKING([whether to use the Linux-2.6.38+ hash algorithm interface])
 AC_ARG_ENABLE([linux-crypto],
 	[AS_HELP_STRING([--enable-linux-crypto], [use the Linux-2.6.38+ hash algorithm interface])],
@@ -106,7 +113,9 @@ if test "${enable_linux_crypto}" = "yes" ; then
 	hash_libs="${hash_libs} linux_crypto"
 	AC_DEFINE([ENABLE_LINUX_CRYPTO], [1])
 fi
+# }}}
 
+# check for gcrypt {{{
 AC_MSG_CHECKING([whether to use Libgcrypt])
 AC_ARG_ENABLE([gcrypt],
 	[AS_HELP_STRING([--enable-gcrypt], [use Libgcrypt])],
@@ -120,7 +129,9 @@ if test "${enable_gcrypt}" = "yes" ; then
 	hash_libs="${hash_libs} gcrypt"
 	AC_DEFINE([ENABLE_GCRYPT], [1])
 fi
+# }}}
 
+# check for libcrypto (openssl) {{{
 AC_MSG_CHECKING([whether to use libcrypto])
 AC_ARG_ENABLE([libcrypto],
 	[AS_HELP_STRING([--enable-libcrypto], [use libcrypto])],
@@ -136,7 +147,9 @@ if test "${enable_libcrypto}" = "yes" ; then
 	hash_libs="${hash_libs} libcrypto"
 	AC_DEFINE([ENABLE_LIBCRYPTO], [1])
 fi
+# }}}
 
+# check for polarssl {{{
 AC_MSG_CHECKING([whether to use PolarSSL])
 AC_ARG_ENABLE([polarssl],
 	[AS_HELP_STRING([--enable-polarssl], [use PolarSSL])],
@@ -153,7 +166,9 @@ if test "${enable_polarssl}" = "yes" ; then
 	hash_libs="${hash_libs} polarssl"
 	AC_DEFINE([ENABLE_POLARSSL], [1])
 fi
+# }}}
 
+# check for nettle {{{
 AC_MSG_CHECKING([whether to use Nettle])
 AC_ARG_ENABLE([nettle],
 	[AS_HELP_STRING([--enable-nettle], [use Nettle])],
@@ -169,7 +184,9 @@ if test "${enable_nettle}" = "yes" ; then
 	hash_libs="${hash_libs} nettle"
 	AC_DEFINE([ENABLE_NETTLE], [1])
 fi
+# }}}
 
+# check for nss {{{
 AC_MSG_CHECKING([whether to use NSS])
 AC_ARG_ENABLE([nss],
 	[AS_HELP_STRING([--enable-nss], [use NSS])],
@@ -185,7 +202,9 @@ if test "${enable_nss}" = "yes" ; then
 	hash_libs="${hash_libs} nss"
 	AC_DEFINE([ENABLE_NSS], [1])
 fi
+# }}}
 
+# check for glib checksums {{{
 AC_MSG_CHECKING([whether to use the Glib Data Checksums API])
 AC_ARG_ENABLE([glib-checksums],
 	[AS_HELP_STRING([--disable-glib-checksums], [do not use the Glib Data Checksums API])],
@@ -198,7 +217,9 @@ if test "${enable_glib_checksums}" = "yes" ; then
 	hash_libs="${hash_libs} glib_checksums"
 	AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [1])
 fi
+# }}}
 
+# check for mhash {{{
 AC_MSG_CHECKING([whether to use the mhash library])
 AC_ARG_ENABLE([mhash],
 	[AS_HELP_STRING([--enable-mhash], [use the mhash library])],
@@ -215,7 +236,9 @@ if test "${enable_mhash}" = "yes" ; then
 	hash_libs="${hash_libs} mhash"
 	AC_DEFINE([ENABLE_MHASH], [1])
 fi
+# }}}
 
+# check for md6 {{{
 AC_MSG_CHECKING([whether to use the internal MD6 library])
 AC_ARG_ENABLE([internal-md6],
 	[AS_HELP_STRING([--disable-internal-md6], [do not use the internal MD6 library])],
@@ -228,6 +251,7 @@ if test "${enable_internal_md6}" = "yes" ; then
 	hash_libs="${hash_libs} internal_md6"
 	AC_DEFINE([ENABLE_MD6], [1])
 fi
+# }}}
 
 test -z "${hash_libs}" && AC_MSG_ERROR([No hash libraries enabled])
 
@@ -238,6 +262,7 @@ AC_ARG_ENABLE([gtkhash],
 AC_MSG_RESULT([${enable_gtkhash}])
 AM_CONDITIONAL([ENABLE_GTKHASH], [test "${enable_gtkhash}" = "yes"])
 
+# check for caja {{{
 AC_MSG_CHECKING([whether to build the Caja extension])
 AC_ARG_ENABLE([caja],
 	[AS_HELP_STRING([--enable-caja], [build the Caja extension])],
@@ -253,7 +278,9 @@ if test "${enable_caja}" = "yes" ; then
 	CAJA_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensiondir libcaja-extension`
 	AC_SUBST([CAJA_EXTENSION_DIR])
 fi
+# }}}
 
+# check for nautilus {{{
 AC_MSG_CHECKING([whether to build the Nautilus extension])
 AC_ARG_ENABLE([nautilus],
 	[AS_HELP_STRING([--enable-nautilus], [build the Nautilus extension])],
@@ -269,7 +296,9 @@ if test "${enable_nautilus}" = "yes" ; then
 	NAUTILUS_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensiondir libnautilus-extension`
 	AC_SUBST([NAUTILUS_EXTENSION_DIR])
 fi
+# }}}
 
+# check for nemo {{{
 AC_MSG_CHECKING([whether to build the Nemo extension])
 AC_ARG_ENABLE([nemo],
 	[AS_HELP_STRING([--enable-nemo], [build the Nemo extension])],
@@ -285,7 +314,9 @@ if test "${enable_nemo}" = "yes" ; then
 	NEMO_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensiondir libnemo-extension`
 	AC_SUBST([NEMO_EXTENSION_DIR])
 fi
+# }}}
 
+# check for thunar {{{
 AC_MSG_CHECKING([whether to build the Thunar extension])
 AC_ARG_ENABLE([thunar],
 	[AS_HELP_STRING([--enable-thunar], [build the Thunar extension])],
@@ -301,12 +332,15 @@ if test "${enable_thunar}" = "yes" ; then
 	THUNAR_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensionsdir thunarx-2`
 	AC_SUBST([THUNAR_EXTENSION_DIR])
 fi
+# }}}
 
 AM_CONDITIONAL([ENABLE_NAUTILUS_DATA], [
 	test "${enable_caja}" = "yes" ||
 	test "${enable_nautilus}" = "yes" ||
 	test "${enable_nemo}" = "yes" ||
 	test "${enable_thunar}" = "yes"])
+
+# nls option {{{
 AM_CONDITIONAL([ENABLE_NLS], [test "${enable_nls}" != "no"])
 
 if test "${enable_nls}" = "no" ; then
@@ -318,6 +352,7 @@ else
 	IT_PROG_INTLTOOL([0.40.6])
 	AM_GLIB_GNU_GETTEXT
 fi
+# }}}
 
 AC_DEFINE_UNQUOTED([G_LOG_DOMAIN], ["${PACKAGE_NAME}"], [Define the Glib log domain])
 AC_DEFINE([HASH_FILE_BUFFER_SIZE], [131072], [Define file read buffer size (bytes)])
