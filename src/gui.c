@@ -187,15 +187,22 @@ static void gui_init_hash_funcs(void)
 	int supported = 0;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		// TODO: something different for RTL?
+
 		// File/Text view func labels
 		char *label = g_strdup_printf("%s:", hash.funcs[i].name);
 		gui.hash_widgets[i].label = GTK_LABEL(gtk_label_new(label));
 		g_free(label);
 		gtk_container_add(GTK_CONTAINER(gui.vbox_outputlabels),
 			GTK_WIDGET(gui.hash_widgets[i].label));
+#if (GTK_MAJOR_VERSION > 2)
+		gtk_widget_set_halign(GTK_WIDGET(gui.hash_widgets[i].label),
+			GTK_ALIGN_START);
+#else
 		gtk_misc_set_alignment(GTK_MISC(gui.hash_widgets[i].label),
 			// Left align
 			0.0, 0.5);
+#endif
 
 		// File view digests
 		gui.hash_widgets[i].entry_file = GTK_ENTRY(gtk_entry_new());
