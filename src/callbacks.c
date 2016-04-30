@@ -14,7 +14,7 @@
  *   GNU General Public License for more details.
  *
  *   You should have received a copy of the GNU General Public License
- *   along with GtkHash. If not, see <http://www.gnu.org/licenses/>.
+ *   along with GtkHash. If not, see <https://gnu.org/licenses/gpl-2.0.txt>.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -222,7 +222,7 @@ static void on_menuitem_about_activate(void)
 		"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n"
 		"GNU General Public License for more details.\n\n"
 		"You should have received a copy of the GNU General Public License along\n"
-		"with this program; if not, see <http://www.gnu.org/licenses/>.\n"
+		"with this program; if not, see <https://gnu.org/licenses/gpl-2.0.txt>.\n"
 	};
 
 	static const char * const authors[] = {

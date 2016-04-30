@@ -14,7 +14,7 @@
  *   GNU General Public License for more details.
  *
  *   You should have received a copy of the GNU General Public License
- *   along with GtkHash. If not, see <http://www.gnu.org/licenses/>.
+ *   along with GtkHash. If not, see <https://gnu.org/licenses/gpl-2.0.txt>.
  */
 
 #ifndef GTKHASH_HASH_HASH_FUNC_H
