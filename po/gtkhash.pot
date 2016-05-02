@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-28 20:28+0100\n"
+"POT-Creation-Date: 2016-05-02 15:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,75 +17,76 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/gtkhash.xml.h:1
+#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:1
 msgid "GtkHash Preferences"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:2
+#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:2
 msgid "Hash Functions:"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:3
+#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:3
 msgid "Digest Format:"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:4
+#: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:4
 msgid "Lowercase Hexadecimal"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:5
+#: ../data/gtkhash-gtk2.xml.h:5 ../data/gtkhash-gtk3.xml.h:5
 msgid "Uppercase Hexadecimal"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:6
+#: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:6
 msgid "Copy _Digest"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:7
+#: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:7
 msgid "Show _Toolbar"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:8
+#: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:8
 msgid "_File"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:9
+#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:9
 msgid "_Edit"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:10
+#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:10
 msgid "_View"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:11
+#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:11
 msgid "_Text"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:12
+#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:12
 msgid "File _List"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:13
+#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:13
 msgid "_Help"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:14
+#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:14
 msgid "File:"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:15
+#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:15
 msgid "Text:"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:5
+#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:16
+#: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:17
+#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:17
 msgid "File"
 msgstr ""
 
-#: ../data/gtkhash.xml.h:18
+#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:18
 msgid "Ha_sh"
 msgstr ""
 
@@ -105,49 +106,49 @@ msgstr ""
 msgid "Select Files"
 msgstr ""
 
-#: ../src/gui.c:293
+#: ../src/gui.c:305
 #, c-format
 msgid "Failed to read \"%s\""
 msgstr ""
 
-#: ../src/gui.c:310
+#: ../src/gui.c:322
 #, c-format
 msgid ""
 "Failed to read \"%s\":\n"
 "%s"
 msgstr ""
 
-#: ../src/gui.c:359
+#: ../src/gui.c:371
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:381
+#: ../src/gui.c:393
 msgid "Unknown error"
 msgstr ""
 
-#: ../src/gui.c:383
+#: ../src/gui.c:395
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
 "%s"
 msgstr ""
 
-#: ../src/hash.c:82 ../src/nautilus/properties-hash.c:69
+#: ../src/hash.c:80 ../src/nautilus/properties-hash.c:67
 #, c-format
 msgid "%s of %s - 1 minute left (%s/sec)"
 msgstr ""
 
-#: ../src/hash.c:85 ../src/nautilus/properties-hash.c:72
+#: ../src/hash.c:83 ../src/nautilus/properties-hash.c:70
 #, c-format
 msgid "%s of %s - %u minutes left (%s/sec)"
 msgstr ""
 
-#: ../src/hash.c:89 ../src/nautilus/properties-hash.c:76
+#: ../src/hash.c:87 ../src/nautilus/properties-hash.c:74
 #, c-format
 msgid "%s of %s - 1 second left (%s/sec)"
 msgstr ""
 
-#: ../src/hash.c:92 ../src/nautilus/properties-hash.c:79
+#: ../src/hash.c:90 ../src/nautilus/properties-hash.c:77
 #, c-format
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr ""
@@ -208,6 +209,7 @@ msgstr ""
 msgid "H_ash"
 msgstr ""
 
-#: ../src/nautilus/properties.c:427 ../src/nautilus/properties.c:429
+#: ../src/nautilus/properties.c:442 ../src/nautilus/properties.c:445
+#: ../src/nautilus/properties.c:448 ../src/nautilus/properties.c:450
 msgid "Digests"
 msgstr ""

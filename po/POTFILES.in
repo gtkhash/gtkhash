@@ -1,7 +1,8 @@
 [encoding: UTF-8]
 
 # gtkhash
-[type: gettext/glade]data/gtkhash.xml
+[type: gettext/glade]data/gtkhash-gtk2.xml
+[type: gettext/glade]data/gtkhash-gtk3.xml
 src/callbacks.c
 src/gui.c
 src/hash.c

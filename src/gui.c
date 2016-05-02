@@ -293,7 +293,12 @@ void gui_init(const char *datadir)
 {
 	gtk_init(NULL, NULL);
 
-	char *filename = g_build_filename(datadir, PACKAGE ".xml.gz", NULL);
+#if (GTK_MAJOR_VERSION > 2)
+	char *filename = g_build_filename(datadir, PACKAGE "-gtk3.xml.gz", NULL);
+#else
+	char *filename = g_build_filename(datadir, PACKAGE "-gtk2.xml.gz", NULL);
+#endif
+
 	char *xml = gui_get_xml(filename);
 
 	if (!xml || !*xml) {
