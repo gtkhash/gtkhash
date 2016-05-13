@@ -84,40 +84,6 @@ fi
 
 hash_libs=""
 
-# check for zlib {{{
-AC_MSG_CHECKING([whether to use zlib])
-AC_ARG_ENABLE([zlib],
-	[AS_HELP_STRING([--disable-zlib], [do not use zlib])],
-	[enable_zlib="${enableval}"], [enable_zlib="yes"])
-AC_MSG_RESULT([${enable_zlib}])
-AM_CONDITIONAL([ENABLE_ZLIB], [test "${enable_zlib}" = "yes"])
-AC_DEFINE([ENABLE_ZLIB], [0], [Use zlib])
-
-if test "${enable_zlib}" = "yes" ; then
-	PKG_CHECK_MODULES([ZLIB], [zlib])
-	AC_SUBST([ZLIB_CFLAGS])
-	AC_SUBST([ZLIB_LIBS])
-	hash_libs="${hash_libs} zlib"
-	AC_DEFINE([ENABLE_ZLIB], [1])
-fi
-# }}}
-
-# check for linux crypto {{{
-AC_MSG_CHECKING([whether to use the Linux-2.6.38+ hash algorithm interface])
-AC_ARG_ENABLE([linux-crypto],
-	[AS_HELP_STRING([--enable-linux-crypto], [use the Linux-2.6.38+ hash algorithm interface])],
-	[enable_linux_crypto="${enableval}"], [enable_linux_crypto="no"])
-AC_MSG_RESULT([${enable_linux_crypto}])
-AM_CONDITIONAL([ENABLE_LINUX_CRYPTO], [test "${enable_linux_crypto}" = "yes"])
-AC_DEFINE([ENABLE_LINUX_CRYPTO], [0], [Use Linux Crypto])
-
-if test "${enable_linux_crypto}" = "yes" ; then
-	AC_CHECK_HEADER([linux/if_alg.h], [:], [AC_MSG_ERROR([linux/if_alg.h not found])])
-	hash_libs="${hash_libs} linux_crypto"
-	AC_DEFINE([ENABLE_LINUX_CRYPTO], [1])
-fi
-# }}}
-
 # check for gcrypt {{{
 AC_MSG_CHECKING([whether to use Libgcrypt])
 AC_ARG_ENABLE([gcrypt],
@@ -131,6 +97,36 @@ if test "${enable_gcrypt}" = "yes" ; then
 	AM_PATH_LIBGCRYPT([1.4.0], [:], [AC_MSG_ERROR([Libgcrypt not found])])
 	hash_libs="${hash_libs} gcrypt"
 	AC_DEFINE([ENABLE_GCRYPT], [1])
+fi
+# }}}
+
+# check for glib checksums {{{
+AC_MSG_CHECKING([whether to use the Glib Data Checksums API])
+AC_ARG_ENABLE([glib-checksums],
+	[AS_HELP_STRING([--disable-glib-checksums], [do not use the Glib Data Checksums API])],
+	[enable_glib_checksums="${enableval}"], [enable_glib_checksums="yes"])
+AC_MSG_RESULT([${enable_glib_checksums}])
+AM_CONDITIONAL([ENABLE_GLIB_CHECKSUMS], [test "${enable_glib_checksums}" = "yes"])
+AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [0], [Use Glib Checksums])
+
+if test "${enable_glib_checksums}" = "yes" ; then
+	hash_libs="${hash_libs} glib_checksums"
+	AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [1])
+fi
+# }}}
+
+# check for internal md6 {{{
+AC_MSG_CHECKING([whether to use the internal MD6 library])
+AC_ARG_ENABLE([internal-md6],
+	[AS_HELP_STRING([--disable-internal-md6], [do not use the internal MD6 library])],
+	[enable_internal_md6="${enableval}"], [enable_internal_md6="yes"])
+AC_MSG_RESULT([${enable_internal_md6}])
+AM_CONDITIONAL([ENABLE_MD6], [test "${enable_internal_md6}" = "yes"])
+AC_DEFINE([ENABLE_MD6], [0], [Use MD6])
+
+if test "${enable_internal_md6}" = "yes" ; then
+	hash_libs="${hash_libs} internal_md6"
+	AC_DEFINE([ENABLE_MD6], [1])
 fi
 # }}}
 
@@ -152,22 +148,38 @@ if test "${enable_libcrypto}" = "yes" ; then
 fi
 # }}}
 
-# check for polarssl {{{
-AC_MSG_CHECKING([whether to use PolarSSL])
-AC_ARG_ENABLE([polarssl],
-	[AS_HELP_STRING([--enable-polarssl], [use PolarSSL])],
-	[enable_polarssl="${enableval}"], [enable_polarssl="no"])
-AC_MSG_RESULT([${enable_polarssl}])
-AM_CONDITIONAL([ENABLE_POLARSSL], [test "${enable_polarssl}" = "yes"])
-AC_DEFINE([ENABLE_POLARSSL], [0], [Use PolarSSL])
+# check for linux crypto {{{
+AC_MSG_CHECKING([whether to use the Linux-2.6.38+ hash algorithm interface])
+AC_ARG_ENABLE([linux-crypto],
+	[AS_HELP_STRING([--enable-linux-crypto], [use the Linux-2.6.38+ hash algorithm interface])],
+	[enable_linux_crypto="${enableval}"], [enable_linux_crypto="no"])
+AC_MSG_RESULT([${enable_linux_crypto}])
+AM_CONDITIONAL([ENABLE_LINUX_CRYPTO], [test "${enable_linux_crypto}" = "yes"])
+AC_DEFINE([ENABLE_LINUX_CRYPTO], [0], [Use Linux Crypto])
 
-if test "${enable_polarssl}" = "yes" ; then
-	AC_CHECK_HEADER([polarssl/md.h], [:], [AC_MSG_ERROR([polarssl headers not found])])
-	AC_CHECK_LIB([polarssl], [md_update], [:], [AC_MSG_ERROR([polarssl library not found])])
-	POLARSSL_LIBS="-lpolarssl"
-	AC_SUBST([POLARSSL_LIBS])
-	hash_libs="${hash_libs} polarssl"
-	AC_DEFINE([ENABLE_POLARSSL], [1])
+if test "${enable_linux_crypto}" = "yes" ; then
+	AC_CHECK_HEADER([linux/if_alg.h], [:], [AC_MSG_ERROR([linux/if_alg.h not found])])
+	hash_libs="${hash_libs} linux_crypto"
+	AC_DEFINE([ENABLE_LINUX_CRYPTO], [1])
+fi
+# }}}
+
+# check for mhash {{{
+AC_MSG_CHECKING([whether to use the mhash library])
+AC_ARG_ENABLE([mhash],
+	[AS_HELP_STRING([--enable-mhash], [use the mhash library])],
+	[enable_mhash="${enableval}"], [enable_mhash="no"])
+AC_MSG_RESULT([${enable_mhash}])
+AM_CONDITIONAL([ENABLE_MHASH], [test "${enable_mhash}" = "yes"])
+AC_DEFINE([ENABLE_MHASH], [0], [Use mhash])
+
+if test "${enable_mhash}" = "yes" ; then
+	AC_CHECK_HEADER([mhash.h], [:], [AC_MSG_ERROR([mhash.h not found])])
+	AC_CHECK_LIB([mhash], [mhash], [:], [AC_MSG_ERROR([mhash library not found])])
+	MHASH_LIBS="-lmhash"
+	AC_SUBST([MHASH_LIBS])
+	hash_libs="${hash_libs} mhash"
+	AC_DEFINE([ENABLE_MHASH], [1])
 fi
 # }}}
 
@@ -207,52 +219,40 @@ if test "${enable_nss}" = "yes" ; then
 fi
 # }}}
 
-# check for glib checksums {{{
-AC_MSG_CHECKING([whether to use the Glib Data Checksums API])
-AC_ARG_ENABLE([glib-checksums],
-	[AS_HELP_STRING([--disable-glib-checksums], [do not use the Glib Data Checksums API])],
-	[enable_glib_checksums="${enableval}"], [enable_glib_checksums="yes"])
-AC_MSG_RESULT([${enable_glib_checksums}])
-AM_CONDITIONAL([ENABLE_GLIB_CHECKSUMS], [test "${enable_glib_checksums}" = "yes"])
-AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [0], [Use Glib Checksums])
+# check for polarssl {{{
+AC_MSG_CHECKING([whether to use PolarSSL])
+AC_ARG_ENABLE([polarssl],
+	[AS_HELP_STRING([--enable-polarssl], [use PolarSSL])],
+	[enable_polarssl="${enableval}"], [enable_polarssl="no"])
+AC_MSG_RESULT([${enable_polarssl}])
+AM_CONDITIONAL([ENABLE_POLARSSL], [test "${enable_polarssl}" = "yes"])
+AC_DEFINE([ENABLE_POLARSSL], [0], [Use PolarSSL])
 
-if test "${enable_glib_checksums}" = "yes" ; then
-	hash_libs="${hash_libs} glib_checksums"
-	AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [1])
+if test "${enable_polarssl}" = "yes" ; then
+	AC_CHECK_HEADER([polarssl/md.h], [:], [AC_MSG_ERROR([polarssl headers not found])])
+	AC_CHECK_LIB([polarssl], [md_update], [:], [AC_MSG_ERROR([polarssl library not found])])
+	POLARSSL_LIBS="-lpolarssl"
+	AC_SUBST([POLARSSL_LIBS])
+	hash_libs="${hash_libs} polarssl"
+	AC_DEFINE([ENABLE_POLARSSL], [1])
 fi
 # }}}
 
-# check for mhash {{{
-AC_MSG_CHECKING([whether to use the mhash library])
-AC_ARG_ENABLE([mhash],
-	[AS_HELP_STRING([--enable-mhash], [use the mhash library])],
-	[enable_mhash="${enableval}"], [enable_mhash="no"])
-AC_MSG_RESULT([${enable_mhash}])
-AM_CONDITIONAL([ENABLE_MHASH], [test "${enable_mhash}" = "yes"])
-AC_DEFINE([ENABLE_MHASH], [0], [Use mhash])
+# check for zlib {{{
+AC_MSG_CHECKING([whether to use zlib])
+AC_ARG_ENABLE([zlib],
+	[AS_HELP_STRING([--disable-zlib], [do not use zlib])],
+	[enable_zlib="${enableval}"], [enable_zlib="yes"])
+AC_MSG_RESULT([${enable_zlib}])
+AM_CONDITIONAL([ENABLE_ZLIB], [test "${enable_zlib}" = "yes"])
+AC_DEFINE([ENABLE_ZLIB], [0], [Use zlib])
 
-if test "${enable_mhash}" = "yes" ; then
-	AC_CHECK_HEADER([mhash.h], [:], [AC_MSG_ERROR([mhash.h not found])])
-	AC_CHECK_LIB([mhash], [mhash], [:], [AC_MSG_ERROR([mhash library not found])])
-	MHASH_LIBS="-lmhash"
-	AC_SUBST([MHASH_LIBS])
-	hash_libs="${hash_libs} mhash"
-	AC_DEFINE([ENABLE_MHASH], [1])
-fi
-# }}}
-
-# check for md6 {{{
-AC_MSG_CHECKING([whether to use the internal MD6 library])
-AC_ARG_ENABLE([internal-md6],
-	[AS_HELP_STRING([--disable-internal-md6], [do not use the internal MD6 library])],
-	[enable_internal_md6="${enableval}"], [enable_internal_md6="yes"])
-AC_MSG_RESULT([${enable_internal_md6}])
-AM_CONDITIONAL([ENABLE_MD6], [test "${enable_internal_md6}" = "yes"])
-AC_DEFINE([ENABLE_MD6], [0], [Use MD6])
-
-if test "${enable_internal_md6}" = "yes" ; then
-	hash_libs="${hash_libs} internal_md6"
-	AC_DEFINE([ENABLE_MD6], [1])
+if test "${enable_zlib}" = "yes" ; then
+	PKG_CHECK_MODULES([ZLIB], [zlib])
+	AC_SUBST([ZLIB_CFLAGS])
+	AC_SUBST([ZLIB_LIBS])
+	hash_libs="${hash_libs} zlib"
+	AC_DEFINE([ENABLE_ZLIB], [1])
 fi
 # }}}
 
@@ -382,67 +382,90 @@ echo "  gtkhash-nemo: ${enable_nemo}"
 echo "  gtkhash-thunar: ${enable_thunar}"
 
 gcrypt_funcs="
-	MD4 MD5
-	SHA1 SHA224 SHA256 SHA384 SHA512
+	MD4
+	MD5
 	RIPEMD160
+	SHA1
+	SHA224 SHA256 SHA384 SHA512
 	TIGER192
 	WHIRLPOOL"
 glib_checksums_funcs="
 	MD5
-	SHA1 SHA256"
+	SHA1
+	SHA256"
 internal_md6_funcs="
 	MD6-224 MD6-256 MD6-384 MD6-512"
 libcrypto_funcs="
-	MD4 MD5
-	SHA0 SHA1
+	MD4
+	MD5
+	MDC2
 	RIPEMD160
-	MDC2"
+	SHA0
+	SHA1"
 linux_crypto_funcs="
-	MD4 MD5
-	SHA1 SHA224 SHA256 SHA384 SHA512
+	MD4
+	MD5
 	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320
+	SHA1
+	SHA224 SHA256 SHA384 SHA512
 	TIGER128 TIGER160 TIGER192
 	WHIRLPOOL"
 mhash_funcs="
-	MD2 MD4 MD5
-	SHA1 SHA224 SHA256 SHA384 SHA512
-	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320
-	TIGER128 TIGER160 TIGER192
-	WHIRLPOOL
-	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3
 	GOST
-	SNEFRU128 SNEFRU256"
+	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3
+	MD2
+	MD4
+	MD5
+	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320
+	SHA1
+	SHA224 SHA256 SHA384 SHA512
+	SNEFRU128 SNEFRU256
+	TIGER128 TIGER160 TIGER192
+	WHIRLPOOL"
 nettle_funcs="
-	MD2 MD4 MD5
-	SHA1 SHA224 SHA256 SHA384 SHA512
-	SHA3-224 SHA3-256 SHA3-384 SHA3-512
+	GOST
+	MD2
+	MD4
+	MD5
 	RIPEMD160
-	GOST"
+	SHA1
+	SHA224 SHA256 SHA384 SHA512
+	SHA3-224 SHA3-256 SHA3-384 SHA3-512"
 nss_funcs="
-	MD2 MD5
-	SHA1 SHA256 SHA384 SHA512"
+	MD2
+	MD5
+	SHA1
+	SHA256 SHA384 SHA512"
 polarssl_funcs="
-	MD2 MD4 MD5
+	MD2
+	MD4
+	MD5
 	RIPEMD160
-	SHA1 SHA224 SHA256 SHA384 SHA512"
+	SHA1
+	SHA224 SHA256 SHA384 SHA512"
 zlib_funcs="
-	CRC32
-	ADLER32"
+	ADLER32
+	CRC32"
 echo
 echo "Supported Hash Functions:"
 for func in \
-	MD2 MD4 MD5 MD6-224 MD6-256 MD6-384 MD6-512 \
-	SHA0 SHA1 SHA224 SHA256 SHA384 SHA512 \
-	SHA3-224 SHA3-256 SHA3-384 SHA3-512 \
-	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320 \
-	TIGER128 TIGER160 TIGER192 \
-	WHIRLPOOL \
-	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3 \
-	GOST \
-	SNEFRU128 SNEFRU256 \
-	MDC2 \
+	ADLER32 \
 	CRC32 \
-	ADLER32
+	GOST \
+	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3 \
+	MD2 \
+	MD4 \
+	MD5 \
+	MD6-224 MD6-256 MD6-384 MD6-512 \
+	MDC2 \
+	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320 \
+	SHA0 \
+	SHA1 \
+	SHA224 SHA256 SHA384 SHA512 \
+	SHA3-224 SHA3-256 SHA3-384 SHA3-512 \
+	SNEFRU128 SNEFRU256 \
+	TIGER128 TIGER160 TIGER192 \
+	WHIRLPOOL
 do
 	printf "  %-14s" "${func}"
 	enabled=""
