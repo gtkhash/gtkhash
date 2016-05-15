@@ -50,17 +50,13 @@ void gtkhash_hash_file_report_cb(void *data, goffset file_size,
 		return;
 
 	// Update progressbar text...
+
 	unsigned int s = elapsed / total_read * (file_size - total_read);
-#if ((GLIB_MAJOR_VERSION == 2) && (GLIB_MINOR_VERSION < 30))
-	char *total_read_str = g_format_size_for_display(total_read);
-	char *file_size_str = g_format_size_for_display(file_size);
-	char *speed_str = g_format_size_for_display(total_read / elapsed);
-#else
 	char *total_read_str = g_format_size(total_read);
 	char *file_size_str = g_format_size(file_size);
 	char *speed_str = g_format_size(total_read / elapsed);
-#endif
 	char *text;
+
 	if (s > 60) {
 		unsigned int m = s / 60;
 		if (m == 1)
@@ -77,7 +73,9 @@ void gtkhash_hash_file_report_cb(void *data, goffset file_size,
 			text = g_strdup_printf(_("%s of %s - %u seconds left (%s/sec)"),
 				total_read_str, file_size_str, s, speed_str);
 	}
+
 	gtk_progress_bar_set_text(page->progressbar, text);
+
 	g_free(text);
 	g_free(speed_str);
 	g_free(file_size_str);
