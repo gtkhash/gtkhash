@@ -461,7 +461,7 @@ nss_funcs="
 	MD2
 	MD5
 	SHA1
-	SHA256 SHA384 SHA512"
+	SHA224 SHA256 SHA384 SHA512"
 polarssl_funcs="
 	MD2
 	MD4

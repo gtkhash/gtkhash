@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -44,24 +44,14 @@ static bool gtkhash_hash_lib_nss_set_alg(const enum hash_func_e id,
 	SECOidTag *alg)
 {
 	switch (id) {
-		case HASH_FUNC_MD2:
-			*alg = SEC_OID_MD2;
-			break;
-		case HASH_FUNC_MD5:
-			*alg = SEC_OID_MD5;
-			break;
-		case HASH_FUNC_SHA1:
-			*alg = SEC_OID_SHA1;
-			break;
-		case HASH_FUNC_SHA256:
-			*alg = SEC_OID_SHA256;
-			break;
-		case HASH_FUNC_SHA384:
-			*alg = SEC_OID_SHA384;
-			break;
-		case HASH_FUNC_SHA512:
-			*alg = SEC_OID_SHA512;
-			break;
+		case HASH_FUNC_MD2:    *alg = SEC_OID_MD2;    break;
+		case HASH_FUNC_MD5:    *alg = SEC_OID_MD5;    break;
+		case HASH_FUNC_SHA1:   *alg = SEC_OID_SHA1;   break;
+		case HASH_FUNC_SHA224: *alg = SEC_OID_SHA224; break;
+		case HASH_FUNC_SHA256: *alg = SEC_OID_SHA256; break;
+		case HASH_FUNC_SHA384: *alg = SEC_OID_SHA384; break;
+		case HASH_FUNC_SHA512: *alg = SEC_OID_SHA512; break;
+
 		default:
 			return false;
 	}
