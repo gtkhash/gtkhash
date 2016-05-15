@@ -94,7 +94,7 @@ AM_CONDITIONAL([ENABLE_GCRYPT], [test "${enable_gcrypt}" = "yes"])
 AC_DEFINE([ENABLE_GCRYPT], [0], [Use Libgcrypt])
 
 if test "${enable_gcrypt}" = "yes" ; then
-	AM_PATH_LIBGCRYPT([1.4.0], [:], [AC_MSG_ERROR([Libgcrypt not found])])
+	AM_PATH_LIBGCRYPT([1.7.0], [:], [AC_MSG_ERROR([Libgcrypt not found])])
 	hash_libs="${hash_libs} gcrypt"
 	AC_DEFINE([ENABLE_GCRYPT], [1])
 fi
@@ -406,6 +406,7 @@ gcrypt_funcs="
 	RIPEMD160
 	SHA1
 	SHA224 SHA256 SHA384 SHA512
+	SHA3-224 SHA3-256 SHA3-384 SHA3-512
 	TIGER192
 	WHIRLPOOL"
 glib_checksums_funcs="
