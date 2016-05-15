@@ -41,6 +41,11 @@ if ENABLE_LINUX_CRYPTO
 hash_la_SOURCES += hash-lib-linux.c hash-lib-linux.h
 endif
 
+if ENABLE_MBEDTLS
+hash_la_SOURCES += hash-lib-mbedtls.c hash-lib-mbedtls.h
+hash_la_LIBADD += $(MBEDTLS_LIBS)
+endif
+
 if ENABLE_MD6
 hash_la_SOURCES += hash-lib-md6.c hash-lib-md6.h md6/md6.c md6/md6.h
 endif

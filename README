@@ -8,23 +8,25 @@ the Free Software Foundation, either version 2 of the License, or
 https://github.com/tristanheaven/gtkhash
 
 Dependencies:
-    Required:
-        Glib 2
-        GTK+ 2 or 3
-    Optional:
-        zlib
-        Linux-2.6.38 (with CONFIG_CRYPTO_USER_API_HASH)
-        Libgcrypt
-        libcrypto
-        PolarSSL
-        Nettle
-        NSS
-        mhash
-    File managers:
-        Caja
-        Nautilus
-        Nemo
-        Thunar
+    Glib 2
+    GTK+ 2 or 3
+
+Optional dependencies:
+    zlib
+    Linux-2.6.38 (with CONFIG_CRYPTO_USER_API_HASH)
+    Libgcrypt
+    libcrypto
+    PolarSSL
+    mbed TLS
+    Nettle
+    NSS
+    mhash
+
+File manager extensions:
+    Caja
+    Nautilus
+    Nemo
+    Thunar
 
 Translations:
     Please submit any new or updated translations here:

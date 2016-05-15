@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -42,6 +42,9 @@
 #if ENABLE_LINUX_CRYPTO
 	#include "hash-lib-linux.h"
 #endif
+#if ENABLE_MBEDTLS
+	#include "hash-lib-mbedtls.h"
+#endif
 #if ENABLE_MD6
 	#include "hash-lib-md6.h"
 #endif
@@ -62,7 +65,7 @@
 #endif
 
 enum hash_lib_e {
-	HASH_LIB_INVALID = 0,
+	HASH_LIB_INVALID = -1,
 #if ENABLE_GCRYPT
 	HASH_LIB_GCRYPT,
 #endif
@@ -74,6 +77,9 @@ enum hash_lib_e {
 #endif
 #if ENABLE_LINUX_CRYPTO
 	HASH_LIB_LINUX,
+#endif
+#if ENABLE_MBEDTLS
+	HASH_LIB_MBEDTLS,
 #endif
 #if ENABLE_MD6
 	HASH_LIB_MD6,
@@ -100,47 +106,77 @@ static enum hash_lib_e hash_libs[HASH_FUNCS_N];
 
 static void gtkhash_hash_lib_init_once(void)
 {
+	// Init all lib selections to be invalid
+	for (enum hash_func_e i = 0; i < HASH_FUNCS_N; i++)
+		hash_libs[i] = HASH_LIB_INVALID;
+
 	// Note: Preferred lib selections are defined by the order used here
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
+	for (enum hash_func_e i = 0; i < HASH_FUNCS_N; i++) {
 #if ENABLE_ZLIB
-		if (!hash_libs[i] && gtkhash_hash_lib_zlib_is_supported(i))
+		if (gtkhash_hash_lib_zlib_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_ZLIB;
+			continue;
+		}
 #endif
 #if ENABLE_LINUX_CRYPTO
-		if (!hash_libs[i] && gtkhash_hash_lib_linux_is_supported(i))
+		if (gtkhash_hash_lib_linux_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_LINUX;
+			continue;
+		}
 #endif
 #if ENABLE_GCRYPT
-		if (!hash_libs[i] && gtkhash_hash_lib_gcrypt_is_supported(i))
+		if (gtkhash_hash_lib_gcrypt_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_GCRYPT;
+			continue;
+		}
 #endif
 #if ENABLE_LIBCRYPTO
-		if (!hash_libs[i] && gtkhash_hash_lib_crypto_is_supported(i))
+		if (gtkhash_hash_lib_crypto_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_CRYPTO;
+			continue;
+		}
+#endif
+#if ENABLE_MBEDTLS
+		if (gtkhash_hash_lib_mbedtls_is_supported(i)) {
+			hash_libs[i] = HASH_LIB_MBEDTLS;
+			continue;
+		}
 #endif
 #if ENABLE_POLARSSL
-		if (!hash_libs[i] && gtkhash_hash_lib_polarssl_is_supported(i))
+		if (gtkhash_hash_lib_polarssl_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_POLARSSL;
+			continue;
+		}
 #endif
 #if ENABLE_NETTLE
-		if (!hash_libs[i] && gtkhash_hash_lib_nettle_is_supported(i))
+		if (gtkhash_hash_lib_nettle_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_NETTLE;
+			continue;
+		}
 #endif
 #if ENABLE_NSS
-		if (!hash_libs[i] && gtkhash_hash_lib_nss_is_supported(i))
+		if (gtkhash_hash_lib_nss_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_NSS;
+			continue;
+		}
 #endif
 #if ENABLE_GLIB_CHECKSUMS
-		if (!hash_libs[i] && gtkhash_hash_lib_glib_is_supported(i))
+		if (gtkhash_hash_lib_glib_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_GLIB;
+			continue;
+		}
 #endif
 #if ENABLE_MHASH
-		if (!hash_libs[i] && gtkhash_hash_lib_mhash_is_supported(i))
+		if (gtkhash_hash_lib_mhash_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_MHASH;
+			continue;
+		}
 #endif
 #if ENABLE_MD6
-		if (!hash_libs[i] && gtkhash_hash_lib_md6_is_supported(i))
+		if (gtkhash_hash_lib_md6_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_MD6;
+			continue;
+		}
 #endif
 	}
 }
@@ -167,13 +203,16 @@ void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_start,
 #endif
 #if ENABLE_GLIB_CHECKSUMS
-		[HASH_LIB_GLIB]  = gtkhash_hash_lib_glib_start,
+		[HASH_LIB_GLIB] = gtkhash_hash_lib_glib_start,
 #endif
 #if ENABLE_LIBCRYPTO
 		[HASH_LIB_CRYPTO] = gtkhash_hash_lib_crypto_start,
 #endif
 #if ENABLE_LINUX_CRYPTO
 		[HASH_LIB_LINUX] = gtkhash_hash_lib_linux_start,
+#endif
+#if ENABLE_MBEDTLS
+		[HASH_LIB_MBEDTLS] = gtkhash_hash_lib_mbedtls_start,
 #endif
 #if ENABLE_MD6
 		[HASH_LIB_MD6] = gtkhash_hash_lib_md6_start,
@@ -218,13 +257,16 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_update,
 #endif
 #if ENABLE_GLIB_CHECKSUMS
-		[HASH_LIB_GLIB]  = gtkhash_hash_lib_glib_update,
+		[HASH_LIB_GLIB] = gtkhash_hash_lib_glib_update,
 #endif
 #if ENABLE_LIBCRYPTO
 		[HASH_LIB_CRYPTO] = gtkhash_hash_lib_crypto_update,
 #endif
 #if ENABLE_LINUX_CRYPTO
 		[HASH_LIB_LINUX] = gtkhash_hash_lib_linux_update,
+#endif
+#if ENABLE_MBEDTLS
+		[HASH_LIB_MBEDTLS] = gtkhash_hash_lib_mbedtls_update,
 #endif
 #if ENABLE_MD6
 		[HASH_LIB_MD6] = gtkhash_hash_lib_md6_update,
@@ -262,13 +304,16 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_stop,
 #endif
 #if ENABLE_GLIB_CHECKSUMS
-		[HASH_LIB_GLIB]  = gtkhash_hash_lib_glib_stop,
+		[HASH_LIB_GLIB] = gtkhash_hash_lib_glib_stop,
 #endif
 #if ENABLE_LIBCRYPTO
 		[HASH_LIB_CRYPTO] = gtkhash_hash_lib_crypto_stop,
 #endif
 #if ENABLE_LINUX_CRYPTO
 		[HASH_LIB_LINUX] = gtkhash_hash_lib_linux_stop,
+#endif
+#if ENABLE_MBEDTLS
+		[HASH_LIB_MBEDTLS] = gtkhash_hash_lib_mbedtls_stop,
 #endif
 #if ENABLE_MD6
 		[HASH_LIB_MD6] = gtkhash_hash_lib_md6_stop,
@@ -310,13 +355,16 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_finish,
 #endif
 #if ENABLE_GLIB_CHECKSUMS
-		[HASH_LIB_GLIB]  = gtkhash_hash_lib_glib_finish,
+		[HASH_LIB_GLIB] = gtkhash_hash_lib_glib_finish,
 #endif
 #if ENABLE_LIBCRYPTO
 		[HASH_LIB_CRYPTO] = gtkhash_hash_lib_crypto_finish,
 #endif
 #if ENABLE_LINUX_CRYPTO
 		[HASH_LIB_LINUX] = gtkhash_hash_lib_linux_finish,
+#endif
+#if ENABLE_MBEDTLS
+		[HASH_LIB_MBEDTLS] = gtkhash_hash_lib_mbedtls_finish,
 #endif
 #if ENABLE_MD6
 		[HASH_LIB_MD6] = gtkhash_hash_lib_md6_finish,

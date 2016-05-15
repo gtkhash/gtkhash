@@ -164,6 +164,25 @@ if test "${enable_linux_crypto}" = "yes" ; then
 fi
 # }}}
 
+# check for mbedtls {{{
+AC_MSG_CHECKING([whether to use mbed TLS])
+AC_ARG_ENABLE([mbedtls],
+	[AS_HELP_STRING([--enable-mbedtls], [use mbed TLS])],
+	[enable_mbedtls="${enableval}"], [enable_mbedtls="no"])
+AC_MSG_RESULT([${enable_mbedtls}])
+AM_CONDITIONAL([ENABLE_MBEDTLS], [test "${enable_mbedtls}" = "yes"])
+AC_DEFINE([ENABLE_MBEDTLS], [0], [Use mbed TLS])
+
+if test "${enable_mbedtls}" = "yes" ; then
+	AC_CHECK_HEADER([mbedtls/md.h], [:], [AC_MSG_ERROR([mbedtls headers not found])])
+	AC_CHECK_LIB([mbedcrypto], [mbedtls_md_update], [:], [AC_MSG_ERROR([mbedtls library not found])])
+	MBEDTLS_LIBS="-lmbedcrypto"
+	AC_SUBST([MBEDTLS_LIBS])
+	hash_libs="${hash_libs} mbedtls"
+	AC_DEFINE([ENABLE_MBEDTLS], [1])
+fi
+# }}}
+
 # check for mhash {{{
 AC_MSG_CHECKING([whether to use the mhash library])
 AC_ARG_ENABLE([mhash],
@@ -410,6 +429,13 @@ linux_crypto_funcs="
 	SHA224 SHA256 SHA384 SHA512
 	TIGER128 TIGER160 TIGER192
 	WHIRLPOOL"
+mbedtls_funcs="
+	MD2
+	MD4
+	MD5
+	RIPEMD160
+	SHA1
+	SHA224 SHA256 SHA384 SHA512"
 mhash_funcs="
 	GOST
 	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3

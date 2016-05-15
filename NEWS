@@ -2,6 +2,7 @@ Summary of changes for each release:
 
 0.8.0 -
 	* Added Caja (MATE file manager) extension
+	* Added support for mbed TLS
 	* Switched to use GTK+ 3 by default
 
 0.7.0 - 2013-10-30
