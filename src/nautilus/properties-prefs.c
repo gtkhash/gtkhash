@@ -101,17 +101,11 @@ void gtkhash_properties_prefs_init(struct page_s *page)
 {
 	page->settings = NULL;
 
-	bool found = false;
-	const char * const *schemas = g_settings_list_schemas();
+	GSettingsSchema *schema = g_settings_schema_source_lookup(
+		g_settings_schema_source_get_default(), PREFS_SCHEMA, true);
 
-	for (int i = 0; schemas[i]; i++) {
-		if (g_strcmp0(schemas[i], PREFS_SCHEMA) == 0) {
-			found = true;
-			break;
-		}
-	}
-
-	if (found) {
+	if (schema) {
+		g_settings_schema_unref(schema);
 		page->settings = g_settings_new(PREFS_SCHEMA);
 		gtkhash_properties_prefs_load(page);
 	} else
