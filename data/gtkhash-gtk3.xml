@@ -770,7 +770,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkHButtonBox" id="hbuttonbox">
+                      <object class="GtkButtonBox" id="hbuttonbox">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="spacing">6</property>
