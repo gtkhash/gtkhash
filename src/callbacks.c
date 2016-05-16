@@ -212,6 +212,7 @@ static void on_menuitem_prefs_activate(void)
 
 static void on_menuitem_about_activate(void)
 {
+#if (GTK_MAJOR_VERSION < 3)
 	static const char * const license = {
 		"This program is free software: you can redistribute it and/or modify\n"
 		"it under the terms of the GNU General Public License as published by\n"
@@ -224,6 +225,7 @@ static void on_menuitem_about_activate(void)
 		"You should have received a copy of the GNU General Public License along\n"
 		"with this program; if not, see <https://gnu.org/licenses/gpl-2.0.txt>.\n"
 	};
+#endif
 
 	static const char * const authors[] = {
 		"Tristan Heaven <tristan@tristanheaven.net>",
@@ -234,7 +236,12 @@ static void on_menuitem_about_activate(void)
 			gui.window,
 			"authors", authors,
 			"comments", _("A GTK+ utility for computing message digests or checksums."),
+#if (GTK_MAJOR_VERSION > 2)
+			"license-type", GTK_LICENSE_GPL_2_0,
+#else
 			"license", license,
+#endif
+			"logo-icon-name", PACKAGE,
 			"program-name", PACKAGE_NAME,
 #if ENABLE_NLS
 			"translator-credits", _("translator-credits"),
