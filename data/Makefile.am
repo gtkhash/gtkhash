@@ -22,10 +22,10 @@ CLEANFILES = $(pkgdata_DATA)
 endif
 
 gtkhash-gtk2.xml.gz: gtkhash-gtk2.xml
-	$(AM_V_GEN) gzip -c9 $< > $@
+	$(AM_V_GEN) gzip -nc9 $< > $@
 
 gtkhash-gtk3.xml.gz: gtkhash-gtk3.xml
-	$(AM_V_GEN) gzip -c9 $< > $@
+	$(AM_V_GEN) gzip -nc9 $< > $@
 
 @INTLTOOL_XML_NOMERGE_RULE@
 @GSETTINGS_RULES@
