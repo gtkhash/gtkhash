@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -174,8 +174,13 @@ static void gui_get_objects(GtkBuilder *builder)
 	// Dialog
 	gui.dialog = GTK_DIALOG(gui_get_object(builder,
 		"dialog"));
+#if (GTK_MAJOR_VERSION > 2)
+	gui.dialog_grid = GTK_GRID(gui_get_object(builder,
+		"dialog_grid"));
+#else
 	gui.dialog_table = GTK_TABLE(gui_get_object(builder,
 		"dialog_table"));
+#endif
 	gui.dialog_combobox = GTK_COMBO_BOX(gui_get_object(builder,
 		"dialog_combobox"));
 	gui.dialog_button_close = GTK_BUTTON(gui_get_object(builder,
@@ -232,6 +237,14 @@ static void gui_init_hash_funcs(void)
 		gui.hash_widgets[i].button = GTK_TOGGLE_BUTTON(
 			gtk_check_button_new_with_label(hash.funcs[i].name));
 		if (hash.funcs[i].supported) {
+#if (GTK_MAJOR_VERSION > 2)
+			gtk_grid_attach(gui.dialog_grid,
+				GTK_WIDGET(gui.hash_widgets[i].button),
+				supported % 2 ? 1 : 0, // column
+				supported / 2,         // row
+				1,                     // width
+				1);                    // height
+#else
 			gtk_table_attach_defaults(gui.dialog_table,
 				GTK_WIDGET(gui.hash_widgets[i].button),
 				// Sort checkbuttons into 2 columns
@@ -239,6 +252,7 @@ static void gui_init_hash_funcs(void)
 				supported % 2 ? 2 : 1,
 				supported / 2,
 				supported / 2 + 1);
+#endif
 			gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].button));
 
 			supported++;
@@ -833,7 +847,12 @@ void gui_set_state(const enum gui_state_e state)
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_file), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_file_list), !busy);
 
+#if (GTK_MAJOR_VERSION > 2)
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_grid), !busy);
+#else
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_table), !busy);
+#endif
+
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_combobox), !busy);
 
 	if (busy) {

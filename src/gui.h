@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -82,7 +82,11 @@ extern struct gui_s {
 	GtkProgressBar *progressbar;
 	GtkButton *button_hash, *button_stop;
 	GtkDialog *dialog;
+#if (GTK_MAJOR_VERSION > 2)
+	GtkGrid *dialog_grid;
+#else
 	GtkTable *dialog_table;
+#endif
 	GtkComboBox *dialog_combobox;
 	GtkButton *dialog_button_close;
 	struct {
