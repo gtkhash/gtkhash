@@ -13,7 +13,6 @@ addons:
       - intltool
       - libglib2.0-dev
       - libgtk-3-dev
-      - libmbedtls-dev
       - nettle-dev
       - libnss3-dev
       - libssl-dev
@@ -25,5 +24,5 @@ env:
 
 script:
   - ./autogen.sh
-  - ./configure --with-gtk=${WITH_GTK} --enable-{mbedtls,nettle,nss,libcrypto,polarssl,linux-crypto}
+  - ./configure --with-gtk=${WITH_GTK} --enable-{nettle,nss,libcrypto,polarssl,linux-crypto}
   - make V=1
