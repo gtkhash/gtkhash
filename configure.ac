@@ -14,6 +14,7 @@ LT_INIT
 GTKHASH_CFLAGS=""
 
 for opt in \
+	-Werror=unknown-warning-option \
 	-fno-common \
 	-fvisibility=hidden \
 	-pedantic \
@@ -133,7 +134,7 @@ fi
 # check for libcrypto (openssl) {{{
 #
 # Disabled until a thread-safe API is released with openssl-1.1
-enable_libcrypto = no
+enable_libcrypto=no
 #
 #AC_MSG_CHECKING([whether to use libcrypto])
 #AC_ARG_ENABLE([libcrypto],
