@@ -1,0 +1,17 @@
+language: c
+
+compiler:
+  - gcc
+  - clang
+
+addons:
+  apt:
+    packages:
+      - intltool
+      - libglib2.0-dev
+      - libgtk-3-dev
+
+script:
+  - ./autogen.sh
+  - ./configure
+  - make V=1
