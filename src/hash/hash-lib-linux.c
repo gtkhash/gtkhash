@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -41,45 +41,25 @@ struct hash_lib_linux_s {
 	int sockfd, connfd;
 };
 
-G_GNUC_NORETURN static void gtkhash_hash_lib_linux_error(
-	struct hash_func_s *func, const char *str)
-{
-	g_error("%s: %s (%s)", LIB_DATA->name, str, g_strerror(errno));
-}
-
 static const char *gtkhash_hash_lib_linux_get_name(const enum hash_func_e id)
 {
 	switch (id) {
-		case HASH_FUNC_MD4:
-			return "md4";
-		case HASH_FUNC_MD5:
-			return "md5";
-		case HASH_FUNC_RIPEMD128:
-			return "rmd128";
-		case HASH_FUNC_RIPEMD160:
-			return "rmd160";
-		case HASH_FUNC_RIPEMD256:
-			return "rmd256";
-		case HASH_FUNC_RIPEMD320:
-			return "rmd320";
-		case HASH_FUNC_SHA1:
-			return "sha1";
-		case HASH_FUNC_SHA224:
-			return "sha224";
-		case HASH_FUNC_SHA256:
-			return "sha256";
-		case HASH_FUNC_SHA384:
-			return "sha384";
-		case HASH_FUNC_SHA512:
-			return "sha512";
-		case HASH_FUNC_TIGER128:
-			return "tgr128";
-		case HASH_FUNC_TIGER160:
-			return "tgr160";
-		case HASH_FUNC_TIGER192:
-			return "tgr192";
-		case HASH_FUNC_WHIRLPOOL:
-			return "wp512";
+		case HASH_FUNC_MD4:       return "md4";
+		case HASH_FUNC_MD5:       return "md5";
+		case HASH_FUNC_RIPEMD128: return "rmd128";
+		case HASH_FUNC_RIPEMD160: return "rmd160";
+		case HASH_FUNC_RIPEMD256: return "rmd256";
+		case HASH_FUNC_RIPEMD320: return "rmd320";
+		case HASH_FUNC_SHA1:      return "sha1";
+		case HASH_FUNC_SHA224:    return "sha224";
+		case HASH_FUNC_SHA256:    return "sha256";
+		case HASH_FUNC_SHA384:    return "sha384";
+		case HASH_FUNC_SHA512:    return "sha512";
+		case HASH_FUNC_TIGER128:  return "tgr128";
+		case HASH_FUNC_TIGER160:  return "tgr160";
+		case HASH_FUNC_TIGER192:  return "tgr192";
+		case HASH_FUNC_WHIRLPOOL: return "wp512";
+
 		default:
 			return NULL;
 	}
@@ -116,27 +96,20 @@ void gtkhash_hash_lib_linux_start(struct hash_func_s *func)
 	strcpy((char *)addr.salg_name, LIB_DATA->name);
 
 	LIB_DATA->sockfd = socket(AF_ALG, SOCK_SEQPACKET, 0);
-	if (G_UNLIKELY(LIB_DATA->sockfd == -1))
-		gtkhash_hash_lib_linux_error(func, "create socket failed");
+	g_assert(LIB_DATA->sockfd != -1);
 
-	if (G_UNLIKELY(bind(LIB_DATA->sockfd, (struct sockaddr *)&addr,
-		sizeof(addr)) == -1))
-	{
-		gtkhash_hash_lib_linux_error(func, "bind failed");
-	}
+	int res = bind(LIB_DATA->sockfd, (struct sockaddr *)&addr, sizeof(addr));
+	g_assert(res != -1); (void)res;
 
 	LIB_DATA->connfd = accept(LIB_DATA->sockfd, NULL, NULL);
-	if (G_UNLIKELY(LIB_DATA->connfd == -1))
-		gtkhash_hash_lib_linux_error(func, "accept failed");
+	g_assert(LIB_DATA->connfd != -1);
 }
 
 void gtkhash_hash_lib_linux_update(struct hash_func_s *func,
 	const uint8_t *buffer, const size_t size)
 {
 	ssize_t send_size = send(LIB_DATA->connfd, buffer, size, MSG_MORE);
-
-	if (G_UNLIKELY(send_size != (ssize_t)size))
-		gtkhash_hash_lib_linux_error(func, "write failed");
+	g_assert(send_size == (ssize_t)size); (void)send_size;
 }
 
 void gtkhash_hash_lib_linux_stop(struct hash_func_s *func)
@@ -151,10 +124,8 @@ uint8_t *gtkhash_hash_lib_linux_finish(struct hash_func_s *func, size_t *size)
 	uint8_t buf[64 + 1];
 	ssize_t read_size = read(LIB_DATA->connfd, buf, sizeof(buf));
 
+	g_assert(read_size != -1);
 	g_assert(read_size < (ssize_t)sizeof(buf));
-
-	if (G_UNLIKELY(read_size == -1))
-		gtkhash_hash_lib_linux_error(func, "read failed");
 
 	close(LIB_DATA->connfd);
 	close(LIB_DATA->sockfd);
