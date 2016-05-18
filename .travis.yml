@@ -16,7 +16,6 @@ addons:
       - libgtk2.0-dev
       - nettle-dev
       - libnss3-dev
-      - libssl-dev
       - libpolarssl-dev
       - linux-libc-dev
 
@@ -26,5 +25,5 @@ env:
 
 script:
   - ./autogen.sh
-  - ./configure --with-gtk=${WITH_GTK} --enable-{nettle,nss,libcrypto,polarssl,linux-crypto}
+  - ./configure --with-gtk=${WITH_GTK} --enable-{nettle,nss,polarssl,linux-crypto}
   - make

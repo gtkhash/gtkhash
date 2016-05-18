@@ -131,21 +131,25 @@ fi
 # }}}
 
 # check for libcrypto (openssl) {{{
-AC_MSG_CHECKING([whether to use libcrypto])
-AC_ARG_ENABLE([libcrypto],
-	[AS_HELP_STRING([--enable-libcrypto], [use libcrypto])],
-	[enable_libcrypto="${enableval}"], [enable_libcrypto="no"])
-AC_MSG_RESULT([${enable_libcrypto}])
+#
+# Disabled until a thread-safe API is released with openssl-1.1
+enable_libcrypto = no
+#
+#AC_MSG_CHECKING([whether to use libcrypto])
+#AC_ARG_ENABLE([libcrypto],
+#	[AS_HELP_STRING([--enable-libcrypto], [use libcrypto])],
+#	[enable_libcrypto="${enableval}"], [enable_libcrypto="no"])
+#AC_MSG_RESULT([${enable_libcrypto}])
 AM_CONDITIONAL([ENABLE_LIBCRYPTO], [test "${enable_libcrypto}" = "yes"])
 AC_DEFINE([ENABLE_LIBCRYPTO], [0], [Use libcrypto])
-
-if test "${enable_libcrypto}" = "yes" ; then
-	PKG_CHECK_MODULES([LIBCRYPTO], [libcrypto])
-	AC_SUBST([LIBCRYPTO_CFLAGS])
-	AC_SUBST([LIBCRYPTO_LIBS])
-	hash_libs="${hash_libs} libcrypto"
-	AC_DEFINE([ENABLE_LIBCRYPTO], [1])
-fi
+#
+#if test "${enable_libcrypto}" = "yes" ; then
+#	PKG_CHECK_MODULES([LIBCRYPTO], [libcrypto])
+#	AC_SUBST([LIBCRYPTO_CFLAGS])
+#	AC_SUBST([LIBCRYPTO_LIBS])
+#	hash_libs="${hash_libs} libcrypto"
+#	AC_DEFINE([ENABLE_LIBCRYPTO], [1])
+#fi
 # }}}
 
 # check for linux crypto {{{
