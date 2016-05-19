@@ -192,12 +192,8 @@ static void gui_init_hash_funcs(void)
 	int supported = 0;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		// TODO: something different for RTL?
-
 		// File/Text view func labels
-		char *label = g_strdup_printf("%s:", hash.funcs[i].name);
-		gui.hash_widgets[i].label = GTK_LABEL(gtk_label_new(label));
-		g_free(label);
+		gui.hash_widgets[i].label = GTK_LABEL(gtk_label_new(NULL));
 		gtk_container_add(GTK_CONTAINER(gui.vbox_outputlabels),
 			GTK_WIDGET(gui.hash_widgets[i].label));
 #if (GTK_MAJOR_VERSION > 2)
@@ -621,16 +617,35 @@ static void gui_menuitem_save_as_set_sensitive(void)
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_save_as), sensitive);
 }
 
-void gui_update(void)
+void gui_update_hash_func_labels(const bool hmac_enabled)
 {
-	bool has_enabled = false;
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!hash.funcs[i].enabled)
+			continue;
+
+		char *str = NULL;
+
+		// FIXME: different labels for RTL?
+		if (hmac_enabled && (hash.funcs[i].block_size > 0))
+			str = g_strdup_printf("HMAC-%s:", hash.funcs[i].name);
+		else
+			str = g_strdup_printf("%s:", hash.funcs[i].name);
+
+		gtk_label_set_text(gui.hash_widgets[i].label, str);
+		g_free(str);
+	}
+}
+
+static unsigned int gui_update_hash_funcs(void)
+{
+	unsigned int funcs_enabled = 0;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (hash.funcs[i].supported) {
 			hash.funcs[i].enabled = gtk_toggle_button_get_active(
 				gui.hash_widgets[i].button);
 			if (hash.funcs[i].enabled)
-				has_enabled = true;
+				funcs_enabled++;
 		} else
 			hash.funcs[i].enabled = false;
 
@@ -644,11 +659,47 @@ void gui_update(void)
 			hash.funcs[i].enabled);
 	}
 
-	list_update();
+	return funcs_enabled;
+}
 
-	enum gui_view_e view = gui_get_view();
+static void gui_update_hmac(const enum gui_view_e view)
+{
+	bool active = false;
+
+	switch (view) {
+		case GUI_VIEW_FILE:
+			gtk_widget_hide(GTK_WIDGET(gui.entry_hmac_text));
+			gtk_widget_hide(GTK_WIDGET(gui.togglebutton_hmac_text));
+			gtk_widget_show(GTK_WIDGET(gui.entry_hmac_file));
+			gtk_widget_show(GTK_WIDGET(gui.togglebutton_hmac_file));
+
+			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_file);
+			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file), active);
+			break;
+		case GUI_VIEW_TEXT:
+			gtk_widget_hide(GTK_WIDGET(gui.entry_hmac_file));
+			gtk_widget_hide(GTK_WIDGET(gui.togglebutton_hmac_file));
+			gtk_widget_show(GTK_WIDGET(gui.entry_hmac_text));
+			gtk_widget_show(GTK_WIDGET(gui.togglebutton_hmac_text));
+
+			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_text);
+			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_text), active);
+			break;
+		default:
+			g_assert_not_reached();
+	}
+
+	gui_update_hash_func_labels(active);
+}
+
+void gui_update(void)
+{
+	const unsigned int funcs_enabled = gui_update_hash_funcs();
+	const enum gui_view_e view = gui_get_view();
 
 	if ((view == GUI_VIEW_FILE) || (view == GUI_VIEW_TEXT)) {
+		gui_update_hmac(view);
+
 		gtk_widget_hide(GTK_WIDGET(gui.toolbar));
 		gtk_widget_hide(GTK_WIDGET(gui.vbox_list));
 		gtk_widget_show(GTK_WIDGET(gui.vbox_single));
@@ -659,26 +710,20 @@ void gui_update(void)
 			gtk_widget_hide(GTK_WIDGET(gui.label_text));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_text));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_check_text));
-			gtk_widget_hide(GTK_WIDGET(gui.entry_hmac_text));
-			gtk_widget_hide(GTK_WIDGET(gui.togglebutton_hmac_text));
+
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_digests_text));
 			gtk_widget_show(GTK_WIDGET(gui.label_file));
 			gtk_widget_show(GTK_WIDGET(gui.filechooserbutton));
 			gtk_widget_show(GTK_WIDGET(gui.entry_check_file));
-			gtk_widget_show(GTK_WIDGET(gui.entry_hmac_file));
-			gtk_widget_show(GTK_WIDGET(gui.togglebutton_hmac_file));
 			gtk_widget_show(GTK_WIDGET(gui.vbox_digests_file));
 			gtk_widget_show(GTK_WIDGET(gui.hseparator_buttons));
 			gtk_widget_show(GTK_WIDGET(gui.button_hash));
-
-			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file),
-				gtk_toggle_button_get_active(gui.togglebutton_hmac_file));
 
 			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
 				gui.filechooserbutton));
 			if (uri) {
 				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash),
-					has_enabled);
+					funcs_enabled);
 				g_free(uri);
 			} else
 				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
@@ -688,26 +733,21 @@ void gui_update(void)
 			gtk_widget_hide(GTK_WIDGET(gui.label_file));
 			gtk_widget_hide(GTK_WIDGET(gui.filechooserbutton));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_check_file));
-			gtk_widget_hide(GTK_WIDGET(gui.entry_hmac_file));
-			gtk_widget_hide(GTK_WIDGET(gui.togglebutton_hmac_file));
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_digests_file));
 			gtk_widget_hide(GTK_WIDGET(gui.hseparator_buttons));
 			gtk_widget_hide(GTK_WIDGET(gui.button_hash));
 			gtk_widget_show(GTK_WIDGET(gui.label_text));
 			gtk_widget_show(GTK_WIDGET(gui.entry_text));
 			gtk_widget_show(GTK_WIDGET(gui.entry_check_text));
-			gtk_widget_show(GTK_WIDGET(gui.entry_hmac_text));
-			gtk_widget_show(GTK_WIDGET(gui.togglebutton_hmac_text));
 			gtk_widget_show(GTK_WIDGET(gui.vbox_digests_text));
-
-			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_text),
-				gtk_toggle_button_get_active(gui.togglebutton_hmac_text));
 
 			gtk_widget_grab_focus(GTK_WIDGET(gui.entry_text));
 
 			gtk_button_clicked(gui.button_hash);
 			break;
 		case GUI_VIEW_FILE_LIST:
+			list_update();
+
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_single));
 			gtk_widget_hide(GTK_WIDGET(gui.hseparator_buttons));
 			gtk_widget_show(GTK_WIDGET(gui.vbox_list));
@@ -717,7 +757,7 @@ void gui_update(void)
 				gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
 					gui.menuitem_treeview_show_toolbar)));
 			gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash),
-				has_enabled && (list_count_rows() > 0));
+				funcs_enabled && list_count_rows());
 			break;
 		default:
 			g_assert_not_reached();

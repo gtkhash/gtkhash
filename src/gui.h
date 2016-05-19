@@ -109,6 +109,7 @@ enum gui_view_e gui_get_view(void);
 void gui_set_digest_format(const enum digest_format_e format);
 enum digest_format_e gui_get_digest_format(void);
 const uint8_t *gui_get_hmac_key(size_t *key_size);
+void gui_update_hash_func_labels(const bool hmac_enabled);
 void gui_update(void);
 void gui_clear_digests(void);
 void gui_clear_all_digests(void);

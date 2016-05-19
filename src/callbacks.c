@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -422,19 +422,22 @@ static void on_entry_hmac_changed(void)
 
 static void on_togglebutton_hmac_toggled(void)
 {
+	bool active = false;
+
 	switch (gui_get_view()) {
 		case GUI_VIEW_FILE:
-			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file),
-				gtk_toggle_button_get_active(gui.togglebutton_hmac_file));
+			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_file);
+			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file), active);
 			break;
 		case GUI_VIEW_TEXT:
-			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_text),
-				gtk_toggle_button_get_active(gui.togglebutton_hmac_text));
+			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_text);
+			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_text), active);
 			break;
 		default:
 			g_assert_not_reached();
 	}
 
+	gui_update_hash_func_labels(active);
 	on_entry_hmac_changed();
 }
 
