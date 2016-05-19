@@ -570,8 +570,7 @@ const uint8_t *gui_get_hmac_key(size_t *key_size)
 				*key_size = gtk_entry_get_text_length(gui.entry_hmac_text);
 			}
 			break;
-		case GUI_VIEW_FILE_LIST:
-			// TODO
+		case GUI_VIEW_FILE_LIST: // TODO
 			break;
 		default:
 			g_assert_not_reached();
@@ -766,57 +765,70 @@ void gui_clear_all_digests(void)
 
 void gui_check_digests(void)
 {
-	const char *str_in_file = gtk_entry_get_text(gui.entry_check_file);
-	const char *str_in_text = gtk_entry_get_text(gui.entry_check_text);
+	const enum gui_view_e view = gui_get_view();
+	const char *icon_in = NULL;
+	GtkEntry *entry_check = NULL;
 
-	const char *icon_in_file = NULL;
-	const char *icon_in_text = NULL;
+	switch (view) {
+		case GUI_VIEW_TEXT:
+			entry_check = gui.entry_check_text;
+			break;
+		case GUI_VIEW_FILE:
+			entry_check = gui.entry_check_file;
+			break;
+		case GUI_VIEW_FILE_LIST: // TODO
+			return;
+		default:
+			g_assert_not_reached();
+	}
+
+	const char *str_in = gtk_entry_get_text(entry_check);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!hash.funcs[i].enabled)
 			continue;
 
-		const char *str_out_file = gtk_entry_get_text(
-			gui.hash_widgets[i].entry_file);
-		const char *str_out_text = gtk_entry_get_text(
-			gui.hash_widgets[i].entry_text);
+		GtkEntry *entry = NULL;
 
-		const char *icon_out_file = NULL;
-		const char *icon_out_text = NULL;
-
-		switch (gui_get_digest_format()) {
-			case DIGEST_FORMAT_HEX_LOWER:
-			case DIGEST_FORMAT_HEX_UPPER:
-				if (*str_in_file && (strcasecmp(str_in_file, str_out_file) == 0))
-					icon_out_file = GTK_STOCK_YES;
-				if (*str_in_text && (strcasecmp(str_in_text, str_out_text) == 0))
-					icon_out_text = GTK_STOCK_YES;
+		switch (view) {
+			case GUI_VIEW_TEXT:
+				entry = gui.hash_widgets[i].entry_text;
 				break;
-			case DIGEST_FORMAT_BASE64:
-				if (*str_in_file && (strcmp(str_in_file, str_out_file) == 0))
-					icon_out_file = GTK_STOCK_YES;
-				if (*str_in_text && (strcmp(str_in_text, str_out_text) == 0))
-					icon_out_text = GTK_STOCK_YES;
+			case GUI_VIEW_FILE:
+				entry = gui.hash_widgets[i].entry_file;
 				break;
 			default:
 				g_assert_not_reached();
 		}
 
-		gtk_entry_set_icon_from_stock(gui.hash_widgets[i].entry_file,
-			GTK_ENTRY_ICON_SECONDARY, icon_out_file);
-		gtk_entry_set_icon_from_stock(gui.hash_widgets[i].entry_text,
-			GTK_ENTRY_ICON_SECONDARY, icon_out_text);
+		const char *str_out = gtk_entry_get_text(entry);
+		const char *icon_out = NULL;
 
-		if (icon_out_file)
-			icon_in_file = GTK_STOCK_YES;
-		if (icon_out_text)
-			icon_in_text = GTK_STOCK_YES;
+		switch (gui_get_digest_format()) {
+			case DIGEST_FORMAT_HEX_LOWER:
+			case DIGEST_FORMAT_HEX_UPPER:
+				if (*str_in && (strcasecmp(str_in, str_out) == 0)) {
+					// FIXME: find a real alternative for GTK_STOCK_YES
+					icon_out = "gtk-yes";
+					icon_in = "gtk-yes";
+				}
+				break;
+			case DIGEST_FORMAT_BASE64:
+				if (*str_in && (strcmp(str_in, str_out) == 0)) {
+					icon_out = "gtk-yes";
+					icon_in = "gtk-yes";
+				}
+				break;
+			default:
+				g_assert_not_reached();
+		}
+
+		gtk_entry_set_icon_from_icon_name(entry, GTK_ENTRY_ICON_SECONDARY,
+			icon_out);
 	}
 
-	gtk_entry_set_icon_from_stock(gui.entry_check_file,
-		GTK_ENTRY_ICON_SECONDARY, icon_in_file);
-	gtk_entry_set_icon_from_stock(gui.entry_check_text,
-		GTK_ENTRY_ICON_SECONDARY, icon_in_text);
+	gtk_entry_set_icon_from_icon_name(entry_check, GTK_ENTRY_ICON_SECONDARY,
+		icon_in);
 }
 
 void gui_set_state(const enum gui_state_e state)
