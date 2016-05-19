@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -100,6 +100,9 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 	switch (gui_get_view()) {
 		case GUI_VIEW_FILE: {
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
+				if (!hash.funcs[i].enabled)
+					continue;
+
 				const char *digest = gtkhash_hash_func_get_digest(&hash.funcs[i],
 					gui_get_digest_format());
 				gtk_entry_set_text(gui.hash_widgets[i].entry_file, digest);
@@ -112,6 +115,9 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 			g_assert(hash_priv.uris->data);
 
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
+				if (!hash.funcs[i].enabled)
+					continue;
+
 				const char *digest = gtkhash_hash_func_get_digest(&hash.funcs[i],
 					gui_get_digest_format());
 				list_set_digest(hash_priv.uris->data, i, digest);
