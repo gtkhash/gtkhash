@@ -6,100 +6,117 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-06-28 20:28+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-20 19:13+0100\n"
 "PO-Revision-Date: 2016-03-15 20:07+0000\n"
 "Last-Translator: Grigorii Chirkov <ridgentsailor@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2016-03-16 05:31+0000\n"
 "X-Generator: Launchpad (build 17947)\n"
 
-#: ../data/gtkhash.xml.h:1
+#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:16
 msgid "GtkHash Preferences"
 msgstr "Настройки GtkHash"
 
-#: ../data/gtkhash.xml.h:2
+#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:17
 msgid "Hash Functions:"
 msgstr "Хеш функции:"
 
-#: ../data/gtkhash.xml.h:3
+#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:18
 msgid "Digest Format:"
 msgstr "Формат символов:"
 
-#: ../data/gtkhash.xml.h:4
+#: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
 msgstr "Шестнадцатеричный (нижний регистр)"
 
-#: ../data/gtkhash.xml.h:5
+#: ../data/gtkhash-gtk2.xml.h:5 ../data/gtkhash-gtk3.xml.h:2
 msgid "Uppercase Hexadecimal"
 msgstr "Шестнадцатеричный (верхний регистр)"
 
-#: ../data/gtkhash.xml.h:6
+#: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
 msgstr "Копировать _дайджест"
 
-#: ../data/gtkhash.xml.h:7
+#: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
 msgstr "П_оказать панель инструментов"
 
-#: ../data/gtkhash.xml.h:8
+#: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
 msgstr "_Файл"
 
-#: ../data/gtkhash.xml.h:9
+#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:6
 msgid "_Edit"
 msgstr "_Правка"
 
-#: ../data/gtkhash.xml.h:10
+#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:7
 msgid "_View"
 msgstr "_Вид"
 
-#: ../data/gtkhash.xml.h:11
+#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:8
 msgid "_Text"
 msgstr "_Текст"
 
-#: ../data/gtkhash.xml.h:12
+#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:9
 msgid "File _List"
 msgstr "Список ф_айлов"
 
-#: ../data/gtkhash.xml.h:13
+#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:10
 msgid "_Help"
 msgstr "_Справка"
 
-#: ../data/gtkhash.xml.h:14
+#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:11
 msgid "File:"
 msgstr "Файл:"
 
-#: ../data/gtkhash.xml.h:15
+#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:12
 msgid "Text:"
 msgstr "Текст:"
 
-#: ../data/gtkhash.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:5
+#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:13
+#: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
 msgstr "Сравнить:"
 
-#: ../data/gtkhash.xml.h:17
+#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:14
 msgid "File"
 msgstr "Файл"
 
-#: ../data/gtkhash.xml.h:18
+#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:15
 msgid "Ha_sh"
 msgstr "_Хэш"
+
+#: ../data/gtkhash.desktop.in.h:1
+msgid "GtkHash"
+msgstr ""
+
+#: ../data/gtkhash.desktop.in.h:2
+#, fuzzy
+msgid "Calculate message digests or checksums"
+msgstr ""
+"Программа для вычисления цифровых отпечатков или контрольных сумм, "
+"основанная на GTK+."
+
+#: ../data/gtkhash.desktop.in.h:3
+msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
+msgstr ""
 
 #: ../src/callbacks.c:47
 msgid "Save Digests"
 msgstr "Сохранить символы"
 
-#: ../src/callbacks.c:236
+#: ../src/callbacks.c:238
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 "Программа для вычисления цифровых отпечатков или контрольных сумм, "
 "основанная на GTK+."
 
-#: ../src/callbacks.c:240
+#: ../src/callbacks.c:247
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -107,16 +124,16 @@ msgstr ""
 "  Grigorii Chirkov https://launchpad.net/~ridgentsailor\n"
 "  WhiteRabbit https://launchpad.net/~whiterabbit"
 
-#: ../src/callbacks.c:262
+#: ../src/callbacks.c:269
 msgid "Select Files"
 msgstr "Выбрать файлы"
 
-#: ../src/gui.c:293
+#: ../src/gui.c:315
 #, c-format
 msgid "Failed to read \"%s\""
 msgstr "Не удалось прочитать \"%s\""
 
-#: ../src/gui.c:310
+#: ../src/gui.c:332
 #, c-format
 msgid ""
 "Failed to read \"%s\":\n"
@@ -125,15 +142,15 @@ msgstr ""
 "Не удалось прочитать \"%s\":\n"
 "%s"
 
-#: ../src/gui.c:359
+#: ../src/gui.c:381
 msgid "Not a regular file"
 msgstr "Не является обычным файлом"
 
-#: ../src/gui.c:381
+#: ../src/gui.c:403
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
-#: ../src/gui.c:383
+#: ../src/gui.c:405
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -142,22 +159,22 @@ msgstr ""
 "Не удалось добавить \"%s\":\n"
 "%s"
 
-#: ../src/hash.c:82 ../src/nautilus/properties-hash.c:69
+#: ../src/hash.c:76 ../src/nautilus/properties-hash.c:63
 #, c-format
 msgid "%s of %s - 1 minute left (%s/sec)"
 msgstr "%s из %s - осталась 1 минута (%s/сек)"
 
-#: ../src/hash.c:85 ../src/nautilus/properties-hash.c:72
+#: ../src/hash.c:79 ../src/nautilus/properties-hash.c:66
 #, c-format
 msgid "%s of %s - %u minutes left (%s/sec)"
 msgstr "%s из %s - осталось %u минут (%s/сек)"
 
-#: ../src/hash.c:89 ../src/nautilus/properties-hash.c:76
+#: ../src/hash.c:83 ../src/nautilus/properties-hash.c:70
 #, c-format
 msgid "%s of %s - 1 second left (%s/sec)"
 msgstr "%s из %s - осталась 1 секунда (%s/сек)"
 
-#: ../src/hash.c:92 ../src/nautilus/properties-hash.c:79
+#: ../src/hash.c:86 ../src/nautilus/properties-hash.c:73
 #, c-format
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr "%s из %s - осталось %u секунд (%s/сек)"
@@ -218,6 +235,7 @@ msgstr "Дайджест"
 msgid "H_ash"
 msgstr "Х_эш"
 
-#: ../src/nautilus/properties.c:427 ../src/nautilus/properties.c:429
+#: ../src/nautilus/properties.c:442 ../src/nautilus/properties.c:445
+#: ../src/nautilus/properties.c:448 ../src/nautilus/properties.c:450
 msgid "Digests"
 msgstr "Дайджесты"
