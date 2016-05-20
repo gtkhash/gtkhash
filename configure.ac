@@ -391,10 +391,7 @@ AC_CONFIG_FILES([data/nautilus/Makefile])
 AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([src/Makefile])
 AC_CONFIG_FILES([src/hash/Makefile])
-AC_CONFIG_FILES([src/caja/Makefile])
 AC_CONFIG_FILES([src/nautilus/Makefile])
-AC_CONFIG_FILES([src/nemo/Makefile])
-AC_CONFIG_FILES([src/thunar/Makefile])
 AC_OUTPUT
 
 echo

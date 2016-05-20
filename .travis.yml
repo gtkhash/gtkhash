@@ -27,3 +27,4 @@ script:
   - ./autogen.sh
   - ./configure --with-gtk=${WITH_GTK} --enable-{nettle,nss,polarssl,linux-crypto}
   - make
+  - make distcheck

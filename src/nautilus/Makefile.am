@@ -1,3 +1,44 @@
+common_cppflags = \
+	-DDATADIR="\"$(pkgdatadir)/nautilus\"" \
+	-DLOCALEDIR="\"$(localedir)\""
+
+common_ldflags = \
+	-avoid-version \
+	-module \
+	-shared
+
+common_libadd = ../hash/hash.la
+
+if ENABLE_CAJA
+
+cajadir = $(CAJA_EXTENSION_DIR)
+caja_LTLIBRARIES = libgtkhash-properties-caja.la
+
+libgtkhash_properties_caja_la_SOURCES = \
+	properties.c properties.h \
+	properties-hash.c properties-hash.h \
+	properties-list.c properties-list.h \
+	properties-prefs.c properties-prefs.h
+
+libgtkhash_properties_caja_la_CPPFLAGS = \
+	$(common_cppflags) \
+	$(CAJA_CFLAGS) \
+	-DIN_CAJA_EXTENSION=1
+
+libgtkhash_properties_caja_la_CFLAGS = $(GTKHASH_CFLAGS)
+
+libgtkhash_properties_caja_la_LDFLAGS = \
+	$(common_ldflags) \
+	-export-symbols-regex ^caja_module_
+
+libgtkhash_properties_caja_la_LIBADD = \
+	$(common_libadd) \
+	$(CAJA_LIBS)
+
+endif
+
+if ENABLE_NAUTILUS
+
 nautilusdir = $(NAUTILUS_EXTENSION_DIR)
 nautilus_LTLIBRARIES = libgtkhash-properties-nautilus.la
 
@@ -8,18 +49,74 @@ libgtkhash_properties_nautilus_la_SOURCES = \
 	properties-prefs.c properties-prefs.h
 
 libgtkhash_properties_nautilus_la_CPPFLAGS = \
+	$(common_cppcflags) \
 	$(NAUTILUS_CFLAGS) \
-	-DDATADIR="\"$(pkgdatadir)/nautilus\"" \
-	-DLOCALEDIR="\"$(localedir)\"" \
 	-DIN_NAUTILUS_EXTENSION=1
 
 libgtkhash_properties_nautilus_la_CFLAGS = $(GTKHASH_CFLAGS)
 
 libgtkhash_properties_nautilus_la_LDFLAGS = \
-	-avoid-version \
-	-export-symbols-regex ^nautilus_module_ \
-	-module \
-	-shared
+	$(common_ldflags) \
+	-export-symbols-regex ^nautilus_module_
 
 libgtkhash_properties_nautilus_la_LIBADD = \
-	../hash/hash.la $(NAUTILUS_LIBS)
+	$(common_libadd) \
+	$(NAUTILUS_LIBS)
+
+endif
+
+if ENABLE_NEMO
+
+nemodir = $(NEMO_EXTENSION_DIR)
+nemo_LTLIBRARIES = libgtkhash-properties-nemo.la
+
+libgtkhash_properties_nemo_la_SOURCES = \
+	properties.c properties.h \
+	properties-hash.c properties-hash.h \
+	properties-list.c properties-list.h \
+	properties-prefs.c properties-prefs.h
+
+libgtkhash_properties_nemo_la_CPPFLAGS = \
+	$(common_cppflags) \
+	$(NEMO_CFLAGS) \
+	-DIN_NEMO_EXTENSION=1
+
+libgtkhash_properties_nemo_la_CFLAGS = $(GTKHASH_CFLAGS)
+
+libgtkhash_properties_nemo_la_LDFLAGS = \
+	$(common_ldflags) \
+	-export-symbols-regex ^nemo_module_
+
+libgtkhash_properties_nemo_la_LIBADD = \
+	$(common_libadd) \
+	$(NEMO_LIBS)
+
+endif
+
+if ENABLE_THUNAR
+
+thunardir = $(THUNAR_EXTENSION_DIR)
+thunar_LTLIBRARIES = libgtkhash-properties-thunar.la
+
+libgtkhash_properties_thunar_la_SOURCES = \
+	properties.c properties.h \
+	properties-hash.c properties-hash.h \
+	properties-list.c properties-list.h \
+	properties-prefs.c properties-prefs.h
+
+libgtkhash_properties_thunar_la_CPPFLAGS = \
+	$(common_cppflags) \
+	$(THUNAR_CFLAGS) \
+	-DIN_THUNAR_EXTENSION=1
+
+libgtkhash_properties_thunar_la_CFLAGS = $(GTKHASH_CFLAGS)
+
+libgtkhash_properties_thunar_la_LDFLAGS = \
+	$(common_ldflags) \
+	-export-symbols-regex ^thunar_extension_
+
+libgtkhash_properties_thunar_la_LIBADD = \
+	$(common_libadd) \
+	$(THUNAR_LIBS)
+
+endif

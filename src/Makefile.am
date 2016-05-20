@@ -1,19 +1,7 @@
 SUBDIRS = hash
 
-if ENABLE_CAJA
-SUBDIRS += caja
-endif
-
-if ENABLE_NAUTILUS
+if ENABLE_NAUTILUS_DATA
 SUBDIRS += nautilus
-endif
-
-if ENABLE_NEMO
-SUBDIRS += nemo
-endif
-
-if ENABLE_THUNAR
-SUBDIRS += thunar
 endif
 
 if ENABLE_GTKHASH
