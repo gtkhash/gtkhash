@@ -1,0 +1,10 @@
+[Desktop Entry]
+_Name=GtkHash
+_Comment=Calculate message digests or checksums
+_Keywords=hash;checksum;digest;md5;sha1;sha256;crc32;
+Exec=gtkhash
+Icon=gtkhash
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Utility;GTK;

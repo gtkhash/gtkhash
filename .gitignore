@@ -23,6 +23,7 @@ stamp-h1
 stamp-it
 
 *~
+*.desktop
 *.gmo
 *.gz
 *.la
