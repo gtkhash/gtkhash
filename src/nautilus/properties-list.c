@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -114,14 +114,15 @@ void gtkhash_properties_list_check_digests(struct page_s *page)
 			const char *str_out = gtkhash_hash_func_get_digest(
 				&page->hash_file.funcs[i], DIGEST_FORMAT_HEX_LOWER);
 			if (strcasecmp(str_in, str_out) == 0) {
-				icon = GTK_STOCK_YES;
+				// FIXME: find a real alternative for GTK_STOCK_YES
+				icon = "gtk-yes";
 				break;
 			}
 		}
 	}
 
-	gtk_entry_set_icon_from_stock(page->entry_check, GTK_ENTRY_ICON_SECONDARY,
-		icon);
+	gtk_entry_set_icon_from_icon_name(page->entry_check,
+		GTK_ENTRY_ICON_SECONDARY, icon);
 }
 
 char *gtkhash_properties_list_get_selected_digest(struct page_s *page)
