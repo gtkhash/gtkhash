@@ -257,10 +257,10 @@ static void on_filechooserbutton_selection_changed(void)
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), uri ? true : false);
 
-	if (uri)
+	if (uri) {
 		gtk_widget_grab_focus(GTK_WIDGET(gui.button_hash));
-
-	g_free(uri);
+		g_free(uri);
+	}
 
 	gui_clear_digests();
 }
@@ -383,25 +383,6 @@ static void on_button_hash_clicked(void)
 	gui_start_hash();
 }
 
-static void on_button_stop_clicked(void)
-{
-	gui_stop_hash();
-}
-
-static void on_entry_hmac_changed(void)
-{
-	switch (gui_get_view()) {
-		case GUI_VIEW_FILE:
-			gui_clear_digests();
-			break;
-		case GUI_VIEW_TEXT:
-			on_button_hash_clicked();
-			break;
-		default:
-			g_assert_not_reached();
-	}
-}
-
 static void on_togglebutton_hmac_toggled(void)
 {
 	bool active = false;
@@ -410,17 +391,18 @@ static void on_togglebutton_hmac_toggled(void)
 		case GUI_VIEW_FILE:
 			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_file);
 			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file), active);
+			gui_clear_digests();
 			break;
 		case GUI_VIEW_TEXT:
 			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_text);
 			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_text), active);
+			gui_start_hash();
 			break;
 		default:
 			g_assert_not_reached();
 	}
 
 	gui_update_hash_func_labels(active);
-	on_entry_hmac_changed();
 }
 
 static bool on_dialog_delete_event(void)
@@ -434,7 +416,7 @@ static void on_dialog_combobox_changed(void)
 	gui_clear_all_digests();
 
 	if (gui_get_view() == GUI_VIEW_TEXT)
-		on_button_hash_clicked();
+		gui_start_hash();
 }
 
 void callbacks_init(void)
@@ -457,11 +439,11 @@ void callbacks_init(void)
 //	file-set isn't emitted when file is deleted
 //	CON(gui.filechooserbutton,              "file-set",            on_filechooserbutton_file_set);
 	CON(gui.filechooserbutton,              "selection-changed",   on_filechooserbutton_selection_changed);
-	CON(gui.entry_text,                     "changed",             on_button_hash_clicked);
+	CON(gui.entry_text,                     "changed",             gui_start_hash);
 	CON(gui.togglebutton_hmac_file,         "toggled",             on_togglebutton_hmac_toggled);
 	CON(gui.togglebutton_hmac_text,         "toggled",             on_togglebutton_hmac_toggled);
-	CON(gui.entry_hmac_file,                "changed",             on_entry_hmac_changed);
-	CON(gui.entry_hmac_text,                "changed",             on_entry_hmac_changed);
+	CON(gui.entry_hmac_file,                "changed",             gui_clear_digests);
+	CON(gui.entry_hmac_text,                "changed",             gui_start_hash);
 	CON(gui.entry_check_file,               "changed",             gui_check_digests);
 	CON(gui.entry_check_text,               "changed",             gui_check_digests);
 	CON(gui.toolbutton_add,                 "clicked",             on_toolbutton_add_clicked);
@@ -476,7 +458,7 @@ void callbacks_init(void)
 	CON(gui.menuitem_treeview_clear,        "activate",            list_clear);
 	CON(gui.menuitem_treeview_show_toolbar, "toggled",             on_menuitem_treeview_show_toolbar_toggled);
 	CON(gui.button_hash,                    "clicked",             on_button_hash_clicked);
-	CON(gui.button_stop,                    "clicked",             on_button_stop_clicked);
+	CON(gui.button_stop,                    "clicked",             gui_stop_hash);
 	CON(gui.dialog,                         "delete-event",        G_CALLBACK(on_dialog_delete_event));
 	CON(gui.dialog_button_close,            "clicked",             G_CALLBACK(on_dialog_delete_event));
 	CON(gui.dialog_combobox,                "changed",             on_dialog_combobox_changed);
