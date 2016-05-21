@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 13:43+0100\n"
+"POT-Creation-Date: 2016-05-21 14:47+0100\n"
 "PO-Revision-Date: 2015-08-03 17:07+0000\n"
 "Last-Translator: Abbod <abbod-mar@hotmail.com>\n"
 "Language-Team: Arabic <ar@li.org>\n"
@@ -168,35 +168,49 @@ msgstr "%s من %s - تبقى ثانية واحدة (%s/ثانية)"
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr "%s من %s - %u دقيقة متبقية  (%s/ثانية)"
 
-#: ../src/main.c:86
+#: ../src/main.c:87
+msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
 msgstr ""
 
-#: ../src/main.c:86
+#: ../src/main.c:88
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "DIGEST"
 msgstr "الملخص"
 
-#: ../src/main.c:90
+#: ../src/main.c:93
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Read program data from the specified directory"
 msgstr "اقرأ بيانات البرنامج من الدليل المحدد"
 
-#: ../src/main.c:90
+#: ../src/main.c:94
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "DIRECTORY"
 msgstr "دليل"
 
-#: ../src/main.c:94
+#: ../src/main.c:98
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Hash the specified text"
 msgstr "جزئ النص المحدد"
 
-#: ../src/main.c:94
+#: ../src/main.c:99
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "نص"
 
-#: ../src/main.c:98
+#: ../src/main.c:103
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Show version information"
 msgstr "أظهر معلومات الإصدار"
 
-#: ../src/main.c:102
+#: ../src/main.c:107
+msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
 msgstr ""
 

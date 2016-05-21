@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 13:43+0100\n"
+"POT-Creation-Date: 2016-05-21 14:47+0100\n"
 "PO-Revision-Date: 2012-07-09 07:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
@@ -170,35 +170,51 @@ msgstr "进度 %s/%s - 还剩 1 秒钟(%s/秒)"
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr "进度 %s/%s - 还剩 %u 秒(%s/秒)"
 
-#: ../src/main.c:86
+#: ../src/main.c:87
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
 msgstr "再次检查指定的摘要或校验和"
 
-#: ../src/main.c:86
+#: ../src/main.c:88
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "DIGEST"
 msgstr "摘要"
 
-#: ../src/main.c:90
+#: ../src/main.c:93
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Read program data from the specified directory"
 msgstr "从指定目录读取程序数据"
 
-#: ../src/main.c:90
+#: ../src/main.c:94
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "DIRECTORY"
 msgstr "目录"
 
-#: ../src/main.c:94
+#: ../src/main.c:98
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Hash the specified text"
 msgstr "哈希指定的文本"
 
-#: ../src/main.c:94
+#: ../src/main.c:99
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "文本"
 
-#: ../src/main.c:98
+#: ../src/main.c:103
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Show version information"
 msgstr "显示版本信息"
 
-#: ../src/main.c:102
+#: ../src/main.c:107
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
 msgstr "[文件|位置...]"
 

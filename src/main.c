@@ -83,23 +83,28 @@ static void read_opts_preinit(int *argc, char ***argv)
 	GOptionEntry entries[] = {
 		{
 			"check", 'c', 0, G_OPTION_ARG_STRING, &opts.check,
-			_("Check against the specified digest or checksum"), _("DIGEST")
+			C_("gtkhash --help",
+				"Check against the specified digest or checksum"),
+			C_("gtkhash --help", "DIGEST")
 		},
 		{
 			"datadir", 'd', 0, G_OPTION_ARG_FILENAME, &opts.datadir,
-			_("Read program data from the specified directory"), _("DIRECTORY")
+			C_("gtkhash --help",
+				"Read program data from the specified directory"),
+			C_("gtkhash --help", "DIRECTORY")
 		},
 		{
 			"text", 't', 0, G_OPTION_ARG_STRING, &opts.text,
-			_("Hash the specified text"), _("TEXT")
+			C_("gtkhash --help", "Hash the specified text"),
+			C_("gtkhash --help", "TEXT")
 		},
 		{
 			"version", 'v', 0, G_OPTION_ARG_NONE, &opts.version,
-			_("Show version information"), NULL
+			C_("gtkhash --help", "Show version information"), NULL
 		},
 		{
 			G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY, &opts.files,
-			NULL, _("[FILE|URI...]")
+			NULL, C_("gtkhash --help", "[FILE|URI...]")
 		},
 		{ NULL, 0, 0, 0, NULL, NULL, NULL }
 	};

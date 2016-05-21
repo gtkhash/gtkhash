@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 13:43+0100\n"
+"POT-Creation-Date: 2016-05-21 14:47+0100\n"
 "PO-Revision-Date: 2012-12-10 18:49+0000\n"
 "Last-Translator: Julian Beckmann <julian.beckmann@web.de>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
@@ -172,35 +172,51 @@ msgstr "%s of %s - 1 second left (%s/sec)"
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr "%s of %s - %u seconds left (%s/sec)"
 
-#: ../src/main.c:86
+#: ../src/main.c:87
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Check against the specified digest or checksum"
 
-#: ../src/main.c:86
+#: ../src/main.c:88
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "DIGEST"
 msgstr "DIGEST"
 
-#: ../src/main.c:90
+#: ../src/main.c:93
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Read program data from the specified directory"
 msgstr "Read program data from the specified directory"
 
-#: ../src/main.c:90
+#: ../src/main.c:94
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "DIRECTORY"
 msgstr "DIRECTORY"
 
-#: ../src/main.c:94
+#: ../src/main.c:98
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Hash the specified text"
 msgstr "Hash the specified text"
 
-#: ../src/main.c:94
+#: ../src/main.c:99
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "TEXT"
 
-#: ../src/main.c:98
+#: ../src/main.c:103
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Show version information"
 msgstr "Show version information"
 
-#: ../src/main.c:102
+#: ../src/main.c:107
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
 

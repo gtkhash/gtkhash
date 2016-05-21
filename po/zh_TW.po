@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 13:43+0100\n"
+"POT-Creation-Date: 2016-05-21 14:47+0100\n"
 "PO-Revision-Date: 2013-04-25 12:31+0000\n"
 "Last-Translator: 林博仁(Henry Lin) a.k.a. Ｖ字龍(Vdragon) <pika1021@gmail."
 "com>\n"
@@ -170,35 +170,51 @@ msgstr "已處理 %s （總共：%s） - 剩下約 1 秒鐘（%s 每秒）"
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr "已處理 %s （總共：%s） - 剩下約 %u 秒（%s 每秒）"
 
-#: ../src/main.c:86
+#: ../src/main.c:87
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
 msgstr "檢查指定的訊息摘要或校驗碼"
 
-#: ../src/main.c:86
+#: ../src/main.c:88
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "DIGEST"
 msgstr "訊息摘要"
 
-#: ../src/main.c:90
+#: ../src/main.c:93
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Read program data from the specified directory"
 msgstr "從一個指定的目錄中讀取程式資料"
 
-#: ../src/main.c:90
+#: ../src/main.c:94
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "DIRECTORY"
 msgstr "目錄"
 
-#: ../src/main.c:94
+#: ../src/main.c:98
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Hash the specified text"
 msgstr "算出指定的文字的雜湊值"
 
-#: ../src/main.c:94
+#: ../src/main.c:99
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "文字"
 
-#: ../src/main.c:98
+#: ../src/main.c:103
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Show version information"
 msgstr "顯示版本資訊"
 
-#: ../src/main.c:102
+#: ../src/main.c:107
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
 msgstr "[檔案|網址...]"
 

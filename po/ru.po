@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 13:43+0100\n"
+"POT-Creation-Date: 2016-05-21 14:47+0100\n"
 "PO-Revision-Date: 2016-03-15 20:07+0000\n"
 "Last-Translator: Grigorii Chirkov <ridgentsailor@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -175,35 +175,51 @@ msgstr "%s из %s - осталась 1 секунда (%s/сек)"
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr "%s из %s - осталось %u секунд (%s/сек)"
 
-#: ../src/main.c:86
+#: ../src/main.c:87
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Сравнить с определенным дайджестом или контрольной суммой"
 
-#: ../src/main.c:86
+#: ../src/main.c:88
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "DIGEST"
 msgstr "ДАЙДЖЕСТ"
 
-#: ../src/main.c:90
+#: ../src/main.c:93
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Read program data from the specified directory"
 msgstr "Прочитать данные программы из определенного каталога"
 
-#: ../src/main.c:90
+#: ../src/main.c:94
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "DIRECTORY"
 msgstr "КАТАЛОГ"
 
-#: ../src/main.c:94
+#: ../src/main.c:98
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Hash the specified text"
 msgstr "Подсчитать контрольную сумму определенного текста"
 
-#: ../src/main.c:94
+#: ../src/main.c:99
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "ТЕКСТ"
 
-#: ../src/main.c:98
+#: ../src/main.c:103
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "Show version information"
 msgstr "Показать информацию о версии"
 
-#: ../src/main.c:102
+#: ../src/main.c:107
+#, fuzzy
+msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
 msgstr "[ФАЙЛ|URI…]"
 
