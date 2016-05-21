@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 19:13+0100\n"
+"POT-Creation-Date: 2016-05-21 13:43+0100\n"
 "PO-Revision-Date: 2016-01-23 06:48+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
@@ -92,17 +92,13 @@ msgid "Ha_sh"
 msgstr "Х_еш"
 
 #: ../data/gtkhash.desktop.in.h:1
-msgid "GtkHash"
+msgid "Checksum Calculator"
 msgstr ""
 
 #: ../data/gtkhash.desktop.in.h:2
 #, fuzzy
 msgid "Calculate message digests or checksums"
 msgstr "Помагало Гтк+ за израчунавање сажетака порука или сума провере."
-
-#: ../data/gtkhash.desktop.in.h:3
-msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
-msgstr ""
 
 #: ../src/callbacks.c:47
 msgid "Save Digests"

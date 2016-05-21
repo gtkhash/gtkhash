@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 19:13+0100\n"
+"POT-Creation-Date: 2016-05-21 13:43+0100\n"
 "PO-Revision-Date: 2012-07-13 20:27+0000\n"
 "Last-Translator: Zbyněk Schwarz <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -92,17 +92,13 @@ msgid "Ha_sh"
 msgstr "Ha_sh"
 
 #: ../data/gtkhash.desktop.in.h:1
-msgid "GtkHash"
+msgid "Checksum Calculator"
 msgstr ""
 
 #: ../data/gtkhash.desktop.in.h:2
 #, fuzzy
 msgid "Calculate message digests or checksums"
 msgstr "Nástroj GTK+ pro výpočet digestu zpráv nebo kontrolních součtů"
-
-#: ../data/gtkhash.desktop.in.h:3
-msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
-msgstr ""
 
 #: ../src/callbacks.c:47
 msgid "Save Digests"
