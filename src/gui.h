@@ -117,5 +117,7 @@ void gui_check_digests(void);
 void gui_set_state(const enum gui_state_e state);
 enum gui_state_e gui_get_state(void);
 bool gui_is_maximised(void);
+void gui_start_hash(void);
+void gui_stop_hash(void);
 
 #endif

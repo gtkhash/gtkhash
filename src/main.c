@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -128,7 +128,12 @@ static void read_opts_preinit(int *argc, char ***argv)
 
 static void read_opts_postinit(void)
 {
+	if (opts.check && *opts.check)
+		gui_add_check(opts.check);
+
+	unsigned int files_added = 0;
 	if (opts.files) {
+
 		GSList *uris = NULL;
 
 		for (int i = 0; opts.files[i]; i++)
@@ -136,22 +141,16 @@ static void read_opts_postinit(void)
 
 		uris = g_slist_reverse(uris);
 
-		unsigned int added = gui_add_uris(uris, GUI_VIEW_INVALID);
-		if (added == 1)
-			gui_set_view(GUI_VIEW_FILE);
-		else if (added > 1)
-			gui_set_view(GUI_VIEW_FILE_LIST);
+		files_added = gui_add_uris(uris, GUI_VIEW_INVALID);
 
 		g_slist_free_full(uris, g_free);
+
+		if (files_added)
+			gui_start_hash();
 	}
 
-	if (opts.check && *opts.check)
-		gui_add_check(opts.check);
-
-	if (opts.text && *opts.text) {
+	if (!files_added && opts.text && *opts.text) {
 		gui_add_text(opts.text);
-		if (!opts.files)
-			gui_set_view(GUI_VIEW_TEXT);
 	}
 
 	free_opts();

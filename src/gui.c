@@ -424,6 +424,8 @@ unsigned int gui_add_uris(GSList *uris, enum gui_view_e view)
 			view = GUI_VIEW_FILE;
 		else if (readable_len > 1)
 			view = GUI_VIEW_FILE_LIST;
+
+		gui_set_view(view);
 	}
 
 	if (readable_len && (view == GUI_VIEW_FILE)) {
@@ -489,6 +491,9 @@ void gui_deinit(void)
 
 void gui_set_view(const enum gui_view_e view)
 {
+	if (view == gui_get_view())
+		return;
+
 	switch (view) {
 		case GUI_VIEW_FILE:
 			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
@@ -527,7 +532,6 @@ enum gui_view_e gui_get_view(void)
 		return GUI_VIEW_FILE_LIST;
 	}
 
-	g_assert_not_reached();
 	return GUI_VIEW_INVALID;
 }
 
@@ -743,7 +747,7 @@ void gui_update(void)
 
 			gtk_widget_grab_focus(GTK_WIDGET(gui.entry_text));
 
-			gtk_button_clicked(gui.button_hash);
+			gui_start_hash();
 			break;
 		case GUI_VIEW_FILE_LIST:
 			list_update();
@@ -933,4 +937,36 @@ bool gui_is_maximised(void)
 	GdkWindowState state = gdk_window_get_state(window);
 
 	return (state & GDK_WINDOW_STATE_MAXIMIZED);
+}
+
+void gui_start_hash(void)
+{
+	switch (gui_get_view()) {
+		case GUI_VIEW_FILE: {
+			gui_clear_digests();
+			gui_set_state(GUI_STATE_BUSY);
+			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
+				gui.filechooserbutton));
+			hash_file_start(uri);
+			break;
+		}
+		case GUI_VIEW_TEXT:
+			hash_string();
+			break;
+		case GUI_VIEW_FILE_LIST:
+			gui_clear_digests();
+			gui_set_state(GUI_STATE_BUSY);
+			hash_file_list_start();
+			break;
+		default:
+			g_assert_not_reached();
+	}
+}
+
+void gui_stop_hash(void)
+{
+	g_assert(gui_get_view() != GUI_VIEW_TEXT);
+
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_stop), false);
+	hash_file_stop();
 }

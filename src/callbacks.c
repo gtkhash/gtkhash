@@ -378,32 +378,12 @@ static void on_button_hash_clicked(void)
 			return;
 	}
 
-	switch (gui_get_view()) {
-		case GUI_VIEW_FILE: {
-			gui_clear_digests();
-			gui_set_state(GUI_STATE_BUSY);
-			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
-				gui.filechooserbutton));
-			hash_file_start(uri);
-			break;
-		}
-		case GUI_VIEW_TEXT:
-			hash_string();
-			break;
-		case GUI_VIEW_FILE_LIST:
-			gui_clear_digests();
-			gui_set_state(GUI_STATE_BUSY);
-			hash_file_list_start();
-			break;
-		default:
-			g_assert_not_reached();
-	}
+	gui_start_hash();
 }
 
 static void on_button_stop_clicked(void)
 {
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_stop), false);
-	hash_file_stop();
+	gui_stop_hash();
 }
 
 static void on_entry_hmac_changed(void)
