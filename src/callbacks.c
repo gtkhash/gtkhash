@@ -260,6 +260,8 @@ static void on_filechooserbutton_selection_changed(void)
 	if (uri)
 		gtk_widget_grab_focus(GTK_WIDGET(gui.button_hash));
 
+	g_free(uri);
+
 	gui_clear_digests();
 }
 
