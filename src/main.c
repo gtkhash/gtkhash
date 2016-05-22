@@ -154,7 +154,7 @@ static void read_opts_postinit(void)
 			gui_start_hash();
 	}
 
-	if (!files_added && opts.text && *opts.text) {
+	if (!files_added && opts.text) {
 		gui_add_text(opts.text);
 	}
 

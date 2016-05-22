@@ -453,7 +453,7 @@ void gui_add_check(const char *check)
 
 void gui_add_text(const char *text)
 {
-	g_assert(text && *text);
+	g_assert(text);
 
 	gui_set_view(GUI_VIEW_TEXT);
 	gtk_entry_set_text(gui.entry_text, text);
