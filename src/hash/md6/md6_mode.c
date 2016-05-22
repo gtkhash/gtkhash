@@ -269,6 +269,7 @@ static const md6_word Q[120] =
 
 /* routines for dealing with byte ordering */
 
+#if 0
 static int md6_byte_order = 0;    
 /* md6_byte_order describes the endianness of the 
 ** underlying machine:
@@ -295,6 +296,7 @@ static void md6_detect_byte_order( void )
   else if ( *cp == 2 )   md6_byte_order = 2;      /* big-endian    */
   else                   md6_byte_order = 0;      /* unknown       */
 }
+#endif
 
 static md6_word md6_byte_reverse( md6_word x )
 /* return byte-reversal of md6_word x.
@@ -421,7 +423,9 @@ int md6_full_init( md6_state *st,       /* uninitialized state to use */
     return MD6_BADKEYLEN;
   if ( d < 1 || d > 512 || d > w*c/2 ) return MD6_BADHASHLEN;
 
+#if 0
   md6_detect_byte_order();
+#endif
   memset(st,0,sizeof(md6_state));  /* clear state to zero */
   st->d = d;                       /* save hashbitlen */
   if (key != NULL && keylen > 0)   /* if no key given, use memset zeros*/
