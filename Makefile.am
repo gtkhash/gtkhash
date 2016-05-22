@@ -6,4 +6,4 @@ endif
 
 ACLOCAL_AMFLAGS = -I m4 --install
 
-EXTRA_DIST = autogen.sh
+EXTRA_DIST = autogen.sh README.md
