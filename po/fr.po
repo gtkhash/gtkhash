@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 14:47+0100\n"
+"POT-Creation-Date: 2016-05-22 20:34+0100\n"
 "PO-Revision-Date: 2012-09-15 15:27+0000\n"
 "Last-Translator: jc1 <jc1.quebecos@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -113,13 +113,13 @@ msgstr ""
 "contrôle."
 
 #: ../src/callbacks.c:247
+#, fuzzy
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
-"  ERE https://launchpad.net/~karfter\n"
-"  LEROY Jean-Christophe https://launchpad.net/~celtic2-deactivatedaccount\n"
-"  Thibault Févry https://launchpad.net/~thibaultfevry\n"
-"  jc1 https://launchpad.net/~jc1-quebecos"
+"ERE https://launchpad.net/~karfter\n"
+"LEROY Jean-Christophe https://launchpad.net/~celtic2-deactivatedaccount\n"
+"Thibault Févry https://launchpad.net/~thibaultfevry\n"
+"jc1 https://launchpad.net/~jc1-quebecos\n"
 
 #: ../src/callbacks.c:269
 msgid "Select Files"

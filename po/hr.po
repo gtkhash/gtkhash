@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 14:47+0100\n"
+"POT-Creation-Date: 2016-05-22 20:34+0100\n"
 "PO-Revision-Date: 2014-04-22 19:46+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -109,10 +109,9 @@ msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "GTK+ program za izračunavanje zbirova poruke ili kontrolnog zbroja."
 
 #: ../src/callbacks.c:247
+#, fuzzy
 msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  gogo https://launchpad.net/~trebelnik-stefina"
+msgstr "gogo https://launchpad.net/~trebelnik-stefina\n"
 
 #: ../src/callbacks.c:269
 msgid "Select Files"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 14:47+0100\n"
+"POT-Creation-Date: 2016-05-22 20:34+0100\n"
 "PO-Revision-Date: 2013-04-25 12:31+0000\n"
 "Last-Translator: 林博仁(Henry Lin) a.k.a. Ｖ字龍(Vdragon) <pika1021@gmail."
 "com>\n"
@@ -110,10 +110,10 @@ msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "一個基於 GTK+ 用於計算訊息摘要與校驗值的工具"
 
 #: ../src/callbacks.c:247
+#, fuzzy
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
-"  林博仁(Henry Lin) a.k.a. Ｖ字龍(Vdragon) https://launchpad.net/~vdragon"
+"林博仁(Henry Lin) a.k.a. Ｖ字龍(Vdragon) https://launchpad.net/~vdragon\n"
 
 #: ../src/callbacks.c:269
 msgid "Select Files"

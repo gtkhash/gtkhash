@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 14:47+0100\n"
+"POT-Creation-Date: 2016-05-22 20:34+0100\n"
 "PO-Revision-Date: 2011-10-19 16:00+0000\n"
 "Last-Translator: Łukasz Szeremeta <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -109,10 +109,9 @@ msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "Narzędzie GTK+ do wyświetlania sum kontrolnych"
 
 #: ../src/callbacks.c:247
+#, fuzzy
 msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Łukasz Szeremeta https://launchpad.net/~l-szeremeta"
+msgstr "Łukasz Szeremeta https://launchpad.net/~l-szeremeta\n"
 
 #: ../src/callbacks.c:269
 msgid "Select Files"

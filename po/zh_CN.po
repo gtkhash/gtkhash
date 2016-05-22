@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 14:47+0100\n"
+"POT-Creation-Date: 2016-05-22 20:34+0100\n"
 "PO-Revision-Date: 2012-07-09 07:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
@@ -109,11 +109,11 @@ msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "用来计算信息摘要或校验的 GTK+ 工具。"
 
 #: ../src/callbacks.c:247
+#, fuzzy
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
-"  Careone https://launchpad.net/~zzbusagain\n"
-"  Wang Dianjin https://launchpad.net/~tuhaihe"
+"Careone https://launchpad.net/~zzbusagain\n"
+"Wang Dianjin https://launchpad.net/~tuhaihe\n"
 
 #: ../src/callbacks.c:269
 msgid "Select Files"

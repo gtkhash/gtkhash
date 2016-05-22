@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 14:47+0100\n"
+"POT-Creation-Date: 2016-05-22 20:34+0100\n"
 "PO-Revision-Date: 2009-12-08 14:46+0000\n"
 "Last-Translator: cumulus007 <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -108,10 +108,9 @@ msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 
 #: ../src/callbacks.c:247
+#, fuzzy
 msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  cumulus007 https://launchpad.net/~cumulus-007"
+msgstr "cumulus007 https://launchpad.net/~cumulus-007\n"
 
 #: ../src/callbacks.c:269
 msgid "Select Files"

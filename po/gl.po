@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 14:47+0100\n"
+"POT-Creation-Date: 2016-05-22 20:34+0100\n"
 "PO-Revision-Date: 2011-04-25 21:04+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <gl@li.org>\n"
@@ -108,11 +108,11 @@ msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 
 #: ../src/callbacks.c:247
+#, fuzzy
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
-"  Marcos Lans https://launchpad.net/~markooss\n"
-"  Miguel Anxo Bouzada https://launchpad.net/~mbouzada"
+"Marcos Lans https://launchpad.net/~markooss\n"
+"Miguel Anxo Bouzada https://launchpad.net/~mbouzada\n"
 
 #: ../src/callbacks.c:269
 msgid "Select Files"
