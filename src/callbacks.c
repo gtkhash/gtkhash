@@ -46,8 +46,8 @@ static void on_menuitem_save_as_activate(void)
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
 		gtk_file_chooser_dialog_new(_("Save Digests"), gui.window,
 			GTK_FILE_CHOOSER_ACTION_SAVE,
-			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-			GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
+			_("_Cancel"), GTK_RESPONSE_CANCEL,
+			_("_Save"), GTK_RESPONSE_ACCEPT,
 			NULL));
 	gtk_file_chooser_set_do_overwrite_confirmation(chooser, true);
 
@@ -270,8 +270,8 @@ static void on_toolbutton_add_clicked(void)
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
 		gtk_file_chooser_dialog_new(_("Select Files"), gui.window,
 			GTK_FILE_CHOOSER_ACTION_OPEN,
-			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-			GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+			_("_Cancel"), GTK_RESPONSE_CANCEL,
+			_("_Open"), GTK_RESPONSE_ACCEPT,
 			NULL));
 	gtk_file_chooser_set_select_multiple(chooser, true);
 	gtk_file_chooser_set_local_only(chooser, false);

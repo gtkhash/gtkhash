@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-22 20:34+0100\n"
+"POT-Creation-Date: 2016-05-22 20:52+0100\n"
 "PO-Revision-Date: 2012-09-15 15:27+0000\n"
 "Last-Translator: jc1 <jc1.quebecos@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -106,6 +106,14 @@ msgstr ""
 msgid "Save Digests"
 msgstr "Enregistrer résumés"
 
+#: ../src/callbacks.c:49 ../src/callbacks.c:273
+msgid "_Cancel"
+msgstr ""
+
+#: ../src/callbacks.c:50
+msgid "_Save"
+msgstr ""
+
 #: ../src/callbacks.c:238
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
@@ -121,9 +129,13 @@ msgstr ""
 "Thibault Févry https://launchpad.net/~thibaultfevry\n"
 "jc1 https://launchpad.net/~jc1-quebecos\n"
 
-#: ../src/callbacks.c:269
+#: ../src/callbacks.c:271
 msgid "Select Files"
 msgstr "Sélectionnez les fichiers"
+
+#: ../src/callbacks.c:274
+msgid "_Open"
+msgstr ""
 
 #: ../src/gui.c:315
 #, c-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-22 20:34+0100\n"
+"POT-Creation-Date: 2016-05-22 20:52+0100\n"
 "PO-Revision-Date: 2009-12-08 14:46+0000\n"
 "Last-Translator: cumulus007 <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -103,6 +103,14 @@ msgstr ""
 msgid "Save Digests"
 msgstr ""
 
+#: ../src/callbacks.c:49 ../src/callbacks.c:273
+msgid "_Cancel"
+msgstr ""
+
+#: ../src/callbacks.c:50
+msgid "_Save"
+msgstr ""
+
 #: ../src/callbacks.c:238
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
@@ -112,9 +120,13 @@ msgstr ""
 msgid "translator-credits"
 msgstr "cumulus007 https://launchpad.net/~cumulus-007\n"
 
-#: ../src/callbacks.c:269
+#: ../src/callbacks.c:271
 msgid "Select Files"
 msgstr "Bestanden selecteren"
+
+#: ../src/callbacks.c:274
+msgid "_Open"
+msgstr ""
 
 #: ../src/gui.c:315
 #, c-format

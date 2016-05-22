@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-22 20:34+0100\n"
+"POT-Creation-Date: 2016-05-22 20:52+0100\n"
 "PO-Revision-Date: 2012-12-03 13:07+0000\n"
 "Last-Translator: Julian Beckmann <julian.beckmann@web.de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -105,6 +105,14 @@ msgstr ""
 msgid "Save Digests"
 msgstr "Digests speichern"
 
+#: ../src/callbacks.c:49 ../src/callbacks.c:273
+msgid "_Cancel"
+msgstr ""
+
+#: ../src/callbacks.c:50
+msgid "_Save"
+msgstr ""
+
 #: ../src/callbacks.c:238
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
@@ -121,9 +129,13 @@ msgstr ""
 "Trip McKay https://launchpad.net/~trip-mckay\n"
 "u2ix https://launchpad.net/~u2ix\n"
 
-#: ../src/callbacks.c:269
+#: ../src/callbacks.c:271
 msgid "Select Files"
 msgstr "Dateien auswählen"
+
+#: ../src/callbacks.c:274
+msgid "_Open"
+msgstr ""
 
 #: ../src/gui.c:315
 #, c-format
