@@ -87,8 +87,6 @@ static void prefs_default(void)
 {
 	default_hash_funcs();
 	default_show_toolbar();
-
-	gui_update();
 }
 
 static void load_hash_funcs(void)
@@ -98,7 +96,7 @@ static void load_hash_funcs(void)
 
 	for (int i = 0; strv[i]; i++) {
 		enum hash_func_e id = gtkhash_hash_func_get_id_from_name(strv[i]);
-		if (id != HASH_FUNC_INVALID && hash.funcs[id].supported) {
+		if (HASH_FUNC_IS_VALID(id) && hash.funcs[id].supported) {
 			hash.funcs[id].enabled = true;
 			gtk_toggle_button_set_active(gui.hash_widgets[id].button, true);
 			has_enabled = true;
@@ -139,19 +137,14 @@ static void load_view(void)
 	if (!str)
 		return;
 
-	enum gui_view_e view = GUI_VIEW_INVALID;
-
 	if (g_strcmp0(str, "file") == 0)
-		view = GUI_VIEW_FILE;
+		gui_set_view(GUI_VIEW_FILE);
 	else if (g_strcmp0(str, "text") == 0)
-		view = GUI_VIEW_TEXT;
+		gui_set_view(GUI_VIEW_TEXT);
 	else if (g_strcmp0(str, "file-list") == 0)
-		view = GUI_VIEW_FILE_LIST;
+		gui_set_view(GUI_VIEW_FILE_LIST);
 
 	g_free(str);
-
-	if (GUI_VIEW_IS_VALID(view))
-		gui_set_view(view);
 }
 
 static void load_show_toolbar(void)
@@ -183,8 +176,6 @@ static void prefs_load(void)
 	load_view();
 	load_show_toolbar();
 	load_window_size();
-
-	gui_update();
 }
 
 static void save_hash_funcs(void)
@@ -239,7 +230,7 @@ static void save_view(void)
 {
 	const char *str = NULL;
 
-	switch (gui_get_view()) {
+	switch (gui.view) {
 		case GUI_VIEW_FILE:
 			str = "file";
 			break;

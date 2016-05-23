@@ -89,6 +89,7 @@ extern struct gui_s {
 #endif
 	GtkComboBox *dialog_combobox;
 	GtkButton *dialog_button_close;
+	enum gui_view_e view;
 	struct {
 		GtkToggleButton *button;
 		GtkLabel *label;
@@ -98,14 +99,13 @@ extern struct gui_s {
 } gui;
 
 void gui_init(const char *datadir);
-unsigned int gui_add_uris(GSList *uris, enum gui_view_e view);
+unsigned int gui_add_uris(GSList *uris, const enum gui_view_e view);
 void gui_add_check(const char *check);
 void gui_add_text(const char *text);
 void gui_error(const char *message);
 void gui_run(void);
 void gui_deinit(void);
 void gui_set_view(const enum gui_view_e view);
-enum gui_view_e gui_get_view(void);
 void gui_set_digest_format(const enum digest_format_e format);
 enum digest_format_e gui_get_digest_format(void);
 const uint8_t *gui_get_hmac_key(size_t *key_size);
@@ -115,7 +115,6 @@ void gui_clear_digests(void);
 void gui_clear_all_digests(void);
 void gui_check_digests(void);
 void gui_set_state(const enum gui_state_e state);
-enum gui_state_e gui_get_state(void);
 bool gui_is_maximised(void);
 void gui_start_hash(void);
 void gui_stop_hash(void);

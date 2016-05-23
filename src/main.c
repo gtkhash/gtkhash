@@ -137,8 +137,8 @@ static void read_opts_postinit(void)
 		gui_add_check(opts.check);
 
 	unsigned int files_added = 0;
-	if (opts.files) {
 
+	if (opts.files) {
 		GSList *uris = NULL;
 
 		for (int i = 0; opts.files[i]; i++)
@@ -150,13 +150,17 @@ static void read_opts_postinit(void)
 
 		g_slist_free_full(uris, g_free);
 
-		if (files_added)
+		if (files_added) {
+			gui_update();
 			gui_start_hash();
+		}
 	}
 
-	if (!files_added && opts.text) {
+	if (!files_added && opts.text)
 		gui_add_text(opts.text);
-	}
+
+	if (!files_added && !opts.text && GUI_VIEW_IS_VALID(gui.view))
+		gui_update();
 
 	free_opts();
 }

@@ -36,7 +36,9 @@
 #include "prefs.h"
 #include "hash/digest-format.h"
 
-struct gui_s gui;
+struct gui_s gui = {
+	.view = GUI_VIEW_INVALID,
+};
 
 static struct {
 	enum gui_state_e state;
@@ -351,10 +353,7 @@ void gui_init(const char *datadir)
 #endif
 
 	gui_init_hash_funcs();
-
 	gui_set_state(GUI_STATE_IDLE);
-
-	callbacks_init();
 }
 
 static bool gui_can_add_uri(char *uri, char **error_str)
@@ -391,7 +390,7 @@ static bool gui_can_add_uri(char *uri, char **error_str)
 	return can_add;
 }
 
-unsigned int gui_add_uris(GSList *uris, enum gui_view_e view)
+unsigned int gui_add_uris(GSList *uris, const enum gui_view_e view)
 {
 	g_assert(uris);
 
@@ -419,19 +418,17 @@ unsigned int gui_add_uris(GSList *uris, enum gui_view_e view)
 	}
 	readable = g_slist_reverse(readable);
 
-	if (view == GUI_VIEW_INVALID) {
+	if (!GUI_VIEW_IS_VALID(view)) {
 		if (readable_len == 1)
-			view = GUI_VIEW_FILE;
+			gui_set_view(GUI_VIEW_FILE);
 		else if (readable_len > 1)
-			view = GUI_VIEW_FILE_LIST;
-
-		gui_set_view(view);
+			gui_set_view(GUI_VIEW_FILE_LIST);
 	}
 
-	if (readable_len && (view == GUI_VIEW_FILE)) {
+	if (readable_len && (gui.view == GUI_VIEW_FILE)) {
 		gtk_file_chooser_set_uri(GTK_FILE_CHOOSER(gui.filechooserbutton),
 			readable->data);
-	} else if (readable_len && (view == GUI_VIEW_FILE_LIST)) {
+	} else if (readable_len && (gui.view == GUI_VIEW_FILE_LIST)) {
 		GSList *tmp = readable;
 		do {
 			list_append_row(tmp->data);
@@ -456,6 +453,8 @@ void gui_add_text(const char *text)
 	g_assert(text);
 
 	gui_set_view(GUI_VIEW_TEXT);
+	gui_update();
+
 	gtk_entry_set_text(gui.entry_text, text);
 	gtk_editable_set_position(GTK_EDITABLE(gui.entry_text), -1);
 }
@@ -471,8 +470,16 @@ void gui_error(const char *message)
 
 void gui_run(void)
 {
-	// Show window here so it isn't resized just after it's opened
-	gtk_widget_show(GTK_WIDGET(gui.window));
+	// Set default view
+	if (!GUI_VIEW_IS_VALID(gui.view)) {
+		gui_set_view(GUI_VIEW_FILE);
+		gui_update();
+	}
+
+	gtk_widget_show_now(GTK_WIDGET(gui.window));
+
+	// Connect signals to start handling events
+	callbacks_init();
 
 	gtk_main();
 }
@@ -481,7 +488,7 @@ void gui_deinit(void)
 {
 	hash_file_stop();
 
-	while (gui_get_state() != GUI_STATE_IDLE)
+	while (gui_priv.state != GUI_STATE_IDLE)
 		gtk_main_iteration();
 
 	gtk_widget_destroy(GTK_WIDGET(gui.window));
@@ -493,8 +500,12 @@ void gui_deinit(void)
 
 void gui_set_view(const enum gui_view_e view)
 {
-	if (view == gui_get_view())
+	g_assert(GUI_VIEW_IS_VALID(view));
+
+	if (view == gui.view)
 		return;
+
+	gui.view = view;
 
 	switch (view) {
 		case GUI_VIEW_FILE:
@@ -512,29 +523,6 @@ void gui_set_view(const enum gui_view_e view)
 		default:
 			g_assert_not_reached();
 	}
-}
-
-enum gui_view_e gui_get_view(void)
-{
-	if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
-		gui.radiomenuitem_file)))
-	{
-		return GUI_VIEW_FILE;
-	}
-
-	if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
-		gui.radiomenuitem_text)))
-	{
-		return GUI_VIEW_TEXT;
-	}
-
-	if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
-		gui.radiomenuitem_file_list)))
-	{
-		return GUI_VIEW_FILE_LIST;
-	}
-
-	return GUI_VIEW_INVALID;
 }
 
 void gui_set_digest_format(const enum digest_format_e format)
@@ -559,7 +547,7 @@ const uint8_t *gui_get_hmac_key(size_t *key_size)
 	const uint8_t *hmac_key = NULL;
 	*key_size = 0;
 
-	switch (gui_get_view()) {
+	switch (gui.view) {
 		case GUI_VIEW_FILE:
 			if (gtk_toggle_button_get_active(gui.togglebutton_hmac_file)) {
 				hmac_key = (uint8_t *)gtk_entry_get_text(gui.entry_hmac_file);
@@ -583,14 +571,14 @@ const uint8_t *gui_get_hmac_key(size_t *key_size)
 
 static void gui_menuitem_save_as_set_sensitive(void)
 {
-	if (gui_get_state() == GUI_STATE_BUSY) {
+	if (gui_priv.state == GUI_STATE_BUSY) {
 		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_save_as), false);
 		return;
 	}
 
 	bool sensitive = false;
 
-	switch (gui_get_view()) {
+	switch (gui.view) {
 		case GUI_VIEW_FILE:
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
 				if (hash.funcs[i].enabled &&
@@ -602,7 +590,12 @@ static void gui_menuitem_save_as_set_sensitive(void)
 			}
 			break;
 		case GUI_VIEW_TEXT:
-			sensitive = true;
+			for (int i = 0; i < HASH_FUNCS_N; i++) {
+				if (hash.funcs[i].enabled) {
+					sensitive = true;
+					break;
+				}
+			}
 			break;
 		case GUI_VIEW_FILE_LIST:
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
@@ -617,7 +610,7 @@ static void gui_menuitem_save_as_set_sensitive(void)
 			}
 			break;
 		default:
-			g_assert_not_reached();
+			sensitive = false;
 	}
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_save_as), sensitive);
@@ -668,11 +661,11 @@ static unsigned int gui_update_hash_funcs(void)
 	return funcs_enabled;
 }
 
-static void gui_update_hmac(const enum gui_view_e view)
+static void gui_update_hmac(void)
 {
 	bool active = false;
 
-	switch (view) {
+	switch (gui.view) {
 		case GUI_VIEW_FILE:
 			gtk_widget_hide(GTK_WIDGET(gui.entry_hmac_text));
 			gtk_widget_hide(GTK_WIDGET(gui.togglebutton_hmac_text));
@@ -700,18 +693,21 @@ static void gui_update_hmac(const enum gui_view_e view)
 
 void gui_update(void)
 {
-	const unsigned int funcs_enabled = gui_update_hash_funcs();
-	const enum gui_view_e view = gui_get_view();
+	// Must call gui_set_view() before this
+	g_assert(GUI_VIEW_IS_VALID(gui.view));
+	g_assert(gui_priv.state == GUI_STATE_IDLE);
 
-	if ((view == GUI_VIEW_FILE) || (view == GUI_VIEW_TEXT)) {
-		gui_update_hmac(view);
+	const unsigned int funcs_enabled = gui_update_hash_funcs();
+
+	if ((gui.view == GUI_VIEW_FILE) || (gui.view == GUI_VIEW_TEXT)) {
+		gui_update_hmac();
 
 		gtk_widget_hide(GTK_WIDGET(gui.toolbar));
 		gtk_widget_hide(GTK_WIDGET(gui.vbox_list));
 		gtk_widget_show(GTK_WIDGET(gui.vbox_single));
 	}
 
-	switch (view) {
+	switch (gui.view) {
 		case GUI_VIEW_FILE: {
 			gtk_widget_hide(GTK_WIDGET(gui.label_text));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_text));
@@ -775,7 +771,7 @@ void gui_update(void)
 
 void gui_clear_digests(void)
 {
-	switch (gui_get_view()) {
+	switch (gui.view) {
 		case GUI_VIEW_FILE:
 			for (int i = 0; i < HASH_FUNCS_N; i++)
 				gtk_entry_set_text(gui.hash_widgets[i].entry_file, "");
@@ -811,11 +807,10 @@ void gui_clear_all_digests(void)
 
 void gui_check_digests(void)
 {
-	const enum gui_view_e view = gui_get_view();
 	const char *icon_in = NULL;
 	GtkEntry *entry_check = NULL;
 
-	switch (view) {
+	switch (gui.view) {
 		case GUI_VIEW_TEXT:
 			entry_check = gui.entry_check_text;
 			break;
@@ -836,7 +831,7 @@ void gui_check_digests(void)
 
 		GtkEntry *entry = NULL;
 
-		switch (view) {
+		switch (gui.view) {
 			case GUI_VIEW_TEXT:
 				entry = gui.hash_widgets[i].entry_text;
 				break;
@@ -880,15 +875,17 @@ void gui_check_digests(void)
 void gui_set_state(const enum gui_state_e state)
 {
 	g_assert(GUI_STATE_IS_VALID(state));
+	g_assert(state != gui_priv.state);
+
+	if (gui.view == GUI_VIEW_TEXT)
+		g_assert(state != GUI_STATE_BUSY);
 
 	gui_priv.state = state;
-
-	if (gui_get_view() == GUI_VIEW_TEXT)
-		return;
 
 	const bool busy = (state == GUI_STATE_BUSY);
 
 	gtk_widget_set_visible(GTK_WIDGET(gui.button_hash), !busy);
+
 	gtk_widget_set_visible(GTK_WIDGET(gui.button_stop), busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_stop), busy);
 
@@ -913,20 +910,12 @@ void gui_set_state(const enum gui_state_e state)
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_combobox), !busy);
 
-	if (busy) {
+	if (busy)
 		gtk_window_set_default(gui.window, GTK_WIDGET(gui.button_stop));
-		gui_menuitem_save_as_set_sensitive();
-	} else {
+	else
 		gtk_window_set_default(gui.window, GTK_WIDGET(gui.button_hash));
-		gui_menuitem_save_as_set_sensitive();
-	}
-}
 
-enum gui_state_e gui_get_state(void)
-{
-	g_assert(GUI_STATE_IS_VALID(gui_priv.state));
-
-	return gui_priv.state;
+	gui_menuitem_save_as_set_sensitive();
 }
 
 bool gui_is_maximised(void)
@@ -943,7 +932,7 @@ bool gui_is_maximised(void)
 
 void gui_start_hash(void)
 {
-	switch (gui_get_view()) {
+	switch (gui.view) {
 		case GUI_VIEW_FILE: {
 			gui_clear_digests();
 			gui_set_state(GUI_STATE_BUSY);
@@ -967,7 +956,7 @@ void gui_start_hash(void)
 
 void gui_stop_hash(void)
 {
-	g_assert(gui_get_view() != GUI_VIEW_TEXT);
+	g_assert(gui.view != GUI_VIEW_TEXT);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_stop), false);
 	hash_file_stop();

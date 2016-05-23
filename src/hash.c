@@ -97,7 +97,7 @@ void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data, goffset file_size,
 
 void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 {
-	switch (gui_get_view()) {
+	switch (gui.view) {
 		case GUI_VIEW_FILE: {
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
 				if (!hash.funcs[i].enabled)
@@ -155,7 +155,7 @@ void hash_file_start(const char *uri)
 	size_t key_size = 0;
 	const uint8_t *hmac_key = gui_get_hmac_key(&key_size);
 
-	if (gui_get_view() == GUI_VIEW_FILE)
+	if (gui.view == GUI_VIEW_FILE)
 		gtkhash_hash_file_clear_digests(&hash_priv.file_data);
 
 	gtkhash_hash_file(&hash_priv.file_data, uri, hmac_key, key_size);

@@ -60,7 +60,7 @@ static void on_menuitem_save_as_activate(void)
 			if (!hash.funcs[i].enabled)
 				continue;
 
-			switch (gui_get_view()) {
+			switch (gui.view) {
 				case GUI_VIEW_FILE: {
 					const bool hmac_active = gtk_toggle_button_get_active(
 						gui.togglebutton_hmac_file);
@@ -208,6 +208,32 @@ static void on_menuitem_select_all_activate(void)
 static void on_menuitem_prefs_activate(void)
 {
 	gtk_widget_show(GTK_WIDGET(gui.dialog));
+}
+
+static void on_radiomenuitem_toggled(void)
+{
+	enum gui_view_e view = GUI_VIEW_INVALID;
+
+	if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
+		gui.radiomenuitem_file)))
+	{
+		view = GUI_VIEW_FILE;
+	} else if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
+		gui.radiomenuitem_text)))
+	{
+		view = GUI_VIEW_TEXT;
+	} else if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
+		gui.radiomenuitem_file_list)))
+	{
+		view = GUI_VIEW_FILE_LIST;
+	}
+
+	g_assert(GUI_VIEW_IS_VALID(view));
+
+	if (gui.view != view) {
+		gui.view = view;
+		gui_update();
+	}
 }
 
 static void on_menuitem_about_activate(void)
@@ -372,7 +398,7 @@ static void on_menuitem_treeview_show_toolbar_toggled(void)
 
 static void on_button_hash_clicked(void)
 {
-	if (gui_get_view() == GUI_VIEW_FILE) {
+	if (gui.view == GUI_VIEW_FILE) {
 		// XXX: Workaround for when user clicks Cancel in FileChooserDialog and
 		// XXX: uri is changed without emitting the "selection-changed" signal
 		on_filechooserbutton_selection_changed();
@@ -387,7 +413,7 @@ static void on_togglebutton_hmac_toggled(void)
 {
 	bool active = false;
 
-	switch (gui_get_view()) {
+	switch (gui.view) {
 		case GUI_VIEW_FILE:
 			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_file);
 			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file), active);
@@ -415,7 +441,7 @@ static void on_dialog_combobox_changed(void)
 {
 	gui_clear_all_digests();
 
-	if (gui_get_view() == GUI_VIEW_TEXT)
+	if (gui.view == GUI_VIEW_TEXT)
 		gui_start_hash();
 }
 
@@ -432,9 +458,9 @@ void callbacks_init(void)
 	CON(gui.menuitem_delete,                "activate",            on_menuitem_delete_activate);
 	CON(gui.menuitem_select_all,            "activate",            on_menuitem_select_all_activate);
 	CON(gui.menuitem_prefs,                 "activate",            on_menuitem_prefs_activate);
-	CON(gui.radiomenuitem_file,             "toggled",             gui_update);
-	CON(gui.radiomenuitem_text,             "toggled",             gui_update);
-	CON(gui.radiomenuitem_file_list,        "toggled",             gui_update);
+	CON(gui.radiomenuitem_file,             "toggled",             on_radiomenuitem_toggled);
+	CON(gui.radiomenuitem_text,             "toggled",             on_radiomenuitem_toggled);
+	CON(gui.radiomenuitem_file_list,        "toggled",             on_radiomenuitem_toggled);
 	CON(gui.menuitem_about,                 "activate",            on_menuitem_about_activate);
 //	file-set isn't emitted when file is deleted
 //	CON(gui.filechooserbutton,              "file-set",            on_filechooserbutton_file_set);
