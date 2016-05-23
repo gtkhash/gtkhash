@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -132,7 +132,6 @@ void list_append_row(const char *uri)
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_clear), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_clear), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), true);
-	gtk_widget_grab_focus(GTK_WIDGET(gui.button_hash));
 }
 
 void list_remove_selection(void)

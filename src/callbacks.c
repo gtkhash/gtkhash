@@ -255,12 +255,12 @@ static void on_filechooserbutton_selection_changed(void)
 {
 	char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(gui.filechooserbutton));
 
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), uri ? true : false);
-
 	if (uri) {
-		gtk_widget_grab_focus(GTK_WIDGET(gui.button_hash));
 		g_free(uri);
-	}
+		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), true);
+	} else
+		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
+
 
 	gui_clear_digests();
 }
