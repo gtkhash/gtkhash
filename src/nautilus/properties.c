@@ -356,7 +356,6 @@ static struct page_s *gtkhash_properties_new_page(char *uri)
 	}
 
 	GtkBuilder *builder = gtk_builder_new();
-	gtk_builder_set_translation_domain(builder, GETTEXT_PACKAGE);
 
 	GError *error = NULL;
 	gtk_builder_add_from_string(builder, xml, -1, &error);

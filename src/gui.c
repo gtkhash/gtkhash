@@ -323,7 +323,6 @@ void gui_init(const char *datadir)
 	}
 
 	GtkBuilder *builder = gtk_builder_new();
-	gtk_builder_set_translation_domain(builder, GETTEXT_PACKAGE);
 
 	GError *error = NULL;
 	gtk_builder_add_from_string(builder, xml, -1, &error);

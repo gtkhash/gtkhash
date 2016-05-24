@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<interface>
+<interface domain="gtkhash">
   <requires lib="gtk+" version="2.24"/>
   <object class="GtkImage" id="image_copy">
     <property name="visible">True</property>
