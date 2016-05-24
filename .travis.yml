@@ -25,6 +25,6 @@ env:
 
 script:
   - ./autogen.sh
-  - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{nettle,nss,polarssl,linux-crypto})
+  - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{debug,nettle,nss,polarssl,linux-crypto})
   - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
   - make distcheck
