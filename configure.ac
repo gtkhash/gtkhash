@@ -58,7 +58,9 @@ PKG_CHECK_MODULES([GIO], [gio-2.0 >= 2.36])
 AC_SUBST([GIO_CFLAGS])
 AC_SUBST([GIO_LIBS])
 
-PKG_CHECK_VAR([GLIB_COMPILE_RESOURCES], [gio-2.0], [glib_compile_resources])
+m4_ifdef([PKG_CHECK_VAR],
+	[PKG_CHECK_VAR([GLIB_COMPILE_RESOURCES], [gio-2.0], [glib_compile_resources])],
+	[AC_CHECK_PROGS([GLIB_COMPILE_RESOURCES], [glib-compile-resources])])
 AC_SUBST([GLIB_COMPILE_RESOURCES])
 
 GLIB_GSETTINGS
