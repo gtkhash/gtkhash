@@ -143,6 +143,6 @@ properties-resources.c properties-resources.h: \
 		--internal \
 		--manual-register \
 		--generate \
-		--sourcedir=../../data/nautilus/ \
+		--sourcedir="$(srcdir)"/../../data/nautilus/ \
 		--target=$@ \
 		$<

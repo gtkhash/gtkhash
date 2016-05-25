@@ -47,7 +47,7 @@ endif
 		--internal \
 		--manual-register \
 		--generate \
-		--sourcedir=../data/ \
+		--sourcedir="$(srcdir)"/../data/ \
 		--target=$@ \
 		$<
 
