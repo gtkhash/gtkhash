@@ -1,5 +1,10 @@
 gtkhash
 
+src/resources.c
+src/resources.h
+src/nautilus/properties-resources.c
+src/nautilus/properties-resources.h
+
 .deps/
 .libs/
 autom4te.cache/

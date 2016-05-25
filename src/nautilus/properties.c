@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -43,10 +43,11 @@
 #include "properties-list.h"
 #include "properties-hash.h"
 #include "properties-prefs.h"
+#include "properties-resources.h"
 #include "../hash/hash-func.h"
 #include "../hash/hash-file.h"
 
-#define BUILDER_XML DATADIR "/gtkhash-properties.xml.gz"
+#define PROPERTIES_XML_RESOURCE "/org/gtkhash/plugin/gtkhash-properties.xml"
 
 static GType page_type;
 
@@ -219,12 +220,13 @@ static void gtkhash_properties_free_page(struct page_s *page)
 	g_free(page);
 }
 
-static void gtkhash_properties_get_objects(struct page_s *page,
+static void gtkhash_properties_init_objects(struct page_s *page,
 	GtkBuilder *builder)
 {
 	// Main container
 	page->box = GTK_WIDGET(gtkhash_properties_get_object(builder,
 		"vbox"));
+	g_object_ref(page->box);
 
 	// Progress bar
 	page->progressbar = GTK_PROGRESS_BAR(gtkhash_properties_get_object(builder,
@@ -241,6 +243,7 @@ static void gtkhash_properties_get_objects(struct page_s *page,
 	// Popup menu
 	page->menu = GTK_MENU(gtkhash_properties_get_object(builder,
 		"menu"));
+	g_object_ref(page->menu);
 	page->menuitem_copy = GTK_IMAGE_MENU_ITEM(gtkhash_properties_get_object(builder,
 		"imagemenuitem_copy"));
 	page->menuitem_show_funcs = GTK_CHECK_MENU_ITEM(gtkhash_properties_get_object(builder,
@@ -302,72 +305,46 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 		G_CALLBACK(gtkhash_properties_on_button_stop_clicked), page);
 }
 
-static char *gtkhash_properties_get_xml(const char *filename)
+static GtkBuilder *gtkhash_properties_init_builder(void)
 {
-	GMappedFile *map = g_mapped_file_new(filename, false, NULL);
+#if (GTK_MAJOR_VERSION > 2)
+	return gtk_builder_new_from_resource(PROPERTIES_XML_RESOURCE);
+#else
+	GError *error = NULL;
+	GBytes *bytes = g_resources_lookup_data(PROPERTIES_XML_RESOURCE,
+		G_RESOURCE_LOOKUP_FLAGS_NONE, &error);
 
-	if (!map)
-		return NULL;
+	if (G_UNLIKELY(error)) {
+		g_warning(error->message);
+		g_error_free(error);
 
-	gsize map_len = g_mapped_file_get_length(map);
-	if (map_len == 0) {
-		g_mapped_file_unref(map);
 		return NULL;
 	}
 
-	const char *map_data = g_mapped_file_get_contents(map);
-	g_assert(map_data);
+	gsize xml_len = 0;
+	char *xml = g_bytes_unref_to_data(bytes, &xml_len);
+	GtkBuilder *builder = gtk_builder_new();
 
-	GInputStream *input_mem = g_memory_input_stream_new_from_data(map_data,
-		map_len, NULL);
-	GConverter *converter = G_CONVERTER(g_zlib_decompressor_new(
-		G_ZLIB_COMPRESSOR_FORMAT_GZIP));
+	gtk_builder_add_from_string(builder, xml, xml_len, &error);
+	g_free(xml);
 
-	GInputStream *input_conv = g_converter_input_stream_new(input_mem,
-		converter);
+	if (G_UNLIKELY(error)) {
+		g_warning(error->message);
+		g_error_free(error);
+		g_object_unref(builder);
 
-	g_object_unref(input_mem);
-	g_object_unref(converter);
-
-	GString *string = g_string_new(NULL);
-
-	for (char buf[1024];;) {
-		gssize len = g_input_stream_read(input_conv, buf, 1024, NULL, NULL);
-		if (len <= 0)
-			break;
-
-		g_string_append_len(string, buf, len);
+		return NULL;
 	}
 
-	g_object_unref(input_conv);
-	g_mapped_file_unref(map);
-
-	return g_string_free(string, false);
+	return builder;
+#endif
 }
 
 static struct page_s *gtkhash_properties_new_page(char *uri)
 {
-	char *xml = gtkhash_properties_get_xml(BUILDER_XML);
-
-	if (!xml || !*xml) {
-		g_warning("failed to read \"%s\"", BUILDER_XML);
-		g_free(xml);
+	GtkBuilder *builder = gtkhash_properties_init_builder();
+	if (!builder)
 		return NULL;
-	}
-
-	GtkBuilder *builder = gtk_builder_new();
-
-	GError *error = NULL;
-	gtk_builder_add_from_string(builder, xml, -1, &error);
-
-	g_free(xml);
-
-	if (error) {
-		g_warning("failed to read \"%s\":\n%s", BUILDER_XML, error->message);
-		g_error_free(error);
-		g_object_unref(builder);
-		return NULL;
-	}
 
 	struct page_s *page = g_new(struct page_s, 1);
 	page->uri = uri;
@@ -378,12 +355,11 @@ static struct page_s *gtkhash_properties_new_page(char *uri)
 		g_warning("no hash functions available");
 		gtkhash_properties_hash_deinit(page);
 		g_free(page);
+
 		return NULL;
 	}
 
-	gtkhash_properties_get_objects(page, builder);
-	g_object_ref(page->box);
-	g_object_ref(page->menu);
+	gtkhash_properties_init_objects(page, builder);
 	g_object_unref(builder);
 
 	gtkhash_properties_prefs_init(page);
@@ -524,6 +500,7 @@ PUBLIC void thunar_extension_initialize(GTypeModule *module);
 PUBLIC void thunar_extension_initialize(GTypeModule *module)
 #endif
 {
+	gtkhash_properties_resources_register_resource();
 	gtkhash_properties_register_type(module);
 
 #if ENABLE_NLS

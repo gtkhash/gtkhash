@@ -1,6 +1,4 @@
-common_cppflags = \
-	-DDATADIR="\"$(pkgdatadir)/nautilus\"" \
-	-DLOCALEDIR="\"$(localedir)\""
+common_cppflags = -DLOCALEDIR="\"$(localedir)\""
 
 common_ldflags = \
 	-avoid-version \
@@ -9,10 +7,17 @@ common_ldflags = \
 
 common_libadd = ../hash/hash.la
 
+BUILT_SOURCES = properties-resources.c properties-resources.h
+
+CLEANFILES = properties-resources.c properties-resources.h
+
 if ENABLE_CAJA
 
 cajadir = $(CAJA_EXTENSION_DIR)
 caja_LTLIBRARIES = libgtkhash-properties-caja.la
+
+nodist_libgtkhash_properties_caja_la_SOURCES = \
+	properties-resources.c properties-resources.h
 
 libgtkhash_properties_caja_la_SOURCES = \
 	properties.c properties.h \
@@ -42,6 +47,9 @@ if ENABLE_NAUTILUS
 nautilusdir = $(NAUTILUS_EXTENSION_DIR)
 nautilus_LTLIBRARIES = libgtkhash-properties-nautilus.la
 
+nodist_libgtkhash_properties_nautilus_la_SOURCES = \
+	properties-resources.c properties-resources.h
+
 libgtkhash_properties_nautilus_la_SOURCES = \
 	properties.c properties.h \
 	properties-hash.c properties-hash.h \
@@ -69,6 +77,9 @@ if ENABLE_NEMO
 
 nemodir = $(NEMO_EXTENSION_DIR)
 nemo_LTLIBRARIES = libgtkhash-properties-nemo.la
+
+nodist_libgtkhash_properties_nemo_la_SOURCES = \
+	properties-resources.c properties-resources.h
 
 libgtkhash_properties_nemo_la_SOURCES = \
 	properties.c properties.h \
@@ -98,6 +109,9 @@ if ENABLE_THUNAR
 thunardir = $(THUNAR_EXTENSION_DIR)
 thunar_LTLIBRARIES = libgtkhash-properties-thunar.la
 
+nodist_libgtkhash_properties_thunar_la_SOURCES = \
+	properties-resources.c properties-resources.h
+
 libgtkhash_properties_thunar_la_SOURCES = \
 	properties.c properties.h \
 	properties-hash.c properties-hash.h \
@@ -120,3 +134,15 @@ libgtkhash_properties_thunar_la_LIBADD = \
 	$(THUNAR_LIBS)
 
 endif
+
+properties-resources.c properties-resources.h: \
+	../../data/nautilus/gtkhash-properties.gresource.xml \
+	../../data/nautilus/gtkhash-properties.xml
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) \
+		--c-name gtkhash_properties_resources \
+		--internal \
+		--manual-register \
+		--generate \
+		--sourcedir=../../data/nautilus/ \
+		--target=$@ \
+		$<

@@ -1,12 +1,9 @@
-nautilusdir = $(pkgdatadir)/nautilus
-nautilus_DATA = gtkhash-properties.xml.gz
-
 gsettings_SCHEMAS = org.gtkhash.plugin.gschema.xml
-EXTRA_DIST = gtkhash-properties.xml $(gsettings_SCHEMAS)
-CLEANFILES = $(nautilus_DATA)
 
-gtkhash-properties.xml.gz: gtkhash-properties.xml
-	$(AM_V_GEN) gzip -nc9 $< > $@
+EXTRA_DIST = \
+	$(gsettings_SCHEMAS) \
+	gtkhash-properties.xml \
+	gtkhash-properties.gresource.xml
 
 @INTLTOOL_XML_NOMERGE_RULE@
 @GSETTINGS_RULES@

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-22 20:52+0100\n"
+"POT-Creation-Date: 2016-05-25 22:43+0100\n"
 "PO-Revision-Date: 2012-08-13 02:00+0000\n"
 "Last-Translator: Lucas Silveira Melo <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Save Digests"
 msgstr "Salvar cômputos"
 
-#: ../src/callbacks.c:49 ../src/callbacks.c:273
+#: ../src/callbacks.c:49 ../src/callbacks.c:299
 msgid "_Cancel"
 msgstr ""
 
@@ -114,13 +114,13 @@ msgstr ""
 msgid "_Save"
 msgstr ""
 
-#: ../src/callbacks.c:238
+#: ../src/callbacks.c:264
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 "Um utilitário GTK+ para computar resumos de mensagens ou somas de "
 "verificação (checksums)."
 
-#: ../src/callbacks.c:247
+#: ../src/callbacks.c:273
 #, fuzzy
 msgid "translator-credits"
 msgstr ""
@@ -131,37 +131,23 @@ msgstr ""
 "Marco https://launchpad.net/~marcodefreitas\n"
 "Rafael Neri https://launchpad.net/~rafepel\n"
 
-#: ../src/callbacks.c:271
+#: ../src/callbacks.c:297
 msgid "Select Files"
 msgstr "Selecionar arquivos"
 
-#: ../src/callbacks.c:274
+#: ../src/callbacks.c:300
 msgid "_Open"
 msgstr ""
 
-#: ../src/gui.c:315
-#, c-format
-msgid "Failed to read \"%s\""
-msgstr "Falha ao ler \"%s\""
-
-#: ../src/gui.c:332
-#, c-format
-msgid ""
-"Failed to read \"%s\":\n"
-"%s"
-msgstr ""
-"Ocorreu uma falha ao ler \"%s\":\n"
-"%s"
-
-#: ../src/gui.c:381
+#: ../src/gui.c:341
 msgid "Not a regular file"
 msgstr "Não é um arquivo comum"
 
-#: ../src/gui.c:403
+#: ../src/gui.c:363
 msgid "Unknown error"
 msgstr "Erro desconhecido"
 
-#: ../src/gui.c:405
+#: ../src/gui.c:365
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -190,50 +176,38 @@ msgstr "%s de %s - 1 segundo restante (%s/s)"
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr "%s de %s - %u segundos restantes (%s/s)"
 
-#: ../src/main.c:87
+#: ../src/main.c:81
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
 msgstr ""
 "Compare com o resumo especificado ou com a soma de verificação (checksum)"
 
-#: ../src/main.c:88
+#: ../src/main.c:82
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "DIGEST"
 msgstr "RESUMO"
 
-#: ../src/main.c:93
-#, fuzzy
-msgctxt "gtkhash --help"
-msgid "Read program data from the specified directory"
-msgstr "Ler dados do programa do diretório especificado"
-
-#: ../src/main.c:94
-#, fuzzy
-msgctxt "gtkhash --help"
-msgid "DIRECTORY"
-msgstr "DIRETÓRIO"
-
-#: ../src/main.c:98
+#: ../src/main.c:86
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "Hash the specified text"
 msgstr "Criptografa o texto especificado"
 
-#: ../src/main.c:99
+#: ../src/main.c:87
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "TEXTO"
 
-#: ../src/main.c:103
+#: ../src/main.c:91
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "Show version information"
 msgstr "Mostrar informações da versão"
 
-#: ../src/main.c:107
+#: ../src/main.c:95
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
@@ -263,7 +237,36 @@ msgstr "Cômputo"
 msgid "H_ash"
 msgstr "H_ash"
 
-#: ../src/nautilus/properties.c:442 ../src/nautilus/properties.c:445
-#: ../src/nautilus/properties.c:448 ../src/nautilus/properties.c:450
+#: ../src/nautilus/properties.c:417 ../src/nautilus/properties.c:420
+#: ../src/nautilus/properties.c:423 ../src/nautilus/properties.c:425
 msgid "Digests"
 msgstr "Cômputos"
+
+#, fuzzy
+#~ msgid ""
+#~ "Failed to load \"%s\":\n"
+#~ "\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Ocorreu uma falha ao adicionar \"%s\":\n"
+#~ "%s"
+
+#~ msgid "Failed to read \"%s\""
+#~ msgstr "Falha ao ler \"%s\""
+
+#~ msgid ""
+#~ "Failed to read \"%s\":\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Ocorreu uma falha ao ler \"%s\":\n"
+#~ "%s"
+
+#, fuzzy
+#~ msgctxt "gtkhash --help"
+#~ msgid "Read program data from the specified directory"
+#~ msgstr "Ler dados do programa do diretório especificado"
+
+#, fuzzy
+#~ msgctxt "gtkhash --help"
+#~ msgid "DIRECTORY"
+#~ msgstr "DIRETÓRIO"

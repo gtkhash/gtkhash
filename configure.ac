@@ -46,10 +46,23 @@ done
 
 AC_SUBST([GTKHASH_CFLAGS])
 
+# check for pkg-config
 PKG_PROG_PKG_CONFIG
 
+# check for glib/gio {{{
 PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.36])
+AC_SUBST([GLIB_CFLAGS])
+AC_SUBST([GLIB_LIBS])
+
+PKG_CHECK_MODULES([GIO], [gio-2.0 >= 2.36])
+AC_SUBST([GIO_CFLAGS])
+AC_SUBST([GIO_LIBS])
+
+PKG_CHECK_VAR([GLIB_COMPILE_RESOURCES], [gio-2.0], [glib_compile_resources])
+AC_SUBST([GLIB_COMPILE_RESOURCES])
+
 GLIB_GSETTINGS
+# }}}
 
 # check for gtk+ {{{
 AC_MSG_CHECKING([which GTK+ version to use])

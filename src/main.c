@@ -31,16 +31,15 @@
 #include "gui.h"
 #include "list.h"
 #include "prefs.h"
+#include "resources.h"
 
 static struct {
 	char *check;
-	char *datadir;
 	char *text;
 	char **files;
 	gboolean version;
 } opts = {
 	.check = NULL,
-	.datadir = NULL,
 	.text = NULL,
 	.files = NULL,
 	.version = false,
@@ -51,11 +50,6 @@ static void free_opts(void)
 	if (opts.check) {
 		g_free(opts.check);
 		opts.check = NULL;
-	}
-
-	if (opts.datadir) {
-		g_free(opts.datadir);
-		opts.datadir = NULL;
 	}
 
 	if (opts.text) {
@@ -88,12 +82,6 @@ static void read_opts_preinit(int *argc, char ***argv)
 			C_("gtkhash --help", "DIGEST")
 		},
 		{
-			"datadir", 'd', 0, G_OPTION_ARG_FILENAME, &opts.datadir,
-			C_("gtkhash --help",
-				"Read program data from the specified directory"),
-			C_("gtkhash --help", "DIRECTORY")
-		},
-		{
 			"text", 't', 0, G_OPTION_ARG_STRING, &opts.text,
 			C_("gtkhash --help", "Hash the specified text"),
 			C_("gtkhash --help", "TEXT")
@@ -112,8 +100,6 @@ static void read_opts_preinit(int *argc, char ***argv)
 	GOptionContext *context = g_option_context_new(NULL);
 	GError *error = NULL;
 
-	atexit(free_opts);
-
 	g_option_context_add_main_entries(context, entries, GETTEXT_PACKAGE);
 	g_option_context_add_group(context, gtk_get_option_group(false));
 	g_option_context_parse(context, argc, argv, &error);
@@ -122,11 +108,13 @@ static void read_opts_preinit(int *argc, char ***argv)
 	if (error) {
 		g_warning("%s", error->message);
 		g_error_free(error);
+		free_opts();
 		exit(EXIT_FAILURE);
 	}
 
 	if (opts.version) {
 		printf("%s\n", PACKAGE_STRING);
+		free_opts();
 		exit(EXIT_SUCCESS);
 	}
 }
@@ -178,8 +166,11 @@ int main(int argc, char **argv)
 	hash_init();
 	atexit(hash_deinit);
 
-	gui_init(opts.datadir ? opts.datadir : DATADIR);
+	// Init gui using GResource data
+	resources_register_resource();
+	gui_init();
 	atexit(gui_deinit);
+	resources_unregister_resource();
 
 	list_init();
 

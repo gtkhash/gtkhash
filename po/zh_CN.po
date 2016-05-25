@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-22 20:52+0100\n"
+"POT-Creation-Date: 2016-05-25 22:43+0100\n"
 "PO-Revision-Date: 2012-07-09 07:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
@@ -104,7 +104,7 @@ msgstr "用来计算信息摘要或校验的 GTK+ 工具。"
 msgid "Save Digests"
 msgstr "保存摘要"
 
-#: ../src/callbacks.c:49 ../src/callbacks.c:273
+#: ../src/callbacks.c:49 ../src/callbacks.c:299
 msgid "_Cancel"
 msgstr ""
 
@@ -112,48 +112,34 @@ msgstr ""
 msgid "_Save"
 msgstr ""
 
-#: ../src/callbacks.c:238
+#: ../src/callbacks.c:264
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "用来计算信息摘要或校验的 GTK+ 工具。"
 
-#: ../src/callbacks.c:247
+#: ../src/callbacks.c:273
 #, fuzzy
 msgid "translator-credits"
 msgstr ""
 "Careone https://launchpad.net/~zzbusagain\n"
 "Wang Dianjin https://launchpad.net/~tuhaihe\n"
 
-#: ../src/callbacks.c:271
+#: ../src/callbacks.c:297
 msgid "Select Files"
 msgstr "选择文件"
 
-#: ../src/callbacks.c:274
+#: ../src/callbacks.c:300
 msgid "_Open"
 msgstr ""
 
-#: ../src/gui.c:315
-#, c-format
-msgid "Failed to read \"%s\""
-msgstr "无法读取 “%s”"
-
-#: ../src/gui.c:332
-#, c-format
-msgid ""
-"Failed to read \"%s\":\n"
-"%s"
-msgstr ""
-"无法读取 “%s”：\n"
-"%s"
-
-#: ../src/gui.c:381
+#: ../src/gui.c:341
 msgid "Not a regular file"
 msgstr "非常规文件"
 
-#: ../src/gui.c:403
+#: ../src/gui.c:363
 msgid "Unknown error"
 msgstr "未知错误"
 
-#: ../src/gui.c:405
+#: ../src/gui.c:365
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -182,49 +168,37 @@ msgstr "进度 %s/%s - 还剩 1 秒钟(%s/秒)"
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr "进度 %s/%s - 还剩 %u 秒(%s/秒)"
 
-#: ../src/main.c:87
+#: ../src/main.c:81
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
 msgstr "再次检查指定的摘要或校验和"
 
-#: ../src/main.c:88
+#: ../src/main.c:82
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "DIGEST"
 msgstr "摘要"
 
-#: ../src/main.c:93
-#, fuzzy
-msgctxt "gtkhash --help"
-msgid "Read program data from the specified directory"
-msgstr "从指定目录读取程序数据"
-
-#: ../src/main.c:94
-#, fuzzy
-msgctxt "gtkhash --help"
-msgid "DIRECTORY"
-msgstr "目录"
-
-#: ../src/main.c:98
+#: ../src/main.c:86
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "Hash the specified text"
 msgstr "哈希指定的文本"
 
-#: ../src/main.c:99
+#: ../src/main.c:87
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "文本"
 
-#: ../src/main.c:103
+#: ../src/main.c:91
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "Show version information"
 msgstr "显示版本信息"
 
-#: ../src/main.c:107
+#: ../src/main.c:95
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
@@ -254,7 +228,36 @@ msgstr "摘要"
 msgid "H_ash"
 msgstr "哈希(_A)"
 
-#: ../src/nautilus/properties.c:442 ../src/nautilus/properties.c:445
-#: ../src/nautilus/properties.c:448 ../src/nautilus/properties.c:450
+#: ../src/nautilus/properties.c:417 ../src/nautilus/properties.c:420
+#: ../src/nautilus/properties.c:423 ../src/nautilus/properties.c:425
 msgid "Digests"
 msgstr "摘要"
+
+#, fuzzy
+#~ msgid ""
+#~ "Failed to load \"%s\":\n"
+#~ "\n"
+#~ "%s"
+#~ msgstr ""
+#~ "无法添加 “%s”：\n"
+#~ "%s"
+
+#~ msgid "Failed to read \"%s\""
+#~ msgstr "无法读取 “%s”"
+
+#~ msgid ""
+#~ "Failed to read \"%s\":\n"
+#~ "%s"
+#~ msgstr ""
+#~ "无法读取 “%s”：\n"
+#~ "%s"
+
+#, fuzzy
+#~ msgctxt "gtkhash --help"
+#~ msgid "Read program data from the specified directory"
+#~ msgstr "从指定目录读取程序数据"
+
+#, fuzzy
+#~ msgctxt "gtkhash --help"
+#~ msgid "DIRECTORY"
+#~ msgstr "目录"

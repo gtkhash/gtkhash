@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-22 20:52+0100\n"
+"POT-Creation-Date: 2016-05-25 22:43+0100\n"
 "PO-Revision-Date: 2015-08-03 17:07+0000\n"
 "Last-Translator: Abbod <abbod-mar@hotmail.com>\n"
 "Language-Team: Arabic <ar@li.org>\n"
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Save Digests"
 msgstr "احفظ الخلاصة"
 
-#: ../src/callbacks.c:49 ../src/callbacks.c:273
+#: ../src/callbacks.c:49 ../src/callbacks.c:299
 msgid "_Cancel"
 msgstr ""
 
@@ -111,46 +111,32 @@ msgstr ""
 msgid "_Save"
 msgstr ""
 
-#: ../src/callbacks.c:238
+#: ../src/callbacks.c:264
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 
-#: ../src/callbacks.c:247
+#: ../src/callbacks.c:273
 #, fuzzy
 msgid "translator-credits"
 msgstr "Abbod https://launchpad.net/~abbod-mar\n"
 
-#: ../src/callbacks.c:271
+#: ../src/callbacks.c:297
 msgid "Select Files"
 msgstr "اختر الملفات"
 
-#: ../src/callbacks.c:274
+#: ../src/callbacks.c:300
 msgid "_Open"
 msgstr ""
 
-#: ../src/gui.c:315
-#, c-format
-msgid "Failed to read \"%s\""
-msgstr "فشل في قراءة \"%s\""
-
-#: ../src/gui.c:332
-#, c-format
-msgid ""
-"Failed to read \"%s\":\n"
-"%s"
-msgstr ""
-"فشل في قراءة \"%s\":\n"
-"%s"
-
-#: ../src/gui.c:381
+#: ../src/gui.c:341
 msgid "Not a regular file"
 msgstr "ليس ملفا عاديا"
 
-#: ../src/gui.c:403
+#: ../src/gui.c:363
 msgid "Unknown error"
 msgstr "خطأ مجهول"
 
-#: ../src/gui.c:405
+#: ../src/gui.c:365
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -179,48 +165,36 @@ msgstr "%s من %s - تبقى ثانية واحدة (%s/ثانية)"
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr "%s من %s - %u دقيقة متبقية  (%s/ثانية)"
 
-#: ../src/main.c:87
+#: ../src/main.c:81
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
 msgstr ""
 
-#: ../src/main.c:88
+#: ../src/main.c:82
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "DIGEST"
 msgstr "الملخص"
 
-#: ../src/main.c:93
-#, fuzzy
-msgctxt "gtkhash --help"
-msgid "Read program data from the specified directory"
-msgstr "اقرأ بيانات البرنامج من الدليل المحدد"
-
-#: ../src/main.c:94
-#, fuzzy
-msgctxt "gtkhash --help"
-msgid "DIRECTORY"
-msgstr "دليل"
-
-#: ../src/main.c:98
+#: ../src/main.c:86
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "Hash the specified text"
 msgstr "جزئ النص المحدد"
 
-#: ../src/main.c:99
+#: ../src/main.c:87
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "نص"
 
-#: ../src/main.c:103
+#: ../src/main.c:91
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "Show version information"
 msgstr "أظهر معلومات الإصدار"
 
-#: ../src/main.c:107
+#: ../src/main.c:95
 msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
 msgstr ""
@@ -249,7 +223,36 @@ msgstr "ملخص"
 msgid "H_ash"
 msgstr "_هاش"
 
-#: ../src/nautilus/properties.c:442 ../src/nautilus/properties.c:445
-#: ../src/nautilus/properties.c:448 ../src/nautilus/properties.c:450
+#: ../src/nautilus/properties.c:417 ../src/nautilus/properties.c:420
+#: ../src/nautilus/properties.c:423 ../src/nautilus/properties.c:425
 msgid "Digests"
 msgstr "ملخصات"
+
+#, fuzzy
+#~ msgid ""
+#~ "Failed to load \"%s\":\n"
+#~ "\n"
+#~ "%s"
+#~ msgstr ""
+#~ "فشل في إضافة \"%s\":\n"
+#~ "%s"
+
+#~ msgid "Failed to read \"%s\""
+#~ msgstr "فشل في قراءة \"%s\""
+
+#~ msgid ""
+#~ "Failed to read \"%s\":\n"
+#~ "%s"
+#~ msgstr ""
+#~ "فشل في قراءة \"%s\":\n"
+#~ "%s"
+
+#, fuzzy
+#~ msgctxt "gtkhash --help"
+#~ msgid "Read program data from the specified directory"
+#~ msgstr "اقرأ بيانات البرنامج من الدليل المحدد"
+
+#, fuzzy
+#~ msgctxt "gtkhash --help"
+#~ msgid "DIRECTORY"
+#~ msgstr "دليل"

@@ -36,6 +36,12 @@
 #include "prefs.h"
 #include "hash/digest-format.h"
 
+#if (GTK_MAJOR_VERSION > 2)
+#define GUI_XML_RESOURCE "/org/gtkhash/gtkhash-gtk3.xml"
+#else
+#define GUI_XML_RESOURCE "/org/gtkhash/gtkhash-gtk2.xml"
+#endif
+
 struct gui_s gui = {
 	.view = GUI_VIEW_INVALID,
 };
@@ -57,7 +63,7 @@ static GObject *gui_get_object(GtkBuilder *builder, const char *name)
 	return obj;
 }
 
-static void gui_get_objects(GtkBuilder *builder)
+static void gui_init_objects(GtkBuilder *builder)
 {
 	// Window
 	gui.window = GTK_WINDOW(gui_get_object(builder,
@@ -148,6 +154,7 @@ static void gui_get_objects(GtkBuilder *builder)
 		"treeselection"));
 	gui.menu_treeview = GTK_MENU(gui_get_object(builder,
 		"menu_treeview"));
+	g_object_ref(gui.menu_treeview);
 	gui.menuitem_treeview_add = GTK_MENU_ITEM(gui_get_object(builder,
 		"menuitem_treeview_add"));
 	gui.menuitem_treeview_remove = GTK_MENU_ITEM(gui_get_object(builder,
@@ -258,92 +265,47 @@ static void gui_init_hash_funcs(void)
 	}
 }
 
-static char *gui_get_xml(const char *filename)
+static GtkBuilder *gui_init_builder(void)
 {
-	GMappedFile *map = g_mapped_file_new(filename, false, NULL);
+#if (GTK_MAJOR_VERSION > 2)
+	return gtk_builder_new_from_resource(GUI_XML_RESOURCE);
+#else
+	GError *error = NULL;
+	GBytes *bytes = g_resources_lookup_data(GUI_XML_RESOURCE,
+		G_RESOURCE_LOOKUP_FLAGS_NONE, &error);
 
-	if (!map)
-		return NULL;
+	if (G_UNLIKELY(error)) {
+		gui_error(error->message);
+		g_error_free(error);
 
-	gsize map_len = g_mapped_file_get_length(map);
-	if (map_len == 0) {
-		g_mapped_file_unref(map);
-		return NULL;
+		exit(EXIT_FAILURE);
 	}
 
-	const char *map_data = g_mapped_file_get_contents(map);
-	g_assert(map_data);
+	gsize xml_len = 0;
+	char *xml = g_bytes_unref_to_data(bytes, &xml_len);
+	GtkBuilder *builder = gtk_builder_new();
 
-	GInputStream *input_mem = g_memory_input_stream_new_from_data(map_data,
-		map_len, NULL);
-	GConverter *converter = G_CONVERTER(g_zlib_decompressor_new(
-		G_ZLIB_COMPRESSOR_FORMAT_GZIP));
+	gtk_builder_add_from_string(builder, xml, xml_len, &error);
+	g_free(xml);
 
-	GInputStream *input_conv = g_converter_input_stream_new(input_mem,
-		converter);
+	if (G_UNLIKELY(error)) {
+		gui_error(error->message);
+		g_error_free(error);
+		g_object_unref(builder);
 
-	g_object_unref(input_mem);
-	g_object_unref(converter);
-
-	GString *string = g_string_new(NULL);
-
-	for (char buf[1024];;) {
-		gssize len = g_input_stream_read(input_conv, buf, 1024, NULL, NULL);
-		if (len <= 0)
-			break;
-
-		g_string_append_len(string, buf, len);
+		exit(EXIT_FAILURE);
 	}
 
-	g_object_unref(input_conv);
-	g_mapped_file_unref(map);
-
-	return g_string_free(string, false);
+	return builder;
+#endif
 }
 
-void gui_init(const char *datadir)
+void gui_init(void)
 {
 	gtk_init(NULL, NULL);
 
-#if (GTK_MAJOR_VERSION > 2)
-	char *filename = g_build_filename(datadir, PACKAGE "-gtk3.xml.gz", NULL);
-#else
-	char *filename = g_build_filename(datadir, PACKAGE "-gtk2.xml.gz", NULL);
-#endif
-
-	char *xml = gui_get_xml(filename);
-
-	if (!xml || !*xml) {
-		char *message = g_strdup_printf(_("Failed to read \"%s\""), filename);
-		gui_error(message);
-		g_free(message);
-		g_free(xml);
-		g_free(filename);
-		exit(EXIT_FAILURE);
-	}
-
-	GtkBuilder *builder = gtk_builder_new();
-
-	GError *error = NULL;
-	gtk_builder_add_from_string(builder, xml, -1, &error);
-
-	g_free(xml);
-
-	if (error) {
-		char *message = g_strdup_printf(_("Failed to read \"%s\":\n%s"),
-			filename, error->message);
-		gui_error(message);
-		g_free(message);
-		g_free(filename);
-		g_error_free(error);
-		g_object_unref(builder);
-		exit(EXIT_FAILURE);
-	}
-
-	g_free(filename);
-
-	gui_get_objects(builder);
-	g_object_ref(gui.menu_treeview);
+	GtkBuilder *builder = gui_init_builder();
+	gui_init_objects(builder);
 	g_object_unref(builder);
 
 #if (GTK_MAJOR_VERSION > 2)

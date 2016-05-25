@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-22 20:52+0100\n"
+"POT-Creation-Date: 2016-05-25 22:43+0100\n"
 "PO-Revision-Date: 2012-12-10 18:49+0000\n"
 "Last-Translator: Julian Beckmann <julian.beckmann@web.de>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
@@ -104,7 +104,7 @@ msgstr "A GTK+ utility for computing message digests or checksums."
 msgid "Save Digests"
 msgstr "Save Digests"
 
-#: ../src/callbacks.c:49 ../src/callbacks.c:273
+#: ../src/callbacks.c:49 ../src/callbacks.c:299
 msgid "_Cancel"
 msgstr ""
 
@@ -112,11 +112,11 @@ msgstr ""
 msgid "_Save"
 msgstr ""
 
-#: ../src/callbacks.c:238
+#: ../src/callbacks.c:264
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "A GTK+ utility for computing message digests or checksums."
 
-#: ../src/callbacks.c:247
+#: ../src/callbacks.c:273
 #, fuzzy
 msgid "translator-credits"
 msgstr ""
@@ -125,37 +125,23 @@ msgstr ""
 "Stefan Pynappels https://launchpad.net/~stefan-pynappels\n"
 "Tristan Heaven\n"
 
-#: ../src/callbacks.c:271
+#: ../src/callbacks.c:297
 msgid "Select Files"
 msgstr "Select Files"
 
-#: ../src/callbacks.c:274
+#: ../src/callbacks.c:300
 msgid "_Open"
 msgstr ""
 
-#: ../src/gui.c:315
-#, c-format
-msgid "Failed to read \"%s\""
-msgstr "Failed to read \"%s\""
-
-#: ../src/gui.c:332
-#, c-format
-msgid ""
-"Failed to read \"%s\":\n"
-"%s"
-msgstr ""
-"Failed to read \"%s\":\n"
-"%s"
-
-#: ../src/gui.c:381
+#: ../src/gui.c:341
 msgid "Not a regular file"
 msgstr "Not a regular file"
 
-#: ../src/gui.c:403
+#: ../src/gui.c:363
 msgid "Unknown error"
 msgstr "Unknown error"
 
-#: ../src/gui.c:405
+#: ../src/gui.c:365
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -184,49 +170,37 @@ msgstr "%s of %s - 1 second left (%s/sec)"
 msgid "%s of %s - %u seconds left (%s/sec)"
 msgstr "%s of %s - %u seconds left (%s/sec)"
 
-#: ../src/main.c:87
+#: ../src/main.c:81
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Check against the specified digest or checksum"
 
-#: ../src/main.c:88
+#: ../src/main.c:82
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "DIGEST"
 msgstr "DIGEST"
 
-#: ../src/main.c:93
-#, fuzzy
-msgctxt "gtkhash --help"
-msgid "Read program data from the specified directory"
-msgstr "Read program data from the specified directory"
-
-#: ../src/main.c:94
-#, fuzzy
-msgctxt "gtkhash --help"
-msgid "DIRECTORY"
-msgstr "DIRECTORY"
-
-#: ../src/main.c:98
+#: ../src/main.c:86
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "Hash the specified text"
 msgstr "Hash the specified text"
 
-#: ../src/main.c:99
+#: ../src/main.c:87
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "TEXT"
 
-#: ../src/main.c:103
+#: ../src/main.c:91
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "Show version information"
 msgstr "Show version information"
 
-#: ../src/main.c:107
+#: ../src/main.c:95
 #, fuzzy
 msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
@@ -256,7 +230,36 @@ msgstr "Digest"
 msgid "H_ash"
 msgstr "H_ash"
 
-#: ../src/nautilus/properties.c:442 ../src/nautilus/properties.c:445
-#: ../src/nautilus/properties.c:448 ../src/nautilus/properties.c:450
+#: ../src/nautilus/properties.c:417 ../src/nautilus/properties.c:420
+#: ../src/nautilus/properties.c:423 ../src/nautilus/properties.c:425
 msgid "Digests"
 msgstr "Digests"
+
+#, fuzzy
+#~ msgid ""
+#~ "Failed to load \"%s\":\n"
+#~ "\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Failed to add \"%s\":\n"
+#~ "%s"
+
+#~ msgid "Failed to read \"%s\""
+#~ msgstr "Failed to read \"%s\""
+
+#~ msgid ""
+#~ "Failed to read \"%s\":\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Failed to read \"%s\":\n"
+#~ "%s"
+
+#, fuzzy
+#~ msgctxt "gtkhash --help"
+#~ msgid "Read program data from the specified directory"
+#~ msgstr "Read program data from the specified directory"
+
+#, fuzzy
+#~ msgctxt "gtkhash --help"
+#~ msgid "DIRECTORY"
+#~ msgstr "DIRECTORY"

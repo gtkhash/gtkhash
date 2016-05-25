@@ -8,6 +8,10 @@ if ENABLE_GTKHASH
 
 bin_PROGRAMS = gtkhash
 
+BUILT_SOURCES = resources.c resources.h
+
+nodist_gtkhash_SOURCES = resources.c resources.h
+
 gtkhash_SOURCES = \
 	callbacks.c callbacks.h \
 	gui.c gui.h \
@@ -17,12 +21,34 @@ gtkhash_SOURCES = \
 	prefs.c prefs.h
 
 gtkhash_CPPFLAGS = \
-	$(GTK_CFLAGS) \
-	-DDATADIR="\"$(pkgdatadir)\"" \
-	-DLOCALEDIR="\"$(localedir)\""
+	-DLOCALEDIR="\"$(localedir)\"" \
+	$(GTK_CFLAGS)
 
 gtkhash_CFLAGS = $(GTKHASH_CFLAGS)
 
-gtkhash_LDADD = hash/hash.la $(GTK_LIBS)
+gtkhash_LDADD = \
+	hash/hash.la \
+	$(GTK_LIBS)
 
+CLEANFILES = resources.c resources.h
+
+if WITH_GTK2
+resources.c resources.h: \
+	../data/gtkhash-gtk2.gresource.xml \
+	../data/gtkhash-gtk2.xml
 endif
+if WITH_GTK3
+resources.c resources.h: \
+	../data/gtkhash-gtk3.gresource.xml \
+	../data/gtkhash-gtk3.xml
+endif
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) \
+		--c-name resources \
+		--internal \
+		--manual-register \
+		--generate \
+		--sourcedir=../data/ \
+		--target=$@ \
+		$<
+
+endif # ENABLE_GTKHASH

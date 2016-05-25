@@ -98,7 +98,7 @@ extern struct gui_s {
 	} hash_widgets[HASH_FUNCS_N];
 } gui;
 
-void gui_init(const char *datadir);
+void gui_init(void);
 unsigned int gui_add_uris(GSList *uris, const enum gui_view_e view);
 void gui_add_check(const char *check);
 void gui_add_text(const char *text);
