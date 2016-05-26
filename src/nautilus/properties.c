@@ -65,8 +65,6 @@ static void gtkhash_properties_busy(struct page_s *page)
 {
 	page->busy = true;
 
-	gtk_widget_set_sensitive(GTK_WIDGET(page->button_hash), false);
-	gtk_widget_set_sensitive(GTK_WIDGET(page->button_stop), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->treeview), false);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->hbox_inputs), false);
 
@@ -74,6 +72,14 @@ static void gtkhash_properties_busy(struct page_s *page)
 	gtk_progress_bar_set_fraction(page->progressbar, 0.0);
 	gtk_progress_bar_set_text(page->progressbar, " ");
 	gtk_widget_show(GTK_WIDGET(page->progressbar));
+
+	// Hash button
+	gtk_widget_hide(GTK_WIDGET(page->button_hash));
+	gtk_widget_set_sensitive(GTK_WIDGET(page->button_hash), false);
+
+	// Stop button
+	gtk_widget_set_sensitive(GTK_WIDGET(page->button_stop), true);
+	gtk_widget_show(GTK_WIDGET(page->button_stop));
 }
 
 static void gtkhash_properties_button_hash_set_sensitive(struct page_s *page)
@@ -103,11 +109,17 @@ void gtkhash_properties_idle(struct page_s *page)
 
 	gtk_widget_hide(GTK_WIDGET(page->progressbar));
 
+	// Stop button
+	gtk_widget_hide(GTK_WIDGET(page->button_stop));
 	gtk_widget_set_sensitive(GTK_WIDGET(page->button_stop), false);
+
+	// Hash button
+	gtkhash_properties_button_hash_set_sensitive(page);
+	gtk_widget_show(GTK_WIDGET(page->button_hash));
+
 	gtk_widget_set_sensitive(GTK_WIDGET(page->treeview), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->hbox_inputs), true);
 	gtkhash_properties_entry_hmac_set_sensitive(page);
-	gtkhash_properties_button_hash_set_sensitive(page);
 
 	gtkhash_properties_list_check_digests(page);
 }
