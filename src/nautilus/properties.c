@@ -190,6 +190,34 @@ static void gtkhash_properties_on_entry_hmac_changed(struct page_s *page)
 	gtkhash_properties_list_check_digests(page);
 }
 
+static void gtkhash_properties_on_menuitem_show_hmac_key_toggled(
+	GtkCheckMenuItem *item, GtkEntry *entry)
+{
+	const bool active = gtk_check_menu_item_get_active(item);
+
+	gtk_entry_set_visibility(entry, active);
+}
+
+static void gtkhash_properties_on_entry_hmac_populate_popup(GtkEntry *entry,
+	GtkMenu *menu)
+{
+	GtkWidget *item;
+
+	// Add separator
+	item = gtk_separator_menu_item_new();
+	gtk_widget_show(item);
+	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+
+	// Add checkbutton
+	item = gtk_check_menu_item_new_with_mnemonic(_("_Show HMAC Key"));
+	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item),
+		gtk_entry_get_visibility(entry));
+	gtk_widget_show(item);
+	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+	g_signal_connect(item, "toggled", G_CALLBACK(
+		gtkhash_properties_on_menuitem_show_hmac_key_toggled), entry);
+}
+
 static void gtkhash_properties_on_togglebutton_hmac_toggled(struct page_s *page)
 {
 	gtkhash_properties_entry_hmac_set_sensitive(page);
@@ -309,6 +337,8 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 		G_CALLBACK(gtkhash_properties_on_togglebutton_hmac_toggled), page);
 	g_signal_connect_swapped(page->entry_hmac, "changed",
 		G_CALLBACK(gtkhash_properties_on_entry_hmac_changed), page);
+	g_signal_connect(page->entry_hmac, "populate-popup",
+		G_CALLBACK(gtkhash_properties_on_entry_hmac_populate_popup), NULL);
 
 	// Buttons
 	g_signal_connect_swapped(page->button_hash, "clicked",

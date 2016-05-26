@@ -431,6 +431,33 @@ static void on_togglebutton_hmac_toggled(void)
 	gui_update_hash_func_labels(active);
 }
 
+static void on_menuitem_show_hmac_key_toggled(GtkCheckMenuItem *item,
+	GtkEntry *entry)
+{
+	const bool active = gtk_check_menu_item_get_active(item);
+
+	gtk_entry_set_visibility(entry, active);
+}
+
+static void on_entry_hmac_populate_popup(GtkEntry *entry, GtkMenu *menu)
+{
+	GtkWidget *item;
+
+	// Add separator
+	item = gtk_separator_menu_item_new();
+	gtk_widget_show(item);
+	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+
+	// Add checkbutton
+	item = gtk_check_menu_item_new_with_mnemonic(_("_Show HMAC Key"));
+	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item),
+		gtk_entry_get_visibility(entry));
+	gtk_widget_show(item);
+	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+	g_signal_connect(item, "toggled",
+		G_CALLBACK(on_menuitem_show_hmac_key_toggled), entry);
+}
+
 static bool on_dialog_delete_event(void)
 {
 	gtk_widget_hide(GTK_WIDGET(gui.dialog));
@@ -447,8 +474,10 @@ static void on_dialog_combobox_changed(void)
 
 void callbacks_init(void)
 {
-#define CON(OBJ, SIG, CB) g_signal_connect(G_OBJECT(OBJ), SIG, CB, NULL)
-	CON(gui.window,                         "delete-event",        G_CALLBACK(on_window_delete_event));
+#define CON(OBJ, SIG, CB) \
+	g_signal_connect(G_OBJECT(OBJ), SIG, G_CALLBACK(CB), NULL)
+
+	CON(gui.window,                         "delete-event",        on_window_delete_event);
 	CON(gui.menuitem_save_as,               "activate",            on_menuitem_save_as_activate);
 	CON(gui.menuitem_quit,                  "activate",            on_menuitem_quit_activate);
 	CON(gui.menuitem_edit,                  "activate",            on_menuitem_edit_activate);
@@ -468,6 +497,8 @@ void callbacks_init(void)
 	CON(gui.entry_text,                     "changed",             gui_start_hash);
 	CON(gui.togglebutton_hmac_file,         "toggled",             on_togglebutton_hmac_toggled);
 	CON(gui.togglebutton_hmac_text,         "toggled",             on_togglebutton_hmac_toggled);
+	CON(gui.entry_hmac_file,                "populate-popup",      on_entry_hmac_populate_popup);
+	CON(gui.entry_hmac_text,                "populate-popup",      on_entry_hmac_populate_popup);
 	CON(gui.entry_hmac_file,                "changed",             gui_clear_digests);
 	CON(gui.entry_hmac_text,                "changed",             gui_start_hash);
 	CON(gui.entry_check_file,               "changed",             gui_check_digests);
@@ -476,8 +507,8 @@ void callbacks_init(void)
 	CON(gui.toolbutton_remove,              "clicked",             list_remove_selection);
 	CON(gui.toolbutton_clear,               "clicked",             list_clear);
 	CON(gui.treeview,                       "popup-menu",          on_treeview_popup_menu);
-	CON(gui.treeview,                       "button-press-event",  G_CALLBACK(on_treeview_button_press_event));
-	CON(gui.treeview,                       "drag-data-received",  G_CALLBACK(on_treeview_drag_data_received));
+	CON(gui.treeview,                       "button-press-event",  on_treeview_button_press_event);
+	CON(gui.treeview,                       "drag-data-received",  on_treeview_drag_data_received);
 	CON(gui.treeselection,                  "changed",             on_treeselection_changed);
 	CON(gui.menuitem_treeview_add,          "activate",            on_toolbutton_add_clicked);
 	CON(gui.menuitem_treeview_remove,       "activate",            list_remove_selection);
