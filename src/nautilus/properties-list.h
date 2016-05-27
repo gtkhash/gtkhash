@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -22,7 +22,9 @@
 
 #include "properties.h"
 
-void gtkhash_properties_list_update_enabled(struct page_s *page, char *path_str);
+void gtkhash_properties_list_update_enabled(struct page_s *page,
+	char *path_str);
+void gtkhash_properties_list_update_hash_func_names(struct page_s *page);
 void gtkhash_properties_list_update_digests(struct page_s *page);
 void gtkhash_properties_list_check_digests(struct page_s *page);
 char *gtkhash_properties_list_get_selected_digest(struct page_s *page);

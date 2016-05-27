@@ -55,7 +55,8 @@ static GtkListStore *gtkhash_properties_list_get_store(struct page_s *page)
 	return GTK_LIST_STORE(gtkhash_properties_list_get_model(page));
 }
 
-void gtkhash_properties_list_update_enabled(struct page_s *page, char *path_str)
+void gtkhash_properties_list_update_enabled(struct page_s *page,
+	char *path_str)
 {
 	GtkTreeModel *model = gtkhash_properties_list_get_model(page);
 	GtkListStore *store = gtkhash_properties_list_get_store(page);
@@ -79,6 +80,36 @@ void gtkhash_properties_list_update_enabled(struct page_s *page, char *path_str)
 
 	page->hash_file.funcs[id].enabled = enabled;
 }
+
+void gtkhash_properties_list_update_hash_func_names(struct page_s *page)
+{
+	GtkTreeModel *model = gtkhash_properties_list_get_model(page);
+	GtkTreeIter iter;
+
+	if (!gtk_tree_model_get_iter_first(model, &iter))
+		return;
+
+	GtkListStore *store = gtkhash_properties_list_get_store(page);
+	const bool hmac = gtk_toggle_button_get_active(page->togglebutton_hmac);
+
+	do {
+		int id;
+		gtk_tree_model_get(model, &iter, COL_ID, &id, -1);
+
+		if (hmac && page->hash_file.funcs[id].hmac_supported) {
+			char *name = g_strdup_printf("HMAC-%s",
+				page->hash_file.funcs[id].name);
+			gtk_list_store_set(store, &iter, COL_HASH_FUNC, name, -1);
+			g_free(name);
+		} else {
+			gtk_list_store_set(store, &iter, COL_HASH_FUNC,
+				page->hash_file.funcs[id].name, -1);
+		}
+	} while (gtk_tree_model_iter_next(model, &iter));
+
+	gtk_tree_view_columns_autosize(page->treeview);
+}
+
 
 void gtkhash_properties_list_update_digests(struct page_s *page)
 {

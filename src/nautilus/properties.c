@@ -222,6 +222,7 @@ static void gtkhash_properties_on_togglebutton_hmac_toggled(struct page_s *page)
 {
 	gtkhash_properties_entry_hmac_set_sensitive(page);
 	gtkhash_properties_on_entry_hmac_changed(page);
+	gtkhash_properties_list_update_hash_func_names(page);
 }
 
 static void gtkhash_properties_on_button_hash_clicked(struct page_s *page)
