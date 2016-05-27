@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -36,6 +36,13 @@
 #define PREFS_BIND_FLAGS \
 	(G_SETTINGS_BIND_DEFAULT | \
 	 G_SETTINGS_BIND_GET_NO_CHANGES)
+
+static void gtkhash_properties_prefs_default_hash_funcs(struct page_s *page)
+{
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		if (HASH_FUNC_IS_DEFAULT(i) && page->funcs[i].supported)
+			page->funcs[i].enabled = true;
+}
 
 static void gtkhash_properties_prefs_load_hash_funcs(struct page_s *page)
 {
@@ -108,8 +115,11 @@ void gtkhash_properties_prefs_init(struct page_s *page)
 		g_settings_schema_unref(schema);
 		page->settings = g_settings_new(PREFS_SCHEMA);
 		gtkhash_properties_prefs_load(page);
-	} else
+	} else {
 		g_warning("GSettings schema \"" PREFS_SCHEMA "\" not found");
+
+		gtkhash_properties_prefs_default_hash_funcs(page);
+	}
 }
 
 void gtkhash_properties_prefs_deinit(struct page_s *page)
