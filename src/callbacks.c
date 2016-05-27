@@ -68,7 +68,7 @@ static void on_menuitem_save_as_activate(void)
 						gui.hash_widgets[i].entry_file);
 					if (digest && *digest) {
 						g_string_append_printf(string,
-							(hmac_active && (hash.funcs[i].block_size > 0)) ?
+							(hmac_active && hash.funcs[i].hmac_supported) ?
 							"# HMAC-%s\n" : "# %s\n", hash.funcs[i].name);
 					} else
 						continue;
@@ -86,7 +86,7 @@ static void on_menuitem_save_as_activate(void)
 					const bool hmac_active = gtk_toggle_button_get_active(
 						gui.togglebutton_hmac_text);
 					g_string_append_printf(string,
-						(hmac_active && (hash.funcs[i].block_size > 0)) ?
+						(hmac_active && hash.funcs[i].hmac_supported) ?
 						"# HMAC-%s\n" : "# %s\n", hash.funcs[i].name);
 					g_string_append_printf(string, "%s  \"%s\"\n",
 						gtk_entry_get_text(gui.hash_widgets[i].entry_text),

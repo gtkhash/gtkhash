@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -82,8 +82,11 @@ struct hash_func_s {
 	void *lib_data;
 	struct hash_func_s *hmac_data;
 	enum hash_func_e id;
-	bool supported, enabled;
-	uint8_t block_size, digest_size;
+	uint8_t digest_size;
+	uint8_t block_size;
+	bool supported:1;
+	bool hmac_supported:1;
+	bool enabled:1;
 };
 
 enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name);

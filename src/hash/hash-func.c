@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -127,6 +127,7 @@ void gtkhash_hash_func_init(struct hash_func_s *func,
 	func->hmac_data = NULL;
 	func->digest_size = hash_func_data[id].digest_size;
 	func->block_size = hash_func_data[id].block_size;
+	func->hmac_supported = (hash_func_data[id].block_size > 0);
 }
 
 void gtkhash_hash_func_init_all(struct hash_func_s *funcs)

@@ -586,7 +586,7 @@ void gui_update_hash_func_labels(const bool hmac_enabled)
 		char *str = NULL;
 
 		// FIXME: different labels for RTL?
-		if (hmac_enabled && (hash.funcs[i].block_size > 0))
+		if (hmac_enabled && hash.funcs[i].hmac_supported)
 			str = g_strdup_printf("HMAC-%s:", hash.funcs[i].name);
 		else
 			str = g_strdup_printf("%s:", hash.funcs[i].name);

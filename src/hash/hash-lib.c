@@ -236,7 +236,7 @@ void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
 
 	start_funcs[hash_libs[func->id]](func);
 
-	if (hmac_key && (func->block_size > 0))
+	if (hmac_key && func->hmac_supported)
 		gtkhash_hmac_start(func, hmac_key, key_size);
 }
 

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -35,6 +35,7 @@ void gtkhash_hmac_start(struct hash_func_s *func, const uint8_t *key,
 	const size_t key_size)
 {
 	g_assert(func);
+	g_assert(func->hmac_supported);
 	g_assert(func->block_size > 0);
 	g_assert(key);
 
@@ -84,6 +85,7 @@ static void gtkhash_hmac_deinit(struct hash_func_s *func)
 void gtkhash_hmac_stop(struct hash_func_s *func)
 {
 	g_assert(func);
+	g_assert(func->hmac_supported);
 	g_assert(func->block_size > 0);
 	g_assert(func->hmac_data);
 
@@ -93,6 +95,7 @@ void gtkhash_hmac_stop(struct hash_func_s *func)
 void gtkhash_hmac_finish(struct hash_func_s *func)
 {
 	g_assert(func);
+	g_assert(func->hmac_supported);
 	g_assert(func->block_size > 0);
 	g_assert(func->hmac_data);
 
