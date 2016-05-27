@@ -57,7 +57,7 @@ libgtkhash_properties_nautilus_la_SOURCES = \
 	properties-prefs.c properties-prefs.h
 
 libgtkhash_properties_nautilus_la_CPPFLAGS = \
-	$(common_cppcflags) \
+	$(common_cppflags) \
 	$(NAUTILUS_CFLAGS) \
 	-DIN_NAUTILUS_EXTENSION=1
 
