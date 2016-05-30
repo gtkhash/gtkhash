@@ -28,6 +28,6 @@ EXTRA_DIST = \
 	caja-gtkhash.metainfo.xml.in \
 	nautilus-gtkhash.metainfo.xml.in \
 	nemo-gtkhash.metainfo.xml.in \
-	thunar-gtkhash.metainfo.xml
+	thunar-gtkhash.metainfo.xml.in
 
 @INTLTOOL_XML_RULE@
