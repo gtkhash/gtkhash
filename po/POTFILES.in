@@ -17,3 +17,10 @@ src/nautilus/properties.c
 src/nautilus/properties-hash.c
 src/nautilus/properties-list.c
 src/nautilus/properties-prefs.c
+
+# appdata
+data/appdata/gtkhash.appdata.xml.in
+data/appdata/caja-gtkhash.metainfo.xml.in
+data/appdata/nautilus-gtkhash.metainfo.xml.in
+data/appdata/nemo-gtkhash.metainfo.xml.in
+data/appdata/thunar-gtkhash.metainfo.xml.in

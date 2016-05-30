@@ -304,6 +304,13 @@ AC_ARG_ENABLE([gtkhash],
 AC_MSG_RESULT([${enable_gtkhash}])
 AM_CONDITIONAL([ENABLE_GTKHASH], [test "${enable_gtkhash}" = "yes"])
 
+AC_MSG_CHECKING([whether to install AppStream metadata files])
+AC_ARG_ENABLE([appstream],
+	[AS_HELP_STRING([--disable-appstream], [do not install AppStream metadata files])],
+	[enable_appstream="${enableval}"], [enable_appstream="yes"])
+AC_MSG_RESULT([${enable_appstream}])
+AM_CONDITIONAL([ENABLE_APPSTREAM], [test "${enable_appstream}" = "yes"])
+
 # check for caja {{{
 AC_MSG_CHECKING([whether to build the Caja extension])
 AC_ARG_ENABLE([caja],
@@ -402,6 +409,7 @@ AC_DEFINE([HASH_FILE_REPORT_INTERVAL], [166], [Define progress report interval (
 
 AC_CONFIG_FILES([Makefile])
 AC_CONFIG_FILES([data/Makefile])
+AC_CONFIG_FILES([data/appdata/Makefile])
 AC_CONFIG_FILES([data/nautilus/Makefile])
 AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([src/Makefile])

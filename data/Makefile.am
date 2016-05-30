@@ -1,5 +1,9 @@
 SUBDIRS =
 
+if ENABLE_APPSTREAM
+SUBDIRS += appdata
+endif
+
 if ENABLE_NAUTILUS_DATA
 SUBDIRS += nautilus
 endif

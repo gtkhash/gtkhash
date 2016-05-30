@@ -29,11 +29,13 @@ stamp-h1
 stamp-it
 
 *~
+*.appdata.xml
 *.desktop
 *.gmo
 *.gz
 *.la
 *.lo
+*.metainfo.xml
 *.o
 *.valid
 *.xz
