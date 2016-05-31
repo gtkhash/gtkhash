@@ -175,14 +175,12 @@ char *list_get_uri(const int row)
 	g_assert(row <= list_count_rows());
 
 	GtkTreeIter iter;
+
+	if (!gtk_tree_model_iter_nth_child(gui.treemodel, &iter, NULL, row))
+		g_assert_not_reached();
+
 	GValue value;
 	value.g_type = 0;
-
-	if (!gtk_tree_model_get_iter_first(gui.treemodel, &iter))
-		return NULL;
-
-	for (int i = 0; i < row; i++)
-		gtk_tree_model_iter_next(gui.treemodel, &iter);
 
 	gtk_tree_model_get_value(gui.treemodel, &iter, COL_FILE, &value);
 	GFile *file = g_file_parse_name(g_value_get_string(&value));
@@ -222,11 +220,8 @@ void list_set_digest(const char *uri, const enum hash_func_e id,
 	int row = list_find_row(uri);
 	g_assert (row >= 0);
 
-	if (!gtk_tree_model_get_iter_first(gui.treemodel, &iter))
-		return;
-
-	for (int i = 0; i < row; i++)
-		gtk_tree_model_iter_next(gui.treemodel, &iter);
+	if (!gtk_tree_model_iter_nth_child(gui.treemodel, &iter, NULL, row))
+		g_assert_not_reached();
 
 	gtk_list_store_set(gui.liststore, &iter, COL_HASH + id, digest, -1);
 }
@@ -237,15 +232,13 @@ char *list_get_digest(const int row, const enum hash_func_e id)
 	g_assert(HASH_FUNC_IS_VALID(id));
 
 	GtkTreeIter iter;
+
+	if (!gtk_tree_model_iter_nth_child(gui.treemodel, &iter, NULL, row))
+		g_assert_not_reached();
+
 	char *digest;
 	GValue value;
 	value.g_type = 0;
-
-	if (!gtk_tree_model_get_iter_first(gui.treemodel, &iter))
-		return NULL;
-
-	for (int i = 0; i < row; i++)
-		gtk_tree_model_iter_next(gui.treemodel, &iter);
 
 	gtk_tree_model_get_value(gui.treemodel, &iter, COL_HASH + id, &value);
 	digest = g_strdup(g_value_get_string(&value));
