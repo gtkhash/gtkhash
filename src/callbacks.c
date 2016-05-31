@@ -95,7 +95,8 @@ static void on_menuitem_save_as_activate(void)
 				}
 				case GUI_VIEW_FILE_LIST: {
 					int prev = -1;
-					for (unsigned int row = 0; row < list_count_rows(); row++)
+					const int rows = list_count_rows();
+					for (int row = 0; rows; row++)
 					{
 						char *digest = list_get_digest(row, i);
 						if (digest && *digest) {

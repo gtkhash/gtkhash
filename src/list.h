@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -26,12 +26,12 @@ void list_init(void);
 void list_update(void);
 void list_append_row(const char *uri);
 void list_remove_selection(void);
-char *list_get_uri(const unsigned int row);
+char *list_get_uri(const int row);
 GSList *list_get_all_uris(void);
-unsigned int list_count_rows(void);
+int list_count_rows(void);
 void list_set_digest(const char *uri, const enum hash_func_e id,
 	const char *digest);
-char *list_get_digest(const unsigned int row, const enum hash_func_e id);
+char *list_get_digest(const int row, const enum hash_func_e id);
 char *list_get_selected_digest(const enum hash_func_e id);
 void list_clear_digests(void);
 void list_clear(void);

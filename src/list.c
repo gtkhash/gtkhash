@@ -122,8 +122,10 @@ void list_append_row(const char *uri)
 	char *pname = g_file_get_parse_name(file);
 	g_object_unref(file);
 
-	if (list_find_row(pname) >= 0)
+	if (list_find_row(pname) >= 0) {
+		g_free(pname);
 		return;
+	}
 
 	gtk_list_store_insert_with_values(gui.liststore, NULL, G_MAXINT,
 		COL_FILE, pname, -1);
@@ -168,7 +170,7 @@ void list_remove_selection(void)
 	}
 }
 
-char *list_get_uri(const unsigned int row)
+char *list_get_uri(const int row)
 {
 	g_assert(row <= list_count_rows());
 
@@ -179,7 +181,7 @@ char *list_get_uri(const unsigned int row)
 	if (!gtk_tree_model_get_iter_first(gui.treemodel, &iter))
 		return NULL;
 
-	for (unsigned int i = 0; i < row; i++)
+	for (int i = 0; i < row; i++)
 		gtk_tree_model_iter_next(gui.treemodel, &iter);
 
 	gtk_tree_model_get_value(gui.treemodel, &iter, COL_FILE, &value);
@@ -195,8 +197,9 @@ char *list_get_uri(const unsigned int row)
 GSList *list_get_all_uris(void)
 {
 	GSList *uris = NULL;
+	const int rows = list_count_rows();
 
-	for (unsigned int i = 0; i < list_count_rows(); i++) {
+	for (int i = 0; i < rows; i++) {
 		char *uri = list_get_uri(i);
 		uris = g_slist_prepend(uris, uri);
 	}
@@ -204,18 +207,9 @@ GSList *list_get_all_uris(void)
 	return g_slist_reverse(uris);;
 }
 
-unsigned int list_count_rows(void)
+int list_count_rows(void)
 {
-	GtkTreeIter iter;
-	unsigned int count = 0;
-
-	if (gtk_tree_model_get_iter_first(gui.treemodel, &iter)) {
-		count++;
-		while(gtk_tree_model_iter_next(gui.treemodel, &iter))
-			count++;
-	}
-
-	return count;
+	return gtk_tree_model_iter_n_children(gui.treemodel, NULL);
 }
 
 void list_set_digest(const char *uri, const enum hash_func_e id,
@@ -237,7 +231,7 @@ void list_set_digest(const char *uri, const enum hash_func_e id,
 	gtk_list_store_set(gui.liststore, &iter, COL_HASH + id, digest, -1);
 }
 
-char *list_get_digest(const unsigned int row, const enum hash_func_e id)
+char *list_get_digest(const int row, const enum hash_func_e id)
 {
 	g_assert(row <= list_count_rows());
 	g_assert(HASH_FUNC_IS_VALID(id));
@@ -250,7 +244,7 @@ char *list_get_digest(const unsigned int row, const enum hash_func_e id)
 	if (!gtk_tree_model_get_iter_first(gui.treemodel, &iter))
 		return NULL;
 
-	for (unsigned int i = 0; i < row; i++)
+	for (int i = 0; i < row; i++)
 		gtk_tree_model_iter_next(gui.treemodel, &iter);
 
 	gtk_tree_model_get_value(gui.treemodel, &iter, COL_HASH + id, &value);
@@ -269,7 +263,7 @@ char *list_get_selected_digest(const enum hash_func_e id)
 	g_assert(!rows->next);
 
 	GtkTreePath *path = rows->data;
-	unsigned int row = *gtk_tree_path_get_indices(path);
+	int row = *gtk_tree_path_get_indices(path);
 
 	gtk_tree_path_free(path);
 	g_list_free(rows);
