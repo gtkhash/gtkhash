@@ -87,7 +87,7 @@ static void gtkhash_properties_button_hash_set_sensitive(struct page_s *page)
 	bool has_enabled = false;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (page->hash_file.funcs[i].enabled) {
+		if (page->funcs[i].enabled) {
 			has_enabled = true;
 			break;
 		}
@@ -185,7 +185,7 @@ static void gtkhash_properties_on_entry_check_changed(struct page_s *page)
 
 static void gtkhash_properties_on_entry_hmac_changed(struct page_s *page)
 {
-	gtkhash_hash_file_clear_digests(&page->hash_file);
+	gtkhash_hash_file_clear_digests(page->hfile);
 	gtkhash_properties_list_update_digests(page);
 	gtkhash_properties_list_check_digests(page);
 }
@@ -228,7 +228,7 @@ static void gtkhash_properties_on_togglebutton_hmac_toggled(struct page_s *page)
 static void gtkhash_properties_on_button_hash_clicked(struct page_s *page)
 {
 	gtkhash_properties_busy(page);
-	gtkhash_hash_file_clear_digests(&page->hash_file);
+	gtkhash_hash_file_clear_digests(page->hfile);
 	gtkhash_properties_list_update_digests(page);
 
 	if (gtk_toggle_button_get_active(page->togglebutton_hmac)) {

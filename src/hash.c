@@ -39,9 +39,10 @@ struct hash_s hash;
 
 static struct {
 	GSList *uris;
-	struct hash_file_s file_data;
+	struct hash_file_s *hfile;
 } hash_priv = {
 	.uris = NULL,
+	.hfile = NULL,
 };
 
 void gtkhash_hash_string_finish_cb(const enum hash_func_e id,
@@ -156,16 +157,16 @@ void hash_file_start(const char *uri)
 	const uint8_t *hmac_key = gui_get_hmac_key(&key_size);
 
 	if (gui.view == GUI_VIEW_FILE)
-		gtkhash_hash_file_clear_digests(&hash_priv.file_data);
+		gtkhash_hash_file_clear_digests(hash_priv.hfile);
 
-	gtkhash_hash_file(&hash_priv.file_data, uri, hmac_key, key_size);
+	gtkhash_hash_file(hash_priv.hfile, uri, hmac_key, key_size);
 }
 
 void hash_file_list_start(void)
 {
 	g_assert(!hash_priv.uris);
 
-	gtkhash_hash_file_clear_digests(&hash_priv.file_data);
+	gtkhash_hash_file_clear_digests(hash_priv.hfile);
 
 	hash_priv.uris = list_get_all_uris();
 	g_assert(hash_priv.uris);
@@ -175,7 +176,7 @@ void hash_file_list_start(void)
 
 void hash_file_stop(void)
 {
-	gtkhash_hash_file_cancel(&hash_priv.file_data);
+	gtkhash_hash_file_cancel(hash_priv.hfile);
 }
 
 void hash_string(void)
@@ -191,12 +192,15 @@ void hash_string(void)
 void hash_init(void)
 {
 	gtkhash_hash_func_init_all(hash.funcs);
-	gtkhash_hash_file_init(&hash_priv.file_data, hash.funcs, NULL);
+
+	hash_priv.hfile = gtkhash_hash_file_new(hash.funcs, NULL);
 }
 
 void hash_deinit(void)
 {
-	gtkhash_hash_file_deinit(&hash_priv.file_data);
+	gtkhash_hash_file_free(hash_priv.hfile);
+	hash_priv.hfile = NULL;
+
 	gtkhash_hash_func_deinit_all(hash.funcs);
 
 	if (hash_priv.uris) {

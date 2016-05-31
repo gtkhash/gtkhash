@@ -72,13 +72,13 @@ void gtkhash_properties_list_update_enabled(struct page_s *page,
 
 	if (!enabled) {
 		// Clear digest for disabled func
-		gtkhash_hash_func_clear_digest(&page->hash_file.funcs[id]);
-		const char *digest = gtkhash_hash_func_get_digest(
-			&page->hash_file.funcs[id], DIGEST_FORMAT_HEX_LOWER);
+		gtkhash_hash_func_clear_digest(&page->funcs[id]);
+		const char *digest = gtkhash_hash_func_get_digest(&page->funcs[id],
+			DIGEST_FORMAT_HEX_LOWER);
 		gtk_list_store_set(store, &iter, COL_DIGEST, digest, -1);
 	}
 
-	page->hash_file.funcs[id].enabled = enabled;
+	page->funcs[id].enabled = enabled;
 }
 
 void gtkhash_properties_list_update_hash_func_names(struct page_s *page)
@@ -96,14 +96,14 @@ void gtkhash_properties_list_update_hash_func_names(struct page_s *page)
 		int id;
 		gtk_tree_model_get(model, &iter, COL_ID, &id, -1);
 
-		if (hmac && page->hash_file.funcs[id].hmac_supported) {
+		if (hmac && page->funcs[id].hmac_supported) {
 			char *name = g_strdup_printf("HMAC-%s",
-				page->hash_file.funcs[id].name);
+				page->funcs[id].name);
 			gtk_list_store_set(store, &iter, COL_HASH_FUNC, name, -1);
 			g_free(name);
 		} else {
 			gtk_list_store_set(store, &iter, COL_HASH_FUNC,
-				page->hash_file.funcs[id].name, -1);
+				page->funcs[id].name, -1);
 		}
 	} while (gtk_tree_model_iter_next(model, &iter));
 
@@ -124,8 +124,8 @@ void gtkhash_properties_list_update_digests(struct page_s *page)
 		int id;
 		gtk_tree_model_get(model, &iter, COL_ID, &id, -1);
 
-		const char *digest = gtkhash_hash_func_get_digest(
-			&page->hash_file.funcs[id], DIGEST_FORMAT_HEX_LOWER);
+		const char *digest = gtkhash_hash_func_get_digest(&page->funcs[id],
+			DIGEST_FORMAT_HEX_LOWER);
 		gtk_list_store_set(store, &iter, COL_DIGEST, digest, -1);
 	} while (gtk_tree_model_iter_next(model, &iter));
 
@@ -139,11 +139,11 @@ void gtkhash_properties_list_check_digests(struct page_s *page)
 
 	if (*str_in) {
 		for (int i = 0; i < HASH_FUNCS_N; i++) {
-			if (!page->hash_file.funcs[i].enabled)
+			if (!page->funcs[i].enabled)
 				continue;
 
 			const char *str_out = gtkhash_hash_func_get_digest(
-				&page->hash_file.funcs[i], DIGEST_FORMAT_HEX_LOWER);
+				&page->funcs[i], DIGEST_FORMAT_HEX_LOWER);
 			if (strcasecmp(str_in, str_out) == 0) {
 				// FIXME: find a real alternative for GTK_STOCK_YES
 				icon = "gtk-yes";
@@ -203,14 +203,14 @@ void gtkhash_properties_list_init(struct page_s *page)
 	GtkListStore *store = gtkhash_properties_list_get_store(page);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (!page->hash_file.funcs[i].supported)
+		if (!page->funcs[i].supported)
 			continue;
-		const char *digest = gtkhash_hash_func_get_digest(
-			&page->hash_file.funcs[i], DIGEST_FORMAT_HEX_LOWER);
+		const char *digest = gtkhash_hash_func_get_digest(&page->funcs[i],
+			DIGEST_FORMAT_HEX_LOWER);
 		gtk_list_store_insert_with_values(store, NULL, i,
 			COL_ID, i,
-			COL_ENABLED, page->hash_file.funcs[i].enabled,
-			COL_HASH_FUNC, page->hash_file.funcs[i].name,
+			COL_ENABLED, page->funcs[i].enabled,
+			COL_HASH_FUNC, page->funcs[i].name,
 			COL_DIGEST, digest,
 			-1);
 	}

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -44,9 +44,9 @@ struct page_s {
 	GtkToggleButton *togglebutton_hmac;
 	GtkEntry *entry_check, *entry_hmac;
 	GtkButton *button_hash, *button_stop;
-	bool busy;
+	struct hash_file_s *hfile;
 	struct hash_func_s funcs[HASH_FUNCS_N];
-	struct hash_file_s hash_file;
+	bool busy;
 };
 
 void gtkhash_properties_idle(struct page_s *page);

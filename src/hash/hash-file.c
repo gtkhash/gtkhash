@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -41,22 +41,56 @@ static gboolean gtkhash_hash_file_source_func(struct hash_file_s *data);
 static void gtkhash_hash_file_hash_thread_func(void *func,
 	struct hash_file_s *data);
 
+enum hash_file_state_e {
+	HASH_FILE_STATE_IDLE,
+	HASH_FILE_STATE_START,
+	HASH_FILE_STATE_OPEN,
+	HASH_FILE_STATE_GET_SIZE,
+	HASH_FILE_STATE_READ,
+	HASH_FILE_STATE_HASH,
+	HASH_FILE_STATE_HASH_FINISH,
+	HASH_FILE_STATE_CLOSE,
+	HASH_FILE_STATE_FINISH,
+	HASH_FILE_STATE_CALLBACK,
+};
+
+struct hash_file_s {
+	goffset file_size, total_read;
+	void *cb_data;
+	const char *uri;
+	GFile *file;
+	const uint8_t *hmac_key;
+	size_t key_size;
+	GCancellable *cancellable;
+	GFileInputStream *stream;
+	gssize just_read;
+	uint8_t *buffer;
+	GTimer *timer;
+	GThreadPool *thread_pool;
+	struct hash_func_s *funcs;
+	int threads;
+	unsigned int report_source;
+	enum hash_file_state_e state;
+	unsigned int source;
+	GMutex mtx;
+};
+
 static void gtkhash_hash_file_add_source(struct hash_file_s *data)
 {
-	g_mutex_lock(&data->priv.mutex);
-	g_assert(!data->priv.source);
-	data->priv.source = g_idle_add((GSourceFunc)gtkhash_hash_file_source_func,
+	g_mutex_lock(&data->mtx);
+	g_assert(!data->source);
+	data->source = g_idle_add((GSourceFunc)gtkhash_hash_file_source_func,
 		data);
-	g_mutex_unlock(&data->priv.mutex);
+	g_mutex_unlock(&data->mtx);
 }
 
 static void gtkhash_hash_file_remove_source(struct hash_file_s *data)
 {
-	g_mutex_lock(&data->priv.mutex);
-	if (G_UNLIKELY(!g_source_remove(data->priv.source)))
+	g_mutex_lock(&data->mtx);
+	if (G_UNLIKELY(!g_source_remove(data->source)))
 		g_assert_not_reached();
-	data->priv.source = 0;
-	g_mutex_unlock(&data->priv.mutex);
+	data->source = 0;
+	g_mutex_unlock(&data->mtx);
 }
 
 void gtkhash_hash_file_cancel(struct hash_file_s *data)
@@ -109,7 +143,7 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 	const int cpus = g_get_num_processors();
 	const int threads = CLAMP(MIN(funcs_enabled, cpus), 1, HASH_FUNCS_N);
 
-	g_atomic_int_set(&data->pool_threads_n, 0);
+	g_atomic_int_set(&data->threads, 0);
 	data->thread_pool = g_thread_pool_new(
 		(GFunc)gtkhash_hash_file_hash_thread_func, data, threads, true, NULL);
 
@@ -240,7 +274,7 @@ static void gtkhash_hash_file_hash_thread_func(void *func,
 	gtkhash_hash_lib_update(&data->funcs[GPOINTER_TO_UINT(func) - 1],
 		data->buffer, data->just_read);
 
-	if (g_atomic_int_dec_and_test(&data->pool_threads_n))
+	if (g_atomic_int_dec_and_test(&data->threads))
 		gtkhash_hash_file_add_source(data);
 }
 
@@ -254,21 +288,21 @@ static void gtkhash_hash_file_hash(struct hash_file_s *data)
 	gtkhash_hash_file_remove_source(data);
 	data->state =  HASH_FILE_STATE_HASH_FINISH;
 
-	g_atomic_int_inc(&data->pool_threads_n);
+	g_atomic_int_inc(&data->threads);
 	for (unsigned int i = 0; i < HASH_FUNCS_N; i++) {
 		if (data->funcs[i].enabled) {
-			g_atomic_int_inc(&data->pool_threads_n);
+			g_atomic_int_inc(&data->threads);
 			g_thread_pool_push(data->thread_pool, GUINT_TO_POINTER(i + 1), NULL);
 		}
 	}
 
-	if (g_atomic_int_dec_and_test(&data->pool_threads_n))
+	if (g_atomic_int_dec_and_test(&data->threads))
 		gtkhash_hash_file_add_source(data);
 }
 
 static void gtkhash_hash_file_hash_finish(struct hash_file_s *data)
 {
-	g_assert(g_atomic_int_get(&data->pool_threads_n) == 0);
+	g_assert(g_atomic_int_get(&data->threads) == 0);
 
 	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable))) {
 		data->state = HASH_FILE_STATE_CLOSE;
@@ -380,7 +414,7 @@ void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
 	g_assert(uri && *uri);
 	g_assert(data->state == HASH_FILE_STATE_IDLE);
 	g_assert(data->report_source == 0);
-	g_assert(data->priv.source == 0);
+	g_assert(data->source == 0);
 
 	data->uri = uri;
 	data->hmac_key = hmac_key;
@@ -391,9 +425,11 @@ void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
 	gtkhash_hash_file_add_source(data);
 }
 
-void gtkhash_hash_file_init(struct hash_file_s *data, struct hash_func_s *funcs,
+struct hash_file_s *gtkhash_hash_file_new(struct hash_func_s *funcs,
 	void *cb_data)
 {
+	struct hash_file_s *data = g_new(struct hash_file_s, 1);
+
 	data->file_size = 0;
 	data->total_read = 0;
 	data->cb_data = cb_data;
@@ -408,23 +444,28 @@ void gtkhash_hash_file_init(struct hash_file_s *data, struct hash_func_s *funcs,
 	data->timer = NULL;
 	data->thread_pool = NULL;
 	data->funcs = funcs;
-	data->pool_threads_n = 0;
+	g_atomic_int_set(&data->threads, 0);
 	data->report_source = 0;
 	data->state = HASH_FILE_STATE_IDLE;
+	data->source = 0;
+	g_mutex_init(&data->mtx);
 
-	g_mutex_init(&data->priv.mutex);
-	data->priv.source = 0;
+	return data;
 }
 
-void gtkhash_hash_file_deinit(struct hash_file_s *data)
+void gtkhash_hash_file_free(struct hash_file_s *data)
 {
+	g_assert(data);
+
 	// Shouldn't still be running
 	g_assert(data->state == HASH_FILE_STATE_IDLE);
 	g_assert(data->report_source == 0);
-	g_assert(data->priv.source == 0);
+	g_assert(data->source == 0);
 
 	g_object_unref(data->cancellable);
-	g_mutex_clear(&data->priv.mutex);
+	g_mutex_clear(&data->mtx);
+
+	g_free(data);
 }
 
 void gtkhash_hash_file_clear_digests(struct hash_file_s *data)
