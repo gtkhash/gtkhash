@@ -234,7 +234,7 @@ char *list_get_digest(const int row, const enum hash_func_e id)
 	GtkTreeIter iter;
 
 	if (!gtk_tree_model_iter_nth_child(gui.treemodel, &iter, NULL, row))
-		g_assert_not_reached();
+		return NULL;
 
 	char *digest;
 	GValue value;
