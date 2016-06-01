@@ -325,6 +325,9 @@ static bool on_treeview_button_press_event(G_GNUC_UNUSED GtkWidget *widget,
 	if (event->type == GDK_BUTTON_PRESS && event->button == 3) {
 		gtk_menu_popup(gui.menu_treeview, NULL, NULL, NULL, NULL, 3,
 			gdk_event_get_time((GdkEvent *)event));
+
+		// Stop further handling of this event (don't change selection)
+		return true;
 	}
 
 	return false;
