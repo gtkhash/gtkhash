@@ -56,7 +56,7 @@ enum hash_file_state_e {
 
 struct hash_file_s {
 	goffset file_size, total_read;
-	void *cb_data;
+	const void *cb_data;
 	const char *uri;
 	GFile *file;
 	const uint8_t *hmac_key;
@@ -101,7 +101,7 @@ void gtkhash_hash_file_cancel(struct hash_file_s *data)
 static gboolean gtkhash_hash_file_report_source_func(struct hash_file_s *data)
 {
 	if (data->report_source)
-		gtkhash_hash_file_report_cb(data->cb_data, data->file_size,
+		gtkhash_hash_file_report_cb((void *)data->cb_data, data->file_size,
 			data->total_read, data->timer);
 
 	return true;
@@ -380,10 +380,10 @@ static void gtkhash_hash_file_callback(struct hash_file_s *data)
 
 	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable))) {
 		gdk_threads_add_idle(gtkhash_hash_file_callback_stop_func,
-			data->cb_data);
+			(void *)data->cb_data);
 	} else {
 		gdk_threads_add_idle(gtkhash_hash_file_callback_finish_func,
-			data->cb_data);
+			(void *)data->cb_data);
 	}
 }
 
@@ -408,7 +408,7 @@ static gboolean gtkhash_hash_file_source_func(struct hash_file_s *data)
 }
 
 void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
-	const uint8_t *hmac_key, const size_t key_size)
+	const uint8_t *hmac_key, const size_t key_size, const void *cb_data)
 {
 	g_assert(data);
 	g_assert(uri && *uri);
@@ -419,20 +419,21 @@ void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
 	data->uri = uri;
 	data->hmac_key = hmac_key;
 	data->key_size = key_size;
+	data->cb_data = cb_data;
+
 	g_cancellable_reset(data->cancellable);
 
 	data->state = HASH_FILE_STATE_START;
 	gtkhash_hash_file_add_source(data);
 }
 
-struct hash_file_s *gtkhash_hash_file_new(struct hash_func_s *funcs,
-	void *cb_data)
+struct hash_file_s *gtkhash_hash_file_new(struct hash_func_s *funcs)
 {
 	struct hash_file_s *data = g_new(struct hash_file_s, 1);
 
 	data->file_size = 0;
 	data->total_read = 0;
-	data->cb_data = cb_data;
+	data->cb_data = NULL;
 	data->uri = NULL;
 	data->file = NULL;
 	data->hmac_key = NULL;

@@ -99,7 +99,7 @@ void gtkhash_hash_file_stop_cb(void *data)
 void gtkhash_properties_hash_start(struct page_s *page, const uint8_t *hmac_key,
 	const size_t key_size)
 {
-	gtkhash_hash_file(page->hfile, page->uri, hmac_key, key_size);
+	gtkhash_hash_file(page->hfile, page->uri, hmac_key, key_size, page);
 }
 
 void gtkhash_properties_hash_stop(struct page_s *page)
@@ -123,7 +123,7 @@ void gtkhash_properties_hash_init(struct page_s *page)
 {
 	gtkhash_hash_func_init_all(page->funcs);
 
-	page->hfile = gtkhash_hash_file_new(page->funcs, page);
+	page->hfile = gtkhash_hash_file_new(page->funcs);
 }
 
 void gtkhash_properties_hash_deinit(struct page_s *page)

@@ -30,12 +30,11 @@
 struct hash_file_s;
 
 void gtkhash_hash_file_cancel(struct hash_file_s *data);
-struct hash_file_s *gtkhash_hash_file_new(struct hash_func_s *funcs,
-	void *cb_data);
+struct hash_file_s *gtkhash_hash_file_new(struct hash_func_s *funcs);
 void gtkhash_hash_file_free(struct hash_file_s *data);
 void gtkhash_hash_file_clear_digests(struct hash_file_s *data);
 void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
-	const uint8_t *hmac_key, const size_t key_size);
+	const uint8_t *hmac_key, const size_t key_size, const void *cb_data);
 
 // Callbacks
 void gtkhash_hash_file_report_cb(void *data, goffset file_size,
