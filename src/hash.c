@@ -159,7 +159,7 @@ void hash_file_start(const char *uri)
 	if (gui.view == GUI_VIEW_FILE)
 		gtkhash_hash_file_clear_digests(hash_priv.hfile);
 
-	gtkhash_hash_file(hash_priv.hfile, uri, hmac_key, key_size);
+	gtkhash_hash_file(hash_priv.hfile, uri, hmac_key, key_size, NULL);
 }
 
 void hash_file_list_start(void)
@@ -193,7 +193,7 @@ void hash_init(void)
 {
 	gtkhash_hash_func_init_all(hash.funcs);
 
-	hash_priv.hfile = gtkhash_hash_file_new(hash.funcs, NULL);
+	hash_priv.hfile = gtkhash_hash_file_new(hash.funcs);
 }
 
 void hash_deinit(void)
