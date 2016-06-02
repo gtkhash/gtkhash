@@ -52,27 +52,27 @@ void gtkhash_hash_string_finish_cb(const enum hash_func_e id,
 	gui_check_digests();
 }
 
-void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data, goffset file_size,
-	goffset total_read, GTimer *timer)
+void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data,
+	const goffset file_size, const goffset total_read, GTimer *timer)
 {
 	gtk_progress_bar_set_fraction(gui.progressbar,
 		(double)total_read /
 		(double)file_size);
 
-	double elapsed = g_timer_elapsed(timer, NULL);
+	const double elapsed = g_timer_elapsed(timer, NULL);
 	if (elapsed <= 1)
 		return;
 
 	// Update progressbar text...
 
-	unsigned int s = elapsed / total_read * (file_size - total_read);
+	const unsigned int s = elapsed / total_read * (file_size - total_read);
 	char *total_read_str = g_format_size(total_read);
 	char *file_size_str = g_format_size(file_size);
 	char *speed_str = g_format_size(total_read / elapsed);
-	char *text;
+	char *text = NULL;
 
 	if (s > 60) {
-		unsigned int m = s / 60;
+		const unsigned int m = s / 60;
 		if (m == 1)
 			text = g_strdup_printf(_("%s of %s - 1 minute left (%s/sec)"),
 				total_read_str, file_size_str, speed_str);
@@ -96,37 +96,37 @@ void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data, goffset file_size,
 	g_free(total_read_str);
 }
 
-void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
+void gtkhash_hash_file_digest_cb(const enum hash_func_e id,
+	const char *digest, G_GNUC_UNUSED void *data)
+{
+	switch (gui.view) {
+		case GUI_VIEW_FILE:
+			gtk_entry_set_text(gui.hash_widgets[id].entry_file, digest);
+			break;
+		case GUI_VIEW_FILE_LIST:
+			list_set_digest(hash_priv.uris->data, id, digest);
+			break;
+		default:
+			g_assert_not_reached();
+	}
+}
+
+void gtkhash_hash_file_finish_cb(void *data)
 {
 	switch (gui.view) {
 		case GUI_VIEW_FILE: {
-			for (int i = 0; i < HASH_FUNCS_N; i++) {
-				if (!hash.funcs[i].enabled)
-					continue;
-
-				const char *digest = gtkhash_hash_func_get_digest(&hash.funcs[i],
-					gui_get_digest_format());
-				gtk_entry_set_text(gui.hash_widgets[i].entry_file, digest);
-			}
-
+			g_free(data); // uri
 			break;
 		}
 		case GUI_VIEW_FILE_LIST: {
 			g_assert(hash_priv.uris);
 			g_assert(hash_priv.uris->data);
 
-			for (int i = 0; i < HASH_FUNCS_N; i++) {
-				if (!hash.funcs[i].enabled)
-					continue;
-
-				const char *digest = gtkhash_hash_func_get_digest(&hash.funcs[i],
-					gui_get_digest_format());
-				list_set_digest(hash_priv.uris->data, i, digest);
-			}
-
 			g_free(hash_priv.uris->data);
 			hash_priv.uris = g_slist_delete_link(hash_priv.uris, hash_priv.uris);
+
 			if (hash_priv.uris) {
+				// Next file
 				hash_file_start(hash_priv.uris->data);
 				return;
 			}
@@ -141,11 +141,20 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data)
 	gui_check_digests();
 }
 
-void gtkhash_hash_file_stop_cb(G_GNUC_UNUSED void *data)
+void gtkhash_hash_file_stop_cb(void *data)
 {
-	if (hash_priv.uris) {
-		g_slist_free_full(hash_priv.uris, g_free);
-		hash_priv.uris = NULL;
+	switch (gui.view) {
+		case GUI_VIEW_FILE:
+			g_free(data); // uri
+			break;
+		case GUI_VIEW_FILE_LIST:
+			if (hash_priv.uris) {
+				g_slist_free_full(hash_priv.uris, g_free);
+				hash_priv.uris = NULL;
+			}
+			break;
+		default:
+			g_assert_not_reached();
 	}
 
 	gui_set_state(GUI_STATE_IDLE);
@@ -153,20 +162,22 @@ void gtkhash_hash_file_stop_cb(G_GNUC_UNUSED void *data)
 
 void hash_file_start(const char *uri)
 {
+	const enum digest_format_e format = gui_get_digest_format();
+
 	size_t key_size = 0;
 	const uint8_t *hmac_key = gui_get_hmac_key(&key_size);
 
+	const void *cb_data = NULL;
 	if (gui.view == GUI_VIEW_FILE)
-		gtkhash_hash_file_clear_digests(hash_priv.hfile);
+		cb_data = uri;
 
-	gtkhash_hash_file(hash_priv.hfile, uri, hmac_key, key_size, NULL);
+	gtkhash_hash_file(hash_priv.hfile, uri, format, hmac_key, key_size,
+		cb_data);
 }
 
 void hash_file_list_start(void)
 {
 	g_assert(!hash_priv.uris);
-
-	gtkhash_hash_file_clear_digests(hash_priv.hfile);
 
 	hash_priv.uris = list_get_all_uris();
 	g_assert(hash_priv.uris);
@@ -182,11 +193,12 @@ void hash_file_stop(void)
 void hash_string(void)
 {
 	const char *str = gtk_entry_get_text(gui.entry_text);
-	const enum digest_format_e digest_format = gui_get_digest_format();
+	const enum digest_format_e format = gui_get_digest_format();
+
 	size_t key_size = 0;
 	const uint8_t *hmac_key = gui_get_hmac_key(&key_size);
 
-	gtkhash_hash_string(hash.funcs, str, digest_format, hmac_key, key_size);
+	gtkhash_hash_string(hash.funcs, str, format, hmac_key, key_size);
 }
 
 void hash_init(void)

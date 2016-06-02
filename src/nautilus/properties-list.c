@@ -38,19 +38,21 @@ enum {
 	COL_DIGEST
 };
 
-static GtkTreeModelFilter *gtkhash_properties_list_get_filter(
+inline static GtkTreeModelFilter *gtkhash_properties_list_get_filter(
 	struct page_s *page)
 {
 	return GTK_TREE_MODEL_FILTER(gtk_tree_view_get_model(page->treeview));
 }
 
-static GtkTreeModel *gtkhash_properties_list_get_model(struct page_s *page)
+inline static GtkTreeModel *gtkhash_properties_list_get_model(
+	struct page_s *page)
 {
 	GtkTreeModelFilter *filter = gtkhash_properties_list_get_filter(page);
 	return gtk_tree_model_filter_get_model(filter);
 }
 
-static GtkListStore *gtkhash_properties_list_get_store(struct page_s *page)
+inline static GtkListStore *gtkhash_properties_list_get_store(
+	struct page_s *page)
 {
 	return GTK_LIST_STORE(gtkhash_properties_list_get_model(page));
 }
@@ -72,10 +74,7 @@ void gtkhash_properties_list_update_enabled(struct page_s *page,
 
 	if (!enabled) {
 		// Clear digest for disabled func
-		gtkhash_hash_func_clear_digest(&page->funcs[id]);
-		const char *digest = gtkhash_hash_func_get_digest(&page->funcs[id],
-			DIGEST_FORMAT_HEX_LOWER);
-		gtk_list_store_set(store, &iter, COL_DIGEST, digest, -1);
+		gtk_list_store_set(store, &iter, COL_DIGEST, "", -1);
 	}
 
 	page->funcs[id].enabled = enabled;
@@ -96,7 +95,10 @@ void gtkhash_properties_list_update_hash_func_names(struct page_s *page)
 		int id;
 		gtk_tree_model_get(model, &iter, COL_ID, &id, -1);
 
-		if (hmac && page->funcs[id].hmac_supported) {
+		if (!page->funcs[id].hmac_supported)
+			continue;
+
+		if (hmac) {
 			char *name = g_strdup_printf("HMAC-%s",
 				page->funcs[id].name);
 			gtk_list_store_set(store, &iter, COL_HASH_FUNC, name, -1);
@@ -105,28 +107,26 @@ void gtkhash_properties_list_update_hash_func_names(struct page_s *page)
 			gtk_list_store_set(store, &iter, COL_HASH_FUNC,
 				page->funcs[id].name, -1);
 		}
+
+		// Digest is invalid now, so clear it
+		gtk_list_store_set(store, &iter, COL_DIGEST, "", -1);
 	} while (gtk_tree_model_iter_next(model, &iter));
 
 	gtk_tree_view_columns_autosize(page->treeview);
 }
 
-
-void gtkhash_properties_list_update_digests(struct page_s *page)
+void gtkhash_properties_list_clear_digests(struct page_s *page)
 {
 	GtkTreeModel *model = gtkhash_properties_list_get_model(page);
-	GtkListStore *store = gtkhash_properties_list_get_store(page);
 	GtkTreeIter iter;
 
 	if (!gtk_tree_model_get_iter_first(model, &iter))
 		return;
 
-	do {
-		int id;
-		gtk_tree_model_get(model, &iter, COL_ID, &id, -1);
+	GtkListStore *store = gtkhash_properties_list_get_store(page);
 
-		const char *digest = gtkhash_hash_func_get_digest(&page->funcs[id],
-			DIGEST_FORMAT_HEX_LOWER);
-		gtk_list_store_set(store, &iter, COL_DIGEST, digest, -1);
+	do {
+		gtk_list_store_set(store, &iter, COL_DIGEST, "", -1);
 	} while (gtk_tree_model_iter_next(model, &iter));
 
 	gtk_tree_view_columns_autosize(page->treeview);
@@ -134,26 +134,52 @@ void gtkhash_properties_list_update_digests(struct page_s *page)
 
 void gtkhash_properties_list_check_digests(struct page_s *page)
 {
-	const char *str_in = gtk_entry_get_text(page->entry_check);
+	const char *check = gtk_entry_get_text(page->entry_check);
 	const char *icon = NULL;
 
-	if (*str_in) {
-		for (int i = 0; i < HASH_FUNCS_N; i++) {
-			if (!page->funcs[i].enabled)
-				continue;
+	GtkTreeModel *model = gtkhash_properties_list_get_model(page);
+	GtkTreeIter iter;
 
-			const char *str_out = gtkhash_hash_func_get_digest(
-				&page->funcs[i], DIGEST_FORMAT_HEX_LOWER);
-			if (strcasecmp(str_in, str_out) == 0) {
+	if (*check && gtk_tree_model_get_iter_first(model, &iter)) {
+		do {
+			char *digest = NULL;;
+			gtk_tree_model_get(model, &iter, COL_DIGEST, &digest, -1);
+
+			if (strcasecmp(check, digest) == 0) {
 				// FIXME: find a real alternative for GTK_STOCK_YES
 				icon = "gtk-yes";
 				break;
 			}
-		}
+
+			g_free(digest);
+		} while (gtk_tree_model_iter_next(model, &iter));
 	}
 
 	gtk_entry_set_icon_from_icon_name(page->entry_check,
 		GTK_ENTRY_ICON_SECONDARY, icon);
+}
+
+void gtkhash_properties_list_set_digest(struct page_s *page,
+	const enum hash_func_e id, const char *digest)
+{
+	GtkTreeModel *model = gtkhash_properties_list_get_model(page);
+	GtkListStore *store = gtkhash_properties_list_get_store(page);
+	GtkTreeIter iter;
+
+	if (!gtk_tree_model_get_iter_first(model, &iter))
+		g_assert_not_reached();
+
+	do {
+		int row_id;
+		gtk_tree_model_get(model, &iter, COL_ID, &row_id, -1);
+
+		if (row_id == id) {
+			gtk_list_store_set(store, &iter, COL_DIGEST, digest, -1);
+			return;
+		}
+	} while (gtk_tree_model_iter_next(model, &iter));
+
+	g_assert_not_reached();
 }
 
 char *gtkhash_properties_list_get_selected_digest(struct page_s *page)
@@ -205,13 +231,12 @@ void gtkhash_properties_list_init(struct page_s *page)
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!page->funcs[i].supported)
 			continue;
-		const char *digest = gtkhash_hash_func_get_digest(&page->funcs[i],
-			DIGEST_FORMAT_HEX_LOWER);
+
 		gtk_list_store_insert_with_values(store, NULL, i,
 			COL_ID, i,
 			COL_ENABLED, page->funcs[i].enabled,
 			COL_HASH_FUNC, page->funcs[i].name,
-			COL_DIGEST, digest,
+			COL_DIGEST, "",
 			-1);
 	}
 

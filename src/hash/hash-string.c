@@ -50,5 +50,6 @@ void gtkhash_hash_string(struct hash_func_s *funcs, const char *str,
 
 		const char *digest = gtkhash_hash_func_get_digest(&funcs[i], format);
 		gtkhash_hash_string_finish_cb(funcs[i].id, digest);
+		gtkhash_hash_func_clear_digest(&funcs[i]);
 	}
 }

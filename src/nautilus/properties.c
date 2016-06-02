@@ -185,8 +185,7 @@ static void gtkhash_properties_on_entry_check_changed(struct page_s *page)
 
 static void gtkhash_properties_on_entry_hmac_changed(struct page_s *page)
 {
-	gtkhash_hash_file_clear_digests(page->hfile);
-	gtkhash_properties_list_update_digests(page);
+	gtkhash_properties_list_clear_digests(page);
 	gtkhash_properties_list_check_digests(page);
 }
 
@@ -221,15 +220,14 @@ static void gtkhash_properties_on_entry_hmac_populate_popup(GtkEntry *entry,
 static void gtkhash_properties_on_togglebutton_hmac_toggled(struct page_s *page)
 {
 	gtkhash_properties_entry_hmac_set_sensitive(page);
-	gtkhash_properties_on_entry_hmac_changed(page);
 	gtkhash_properties_list_update_hash_func_names(page);
+	gtkhash_properties_list_check_digests(page);
 }
 
 static void gtkhash_properties_on_button_hash_clicked(struct page_s *page)
 {
 	gtkhash_properties_busy(page);
-	gtkhash_hash_file_clear_digests(page->hfile);
-	gtkhash_properties_list_update_digests(page);
+	gtkhash_properties_list_clear_digests(page);
 
 	if (gtk_toggle_button_get_active(page->togglebutton_hmac)) {
 		const uint8_t *hmac_key = (uint8_t *)gtk_entry_get_text(

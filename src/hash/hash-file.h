@@ -26,20 +26,33 @@
 #include <gio/gio.h>
 
 #include "hash-func.h"
+#include "digest-format.h"
 
 struct hash_file_s;
 
 void gtkhash_hash_file_cancel(struct hash_file_s *data);
 struct hash_file_s *gtkhash_hash_file_new(struct hash_func_s *funcs);
 void gtkhash_hash_file_free(struct hash_file_s *data);
-void gtkhash_hash_file_clear_digests(struct hash_file_s *data);
 void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
-	const uint8_t *hmac_key, const size_t key_size, const void *cb_data);
+	enum digest_format_e format, const uint8_t *hmac_key, size_t key_size,
+	const void *cb_data);
 
+//
 // Callbacks
+//
+
+// Called periodically to report file hash progress
 void gtkhash_hash_file_report_cb(void *data, goffset file_size,
 	goffset total_read, GTimer *timer);
+
+// Called with digest result for each enabled hash function
+void gtkhash_hash_file_digest_cb(enum hash_func_e id, const char *digest,
+	void *data);
+
+// Called after hashing is complete
 void gtkhash_hash_file_finish_cb(void *data);
+
+// Called after hashing is canceled
 void gtkhash_hash_file_stop_cb(void *data);
 
 #endif
