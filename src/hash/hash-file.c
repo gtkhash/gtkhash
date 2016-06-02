@@ -29,6 +29,7 @@
 #include "hash-file.h"
 #include "hash-func.h"
 #include "hash-lib.h"
+#include "digest-format.h"
 
 // This lib can use GDK 2 or 3, but doesn't link either directly.
 // Try to avoid potential ABI/API mismatch issues by only declaring
@@ -68,9 +69,10 @@ struct hash_file_s {
 	GTimer *timer;
 	GThreadPool *thread_pool;
 	struct hash_func_s *funcs;
+	enum hash_file_state_e state;
+	enum digest_format_e format;
 	int threads;
 	unsigned int report_source;
-	enum hash_file_state_e state;
 	unsigned int source;
 	GMutex mtx;
 };
@@ -366,9 +368,22 @@ static gboolean gtkhash_hash_file_callback_stop_func(void *cb_data)
 	return false;
 }
 
-static gboolean gtkhash_hash_file_callback_finish_func(void *cb_data)
+static gboolean gtkhash_hash_file_callback_finish_func(
+	struct hash_file_s *data)
 {
-	gtkhash_hash_file_finish_cb(cb_data);
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!data->funcs[i].enabled)
+			continue;
+
+		const char *digest = gtkhash_hash_func_get_digest(&data->funcs[i],
+			data->format);
+
+		gtkhash_hash_file_digest_cb(i, digest, (void *)data->cb_data);
+
+		gtkhash_hash_func_clear_digest(&data->funcs[i]);
+	}
+
+	gtkhash_hash_file_finish_cb((void *)data->cb_data);
 
 	return false;
 }
@@ -382,8 +397,8 @@ static void gtkhash_hash_file_callback(struct hash_file_s *data)
 		gdk_threads_add_idle(gtkhash_hash_file_callback_stop_func,
 			(void *)data->cb_data);
 	} else {
-		gdk_threads_add_idle(gtkhash_hash_file_callback_finish_func,
-			(void *)data->cb_data);
+		gdk_threads_add_idle(
+			(GSourceFunc)gtkhash_hash_file_callback_finish_func, data);
 	}
 }
 
@@ -408,15 +423,18 @@ static gboolean gtkhash_hash_file_source_func(struct hash_file_s *data)
 }
 
 void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
-	const uint8_t *hmac_key, const size_t key_size, const void *cb_data)
+	const enum digest_format_e format, const uint8_t *hmac_key,
+	const size_t key_size, const void *cb_data)
 {
 	g_assert(data);
 	g_assert(uri && *uri);
+	g_assert(DIGEST_FORMAT_IS_VALID(format));
 	g_assert(data->state == HASH_FILE_STATE_IDLE);
 	g_assert(data->report_source == 0);
 	g_assert(data->source == 0);
 
 	data->uri = uri;
+	data->format = format;
 	data->hmac_key = hmac_key;
 	data->key_size = key_size;
 	data->cb_data = cb_data;
@@ -445,9 +463,10 @@ struct hash_file_s *gtkhash_hash_file_new(struct hash_func_s *funcs)
 	data->timer = NULL;
 	data->thread_pool = NULL;
 	data->funcs = funcs;
+	data->state = HASH_FILE_STATE_IDLE;
+	data->format = DIGEST_FORMAT_INVALID;
 	g_atomic_int_set(&data->threads, 0);
 	data->report_source = 0;
-	data->state = HASH_FILE_STATE_IDLE;
 	data->source = 0;
 	g_mutex_init(&data->mtx);
 
@@ -467,10 +486,4 @@ void gtkhash_hash_file_free(struct hash_file_s *data)
 	g_mutex_clear(&data->mtx);
 
 	g_free(data);
-}
-
-void gtkhash_hash_file_clear_digests(struct hash_file_s *data)
-{
-	for (int i = 0; i < HASH_FUNCS_N; i++)
-		gtkhash_hash_func_clear_digest(&data->funcs[i]);
 }

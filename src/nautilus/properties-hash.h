@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -22,8 +22,8 @@
 
 #include "properties.h"
 
-void gtkhash_properties_hash_start(struct page_s *page, const uint8_t *hmac_key,
-	const size_t key_size);
+void gtkhash_properties_hash_start(struct page_s *page,
+	const uint8_t *hmac_key, size_t key_size);
 void gtkhash_properties_hash_stop(struct page_s *page);
 int gtkhash_properties_hash_funcs_supported(struct page_s *page);
 void gtkhash_properties_hash_init(struct page_s *page);
