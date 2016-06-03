@@ -232,7 +232,8 @@ static void gtkhash_properties_on_button_hash_clicked(struct page_s *page)
 	if (gtk_toggle_button_get_active(page->togglebutton_hmac)) {
 		const uint8_t *hmac_key = (uint8_t *)gtk_entry_get_text(
 			page->entry_hmac);
-		const size_t key_size = gtk_entry_get_text_length(page->entry_hmac);
+		GtkEntryBuffer *buffer = gtk_entry_get_buffer(page->entry_hmac);
+		const size_t key_size = gtk_entry_buffer_get_bytes(buffer);
 		gtkhash_properties_hash_start(page, hmac_key, key_size);
 	} else
 		gtkhash_properties_hash_start(page, NULL, 0);
