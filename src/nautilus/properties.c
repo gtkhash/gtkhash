@@ -150,7 +150,7 @@ static bool gtkhash_properties_on_treeview_button_press_event(
 	return false;
 }
 
-static void gtkhash_properties_on_treeselection_changed(struct page_s *page)
+static void gtkhash_properties_on_menu_map_event(struct page_s *page)
 {
 	bool sensitive = false;
 	char *digest = gtkhash_properties_list_get_selected_digest(page);
@@ -318,10 +318,10 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 		G_CALLBACK(gtkhash_properties_on_treeview_popup_menu), page);
 	g_signal_connect_swapped(page->treeview, "button-press-event",
 		G_CALLBACK(gtkhash_properties_on_treeview_button_press_event), page);
-	g_signal_connect_swapped(page->treeselection, "changed",
-		G_CALLBACK(gtkhash_properties_on_treeselection_changed), page);
 
 	// Popup menu
+	g_signal_connect_swapped(page->menu, "map-event",
+		G_CALLBACK(gtkhash_properties_on_menu_map_event), page);
 	g_signal_connect_swapped(page->menuitem_copy, "activate",
 		G_CALLBACK(gtkhash_properties_on_menuitem_copy_activate), page);
 	g_signal_connect_swapped(page->menuitem_show_funcs, "toggled",
