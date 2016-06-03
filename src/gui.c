@@ -512,14 +512,20 @@ const uint8_t *gui_get_hmac_key(size_t *key_size)
 	switch (gui.view) {
 		case GUI_VIEW_FILE:
 			if (gtk_toggle_button_get_active(gui.togglebutton_hmac_file)) {
+				GtkEntryBuffer *buffer = gtk_entry_get_buffer(
+					gui.entry_hmac_file);
+
 				hmac_key = (uint8_t *)gtk_entry_get_text(gui.entry_hmac_file);
-				*key_size = gtk_entry_get_text_length(gui.entry_hmac_file);
+				*key_size = gtk_entry_buffer_get_bytes(buffer);
 			}
 			break;
 		case GUI_VIEW_TEXT:
 			if (gtk_toggle_button_get_active(gui.togglebutton_hmac_text)) {
+				GtkEntryBuffer *buffer = gtk_entry_get_buffer(
+					gui.entry_hmac_text);
+
 				hmac_key = (uint8_t *)gtk_entry_get_text(gui.entry_hmac_text);
-				*key_size = gtk_entry_get_text_length(gui.entry_hmac_text);
+				*key_size = gtk_entry_buffer_get_bytes(buffer);
 			}
 			break;
 		case GUI_VIEW_FILE_LIST: // TODO
