@@ -413,10 +413,11 @@ void gui_add_text(const char *text)
 {
 	g_assert(text);
 
+	gtk_entry_set_text(gui.entry_text, text);
+
 	gui_set_view(GUI_VIEW_TEXT);
 	gui_update();
 
-	gtk_entry_set_text(gui.entry_text, text);
 	gtk_editable_set_position(GTK_EDITABLE(gui.entry_text), -1);
 }
 
