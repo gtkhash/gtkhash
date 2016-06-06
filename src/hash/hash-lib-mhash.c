@@ -42,78 +42,29 @@ static bool gtkhash_hash_lib_mhash_set_type(const enum hash_func_e id,
 	hashid *type)
 {
 	switch (id) {
-		case HASH_FUNC_GOST:
-			*type = MHASH_GOST;
-			break;
-		case HASH_FUNC_HAVAL128_3:
-			*type = MHASH_HAVAL128;
-			break;
-		case HASH_FUNC_HAVAL160_3:
-			*type = MHASH_HAVAL160;
-			break;
-		case HASH_FUNC_HAVAL192_3:
-			*type = MHASH_HAVAL192;
-			break;
-		case HASH_FUNC_HAVAL224_3:
-			*type = MHASH_HAVAL224;
-			break;
-		case HASH_FUNC_HAVAL256_3:
-			*type = MHASH_HAVAL256;
-			break;
-		case HASH_FUNC_MD2:
-			*type = MHASH_MD2;
-			break;
-		case HASH_FUNC_MD4:
-			*type = MHASH_MD4;
-			break;
-		case HASH_FUNC_MD5:
-			*type = MHASH_MD5;
-			break;
-		case HASH_FUNC_RIPEMD128:
-			*type = MHASH_RIPEMD128;
-			break;
-		case HASH_FUNC_RIPEMD160:
-			*type = MHASH_RIPEMD160;
-			break;
-		case HASH_FUNC_RIPEMD256:
-			*type = MHASH_RIPEMD256;
-			break;
-		case HASH_FUNC_RIPEMD320:
-			*type = MHASH_RIPEMD320;
-			break;
-		case HASH_FUNC_SHA1:
-			*type = MHASH_SHA1;
-			break;
-		case HASH_FUNC_SHA224:
-			*type = MHASH_SHA224;
-			break;
-		case HASH_FUNC_SHA256:
-			*type = MHASH_SHA256;
-			break;
-		case HASH_FUNC_SHA384:
-			*type = MHASH_SHA384;
-			break;
-		case HASH_FUNC_SHA512:
-			*type = MHASH_SHA512;
-			break;
-		case HASH_FUNC_SNEFRU128:
-			*type = MHASH_SNEFRU128;
-			break;
-		case HASH_FUNC_SNEFRU256:
-			*type = MHASH_SNEFRU256;
-			break;
-		case HASH_FUNC_TIGER128:
-			*type = MHASH_TIGER128;
-			break;
-		case HASH_FUNC_TIGER160:
-			*type = MHASH_TIGER160;
-			break;
-		case HASH_FUNC_TIGER192:
-			*type = MHASH_TIGER192;
-			break;
-		case HASH_FUNC_WHIRLPOOL:
-			*type = MHASH_WHIRLPOOL;
-			break;
+		case HASH_FUNC_GOST:       *type = MHASH_GOST;      break;
+		case HASH_FUNC_HAVAL128_3: *type = MHASH_HAVAL128;  break;
+		case HASH_FUNC_HAVAL160_3: *type = MHASH_HAVAL160;  break;
+		case HASH_FUNC_HAVAL192_3: *type = MHASH_HAVAL192;  break;
+		case HASH_FUNC_HAVAL224_3: *type = MHASH_HAVAL224;  break;
+		case HASH_FUNC_HAVAL256_3: *type = MHASH_HAVAL256;  break;
+		case HASH_FUNC_MD2:        *type = MHASH_MD2;       break;
+		case HASH_FUNC_MD4:        *type = MHASH_MD4;       break;
+		case HASH_FUNC_MD5:        *type = MHASH_MD5;       break;
+		case HASH_FUNC_RIPEMD128:  *type = MHASH_RIPEMD128; break;
+		case HASH_FUNC_RIPEMD160:  *type = MHASH_RIPEMD160; break;
+		case HASH_FUNC_RIPEMD256:  *type = MHASH_RIPEMD256; break;
+		case HASH_FUNC_RIPEMD320:  *type = MHASH_RIPEMD320; break;
+		case HASH_FUNC_SHA1:       *type = MHASH_SHA1;      break;
+		case HASH_FUNC_SHA224:     *type = MHASH_SHA224;    break;
+		case HASH_FUNC_SHA256:     *type = MHASH_SHA256;    break;
+		case HASH_FUNC_SHA384:     *type = MHASH_SHA384;    break;
+		case HASH_FUNC_SHA512:     *type = MHASH_SHA512;    break;
+		case HASH_FUNC_SNEFRU128:  *type = MHASH_SNEFRU128; break;
+		case HASH_FUNC_SNEFRU256:  *type = MHASH_SNEFRU256; break;
+		case HASH_FUNC_TIGER192:   *type = MHASH_TIGER192;  break;
+		case HASH_FUNC_WHIRLPOOL:  *type = MHASH_WHIRLPOOL; break;
+
 		default:
 			return false;
 	}

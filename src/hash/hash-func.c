@@ -66,8 +66,6 @@ static const struct {
 	[HASH_FUNC_SHA3_512]   = { "SHA3-512",     64,  72, },
 	[HASH_FUNC_SNEFRU128]  = { "SNEFRU128",    16,   0, },
 	[HASH_FUNC_SNEFRU256]  = { "SNEFRU256",    32,   0, },
-	[HASH_FUNC_TIGER128]   = { "TIGER128",     16,   0, },
-	[HASH_FUNC_TIGER160]   = { "TIGER160",     20,   0, },
 	[HASH_FUNC_TIGER192]   = { "TIGER192",     24,   0, },
 	[HASH_FUNC_WHIRLPOOL]  = { "WHIRLPOOL",    64,   0, },
 };
