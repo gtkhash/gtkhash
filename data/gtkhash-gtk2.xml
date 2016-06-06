@@ -644,7 +644,7 @@
                             </child>
                             <child>
                               <object class="GtkCheckButton" id="togglebutton_hmac_file">
-                                <property name="label">HMAC:</property>
+                                <property name="label" translatable="yes">HMAC Key:</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
@@ -673,7 +673,7 @@
                             </child>
                             <child>
                               <object class="GtkCheckButton" id="togglebutton_hmac_text">
-                                <property name="label">HMAC:</property>
+                                <property name="label" translatable="yes">HMAC Key:</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
