@@ -426,6 +426,7 @@ echo "  gtkhash-nemo: ${enable_nemo}"
 echo "  gtkhash-thunar: ${enable_thunar}"
 
 gcrypt_funcs="
+	GOST
 	MD4
 	MD5
 	RIPEMD160

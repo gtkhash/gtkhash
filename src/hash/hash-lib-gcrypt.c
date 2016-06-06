@@ -42,20 +42,21 @@ static bool gtkhash_hash_lib_gcrypt_set_algo(const enum hash_func_e id,
 	int *algo)
 {
 	switch (id) {
-		case HASH_FUNC_MD4:       *algo = GCRY_MD_MD4;       break;
-		case HASH_FUNC_MD5:       *algo = GCRY_MD_MD5;       break;
-		case HASH_FUNC_RIPEMD160: *algo = GCRY_MD_RMD160;    break;
-		case HASH_FUNC_SHA1:      *algo = GCRY_MD_SHA1;      break;
-		case HASH_FUNC_SHA224:    *algo = GCRY_MD_SHA224;    break;
-		case HASH_FUNC_SHA256:    *algo = GCRY_MD_SHA256;    break;
-		case HASH_FUNC_SHA384:    *algo = GCRY_MD_SHA384;    break;
-		case HASH_FUNC_SHA512:    *algo = GCRY_MD_SHA512;    break;
-		case HASH_FUNC_SHA3_224:  *algo = GCRY_MD_SHA3_224;  break;
-		case HASH_FUNC_SHA3_256:  *algo = GCRY_MD_SHA3_256;  break;
-		case HASH_FUNC_SHA3_384:  *algo = GCRY_MD_SHA3_384;  break;
-		case HASH_FUNC_SHA3_512:  *algo = GCRY_MD_SHA3_512;  break;
-		case HASH_FUNC_TIGER192:  *algo = GCRY_MD_TIGER;     break;
-		case HASH_FUNC_WHIRLPOOL: *algo = GCRY_MD_WHIRLPOOL; break;
+		case HASH_FUNC_GOST:      *algo = GCRY_MD_GOSTR3411_94; break;
+		case HASH_FUNC_MD4:       *algo = GCRY_MD_MD4;          break;
+		case HASH_FUNC_MD5:       *algo = GCRY_MD_MD5;          break;
+		case HASH_FUNC_RIPEMD160: *algo = GCRY_MD_RMD160;       break;
+		case HASH_FUNC_SHA1:      *algo = GCRY_MD_SHA1;         break;
+		case HASH_FUNC_SHA224:    *algo = GCRY_MD_SHA224;       break;
+		case HASH_FUNC_SHA256:    *algo = GCRY_MD_SHA256;       break;
+		case HASH_FUNC_SHA384:    *algo = GCRY_MD_SHA384;       break;
+		case HASH_FUNC_SHA512:    *algo = GCRY_MD_SHA512;       break;
+		case HASH_FUNC_SHA3_224:  *algo = GCRY_MD_SHA3_224;     break;
+		case HASH_FUNC_SHA3_256:  *algo = GCRY_MD_SHA3_256;     break;
+		case HASH_FUNC_SHA3_384:  *algo = GCRY_MD_SHA3_384;     break;
+		case HASH_FUNC_SHA3_512:  *algo = GCRY_MD_SHA3_512;     break;
+		case HASH_FUNC_TIGER192:  *algo = GCRY_MD_TIGER;        break;
+		case HASH_FUNC_WHIRLPOOL: *algo = GCRY_MD_WHIRLPOOL;    break;
 
 		default:
 			return false;
