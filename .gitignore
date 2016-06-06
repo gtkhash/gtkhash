@@ -1,5 +1,5 @@
-gtkhash
-
+src/gtkhash
+src/gtkhash-test
 src/resources.c
 src/resources.h
 src/nautilus/properties-resources.c
@@ -35,7 +35,9 @@ stamp-it
 *.gz
 *.la
 *.lo
+*.log
 *.metainfo.xml
 *.o
+*.trs
 *.valid
 *.xz

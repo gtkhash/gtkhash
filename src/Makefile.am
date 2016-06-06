@@ -20,15 +20,28 @@ gtkhash_SOURCES = \
 	main.c main.h \
 	prefs.c prefs.h
 
-gtkhash_CPPFLAGS = \
+noinst_PROGRAMS = gtkhash-test
+
+nodist_gtkhash_test_SOURCES = resources.c
+
+gtkhash_test_SOURCES = \
+	callbacks.c \
+	gui.c \
+	hash.c \
+	list.c \
+	test.c
+
+AM_CPPFLAGS = \
 	-DLOCALEDIR="\"$(localedir)\"" \
 	$(GTK_CFLAGS)
 
-gtkhash_CFLAGS = $(GTKHASH_CFLAGS)
+AM_CFLAGS = $(GTKHASH_CFLAGS)
 
-gtkhash_LDADD = \
+LDADD = \
 	hash/hash.la \
 	$(GTK_LIBS)
+
+TESTS = gtkhash-test
 
 CLEANFILES = resources.c resources.h
 

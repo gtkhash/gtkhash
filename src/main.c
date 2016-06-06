@@ -166,6 +166,8 @@ int main(int argc, char **argv)
 	hash_init();
 	atexit(hash_deinit);
 
+	gtk_init(NULL, NULL);
+
 	// Init gui using GResource data
 	resources_register_resource();
 	gui_init();
