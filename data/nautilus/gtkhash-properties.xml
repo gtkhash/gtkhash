@@ -173,7 +173,7 @@
                 <property name="can_focus">False</property>
                 <child>
                   <object class="GtkCheckButton" id="togglebutton_hmac">
-                    <property name="label">HMAC:</property>
+                    <property name="label" translatable="yes">HMAC Key:</property>
                     <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
