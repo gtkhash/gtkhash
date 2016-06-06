@@ -302,8 +302,6 @@ static GtkBuilder *gui_init_builder(void)
 
 void gui_init(void)
 {
-	gtk_init(NULL, NULL);
-
 	GtkBuilder *builder = gui_init_builder();
 	gui_init_objects(builder);
 	g_object_unref(builder);
