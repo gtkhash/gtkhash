@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -26,6 +26,7 @@
 #include <stdint.h>
 #include <glib.h>
 #include <nettle/nettle-meta.h>
+#include <nettle/sha3.h>
 
 #include "hash-lib-nettle.h"
 #include "hash-lib.h"
@@ -42,48 +43,23 @@ static bool gtkhash_hash_lib_nettle_set_meta(const enum hash_func_e id,
 	const struct nettle_hash **meta)
 {
 	switch (id) {
-		case HASH_FUNC_GOST:
-			*meta = &nettle_gosthash94;
-			break;
-		case HASH_FUNC_MD2:
-			*meta = &nettle_md2;
-			break;
-		case HASH_FUNC_MD4:
-			*meta = &nettle_md4;
-			break;
-		case HASH_FUNC_MD5:
-			*meta = &nettle_md5;
-			break;
-		case HASH_FUNC_RIPEMD160:
-			*meta = &nettle_ripemd160;
-			break;
-		case HASH_FUNC_SHA1:
-			*meta = &nettle_sha1;
-			break;
-		case HASH_FUNC_SHA224:
-			*meta = &nettle_sha224;
-			break;
-		case HASH_FUNC_SHA256:
-			*meta = &nettle_sha256;
-			break;
-		case HASH_FUNC_SHA384:
-			*meta = &nettle_sha384;
-			break;
-		case HASH_FUNC_SHA512:
-			*meta = &nettle_sha512;
-			break;
-		case HASH_FUNC_SHA3_224:
-			*meta = &nettle_sha3_224;
-			break;
-		case HASH_FUNC_SHA3_256:
-			*meta = &nettle_sha3_256;
-			break;
-		case HASH_FUNC_SHA3_384:
-			*meta = &nettle_sha3_384;
-			break;
-		case HASH_FUNC_SHA3_512:
-			*meta = &nettle_sha3_512;
-			break;
+		case HASH_FUNC_GOST:      *meta = &nettle_gosthash94; break;
+		case HASH_FUNC_MD2:       *meta = &nettle_md2;        break;
+		case HASH_FUNC_MD4:       *meta = &nettle_md4;        break;
+		case HASH_FUNC_MD5:       *meta = &nettle_md5;        break;
+		case HASH_FUNC_RIPEMD160: *meta = &nettle_ripemd160;  break;
+		case HASH_FUNC_SHA1:      *meta = &nettle_sha1;       break;
+		case HASH_FUNC_SHA224:    *meta = &nettle_sha224;     break;
+		case HASH_FUNC_SHA256:    *meta = &nettle_sha256;     break;
+		case HASH_FUNC_SHA384:    *meta = &nettle_sha384;     break;
+		case HASH_FUNC_SHA512:    *meta = &nettle_sha512;     break;
+#ifdef NETTLE_SHA3_FIPS202
+		case HASH_FUNC_SHA3_224:  *meta = &nettle_sha3_224;   break;
+		case HASH_FUNC_SHA3_256:  *meta = &nettle_sha3_256;   break;
+		case HASH_FUNC_SHA3_384:  *meta = &nettle_sha3_384;   break;
+		case HASH_FUNC_SHA3_512:  *meta = &nettle_sha3_512;   break;
+#endif
+
 		default:
 			return false;
 	}
