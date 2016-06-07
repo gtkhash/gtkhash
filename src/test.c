@@ -286,7 +286,6 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 G_GNUC_NORETURN
 static void test_run(G_GNUC_UNUSED void *data)
 {
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.window), false);
 	gui_set_view(GUI_VIEW_TEXT);
 	delay();
 
@@ -322,6 +321,9 @@ int main(int argc, char **argv)
 	resources_register_resource();
 	gui_init();
 	list_init();
+
+	// Ignore user input during testing
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.window), false);
 
 	gdk_threads_add_idle((GSourceFunc)test_run, NULL);
 	gui_run();
