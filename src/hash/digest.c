@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2015 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -51,7 +51,15 @@ static char *gtkhash_digest_get_base64(struct digest_s *digest)
 // Returns a newly-allocated digest_s structure
 struct digest_s *gtkhash_digest_new(void)
 {
-	return g_new0(struct digest_s, 1);
+	struct digest_s *digest = g_new(struct digest_s, 1);
+
+	digest->bin = NULL;
+	digest->size = 0;
+
+	for (int i = 0; i < DIGEST_FORMATS_N; i++)
+		digest->data[i] = NULL;
+
+	return digest;
 }
 
 // Sets all stored digest representations using the given binary value
