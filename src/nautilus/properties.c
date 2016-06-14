@@ -547,7 +547,7 @@ PUBLIC void thunar_extension_initialize(GTypeModule *module)
 
 #if ENABLE_NLS
 	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
-	bind_textdomain_codeset(PACKAGE, "UTF-8");
+	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
 #endif
 }
 

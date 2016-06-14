@@ -194,9 +194,12 @@ GSList *list_get_all_uris(void)
 	return g_slist_reverse(uris);;
 }
 
-static void list_scroll_to_row(GtkTreeIter *iter)
+static void list_scroll_to_next_row(GtkTreeIter iter)
 {
-	GtkTreePath *path = gtk_tree_model_get_path(gui.treemodel, iter);
+	if (!gtk_tree_model_iter_next(gui.treemodel, &iter))
+		return;
+
+	GtkTreePath *path = gtk_tree_model_get_path(gui.treemodel, &iter);
 	gtk_tree_view_scroll_to_cell(gui.treeview, path, NULL, false, 0, 0);
 	gtk_tree_path_free(path);
 }
@@ -211,7 +214,7 @@ void list_set_digest(const unsigned int row, const enum hash_func_e id,
 	if (!gtk_tree_model_iter_nth_child(gui.treemodel, &iter, NULL, row))
 		g_assert_not_reached();
 
-	list_scroll_to_row(&iter);
+	list_scroll_to_next_row(iter);
 
 	gtk_list_store_set(gui.liststore, &iter,
 		list_priv.hash_cols[id], digest,
