@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-25 22:43+0100\n"
+"POT-Creation-Date: 2016-06-14 16:05+0100\n"
 "PO-Revision-Date: 2012-07-09 07:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
@@ -18,15 +18,15 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-07-10 05:35+0000\n"
 "X-Generator: Launchpad (build 15558)\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:16
+#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
 msgstr "GtkHash 首选项"
 
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:17
+#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:18
 msgid "Hash Functions:"
 msgstr "哈希函数："
 
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:18
+#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:19
 msgid "Digest Format:"
 msgstr "摘要格式："
 
@@ -84,10 +84,15 @@ msgid "Check:"
 msgstr "检测："
 
 #: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:14
+#: ../data/nautilus/gtkhash-properties.xml.h:6
+msgid "HMAC Key:"
+msgstr ""
+
+#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:15
 msgid "File"
 msgstr "文件"
 
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:15
+#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:16
 msgid "Ha_sh"
 msgstr "哈希(_S)"
 
@@ -95,51 +100,56 @@ msgstr "哈希(_S)"
 msgid "Checksum Calculator"
 msgstr ""
 
-#: ../data/gtkhash.desktop.in.h:2
+#: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
 #, fuzzy
 msgid "Calculate message digests or checksums"
 msgstr "用来计算信息摘要或校验的 GTK+ 工具。"
 
-#: ../src/callbacks.c:47
+#: ../src/callbacks.c:48
 msgid "Save Digests"
 msgstr "保存摘要"
 
-#: ../src/callbacks.c:49 ../src/callbacks.c:299
+#: ../src/callbacks.c:50 ../src/callbacks.c:300
 msgid "_Cancel"
 msgstr ""
 
-#: ../src/callbacks.c:50
+#: ../src/callbacks.c:51
 msgid "_Save"
 msgstr ""
 
-#: ../src/callbacks.c:264
+#: ../src/callbacks.c:265
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "用来计算信息摘要或校验的 GTK+ 工具。"
 
-#: ../src/callbacks.c:273
+#: ../src/callbacks.c:274
 #, fuzzy
 msgid "translator-credits"
 msgstr ""
 "Careone https://launchpad.net/~zzbusagain\n"
 "Wang Dianjin https://launchpad.net/~tuhaihe\n"
 
-#: ../src/callbacks.c:297
+#: ../src/callbacks.c:298
 msgid "Select Files"
 msgstr "选择文件"
 
-#: ../src/callbacks.c:300
+#: ../src/callbacks.c:301
 msgid "_Open"
 msgstr ""
 
-#: ../src/gui.c:341
+#. Add checkbutton
+#: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
+msgid "_Show HMAC Key"
+msgstr ""
+
+#: ../src/gui.c:339
 msgid "Not a regular file"
 msgstr "非常规文件"
 
-#: ../src/gui.c:363
+#: ../src/gui.c:361
 msgid "Unknown error"
 msgstr "未知错误"
 
-#: ../src/gui.c:365
+#: ../src/gui.c:363
 #, c-format
 msgid ""
 "Failed to add \"%s\":\n"
@@ -147,26 +157,6 @@ msgid ""
 msgstr ""
 "无法添加 “%s”：\n"
 "%s"
-
-#: ../src/hash.c:76 ../src/nautilus/properties-hash.c:63
-#, c-format
-msgid "%s of %s - 1 minute left (%s/sec)"
-msgstr "进度 %s/ %s - 还剩 1 分钟(%s/秒)"
-
-#: ../src/hash.c:79 ../src/nautilus/properties-hash.c:66
-#, c-format
-msgid "%s of %s - %u minutes left (%s/sec)"
-msgstr "进度 %s/%s - 还剩 %u 分钟(%s/秒)"
-
-#: ../src/hash.c:83 ../src/nautilus/properties-hash.c:70
-#, c-format
-msgid "%s of %s - 1 second left (%s/sec)"
-msgstr "进度 %s/%s - 还剩 1 秒钟(%s/秒)"
-
-#: ../src/hash.c:86 ../src/nautilus/properties-hash.c:73
-#, c-format
-msgid "%s of %s - %u seconds left (%s/sec)"
-msgstr "进度 %s/%s - 还剩 %u 秒(%s/秒)"
 
 #: ../src/main.c:81
 #, fuzzy
@@ -208,6 +198,25 @@ msgstr "[文件|位置...]"
 msgid "Failed to enable any supported hash functions."
 msgstr "无法启用任何支持的哈希函数。"
 
+#: ../src/util/util.c:35
+#, c-format
+msgid "%u minute left"
+msgid_plural "%u minutes left"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/util/util.c:39
+#, c-format
+msgid "%u second left"
+msgid_plural "%u seconds left"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/util/util.c:58
+#, fuzzy, c-format
+msgid "%s of %s - %s (%s/sec)"
+msgstr "进度 %s/%s - 还剩 %u 分钟(%s/秒)"
+
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
 msgstr "复制摘要(_C)"
@@ -224,14 +233,46 @@ msgstr "哈希函数"
 msgid "Digest"
 msgstr "摘要"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:6
+#: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
 msgstr "哈希(_A)"
 
-#: ../src/nautilus/properties.c:417 ../src/nautilus/properties.c:420
-#: ../src/nautilus/properties.c:423 ../src/nautilus/properties.c:425
+#: ../src/nautilus/properties.c:459 ../src/nautilus/properties.c:462
+#: ../src/nautilus/properties.c:465 ../src/nautilus/properties.c:467
+#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
 msgstr "摘要"
+
+#: ../data/appdata/gtkhash.appdata.xml.in.h:2
+msgid ""
+"GtkHash is an application for computing file checksums, or message digests. "
+"It's designed to be an easy to use, graphical alternative to command-line "
+"programs such as md5sum."
+msgstr ""
+
+#: ../data/appdata/gtkhash.appdata.xml.in.h:3
+msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
+msgstr ""
+
+#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
+#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
+#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
+#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
+#, fuzzy
+msgid "Adds message digests or checksums to file properties"
+msgstr "用来计算信息摘要或校验的 GTK+ 工具。"
+
+#~ msgid "%s of %s - 1 minute left (%s/sec)"
+#~ msgstr "进度 %s/ %s - 还剩 1 分钟(%s/秒)"
+
+#~ msgid "%s of %s - 1 second left (%s/sec)"
+#~ msgstr "进度 %s/%s - 还剩 1 秒钟(%s/秒)"
+
+#~ msgid "%s of %s - %u seconds left (%s/sec)"
+#~ msgstr "进度 %s/%s - 还剩 %u 秒(%s/秒)"
 
 #, fuzzy
 #~ msgid ""
