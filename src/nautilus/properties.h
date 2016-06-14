@@ -39,7 +39,7 @@ struct page_s {
 	GtkTreeSelection *treeselection;
 	GtkCellRendererToggle *cellrendtoggle;
 	GtkMenu *menu;
-	GtkImageMenuItem *menuitem_copy;
+	GtkMenuItem *menuitem_copy;
 	GtkCheckMenuItem *menuitem_show_funcs;
 	GtkToggleButton *togglebutton_hmac;
 	GtkEntry *entry_check, *entry_hmac;
