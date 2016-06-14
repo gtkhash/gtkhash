@@ -40,9 +40,11 @@ struct hash_s hash;
 static struct {
 	GSList *uris;
 	struct hash_file_s *hfile;
+	int list_row;
 } hash_priv = {
 	.uris = NULL,
 	.hfile = NULL,
+	.list_row = -1,
 };
 
 void gtkhash_hash_string_finish_cb(const enum hash_func_e id,
@@ -104,7 +106,7 @@ void gtkhash_hash_file_digest_cb(const enum hash_func_e id,
 			gtk_entry_set_text(gui.hash_widgets[id].entry_file, digest);
 			break;
 		case GUI_VIEW_FILE_LIST:
-			list_set_digest(hash_priv.uris->data, id, digest);
+			list_set_digest(hash_priv.list_row, id, digest);
 			break;
 		default:
 			g_assert_not_reached();
@@ -124,6 +126,7 @@ void gtkhash_hash_file_finish_cb(void *data)
 
 			g_free(hash_priv.uris->data);
 			hash_priv.uris = g_slist_delete_link(hash_priv.uris, hash_priv.uris);
+			hash_priv.list_row++;
 
 			if (hash_priv.uris) {
 				// Next file
@@ -180,6 +183,7 @@ void hash_file_list_start(void)
 	g_assert(!hash_priv.uris);
 
 	hash_priv.uris = list_get_all_uris();
+	hash_priv.list_row = 0;
 	g_assert(hash_priv.uris);
 
 	hash_file_start(hash_priv.uris->data);

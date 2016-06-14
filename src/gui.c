@@ -725,7 +725,7 @@ void gui_update(void)
 				gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
 					gui.menuitem_treeview_show_toolbar)));
 			gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash),
-				funcs_enabled && list_count_rows());
+				funcs_enabled && list.rows);
 			break;
 		default:
 			g_assert_not_reached();
