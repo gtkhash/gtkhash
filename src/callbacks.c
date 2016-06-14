@@ -24,6 +24,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <gtk/gtk.h>
+#include <gdk/gdk.h>
 
 #include "callbacks.h"
 #include "main.h"
@@ -95,8 +96,7 @@ static void on_menuitem_save_as_activate(void)
 				}
 				case GUI_VIEW_FILE_LIST: {
 					int prev = -1;
-					const int rows = list_count_rows();
-					for (int row = 0; row < rows; row++)
+					for (unsigned int row = 0; row < list.rows; row++)
 					{
 						char *digest = list_get_digest(row, i);
 						if (digest && *digest) {
@@ -312,21 +312,63 @@ static void on_toolbutton_add_clicked(void)
 	gtk_widget_destroy(GTK_WIDGET(chooser));
 }
 
-static void on_treeview_popup_menu(void)
+static void show_menu_treeview(GdkEventButton *event)
 {
-	gtk_menu_popup(gui.menu_treeview, NULL, NULL, NULL, NULL, 0,
-		gtk_get_current_event_time());
+	const int rows = gtk_tree_selection_count_selected_rows(gui.treeselection);
+
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_remove), (rows > 0));
+
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_remove),
+		(rows > 0));
+
+	bool can_copy = false;
+
+	if (rows == 1) {
+		for (int i = 0; i < HASH_FUNCS_N; i++) {
+			if (!hash.funcs[i].enabled)
+				continue;
+			char *digest = list_get_selected_digest(i);
+			if (digest && *digest) {
+				can_copy = true;
+				gtk_widget_set_sensitive(GTK_WIDGET(
+					gui.hash_widgets[i].menuitem_treeview_copy), true);
+			} else {
+				gtk_widget_set_sensitive(GTK_WIDGET(
+					gui.hash_widgets[i].menuitem_treeview_copy), false);
+			}
+			g_free(digest);
+		}
+	}
+
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_copy),
+		can_copy);
+
+	if (event) {
+		gtk_menu_popup(gui.menu_treeview, NULL, NULL, NULL, NULL,
+			event->button, event->time);
+	} else {
+		gtk_menu_popup(gui.menu_treeview, NULL, NULL, NULL, NULL,
+			0, gtk_get_current_event_time());
+	}
 }
 
-static bool on_treeview_button_press_event(G_GNUC_UNUSED GtkWidget *widget,
+static gboolean on_treeview_popup_menu(void)
+{
+	show_menu_treeview(NULL);
+	return true;
+}
+
+static gboolean on_treeview_button_press_event(G_GNUC_UNUSED GtkWidget *widget,
 	GdkEventButton *event)
 {
-	// Right click
+#if (GTK_MAJOR_VERSION > 2)
+	if (gdk_event_triggers_context_menu((GdkEvent *)event) &&
+		event->type == GDK_BUTTON_PRESS)
+	{
+#else
 	if (event->type == GDK_BUTTON_PRESS && event->button == 3) {
-		gtk_menu_popup(gui.menu_treeview, NULL, NULL, NULL, NULL, 3,
-			gdk_event_get_time((GdkEvent *)event));
-
-		// Stop further handling of this event (don't change selection)
+#endif
+		show_menu_treeview(event);
 		return true;
 	}
 
@@ -339,7 +381,7 @@ static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget,
 	G_GNUC_UNUSED gpointer data)
 {
 	char **uris = gtk_selection_data_get_uris(selection);
-	GSList *list = NULL;
+	GSList *slist = NULL;
 
 	if (!uris) {
 		gtk_drag_finish(context, false, true, t);
@@ -347,39 +389,16 @@ static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget,
 	}
 
 	for (int i = 0; uris[i]; i++)
-		list = g_slist_prepend(list, uris[i]);
+		slist = g_slist_prepend(slist, uris[i]);
 
-	list = g_slist_reverse(list);
+	slist = g_slist_reverse(slist);
 
-	gui_add_uris(list, GUI_VIEW_FILE_LIST);
+	gui_add_uris(slist, GUI_VIEW_FILE_LIST);
 
-	g_slist_free(list);
+	g_slist_free(slist);
 	g_strfreev(uris);
 
 	gtk_drag_finish(context, true, true, t);
-}
-
-static void on_treeselection_changed(void)
-{
-	const int rows = gtk_tree_selection_count_selected_rows(gui.treeselection);
-
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_remove), (rows > 0));
-
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_remove),
-		(rows > 0));
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_copy),
-		(rows == 1));
-
-	if (rows == 1) {
-		for (int i = 0; i < HASH_FUNCS_N; i++) {
-			if (!hash.funcs[i].enabled)
-				continue;
-			char *digest = list_get_selected_digest(i);
-			gtk_widget_set_sensitive(GTK_WIDGET(
-				gui.hash_widgets[i].menuitem_treeview_copy), (digest && *digest));
-			g_free(digest);
-		}
-	}
 }
 
 static void on_menuitem_treeview_copy_activate(struct hash_func_s *func)
@@ -513,7 +532,6 @@ void callbacks_init(void)
 	CON(gui.treeview,                       "popup-menu",          on_treeview_popup_menu);
 	CON(gui.treeview,                       "button-press-event",  on_treeview_button_press_event);
 	CON(gui.treeview,                       "drag-data-received",  on_treeview_drag_data_received);
-	CON(gui.treeselection,                  "changed",             on_treeselection_changed);
 	CON(gui.menuitem_treeview_add,          "activate",            on_toolbutton_add_clicked);
 	CON(gui.menuitem_treeview_remove,       "activate",            list_remove_selection);
 	CON(gui.menuitem_treeview_clear,        "activate",            list_clear);
