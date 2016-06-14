@@ -151,7 +151,7 @@ void list_remove_selection(void)
 	}
 }
 
-char *list_get_uri(const int row)
+char *list_get_uri(const unsigned int row)
 {
 	g_assert(row <= list.rows);
 
@@ -201,10 +201,10 @@ static void list_scroll_to_row(GtkTreeIter *iter)
 	gtk_tree_path_free(path);
 }
 
-void list_set_digest(const int row, const enum hash_func_e id,
+void list_set_digest(const unsigned int row, const enum hash_func_e id,
 	const char *digest)
 {
-	g_assert(uri);
+	g_assert(row <= list.rows);
 	g_assert(HASH_FUNC_IS_VALID(id));
 
 	GtkTreeIter iter;
@@ -218,7 +218,7 @@ void list_set_digest(const int row, const enum hash_func_e id,
 		-1);
 }
 
-char *list_get_digest(const int row, const enum hash_func_e id)
+char *list_get_digest(const unsigned int row, const enum hash_func_e id)
 {
 	g_assert(row <= list.rows);
 	g_assert(HASH_FUNC_IS_VALID(id));
@@ -249,7 +249,7 @@ char *list_get_selected_digest(const enum hash_func_e id)
 	g_assert(!rows->next);
 
 	GtkTreePath *path = rows->data;
-	int row = *gtk_tree_path_get_indices(path);
+	unsigned int row = *gtk_tree_path_get_indices(path);
 
 	gtk_tree_path_free(path);
 	g_list_free(rows);
