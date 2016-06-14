@@ -415,6 +415,7 @@ AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([src/Makefile])
 AC_CONFIG_FILES([src/hash/Makefile])
 AC_CONFIG_FILES([src/nautilus/Makefile])
+AC_CONFIG_FILES([src/util/Makefile])
 AC_OUTPUT
 
 echo

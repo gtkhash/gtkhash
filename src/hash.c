@@ -34,6 +34,7 @@
 #include "hash/hash-func.h"
 #include "hash/hash-string.h"
 #include "hash/hash-file.h"
+#include "util/util.h"
 
 struct hash_s hash;
 
@@ -65,37 +66,9 @@ void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data,
 	if (elapsed <= 1)
 		return;
 
-	// Update progressbar text...
-
-	const unsigned int s = elapsed / total_read * (file_size - total_read);
-	char *total_read_str = g_format_size(total_read);
-	char *file_size_str = g_format_size(file_size);
-	char *speed_str = g_format_size(total_read / elapsed);
-	char *text = NULL;
-
-	if (s > 60) {
-		const unsigned int m = s / 60;
-		if (m == 1)
-			text = g_strdup_printf(_("%s of %s - 1 minute left (%s/sec)"),
-				total_read_str, file_size_str, speed_str);
-		else
-			text = g_strdup_printf(_("%s of %s - %u minutes left (%s/sec)"),
-				total_read_str, file_size_str, m, speed_str);
-	} else {
-		if (s == 1)
-			text = g_strdup_printf(_("%s of %s - 1 second left (%s/sec)"),
-				total_read_str, file_size_str, speed_str);
-		else
-			text = g_strdup_printf(_("%s of %s - %u seconds left (%s/sec)"),
-				total_read_str, file_size_str, s, speed_str);
-	}
-
+	char *text = gtkhash_format_progress(file_size, total_read, elapsed);
 	gtk_progress_bar_set_text(gui.progressbar, text);
-
 	g_free(text);
-	g_free(speed_str);
-	g_free(file_size_str);
-	g_free(total_read_str);
 }
 
 void gtkhash_hash_file_digest_cb(const enum hash_func_e id,
@@ -129,6 +102,9 @@ void gtkhash_hash_file_finish_cb(void *data)
 			hash_priv.list_row++;
 
 			if (hash_priv.uris) {
+				gtk_progress_bar_set_fraction(gui.progressbar, 0.0);
+				gtk_progress_bar_set_text(gui.progressbar, " ");
+
 				// Next file
 				hash_file_start(hash_priv.uris->data);
 				return;

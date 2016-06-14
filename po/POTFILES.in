@@ -10,6 +10,7 @@ src/hash.c
 src/list.c
 src/main.c
 src/prefs.c
+src/util/util.c
 
 # gtkhash-properties
 [type: gettext/glade]data/nautilus/gtkhash-properties.xml

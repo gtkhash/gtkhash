@@ -1,4 +1,4 @@
-SUBDIRS = hash
+SUBDIRS = hash util
 
 if ENABLE_NAUTILUS_DATA
 SUBDIRS += nautilus
@@ -39,6 +39,7 @@ AM_CFLAGS = $(GTKHASH_CFLAGS)
 
 LDADD = \
 	hash/hash.la \
+	util/util.la \
 	$(GTK_LIBS)
 
 TESTS = gtkhash-test
