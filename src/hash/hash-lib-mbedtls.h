@@ -29,10 +29,10 @@
 
 #include "hash-func.h"
 
-bool gtkhash_hash_lib_mbedtls_is_supported(const enum hash_func_e id);
+bool gtkhash_hash_lib_mbedtls_is_supported(enum hash_func_e id);
 void gtkhash_hash_lib_mbedtls_start(struct hash_func_s *func);
 void gtkhash_hash_lib_mbedtls_update(struct hash_func_s *func,
-	const uint8_t *buffer, const size_t size);
+	const uint8_t *buffer, size_t size);
 void gtkhash_hash_lib_mbedtls_stop(struct hash_func_s *func);
 uint8_t *gtkhash_hash_lib_mbedtls_finish(struct hash_func_s *func,
 	size_t *size);

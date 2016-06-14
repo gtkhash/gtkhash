@@ -91,10 +91,10 @@ enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name);
 void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest,
 	size_t size);
 const char *gtkhash_hash_func_get_digest(struct hash_func_s *func,
-	const enum digest_format_e format);
+	enum digest_format_e format);
 void gtkhash_hash_func_clear_digest(struct hash_func_s *func);
 void gtkhash_hash_func_init(struct hash_func_s *func,
-	const enum hash_func_e id);
+	enum hash_func_e id);
 void gtkhash_hash_func_init_all(struct hash_func_s *funcs);
 void gtkhash_hash_func_deinit(struct hash_func_s *func);
 void gtkhash_hash_func_deinit_all(struct hash_func_s *funcs);

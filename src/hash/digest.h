@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -39,7 +39,7 @@ struct digest_s *gtkhash_digest_new(void);
 void gtkhash_digest_set_data(struct digest_s *digest, uint8_t *bin,
 	size_t size);
 const char *gtkhash_digest_get_data(struct digest_s *digest,
-	const enum digest_format_e format);
+	enum digest_format_e format);
 void gtkhash_digest_free_data(struct digest_s *digest);
 void gtkhash_digest_free(struct digest_s *digest);
 
