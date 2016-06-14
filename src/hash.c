@@ -40,11 +40,11 @@ struct hash_s hash;
 static struct {
 	GSList *uris;
 	struct hash_file_s *hfile;
-	int list_row;
+	unsigned int list_row;
 } hash_priv = {
 	.uris = NULL,
 	.hfile = NULL,
-	.list_row = -1,
+	.list_row = 0,
 };
 
 void gtkhash_hash_string_finish_cb(const enum hash_func_e id,
