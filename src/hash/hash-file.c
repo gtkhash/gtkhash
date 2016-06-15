@@ -354,9 +354,16 @@ static void gtkhash_hash_file_finish(struct hash_file_s *data)
 	}
 
 	g_object_unref(data->file);
+	data->file = NULL;
+
 	g_free(data->buffer);
+	data->buffer = NULL;
+
 	g_timer_destroy(data->timer);
+	data->timer = NULL;
+
 	g_thread_pool_free(data->thread_pool, true, false);
+	data->thread_pool = NULL;
 
 	data->state = HASH_FILE_STATE_CALLBACK;
 }
@@ -400,6 +407,9 @@ static void gtkhash_hash_file_callback(struct hash_file_s *data)
 		gdk_threads_add_idle(
 			(GSourceFunc)gtkhash_hash_file_callback_finish_func, data);
 	}
+
+	g_object_unref(data->cancellable);
+	data->cancellable = NULL;
 }
 
 static gboolean gtkhash_hash_file_source_func(struct hash_file_s *data)
@@ -432,14 +442,14 @@ void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
 	g_assert(data->state == HASH_FILE_STATE_IDLE);
 	g_assert(data->report_source == 0);
 	g_assert(data->source == 0);
+	g_assert(!data->cancellable);
 
 	data->uri = uri;
 	data->format = format;
 	data->hmac_key = hmac_key;
 	data->key_size = key_size;
 	data->cb_data = cb_data;
-
-	g_cancellable_reset(data->cancellable);
+	data->cancellable = g_cancellable_new();
 
 	data->state = HASH_FILE_STATE_START;
 	gtkhash_hash_file_add_source(data);
@@ -456,7 +466,7 @@ struct hash_file_s *gtkhash_hash_file_new(struct hash_func_s *funcs)
 	data->file = NULL;
 	data->hmac_key = NULL;
 	data->key_size = 0;
-	data->cancellable = g_cancellable_new();
+	data->cancellable = NULL;
 	data->stream = NULL;
 	data->just_read = 0;
 	data->buffer = NULL;
@@ -482,7 +492,6 @@ void gtkhash_hash_file_free(struct hash_file_s *data)
 	g_assert(data->report_source == 0);
 	g_assert(data->source == 0);
 
-	g_object_unref(data->cancellable);
 	g_mutex_clear(&data->mtx);
 
 	g_free(data);
