@@ -171,29 +171,6 @@ char *list_get_uri(const unsigned int row)
 	return uri;
 }
 
-GSList *list_get_all_uris(void)
-{
-	GtkTreeIter iter;
-	if (!gtk_tree_model_get_iter_first(gui.treemodel, &iter))
-		return NULL;
-
-	GSList *uris = NULL;
-
-	do {
-		GValue value = G_VALUE_INIT;
-		gtk_tree_model_get_value(gui.treemodel, &iter, COL_PNAME, &value);
-		GFile *file = g_file_parse_name(g_value_get_string(&value));
-		g_value_unset(&value);
-
-		char *uri = g_file_get_uri(file);
-		g_object_unref(file);
-
-		uris = g_slist_prepend(uris, uri);
-	} while (gtk_tree_model_iter_next(gui.treemodel, &iter));
-
-	return g_slist_reverse(uris);;
-}
-
 static void list_scroll_to_next_row(GtkTreeIter iter)
 {
 	if (!gtk_tree_model_iter_next(gui.treemodel, &iter))
