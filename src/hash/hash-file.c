@@ -102,7 +102,7 @@ void gtkhash_hash_file_cancel(struct hash_file_s *data)
 
 static gboolean gtkhash_hash_file_report_source_func(struct hash_file_s *data)
 {
-	if (data->report_source)
+	if (data->report_source && data->total_read)
 		gtkhash_hash_file_report_cb((void *)data->cb_data, data->file_size,
 			data->total_read, data->timer);
 
