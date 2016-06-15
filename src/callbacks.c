@@ -312,11 +312,16 @@ static void on_toolbutton_add_clicked(void)
 	gtk_widget_destroy(GTK_WIDGET(chooser));
 }
 
-static void show_menu_treeview(GdkEventButton *event)
+static void on_treeselection_changed(void)
 {
 	const int rows = gtk_tree_selection_count_selected_rows(gui.treeselection);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_remove), (rows > 0));
+}
+
+static void show_menu_treeview(GdkEventButton *event)
+{
+	const int rows = gtk_tree_selection_count_selected_rows(gui.treeselection);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_remove),
 		(rows > 0));
@@ -529,6 +534,7 @@ void callbacks_init(void)
 	CON(gui.toolbutton_add,                 "clicked",             on_toolbutton_add_clicked);
 	CON(gui.toolbutton_remove,              "clicked",             list_remove_selection);
 	CON(gui.toolbutton_clear,               "clicked",             list_clear);
+	CON(gui.treeselection,                  "changed",             on_treeselection_changed);
 	CON(gui.treeview,                       "popup-menu",          on_treeview_popup_menu);
 	CON(gui.treeview,                       "button-press-event",  on_treeview_button_press_event);
 	CON(gui.treeview,                       "drag-data-received",  on_treeview_drag_data_received);
