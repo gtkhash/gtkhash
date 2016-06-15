@@ -315,11 +315,12 @@ void gui_init(void)
 	gui_set_state(GUI_STATE_IDLE);
 }
 
-static bool gui_can_add_uri(char *uri, char **error_str)
+static char *gui_try_uri(const char *uri)
 {
 	g_assert(uri);
 
-	bool can_add = false;
+	char *error_str = NULL;
+
 	GFile *file = g_file_new_for_uri(uri);
 	GError *error = NULL;
 	GFileInfo *info = g_file_query_info(file,
@@ -332,21 +333,19 @@ static bool gui_can_add_uri(char *uri, char **error_str)
 		GFileType type = g_file_info_get_file_type(info);
 		g_object_unref(info);
 		if (!can_read)
-			*error_str = g_strdup(g_strerror(EACCES));
-		else if (type == G_FILE_TYPE_DIRECTORY)
-			*error_str = g_strdup(g_strerror(EISDIR));
+			error_str = g_strdup(g_strerror(EACCES));
+		else if (type == G_FILE_TYPE_DIRECTORY) // TODO
+			error_str = g_strdup(g_strerror(EISDIR));
 		else if (type != G_FILE_TYPE_REGULAR)
-			*error_str = g_strdup(_("Not a regular file"));
-		else
-			can_add = true;
+			error_str = g_strdup(_("Not a regular file"));
 	} else {
-		*error_str = g_strdup(error->message);
+		error_str = g_strdup(error->message);
 		g_error_free(error);
 	}
 
 	g_object_unref(file);
 
-	return can_add;
+	return error_str;
 }
 
 unsigned int gui_add_uris(GSList *uris, const enum gui_view_e view)
@@ -358,13 +357,11 @@ unsigned int gui_add_uris(GSList *uris, const enum gui_view_e view)
 	{
 		GSList *tmp = uris;
 		do {
-			char *error = g_strdup(_("Unknown error"));
-			if (!gui_can_add_uri(tmp->data, &error)) {
-				char *message = g_strdup_printf(_("Failed to add \"%s\":\n%s"),
+			char *error = NULL;
+			if ((error = gui_try_uri(tmp->data))) {
+				g_message(_("Failed to add file \"%s\": %s"),
 					(char *)tmp->data, error);
-				gui_error(message);
 				g_free(error);
-				g_free(message);
 				continue;
 			}
 			if (!g_slist_find_custom(readable, tmp->data,
