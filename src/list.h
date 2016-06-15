@@ -31,7 +31,6 @@ void list_update(void);
 void list_append_row(const char *uri);
 void list_remove_selection(void);
 char *list_get_uri(unsigned int row);
-GSList *list_get_all_uris(void);
 void list_set_digest(unsigned int row, enum hash_func_e id, const char *digest);
 char *list_get_digest(unsigned int row, enum hash_func_e id);
 char *list_get_selected_digest(enum hash_func_e id);

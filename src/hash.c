@@ -39,11 +39,9 @@
 struct hash_s hash;
 
 static struct {
-	GSList *uris;
 	struct hash_file_s *hfile;
 	unsigned int list_row;
 } hash_priv = {
-	.uris = NULL,
 	.hfile = NULL,
 	.list_row = 0,
 };
@@ -88,32 +86,19 @@ void gtkhash_hash_file_digest_cb(const enum hash_func_e id,
 
 void gtkhash_hash_file_finish_cb(void *data)
 {
-	switch (gui.view) {
-		case GUI_VIEW_FILE: {
-			g_free(data); // uri
-			break;
-		}
-		case GUI_VIEW_FILE_LIST: {
-			g_assert(hash_priv.uris);
-			g_assert(hash_priv.uris->data);
+	g_free(data); // uri
 
-			g_free(hash_priv.uris->data);
-			hash_priv.uris = g_slist_delete_link(hash_priv.uris, hash_priv.uris);
-			hash_priv.list_row++;
+	if ((gui.view == GUI_VIEW_FILE_LIST) &&
+		(++hash_priv.list_row < list.rows))
+	{
+		gtk_progress_bar_set_fraction(gui.progressbar, 0.0);
+		gtk_progress_bar_set_text(gui.progressbar, " ");
 
-			if (hash_priv.uris) {
-				gtk_progress_bar_set_fraction(gui.progressbar, 0.0);
-				gtk_progress_bar_set_text(gui.progressbar, " ");
+		// Next file
+		char *uri = list_get_uri(hash_priv.list_row);
+		hash_file_start(uri);
 
-				// Next file
-				hash_file_start(hash_priv.uris->data);
-				return;
-			}
-
-			break;
-		}
-		default:
-			g_assert_not_reached();
+		return;
 	}
 
 	gui_set_state(GUI_STATE_IDLE);
@@ -122,19 +107,7 @@ void gtkhash_hash_file_finish_cb(void *data)
 
 void gtkhash_hash_file_stop_cb(void *data)
 {
-	switch (gui.view) {
-		case GUI_VIEW_FILE:
-			g_free(data); // uri
-			break;
-		case GUI_VIEW_FILE_LIST:
-			if (hash_priv.uris) {
-				g_slist_free_full(hash_priv.uris, g_free);
-				hash_priv.uris = NULL;
-			}
-			break;
-		default:
-			g_assert_not_reached();
-	}
+	g_free(data); // uri
 
 	gui_set_state(GUI_STATE_IDLE);
 }
@@ -146,23 +119,15 @@ void hash_file_start(const char *uri)
 	size_t key_size = 0;
 	const uint8_t *hmac_key = gui_get_hmac_key(&key_size);
 
-	const void *cb_data = NULL;
-	if (gui.view == GUI_VIEW_FILE)
-		cb_data = uri;
-
-	gtkhash_hash_file(hash_priv.hfile, uri, format, hmac_key, key_size,
-		cb_data);
+	gtkhash_hash_file(hash_priv.hfile, uri, format, hmac_key, key_size, uri);
 }
 
 void hash_file_list_start(void)
 {
-	g_assert(!hash_priv.uris);
-
-	hash_priv.uris = list_get_all_uris();
 	hash_priv.list_row = 0;
-	g_assert(hash_priv.uris);
 
-	hash_file_start(hash_priv.uris->data);
+	char *uri = list_get_uri(0);
+	hash_file_start(uri);
 }
 
 void hash_file_stop(void)
@@ -194,9 +159,4 @@ void hash_deinit(void)
 	hash_priv.hfile = NULL;
 
 	gtkhash_hash_func_deinit_all(hash.funcs);
-
-	if (hash_priv.uris) {
-		g_slist_free_full(hash_priv.uris, g_free);
-		hash_priv.uris = NULL;
-	}
 }
