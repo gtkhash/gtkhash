@@ -267,14 +267,22 @@ void list_clear_digests(void)
 	if (!gtk_tree_model_get_iter_first(gui.treemodel, &iter))
 		return;
 
+	int cols_n = 0;
+
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		if (hash.funcs[i].supported)
+			cols_n++;
+
+	gint cols[cols_n];
+	GValue vals[HASH_FUNCS_N] = { G_VALUE_INIT };
+
+	for (int i = 0; i < cols_n; i++) {
+		cols[i] = COL_HASH + i;
+		g_value_init(&vals[i], G_TYPE_STRING);
+	}
+
 	do {
-		for (int i = 0; i < HASH_FUNCS_N; i++) {
-			if (!hash.funcs[i].supported)
-				continue;
-			gtk_list_store_set(gui.liststore, &iter,
-				list_priv.hash_cols[i], "",
-				-1);
-		}
+		gtk_list_store_set_valuesv(gui.liststore, &iter, cols, vals, cols_n);
 	} while (gtk_tree_model_iter_next(gui.treemodel, &iter));
 }
 
