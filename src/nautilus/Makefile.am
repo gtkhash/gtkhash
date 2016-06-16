@@ -7,7 +7,7 @@ common_ldflags = \
 
 common_libadd = \
 	../hash/hash.la \
-	../hash/util.la
+	../util/util.la
 
 BUILT_SOURCES = properties-resources.c properties-resources.h
 
