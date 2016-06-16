@@ -17,7 +17,7 @@
  *   along with GtkHash. If not, see <https://gnu.org/licenses/gpl-2.0.txt>.
  */
 
-#ifndef GTKHASH_NAUTILUS_RROPERTIES_HASH_H
+#ifndef GTKHASH_NAUTILUS_PROPERTIES_HASH_H
 #define GTKHASH_NAUTILUS_PROPERTIES_HASH_H
 
 #include "properties.h"
