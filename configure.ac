@@ -15,6 +15,7 @@ GTKHASH_CFLAGS=""
 
 for opt in \
 	-Werror=unknown-warning-option \
+	-Werror=implicit-function-declaration \
 	-fno-common \
 	-fvisibility=hidden \
 	-pedantic \
@@ -32,7 +33,7 @@ for opt in \
 	-Wshadow \
 	-Wswitch-default \
 	-Wwrite-strings \
-	-Werror=implicit-function-declaration
+	-Wno-parentheses-equality
 do
 	AC_MSG_CHECKING([whether ${CC} accepts option ${opt}])
 	ac_save_CFLAGS="${CFLAGS}"
