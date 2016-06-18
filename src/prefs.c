@@ -22,6 +22,7 @@
 #endif
 
 #include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
 #include <gtk/gtk.h>
 
@@ -118,11 +119,11 @@ static void load_digest_format(void)
 
 	enum digest_format_e format = DIGEST_FORMAT_INVALID;
 
-	if (g_strcmp0(str, "hex-lower") == 0)
+	if (strcmp(str, "hex-lower") == 0)
 		format = DIGEST_FORMAT_HEX_LOWER;
-	else if (g_strcmp0(str, "hex-upper") == 0)
+	else if (strcmp(str, "hex-upper") == 0)
 		format = DIGEST_FORMAT_HEX_UPPER;
-	else if (g_strcmp0(str, "base64") == 0)
+	else if (strcmp(str, "base64") == 0)
 		format = DIGEST_FORMAT_BASE64;
 
 	g_free(str);
@@ -137,11 +138,11 @@ static void load_view(void)
 	if (!str)
 		return;
 
-	if (g_strcmp0(str, "file") == 0)
+	if (strcmp(str, "file") == 0)
 		gui_set_view(GUI_VIEW_FILE);
-	else if (g_strcmp0(str, "text") == 0)
+	else if (strcmp(str, "text") == 0)
 		gui_set_view(GUI_VIEW_TEXT);
-	else if (g_strcmp0(str, "file-list") == 0)
+	else if (strcmp(str, "file-list") == 0)
 		gui_set_view(GUI_VIEW_FILE_LIST);
 
 	g_free(str);

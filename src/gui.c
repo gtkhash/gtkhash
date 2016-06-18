@@ -365,7 +365,7 @@ unsigned int gui_add_uris(GSList *uris, const enum gui_view_e view)
 				continue;
 			}
 			if (!g_slist_find_custom(readable, tmp->data,
-				(GCompareFunc)g_strcmp0))
+				(GCompareFunc)strcmp))
 			{
 				readable = g_slist_prepend(readable, tmp->data);
 				readable_len++;
