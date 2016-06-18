@@ -22,7 +22,6 @@
 #endif
 
 #include <stdlib.h>
-#include <string.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <gtk/gtk.h>
@@ -144,6 +143,29 @@ void hash_string(void)
 	const uint8_t *hmac_key = gui_get_hmac_key(&key_size);
 
 	gtkhash_hash_string(hash.funcs, str, format, hmac_key, key_size);
+}
+
+unsigned int hash_funcs_count_enabled(void)
+{
+	unsigned int ret = 0;
+
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (hash.funcs[i].enabled)
+			ret++;
+	}
+
+	return ret;
+}
+
+void hash_funcs_enable_strv(const char **funcs)
+{
+	for (int i = 0; funcs[i]; i++) {
+		enum hash_func_e id = gtkhash_hash_func_get_id_from_name(funcs[i]);
+		if (HASH_FUNC_IS_VALID(id) && hash.funcs[id].supported)
+			hash.funcs[id].enabled = true;
+		else
+			g_message(_("Unknown Hash Function name \"%s\""), funcs[i]);
+	}
 }
 
 void hash_init(void)

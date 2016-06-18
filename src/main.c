@@ -34,13 +34,15 @@
 #include "resources.h"
 
 static struct {
-	char *check;
-	char *text;
-	char **files;
+	const char *check;
+	const char *text;
+	const char **funcs;
+	const char **files;
 	gboolean version;
 } opts = {
 	.check = NULL,
 	.text = NULL,
+	.funcs = NULL,
 	.files = NULL,
 	.version = false,
 };
@@ -48,17 +50,22 @@ static struct {
 static void free_opts(void)
 {
 	if (opts.check) {
-		g_free(opts.check);
+		g_free((char *)opts.check);
 		opts.check = NULL;
 	}
 
 	if (opts.text) {
-		g_free(opts.text);
+		g_free((char *)opts.text);
 		opts.text = NULL;
 	}
 
+	if (opts.funcs) {
+		g_strfreev((char **)opts.funcs);
+		opts.funcs = NULL;
+	}
+
 	if (opts.files) {
-		g_strfreev(opts.files);
+		g_strfreev((char **)opts.files);
 		opts.files = NULL;
 	}
 }
@@ -77,22 +84,28 @@ static void read_opts_preinit(int *argc, char ***argv)
 	GOptionEntry entries[] = {
 		{
 			"check", 'c', 0, G_OPTION_ARG_STRING, &opts.check,
-			C_("gtkhash --help",
+			C_(PACKAGE " --help",
 				"Check against the specified digest or checksum"),
-			C_("gtkhash --help", "DIGEST")
+			C_(PACKAGE " --help", "DIGEST")
+		},
+		{
+			"function", 'f', 0, G_OPTION_ARG_STRING_ARRAY, &opts.funcs,
+			C_(PACKAGE " --help",
+				"Enable the specified Hash Function (e.g. MD5)"),
+			C_(PACKAGE " --help", "FUNCTION")
 		},
 		{
 			"text", 't', 0, G_OPTION_ARG_STRING, &opts.text,
-			C_("gtkhash --help", "Hash the specified text"),
-			C_("gtkhash --help", "TEXT")
+			C_(PACKAGE " --help", "Hash the specified text"),
+			C_(PACKAGE " --help", "TEXT")
 		},
 		{
 			"version", 'v', 0, G_OPTION_ARG_NONE, &opts.version,
-			C_("gtkhash --help", "Show version information"), NULL
+			C_(PACKAGE " --help", "Show version information"), NULL
 		},
 		{
 			G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY, &opts.files,
-			NULL, C_("gtkhash --help", "[FILE|URI...]")
+			NULL, C_(PACKAGE " --help", "[FILE|URI...]")
 		},
 		{ NULL, 0, 0, 0, NULL, NULL, NULL }
 	};
@@ -117,6 +130,9 @@ static void read_opts_preinit(int *argc, char ***argv)
 		free_opts();
 		exit(EXIT_SUCCESS);
 	}
+
+	if (opts.funcs)
+		hash_funcs_enable_strv(opts.funcs);
 }
 
 static void read_opts_postinit(void)
@@ -161,10 +177,10 @@ int main(int argc, char **argv)
 	textdomain(GETTEXT_PACKAGE);
 #endif
 
-	read_opts_preinit(&argc, &argv);
-
 	hash_init();
 	atexit(hash_deinit);
+
+	read_opts_preinit(&argc, &argv);
 
 	gtk_init(NULL, NULL);
 
