@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -53,6 +53,10 @@ static struct {
 
 static void default_hash_funcs(void)
 {
+	// Some funcs could already be enabled by cmdline arg
+	if (hash_funcs_count_enabled())
+		return;
+
 	bool has_enabled = false;
 
 	// Try to enable default functions
@@ -92,21 +96,14 @@ static void prefs_default(void)
 
 static void load_hash_funcs(void)
 {
-	char **strv = g_settings_get_strv(prefs_priv.settings, PREFS_KEY_HASH_FUNCS);
-	bool has_enabled = false;
+	char **strv = g_settings_get_strv(prefs_priv.settings,
+		PREFS_KEY_HASH_FUNCS);
 
-	for (int i = 0; strv[i]; i++) {
-		enum hash_func_e id = gtkhash_hash_func_get_id_from_name(strv[i]);
-		if (HASH_FUNC_IS_VALID(id) && hash.funcs[id].supported) {
-			hash.funcs[id].enabled = true;
-			gtk_toggle_button_set_active(gui.hash_widgets[id].button, true);
-			has_enabled = true;
-		}
-	}
+	hash_funcs_enable_strv((const char **)strv);
 
 	g_strfreev(strv);
 
-	if (!has_enabled)
+	if (!hash_funcs_count_enabled())
 		default_hash_funcs();
 }
 
@@ -182,13 +179,7 @@ static void prefs_load(void)
 static void save_hash_funcs(void)
 {
 	const char **strv = NULL;
-	int enabled = 0;
-
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (hash.funcs[i].enabled) {
-			enabled++;
-		}
-	}
+	int enabled = hash_funcs_count_enabled();
 
 	if (enabled > 0) {
 		strv = g_new0(const char *, enabled + 1);

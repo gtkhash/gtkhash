@@ -75,10 +75,8 @@ enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name)
 	g_assert(name);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++)
-		if (g_strcmp0(name, hash_func_data[i].name) == 0)
+		if (g_ascii_strcasecmp(name, hash_func_data[i].name) == 0)
 			return i;
-
-	g_warning("unknown hash func name '%s'", name);
 
 	return HASH_FUNC_INVALID;
 }

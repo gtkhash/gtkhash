@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -31,6 +31,8 @@ void hash_file_start(const char *uri);
 void hash_file_list_start(void);
 void hash_file_stop(void);
 void hash_string(void);
+unsigned int hash_funcs_count_enabled(void);
+void hash_funcs_enable_strv(const char **funcs);
 void hash_init(void);
 void hash_deinit(void);
 

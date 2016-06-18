@@ -258,6 +258,10 @@ static void gui_init_hash_funcs(void)
 				supported / 2,
 				supported / 2 + 1);
 #endif
+			// Could be enabled already by cmdline arg
+			if (hash.funcs[i].enabled)
+				gtk_toggle_button_set_active(gui.hash_widgets[i].button, true);
+
 			gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].button));
 
 			supported++;
