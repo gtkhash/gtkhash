@@ -811,7 +811,7 @@ void gui_check_digests(void)
 		switch (gui_get_digest_format()) {
 			case DIGEST_FORMAT_HEX_LOWER:
 			case DIGEST_FORMAT_HEX_UPPER:
-				if (*str_in && (strcasecmp(str_in, str_out) == 0)) {
+				if (*str_in && (g_ascii_strcasecmp(str_in, str_out) == 0)) {
 					// FIXME: find a real alternative for GTK_STOCK_YES
 					icon_out = "gtk-yes";
 					icon_in = "gtk-yes";

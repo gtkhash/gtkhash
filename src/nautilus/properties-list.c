@@ -23,7 +23,6 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
-#include <string.h>
 #include <gtk/gtk.h>
 
 #include "properties.h"
@@ -145,7 +144,7 @@ void gtkhash_properties_list_check_digests(struct page_s *page)
 			char *digest = NULL;;
 			gtk_tree_model_get(model, &iter, COL_DIGEST, &digest, -1);
 
-			if (strcasecmp(check, digest) == 0) {
+			if (g_ascii_strcasecmp(check, digest) == 0) {
 				// FIXME: find a real alternative for GTK_STOCK_YES
 				icon = "gtk-yes";
 				break;
