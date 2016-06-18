@@ -14,6 +14,7 @@ nodist_gtkhash_SOURCES = resources.c resources.h
 
 gtkhash_SOURCES = \
 	callbacks.c callbacks.h \
+	check.c check.h \
 	gui.c gui.h \
 	hash.c hash.h \
 	list.c list.h \
@@ -26,6 +27,7 @@ nodist_gtkhash_test_SOURCES = resources.c
 
 gtkhash_test_SOURCES = \
 	callbacks.c \
+	check.c \
 	gui.c \
 	hash.c \
 	list.c \
