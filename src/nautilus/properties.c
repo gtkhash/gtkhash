@@ -357,7 +357,7 @@ static GtkBuilder *gtkhash_properties_init_builder(void)
 		G_RESOURCE_LOOKUP_FLAGS_NONE, &error);
 
 	if (G_UNLIKELY(error)) {
-		g_warning(error->message);
+		g_warning("%s", error->message);
 		g_error_free(error);
 
 		return NULL;
@@ -371,7 +371,7 @@ static GtkBuilder *gtkhash_properties_init_builder(void)
 	g_free(xml);
 
 	if (G_UNLIKELY(error)) {
-		g_warning(error->message);
+		g_warning("%s", error->message);
 		g_error_free(error);
 		g_object_unref(builder);
 
