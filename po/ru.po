@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2016-03-15 20:07+0000\n"
+"PO-Revision-Date: 2016-06-21 16:30+0000\n"
 "Last-Translator: Grigorii Chirkov <ridgentsailor@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "Language: ru\n"
@@ -113,11 +113,11 @@ msgstr "Сохранить символы"
 
 #: ../src/callbacks.c:50 ../src/callbacks.c:300
 msgid "_Cancel"
-msgstr ""
+msgstr "_Отмена"
 
 #: ../src/callbacks.c:51
 msgid "_Save"
-msgstr ""
+msgstr "_Сохранить"
 
 #: ../src/callbacks.c:265
 msgid "A GTK+ utility for computing message digests or checksums."
@@ -139,12 +139,12 @@ msgstr "Выбрать файлы"
 
 #: ../src/callbacks.c:301
 msgid "_Open"
-msgstr ""
+msgstr "_Открыть"
 
 #. Add checkbutton
 #: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "_Показать ключ HMAC"
 
 #: ../src/gui.c:339
 msgid "Not a regular file"
@@ -257,10 +257,13 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash это программа для вычисления контрольной суммы файлов, или цифровых отпечатков. "
+"Программа проста в использовании, и является более удобной альтернативой утилитам "
+"командной строки, таким как md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
+msgstr "Поддерживаются хеш-функции MD5, SHA1, SHA256, SHA512 и CRC32."
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
