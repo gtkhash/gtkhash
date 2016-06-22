@@ -33,6 +33,8 @@
 #endif
 
 #include "hash.h"
+#include "uri-digest.h"
+#include "hash/hash-func.h"
 
 #define GUI_VIEW_IS_VALID(X) (((X) >= 0) && ((X) <= GUI_VIEW_FILE_LIST))
 #define GUI_STATE_IS_VALID(X) (((X) >= 0) && ((X) <= GUI_STATE_BUSY))
@@ -99,7 +101,7 @@ extern struct gui_s {
 } gui;
 
 void gui_init(void);
-unsigned int gui_add_uris(GSList *uris, enum gui_view_e view);
+unsigned int gui_add_ud_list(GSList *ud_list, enum gui_view_e view);
 void gui_add_check(const char *check);
 void gui_add_text(const char *text);
 void gui_error(const char *message);
@@ -109,6 +111,7 @@ void gui_set_view(enum gui_view_e view);
 void gui_set_digest_format(enum digest_format_e format);
 enum digest_format_e gui_get_digest_format(void);
 const uint8_t *gui_get_hmac_key(size_t *key_size);
+void gui_enable_hash_func(enum hash_func_e id);
 void gui_update_hash_func_labels(bool hmac_enabled);
 void gui_update(void);
 void gui_clear_digests(void);

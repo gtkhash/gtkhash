@@ -34,7 +34,9 @@
 #include "hash.h"
 #include "list.h"
 #include "prefs.h"
+#include "uri-digest.h"
 #include "hash/digest-format.h"
+#include "hash/hash-func.h"
 
 #if (GTK_MAJOR_VERSION > 2)
 #define GUI_XML_RESOURCE "/org/gtkhash/gtkhash-gtk3.xml"
@@ -352,28 +354,25 @@ static char *gui_try_uri(const char *uri)
 	return error_str;
 }
 
-unsigned int gui_add_uris(GSList *uris, const enum gui_view_e view)
+unsigned int gui_add_ud_list(GSList *ud_list, const enum gui_view_e view)
 {
-	g_assert(uris);
+	g_assert(ud_list);
 
 	GSList *readable = NULL;
 	unsigned int readable_len = 0;
 	{
-		GSList *tmp = uris;
+		GSList *tmp = ud_list;
 		do {
 			char *error = NULL;
-			if ((error = gui_try_uri(tmp->data))) {
+			struct uri_digest_s *ud = tmp->data;
+			if ((error = gui_try_uri(ud->uri))) {
 				g_message(_("Failed to add file \"%s\": %s"),
-					(char *)tmp->data, error);
+					ud->uri, error);
 				g_free(error);
 				continue;
 			}
-			if (!g_slist_find_custom(readable, tmp->data,
-				(GCompareFunc)strcmp))
-			{
-				readable = g_slist_prepend(readable, tmp->data);
-				readable_len++;
-			}
+			readable = g_slist_prepend(readable, tmp->data);
+			readable_len++;
 		} while ((tmp = tmp->next));
 	}
 	readable = g_slist_reverse(readable);
@@ -386,12 +385,16 @@ unsigned int gui_add_uris(GSList *uris, const enum gui_view_e view)
 	}
 
 	if (readable_len && (gui.view == GUI_VIEW_FILE)) {
+		struct uri_digest_s *ud = readable->data;
 		gtk_file_chooser_set_uri(GTK_FILE_CHOOSER(gui.filechooserbutton),
-			readable->data);
+			ud->uri);
+		if (ud->digest)
+			gtk_entry_set_text(gui.entry_check_file, ud->digest);
 	} else if (readable_len && (gui.view == GUI_VIEW_FILE_LIST)) {
 		GSList *tmp = readable;
 		do {
-			list_append_row(tmp->data);
+			struct uri_digest_s *ud = tmp->data;
+			list_append_row(ud->uri);
 		} while ((tmp = tmp->next));
 	}
 
@@ -581,6 +584,14 @@ static void gui_menuitem_save_as_set_sensitive(void)
 	}
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_save_as), sensitive);
+}
+
+void gui_enable_hash_func(const enum hash_func_e id)
+{
+	g_assert(HASH_FUNC_IS_VALID(id));
+
+	if (hash.funcs[id].supported)
+		gtk_toggle_button_set_active(gui.hash_widgets[id].button, true);
 }
 
 void gui_update_hash_func_labels(const bool hmac_enabled)
@@ -899,6 +910,9 @@ bool gui_is_maximised(void)
 
 void gui_start_hash(void)
 {
+	if (!hash_funcs_count_enabled())
+		return;
+
 	switch (gui.view) {
 		case GUI_VIEW_FILE: {
 			gui_clear_digests();
