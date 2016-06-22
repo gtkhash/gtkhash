@@ -1,6 +1,8 @@
 Summary of changes for each release:
 
 0.8.0 -
+	* Added feature for checking digests from files (md5sum, sfv, etc.)
+	* Added commandline option for enabling hash functions by name
 	* Added Caja (MATE file manager) extension
 	* Added support for mbed TLS
 	* Switched to use GTK+ 3 by default

@@ -33,6 +33,7 @@
 #include "prefs.h"
 #include "list.h"
 #include "check.h"
+#include "uri-digest.h"
 #include "hash/hash-string.h"
 
 static bool on_window_delete_event(void)
@@ -232,8 +233,12 @@ static void on_toolbutton_add_clicked(void)
 
 	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
 		GSList *uris = gtk_file_chooser_get_uris(chooser);
-		gui_add_uris(uris, GUI_VIEW_FILE_LIST);
-		g_slist_free_full(uris, g_free);
+		GSList *ud_list = uri_digest_list_from_uri_list(uris);
+
+		gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST);
+
+		uri_digest_list_free_full(ud_list);
+		g_slist_free(uris);
 	}
 
 	gtk_widget_destroy(GTK_WIDGET(chooser));
@@ -313,21 +318,16 @@ static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget,
 	G_GNUC_UNUSED gpointer data)
 {
 	char **uris = gtk_selection_data_get_uris(selection);
-	GSList *slist = NULL;
-
 	if (!uris) {
 		gtk_drag_finish(context, false, true, t);
 		return;
 	}
 
-	for (int i = 0; uris[i]; i++)
-		slist = g_slist_prepend(slist, uris[i]);
+	GSList *ud_list = uri_digest_list_from_uri_strv(uris);
 
-	slist = g_slist_reverse(slist);
+	gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST);
 
-	gui_add_uris(slist, GUI_VIEW_FILE_LIST);
-
-	g_slist_free(slist);
+	uri_digest_list_free(ud_list);
 	g_strfreev(uris);
 
 	gtk_drag_finish(context, true, true, t);

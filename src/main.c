@@ -32,15 +32,19 @@
 #include "list.h"
 #include "prefs.h"
 #include "resources.h"
+#include "check.h"
+#include "uri-digest.h"
 
 static struct {
 	const char *check;
+	const char **check_files;
 	const char *text;
 	const char **funcs;
 	const char **files;
 	gboolean version;
 } opts = {
 	.check = NULL,
+	.check_files = NULL,
 	.text = NULL,
 	.funcs = NULL,
 	.files = NULL,
@@ -50,12 +54,17 @@ static struct {
 static void free_opts(void)
 {
 	if (opts.check) {
-		g_free((char *)opts.check);
+		g_free((void *)opts.check);
 		opts.check = NULL;
 	}
 
+	if (opts.check_files) {
+		g_strfreev((char **)opts.check_files);
+		opts.check_files = NULL;
+	}
+
 	if (opts.text) {
-		g_free((char *)opts.text);
+		g_free((void *)opts.text);
 		opts.text = NULL;
 	}
 
@@ -70,7 +79,7 @@ static void free_opts(void)
 	}
 }
 
-static char *filename_arg_to_uri(const char *arg)
+static char *filename_arg_to_uri(const char * const arg)
 {
 	GFile *file = g_file_new_for_commandline_arg(arg);
 	char *uri = g_file_get_uri(file);
@@ -87,6 +96,12 @@ static void read_opts_preinit(int *argc, char ***argv)
 			C_(PACKAGE " --help",
 				"Check against the specified digest or checksum"),
 			C_(PACKAGE " --help", "DIGEST")
+		},
+		{
+			"check-file", 'C', 0, G_OPTION_ARG_STRING_ARRAY, &opts.check_files,
+			C_(PACKAGE " --help",
+				"Check digests or checksums from the specified file"),
+			C_(PACKAGE " --help", "FILE|URI")
 		},
 		{
 			"function", 'f', 0, G_OPTION_ARG_STRING_ARRAY, &opts.funcs,
@@ -140,31 +155,41 @@ static void read_opts_postinit(void)
 	if (opts.check && *opts.check)
 		gui_add_check(opts.check);
 
-	unsigned int files_added = 0;
+	GSList *ud_list = NULL;
 
-	if (opts.files) {
-		GSList *uris = NULL;
-
-		for (int i = 0; opts.files[i]; i++)
-			uris = g_slist_prepend(uris, filename_arg_to_uri(opts.files[i]));
-
-		uris = g_slist_reverse(uris);
-
-		files_added = gui_add_uris(uris, GUI_VIEW_INVALID);
-
-		g_slist_free_full(uris, g_free);
-
-		if (files_added) {
-			gui_update();
-			gui_start_hash();
+	if (opts.check_files) {
+		for (int i = 0; opts.check_files[i]; i++) {
+			GFile *file = g_file_new_for_commandline_arg(opts.check_files[i]);
+			ud_list = check_file_load(ud_list, file);
+			g_object_unref(file);
 		}
 	}
 
-	if (!files_added && opts.text)
-		gui_add_text(opts.text);
+	if (opts.files) {
+		for (int i = 0; opts.files[i]; i++) {
+			struct uri_digest_s *ud =
+				uri_digest_new(filename_arg_to_uri(opts.files[i]), NULL);
+			ud_list = g_slist_prepend(ud_list, ud);
+		}
+	}
 
-	if (!files_added && !opts.text && GUI_VIEW_IS_VALID(gui.view))
+	bool files_added = false;
+
+	if (ud_list) {
+		ud_list = g_slist_reverse(ud_list);
+		files_added = gui_add_ud_list(ud_list, GUI_VIEW_INVALID);
+		uri_digest_list_free_full(ud_list);
+	}
+
+	if (files_added) {
 		gui_update();
+		gui_start_hash();
+	} else if (opts.text) {
+		gui_add_text(opts.text);
+	} else if (GUI_VIEW_IS_VALID(gui.view)) {
+		// view was loaded from prefs
+		gui_update();
+	}
 
 	free_opts();
 }
@@ -194,6 +219,9 @@ int main(int argc, char **argv)
 
 	prefs_init();
 	atexit(prefs_deinit);
+
+	check_init();
+	atexit(check_deinit);
 
 	read_opts_postinit();
 

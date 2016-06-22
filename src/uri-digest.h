@@ -17,11 +17,21 @@
  *   along with GtkHash. If not, see <https://gnu.org/licenses/gpl-2.0.txt>.
  */
 
-#ifndef GTKHASH_CHECK_H
+#ifndef GTKHASH_URI_DIGEST_H
+#define GTKHASH_URI_DIGEST_H
 
-GSList *check_file_load(GSList *ud_list, GFile *file);
-void check_file_save(const char *filename);
-void check_init(void);
-void check_deinit(void);
+#include <glib.h>
+
+struct uri_digest_s {
+	char *uri;
+	char *digest;
+};
+
+struct uri_digest_s *uri_digest_new(char *uri, char *digest);
+void uri_digest_free_full(struct uri_digest_s *ud);
+GSList *uri_digest_list_from_uri_list(GSList *uris);
+GSList *uri_digest_list_from_uri_strv(char **uris);
+void uri_digest_list_free(GSList *ud_list);
+void uri_digest_list_free_full(GSList *ud_list);
 
 #endif

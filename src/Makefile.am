@@ -19,7 +19,8 @@ gtkhash_SOURCES = \
 	hash.c hash.h \
 	list.c list.h \
 	main.c main.h \
-	prefs.c prefs.h
+	prefs.c prefs.h \
+	uri-digest.c uri-digest.h
 
 noinst_PROGRAMS = gtkhash-test
 
@@ -31,7 +32,8 @@ gtkhash_test_SOURCES = \
 	gui.c \
 	hash.c \
 	list.c \
-	test.c
+	test.c \
+	uri-digest.c
 
 AM_CPPFLAGS = \
 	-DLOCALEDIR="\"$(localedir)\"" \
