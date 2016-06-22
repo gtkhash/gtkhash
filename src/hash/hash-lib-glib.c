@@ -41,15 +41,13 @@ static bool gtkhash_hash_lib_glib_set_type(const enum hash_func_e id,
 	GChecksumType *type)
 {
 	switch (id) {
-		case HASH_FUNC_MD5:
-			*type = G_CHECKSUM_MD5;
-			break;
-		case HASH_FUNC_SHA1:
-			*type = G_CHECKSUM_SHA1;
-			break;
-		case HASH_FUNC_SHA256:
-			*type = G_CHECKSUM_SHA256;
-			break;
+		case HASH_FUNC_MD5:    *type = G_CHECKSUM_MD5;    break;
+		case HASH_FUNC_SHA1:   *type = G_CHECKSUM_SHA1;   break;
+		case HASH_FUNC_SHA256: *type = G_CHECKSUM_SHA256; break;
+#if GLIB_CHECK_VERSION(2,35,3)
+		case HASH_FUNC_SHA512: *type = G_CHECKSUM_SHA512; break;
+#endif
+
 		default:
 			return false;
 	}
@@ -59,17 +57,15 @@ static bool gtkhash_hash_lib_glib_set_type(const enum hash_func_e id,
 
 bool gtkhash_hash_lib_glib_is_supported(const enum hash_func_e id)
 {
-	struct hash_lib_glib_s data;
+	GChecksumType type;
 
-	if (!gtkhash_hash_lib_glib_set_type(id, &data.type))
+	if (!gtkhash_hash_lib_glib_set_type(id, &type))
 		return false;
 
-	if (G_UNLIKELY(!(data.checksum = g_checksum_new(data.type)))) {
-		g_warning("g_checksum_new failed (%d)", id);
+	if (G_UNLIKELY(g_checksum_type_get_length(type) < 0)) {
+		g_warning("g_checksum_type_get_length() failed (%d)", id);
 		return false;
 	}
-
-	g_checksum_free(data.checksum);
 
 	return true;
 }
@@ -99,16 +95,14 @@ void gtkhash_hash_lib_glib_stop(struct hash_func_s *func)
 
 uint8_t *gtkhash_hash_lib_glib_finish(struct hash_func_s *func, size_t *size)
 {
-	gssize len = g_checksum_type_get_length(LIB_DATA->type);
+	gsize len = g_checksum_type_get_length(LIB_DATA->type);
 	g_assert(len > 0);
-
-	*size = len;
-	uint8_t *digest = g_malloc0(*size);
-	g_checksum_get_digest(LIB_DATA->checksum, digest, size);
-	g_assert(*size == (size_t)len);
+	uint8_t *digest = g_malloc(len);
+	g_checksum_get_digest(LIB_DATA->checksum, digest, &len);
 
 	g_checksum_free(LIB_DATA->checksum);
 	g_free(LIB_DATA);
 
+	*size = len;
 	return digest;
 }
