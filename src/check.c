@@ -53,7 +53,7 @@ struct {
 	.pattern = {
 		[CHECK_FORMAT_BSD] =
 			"^"
-			"(?<FUNCTION>[[:upper:][:digit:]-]{4,16})" // capture FUNCTION
+			"(?<FUNCTION>[[:upper:][:digit:]-]{3,16})" // capture FUNCTION
 			" \\("
 			"(?<FILENAME>.+)"                          // capture FILENAME
 			"\\) = "
