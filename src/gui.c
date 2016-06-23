@@ -334,11 +334,6 @@ void gui_init(void)
 	gui_init_objects(builder);
 	g_object_unref(builder);
 
-#if (GTK_MAJOR_VERSION > 2)
-	// Avoid GTK+ 2 "Unknown property" warning
-	gtk_widget_set_valign(GTK_WIDGET(gui.vbox_single), GTK_ALIGN_START);
-#endif
-
 	gui_init_hash_funcs();
 
 #if (GTK_MAJOR_VERSION < 3)
