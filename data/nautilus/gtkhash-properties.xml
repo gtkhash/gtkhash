@@ -4,13 +4,13 @@
   <object class="GtkImage" id="image_copy">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-copy</property>
+    <property name="icon_name">edit-copy</property>
     <property name="icon-size">1</property>
   </object>
   <object class="GtkImage" id="image_execute">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-execute</property>
+    <property name="icon_name">system-run</property>
   </object>
   <object class="GtkListStore" id="liststore">
     <columns>
@@ -30,12 +30,12 @@
     <child>
       <object class="GtkImageMenuItem" id="imagemenuitem_copy">
         <property name="label" translatable="yes">_Copy Digest</property>
-        <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="use_underline">True</property>
         <property name="image">image_copy</property>
         <property name="use_stock">False</property>
+        <property name="always_show_image">True</property>
       </object>
     </child>
     <child>
@@ -46,7 +46,6 @@
     </child>
     <child>
       <object class="GtkCheckMenuItem" id="checkmenuitem_show_funcs">
-        <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="label" translatable="yes">Show _Disabled Hash Functions</property>
@@ -174,11 +173,9 @@
                 <child>
                   <object class="GtkCheckButton" id="togglebutton_hmac">
                     <property name="label" translatable="yes">HMAC Key:</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="draw_indicator">False</property>
                   </object>
                   <packing>
@@ -251,12 +248,10 @@
             <child>
               <object class="GtkButton" id="button_stop">
                 <property name="label">gtk-stop</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
                 <property name="use_stock">True</property>
               </object>
               <packing>
@@ -268,11 +263,9 @@
             <child>
               <object class="GtkButton" id="button_hash">
                 <property name="label" translatable="yes">H_ash</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
                 <property name="image">image_execute</property>
                 <property name="use_underline">True</property>
               </object>
