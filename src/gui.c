@@ -338,6 +338,9 @@ void gui_init(void)
 
 #if (GTK_MAJOR_VERSION < 3)
 	gui_init_fonts();
+
+	g_object_set(gtk_settings_get_default(), "gtk-button-images", true, NULL);
+	g_object_set(gtk_settings_get_default(), "gtk-menu-images", true, NULL);
 #endif
 
 	gui_set_state(GUI_STATE_IDLE);

@@ -304,6 +304,10 @@ static void gtkhash_properties_init_objects(struct page_s *page,
 		"button_hash"));
 	page->button_stop = GTK_BUTTON(gtkhash_properties_get_object(builder,
 		"button_stop"));
+#if (GTK_MAJOR_VERSION > 2)
+	gtk_button_set_always_show_image(page->button_hash, true);
+	gtk_button_set_always_show_image(page->button_stop, true);
+#endif
 }
 
 static void gtkhash_properties_connect_signals(struct page_s *page)
