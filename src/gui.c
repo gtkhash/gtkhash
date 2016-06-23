@@ -271,6 +271,28 @@ static void gui_init_hash_funcs(void)
 	}
 }
 
+#if (GTK_MAJOR_VERSION < 3)
+static void gui_init_fonts(void)
+{
+	PangoFontDescription *desc = pango_font_description_from_string(
+		"monospace");
+
+	gtk_widget_modify_font(GTK_WIDGET(gui.entry_check_file), desc);
+	gtk_widget_modify_font(GTK_WIDGET(gui.entry_check_text), desc);
+	gtk_widget_modify_font(GTK_WIDGET(gui.treeview), desc);
+
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!hash.funcs[i].supported)
+			continue;
+
+		gtk_widget_modify_font(GTK_WIDGET(gui.hash_widgets[i].entry_file), desc);
+		gtk_widget_modify_font(GTK_WIDGET(gui.hash_widgets[i].entry_text), desc);
+	}
+
+	pango_font_description_free(desc);
+}
+#endif
+
 static GtkBuilder *gui_init_builder(void)
 {
 #if (GTK_MAJOR_VERSION > 2)
@@ -318,6 +340,11 @@ void gui_init(void)
 #endif
 
 	gui_init_hash_funcs();
+
+#if (GTK_MAJOR_VERSION < 3)
+	gui_init_fonts();
+#endif
+
 	gui_set_state(GUI_STATE_IDLE);
 }
 
