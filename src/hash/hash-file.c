@@ -382,10 +382,12 @@ static gboolean gtkhash_hash_file_callback_finish_func(
 		if (!data->funcs[i].enabled)
 			continue;
 
-		const char *digest = gtkhash_hash_func_get_digest(&data->funcs[i],
+		char *digest = gtkhash_hash_func_get_digest(&data->funcs[i],
 			data->format);
 
 		gtkhash_hash_file_digest_cb(i, digest, (void *)data->cb_data);
+
+		g_free(digest);
 
 		gtkhash_hash_func_clear_digest(&data->funcs[i]);
 	}

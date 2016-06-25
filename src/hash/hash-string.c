@@ -48,8 +48,10 @@ void gtkhash_hash_string(struct hash_func_s *funcs, const char *str,
 		gtkhash_hash_lib_update(&funcs[i], (const uint8_t *)str, len);
 		gtkhash_hash_lib_finish(&funcs[i]);
 
-		const char *digest = gtkhash_hash_func_get_digest(&funcs[i], format);
+		char *digest = gtkhash_hash_func_get_digest(&funcs[i], format);
 		gtkhash_hash_string_finish_cb(funcs[i].id, digest);
+		g_free(digest);
+
 		gtkhash_hash_func_clear_digest(&funcs[i]);
 	}
 }

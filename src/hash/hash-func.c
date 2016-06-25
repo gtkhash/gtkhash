@@ -91,14 +91,16 @@ void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest,
 	gtkhash_digest_set_data(func->digest, digest, size);
 }
 
-const char *gtkhash_hash_func_get_digest(struct hash_func_s *func,
+char *gtkhash_hash_func_get_digest(struct hash_func_s *func,
 	const enum digest_format_e format)
 {
 	g_assert(func);
+	g_assert(DIGEST_FORMAT_IS_VALID(format));
 
-	const char *digest = gtkhash_digest_get_data(func->digest, format);
+	char *digest = gtkhash_digest_get_data(func->digest, format);
+	g_assert(digest);
 
-	return digest ? digest : "";
+	return digest;
 }
 
 void gtkhash_hash_func_clear_digest(struct hash_func_s *func)
