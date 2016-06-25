@@ -33,19 +33,13 @@
 // Returns a newly-allocated string containing a digest in hex
 static char *gtkhash_digest_get_hex(struct digest_s *digest, bool upper)
 {
-	char *ret = g_malloc0((digest->size * 2) + 1);
+	char *ret = g_malloc((digest->size * 2) + 1);
 	const char *format_str = upper ? "%.2X" : "%.2x";
 
 	for (size_t i = 0; i < digest->size; i++)
 		snprintf(&ret[i * 2], 3, format_str, digest->bin[i]);
 
 	return ret;
-}
-
-// Returns a newly-allocated string containing a digest in base64
-static char *gtkhash_digest_get_base64(struct digest_s *digest)
-{
-	return g_base64_encode(digest->bin, digest->size);
 }
 
 // Returns a newly-allocated digest_s structure
@@ -56,15 +50,12 @@ struct digest_s *gtkhash_digest_new(void)
 	digest->bin = NULL;
 	digest->size = 0;
 
-	for (int i = 0; i < DIGEST_FORMATS_N; i++)
-		digest->data[i] = NULL;
-
 	return digest;
 }
 
 // Sets all stored digest representations using the given binary value
 void gtkhash_digest_set_data(struct digest_s *digest, uint8_t *bin,
-	size_t size)
+	const size_t size)
 {
 	g_assert(digest);
 	g_assert(bin);
@@ -74,20 +65,27 @@ void gtkhash_digest_set_data(struct digest_s *digest, uint8_t *bin,
 
 	digest->bin = bin;
 	digest->size = size;
-
-	digest->data[DIGEST_FORMAT_HEX_LOWER] = gtkhash_digest_get_hex(digest, false);
-	digest->data[DIGEST_FORMAT_HEX_UPPER] = gtkhash_digest_get_hex(digest, true);
-	digest->data[DIGEST_FORMAT_BASE64] = gtkhash_digest_get_base64(digest);
 }
 
-// Returns a digest string represented in the requested format
-const char *gtkhash_digest_get_data(struct digest_s *digest,
+// Returns a newly-allocated digest string in the requested format
+char *gtkhash_digest_get_data(struct digest_s *digest,
 	const enum digest_format_e format)
 {
 	g_assert(digest);
 	g_assert(DIGEST_FORMAT_IS_VALID(format));
 
-	return digest->data[format];
+	switch (format) {
+		case DIGEST_FORMAT_HEX_LOWER:
+			return gtkhash_digest_get_hex(digest, false);
+		case DIGEST_FORMAT_HEX_UPPER:
+			return gtkhash_digest_get_hex(digest, true);
+		case DIGEST_FORMAT_BASE64:
+			return g_base64_encode(digest->bin, digest->size);
+
+		default:
+			g_assert_not_reached();
+			return NULL;
+	}
 }
 
 // Resets a digest_s structure back to its original state
@@ -101,13 +99,6 @@ void gtkhash_digest_free_data(struct digest_s *digest)
 	}
 
 	digest->size = 0;
-
-	for (int i = 0; i < DIGEST_FORMATS_N; i++) {
-		if (digest->data[i]) {
-			g_free(digest->data[i]);
-			digest->data[i] = NULL;
-		}
-	}
 }
 
 // Frees a digest_s structure
