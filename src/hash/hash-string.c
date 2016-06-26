@@ -30,8 +30,8 @@
 #include "hash-func.h"
 #include "hash-lib.h"
 
-void gtkhash_hash_string(struct hash_func_s *funcs, const char *str,
-	const enum digest_format_e format, const uint8_t *hmac_key,
+void gtkhash_hash_string(struct hash_func_s *funcs, const char * const str,
+	const enum digest_format_e format, const uint8_t * const hmac_key,
 	const size_t key_size)
 {
 	g_assert(str);
@@ -44,14 +44,18 @@ void gtkhash_hash_string(struct hash_func_s *funcs, const char *str,
 			continue;
 
 		gtkhash_hash_lib_start(&funcs[i], hmac_key, key_size);
+
 		// Assuming this won't take too long
 		gtkhash_hash_lib_update(&funcs[i], (const uint8_t *)str, len);
+
 		gtkhash_hash_lib_finish(&funcs[i]);
 
 		char *digest = gtkhash_hash_func_get_digest(&funcs[i], format);
-		gtkhash_hash_string_finish_cb(funcs[i].id, digest);
+		gtkhash_hash_string_digest_cb(funcs[i].id, digest);
 		g_free(digest);
 
 		gtkhash_hash_func_clear_digest(&funcs[i]);
 	}
+
+	gtkhash_hash_string_finish_cb();
 }
