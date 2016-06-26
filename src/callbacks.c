@@ -416,24 +416,25 @@ static void on_button_hash_clicked(void)
 	gui_start_hash();
 }
 
-static void on_togglebutton_hmac_toggled(void)
+static void on_togglebutton_hmac_file_toggled(void)
 {
-	bool active = false;
+	g_assert(gui.view == GUI_VIEW_FILE);
 
-	switch (gui.view) {
-		case GUI_VIEW_FILE:
-			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_file);
-			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file), active);
-			gui_clear_digests();
-			break;
-		case GUI_VIEW_TEXT:
-			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_text);
-			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_text), active);
-			gui_start_hash();
-			break;
-		default:
-			g_assert_not_reached();
-	}
+	bool active = gtk_toggle_button_get_active(gui.togglebutton_hmac_file);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file), active);
+	gui_clear_digests();
+
+	gui_update_hash_func_labels(active);
+}
+
+static void on_togglebutton_hmac_text_toggled(void)
+{
+	g_assert(gui.view == GUI_VIEW_TEXT);
+
+	bool active = gtk_toggle_button_get_active(gui.togglebutton_hmac_text);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_text), active);
+
+	hash_string();
 
 	gui_update_hash_func_labels(active);
 }
@@ -473,10 +474,20 @@ static bool on_dialog_delete_event(void)
 
 static void on_dialog_combobox_changed(void)
 {
-	gui_clear_all_digests();
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!hash.funcs[i].supported)
+			continue;
+
+		gtk_entry_set_text(gui.hash_widgets[i].entry_file, "");
+		gtk_entry_set_text(gui.hash_widgets[i].entry_text, "");
+	}
+
+	list_clear_digests();
 
 	if (gui.view == GUI_VIEW_TEXT)
-		gui_start_hash();
+		hash_string();
+	else
+		gui_check_digests();
 }
 
 void callbacks_init(void)
@@ -502,13 +513,13 @@ void callbacks_init(void)
 //	file-set isn't emitted when file is deleted
 //	CON(gui.filechooserbutton,              "file-set",            on_filechooserbutton_file_set);
 	CON(gui.filechooserbutton,              "selection-changed",   on_filechooserbutton_selection_changed);
-	CON(gui.entry_text,                     "changed",             gui_start_hash);
-	CON(gui.togglebutton_hmac_file,         "toggled",             on_togglebutton_hmac_toggled);
-	CON(gui.togglebutton_hmac_text,         "toggled",             on_togglebutton_hmac_toggled);
+	CON(gui.entry_text,                     "changed",             hash_string);
+	CON(gui.togglebutton_hmac_file,         "toggled",             on_togglebutton_hmac_file_toggled);
+	CON(gui.togglebutton_hmac_text,         "toggled",             on_togglebutton_hmac_text_toggled);
 	CON(gui.entry_hmac_file,                "populate-popup",      on_entry_hmac_populate_popup);
 	CON(gui.entry_hmac_text,                "populate-popup",      on_entry_hmac_populate_popup);
 	CON(gui.entry_hmac_file,                "changed",             gui_clear_digests);
-	CON(gui.entry_hmac_text,                "changed",             gui_start_hash);
+	CON(gui.entry_hmac_text,                "changed",             hash_string);
 	CON(gui.entry_check_file,               "changed",             gui_check_digests);
 	CON(gui.entry_check_text,               "changed",             gui_check_digests);
 	CON(gui.toolbutton_add,                 "clicked",             on_toolbutton_add_clicked);
@@ -529,6 +540,9 @@ void callbacks_init(void)
 	CON(gui.dialog_combobox,                "changed",             on_dialog_combobox_changed);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!hash.funcs[i].supported)
+			continue;
+
 		CON(gui.hash_widgets[i].button, "toggled", gui_update);
 		g_signal_connect_swapped(gui.hash_widgets[i].menuitem_treeview_copy,
 			"activate", G_CALLBACK(on_menuitem_treeview_copy_activate),
