@@ -195,18 +195,26 @@ static void gtkhash_hash_file_open(struct hash_file_s *data)
 static void gtkhash_hash_file_get_size_finish(G_GNUC_UNUSED GObject *source,
 	GAsyncResult *res, struct hash_file_s *data)
 {
+	GError *error = NULL;
 	GFileInfo *info = g_file_input_stream_query_info_finish(
-		data->stream, res, NULL);
-	data->file_size = g_file_info_get_size(info);
-	g_object_unref(info);
+		data->stream, res, &error);
 
-	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable)))
+	if (G_UNLIKELY(!info)) {
+		g_warning("query info: %s", error->message);
+		g_error_free(error);
+
 		data->state = HASH_FILE_STATE_CLOSE;
-	else if (data->file_size == 0)
-		data->state = HASH_FILE_STATE_HASH;
-	else {
-		data->state = HASH_FILE_STATE_READ;
-		gtkhash_hash_file_add_report_source(data);
+		g_cancellable_cancel(data->cancellable);
+	} else {
+		data->file_size = g_file_info_get_size(info);
+		g_object_unref(info);
+
+		if (data->file_size == 0)
+			data->state = HASH_FILE_STATE_HASH;
+		else {
+			data->state = HASH_FILE_STATE_READ;
+			gtkhash_hash_file_add_report_source(data);
+		}
 	}
 
 	gtkhash_hash_file_add_source(data);
