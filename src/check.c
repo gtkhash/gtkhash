@@ -93,14 +93,14 @@ static enum check_format_e check_regex_match(const char * const line,
 }
 
 static bool check_file_parse_line(const char * const line,
-	enum hash_func_e *func, char **filename, char **digest)
+	enum hash_func_e *id, char **filename, char **digest)
 {
 	GMatchInfo *info = NULL;
 
 	if (check_regex_match(line, &info) != CHECK_FORMAT_UNKNOWN) {
 		char *function = g_match_info_fetch_named(info, "FUNCTION");
 		if (function) {
-			*func = gtkhash_hash_func_get_id_from_name(function);
+			*id = gtkhash_hash_func_get_id_from_name(function);
 			g_free(function);
 		}
 
@@ -333,6 +333,38 @@ void check_file_save(const char * const filename)
 	g_file_set_contents(filename, data, -1, NULL);
 
 	g_free(data);
+}
+
+void check_file_add_filters(GtkFileFilter *filter)
+{
+	gtk_file_filter_add_mime_type(filter, "application/x-md5");
+	gtk_file_filter_add_mime_type(filter, "application/x-sha1");
+	gtk_file_filter_add_mime_type(filter, "text/x-sfv");
+
+	gtk_file_filter_add_pattern(filter, "*.md5");
+	gtk_file_filter_add_pattern(filter, "*.sfv");
+	gtk_file_filter_add_pattern(filter, "*.sha1");
+	gtk_file_filter_add_pattern(filter, "*.sha224");
+	gtk_file_filter_add_pattern(filter, "*.sha256");
+	gtk_file_filter_add_pattern(filter, "*.sha384");
+	gtk_file_filter_add_pattern(filter, "*.sha512");
+
+	gtk_file_filter_add_pattern(filter, "*md5sum*");
+	gtk_file_filter_add_pattern(filter, "*sha1sum*");
+	gtk_file_filter_add_pattern(filter, "*sha224sum*");
+	gtk_file_filter_add_pattern(filter, "*sha256sum*");
+	gtk_file_filter_add_pattern(filter, "*sha384sum*");
+	gtk_file_filter_add_pattern(filter, "*sha512sum*");
+
+	gtk_file_filter_add_pattern(filter, "*MD5SUM*");
+	gtk_file_filter_add_pattern(filter, "*SHA1SUM*");
+	gtk_file_filter_add_pattern(filter, "*SHA224SUM*");
+	gtk_file_filter_add_pattern(filter, "*SHA256SUM*");
+	gtk_file_filter_add_pattern(filter, "*SHA384SUM*");
+	gtk_file_filter_add_pattern(filter, "*SHA512SUM*");
+
+	gtk_file_filter_add_pattern(filter, "*CHECKSUM*");
+	gtk_file_filter_add_pattern(filter, "*DIGEST*");
 }
 
 void check_init(void)

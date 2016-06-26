@@ -129,6 +129,16 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
+                      <object class="GtkImageMenuItem" id="menuitem_open">
+                        <property name="label">gtk-open</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="always_show_image">True</property>
+                      </object>
+                    </child>
+                    <child>
                       <object class="GtkImageMenuItem" id="menuitem_save_as">
                         <property name="label">gtk-save-as</property>
                         <property name="visible">True</property>
@@ -691,13 +701,37 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="rules_hint">True</property>
-                            <property name="search_column">0</property>
+                            <property name="search_column">2</property>
                             <property name="show_expanders">False</property>
                             <property name="rubber_banding">True</property>
-                            <property name="tooltip_column">0</property>
+                            <property name="tooltip_column">2</property>
                             <child internal-child="selection">
                               <object class="GtkTreeSelection" id="treeselection">
                                 <property name="mode">multiple</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkTreeViewColumn" id="treeviewcolumn_status">
+                                <property name="visible">False</property>
+                                <property name="clickable">True</property>
+                                <property name="sort_column_id">1</property>
+                                <child>
+                                  <object class="GtkCellRendererPixbuf" id="cellrenderer_status"/>
+                                  <attributes>
+                                    <attribute name="icon-name">1</attribute>
+                                  </attributes>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkTreeViewColumn" id="treeviewcolumn_icon_name">
+                                <property name="visible">False</property>
+                                <child>
+                                  <object class="GtkCellRendererText" id="cellrenderer_icon_name"/>
+                                  <attributes>
+                                    <attribute name="text">1</attribute>
+                                  </attributes>
+                                </child>
                               </object>
                             </child>
                             <child>
@@ -707,11 +741,22 @@
                                 <property name="title" translatable="yes">File</property>
                                 <property name="clickable">True</property>
                                 <property name="sort_indicator">True</property>
-                                <property name="sort_column_id">0</property>
+                                <property name="sort_column_id">2</property>
                                 <child>
-                                  <object class="GtkCellRendererText" id="cellrenderertext_file"/>
+                                  <object class="GtkCellRendererText" id="cellrenderer_file"/>
                                   <attributes>
-                                    <attribute name="text">0</attribute>
+                                    <attribute name="text">2</attribute>
+                                  </attributes>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkTreeViewColumn" id="treeviewcolumn_check">
+                                <property name="visible">False</property>
+                                <child>
+                                  <object class="GtkCellRendererText" id="cellrenderer_check"/>
+                                  <attributes>
+                                    <attribute name="text">3</attribute>
                                   </attributes>
                                 </child>
                               </object>

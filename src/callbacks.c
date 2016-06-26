@@ -44,6 +44,55 @@ static bool on_window_delete_event(void)
 	return true;
 }
 
+static void on_menuitem_open_activate(void)
+{
+	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
+		gtk_file_chooser_dialog_new(_("Check Digests"), gui.window,
+			GTK_FILE_CHOOSER_ACTION_OPEN,
+			_("_Cancel"), GTK_RESPONSE_CANCEL,
+			_("_Open"), GTK_RESPONSE_ACCEPT,
+			NULL));
+	gtk_file_chooser_set_select_multiple(chooser, true);
+	gtk_file_chooser_set_local_only(chooser, false);
+
+	GtkFileFilter *filter = NULL;
+
+	filter = gtk_file_filter_new();
+	gtk_file_filter_set_name(filter,
+		_("Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"));
+	check_file_add_filters(filter);
+	gtk_file_chooser_add_filter(chooser, filter);
+
+	filter = gtk_file_filter_new();
+	gtk_file_filter_set_name(filter, _("All Files"));
+	gtk_file_filter_add_pattern(filter, "*");
+	gtk_file_chooser_add_filter(chooser, filter);
+
+	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
+		GSList *files = gtk_file_chooser_get_files(chooser);
+		GSList *ud_list = NULL;
+
+		for (GSList *p = files; p; p = p->next)
+			if (p->data)
+				ud_list = check_file_load(ud_list, p->data);
+
+		if (ud_list) {
+			if (gui.view == GUI_VIEW_FILE_LIST)
+				gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST);
+			else
+				gui_add_ud_list(ud_list, GUI_VIEW_INVALID);
+
+			gui_update();
+
+			uri_digest_list_free_full(ud_list);
+		}
+
+		g_slist_free_full(files, g_object_unref);
+	}
+
+	gtk_widget_destroy(GTK_WIDGET(chooser));
+}
+
 static void on_menuitem_save_as_activate(void)
 {
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
@@ -52,6 +101,8 @@ static void on_menuitem_save_as_activate(void)
 			_("_Cancel"), GTK_RESPONSE_CANCEL,
 			_("_Save"), GTK_RESPONSE_ACCEPT,
 			NULL));
+	gtk_file_chooser_set_select_multiple(chooser, false);
+	gtk_file_chooser_set_local_only(chooser, true); // TODO
 	gtk_file_chooser_set_do_overwrite_confirmation(chooser, true);
 
 	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
@@ -208,14 +259,15 @@ static void on_menuitem_about_activate(void)
 
 static void on_filechooserbutton_selection_changed(void)
 {
-	char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(gui.filechooserbutton));
+	bool enabled = hash_funcs_count_enabled();
+	char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
+		gui.filechooserbutton));
 
-	if (uri) {
+	if (enabled && uri) {
 		g_free(uri);
 		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), true);
 	} else
 		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
-
 
 	gui_clear_digests();
 }
@@ -433,6 +485,7 @@ void callbacks_init(void)
 	g_signal_connect(G_OBJECT(OBJ), SIG, G_CALLBACK(CB), NULL)
 
 	CON(gui.window,                         "delete-event",        on_window_delete_event);
+	CON(gui.menuitem_open,                  "activate",            on_menuitem_open_activate);
 	CON(gui.menuitem_save_as,               "activate",            on_menuitem_save_as_activate);
 	CON(gui.menuitem_quit,                  "activate",            on_menuitem_quit_activate);
 	CON(gui.menuitem_edit,                  "activate",            on_menuitem_edit_activate);

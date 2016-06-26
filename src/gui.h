@@ -54,7 +54,7 @@ enum gui_state_e {
 
 extern struct gui_s {
 	GtkWindow *window;
-	GtkMenuItem *menuitem_save_as, *menuitem_quit;
+	GtkMenuItem *menuitem_open, *menuitem_save_as, *menuitem_quit;
 	GtkMenuItem *menuitem_edit;
 	GtkMenuItem *menuitem_cut, *menuitem_copy, *menuitem_paste;
 	GtkMenuItem *menuitem_delete, *menuitem_select_all, *menuitem_prefs;
