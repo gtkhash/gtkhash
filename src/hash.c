@@ -45,11 +45,15 @@ static struct {
 	.list_row = 0,
 };
 
-void gtkhash_hash_string_finish_cb(const enum hash_func_e id,
+void gtkhash_hash_string_finish_cb(void)
+{
+	gui_check_digests();
+}
+
+void gtkhash_hash_string_digest_cb(const enum hash_func_e id,
 	const char *digest)
 {
 	gtk_entry_set_text(gui.hash_widgets[id].entry_text, digest);
-	gui_check_digests();
 }
 
 void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data,

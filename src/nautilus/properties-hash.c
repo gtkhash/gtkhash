@@ -33,8 +33,12 @@
 #include "../hash/digest-format.h"
 #include "../util/util.h"
 
-void gtkhash_hash_string_finish_cb(G_GNUC_UNUSED const enum hash_func_e id,
+void gtkhash_hash_string_digest_cb(G_GNUC_UNUSED enum hash_func_e id,
 	G_GNUC_UNUSED const char *digest)
+{
+}
+
+void gtkhash_hash_string_finish_cb(void)
 {
 }
 
