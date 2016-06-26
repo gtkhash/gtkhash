@@ -202,9 +202,10 @@ static void gui_init_objects(GtkBuilder *builder)
 
 static void gui_init_hash_funcs(void)
 {
-	int supported = 0;
+	for (int i = 0, supported = 0; i < HASH_FUNCS_N; i++) {
+		if (!hash.funcs[i].supported)
+			continue;
 
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		// File/Text view func labels
 		gui.hash_widgets[i].label = GTK_LABEL(gtk_label_new(NULL));
 		gtk_container_add(GTK_CONTAINER(gui.vbox_outputlabels),
@@ -245,31 +246,30 @@ static void gui_init_hash_funcs(void)
 		// Dialog checkbuttons
 		gui.hash_widgets[i].button = GTK_TOGGLE_BUTTON(
 			gtk_check_button_new_with_label(hash.funcs[i].name));
-		if (hash.funcs[i].supported) {
+
 #if (GTK_MAJOR_VERSION > 2)
-			gtk_grid_attach(gui.dialog_grid,
-				GTK_WIDGET(gui.hash_widgets[i].button),
-				supported % 2 ? 1 : 0, // column
-				supported / 2,         // row
-				1,                     // width
-				1);                    // height
+		gtk_grid_attach(gui.dialog_grid,
+			GTK_WIDGET(gui.hash_widgets[i].button),
+			supported % 2 ? 1 : 0, // column
+			supported / 2,         // row
+			1,                     // width
+			1);                    // height
 #else
-			gtk_table_attach_defaults(gui.dialog_table,
-				GTK_WIDGET(gui.hash_widgets[i].button),
-				// Sort checkbuttons into 2 columns
-				supported % 2 ? 1 : 0,
-				supported % 2 ? 2 : 1,
-				supported / 2,
-				supported / 2 + 1);
+		gtk_table_attach_defaults(gui.dialog_table,
+			GTK_WIDGET(gui.hash_widgets[i].button),
+			// Sort checkbuttons into 2 columns
+			supported % 2 ? 1 : 0,
+			supported % 2 ? 2 : 1,
+			supported / 2,
+			supported / 2 + 1);
 #endif
-			// Could be enabled already by cmdline arg
-			if (hash.funcs[i].enabled)
-				gtk_toggle_button_set_active(gui.hash_widgets[i].button, true);
+		// Could be enabled already by cmdline arg
+		if (hash.funcs[i].enabled)
+			gtk_toggle_button_set_active(gui.hash_widgets[i].button, true);
 
-			gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].button));
+		gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].button));
 
-			supported++;
-		}
+		supported++;
 	}
 }
 
@@ -641,18 +641,14 @@ void gui_update_hash_func_labels(const bool hmac_enabled)
 	}
 }
 
-static unsigned int gui_update_hash_funcs(void)
+static void gui_update_hash_funcs(void)
 {
-	unsigned int funcs_enabled = 0;
-
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (hash.funcs[i].supported) {
-			hash.funcs[i].enabled = gtk_toggle_button_get_active(
-				gui.hash_widgets[i].button);
-			if (hash.funcs[i].enabled)
-				funcs_enabled++;
-		} else
-			hash.funcs[i].enabled = false;
+		if (!hash.funcs[i].supported)
+			continue;
+
+		hash.funcs[i].enabled = gtk_toggle_button_get_active(
+			gui.hash_widgets[i].button);
 
 		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].label),
 			hash.funcs[i].enabled);
@@ -663,8 +659,6 @@ static unsigned int gui_update_hash_funcs(void)
 		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].menuitem_treeview_copy),
 			hash.funcs[i].enabled);
 	}
-
-	return funcs_enabled;
 }
 
 static void gui_update_hmac(void)
@@ -703,7 +697,8 @@ void gui_update(void)
 	g_assert(GUI_VIEW_IS_VALID(gui.view));
 	g_assert(gui_priv.state == GUI_STATE_IDLE);
 
-	const unsigned int funcs_enabled = gui_update_hash_funcs();
+	gui_update_hash_funcs();
+	const unsigned int funcs_enabled = hash_funcs_count_enabled();
 
 	if ((gui.view == GUI_VIEW_FILE) || (gui.view == GUI_VIEW_TEXT)) {
 		gui_update_hmac();
@@ -751,7 +746,8 @@ void gui_update(void)
 
 			gtk_widget_grab_focus(GTK_WIDGET(gui.entry_text));
 
-			gui_start_hash();
+			if (funcs_enabled)
+				hash_string();
 			break;
 		case GUI_VIEW_FILE_LIST:
 			list_update();
@@ -800,21 +796,6 @@ void gui_clear_digests(void)
 	}
 
 	gui_menuitem_save_as_set_sensitive();
-}
-
-void gui_clear_all_digests(void)
-{
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (!hash.funcs[i].supported)
-			continue;
-
-		gtk_entry_set_text(gui.hash_widgets[i].entry_file, "");
-		gtk_entry_set_text(gui.hash_widgets[i].entry_text, "");
-	}
-
-	list_clear_digests();
-
-	gui_check_digests();
 }
 
 void gui_check_digests(void)
@@ -946,9 +927,6 @@ bool gui_is_maximised(void)
 
 void gui_start_hash(void)
 {
-	if (!hash_funcs_count_enabled())
-		return;
-
 	switch (gui.view) {
 		case GUI_VIEW_FILE: {
 			gui_clear_digests();
@@ -958,9 +936,6 @@ void gui_start_hash(void)
 			hash_file_start(uri);
 			break;
 		}
-		case GUI_VIEW_TEXT:
-			hash_string();
-			break;
 		case GUI_VIEW_FILE_LIST:
 			gui_clear_digests();
 			gui_set_state(GUI_STATE_BUSY);

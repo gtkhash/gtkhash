@@ -123,6 +123,8 @@ void gtkhash_hash_file_stop_cb(void *data)
 
 void hash_file_start(const char *uri)
 {
+	g_assert(hash_funcs_count_enabled());
+
 	const enum digest_format_e format = gui_get_digest_format();
 
 	size_t key_size = 0;
@@ -133,6 +135,7 @@ void hash_file_start(const char *uri)
 
 void hash_file_list_start(void)
 {
+	g_assert(hash_funcs_count_enabled());
 	g_assert(!hash_priv.list_row);
 
 	char *uri = list_get_uri(hash_priv.list_row);
@@ -146,6 +149,9 @@ void hash_file_stop(void)
 
 void hash_string(void)
 {
+	if (!hash_funcs_count_enabled())
+		return;
+
 	const char *str = gtk_entry_get_text(gui.entry_text);
 	const enum digest_format_e format = gui_get_digest_format();
 
