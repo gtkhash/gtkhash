@@ -91,17 +91,20 @@ void gtkhash_hash_file_finish_cb(void *data)
 {
 	g_free(data); // uri
 
-	if ((gui.view == GUI_VIEW_FILE_LIST) &&
-		(++hash_priv.list_row < list.rows))
-	{
-		gtk_progress_bar_set_fraction(gui.progressbar, 0.0);
-		gtk_progress_bar_set_text(gui.progressbar, " ");
+	if (gui.view == GUI_VIEW_FILE_LIST) {
+		list_check_digests(hash_priv.list_row);
 
-		// Next file
-		char *uri = list_get_uri(hash_priv.list_row);
-		hash_file_start(uri);
+		if (++hash_priv.list_row < list.rows) {
+			gtk_progress_bar_set_fraction(gui.progressbar, 0.0);
+			gtk_progress_bar_set_text(gui.progressbar, " ");
 
-		return;
+			// Next file
+			char *uri = list_get_uri(hash_priv.list_row);
+			hash_file_start(uri);
+
+			return;
+		} else
+			hash_priv.list_row = 0;
 	}
 
 	gui_set_state(GUI_STATE_IDLE);
@@ -111,6 +114,9 @@ void gtkhash_hash_file_finish_cb(void *data)
 void gtkhash_hash_file_stop_cb(void *data)
 {
 	g_free(data); // uri
+
+	if (gui.view == GUI_VIEW_FILE_LIST)
+		hash_priv.list_row = 0;
 
 	gui_set_state(GUI_STATE_IDLE);
 }
@@ -127,9 +133,9 @@ void hash_file_start(const char *uri)
 
 void hash_file_list_start(void)
 {
-	hash_priv.list_row = 0;
+	g_assert(!hash_priv.list_row);
 
-	char *uri = list_get_uri(0);
+	char *uri = list_get_uri(hash_priv.list_row);
 	hash_file_start(uri);
 }
 

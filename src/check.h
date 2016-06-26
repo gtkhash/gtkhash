@@ -21,6 +21,7 @@
 
 GSList *check_file_load(GSList *ud_list, GFile *file);
 void check_file_save(const char *filename);
+void check_file_add_filters(GtkFileFilter *filter);
 void check_init(void);
 void check_deinit(void);
 

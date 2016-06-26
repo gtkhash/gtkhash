@@ -72,6 +72,8 @@ static void gui_init_objects(GtkBuilder *builder)
 		"window"));
 
 	// Menus
+	gui.menuitem_open = GTK_MENU_ITEM(gui_get_object(builder,
+		"menuitem_open"));
 	gui.menuitem_save_as = GTK_MENU_ITEM(gui_get_object(builder,
 		"menuitem_save_as"));
 	gui.menuitem_quit = GTK_MENU_ITEM(gui_get_object(builder,
@@ -419,8 +421,9 @@ unsigned int gui_add_ud_list(GSList *ud_list, const enum gui_view_e view)
 		GSList *tmp = readable;
 		do {
 			struct uri_digest_s *ud = tmp->data;
-			list_append_row(ud->uri);
+			list_append_row(ud->uri, ud->digest);
 		} while ((tmp = tmp->next));
+		list_update();
 	}
 
 	g_slist_free(readable);
@@ -761,8 +764,6 @@ void gui_update(void)
 			gtk_widget_set_visible(GTK_WIDGET(gui.toolbar),
 				gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
 					gui.menuitem_treeview_show_toolbar)));
-			gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash),
-				funcs_enabled && list.rows);
 			break;
 		default:
 			g_assert_not_reached();
@@ -776,13 +777,19 @@ void gui_clear_digests(void)
 {
 	switch (gui.view) {
 		case GUI_VIEW_FILE:
-			for (int i = 0; i < HASH_FUNCS_N; i++)
+			for (int i = 0; i < HASH_FUNCS_N; i++) {
+				if (!hash.funcs[i].supported)
+					continue;
 				gtk_entry_set_text(gui.hash_widgets[i].entry_file, "");
+			}
 			gui_check_digests();
 			break;
 		case GUI_VIEW_TEXT:
-			for (int i = 0; i < HASH_FUNCS_N; i++)
+			for (int i = 0; i < HASH_FUNCS_N; i++) {
+				if (!hash.funcs[i].supported)
+					continue;
 				gtk_entry_set_text(gui.hash_widgets[i].entry_text, "");
+			}
 			gui_check_digests();
 			break;
 		case GUI_VIEW_FILE_LIST:
@@ -797,11 +804,13 @@ void gui_clear_digests(void)
 
 void gui_clear_all_digests(void)
 {
-	for (int i = 0; i < HASH_FUNCS_N; i++)
-		gtk_entry_set_text(gui.hash_widgets[i].entry_file, "");
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!hash.funcs[i].supported)
+			continue;
 
-	for (int i = 0; i < HASH_FUNCS_N; i++)
+		gtk_entry_set_text(gui.hash_widgets[i].entry_file, "");
 		gtk_entry_set_text(gui.hash_widgets[i].entry_text, "");
+	}
 
 	list_clear_digests();
 
@@ -826,6 +835,7 @@ void gui_check_digests(void)
 			g_assert_not_reached();
 	}
 
+	const enum digest_format_e format = gui_get_digest_format();
 	const char *str_in = gtk_entry_get_text(entry_check);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
@@ -848,7 +858,7 @@ void gui_check_digests(void)
 		const char *str_out = gtk_entry_get_text(entry);
 		const char *icon_out = NULL;
 
-		switch (gui_get_digest_format()) {
+		switch (format) {
 			case DIGEST_FORMAT_HEX_LOWER:
 			case DIGEST_FORMAT_HEX_UPPER:
 				if (*str_in && (g_ascii_strcasecmp(str_in, str_out) == 0)) {
@@ -901,6 +911,7 @@ void gui_set_state(const enum gui_state_e state)
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbar), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.treeview), !busy);
 
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_open), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_text), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_file), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_file_list), !busy);
