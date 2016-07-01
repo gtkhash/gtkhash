@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -28,9 +28,10 @@
 
 #include "md6/md6.h"
 
-#include "hash-lib-md6.h"
 #include "hash-lib.h"
 #include "hash-func.h"
+
+HASH_LIB_DECL(md6)
 
 #define LIB_DATA ((struct hash_lib_md6_s *)func->lib_data)
 

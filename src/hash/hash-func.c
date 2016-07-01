@@ -35,6 +35,10 @@ static const struct {
 	const uint8_t block_size; // for HMAC
 } hash_func_data[HASH_FUNCS_N] = {
 	[HASH_FUNC_ADLER32]    = { "ADLER32",       4,   0, },
+	[HASH_FUNC_BLAKE2B]    = { "BLAKE2b",      64,   0, },
+	[HASH_FUNC_BLAKE2BP]   = { "BLAKE2bp",     64,   0, },
+	[HASH_FUNC_BLAKE2S]    = { "BLAKE2s",      32,   0, },
+	[HASH_FUNC_BLAKE2SP]   = { "BLAKE2sp",     32,   0, },
 	[HASH_FUNC_CRC32]      = { "CRC32",         4,   0, },
 	[HASH_FUNC_GOST]       = { "GOST",         32,   0, },
 	[HASH_FUNC_HAVAL128_3] = { "HAVAL128-3",   16,   0, },

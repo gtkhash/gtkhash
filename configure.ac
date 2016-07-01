@@ -99,9 +99,7 @@ else
 fi
 # }}}
 
-hash_libs=""
-
-# check for gcrypt {{{
+# gcrypt option {{{
 AC_MSG_CHECKING([whether to use Libgcrypt])
 AC_ARG_ENABLE([gcrypt],
 	[AS_HELP_STRING([--enable-gcrypt], [use Libgcrypt])],
@@ -112,12 +110,11 @@ AC_DEFINE([ENABLE_GCRYPT], [0], [Use Libgcrypt])
 
 if test "${enable_gcrypt}" = "yes" ; then
 	AM_PATH_LIBGCRYPT([1.7.0], [:], [AC_MSG_ERROR([Libgcrypt not found])])
-	hash_libs="${hash_libs} gcrypt"
 	AC_DEFINE([ENABLE_GCRYPT], [1])
 fi
 # }}}
 
-# check for glib checksums {{{
+# glib checksums option {{{
 AC_MSG_CHECKING([whether to use the Glib Data Checksums API])
 AC_ARG_ENABLE([glib-checksums],
 	[AS_HELP_STRING([--disable-glib-checksums], [do not use the Glib Data Checksums API])],
@@ -127,12 +124,26 @@ AM_CONDITIONAL([ENABLE_GLIB_CHECKSUMS], [test "${enable_glib_checksums}" = "yes"
 AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [0], [Use Glib Checksums])
 
 if test "${enable_glib_checksums}" = "yes" ; then
-	hash_libs="${hash_libs} glib_checksums"
 	AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [1])
 fi
 # }}}
 
-# check for internal md6 {{{
+# internal blake2 option {{{
+AC_MSG_CHECKING([whether to use the internal BLAKE2 library])
+AC_ARG_ENABLE([internal-blake2],
+	[AS_HELP_STRING([--disable-internal-blake2], [do not use the internal BLAKE2 library])],
+	[enable_internal_blake2="${enableval}"], [enable_internal_blake2="yes"])
+AC_MSG_RESULT([${enable_internal_blake2}])
+AM_CONDITIONAL([ENABLE_BLAKE2], [test "${enable_internal_blake2}" = "yes"])
+AC_DEFINE([ENABLE_BLAKE2], [0], [Use BLAKE2])
+AC_OPENMP
+
+if test "${enable_internal_blake2}" = "yes" ; then
+	AC_DEFINE([ENABLE_BLAKE2], [1])
+fi
+# }}}
+
+# internal md6 option {{{
 AC_MSG_CHECKING([whether to use the internal MD6 library])
 AC_ARG_ENABLE([internal-md6],
 	[AS_HELP_STRING([--disable-internal-md6], [do not use the internal MD6 library])],
@@ -142,12 +153,11 @@ AM_CONDITIONAL([ENABLE_MD6], [test "${enable_internal_md6}" = "yes"])
 AC_DEFINE([ENABLE_MD6], [0], [Use MD6])
 
 if test "${enable_internal_md6}" = "yes" ; then
-	hash_libs="${hash_libs} internal_md6"
 	AC_DEFINE([ENABLE_MD6], [1])
 fi
 # }}}
 
-# check for libcrypto (openssl) {{{
+# libcrypto (openssl) option {{{
 #
 # Disabled until a thread-safe API is released with openssl-1.1
 enable_libcrypto=no
@@ -164,12 +174,11 @@ AC_DEFINE([ENABLE_LIBCRYPTO], [0], [Use libcrypto])
 #	PKG_CHECK_MODULES([LIBCRYPTO], [libcrypto])
 #	AC_SUBST([LIBCRYPTO_CFLAGS])
 #	AC_SUBST([LIBCRYPTO_LIBS])
-#	hash_libs="${hash_libs} libcrypto"
 #	AC_DEFINE([ENABLE_LIBCRYPTO], [1])
 #fi
 # }}}
 
-# check for linux crypto {{{
+# linux crypto option {{{
 AC_MSG_CHECKING([whether to use the Linux-2.6.38+ hash algorithm interface])
 AC_ARG_ENABLE([linux-crypto],
 	[AS_HELP_STRING([--enable-linux-crypto], [use the Linux-2.6.38+ hash algorithm interface])],
@@ -180,12 +189,11 @@ AC_DEFINE([ENABLE_LINUX_CRYPTO], [0], [Use Linux Crypto])
 
 if test "${enable_linux_crypto}" = "yes" ; then
 	AC_CHECK_HEADER([linux/if_alg.h], [:], [AC_MSG_ERROR([linux/if_alg.h not found])])
-	hash_libs="${hash_libs} linux_crypto"
 	AC_DEFINE([ENABLE_LINUX_CRYPTO], [1])
 fi
 # }}}
 
-# check for mbedtls {{{
+# mbedtls option {{{
 AC_MSG_CHECKING([whether to use mbed TLS])
 AC_ARG_ENABLE([mbedtls],
 	[AS_HELP_STRING([--enable-mbedtls], [use mbed TLS])],
@@ -199,12 +207,11 @@ if test "${enable_mbedtls}" = "yes" ; then
 	AC_CHECK_LIB([mbedcrypto], [mbedtls_md_update], [:], [AC_MSG_ERROR([mbedtls library not found])])
 	MBEDTLS_LIBS="-lmbedcrypto"
 	AC_SUBST([MBEDTLS_LIBS])
-	hash_libs="${hash_libs} mbedtls"
 	AC_DEFINE([ENABLE_MBEDTLS], [1])
 fi
 # }}}
 
-# check for mhash {{{
+# mhash option {{{
 AC_MSG_CHECKING([whether to use the mhash library])
 AC_ARG_ENABLE([mhash],
 	[AS_HELP_STRING([--enable-mhash], [use the mhash library])],
@@ -218,12 +225,11 @@ if test "${enable_mhash}" = "yes" ; then
 	AC_CHECK_LIB([mhash], [mhash], [:], [AC_MSG_ERROR([mhash library not found])])
 	MHASH_LIBS="-lmhash"
 	AC_SUBST([MHASH_LIBS])
-	hash_libs="${hash_libs} mhash"
 	AC_DEFINE([ENABLE_MHASH], [1])
 fi
 # }}}
 
-# check for nettle {{{
+# nettle option {{{
 AC_MSG_CHECKING([whether to use Nettle])
 AC_ARG_ENABLE([nettle],
 	[AS_HELP_STRING([--enable-nettle], [use Nettle])],
@@ -236,12 +242,11 @@ if test "${enable_nettle}" = "yes" ; then
 	PKG_CHECK_MODULES([NETTLE], [nettle])
 	AC_SUBST([NETTLE_CFLAGS])
 	AC_SUBST([NETTLE_LIBS])
-	hash_libs="${hash_libs} nettle"
 	AC_DEFINE([ENABLE_NETTLE], [1])
 fi
 # }}}
 
-# check for nss {{{
+# nss option {{{
 AC_MSG_CHECKING([whether to use NSS])
 AC_ARG_ENABLE([nss],
 	[AS_HELP_STRING([--enable-nss], [use NSS])],
@@ -254,12 +259,11 @@ if test "${enable_nss}" = "yes" ; then
 	PKG_CHECK_MODULES([NSS], [nss])
 	AC_SUBST([NSS_CFLAGS])
 	AC_SUBST([NSS_LIBS])
-	hash_libs="${hash_libs} nss"
 	AC_DEFINE([ENABLE_NSS], [1])
 fi
 # }}}
 
-# check for polarssl {{{
+# polarssl option {{{
 AC_MSG_CHECKING([whether to use PolarSSL])
 AC_ARG_ENABLE([polarssl],
 	[AS_HELP_STRING([--enable-polarssl], [use PolarSSL])],
@@ -273,12 +277,11 @@ if test "${enable_polarssl}" = "yes" ; then
 	AC_CHECK_LIB([polarssl], [md_update], [:], [AC_MSG_ERROR([polarssl library not found])])
 	POLARSSL_LIBS="-lpolarssl"
 	AC_SUBST([POLARSSL_LIBS])
-	hash_libs="${hash_libs} polarssl"
 	AC_DEFINE([ENABLE_POLARSSL], [1])
 fi
 # }}}
 
-# check for zlib {{{
+# zlib option {{{
 AC_MSG_CHECKING([whether to use zlib])
 AC_ARG_ENABLE([zlib],
 	[AS_HELP_STRING([--disable-zlib], [do not use zlib])],
@@ -291,12 +294,9 @@ if test "${enable_zlib}" = "yes" ; then
 	PKG_CHECK_MODULES([ZLIB], [zlib])
 	AC_SUBST([ZLIB_CFLAGS])
 	AC_SUBST([ZLIB_LIBS])
-	hash_libs="${hash_libs} zlib"
 	AC_DEFINE([ENABLE_ZLIB], [1])
 fi
 # }}}
-
-test -z "${hash_libs}" && AC_MSG_ERROR([No hash libraries enabled])
 
 AC_MSG_CHECKING([whether to build gtkhash])
 AC_ARG_ENABLE([gtkhash],
@@ -305,14 +305,16 @@ AC_ARG_ENABLE([gtkhash],
 AC_MSG_RESULT([${enable_gtkhash}])
 AM_CONDITIONAL([ENABLE_GTKHASH], [test "${enable_gtkhash}" = "yes"])
 
+# appstream option {{{
 AC_MSG_CHECKING([whether to install AppStream metadata files])
 AC_ARG_ENABLE([appstream],
 	[AS_HELP_STRING([--disable-appstream], [do not install AppStream metadata files])],
 	[enable_appstream="${enableval}"], [enable_appstream="yes"])
 AC_MSG_RESULT([${enable_appstream}])
 AM_CONDITIONAL([ENABLE_APPSTREAM], [test "${enable_appstream}" = "yes"])
+# }}}
 
-# check for caja {{{
+# caja option {{{
 AC_MSG_CHECKING([whether to build the Caja extension])
 AC_ARG_ENABLE([caja],
 	[AS_HELP_STRING([--enable-caja], [build the Caja extension])],
@@ -330,7 +332,7 @@ if test "${enable_caja}" = "yes" ; then
 fi
 # }}}
 
-# check for nautilus {{{
+# nautilus option {{{
 AC_MSG_CHECKING([whether to build the Nautilus extension])
 AC_ARG_ENABLE([nautilus],
 	[AS_HELP_STRING([--enable-nautilus], [build the Nautilus extension])],
@@ -348,7 +350,7 @@ if test "${enable_nautilus}" = "yes" ; then
 fi
 # }}}
 
-# check for nemo {{{
+# nemo option {{{
 AC_MSG_CHECKING([whether to build the Nemo extension])
 AC_ARG_ENABLE([nemo],
 	[AS_HELP_STRING([--enable-nemo], [build the Nemo extension])],
@@ -366,7 +368,7 @@ if test "${enable_nemo}" = "yes" ; then
 fi
 # }}}
 
-# check for thunar {{{
+# thunar option {{{
 AC_MSG_CHECKING([whether to build the Thunar extension])
 AC_ARG_ENABLE([thunar],
 	[AS_HELP_STRING([--enable-thunar], [build the Thunar extension])],
@@ -441,6 +443,8 @@ glib_checksums_funcs="
 	MD5
 	SHA1
 	SHA256 SHA512"
+internal_blake2_funcs="
+	BLAKE2b BLAKE2s BLAKE2bp BLAKE2sp"
 internal_md6_funcs="
 	MD6-224 MD6-256 MD6-384 MD6-512"
 libcrypto_funcs="
@@ -501,10 +505,15 @@ polarssl_funcs="
 zlib_funcs="
 	ADLER32
 	CRC32"
+
 echo
 echo "Supported Hash Functions:"
+
+have_libs=""
+
 for func in \
 	ADLER32 \
+	BLAKE2b BLAKE2s BLAKE2bp BLAKE2sp \
 	CRC32 \
 	GOST \
 	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3 \
@@ -524,14 +533,33 @@ for func in \
 do
 	printf "  %-14s" "${func}"
 	enabled=""
-	for lib in ${hash_libs} ; do
+	# Matches preferred order from src/hash/hash-lib.c
+	for lib in \
+		zlib \
+		linux_crypto \
+		gcrypt \
+		libcrypto \
+		mbedtls \
+		polarssl \
+		nettle \
+		nss \
+		glib_checksums \
+		mhash \
+		internal_blake2 \
+		internal_md6
+	do
+		eval test \${enable_${lib}} = "yes" || continue
 		if eval echo \${${lib}_funcs} | tr ' ' '\n' \
 			| grep -q "^${func}$"
 		then
 			test -n "${enabled}" && printf ","
 			printf "${lib}"
 			enabled="yes"
+			have_libs="yes"
 		fi
 	done
 	test -n "${enabled}" && echo || echo "<disabled>"
 done
+
+echo
+test -z "${have_libs}" && AC_MSG_ERROR([No hash libraries enabled])

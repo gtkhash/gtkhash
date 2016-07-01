@@ -28,9 +28,10 @@
 #include <nettle/nettle-meta.h>
 #include <nettle/sha3.h>
 
-#include "hash-lib-nettle.h"
 #include "hash-lib.h"
 #include "hash-func.h"
+
+HASH_LIB_DECL(nettle)
 
 #define LIB_DATA ((struct hash_lib_nettle_s *)func->lib_data)
 
