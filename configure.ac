@@ -563,3 +563,6 @@ done
 
 echo
 test -z "${have_libs}" && AC_MSG_ERROR([No hash libraries enabled])
+
+# Exit status
+true
