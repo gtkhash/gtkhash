@@ -9,16 +9,15 @@ Most well-known hash functions are supported, including MD5, SHA1, SHA2 and
 SHA3.
 
 It's designed to be an easy to use, graphical alternative to command-line
-programs such as md5sum.
+tools such as md5sum.
 
 Some interesting features:
+* Support for common checksum file formats (sfv, sha256sum, etc.)
 * Keyed hashing (HMAC)
-* Parallel hash calculation on multi-core CPUs
+* Parallel/threaded hash calculation
 * Remote file access using GIO/GVfs
+* File manager integration
 * Small and fast, written in C.
-
-GtkHash is primarily developed for Linux or BSD desktops. Support for other
-operating systems is untested, but patches are welcome.
 
 Required Dependencies
 -------------
@@ -27,8 +26,6 @@ Required Dependencies
 
 Optional Dependencies
 ---------------------
-These libraries can be used to provide extra hash functions:
-* libcrypto (OpenSSL)
 * Libgcrypt
 * Linux Crypto (`CONFIG_CRYPTO_USER_API_HASH=y`)
 * mbed TLS
@@ -42,7 +39,6 @@ See `./configure --help` for options.
 
 File Manager Extensions
 -----------------------
-GtkHash also includes extensions for the following file managers:
 * Caja (MATE)
 * Nautilus (GNOME)
 * Nemo (Cinnamon)
