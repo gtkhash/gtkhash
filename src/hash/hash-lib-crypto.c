@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -27,9 +27,10 @@
 #include <glib.h>
 #include <openssl/evp.h>
 
-#include "hash-lib-crypto.h"
 #include "hash-lib.h"
 #include "hash-func.h"
+
+HASH_LIB_DECL(crypto)
 
 #define LIB_DATA ((struct hash_lib_crypto_s *)func->lib_data)
 

@@ -29,8 +29,9 @@
 #include <pk11pub.h>
 
 #include "hash-lib-nss.h"
-#include "hash-lib.h"
 #include "hash-func.h"
+
+HASH_LIB_DECL(nss)
 
 #define LIB_DATA ((struct hash_lib_nss_s *)func->lib_data)
 

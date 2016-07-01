@@ -91,6 +91,10 @@ static void test_hash_func(const struct hash_func_s *func)
 	}
 
 	t(ADLER32,    "", "00000001");
+	t(BLAKE2B,    "", "786a02f742015903c6c6fd852552d272912f4740e15847618a86e217f71f5419d25e1031afee585313896444934eb04b903a685b1448b755d56f701afe9be2ce");
+	t(BLAKE2S,    "", "69217a3079908094e11121d042354a7c1f55b6482ca1a51e1b250dfd1ed0eef9");
+	t(BLAKE2BP,   "", "b5ef811a8038f70b628fa8b294daae7492b1ebe343a80eaabbf1f6ae664dd67b9d90b0120791eab81dc96985f28849f6a305186a85501b405114bfa678df9380");
+	t(BLAKE2SP,   "", "dd0e891776933f43c7d032b08a917e25741f8aa9a12c12e1cac8801500f2ca4f");
 	t(CRC32,      "", "00000000");
 	t(GOST,       "", "ce85b99cc46752fffee35cab9a7b0278abb4c2d2055cff685af4912c49490f8d");
 	t(HAVAL128_3, "", "c68f39913f901f3ddf44c707357a7d70");
@@ -124,6 +128,7 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(WHIRLPOOL,  "", "19fa61d75522a4669b44e39c1d2e1726c530232130d407f89afee0964997f7a73e83be698b288febcf88e3e03c4f0757ea8964e59b63d93708b138cc42a66eb3");
 
 	t(CRC32,     "The quick brown fox jumps over the lazy dog", "414fa339");
+	t(BLAKE2B,   "The quick brown fox jumps over the lazy dog", "a8add4bdddfd93e4877d2746e62817b116364a1fa7bc148d95090bc7333b3673f82401cf7aa2e4cb1ecd90296e3f14cb5413f8ed77be73045b13914cdcd6a918");
 	t(GOST,      "The quick brown fox jumps over the lazy dog", "77b7fa410c9ac58a25f49bca7d0468c9296529315eaca76bd1a10f376d1f4294");
 	t(MD2,       "The quick brown fox jumps over the lazy dog", "03d85a0d629d2c442e987525319fc471");
 	t(MD4,       "The quick brown fox jumps over the lazy dog", "1bee69a46ba811185c194762abaeae90");

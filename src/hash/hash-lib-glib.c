@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2013 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -26,9 +26,10 @@
 #include <stdint.h>
 #include <glib.h>
 
-#include "hash-lib-glib.h"
 #include "hash-lib.h"
 #include "hash-func.h"
+
+HASH_LIB_DECL(glib)
 
 #define LIB_DATA ((struct hash_lib_glib_s *)func->lib_data)
 

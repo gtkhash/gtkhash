@@ -37,4 +37,13 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 void gtkhash_hash_lib_stop(struct hash_func_s *func);
 void gtkhash_hash_lib_finish(struct hash_func_s *func);
 
+#define HASH_LIB_DECL(LIB) \
+	bool gtkhash_hash_lib_ ## LIB ## _is_supported(enum hash_func_e id); \
+	void gtkhash_hash_lib_ ## LIB ## _start(struct hash_func_s *func); \
+	void gtkhash_hash_lib_ ## LIB ## _update(struct hash_func_s *func, \
+		const uint8_t *buffer, size_t size); \
+	void gtkhash_hash_lib_ ## LIB ## _stop(struct hash_func_s *func); \
+	uint8_t *gtkhash_hash_lib_ ## LIB ## _finish(struct hash_func_s *func, \
+		size_t *size);
+
 #endif

@@ -27,9 +27,10 @@
 #include <glib.h>
 #include <gcrypt.h>
 
-#include "hash-lib-gcrypt.h"
 #include "hash-lib.h"
 #include "hash-func.h"
+
+HASH_LIB_DECL(gcrypt)
 
 #define LIB_DATA ((struct hash_lib_gcrypt_s *)func->lib_data)
 

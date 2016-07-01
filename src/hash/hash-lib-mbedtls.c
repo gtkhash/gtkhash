@@ -27,9 +27,10 @@
 #include <glib.h>
 #include <mbedtls/md.h>
 
-#include "hash-lib-mbedtls.h"
 #include "hash-lib.h"
 #include "hash-func.h"
+
+HASH_LIB_DECL(mbedtls)
 
 #define LIB_DATA ((struct hash_lib_mbedtls_s *)func->lib_data)
 

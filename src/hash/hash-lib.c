@@ -30,42 +30,48 @@
 #include "hash-func.h"
 #include "hmac.h"
 
+#if ENABLE_BLAKE2
+	HASH_LIB_DECL(blake2)
+#endif
 #if ENABLE_GCRYPT
-	#include "hash-lib-gcrypt.h"
+	HASH_LIB_DECL(gcrypt)
 #endif
 #if ENABLE_GLIB_CHECKSUMS
-	#include "hash-lib-glib.h"
+	HASH_LIB_DECL(glib)
 #endif
 #if ENABLE_LIBCRYPTO
-	#include "hash-lib-crypto.h"
+	HASH_LIB_DECL(crypt)
 #endif
 #if ENABLE_LINUX_CRYPTO
-	#include "hash-lib-linux.h"
+	HASH_LIB_DECL(linux)
 #endif
 #if ENABLE_MBEDTLS
-	#include "hash-lib-mbedtls.h"
+	HASH_LIB_DECL(mbedtls)
 #endif
 #if ENABLE_MD6
-	#include "hash-lib-md6.h"
+	HASH_LIB_DECL(md6)
 #endif
 #if ENABLE_MHASH
-	#include "hash-lib-mhash.h"
+	HASH_LIB_DECL(mhash)
 #endif
 #if ENABLE_NETTLE
-	#include "hash-lib-nettle.h"
+	HASH_LIB_DECL(nettle)
 #endif
 #if ENABLE_NSS
-	#include "hash-lib-nss.h"
+	HASH_LIB_DECL(nss)
 #endif
 #if ENABLE_POLARSSL
-	#include "hash-lib-polarssl.h"
+	HASH_LIB_DECL(polarssl)
 #endif
 #if ENABLE_ZLIB
-	#include "hash-lib-zlib.h"
+	HASH_LIB_DECL(zlib)
 #endif
 
 enum hash_lib_e {
 	HASH_LIB_INVALID = -1,
+#if ENABLE_BLAKE2
+	HASH_LIB_BLAKE2,
+#endif
 #if ENABLE_GCRYPT
 	HASH_LIB_GCRYPT,
 #endif
@@ -172,6 +178,12 @@ static void gtkhash_hash_lib_init_once(void)
 			continue;
 		}
 #endif
+#if ENABLE_BLAKE2
+		if (gtkhash_hash_lib_blake2_is_supported(i)) {
+			hash_libs[i] = HASH_LIB_BLAKE2;
+			continue;
+		}
+#endif
 #if ENABLE_MD6
 		if (gtkhash_hash_lib_md6_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_MD6;
@@ -199,6 +211,9 @@ void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
 	g_assert(hash_libs[func->id] != HASH_LIB_INVALID);
 
 	static void (* const start_funcs[])(struct hash_func_s *) = {
+#if ENABLE_BLAKE2
+		[HASH_LIB_BLAKE2] = gtkhash_hash_lib_blake2_start,
+#endif
 #if ENABLE_GCRYPT
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_start,
 #endif
@@ -253,6 +268,9 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 	static void (* const update_funcs[])(struct hash_func_s *,
 		const uint8_t *, const size_t) =
 	{
+#if ENABLE_BLAKE2
+		[HASH_LIB_BLAKE2] = gtkhash_hash_lib_blake2_update,
+#endif
 #if ENABLE_GCRYPT
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_update,
 #endif
@@ -300,6 +318,9 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 	g_assert(hash_libs[func->id] != HASH_LIB_INVALID);
 
 	static void (* const stop_funcs[])(struct hash_func_s *) = {
+#if ENABLE_BLAKE2
+		[HASH_LIB_BLAKE2] = gtkhash_hash_lib_blake2_stop,
+#endif
 #if ENABLE_GCRYPT
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_stop,
 #endif
@@ -351,6 +372,9 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 	g_assert(hash_libs[func->id] != HASH_LIB_INVALID);
 
 	static uint8_t *(* const finish_libs[])(struct hash_func_s *, size_t *) = {
+#if ENABLE_BLAKE2
+		[HASH_LIB_BLAKE2] = gtkhash_hash_lib_blake2_finish,
+#endif
 #if ENABLE_GCRYPT
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_finish,
 #endif

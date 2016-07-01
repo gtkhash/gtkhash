@@ -4,6 +4,7 @@ Summary of changes for each release:
 	* Added feature for checking digests from files (md5sum, sfv, etc.)
 	* Added commandline option for enabling hash functions by name
 	* Added Caja (MATE file manager) extension
+	* Added BLAKE2 hash functions
 	* Added support for mbed TLS
 	* Switched to use GTK+ 3 by default
 

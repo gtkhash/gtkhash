@@ -30,9 +30,10 @@
 #include <linux/if_alg.h>
 #include <glib.h>
 
-#include "hash-lib-linux.h"
 #include "hash-lib.h"
 #include "hash-func.h"
+
+HASH_LIB_DECL(linux)
 
 #define LIB_DATA ((struct hash_lib_linux_s *)func->lib_data)
 
