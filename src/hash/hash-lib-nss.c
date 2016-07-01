@@ -125,20 +125,18 @@ void gtkhash_hash_lib_nss_stop(struct hash_func_s *func)
 
 uint8_t *gtkhash_hash_lib_nss_finish(struct hash_func_s *func, size_t *size)
 {
-	uint8_t buf[64 + 1];
 	unsigned int len = 0;
+	uint8_t *digest = g_malloc(func->digest_size);
 
-	SECStatus s = PK11_DigestFinal(LIB_DATA->pk11, buf, &len, sizeof(buf));
+	SECStatus s = PK11_DigestFinal(LIB_DATA->pk11, digest, &len,
+		func->digest_size);
 	(void)s;
 	g_assert(s == SECSuccess);
-	g_assert(len < sizeof(buf));
 
 	PK11_DestroyContext(LIB_DATA->pk11, PR_TRUE);
 	NSS_ShutdownContext(LIB_DATA->nss);
 	g_free(LIB_DATA);
 
-	uint8_t *digest = g_memdup(buf, len);
 	*size = len;
-
 	return digest;
 }

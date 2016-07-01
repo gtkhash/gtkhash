@@ -120,18 +120,12 @@ void gtkhash_hash_lib_linux_stop(struct hash_func_s *func)
 
 uint8_t *gtkhash_hash_lib_linux_finish(struct hash_func_s *func, size_t *size)
 {
-	uint8_t buf[64 + 1];
-	ssize_t read_size = read(LIB_DATA->connfd, buf, sizeof(buf));
-
-	g_assert(read_size != -1);
-	g_assert(read_size < (ssize_t)sizeof(buf));
+	uint8_t *digest = g_malloc(func->digest_size);
+	*size = read(LIB_DATA->connfd, digest, func->digest_size);
 
 	close(LIB_DATA->connfd);
 	close(LIB_DATA->sockfd);
 	g_free(LIB_DATA);
-
-	uint8_t *digest = g_memdup(buf, read_size);
-	*size = read_size;
 
 	return digest;
 }
