@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2016-08-26 11:35+0000\n"
+"PO-Revision-Date: 2016-08-26 12:25+0000\n"
 "Last-Translator: Toni Estevez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/gtkhash/translations/es/>\n"
@@ -26,7 +26,7 @@ msgstr "Preferencias de GtkHash"
 
 #: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:18
 msgid "Hash Functions:"
-msgstr "Funciones  para calcular el resumen:"
+msgstr "Funciones resumen:"
 
 #: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:19
 msgid "Digest Format:"
@@ -100,11 +100,11 @@ msgstr "_Calcular"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
-msgstr "Calculadora de la suma de comprobación"
+msgstr "Calculadora de la suma de verificación"
 
 #: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
-msgstr "Calcular resúmenes de mensajes o sumas de comprobación"
+msgstr "Calcular resúmenes de mensajes o sumas de verificación"
 
 #: ../src/callbacks.c:48
 msgid "Save Digests"
@@ -121,17 +121,12 @@ msgstr "_Guardar"
 #: ../src/callbacks.c:265
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
-"Una herramienta para calcular resúmenes de mensaje o sumas de comprobación."
+"Una herramienta GTK+ para calcular resúmenes de mensajes o sumas de "
+"verificación."
 
 #: ../src/callbacks.c:274
 msgid "translator-credits"
-msgstr ""
-"Adolfo Jayme Barrientos https://launchpad.net/~fitoschido\n"
-"DiegoJ https://launchpad.net/~diegojromerolopez\n"
-"Miguel de Dios https://launchpad.net/~tres-14159\n"
-"Monkey https://launchpad.net/~monkey-libre\n"
-"juancarlospaco https://launchpad.net/~juancarlospaco\n"
-"Toni Estevez toni.estevez@gmail.com"
+msgstr "Toni Estevez toni.estevez@gmail.com"
 
 #: ../src/callbacks.c:298
 msgid "Select Files"
@@ -166,7 +161,7 @@ msgstr ""
 #: ../src/main.c:81
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Cotejar con el resumen o la suma de comprobación"
+msgstr "Cotejar con la suma de verificación o el resumen especificado"
 
 #: ../src/main.c:82
 msgctxt "gtkhash --help"
@@ -195,8 +190,7 @@ msgstr "[ARCHIVO|URI...]"
 
 #: ../src/prefs.c:76
 msgid "Failed to enable any supported hash functions."
-msgstr ""
-"Se ha producido un error al activar las funciones de resumen compatibles"
+msgstr "Se ha producido un error al activar las funciones resumen compatibles"
 
 #: ../src/util/util.c:35
 #, c-format
@@ -223,11 +217,11 @@ msgstr "_Copiar el resumen"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
-msgstr "Mostrar las funciones de resumen _desactivadas"
+msgstr "Mostrar las funciones resumen _desactivadas"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
-msgstr "Función de resumen"
+msgstr "Función resumen"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
@@ -235,7 +229,7 @@ msgstr "Resumen"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
-msgstr "_Calcular el resumen"
+msgstr "_Calcular"
 
 #: ../src/nautilus/properties.c:459 ../src/nautilus/properties.c:462
 #: ../src/nautilus/properties.c:465 ../src/nautilus/properties.c:467
@@ -252,16 +246,15 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
-"GtkHash es una aplicación para el cálculo de sumas de comprobación de "
+"GtkHash es una aplicación para el cálculo de sumas de verificación de "
 "archivos o resúmenes de mensajes. Se ha diseñado para ser una herramienta "
-"fácil de utilizar, alternativa gráfica para programas de línea de comandos "
-"como md5sum."
+"fácil de utilizar, una alternativa gráfica para programas de línea de "
+"comandos como md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
-"Las funciones de resumen compatibles incluyen MD5, SHA1, SHA256, SHA512 y "
-"CRC32."
+"Las funciones resumen compatibles incluyen MD5, SHA1, SHA256, SHA512 y CRC32."
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
@@ -269,8 +262,8 @@ msgstr ""
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
-"Añade resúmenes de mensaje o sumas de comprobación a las propiedades de "
-"archivo"
+"Añade resúmenes de mensaje o sumas de verificación a las propiedades de "
+"archivo."
 
 #~ msgid "%s of %s - 1 minute left (%s/sec)"
 #~ msgstr "%s de %s - queda 1 minuto (%s/seg)"
