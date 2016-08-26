@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2012-06-02 17:16+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
-"Language-Team: Spanish <es@li.org>\n"
+"PO-Revision-Date: 2016-08-26 11:35+0000\n"
+"Last-Translator: Toni Estevez <toni.estevez@gmail.com>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/gtkhash/translations/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.8-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
-"X-Generator: Launchpad (build 15520)\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
@@ -24,11 +26,11 @@ msgstr "Preferencias de GtkHash"
 
 #: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:18
 msgid "Hash Functions:"
-msgstr "Funciones  de Hash:"
+msgstr "Funciones  para calcular el resumen:"
 
 #: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:19
 msgid "Digest Format:"
-msgstr ""
+msgstr "Formato del resumen:"
 
 #: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
@@ -40,11 +42,11 @@ msgstr "Hexadecimal en mayúsculas"
 
 #: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
-msgstr ""
+msgstr "Copiar el _resumen"
 
 #: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
-msgstr "Mostrar Barra de _Herramientas"
+msgstr "Mostrar la barra de _herramientas"
 
 #: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
@@ -86,7 +88,7 @@ msgstr "Comprobar:"
 #: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:14
 #: ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "HMAC Key:"
-msgstr ""
+msgstr "Clave HMAC:"
 
 #: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:15
 msgid "File"
@@ -94,34 +96,34 @@ msgstr "Archivo"
 
 #: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:16
 msgid "Ha_sh"
-msgstr "Ha_sh"
+msgstr "_Calcular"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
-msgstr ""
+msgstr "Calculadora de la suma de comprobación"
 
 #: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
-msgstr ""
+msgstr "Calcular resúmenes de mensajes o sumas de comprobación"
 
 #: ../src/callbacks.c:48
 msgid "Save Digests"
-msgstr ""
+msgstr "Guardar los resúmenes"
 
 #: ../src/callbacks.c:50 ../src/callbacks.c:300
 msgid "_Cancel"
-msgstr ""
+msgstr "_Cancelar"
 
 #: ../src/callbacks.c:51
 msgid "_Save"
-msgstr ""
+msgstr "_Guardar"
 
 #: ../src/callbacks.c:265
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
+"Una herramienta para calcular resúmenes de mensaje o sumas de comprobación."
 
 #: ../src/callbacks.c:274
-#, fuzzy
 msgid "translator-credits"
 msgstr ""
 "Adolfo Jayme Barrientos https://launchpad.net/~fitoschido\n"
@@ -129,6 +131,7 @@ msgstr ""
 "Miguel de Dios https://launchpad.net/~tres-14159\n"
 "Monkey https://launchpad.net/~monkey-libre\n"
 "juancarlospaco https://launchpad.net/~juancarlospaco\n"
+"Toni Estevez toni.estevez@gmail.com"
 
 #: ../src/callbacks.c:298
 msgid "Select Files"
@@ -136,20 +139,20 @@ msgstr "Seleccionar archivos"
 
 #: ../src/callbacks.c:301
 msgid "_Open"
-msgstr ""
+msgstr "_Abrir"
 
 #. Add checkbutton
 #: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "_Mostrar la clave HMAC"
 
 #: ../src/gui.c:339
 msgid "Not a regular file"
-msgstr "No es un archivo  valido"
+msgstr "No es un archivo válido"
 
 #: ../src/gui.c:361
 msgid "Unknown error"
-msgstr "Error desconocido"
+msgstr "Se ha producido un error desconocido"
 
 #: ../src/gui.c:363
 #, c-format
@@ -157,37 +160,35 @@ msgid ""
 "Failed to add \"%s\":\n"
 "%s"
 msgstr ""
-"Error al añadir \"%s\":\n"
+"Se ha producido un error al añadir \"%s\":\n"
 "%s"
 
 #: ../src/main.c:81
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
-msgstr ""
+msgstr "Cotejar con el resumen o la suma de comprobación"
 
 #: ../src/main.c:82
 msgctxt "gtkhash --help"
 msgid "DIGEST"
-msgstr ""
+msgstr "RESUMEN"
 
 #: ../src/main.c:86
 msgctxt "gtkhash --help"
 msgid "Hash the specified text"
-msgstr ""
+msgstr "Calcular el resumen del texto especificado"
 
 #: ../src/main.c:87
 msgctxt "gtkhash --help"
 msgid "TEXT"
-msgstr ""
+msgstr "TEXTO"
 
 #: ../src/main.c:91
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Show version information"
-msgstr "Mostrar información de versión"
+msgstr "Mostrar información de la versión"
 
 #: ../src/main.c:95
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
 msgstr "[ARCHIVO|URI...]"
@@ -195,37 +196,38 @@ msgstr "[ARCHIVO|URI...]"
 #: ../src/prefs.c:76
 msgid "Failed to enable any supported hash functions."
 msgstr ""
+"Se ha producido un error al activar las funciones de resumen compatibles"
 
 #: ../src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "queda %u minuto"
+msgstr[1] "quedan %u minutos"
 
 #: ../src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "queda %u segundo"
+msgstr[1] "quedan %u segundos"
 
 #: ../src/util/util.c:58
-#, fuzzy, c-format
+#, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s de %s - quedan %u minutos (%s/seg)"
+msgstr "%s de %s - %s (%s/s)"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr "_Copiar resumen"
+msgstr "_Copiar el resumen"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
-msgstr "Mostrar funciones hash _deshabilitadas"
+msgstr "Mostrar las funciones de resumen _desactivadas"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
-msgstr "Función hash"
+msgstr "Función de resumen"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
@@ -233,7 +235,7 @@ msgstr "Resumen"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
-msgstr "H_ash"
+msgstr "_Calcular el resumen"
 
 #: ../src/nautilus/properties.c:459 ../src/nautilus/properties.c:462
 #: ../src/nautilus/properties.c:465 ../src/nautilus/properties.c:467
@@ -250,10 +252,16 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash es una aplicación para el cálculo de sumas de comprobación de "
+"archivos o resúmenes de mensajes. Se ha diseñado para ser una herramienta "
+"fácil de utilizar, alternativa gráfica para programas de línea de comandos "
+"como md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
+"Las funciones de resumen compatibles incluyen MD5, SHA1, SHA256, SHA512 y "
+"CRC32."
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
@@ -261,6 +269,8 @@ msgstr ""
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
+"Añade resúmenes de mensaje o sumas de comprobación a las propiedades de "
+"archivo"
 
 #~ msgid "%s of %s - 1 minute left (%s/sec)"
 #~ msgstr "%s de %s - queda 1 minuto (%s/seg)"
