@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2016-07-13 11:26+0000\n"
+"PO-Revision-Date: 2016-09-28 10:49+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian "
 "<https://hosted.weblate.org/projects/gtkhash/translations/lt/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
@@ -42,7 +42,7 @@ msgstr "Didžiosios šešioliktainės"
 
 #: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
-msgstr ""
+msgstr "Kopijuoti _maišos reikšmę"
 
 #: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
@@ -104,11 +104,11 @@ msgstr "Kontrolinės sumos skaičiuotuvas"
 
 #: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
-msgstr ""
+msgstr "Apskaičiuoti žinučių maišos reikšmes ar kontrolines sumas"
 
 #: ../src/callbacks.c:48
 msgid "Save Digests"
-msgstr ""
+msgstr "Įrašyti maišos reikšmes"
 
 #: ../src/callbacks.c:50 ../src/callbacks.c:300
 msgid "_Cancel"
@@ -121,6 +121,8 @@ msgstr "Į_rašyti"
 #: ../src/callbacks.c:265
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
+"GTK+ paslaugų programa, skirta maišos reikšmių ar kontrolinės sumos žinučių "
+"apskaičiavimui."
 
 #: ../src/callbacks.c:274
 msgid "translator-credits"
@@ -141,7 +143,7 @@ msgstr "_Rodyti HMAC raktą"
 
 #: ../src/gui.c:339
 msgid "Not a regular file"
-msgstr ""
+msgstr "Nėra normalus failas"
 
 #: ../src/gui.c:361
 msgid "Unknown error"
@@ -159,22 +161,22 @@ msgstr ""
 #: ../src/main.c:81
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
-msgstr ""
+msgstr "Tikrinti su nurodyta maišos reikšme ar kontroline suma"
 
 #: ../src/main.c:82
 msgctxt "gtkhash --help"
 msgid "DIGEST"
-msgstr ""
+msgstr "MAIŠOS_REIKŠMĖ"
 
 #: ../src/main.c:86
 msgctxt "gtkhash --help"
 msgid "Hash the specified text"
-msgstr ""
+msgstr "Apskaičiuoti nurodyto teksto maišą"
 
 #: ../src/main.c:87
 msgctxt "gtkhash --help"
 msgid "TEXT"
-msgstr ""
+msgstr "TEKSTAS"
 
 #: ../src/main.c:91
 msgctxt "gtkhash --help"
@@ -213,7 +215,7 @@ msgstr "%s iš %s - %s (%s/sek.)"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr ""
+msgstr "_Kopijuoti maišos reikšmę"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
@@ -221,11 +223,11 @@ msgstr "Rodyti iš_jungtas maišos funkcijas"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
-msgstr ""
+msgstr "Maišos funkcija"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
-msgstr ""
+msgstr "Maišos reikšmė"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
@@ -238,7 +240,7 @@ msgstr "M_aiša"
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
-msgstr ""
+msgstr "Maišos reikšmės"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""
@@ -246,6 +248,9 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash yra programa, skirta apskaičiuoti failų kontrolines sumas ar žinučių "
+"maišos reikšmes. Ji yra sukurta, kad būtų lengva naudoti ir kaip grafinė "
+"alternatyva tokioms komandų eilutės programoms kaip md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
@@ -257,4 +262,4 @@ msgstr ""
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
-msgstr ""
+msgstr "Prideda žinutės maišos reikšmes ar kontrolines sumas į failo savybes"
