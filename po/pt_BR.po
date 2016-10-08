@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2016-10-06 02:38+0000\n"
+"PO-Revision-Date: 2016-10-08 17:36+0000\n"
 "Last-Translator: Rafael Capaci Pereira <rafaelcp123@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/gtkhash/translations/pt_BR/>\n"
@@ -26,7 +26,7 @@ msgstr "Preferências do GtkHash"
 
 #: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:18
 msgid "Hash Functions:"
-msgstr "Funções de hash"
+msgstr "Funções de hash:"
 
 #: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:19
 msgid "Digest Format:"
@@ -88,7 +88,7 @@ msgstr "Verificar:"
 #: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:14
 #: ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "HMAC Key:"
-msgstr ""
+msgstr "Chave HMAC:"
 
 #: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:15
 msgid "File"
@@ -103,11 +103,8 @@ msgid "Checksum Calculator"
 msgstr "Calculadora Checksum"
 
 #: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
-#, fuzzy
 msgid "Calculate message digests or checksums"
-msgstr ""
-"Um utilitário GTK+ para computar resumos de mensagens ou somas de "
-"verificação (checksums)."
+msgstr "Calcular resumos de mensagens ou somas de verificação (checksums)."
 
 #: ../src/callbacks.c:48
 msgid "Save Digests"
@@ -128,7 +125,6 @@ msgstr ""
 "verificação (checksums)."
 
 #: ../src/callbacks.c:274
-#, fuzzy
 msgid "translator-credits"
 msgstr ""
 "André Gondim https://launchpad.net/~andregondim\n"
@@ -137,6 +133,7 @@ msgstr ""
 "Lucas Silveira Melo https://launchpad.net/~lucas-silveiramelo\n"
 "Marco https://launchpad.net/~marcodefreitas\n"
 "Rafael Neri https://launchpad.net/~rafepel\n"
+"Rafael Capaci https://github.com/capaci"
 
 #: ../src/callbacks.c:298
 msgid "Select Files"
@@ -149,7 +146,7 @@ msgstr "_Abrir"
 #. Add checkbutton
 #: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "_Exibir chave HMAC"
 
 #: ../src/gui.c:339
 msgid "Not a regular file"
@@ -169,62 +166,56 @@ msgstr ""
 "%s"
 
 #: ../src/main.c:81
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
 msgstr ""
 "Compare com o resumo especificado ou com a soma de verificação (checksum)"
 
 #: ../src/main.c:82
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "DIGEST"
 msgstr "RESUMO"
 
 #: ../src/main.c:86
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Hash the specified text"
-msgstr "Criptografa o texto especificado"
+msgstr "Criptografe o texto especificado"
 
 #: ../src/main.c:87
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "TEXTO"
 
 #: ../src/main.c:91
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Show version information"
-msgstr "Mostrar informações da versão"
+msgstr "Exibir informações da versão"
 
 #: ../src/main.c:95
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
 msgstr "[ARQUIVO|URI...]"
 
 #: ../src/prefs.c:76
 msgid "Failed to enable any supported hash functions."
-msgstr "Falha ao habilitar funções de criptografia"
+msgstr "Falha ao habilitar funções de criptografia."
 
 #: ../src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u minuto restante"
+msgstr[1] "%u minutos restantes"
 
 #: ../src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u segundo restante"
+msgstr[1] "%u segundos restantes"
 
 #: ../src/util/util.c:58
-#, fuzzy, c-format
+#, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s de %s - %u minutos restantes (%s/s)"
 
@@ -263,20 +254,23 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash é uma aplicação para computar checksums de arquivos, ou resumos de "
+"mensagens. Foi projetado para ser fácil de usar e para ser uma alternativa "
+"gráfica para programas de linha de comando como o md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
+"As funções de hash suportadas incluem  MD5, SHA1, SHA256, SHA512 and CRC32."
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
-#, fuzzy
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
-"Um utilitário GTK+ para computar resumos de mensagens ou somas de "
-"verificação (checksums)."
+"Adicionar resumos de mensagens ou somas de verificação as propriedades do "
+"arquivo"
 
 #~ msgid "%s of %s - 1 minute left (%s/sec)"
 #~ msgstr "%s de %s - 1 minuto restante (%s/s)"
