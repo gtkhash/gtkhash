@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2016-10-08 17:36+0000\n"
+"PO-Revision-Date: 2016-10-08 17:37+0000\n"
 "Last-Translator: Rafael Capaci Pereira <rafaelcp123@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/gtkhash/translations/pt_BR/>\n"
@@ -104,7 +104,7 @@ msgstr "Calculadora Checksum"
 
 #: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
-msgstr "Calcular resumos de mensagens ou somas de verificação (checksums)."
+msgstr "Calcular resumos de mensagens ou somas de verificação (checksums)"
 
 #: ../src/callbacks.c:48
 msgid "Save Digests"
@@ -217,7 +217,7 @@ msgstr[1] "%u segundos restantes"
 #: ../src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s de %s - %u minutos restantes (%s/s)"
+msgstr "%s de %s - %s minutos restantes (%s/s)"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
