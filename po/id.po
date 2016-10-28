@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2016-10-24 21:51+0000\n"
-"Last-Translator: Arie Kurniawan <hubungi.aja@gmail.com>\n"
+"PO-Revision-Date: 2016-10-28 18:35+0000\n"
+"Last-Translator: John Vandenberg <jayvdb@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/gtkhash/translations/id/>\n"
 "Language: id\n"
@@ -49,7 +49,7 @@ msgstr ""
 
 #: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
-msgstr ""
+msgstr "_Berkas"
 
 #: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:6
 msgid "_Edit"
