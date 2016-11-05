@@ -233,6 +233,12 @@ static void on_menuitem_about_activate(void)
 	};
 #endif
 
+	static const char * const artists[] = {
+		"Icon derived from GTK+ Logo "
+		"https://wiki.gnome.org/Projects/GTK%2B/Logo",
+		NULL
+	};
+
 	static const char * const authors[] = {
 		"Tristan Heaven <tristan@tristanheaven.net>",
 		NULL
@@ -240,6 +246,7 @@ static void on_menuitem_about_activate(void)
 
 	gtk_show_about_dialog(
 			gui.window,
+			"artists", artists,
 			"authors", authors,
 			"comments", _("A GTK+ utility for computing message digests or checksums."),
 #if (GTK_MAJOR_VERSION > 2)

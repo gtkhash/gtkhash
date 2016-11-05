@@ -10,6 +10,8 @@ endif
 
 if ENABLE_GTKHASH
 
+SUBDIRS += icons
+
 applicationsdir = $(datadir)/applications
 applications_DATA = gtkhash.desktop
 

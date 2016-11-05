@@ -298,9 +298,9 @@ if test "${enable_zlib}" = "yes" ; then
 fi
 # }}}
 
-AC_MSG_CHECKING([whether to build gtkhash])
+AC_MSG_CHECKING([whether to build gtkhash binary])
 AC_ARG_ENABLE([gtkhash],
-	[AS_HELP_STRING([--disable-gtkhash], [do not build gtkhash])],
+	[AS_HELP_STRING([--disable-gtkhash], [do not build gtkhash binary])],
 	[enable_gtkhash="${enableval}"], [enable_gtkhash="yes"])
 AC_MSG_RESULT([${enable_gtkhash}])
 AM_CONDITIONAL([ENABLE_GTKHASH], [test "${enable_gtkhash}" = "yes"])
@@ -413,6 +413,7 @@ AC_DEFINE([HASH_FILE_REPORT_INTERVAL], [166], [Define progress report interval (
 AC_CONFIG_FILES([Makefile])
 AC_CONFIG_FILES([data/Makefile])
 AC_CONFIG_FILES([data/appdata/Makefile])
+AC_CONFIG_FILES([data/icons/Makefile])
 AC_CONFIG_FILES([data/nautilus/Makefile])
 AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([src/Makefile])

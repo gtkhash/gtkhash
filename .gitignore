@@ -5,6 +5,12 @@ src/resources.h
 src/nautilus/properties-resources.c
 src/nautilus/properties-resources.h
 
+data/icons/32/
+data/icons/48/
+data/icons/64/
+data/icons/128/
+data/icons/256/
+
 .deps/
 .libs/
 autom4te.cache/
