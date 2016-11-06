@@ -18,6 +18,7 @@ addons:
       - libnss3-dev
       - libpolarssl-dev
       - linux-libc-dev
+      - librsvg2-bin
 
 env:
   - WITH_GTK=3.0
