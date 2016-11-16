@@ -28,4 +28,4 @@ script:
   - ./autogen.sh
   - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{debug,nettle,nss,polarssl,linux-crypto})
   - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
-  - xvfb-run make distcheck VERBOSE=1
+  - make distcheck VERBOSE=1

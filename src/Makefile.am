@@ -48,6 +48,8 @@ LDADD = \
 
 TESTS = gtkhash-test
 
+LOG_COMPILER = xvfb-run
+
 CLEANFILES = resources.c resources.h
 
 if WITH_GTK2
