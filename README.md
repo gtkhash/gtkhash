@@ -17,7 +17,7 @@ Some interesting features:
 * Parallel/threaded hash calculation
 * Remote file access using GIO/GVfs
 * File manager integration
-* Small and fast, written in C.
+* Small and fast, written in C
 
 Required Dependencies
 -------------
