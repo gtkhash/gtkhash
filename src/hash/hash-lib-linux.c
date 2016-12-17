@@ -56,6 +56,10 @@ static const char *gtkhash_hash_lib_linux_get_name(const enum hash_func_e id)
 		case HASH_FUNC_SHA256:    return "sha256";
 		case HASH_FUNC_SHA384:    return "sha384";
 		case HASH_FUNC_SHA512:    return "sha512";
+		case HASH_FUNC_SHA3_224:  return "sha3-224";
+		case HASH_FUNC_SHA3_256:  return "sha3-256";
+		case HASH_FUNC_SHA3_384:  return "sha3-384";
+		case HASH_FUNC_SHA3_512:  return "sha3-512";
 		case HASH_FUNC_TIGER192:  return "tgr192";
 		case HASH_FUNC_WHIRLPOOL: return "wp512";
 
