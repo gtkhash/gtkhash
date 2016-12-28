@@ -7,14 +7,16 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2016-12-28 14:50+0100\n"
-"Last-Translator: Toni Estevez <toni.estevez@gmail.com>\n"
-"Language-Team: Catalan <ca@li.org>\n"
+"PO-Revision-Date: 2016-12-28 13:56+0000\n"
+"Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/gtkhash/translations/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.11-dev\n"
 "X-Launchpad-Export-Date: 2016-01-29 05:16+0000\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
@@ -204,7 +206,7 @@ msgstr[1] "falten %u segons"
 #: ../src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s of %s - %s (%s/sec)"
+msgstr "%s de %s - %s (%s/s)"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
@@ -256,4 +258,5 @@ msgstr ""
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
-"Afegeix resums de missatges o sumes de verificació a les propietats d'arxiu."
+"Afegeix resums de missatges o sumes de verificació a les propietats de "
+"fitxer."
