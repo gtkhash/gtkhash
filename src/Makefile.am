@@ -48,7 +48,7 @@ LDADD = \
 
 TESTS = gtkhash-test
 
-LOG_COMPILER = xvfb-run
+LOG_COMPILER = xvfb-run -s "-screen 0 800x600x24"
 
 CLEANFILES = resources.c resources.h
 
