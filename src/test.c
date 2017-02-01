@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2017 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -27,6 +27,7 @@
 #include <stdlib.h>
 #include <gtk/gtk.h>
 
+#include "callbacks.h"
 #include "gui.h"
 #include "hash.h"
 #include "list.h"
@@ -288,8 +289,7 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 	select_func(func->id, false);
 }
 
-G_GNUC_NORETURN
-static void test_run(G_GNUC_UNUSED void *data)
+static void test_init(void)
 {
 	gui_set_view(GUI_VIEW_TEXT);
 	delay();
@@ -314,8 +314,6 @@ static void test_run(G_GNUC_UNUSED void *data)
 	}
 
 	g_test_set_nonfatal_assertions();
-
-	exit(g_test_run());
 }
 
 int main(int argc, char **argv)
@@ -330,9 +328,11 @@ int main(int argc, char **argv)
 	// Ignore user input during testing
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.window), false);
 
-	gdk_threads_add_idle((GSourceFunc)test_run, NULL);
-	gui_run();
+	if (g_test_slow())
+		gtk_widget_show_now(GTK_WIDGET(gui.window));
 
-	g_assert_not_reached();
-	return EXIT_FAILURE;
+	callbacks_init();
+	test_init();
+
+	return g_test_run();
 }
