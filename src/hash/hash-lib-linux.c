@@ -75,13 +75,23 @@ bool gtkhash_hash_lib_linux_is_supported(const enum hash_func_e id)
 	if (!(data.name = gtkhash_hash_lib_linux_get_name(id)))
 		return false;
 
-	if ((data.sockfd = socket(AF_ALG, SOCK_SEQPACKET, 0)) == -1) {
-		g_warning("kernel hash alg '%s' unavailable", data.name);
+	if ((data.sockfd = socket(AF_ALG, SOCK_SEQPACKET, 0)) == -1)
+		return false;
+
+	struct sockaddr_alg addr = {
+		.salg_family = AF_ALG,
+		.salg_type = "hash",
+	};
+
+	strcpy((char *)addr.salg_name, data.name);
+
+	if (bind(data.sockfd, (struct sockaddr *)&addr, sizeof(addr)) == -1) {
+		g_warning("kernel AF_ALG '%s' unavailable", data.name);
+		close(data.sockfd);
 		return false;
 	}
 
 	close(data.sockfd);
-
 	return true;
 }
 
