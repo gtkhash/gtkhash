@@ -86,7 +86,7 @@ bool gtkhash_hash_lib_linux_is_supported(const enum hash_func_e id)
 	strcpy((char *)addr.salg_name, data.name);
 
 	if (bind(data.sockfd, (struct sockaddr *)&addr, sizeof(addr)) == -1) {
-		g_warning("kernel AF_ALG '%s' unavailable", data.name);
+		g_message("kernel AF_ALG '%s' unavailable", data.name);
 		close(data.sockfd);
 		return false;
 	}
