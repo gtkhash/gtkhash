@@ -43,7 +43,6 @@
 #include "properties-list.h"
 #include "properties-hash.h"
 #include "properties-prefs.h"
-#include "properties-resources.h"
 #include "../hash/hash-func.h"
 #include "../hash/hash-file.h"
 
@@ -363,7 +362,6 @@ static GtkBuilder *gtkhash_properties_init_builder(void)
 	if (G_UNLIKELY(error)) {
 		g_warning("%s", error->message);
 		g_error_free(error);
-
 		return NULL;
 	}
 
@@ -546,7 +544,6 @@ PUBLIC void thunar_extension_initialize(GTypeModule *module);
 PUBLIC void thunar_extension_initialize(GTypeModule *module)
 #endif
 {
-	gtkhash_properties_resources_register_resource();
 	gtkhash_properties_register_type(module);
 
 #if ENABLE_NLS
