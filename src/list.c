@@ -172,11 +172,7 @@ void list_remove_selection(void)
 
 	g_list_free(rows);
 
-	if (!list.rows) {
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_clear), false);
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_clear), false);
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
-	}
+	gtk_tree_selection_unselect_all(gui.treeselection);
 }
 
 char *list_get_uri(const unsigned int row)
