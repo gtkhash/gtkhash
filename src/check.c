@@ -209,20 +209,19 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 	g_assert(file);
 
 	char *data = NULL;
-	gsize len = 0;
 	GError *error = NULL;
+	GFileInputStream *fis = g_file_read(file, NULL, &error);
 
-	if (!g_file_load_contents(file, NULL, &data, &len, NULL, &error)) {
+	if (!fis) {
 		check_file_error(file, error);
 		g_error_free(error);
-		return 0;
+		return NULL;
 	}
 
-	GInputStream *is = g_memory_input_stream_new_from_data(data, len, NULL);
-	GDataInputStream *dis = g_data_input_stream_new(is);
+	GDataInputStream *dis = g_data_input_stream_new((GInputStream *)fis);
 
 	char *line = NULL;
-	len = 0;
+	gsize len = 0;
 	error = NULL;
 
 	while ((line = g_data_input_stream_read_line_utf8(dis, &len, NULL, &error))) {
@@ -249,7 +248,7 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 		check_file_enable_hinted_hash_func(file);
 
 	g_object_unref(dis);
-	g_object_unref(is);
+	g_object_unref(fis);
 	g_free(data);
 
 	return ud_list;
