@@ -1,5 +1,10 @@
 Summary of changes for each GtkHash release:
 
+1.0.1 (2017-03-02)
+	* Fixed crash when certain Linux kernel crypto modules aren't loaded
+	* Fixed plugin crash when viewing file properties in Thunar
+	* Other bug fixes
+
 1.0 (2016-11-16)
 	* Added feature for checking digests from files (md5sum, sfv, etc.)
 	* Added commandline option for enabling hash functions by name
