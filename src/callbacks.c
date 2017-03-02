@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2017 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -339,6 +339,9 @@ static void show_menu_treeview(GdkEventButton *event)
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_copy),
 		can_copy);
 
+#if GTK_CHECK_VERSION(3,22,0)
+	gtk_menu_popup_at_pointer(gui.menu_treeview, (GdkEvent *)event);
+#else
 	if (event) {
 		gtk_menu_popup(gui.menu_treeview, NULL, NULL, NULL, NULL,
 			event->button, event->time);
@@ -346,25 +349,28 @@ static void show_menu_treeview(GdkEventButton *event)
 		gtk_menu_popup(gui.menu_treeview, NULL, NULL, NULL, NULL,
 			0, gtk_get_current_event_time());
 	}
+#endif
 }
 
-static gboolean on_treeview_popup_menu(void)
+static void on_treeview_popup_menu(void)
 {
+	/* Note: Shift+F10 can trigger this, so it's possible for the pointer
+	   to be outside the window */
+
 	show_menu_treeview(NULL);
-	return true;
 }
 
-static gboolean on_treeview_button_press_event(G_GNUC_UNUSED GtkWidget *widget,
+static bool on_treeview_button_press_event(G_GNUC_UNUSED GtkWidget *widget,
 	GdkEventButton *event)
 {
 #if (GTK_MAJOR_VERSION > 2)
-	if (gdk_event_triggers_context_menu((GdkEvent *)event) &&
-		event->type == GDK_BUTTON_PRESS)
-	{
+	if (gdk_event_triggers_context_menu((GdkEvent *)event))
 #else
-	if (event->type == GDK_BUTTON_PRESS && event->button == 3) {
+	if ((event->type == GDK_BUTTON_PRESS) && (event->button == 3))
 #endif
+	{
 		show_menu_treeview(event);
+		// Stop processing the event now so the selection won't be changed
 		return true;
 	}
 
