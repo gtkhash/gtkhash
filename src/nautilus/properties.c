@@ -144,7 +144,7 @@ static void gtkhash_properties_on_treeview_popup_menu(struct page_s *page)
 #endif
 }
 
-static void gtkhash_properties_on_treeview_button_press_event(
+static bool gtkhash_properties_on_treeview_button_press_event(
 	struct page_s *page, GdkEventButton *event)
 {
 #if (GTK_MAJOR_VERSION > 2)
@@ -158,6 +158,8 @@ static void gtkhash_properties_on_treeview_button_press_event(
 		gtk_menu_popup(page->menu, NULL, NULL, NULL, NULL, event->button,
 			gdk_event_get_time((GdkEvent *)event));
 #endif
+
+	return false;
 }
 
 static void gtkhash_properties_on_menu_map_event(struct page_s *page)
