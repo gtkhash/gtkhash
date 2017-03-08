@@ -8,15 +8,18 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2016-06-21 16:30+0000\n"
-"Last-Translator: Grigorii Chirkov <ridgentsailor@gmail.com>\n"
-"Language-Team: Russian <ru@li.org>\n"
+"PO-Revision-Date: 2017-03-08 11:55+0000\n"
+"Last-Translator: Igor <f2404@yandex.ru>\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/gtkhash/translations/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.12\n"
 "X-Launchpad-Export-Date: 2016-03-16 05:31+0000\n"
-"X-Generator: Launchpad (build 17947)\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
@@ -86,7 +89,7 @@ msgstr "Сравнить:"
 #: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:14
 #: ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "HMAC Key:"
-msgstr ""
+msgstr "Ключ HMAC:"
 
 #: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:15
 msgid "File"
@@ -98,14 +101,11 @@ msgstr "_Хэш"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
-msgstr ""
+msgstr "Калькулятор контрольных сумм"
 
 #: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
-#, fuzzy
 msgid "Calculate message digests or checksums"
-msgstr ""
-"Программа для вычисления цифровых отпечатков или контрольных сумм, "
-"основанная на GTK+."
+msgstr "Вычисление цифровых отпечатков или контрольных сумм"
 
 #: ../src/callbacks.c:48
 msgid "Save Digests"
@@ -126,12 +126,11 @@ msgstr ""
 "основанная на GTK+."
 
 #: ../src/callbacks.c:274
-#, fuzzy
 msgid "translator-credits"
 msgstr ""
 "Alexey Shentyakov https://launchpad.net/~alexey-shentyakov\n"
 "Grigorii Chirkov https://launchpad.net/~ridgentsailor\n"
-"WhiteRabbit https://launchpad.net/~whiterabbit\n"
+"WhiteRabbit https://launchpad.net/~whiterabbit"
 
 #: ../src/callbacks.c:298
 msgid "Select Files"
@@ -164,37 +163,31 @@ msgstr ""
 "%s"
 
 #: ../src/main.c:81
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Сравнить с определенным дайджестом или контрольной суммой"
+msgstr "Сравнить с опредёленным дайджестом или контрольной суммой"
 
 #: ../src/main.c:82
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "DIGEST"
 msgstr "ДАЙДЖЕСТ"
 
 #: ../src/main.c:86
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Hash the specified text"
-msgstr "Подсчитать контрольную сумму определенного текста"
+msgstr "Подсчитать контрольную сумму указанного текста"
 
 #: ../src/main.c:87
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "ТЕКСТ"
 
 #: ../src/main.c:91
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Show version information"
 msgstr "Показать информацию о версии"
 
 #: ../src/main.c:95
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
 msgstr "[ФАЙЛ|URI…]"
@@ -207,20 +200,22 @@ msgstr "Не удалось активировать поддерживаемы�
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u минута осталась"
+msgstr[1] "%u минуты осталось"
+msgstr[2] "%u минут осталось"
 
 #: ../src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u секунда осталась"
+msgstr[1] "%u секунды осталось"
+msgstr[2] "%u секунд осталось"
 
 #: ../src/util/util.c:58
-#, fuzzy, c-format
+#, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s из %s - осталось %u минут (%s/сек)"
+msgstr "%s из %s - %s (%s/с)"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
@@ -269,11 +264,8 @@ msgstr "Поддерживаются хеш-функции MD5, SHA1, SHA256, SH
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
-#, fuzzy
 msgid "Adds message digests or checksums to file properties"
-msgstr ""
-"Программа для вычисления цифровых отпечатков или контрольных сумм, "
-"основанная на GTK+."
+msgstr "Добавляет цифровые отпечатки или контрольные суммы в свойства файлов"
 
 #~ msgid "%s of %s - 1 minute left (%s/sec)"
 #~ msgstr "%s из %s - осталась 1 минута (%s/сек)"
