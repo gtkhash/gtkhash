@@ -99,6 +99,24 @@ else
 fi
 # }}}
 
+# blake2 option {{{
+AC_MSG_CHECKING([whether to use libb2])
+AC_ARG_ENABLE([blake2],
+	[AS_HELP_STRING([--enable-blake2], [use libb2])],
+	[enable_blake2="${enableval}"], [enable_blake2="no"])
+AC_MSG_RESULT([${enable_blake2}])
+AM_CONDITIONAL([ENABLE_BLAKE2], [test "${enable_blake2}" = "yes"])
+AC_DEFINE([ENABLE_BLAKE2], [0], [Use libb2])
+
+if test "${enable_blake2}" = "yes" ; then
+	AC_CHECK_HEADER([blake2.h], [:], [AC_MSG_ERROR([blake2 header not found])])
+	AC_CHECK_LIB([b2], [blake2sp_init], [:], [AC_MSG_ERROR([blake2 library not found])])
+	BLAKE2_LIBS="-lb2"
+	AC_SUBST([BLAKE2_LIBS])
+	AC_DEFINE([ENABLE_BLAKE2], [1])
+fi
+# }}}
+
 # gcrypt option {{{
 AC_MSG_CHECKING([whether to use Libgcrypt])
 AC_ARG_ENABLE([gcrypt],
@@ -128,20 +146,6 @@ if test "${enable_glib_checksums}" = "yes" ; then
 fi
 # }}}
 
-# internal blake2 option {{{
-AC_MSG_CHECKING([whether to use the internal BLAKE2 library])
-AC_ARG_ENABLE([internal-blake2],
-	[AS_HELP_STRING([--disable-internal-blake2], [do not use the internal BLAKE2 library])],
-	[enable_internal_blake2="${enableval}"], [enable_internal_blake2="yes"])
-AC_MSG_RESULT([${enable_internal_blake2}])
-AM_CONDITIONAL([ENABLE_BLAKE2], [test "${enable_internal_blake2}" = "yes"])
-AC_DEFINE([ENABLE_BLAKE2], [0], [Use BLAKE2])
-AC_OPENMP
-
-if test "${enable_internal_blake2}" = "yes" ; then
-	AC_DEFINE([ENABLE_BLAKE2], [1])
-fi
-# }}}
 
 # internal md6 option {{{
 AC_MSG_CHECKING([whether to use the internal MD6 library])
@@ -430,6 +434,8 @@ echo "  gtkhash-nautilus: ${enable_nautilus}"
 echo "  gtkhash-nemo: ${enable_nemo}"
 echo "  gtkhash-thunar: ${enable_thunar}"
 
+blake2_funcs="
+	BLAKE2b BLAKE2s BLAKE2bp BLAKE2sp"
 gcrypt_funcs="
 	GOST
 	MD4
@@ -444,8 +450,6 @@ glib_checksums_funcs="
 	MD5
 	SHA1
 	SHA256 SHA512"
-internal_blake2_funcs="
-	BLAKE2b BLAKE2s BLAKE2bp BLAKE2sp"
 internal_md6_funcs="
 	MD6-224 MD6-256 MD6-384 MD6-512"
 libcrypto_funcs="
@@ -547,7 +551,7 @@ do
 		nss \
 		glib_checksums \
 		mhash \
-		internal_blake2 \
+		blake2 \
 		internal_md6
 	do
 		eval test \${enable_${lib}} = "yes" || continue

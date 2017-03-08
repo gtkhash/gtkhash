@@ -1,5 +1,8 @@
 Summary of changes for each GtkHash release:
 
+1.
+	* Removed internal blake2 code and added option to use libb2 instead
+
 1.0.1 (2017-03-02)
 	* Fixed crash when certain Linux kernel crypto modules aren't loaded
 	* Fixed plugin crash when viewing file properties in Thunar

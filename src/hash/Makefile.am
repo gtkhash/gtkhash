@@ -25,12 +25,8 @@ hash_la_LIBADD = \
 EXTRA_DIST = md6/md6_compress.c md6/md6_mode.c
 
 if ENABLE_BLAKE2
-hash_la_CFLAGS += $(OPENMP_CFLAGS)
-hash_la_SOURCES += \
-	hash-lib-blake2.c \
-	blake2/blake2b-ref.c blake2/blake2bp-ref.c \
-	blake2/blake2s-ref.c blake2/blake2sp-ref.c \
-	blake2/blake2.h blake2/blake2-impl.h
+hash_la_SOURCES += hash-lib-blake2.c
+hash_la_LIBADD += $(BLAKE2_LIBS)
 endif
 
 if ENABLE_GCRYPT

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2017 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -25,8 +25,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <glib.h>
-
-#include "blake2/blake2.h"
+#include <blake2.h>
 
 #include "hash-lib.h"
 #include "hash-func.h"
@@ -59,46 +58,53 @@ bool gtkhash_hash_lib_blake2_is_supported(const enum hash_func_e id)
 void gtkhash_hash_lib_blake2_start(struct hash_func_s *func)
 {
 	func->lib_data = g_new(union hash_lib_blake2_u, 1);
+	int res = -1;
 
 	switch (func->id) {
 		case HASH_FUNC_BLAKE2B:
-			blake2b_init(&LIB_DATA->b, func->digest_size);
+			res = blake2b_init(&LIB_DATA->b, func->digest_size);
 			break;
 		case HASH_FUNC_BLAKE2S:
-			blake2s_init(&LIB_DATA->s, func->digest_size);
+			res = blake2s_init(&LIB_DATA->s, func->digest_size);
 			break;
 		case HASH_FUNC_BLAKE2BP:
-			blake2bp_init(&LIB_DATA->bp, func->digest_size);
+			res = blake2bp_init(&LIB_DATA->bp, func->digest_size);
 			break;
 		case HASH_FUNC_BLAKE2SP:
-			blake2sp_init(&LIB_DATA->sp, func->digest_size);
+			res = blake2sp_init(&LIB_DATA->sp, func->digest_size);
 			break;
 
 		default:
 			g_assert_not_reached();
 	}
+
+	g_assert(res == 0); (void)res;
 }
 
 void gtkhash_hash_lib_blake2_update(struct hash_func_s *func,
 	const uint8_t *buffer, const size_t size)
 {
+	int res = -1;
+
 	switch (func->id) {
 		case HASH_FUNC_BLAKE2B:
-			blake2b_update(&LIB_DATA->b, buffer, size);
+			res = blake2b_update(&LIB_DATA->b, buffer, size);
 			break;
 		case HASH_FUNC_BLAKE2S:
-			blake2s_update(&LIB_DATA->s, buffer, size);
+			res = blake2s_update(&LIB_DATA->s, buffer, size);
 			break;
 		case HASH_FUNC_BLAKE2BP:
-			blake2bp_update(&LIB_DATA->bp, buffer, size);
+			res = blake2bp_update(&LIB_DATA->bp, buffer, size);
 			break;
 		case HASH_FUNC_BLAKE2SP:
-			blake2sp_update(&LIB_DATA->sp, buffer, size);
+			res = blake2sp_update(&LIB_DATA->sp, buffer, size);
 			break;
 
 		default:
 			g_assert_not_reached();
 	}
+
+	g_assert(res == 0); (void)res;
 }
 
 void gtkhash_hash_lib_blake2_stop(struct hash_func_s *func)
@@ -109,25 +115,27 @@ void gtkhash_hash_lib_blake2_stop(struct hash_func_s *func)
 uint8_t *gtkhash_hash_lib_blake2_finish(struct hash_func_s *func, size_t *size)
 {
 	uint8_t *digest = g_malloc(func->digest_size);
+	int res = -1;
 
 	switch (func->id) {
 		case HASH_FUNC_BLAKE2B:
-			blake2b_final(&LIB_DATA->b, digest, func->digest_size);
+			res = blake2b_final(&LIB_DATA->b, digest, func->digest_size);
 			break;
 		case HASH_FUNC_BLAKE2S:
-			blake2s_final(&LIB_DATA->s, digest, func->digest_size);
+			res = blake2s_final(&LIB_DATA->s, digest, func->digest_size);
 			break;
 		case HASH_FUNC_BLAKE2BP:
-			blake2bp_final(&LIB_DATA->bp, digest, func->digest_size);
+			res = blake2bp_final(&LIB_DATA->bp, digest, func->digest_size);
 			break;
 		case HASH_FUNC_BLAKE2SP:
-			blake2sp_final(&LIB_DATA->sp, digest, func->digest_size);
+			res = blake2sp_final(&LIB_DATA->sp, digest, func->digest_size);
 			break;
 
 		default:
 			g_assert_not_reached();
 	}
 
+	g_assert(res == 0); (void)res;
 	g_free(LIB_DATA);
 
 	*size = func->digest_size;
