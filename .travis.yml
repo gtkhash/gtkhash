@@ -16,7 +16,6 @@ addons:
       - libgtk2.0-dev
       - nettle-dev
       - libnss3-dev
-      - libpolarssl-dev
       - linux-libc-dev
       - librsvg2-bin
 
@@ -26,6 +25,6 @@ env:
 
 script:
   - ./autogen.sh
-  - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{debug,nettle,nss,polarssl,linux-crypto})
+  - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{debug,nettle,nss,linux-crypto})
   - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
   - make distcheck VERBOSE=1

@@ -263,24 +263,6 @@ if test "${enable_nss}" = "yes" ; then
 fi
 # }}}
 
-# polarssl option {{{
-AC_MSG_CHECKING([whether to use PolarSSL])
-AC_ARG_ENABLE([polarssl],
-	[AS_HELP_STRING([--enable-polarssl], [use PolarSSL])],
-	[enable_polarssl="${enableval}"], [enable_polarssl="no"])
-AC_MSG_RESULT([${enable_polarssl}])
-AM_CONDITIONAL([ENABLE_POLARSSL], [test "${enable_polarssl}" = "yes"])
-AC_DEFINE([ENABLE_POLARSSL], [0], [Use PolarSSL])
-
-if test "${enable_polarssl}" = "yes" ; then
-	AC_CHECK_HEADER([polarssl/md.h], [:], [AC_MSG_ERROR([polarssl headers not found])])
-	AC_CHECK_LIB([polarssl], [md_update], [:], [AC_MSG_ERROR([polarssl library not found])])
-	POLARSSL_LIBS="-lpolarssl"
-	AC_SUBST([POLARSSL_LIBS])
-	AC_DEFINE([ENABLE_POLARSSL], [1])
-fi
-# }}}
-
 # zlib option {{{
 AC_MSG_CHECKING([whether to use zlib])
 AC_ARG_ENABLE([zlib],
@@ -500,13 +482,6 @@ nss_funcs="
 	MD5
 	SHA1
 	SHA224 SHA256 SHA384 SHA512"
-polarssl_funcs="
-	MD2
-	MD4
-	MD5
-	RIPEMD160
-	SHA1
-	SHA224 SHA256 SHA384 SHA512"
 zlib_funcs="
 	ADLER32
 	CRC32"
@@ -544,7 +519,6 @@ do
 		gcrypt \
 		libcrypto \
 		mbedtls \
-		polarssl \
 		nettle \
 		nss \
 		linux_crypto \

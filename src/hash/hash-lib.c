@@ -60,9 +60,6 @@
 #if ENABLE_NSS
 	HASH_LIB_DECL(nss)
 #endif
-#if ENABLE_POLARSSL
-	HASH_LIB_DECL(polarssl)
-#endif
 #if ENABLE_ZLIB
 	HASH_LIB_DECL(zlib)
 #endif
@@ -98,9 +95,6 @@ enum hash_lib_e {
 #endif
 #if ENABLE_NSS
 	HASH_LIB_NSS,
-#endif
-#if ENABLE_POLARSSL
-	HASH_LIB_POLARSSL,
 #endif
 #if ENABLE_ZLIB
 	HASH_LIB_ZLIB,
@@ -145,12 +139,6 @@ static void gtkhash_hash_lib_init_once(void)
 #if ENABLE_MBEDTLS
 		if (gtkhash_hash_lib_mbedtls_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_MBEDTLS;
-			continue;
-		}
-#endif
-#if ENABLE_POLARSSL
-		if (gtkhash_hash_lib_polarssl_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_POLARSSL;
 			continue;
 		}
 #endif
@@ -241,9 +229,6 @@ void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
 #if ENABLE_NSS
 		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_start,
 #endif
-#if ENABLE_POLARSSL
-		[HASH_LIB_POLARSSL] = gtkhash_hash_lib_polarssl_start,
-#endif
 #if ENABLE_ZLIB
 		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_start,
 #endif
@@ -298,9 +283,6 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 #if ENABLE_NSS
 		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_update,
 #endif
-#if ENABLE_POLARSSL
-		[HASH_LIB_POLARSSL] = gtkhash_hash_lib_polarssl_update,
-#endif
 #if ENABLE_ZLIB
 		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_update,
 #endif
@@ -347,9 +329,6 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 #endif
 #if ENABLE_NSS
 		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_stop,
-#endif
-#if ENABLE_POLARSSL
-		[HASH_LIB_POLARSSL] = gtkhash_hash_lib_polarssl_stop,
 #endif
 #if ENABLE_ZLIB
 		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_stop,
@@ -401,9 +380,6 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 #endif
 #if ENABLE_NSS
 		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_finish,
-#endif
-#if ENABLE_POLARSSL
-		[HASH_LIB_POLARSSL] = gtkhash_hash_lib_polarssl_finish,
 #endif
 #if ENABLE_ZLIB
 		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_finish,
