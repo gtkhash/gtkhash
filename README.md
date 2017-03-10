@@ -31,8 +31,7 @@ Optional Dependencies
 * mbed TLS
 * mhash
 * Nettle
-* NSS
-* PolarSSL
+* OpenSSL
 * zlib
 
 See `./configure --help` for options.

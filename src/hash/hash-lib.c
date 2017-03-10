@@ -57,9 +57,6 @@
 #if ENABLE_NETTLE
 	HASH_LIB_DECL(nettle)
 #endif
-#if ENABLE_NSS
-	HASH_LIB_DECL(nss)
-#endif
 #if ENABLE_ZLIB
 	HASH_LIB_DECL(zlib)
 #endif
@@ -92,9 +89,6 @@ enum hash_lib_e {
 #endif
 #if ENABLE_NETTLE
 	HASH_LIB_NETTLE,
-#endif
-#if ENABLE_NSS
-	HASH_LIB_NSS,
 #endif
 #if ENABLE_ZLIB
 	HASH_LIB_ZLIB,
@@ -145,12 +139,6 @@ static void gtkhash_hash_lib_init_once(void)
 #if ENABLE_NETTLE
 		if (gtkhash_hash_lib_nettle_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_NETTLE;
-			continue;
-		}
-#endif
-#if ENABLE_NSS
-		if (gtkhash_hash_lib_nss_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_NSS;
 			continue;
 		}
 #endif
@@ -226,9 +214,6 @@ void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
 #if ENABLE_NETTLE
 		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_start,
 #endif
-#if ENABLE_NSS
-		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_start,
-#endif
 #if ENABLE_ZLIB
 		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_start,
 #endif
@@ -280,9 +265,6 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 #if ENABLE_NETTLE
 		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_update,
 #endif
-#if ENABLE_NSS
-		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_update,
-#endif
 #if ENABLE_ZLIB
 		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_update,
 #endif
@@ -326,9 +308,6 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 #endif
 #if ENABLE_NETTLE
 		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_stop,
-#endif
-#if ENABLE_NSS
-		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_stop,
 #endif
 #if ENABLE_ZLIB
 		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_stop,
@@ -377,9 +356,6 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 #endif
 #if ENABLE_NETTLE
 		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_finish,
-#endif
-#if ENABLE_NSS
-		[HASH_LIB_NSS] = gtkhash_hash_lib_nss_finish,
 #endif
 #if ENABLE_ZLIB
 		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_finish,

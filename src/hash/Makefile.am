@@ -69,12 +69,6 @@ hash_la_CPPFLAGS += $(NETTLE_CFLAGS)
 hash_la_LIBADD += $(NETTLE_LIBS)
 endif
 
-if ENABLE_NSS
-hash_la_SOURCES += hash-lib-nss.c
-hash_la_CPPFLAGS += $(NSS_CFLAGS)
-hash_la_LIBADD += $(NSS_LIBS)
-endif
-
 if ENABLE_ZLIB
 hash_la_SOURCES += hash-lib-zlib.c
 hash_la_CPPFLAGS += $(ZLIB_CFLAGS)

@@ -246,23 +246,6 @@ if test "${enable_nettle}" = "yes" ; then
 fi
 # }}}
 
-# nss option {{{
-AC_MSG_CHECKING([whether to use NSS])
-AC_ARG_ENABLE([nss],
-	[AS_HELP_STRING([--enable-nss], [use NSS])],
-	[enable_nss="${enableval}"], [enable_nss="no"])
-AC_MSG_RESULT([${enable_nss}])
-AM_CONDITIONAL([ENABLE_NSS], [test "${enable_nss}" = "yes"])
-AC_DEFINE([ENABLE_NSS], [0], [Use NSS])
-
-if test "${enable_nss}" = "yes" ; then
-	PKG_CHECK_MODULES([NSS], [nss])
-	AC_SUBST([NSS_CFLAGS])
-	AC_SUBST([NSS_LIBS])
-	AC_DEFINE([ENABLE_NSS], [1])
-fi
-# }}}
-
 # zlib option {{{
 AC_MSG_CHECKING([whether to use zlib])
 AC_ARG_ENABLE([zlib],
@@ -477,11 +460,6 @@ nettle_funcs="
 	SHA1
 	SHA224 SHA256 SHA384 SHA512
 	SHA3-224 SHA3-256 SHA3-384 SHA3-512"
-nss_funcs="
-	MD2
-	MD5
-	SHA1
-	SHA224 SHA256 SHA384 SHA512"
 zlib_funcs="
 	ADLER32
 	CRC32"
@@ -520,7 +498,6 @@ do
 		libcrypto \
 		mbedtls \
 		nettle \
-		nss \
 		linux_crypto \
 		glib_checksums \
 		mhash \
