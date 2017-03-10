@@ -110,7 +110,7 @@ void gtkhash_hash_lib_crypto_start(struct hash_func_s *func)
 	if (!(LIB_DATA->md = gtkhash_hash_lib_crypto_get_md(func->id)))
 		g_assert_not_reached();
 
-	if (!(LIB_DATA->ctx = EVP_MD_CTX_create()))
+	if (!(LIB_DATA->ctx = EVP_MD_CTX_new()))
 		g_assert_not_reached();
 
 	if (EVP_DigestInit_ex(LIB_DATA->ctx, LIB_DATA->md, NULL) != 1)
@@ -141,7 +141,7 @@ uint8_t *gtkhash_hash_lib_crypto_finish(struct hash_func_s *func, size_t *size)
 		g_assert_not_reached();
 	g_assert(*size == len);
 
-	EVP_MD_CTX_destroy(LIB_DATA->ctx);
+	EVP_MD_CTX_free(LIB_DATA->ctx);
 	g_free(LIB_DATA);
 
 	return digest;
