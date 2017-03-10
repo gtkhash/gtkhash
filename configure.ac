@@ -162,24 +162,20 @@ fi
 # }}}
 
 # libcrypto (openssl) option {{{
-#
-# Disabled until a thread-safe API is released with openssl-1.1
-enable_libcrypto=no
-#
-#AC_MSG_CHECKING([whether to use libcrypto])
-#AC_ARG_ENABLE([libcrypto],
-#	[AS_HELP_STRING([--enable-libcrypto], [use libcrypto])],
-#	[enable_libcrypto="${enableval}"], [enable_libcrypto="no"])
-#AC_MSG_RESULT([${enable_libcrypto}])
+AC_MSG_CHECKING([whether to use OpenSSL libcrypto])
+AC_ARG_ENABLE([libcrypto],
+	[AS_HELP_STRING([--enable-libcrypto], [use libcrypto])],
+	[enable_libcrypto="${enableval}"], [enable_libcrypto="no"])
+AC_MSG_RESULT([${enable_libcrypto}])
 AM_CONDITIONAL([ENABLE_LIBCRYPTO], [test "${enable_libcrypto}" = "yes"])
 AC_DEFINE([ENABLE_LIBCRYPTO], [0], [Use libcrypto])
-#
-#if test "${enable_libcrypto}" = "yes" ; then
-#	PKG_CHECK_MODULES([LIBCRYPTO], [libcrypto])
-#	AC_SUBST([LIBCRYPTO_CFLAGS])
-#	AC_SUBST([LIBCRYPTO_LIBS])
-#	AC_DEFINE([ENABLE_LIBCRYPTO], [1])
-#fi
+
+if test "${enable_libcrypto}" = "yes" ; then
+	PKG_CHECK_MODULES([LIBCRYPTO], [libcrypto >= 1.1])
+	AC_SUBST([LIBCRYPTO_CFLAGS])
+	AC_SUBST([LIBCRYPTO_LIBS])
+	AC_DEFINE([ENABLE_LIBCRYPTO], [1])
+fi
 # }}}
 
 # linux crypto option {{{
@@ -453,12 +449,15 @@ glib_checksums_funcs="
 internal_md6_funcs="
 	MD6-224 MD6-256 MD6-384 MD6-512"
 libcrypto_funcs="
+	BLAKE2b BLAKE2s
+	MD2
 	MD4
 	MD5
 	MDC2
 	RIPEMD160
-	SHA0
-	SHA1"
+	SHA1
+	SHA224 SHA256 SHA384 SHA512
+	WHIRLPOOL"
 linux_crypto_funcs="
 	MD4
 	MD5
@@ -529,7 +528,6 @@ for func in \
 	MD6-224 MD6-256 MD6-384 MD6-512 \
 	MDC2 \
 	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320 \
-	SHA0 \
 	SHA1 \
 	SHA224 SHA256 SHA384 SHA512 \
 	SHA3-224 SHA3-256 SHA3-384 SHA3-512 \
@@ -542,19 +540,20 @@ do
 	# Matches preferred order from src/hash/hash-lib.c
 	for lib in \
 		zlib \
-		linux_crypto \
+		blake2 \
 		gcrypt \
 		libcrypto \
 		mbedtls \
 		polarssl \
 		nettle \
 		nss \
+		linux_crypto \
 		glib_checksums \
 		mhash \
-		blake2 \
 		internal_md6
 	do
 		eval test \${enable_${lib}} = "yes" || continue
+
 		if eval echo \${${lib}_funcs} | tr ' ' '\n' \
 			| grep -q "^${func}$"
 		then
@@ -564,10 +563,9 @@ do
 			have_libs="yes"
 		fi
 	done
-	test -n "${enabled}" && echo || echo "<disabled>"
+	test -n "${enabled}" && echo || echo "_"
 done
 
-echo
 test -z "${have_libs}" && AC_MSG_ERROR([No hash libraries enabled])
 
 # Exit status

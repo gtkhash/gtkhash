@@ -58,7 +58,6 @@ static const struct {
 	[HASH_FUNC_RIPEMD160]  = { "RIPEMD160",    20,  64, },
 	[HASH_FUNC_RIPEMD256]  = { "RIPEMD256",    32,   0, },
 	[HASH_FUNC_RIPEMD320]  = { "RIPEMD320",    40,   0, },
-	[HASH_FUNC_SHA0]       = { "SHA0",         20,   0, },
 	[HASH_FUNC_SHA1]       = { "SHA1",         20,  64, },
 	[HASH_FUNC_SHA224]     = { "SHA224",       28,  64, },
 	[HASH_FUNC_SHA256]     = { "SHA256",       32,  64, },

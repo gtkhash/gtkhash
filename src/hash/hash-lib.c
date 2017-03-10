@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2017 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -40,7 +40,7 @@
 	HASH_LIB_DECL(glib)
 #endif
 #if ENABLE_LIBCRYPTO
-	HASH_LIB_DECL(crypt)
+	HASH_LIB_DECL(crypto)
 #endif
 #if ENABLE_LINUX_CRYPTO
 	HASH_LIB_DECL(linux)
@@ -124,9 +124,9 @@ static void gtkhash_hash_lib_init_once(void)
 			continue;
 		}
 #endif
-#if ENABLE_LINUX_CRYPTO
-		if (gtkhash_hash_lib_linux_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_LINUX;
+#if ENABLE_BLAKE2
+		if (gtkhash_hash_lib_blake2_is_supported(i)) {
+			hash_libs[i] = HASH_LIB_BLAKE2;
 			continue;
 		}
 #endif
@@ -166,6 +166,12 @@ static void gtkhash_hash_lib_init_once(void)
 			continue;
 		}
 #endif
+#if ENABLE_LINUX_CRYPTO
+		if (gtkhash_hash_lib_linux_is_supported(i)) {
+			hash_libs[i] = HASH_LIB_LINUX;
+			continue;
+		}
+#endif
 #if ENABLE_GLIB_CHECKSUMS
 		if (gtkhash_hash_lib_glib_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_GLIB;
@@ -175,12 +181,6 @@ static void gtkhash_hash_lib_init_once(void)
 #if ENABLE_MHASH
 		if (gtkhash_hash_lib_mhash_is_supported(i)) {
 			hash_libs[i] = HASH_LIB_MHASH;
-			continue;
-		}
-#endif
-#if ENABLE_BLAKE2
-		if (gtkhash_hash_lib_blake2_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_BLAKE2;
 			continue;
 		}
 #endif
