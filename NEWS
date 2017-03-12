@@ -1,6 +1,6 @@
 Summary of changes for each GtkHash release:
 
-1.
+1.1 (2017-03-12)
 	* Removed internal BLAKE2 code and added option to use libb2 instead
 	* Added OpenSSL-1.1 as a BLAKE2b/BLAKE2s provider
 	* Removed PolarSSL support (replaced by mbed TLS)
