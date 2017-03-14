@@ -5,14 +5,14 @@ GtkHash
 =======
 
 GtkHash is a desktop utility for computing message digests or checksums.
-Most well-known hash functions are supported, including MD5, SHA1, SHA2 and
-SHA3.
+Most well-known hash functions are supported, including MD5, SHA1,
+SHA2 (SHA256/SHA512), SHA3 and BLAKE2.
 
 It's designed to be an easy to use, graphical alternative to command-line
 tools such as md5sum.
 
 Some interesting features:
-* Support for common checksum file formats (sfv, sha256sum, etc.)
+* Support for verifying checksum files from sfv, sha256sum, etc.
 * Keyed hashing (HMAC)
 * Parallel/threaded hash calculation
 * Remote file access using GIO/GVfs
@@ -27,14 +27,21 @@ Required Dependencies
 Optional Dependencies
 ---------------------
 * Libgcrypt
-* Linux Crypto (`CONFIG_CRYPTO_USER_API_HASH=y`)
+* Nettle
+* libb2
+* OpenSSL
 * mbed TLS
 * mhash
-* Nettle
-* OpenSSL
-* zlib
+* Linux Kernel Crypto (`CONFIG_CRYPTO_USER_API_HASH=y`)
 
-See `./configure --help` for options.
+GtkHash will attempt to select the best available implementation of each
+hash function based on its performance, but this can differ wildly between
+versions and CPU architectures.
+
+See `./configure --help` for a full list of options. Dependencies are not
+detected implicitly or "automagically".
+
+At minimum, it's recommended to use: --enable-gcrypt --enable-blake2
 
 File Manager Extensions
 -----------------------
