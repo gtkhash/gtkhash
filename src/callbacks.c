@@ -46,14 +46,25 @@ static bool on_window_delete_event(void)
 
 static void on_menuitem_open_activate(void)
 {
+#if GTK_CHECK_VERSION(3,20,0)
+	GtkFileChooser *chooser = (void *)gtk_file_chooser_native_new(
+		_("Check Digests"), gui.window, GTK_FILE_CHOOSER_ACTION_OPEN,
+		_("_Open"), _("_Cancel"));
+#else
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
 		gtk_file_chooser_dialog_new(_("Check Digests"), gui.window,
 			GTK_FILE_CHOOSER_ACTION_OPEN,
 			_("_Cancel"), GTK_RESPONSE_CANCEL,
 			_("_Open"), GTK_RESPONSE_ACCEPT,
 			NULL));
+#endif
+
 	gtk_file_chooser_set_select_multiple(chooser, true);
 	gtk_file_chooser_set_local_only(chooser, false);
+
+#ifndef G_OS_WIN32
+	/* Note: Adding filters causes GTK+ to fallback to GtkFileChooserDialog.
+	   On Windows, having a native file chooser is definitely preferable. */
 
 	GtkFileFilter *filter = NULL;
 
@@ -67,8 +78,13 @@ static void on_menuitem_open_activate(void)
 	gtk_file_filter_set_name(filter, _("All Files"));
 	gtk_file_filter_add_pattern(filter, "*");
 	gtk_file_chooser_add_filter(chooser, filter);
+#endif
 
+#if GTK_CHECK_VERSION(3,20,0)
+	if (gtk_native_dialog_run(GTK_NATIVE_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
+#else
 	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
+#endif
 		GSList *files = gtk_file_chooser_get_files(chooser);
 		GSList *ud_list = NULL;
 
@@ -90,28 +106,47 @@ static void on_menuitem_open_activate(void)
 		g_slist_free_full(files, g_object_unref);
 	}
 
+#if GTK_CHECK_VERSION(3,20,0)
+	g_object_unref(chooser);
+#else
 	gtk_widget_destroy(GTK_WIDGET(chooser));
+#endif
 }
 
 static void on_menuitem_save_as_activate(void)
 {
+#if GTK_CHECK_VERSION(3,20,0)
+	GtkFileChooser *chooser = (void *)gtk_file_chooser_native_new(
+		_("Save Digests"), gui.window, GTK_FILE_CHOOSER_ACTION_SAVE,
+		_("_Save"), _("_Cancel"));
+#else
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
 		gtk_file_chooser_dialog_new(_("Save Digests"), gui.window,
 			GTK_FILE_CHOOSER_ACTION_SAVE,
 			_("_Cancel"), GTK_RESPONSE_CANCEL,
 			_("_Save"), GTK_RESPONSE_ACCEPT,
 			NULL));
+#endif
+
 	gtk_file_chooser_set_select_multiple(chooser, false);
 	gtk_file_chooser_set_local_only(chooser, true); // TODO
 	gtk_file_chooser_set_do_overwrite_confirmation(chooser, true);
 
+#if GTK_CHECK_VERSION(3,20,0)
+	if (gtk_native_dialog_run(GTK_NATIVE_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
+#else
 	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
+#endif
 		char *filename = gtk_file_chooser_get_filename(chooser);
 		check_file_save(filename);
 		g_free(filename);
 	}
 
+#if GTK_CHECK_VERSION(3,20,0)
+	g_object_unref(chooser);
+#else
 	gtk_widget_destroy(GTK_WIDGET(chooser));
+#endif
 }
 
 static void on_menuitem_quit_activate(void)
@@ -281,16 +316,27 @@ static void on_filechooserbutton_selection_changed(void)
 
 static void on_toolbutton_add_clicked(void)
 {
+#if GTK_CHECK_VERSION(3,20,0)
+	GtkFileChooser *chooser = (void *)gtk_file_chooser_native_new(
+		_("Select Files"), gui.window, GTK_FILE_CHOOSER_ACTION_OPEN,
+		_("_Open"), _("_Cancel"));
+#else
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
 		gtk_file_chooser_dialog_new(_("Select Files"), gui.window,
 			GTK_FILE_CHOOSER_ACTION_OPEN,
 			_("_Cancel"), GTK_RESPONSE_CANCEL,
 			_("_Open"), GTK_RESPONSE_ACCEPT,
 			NULL));
+#endif
+
 	gtk_file_chooser_set_select_multiple(chooser, true);
 	gtk_file_chooser_set_local_only(chooser, false);
 
+#if GTK_CHECK_VERSION(3,20,0)
+	if (gtk_native_dialog_run(GTK_NATIVE_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
+#else
 	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
+#endif
 		GSList *uris = gtk_file_chooser_get_uris(chooser);
 		GSList *ud_list = uri_digest_list_from_uri_list(uris);
 
@@ -300,7 +346,11 @@ static void on_toolbutton_add_clicked(void)
 		g_slist_free(uris);
 	}
 
+#if GTK_CHECK_VERSION(3,20,0)
+	g_object_unref(chooser);
+#else
 	gtk_widget_destroy(GTK_WIDGET(chooser));
+#endif
 }
 
 static void on_treeselection_changed(void)
