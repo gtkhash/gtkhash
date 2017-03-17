@@ -47,9 +47,9 @@ static bool on_window_delete_event(void)
 static void on_menuitem_open_activate(void)
 {
 #if GTK_CHECK_VERSION(3,20,0)
-	GtkFileChooser *chooser = (void *)gtk_file_chooser_native_new(
+	GtkFileChooser *chooser = GTK_FILE_CHOOSER(gtk_file_chooser_native_new(
 		_("Check Digests"), gui.window, GTK_FILE_CHOOSER_ACTION_OPEN,
-		_("_Open"), _("_Cancel"));
+		_("_Open"), _("_Cancel")));
 #else
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
 		gtk_file_chooser_dialog_new(_("Check Digests"), gui.window,
@@ -116,9 +116,9 @@ static void on_menuitem_open_activate(void)
 static void on_menuitem_save_as_activate(void)
 {
 #if GTK_CHECK_VERSION(3,20,0)
-	GtkFileChooser *chooser = (void *)gtk_file_chooser_native_new(
+	GtkFileChooser *chooser = GTK_FILE_CHOOSER(gtk_file_chooser_native_new(
 		_("Save Digests"), gui.window, GTK_FILE_CHOOSER_ACTION_SAVE,
-		_("_Save"), _("_Cancel"));
+		_("_Save"), _("_Cancel")));
 #else
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
 		gtk_file_chooser_dialog_new(_("Save Digests"), gui.window,
@@ -317,9 +317,9 @@ static void on_filechooserbutton_selection_changed(void)
 static void on_toolbutton_add_clicked(void)
 {
 #if GTK_CHECK_VERSION(3,20,0)
-	GtkFileChooser *chooser = (void *)gtk_file_chooser_native_new(
+	GtkFileChooser *chooser = GTK_FILE_CHOOSER(gtk_file_chooser_native_new(
 		_("Select Files"), gui.window, GTK_FILE_CHOOSER_ACTION_OPEN,
-		_("_Open"), _("_Cancel"));
+		_("_Open"), _("_Cancel")));
 #else
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
 		gtk_file_chooser_dialog_new(_("Select Files"), gui.window,
