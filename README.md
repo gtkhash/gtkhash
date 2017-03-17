@@ -36,12 +36,13 @@ Optional Dependencies
 
 GtkHash will attempt to select the best available implementation of each
 hash function based on its performance, but this can differ wildly between
-versions and CPU architectures.
+library versions and CPU architectures.
 
 See `./configure --help` for a full list of options. Dependencies are not
 detected implicitly or "automagically".
 
-At minimum, it's recommended to use: --enable-gcrypt --enable-blake2
+To enable SHA3, use `--enable-gcrypt` or `--enable-nettle`
+To enable BLAKE2, use `--enable-blake2` or `--enable-libcrypto`
 
 File Manager Extensions
 -----------------------
