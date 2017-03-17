@@ -42,6 +42,7 @@ See `./configure --help` for a full list of options. Dependencies are not
 detected implicitly or "automagically".
 
 To enable SHA3, use `--enable-gcrypt` or `--enable-nettle`
+
 To enable BLAKE2, use `--enable-blake2` or `--enable-libcrypto`
 
 File Manager Extensions
