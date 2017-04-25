@@ -62,7 +62,7 @@ static void default_hash_funcs(void)
 	// Try to enable default functions
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (HASH_FUNC_IS_DEFAULT(i) && hash.funcs[i].supported) {
-			gtk_toggle_button_set_active(gui.hash_widgets[i].button, true);
+			gui_enable_hash_func(i);
 			has_enabled = true;
 		}
 	}
@@ -73,7 +73,7 @@ static void default_hash_funcs(void)
 	// Try to enable any supported function
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (hash.funcs[i].supported) {
-			gtk_toggle_button_set_active(gui.hash_widgets[i].button, true);
+			gui_enable_hash_func(i);
 			return;
 		}
 	}
@@ -98,12 +98,20 @@ static void load_hash_funcs(void)
 {
 	char **strv = g_settings_get_strv(prefs_priv.settings,
 		PREFS_KEY_HASH_FUNCS);
+	bool enabled = false;
 
-	hash_funcs_enable_strv((const char **)strv);
+	for (int i = 0; strv[i]; i++) {
+		enum hash_func_e id = gtkhash_hash_func_get_id_from_name(strv[i]);
+		if (HASH_FUNC_IS_VALID(id) && hash.funcs[id].supported) {
+			gui_enable_hash_func(id);
+			enabled = true;
+		} else
+			g_message(_("Unknown Hash Function name \"%s\""), strv[i]);
+	}
 
 	g_strfreev(strv);
 
-	if (!hash_funcs_count_enabled())
+	if (!enabled)
 		default_hash_funcs();
 }
 
