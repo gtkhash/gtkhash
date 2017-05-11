@@ -197,12 +197,14 @@ msgstr "无法启用任何支持的哈希函数。"
 msgid "%u minute left"
 msgid_plural "%u minutes left"
 msgstr[0] "剩余%u分钟"
+msgstr[1] "剩余%u分钟"
 
 #: ../src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
 msgstr[0] "剩余%u秒"
+msgstr[1] "剩余%u秒"
 
 #: ../src/util/util.c:58
 #, c-format
