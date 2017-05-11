@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2012-07-09 07:24+0000\n"
+"POT-Creation-Date: 2017-05-11 09:12+0800\n"
+"PO-Revision-Date: 2017-05-11 09:42+0800\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
-"Language: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-07-10 05:35+0000\n"
-"X-Generator: Launchpad (build 15558)\n"
+"X-Generator: Poedit 1.8.11\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
@@ -86,7 +87,7 @@ msgstr "检测："
 #: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:14
 #: ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "HMAC Key:"
-msgstr ""
+msgstr "HMAC 键："
 
 #: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:15
 msgid "File"
@@ -98,12 +99,11 @@ msgstr "哈希(_S)"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
-msgstr ""
+msgstr "校验和计算器"
 
 #: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
-#, fuzzy
 msgid "Calculate message digests or checksums"
-msgstr "用来计算信息摘要或校验的 GTK+ 工具。"
+msgstr "计算信息摘要或校验和"
 
 #: ../src/callbacks.c:48
 msgid "Save Digests"
@@ -111,22 +111,22 @@ msgstr "保存摘要"
 
 #: ../src/callbacks.c:50 ../src/callbacks.c:300
 msgid "_Cancel"
-msgstr ""
+msgstr "取消(_C)"
 
 #: ../src/callbacks.c:51
 msgid "_Save"
-msgstr ""
+msgstr "保存(_S)"
 
 #: ../src/callbacks.c:265
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "用来计算信息摘要或校验的 GTK+ 工具。"
 
 #: ../src/callbacks.c:274
-#, fuzzy
 msgid "translator-credits"
 msgstr ""
 "Careone https://launchpad.net/~zzbusagain\n"
 "Wang Dianjin https://launchpad.net/~tuhaihe\n"
+"giwhub https://github.com/giwhub"
 
 #: ../src/callbacks.c:298
 msgid "Select Files"
@@ -134,12 +134,12 @@ msgstr "选择文件"
 
 #: ../src/callbacks.c:301
 msgid "_Open"
-msgstr ""
+msgstr "打开(_O)"
 
 #. Add checkbutton
 #: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "显示HMAC键(_S)"
 
 #: ../src/gui.c:339
 msgid "Not a regular file"
@@ -155,41 +155,35 @@ msgid ""
 "Failed to add \"%s\":\n"
 "%s"
 msgstr ""
-"无法添加 “%s”：\n"
+"无法添加“%s”：\n"
 "%s"
 
 #: ../src/main.c:81
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
 msgstr "再次检查指定的摘要或校验和"
 
 #: ../src/main.c:82
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "DIGEST"
 msgstr "摘要"
 
 #: ../src/main.c:86
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Hash the specified text"
 msgstr "哈希指定的文本"
 
 #: ../src/main.c:87
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "文本"
 
 #: ../src/main.c:91
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Show version information"
 msgstr "显示版本信息"
 
 #: ../src/main.c:95
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
 msgstr "[文件|位置...]"
@@ -202,20 +196,18 @@ msgstr "无法启用任何支持的哈希函数。"
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "剩余%u分钟"
 
 #: ../src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "剩余%u秒"
 
 #: ../src/util/util.c:58
-#, fuzzy, c-format
+#, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "进度 %s/%s - 还剩 %u 分钟(%s/秒)"
+msgstr "%s / %s - %s (%s/秒)"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
@@ -252,18 +244,19 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash是一个用于计算文件校验和或消息摘要的应用程序。 它旨在成为一个易于使用"
+"的图形替代命令行程序，如md5sum。"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
+msgstr "支持的哈希函数包含MD5、SHA1、SHA256、SHA512和CRC32。"
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
-#, fuzzy
 msgid "Adds message digests or checksums to file properties"
-msgstr "用来计算信息摘要或校验的 GTK+ 工具。"
+msgstr "将消息摘要或校验和添加到文件属性"
 
 #~ msgid "%s of %s - 1 minute left (%s/sec)"
 #~ msgstr "进度 %s/ %s - 还剩 1 分钟(%s/秒)"
