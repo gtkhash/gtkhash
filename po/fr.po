@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2012-09-15 15:27+0000\n"
-"Last-Translator: jc1 <jc1.quebecos@gmail.com>\n"
-"Language-Team: French <fr@li.org>\n"
+"PO-Revision-Date: 2017-06-28 00:02+0000\n"
+"Last-Translator: xin <xin@riseup.net>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/gtkhash/translations/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.15-dev\n"
 "X-Launchpad-Export-Date: 2012-09-16 04:40+0000\n"
-"X-Generator: Launchpad (build 15944)\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
@@ -28,7 +30,7 @@ msgstr "Fonctions de hachage :"
 
 #: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:19
 msgid "Digest Format:"
-msgstr "Format résumé :"
+msgstr "Format de l'empreinte :"
 
 #: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
@@ -40,7 +42,7 @@ msgstr "Majuscule hexadécimale"
 
 #: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
-msgstr "Copier le _résumé"
+msgstr "_Copier l'empreinte"
 
 #: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
@@ -86,7 +88,7 @@ msgstr "Vérifier :"
 #: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:14
 #: ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "HMAC Key:"
-msgstr ""
+msgstr "Clé HMAC :"
 
 #: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:15
 msgid "File"
@@ -98,54 +100,46 @@ msgstr "Ha_cher"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
-msgstr ""
+msgstr "Calculateur de somme de contrôle"
 
 #: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
-#, fuzzy
 msgid "Calculate message digests or checksums"
-msgstr ""
-"Un utilitaire GTK+ pour résumés de messages informatique ou sommes de "
-"contrôle."
+msgstr "Calculer des empreintes numériques ou des sommes de contrôle"
 
 #: ../src/callbacks.c:48
 msgid "Save Digests"
-msgstr "Enregistrer résumés"
+msgstr "Enregistrer empreintes"
 
 #: ../src/callbacks.c:50 ../src/callbacks.c:300
 msgid "_Cancel"
-msgstr ""
+msgstr "_Annuler"
 
 #: ../src/callbacks.c:51
 msgid "_Save"
-msgstr ""
+msgstr "_Enregistrer"
 
 #: ../src/callbacks.c:265
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
-"Un utilitaire GTK+ pour résumés de messages informatique ou sommes de "
+"Un utilitaire GTK+ pour calculer des empreintes numériques ou des sommes de "
 "contrôle."
 
 #: ../src/callbacks.c:274
-#, fuzzy
 msgid "translator-credits"
-msgstr ""
-"ERE https://launchpad.net/~karfter\n"
-"LEROY Jean-Christophe https://launchpad.net/~celtic2-deactivatedaccount\n"
-"Thibault Févry https://launchpad.net/~thibaultfevry\n"
-"jc1 https://launchpad.net/~jc1-quebecos\n"
+msgstr "translator-credits"
 
 #: ../src/callbacks.c:298
 msgid "Select Files"
-msgstr "Sélectionnez les fichiers"
+msgstr "Sélectionner les fichiers"
 
 #: ../src/callbacks.c:301
 msgid "_Open"
-msgstr ""
+msgstr "_Ouvrir"
 
 #. Add checkbutton
 #: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "_Voir la clé HMAC"
 
 #: ../src/gui.c:339
 msgid "Not a regular file"
@@ -165,37 +159,31 @@ msgstr ""
 "%s"
 
 #: ../src/main.c:81
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Vérifier en vue du résumé spécifié ou de la somme de contrôle"
+msgstr "Vérifier par rapport à l'empreinte ou à la somme de contrôle spécifiée"
 
 #: ../src/main.c:82
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "DIGEST"
-msgstr "RÉSUMÉ"
+msgstr "EMPREINTE"
 
 #: ../src/main.c:86
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Hash the specified text"
 msgstr "Hacher le texte spécifié"
 
 #: ../src/main.c:87
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "TEXT"
 msgstr "TEXTE"
 
 #: ../src/main.c:91
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Show version information"
 msgstr "Afficher les informations de version"
 
 #: ../src/main.c:95
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
 msgstr "[FICHIER|URI...]"
@@ -208,24 +196,24 @@ msgstr "Impossible d'activer les fonctions de hachage supportées."
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u minute restante"
+msgstr[1] "%u minutes restantes"
 
 #: ../src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u seconde restante"
+msgstr[1] "%u secondes restantes"
 
 #: ../src/util/util.c:58
-#, fuzzy, c-format
+#, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s de %s - %u minutes restant (%s/s)"
+msgstr "%s de %s - %s (%s/sec)"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr "_Copier le résumé"
+msgstr "_Copier l'empreinte"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
@@ -237,7 +225,7 @@ msgstr "Fonction de hachage"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
-msgstr "Résumé"
+msgstr "Empreinte"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
@@ -250,7 +238,7 @@ msgstr "H_achage"
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
-msgstr "Résumés"
+msgstr "Empreintes"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""
@@ -258,20 +246,23 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash est une application pour calculer les sommes de contrôle de fichiers "
+"ou des empreintes numériques. Elle est conçue pour être une alternative "
+"facile à utiliser aux programmes en ligne de commande comme md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
+"Les fonctions de hachage supportés sont MD5, SHA1, SHA256, SHA512 et CRC32."
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
-#, fuzzy
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
-"Un utilitaire GTK+ pour résumés de messages informatique ou sommes de "
-"contrôle."
+"Ajouter des empreintes numériques ou des sommes de contrôle aux propriétés "
+"d'un fichier"
 
 #~ msgid "%s of %s - 1 minute left (%s/sec)"
 #~ msgstr "%s de %s - 1 minute restant (%s/s)"
