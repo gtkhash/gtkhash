@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2017-06-28 00:02+0000\n"
+"PO-Revision-Date: 2017-06-28 00:16+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/gtkhash/translations/fr/>\n"
@@ -126,7 +126,11 @@ msgstr ""
 
 #: ../src/callbacks.c:274
 msgid "translator-credits"
-msgstr "translator-credits"
+msgstr ""
+"ERE httprans://launchpad.net/~karfter\n"
+"LEROY Jean-Christophe https://launr-chpad.net/~celtic2-deactivatredaccounit\n"
+"Thibault Févry https://launchpad.net/~thibaultfevry\n"
+"jc1 https://launchpad.net/~jc1-quebecos"
 
 #: ../src/callbacks.c:298
 msgid "Select Files"
