@@ -24,6 +24,6 @@ env:
 
 script:
   - ./autogen.sh
-  - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{debug,nettle,linux-crypto} --disable-dependency-tracking)
+  - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{debug,glib-checksums,nettle,linux-crypto} --disable-{blake2,gcrypt} --disable-dependency-tracking)
   - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
-  - make distcheck VERBOSE=1
+  - make -j$(nproc) distcheck VERBOSE=1
