@@ -102,8 +102,8 @@ fi
 # blake2 option {{{
 AC_MSG_CHECKING([whether to use libb2])
 AC_ARG_ENABLE([blake2],
-	[AS_HELP_STRING([--enable-blake2], [use libb2])],
-	[enable_blake2="${enableval}"], [enable_blake2="no"])
+	[AS_HELP_STRING([--disable-blake2], [do not use libb2])],
+	[enable_blake2="${enableval}"], [enable_blake2="yes"])
 AC_MSG_RESULT([${enable_blake2}])
 AM_CONDITIONAL([ENABLE_BLAKE2], [test "${enable_blake2}" = "yes"])
 AC_DEFINE([ENABLE_BLAKE2], [0], [Use libb2])
@@ -120,8 +120,8 @@ fi
 # gcrypt option {{{
 AC_MSG_CHECKING([whether to use Libgcrypt])
 AC_ARG_ENABLE([gcrypt],
-	[AS_HELP_STRING([--enable-gcrypt], [use Libgcrypt])],
-	[enable_gcrypt="${enableval}"], [enable_gcrypt="no"])
+	[AS_HELP_STRING([--disable-gcrypt], [do not use Libgcrypt])],
+	[enable_gcrypt="${enableval}"], [enable_gcrypt="yes"])
 AC_MSG_RESULT([${enable_gcrypt}])
 AM_CONDITIONAL([ENABLE_GCRYPT], [test "${enable_gcrypt}" = "yes"])
 AC_DEFINE([ENABLE_GCRYPT], [0], [Use Libgcrypt])
@@ -135,8 +135,8 @@ fi
 # glib checksums option {{{
 AC_MSG_CHECKING([whether to use the Glib Data Checksums API])
 AC_ARG_ENABLE([glib-checksums],
-	[AS_HELP_STRING([--disable-glib-checksums], [do not use the Glib Data Checksums API])],
-	[enable_glib_checksums="${enableval}"], [enable_glib_checksums="yes"])
+	[AS_HELP_STRING([--enable-glib-checksums], [use the Glib Data Checksums API])],
+	[enable_glib_checksums="${enableval}"], [enable_glib_checksums="no"])
 AC_MSG_RESULT([${enable_glib_checksums}])
 AM_CONDITIONAL([ENABLE_GLIB_CHECKSUMS], [test "${enable_glib_checksums}" = "yes"])
 AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [0], [Use Glib Checksums])
