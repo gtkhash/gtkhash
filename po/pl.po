@@ -1,50 +1,53 @@
-# Polish translation for gtkhash
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Polish translation for gtkhash.
+# Copyright © 2011, 2017 the gtkhash authors.
 # This file is distributed under the same license as the gtkhash package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# Łukasz Szeremeta <https://launchpad.net/~l-szeremeta>, 2011.
+# Piotr Drąg <piotrdrag@gmail.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2011-10-19 16:00+0000\n"
-"Last-Translator: Łukasz Szeremeta <Unknown>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"PO-Revision-Date: 2017-07-29 13:29+0000\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/gtkhash/translations/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
-"X-Generator: Launchpad (build 15520)\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
-msgstr "GtkHash Preferencje"
+msgstr "Preferencje GtkHash"
 
 #: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:18
 msgid "Hash Functions:"
-msgstr "Hash Funkcje:"
+msgstr "Funkcje sum kontrolnych:"
 
 #: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:19
 msgid "Digest Format:"
-msgstr "Format sumy kontrolnej:"
+msgstr "Format skrótu:"
 
 #: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
-msgstr ""
+msgstr "Szesnastkowy małymi znakami"
 
 #: ../data/gtkhash-gtk2.xml.h:5 ../data/gtkhash-gtk3.xml.h:2
 msgid "Uppercase Hexadecimal"
-msgstr ""
+msgstr "Szesnastkowy wielkimi znakami"
 
 #: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
-msgstr "Skopiuj _sumę kontroną"
+msgstr "_Skopiuj skrót"
 
 #: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
-msgstr "Pokaż pasek _narzędzi"
+msgstr "Pasek _narzędziowy"
 
 #: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
@@ -52,7 +55,7 @@ msgstr "_Plik"
 
 #: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:6
 msgid "_Edit"
-msgstr "_Edytuj"
+msgstr "_Edycja"
 
 #: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:7
 msgid "_View"
@@ -68,7 +71,7 @@ msgstr "_Lista plików"
 
 #: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:10
 msgid "_Help"
-msgstr "_Pomoc"
+msgstr "Pomo_c"
 
 #: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:11
 msgid "File:"
@@ -81,12 +84,12 @@ msgstr "Tekst:"
 #: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:13
 #: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
-msgstr ""
+msgstr "Sprawdzanie:"
 
 #: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:14
 #: ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "HMAC Key:"
-msgstr ""
+msgstr "Klucz HMAC:"
 
 #: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:15
 msgid "File"
@@ -94,50 +97,50 @@ msgstr "Plik"
 
 #: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:16
 msgid "Ha_sh"
-msgstr "Ha_sh"
+msgstr "_Oblicz"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
-msgstr ""
+msgstr "Kalkulator sum kontrolnych"
 
 #: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
-#, fuzzy
 msgid "Calculate message digests or checksums"
-msgstr "Narzędzie GTK+ do wyświetlania sum kontrolnych"
+msgstr "Obliczanie skrótów wiadomości i sum kontrolnych"
 
 #: ../src/callbacks.c:48
 msgid "Save Digests"
-msgstr "Zapisz sumę kontrolną"
+msgstr "Zapis skrótów"
 
 #: ../src/callbacks.c:50 ../src/callbacks.c:300
 msgid "_Cancel"
-msgstr ""
+msgstr "_Anuluj"
 
 #: ../src/callbacks.c:51
 msgid "_Save"
-msgstr ""
+msgstr "_Zapisz"
 
 #: ../src/callbacks.c:265
 msgid "A GTK+ utility for computing message digests or checksums."
-msgstr "Narzędzie GTK+ do wyświetlania sum kontrolnych"
+msgstr "Narzędzie GTK+ do obliczania skrótów wiadomości i sum kontrolnych."
 
 #: ../src/callbacks.c:274
-#, fuzzy
 msgid "translator-credits"
-msgstr "Łukasz Szeremeta https://launchpad.net/~l-szeremeta\n"
+msgstr ""
+"Łukasz Szeremeta <https://launchpad.net/~l-szeremeta>, 2011\n"
+"Piotr Drąg <piotrdrag@gmail.com>, 2017"
 
 #: ../src/callbacks.c:298
 msgid "Select Files"
-msgstr "Wybierz pliki"
+msgstr "Wybór plików"
 
 #: ../src/callbacks.c:301
 msgid "_Open"
-msgstr ""
+msgstr "_Otwórz"
 
 #. Add checkbutton
 #: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "_Klucz HMAC"
 
 #: ../src/gui.c:339
 msgid "Not a regular file"
@@ -153,84 +156,83 @@ msgid ""
 "Failed to add \"%s\":\n"
 "%s"
 msgstr ""
-"Nie można dodać \"%s\":\n"
+"Dodanie „%s” się nie powiodło:\n"
 "%s"
 
 #: ../src/main.c:81
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Narzędzie GTK+ do wyświetlania sum kontrolnych"
+msgstr "Sprawdza z podanym skrótem lub sumą kontrolną"
 
 #: ../src/main.c:82
 msgctxt "gtkhash --help"
 msgid "DIGEST"
-msgstr ""
+msgstr "SKRÓT"
 
 #: ../src/main.c:86
 msgctxt "gtkhash --help"
 msgid "Hash the specified text"
-msgstr ""
+msgstr "Oblicza sumę kontrolną podanego tekstu"
 
 #: ../src/main.c:87
 msgctxt "gtkhash --help"
 msgid "TEXT"
-msgstr ""
+msgstr "TEKST"
 
 #: ../src/main.c:91
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "Show version information"
-msgstr "Pokaż informacje o wersji"
+msgstr "Wyświetla informacje o wersji"
 
 #: ../src/main.c:95
-#, fuzzy
 msgctxt "gtkhash --help"
 msgid "[FILE|URI...]"
-msgstr "[PLIK|URI...]"
+msgstr "[PLIK|URI…]"
 
 #: ../src/prefs.c:76
 msgid "Failed to enable any supported hash functions."
-msgstr "Nie udało się włączyć wszystkich obsługiwanych funkcji haszujących."
+msgstr "Włączenie obsługiwanej funkcji sum kontrolnych się nie powiodło."
 
 #: ../src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pozostała %u minuta"
+msgstr[1] "Pozostały %u minuty"
+msgstr[2] "Pozostało %u minut"
 
 #: ../src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pozostała %u sekunda"
+msgstr[1] "Pozostały %u sekundy"
+msgstr[2] "Pozostało %u sekund"
 
 #: ../src/util/util.c:58
-#, fuzzy, c-format
+#, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s of %s - 1 minuta (%s/sec)"
+msgstr "%s z %s — %s (%s/s)"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr "_Skopiuj sumę kontrolną"
+msgstr "S_kopiuj skrót"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
-msgstr "Pokaż _Niekatywne Funkcje Hash"
+msgstr "_Wyłączone funkcje sum kontrolnych"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
-msgstr "Funkcje Hash"
+msgstr "Funkcja sum kontrolnych"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
-msgstr "Sumy kontrolne"
+msgstr "Skrót"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
-msgstr "H_ash"
+msgstr "_Oblicz"
 
 #: ../src/nautilus/properties.c:459 ../src/nautilus/properties.c:462
 #: ../src/nautilus/properties.c:465 ../src/nautilus/properties.c:467
@@ -239,7 +241,7 @@ msgstr "H_ash"
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
-msgstr "Sumy kontrolne"
+msgstr "Skróty"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""
@@ -247,34 +249,17 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash to program do obliczania sum kontrolnych plików i skrótów "
+"wiadomości. Jest zaprojektowany tak, aby był łatwą w użyciu, graficzną "
+"alternatywą dla programów wiersza poleceń, takich jak md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
+msgstr "Obsługiwane funkcje sum kontrolnych: MD5, SHA1, SHA256, SHA512 i CRC32."
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
-#, fuzzy
 msgid "Adds message digests or checksums to file properties"
-msgstr "Narzędzie GTK+ do wyświetlania sum kontrolnych"
-
-#, fuzzy
-#~ msgid ""
-#~ "Failed to load \"%s\":\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Nie można dodać \"%s\":\n"
-#~ "%s"
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "Read program data from the specified directory"
-#~ msgstr "Odczyt danych programu z określonego katalogu"
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "DIRECTORY"
-#~ msgstr "KATALOG"
+msgstr "Dodaje skróty wiadomości i sumy kontrolne do właściwości plików"
