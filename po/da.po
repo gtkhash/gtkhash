@@ -1,17 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
+# Danish translation for GtkHash.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# scootergrisen, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2017-08-10 19:49+0000\n"
-"Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
-"Language-Team: Danish "
-"<https://hosted.weblate.org/projects/gtkhash/translations/da/>\n"
+"PO-Revision-Date: 2017-08-10 19:52+0000\n"
+"Last-Translator: scootergrisen\n"
+"Language-Team: Danish\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,11 +101,11 @@ msgstr "Tjeksum-udregner"
 
 #: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
-msgstr "Udregn meddeleleses-digests eller -tjeksumme"
+msgstr "Udregn meddeleleses-digest'er eller tjeksumme"
 
 #: ../src/callbacks.c:48
 msgid "Save Digests"
-msgstr "Gem digests"
+msgstr "Gem digest'er"
 
 #: ../src/callbacks.c:50 ../src/callbacks.c:300
 msgid "_Cancel"
@@ -120,7 +118,7 @@ msgstr "_Gem"
 #: ../src/callbacks.c:265
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
-"Et GTK+-værktøj til at computerisere meddelelses-digests eller -tjeksumme."
+"Et GTK+-værktøj til at computerisere meddelelses-digest'er eller tjeksumme."
 
 #: ../src/callbacks.c:274
 msgid "translator-credits"
@@ -236,7 +234,7 @@ msgstr "H_ash"
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
-msgstr "Digests"
+msgstr "Digest'er"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""
@@ -245,8 +243,8 @@ msgid ""
 "programs such as md5sum."
 msgstr ""
 "GtkHash er et program til at computerisere fil-tjeksumme eller meddelelses-"
-"digests. Det er designet til at være let at bruge. Grafisk alternativ til "
-"kommandolinjeprogrammer såsom md5sum."
+"digest'er. Det er designet til at være let at bruge og et grafisk alternativ "
+"til kommandolinjeprogrammer såsom md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
@@ -258,4 +256,4 @@ msgstr ""
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
-msgstr "Tilføjer meddelelses-digests eller tjeksumme til filegenskaber"
+msgstr "Tilføjer meddelelses-digest'er eller tjeksumme til filegenskaber"
