@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2017-08-10 19:52+0000\n"
-"Last-Translator: scootergrisen\n"
-"Language-Team: Danish\n"
+"PO-Revision-Date: 2017-08-12 14:47+0000\n"
+"Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/gtkhash/translations/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.16\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
@@ -27,7 +28,7 @@ msgstr "Hash-funktioner:"
 
 #: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:19
 msgid "Digest Format:"
-msgstr "Digest-format:"
+msgstr "Format for fingeraftryk:"
 
 #: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
@@ -39,7 +40,7 @@ msgstr "Heksadecimal med store bogstaver"
 
 #: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
-msgstr "Kopiér _digest"
+msgstr "Kopiér _fingeraftryk"
 
 #: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
@@ -101,11 +102,11 @@ msgstr "Tjeksum-udregner"
 
 #: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
-msgstr "Udregn meddeleleses-digest'er eller tjeksumme"
+msgstr "Udregn fingeraftryk eller tjeksummer"
 
 #: ../src/callbacks.c:48
 msgid "Save Digests"
-msgstr "Gem digest'er"
+msgstr "Gem fingeraftryk"
 
 #: ../src/callbacks.c:50 ../src/callbacks.c:300
 msgid "_Cancel"
@@ -117,8 +118,7 @@ msgstr "_Gem"
 
 #: ../src/callbacks.c:265
 msgid "A GTK+ utility for computing message digests or checksums."
-msgstr ""
-"Et GTK+-værktøj til at computerisere meddelelses-digest'er eller tjeksumme."
+msgstr "Et GTK+-værktøj til at udregne fingeraftryk eller tjeksummer."
 
 #: ../src/callbacks.c:274
 msgid "translator-credits"
@@ -157,12 +157,12 @@ msgstr ""
 #: ../src/main.c:81
 msgctxt "gtkhash --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Tjek mod den angivne digest eller tjeksum"
+msgstr "Tjek mod det angivne fingeraftryk eller tjeksum"
 
 #: ../src/main.c:82
 msgctxt "gtkhash --help"
 msgid "DIGEST"
-msgstr "DIGEST"
+msgstr "FINGERAFTRYK"
 
 #: ../src/main.c:86
 msgctxt "gtkhash --help"
@@ -209,7 +209,7 @@ msgstr "%s af %s - %s (%s/sek.)"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr "_Kopiér digest"
+msgstr "_Kopiér fingeraftryk"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
@@ -221,7 +221,7 @@ msgstr "Hash-funktion"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
-msgstr "Digest"
+msgstr "Fingeraftryk"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
@@ -234,7 +234,7 @@ msgstr "H_ash"
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
-msgstr "Digest'er"
+msgstr "Fingeraftryk"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""
@@ -242,18 +242,18 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
-"GtkHash er et program til at computerisere fil-tjeksumme eller meddelelses-"
-"digest'er. Det er designet til at være let at bruge og et grafisk alternativ "
-"til kommandolinjeprogrammer såsom md5sum."
+"GtkHash er et program til at udregne tjeksummer på filer eller fingeraftryk. "
+"Det er designet til at være let at bruge og er et grafisk alternativ til "
+"kommandolinjeprogrammer såsom md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
-"Understøtter hash-funktioner, inklusiv MD5, SHA1, SHA256, SHA512 og CRC32."
+"Understøtter hash-funktioner omfatter MD5, SHA1, SHA256, SHA512 og CRC32."
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
-msgstr "Tilføjer meddelelses-digest'er eller tjeksumme til filegenskaber"
+msgstr "Tilføjer fingeraftryk eller tjeksummer til filegenskaber"
