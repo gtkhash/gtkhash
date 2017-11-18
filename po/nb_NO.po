@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2017-11-18 01:39+0000\n"
+"PO-Revision-Date: 2017-11-19 01:47+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/gtkhash/translations/nb_NO/>\n"
@@ -28,6 +28,7 @@ msgid "Hash Functions:"
 msgstr "Sjekksummeringsfunksjoner:"
 
 #: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:19
+#, fuzzy
 msgid "Digest Format:"
 msgstr "Føljetongsformat:"
 
