@@ -6,18 +6,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2013-04-25 12:31+0000\n"
-"Last-Translator: 林博仁(Henry Lin) a.k.a. Ｖ字龍(Vdragon) <pika1021@gmail."
-"com>\n"
-"Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2017-12-03 11:45+0000\n"
+"Last-Translator: Vdragon, Ｖ字龍 <Vdragon.Taiwan@gmail.com>\n"
+"Language-Team: Chinese (Traditional) "
+"<https://hosted.weblate.org/projects/gtkhash/translations/zh_Hant/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.18-dev\n"
 "X-Launchpad-Export-Date: 2013-04-26 05:41+0000\n"
-"X-Generator: Launchpad (build 16580)\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
@@ -86,8 +87,9 @@ msgstr "比對："
 
 #: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:14
 #: ../data/nautilus/gtkhash-properties.xml.h:6
+#, fuzzy
 msgid "HMAC Key:"
-msgstr ""
+msgstr "HMAC 鍵："
 
 #: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:15
 msgid "File"
@@ -99,34 +101,31 @@ msgstr "開始計算(_S)"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
-msgstr ""
+msgstr "資料校驗值計算器"
 
 #: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
-#, fuzzy
 msgid "Calculate message digests or checksums"
-msgstr "一個基於 GTK+ 用於計算訊息摘要與校驗值的工具"
+msgstr "計算訊息摘要或資料校驗值"
 
 #: ../src/callbacks.c:48
 msgid "Save Digests"
-msgstr ""
+msgstr "保存訊息摘要"
 
 #: ../src/callbacks.c:50 ../src/callbacks.c:300
 msgid "_Cancel"
-msgstr ""
+msgstr "取消(_C)"
 
 #: ../src/callbacks.c:51
 msgid "_Save"
-msgstr ""
+msgstr "保存(_S)"
 
 #: ../src/callbacks.c:265
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "一個基於 GTK+ 用於計算訊息摘要與校驗值的工具"
 
 #: ../src/callbacks.c:274
-#, fuzzy
 msgid "translator-credits"
-msgstr ""
-"林博仁(Henry Lin) a.k.a. Ｖ字龍(Vdragon) https://launchpad.net/~vdragon\n"
+msgstr "Ｖ字龍(Vdragon) https://launchpad.net/~vdragon"
 
 #: ../src/callbacks.c:298
 msgid "Select Files"
@@ -134,12 +133,12 @@ msgstr "選擇檔案"
 
 #: ../src/callbacks.c:301
 msgid "_Open"
-msgstr ""
+msgstr "開啟(_O)"
 
 #. Add checkbutton
 #: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "顯示 HMAC 鍵(_S)"
 
 #: ../src/gui.c:339
 msgid "Not a regular file"
