@@ -18,6 +18,7 @@ addons:
       - nettle-dev
       - linux-libc-dev
       - librsvg2-bin
+      - at-spi2-core
 
 env:
   - WITH_GTK=3.0
