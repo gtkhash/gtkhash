@@ -43,6 +43,10 @@ static bool gtkhash_hash_lib_gcrypt_set_algo(const enum hash_func_e id,
 	int *algo)
 {
 	switch (id) {
+#if ((GCRYPT_VERSION_NUMBER) >= 0x010800)
+		case HASH_FUNC_BLAKE2B:   *algo = GCRY_MD_BLAKE2B_512;  break;
+		case HASH_FUNC_BLAKE2S:   *algo = GCRY_MD_BLAKE2S_256;  break;
+#endif
 		case HASH_FUNC_GOST:      *algo = GCRY_MD_GOSTR3411_94; break;
 		case HASH_FUNC_MD4:       *algo = GCRY_MD_MD4;          break;
 		case HASH_FUNC_MD5:       *algo = GCRY_MD_MD5;          break;

@@ -126,9 +126,23 @@ AC_MSG_RESULT([${enable_gcrypt}])
 AM_CONDITIONAL([ENABLE_GCRYPT], [test "${enable_gcrypt}" = "yes"])
 AC_DEFINE([ENABLE_GCRYPT], [0], [Use Libgcrypt])
 
+gcrypt_funcs=
+
 if test "${enable_gcrypt}" = "yes" ; then
 	AM_PATH_LIBGCRYPT([1.7.0], [:], [AC_MSG_ERROR([Libgcrypt not found])])
 	AC_DEFINE([ENABLE_GCRYPT], [1])
+
+	ac_save_CFLAGS="${CFLAGS}"
+	CFLAGS="${CFLAGS} ${LIBGCRYPT_CFLAGS} ${LIBGCRYPT_LIBS}"
+
+	AC_CHECK_DECL([GCRY_MD_BLAKE2B_512],
+		[gcrypt_funcs="${gcrypt_funcs} BLAKE2b"], [:],
+		[#include <gcrypt.h>])
+	AC_CHECK_DECL([GCRY_MD_BLAKE2S_256],
+		[gcrypt_funcs="${gcrypt_funcs} BLAKE2s"], [:],
+		[#include <gcrypt.h>])
+
+	CFLAGS="${ac_save_CFLAGS}"
 fi
 # }}}
 
@@ -397,7 +411,7 @@ echo "  gtkhash-thunar: ${enable_thunar}"
 
 blake2_funcs="
 	BLAKE2b BLAKE2s BLAKE2bp BLAKE2sp"
-gcrypt_funcs="
+gcrypt_funcs="${gcrypt_funcs}
 	GOST
 	MD4
 	MD5
@@ -465,7 +479,7 @@ zlib_funcs="
 	CRC32"
 
 echo
-echo "Supported Hash Functions:"
+printf "%-20s%s\n" "Hash Function" "Preferred Implementation"
 
 have_libs=""
 
@@ -488,7 +502,7 @@ for func in \
 	TIGER192 \
 	WHIRLPOOL
 do
-	printf "  %-14s" "${func}"
+	printf "  %-20s" "${func}"
 	enabled=""
 	# Matches preferred order from src/hash/hash-lib.c
 	for lib in \
@@ -512,10 +526,19 @@ do
 			printf "${lib}"
 			enabled="yes"
 			have_libs="yes"
+
+			test "${lib}" = "linux_crypto" && printf "*"
 		fi
 	done
 	test -n "${enabled}" && echo || echo "_"
 done
+
+if test "${enable_linux_crypto}" = "yes" ; then
+	echo
+	echo "* linux_crypto support depends on kernel module availability - check /proc/crypto"
+fi
+
+echo
 
 test -z "${have_libs}" && AC_MSG_ERROR([No hash libraries enabled])
 
