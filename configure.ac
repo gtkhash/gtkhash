@@ -129,17 +129,17 @@ AC_DEFINE([ENABLE_GCRYPT], [0], [Use Libgcrypt])
 gcrypt_funcs=
 
 if test "${enable_gcrypt}" = "yes" ; then
-	AM_PATH_LIBGCRYPT([1.7.0], [:], [AC_MSG_ERROR([Libgcrypt not found])])
+	AM_PATH_LIBGCRYPT([1.6.0], [:], [AC_MSG_ERROR([Libgcrypt not found])])
 	AC_DEFINE([ENABLE_GCRYPT], [1])
 
 	ac_save_CFLAGS="${CFLAGS}"
 	CFLAGS="${CFLAGS} ${LIBGCRYPT_CFLAGS} ${LIBGCRYPT_LIBS}"
 
 	AC_CHECK_DECL([GCRY_MD_BLAKE2B_512],
-		[gcrypt_funcs="${gcrypt_funcs} BLAKE2b"], [:],
+		[gcrypt_funcs="${gcrypt_funcs} BLAKE2b BLAKE2s"], [:],
 		[#include <gcrypt.h>])
-	AC_CHECK_DECL([GCRY_MD_BLAKE2S_256],
-		[gcrypt_funcs="${gcrypt_funcs} BLAKE2s"], [:],
+	AC_CHECK_DECL([GCRY_MD_SHA3_512],
+		[gcrypt_funcs="${gcrypt_funcs} SHA3-224 SHA3-256 SHA3-384 SHA3-512"], [:],
 		[#include <gcrypt.h>])
 
 	CFLAGS="${ac_save_CFLAGS}"
@@ -418,7 +418,6 @@ gcrypt_funcs="${gcrypt_funcs}
 	RIPEMD160
 	SHA1
 	SHA224 SHA256 SHA384 SHA512
-	SHA3-224 SHA3-256 SHA3-384 SHA3-512
 	TIGER192
 	WHIRLPOOL"
 glib_checksums_funcs="

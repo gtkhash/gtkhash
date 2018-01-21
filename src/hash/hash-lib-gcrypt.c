@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -56,10 +56,12 @@ static bool gtkhash_hash_lib_gcrypt_set_algo(const enum hash_func_e id,
 		case HASH_FUNC_SHA256:    *algo = GCRY_MD_SHA256;       break;
 		case HASH_FUNC_SHA384:    *algo = GCRY_MD_SHA384;       break;
 		case HASH_FUNC_SHA512:    *algo = GCRY_MD_SHA512;       break;
+#if ((GCRYPT_VERSION_NUMBER) >= 0x010700)
 		case HASH_FUNC_SHA3_224:  *algo = GCRY_MD_SHA3_224;     break;
 		case HASH_FUNC_SHA3_256:  *algo = GCRY_MD_SHA3_256;     break;
 		case HASH_FUNC_SHA3_384:  *algo = GCRY_MD_SHA3_384;     break;
 		case HASH_FUNC_SHA3_512:  *algo = GCRY_MD_SHA3_512;     break;
+#endif
 		case HASH_FUNC_TIGER192:  *algo = GCRY_MD_TIGER;        break;
 		case HASH_FUNC_WHIRLPOOL: *algo = GCRY_MD_WHIRLPOOL;    break;
 
