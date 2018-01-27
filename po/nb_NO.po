@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2016-06-14 16:05+0100\n"
-"PO-Revision-Date: 2017-11-19 01:47+0000\n"
+"PO-Revision-Date: 2018-01-27 12:36+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://hosted.weblate.org/projects/gtkhash/translations/nb_NO/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
@@ -28,7 +28,6 @@ msgid "Hash Functions:"
 msgstr "Sjekksummeringsfunksjoner:"
 
 #: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:19
-#, fuzzy
 msgid "Digest Format:"
 msgstr "Føljetongsformat:"
 
