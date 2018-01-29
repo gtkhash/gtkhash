@@ -128,8 +128,11 @@ AC_DEFINE([ENABLE_GCRYPT], [0], [Use Libgcrypt])
 
 gcrypt_funcs=
 
+HASH_LIB_GCRYPT_MIN_VER="1.6.0"
+AC_DEFINE_UNQUOTED([HASH_LIB_GCRYPT_MIN_VER], ["${HASH_LIB_GCRYPT_MIN_VER}"], [required gcrypt version])
+
 if test "${enable_gcrypt}" = "yes" ; then
-	AM_PATH_LIBGCRYPT([1.6.0], [:], [AC_MSG_ERROR([Libgcrypt not found])])
+	AM_PATH_LIBGCRYPT(["${HASH_LIB_GCRYPT_MIN_VER}"], [:], [AC_MSG_ERROR([Libgcrypt not found])])
 	AC_DEFINE([ENABLE_GCRYPT], [1])
 
 	ac_save_CFLAGS="${CFLAGS}"

@@ -79,6 +79,11 @@ bool gtkhash_hash_lib_gcrypt_is_supported(const enum hash_func_e id)
 	if (!gtkhash_hash_lib_gcrypt_set_algo(id, &data.algo))
 		return false;
 
+	if (!gcry_check_version(HASH_LIB_GCRYPT_MIN_VER)) {
+		g_warning("gcrypt-" HASH_LIB_GCRYPT_MIN_VER " is required");
+		return false;
+	}
+
 	if (G_UNLIKELY(gcry_md_open(&data.h, data.algo, 0) != GPG_ERR_NO_ERROR)) {
 		g_warning("gcry_md_open failed (%d)", id);
 		return false;
