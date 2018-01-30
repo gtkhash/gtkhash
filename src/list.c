@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -175,7 +175,7 @@ void list_remove_selection(void)
 	gtk_tree_selection_unselect_all(gui.treeselection);
 }
 
-char *list_get_uri(const unsigned int row)
+static GFile *list_get_file(const unsigned int row)
 {
 	g_assert(row <= list.rows);
 
@@ -189,10 +189,25 @@ char *list_get_uri(const unsigned int row)
 	GFile *file = g_file_parse_name(g_value_get_string(&value));
 	g_value_unset(&value);
 
+	return file;
+}
+
+char *list_get_uri(const unsigned int row)
+{
+	GFile *file = list_get_file(row);
 	char *uri = g_file_get_uri(file);
 	g_object_unref(file);
 
 	return uri;
+}
+
+char *list_get_basename(const unsigned int row)
+{
+	GFile *file = list_get_file(row);
+	char *basename = g_file_get_basename(file);
+	g_object_unref(file);
+
+	return basename;
 }
 
 static void list_scroll_to_next_row(GtkTreeIter iter)
@@ -237,7 +252,7 @@ char *list_get_digest(const unsigned int row, const enum hash_func_e id)
 
 	gtk_tree_model_get_value(gui.treemodel, &iter, list_priv.hash_cols[id],
 		&value);
-	digest = g_strdup(g_value_get_string(&value));
+	digest = g_value_dup_string(&value);
 	g_value_unset(&value);
 
 	return digest;
