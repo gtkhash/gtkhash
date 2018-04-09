@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2017-11-01 12:20+0000\n"
-"PO-Revision-Date: 2018-04-09 19:20+0000\n"
+"PO-Revision-Date: 2018-04-09 19:23+0000\n"
 "Last-Translator: Nathan Follens <nathan@email.is>\n"
 "Language-Team: Flemish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/nl_BE/>\n"
@@ -107,7 +107,7 @@ msgstr "Berichtdigests of controlesommen berekenen"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
 msgid "Check Digests"
-msgstr ""
+msgstr "Digests controleren"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
@@ -121,11 +121,11 @@ msgstr "_Annuleren"
 
 #: ../src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
-msgstr ""
+msgstr "Digest-/controlesombestanden (*.sha1, *.md5, *.sfv, …)"
 
 #: ../src/callbacks.c:78
 msgid "All Files"
-msgstr ""
+msgstr "Alle bestanden"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
 msgid "Save Digests"
@@ -158,7 +158,7 @@ msgstr "HMAC-_sleutel tonen"
 #: ../src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
+msgstr "Lezen van controlebestand ‘%s’ mislukt: %s"
 
 #: ../src/gui.c:373
 msgid "Not a regular file"
@@ -167,12 +167,12 @@ msgstr "Geen gewoon bestand"
 #: ../src/gui.c:396
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
+msgstr "Toevoegen van bestand ‘%s’ mislukt: %s"
 
 #: ../src/hash.c:183 ../src/prefs.c:109
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr ""
+msgstr "Onbekende hashfunctienaam ‘%s’"
 
 #: ../src/main.c:97
 msgctxt " --help"
@@ -182,27 +182,27 @@ msgstr "Controleer aan de hand van den opgegeven digest of controlesom"
 #: ../src/main.c:98
 msgctxt " --help"
 msgid "DIGEST"
-msgstr ""
+msgstr "DIGEST"
 
 #: ../src/main.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr ""
+msgstr "Controleer digests of controlesommen van het opgegeven bestand"
 
 #: ../src/main.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr ""
+msgstr "BESTAND|URI"
 
 #: ../src/main.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "Schakel de aangegeven hashfunctie in (bv. MD5)"
 
 #: ../src/main.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "FUNCTIE"
 
 #: ../src/main.c:114
 msgctxt " --help"
