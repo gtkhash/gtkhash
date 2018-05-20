@@ -70,7 +70,7 @@ GLIB_GSETTINGS
 # check for gtk+ {{{
 AC_MSG_CHECKING([which GTK+ version to use])
 AC_ARG_WITH([gtk],
-	[AS_HELP_STRING([--with-gtk=2.0|3.0], [GTK+ version to use [3.0]])],
+	[AS_HELP_STRING([--with-gtk=2.0|3.0], [GTK+ version to use [default=3.0]])],
 	[with_gtk="${withval}"], [with_gtk="3.0"])
 AC_MSG_RESULT([${with_gtk}])
 
@@ -358,12 +358,18 @@ AC_ARG_ENABLE([thunar],
 AC_MSG_RESULT([${enable_thunar}])
 AM_CONDITIONAL([ENABLE_THUNAR], [test "${enable_thunar}" = "yes"])
 
+AC_MSG_CHECKING([which Thunarx version to use])
+AC_ARG_WITH([thunarx],
+	[AS_HELP_STRING([--with-thunarx=2|3], [Thunarx version to use [default=3]])],
+	[with_thunar="${withval}"], [with_thunarx="3"])
+AC_MSG_RESULT([${with_thunarx}])
+
 if test "${enable_thunar}" = "yes" ; then
 	# Check for thunar
-	PKG_CHECK_MODULES([THUNAR], [thunarx-2])
+	PKG_CHECK_MODULES([THUNAR], ["thunarx-${with_thunarx}"])
 	AC_SUBST([THUNAR_CFLAGS])
 	AC_SUBST([THUNAR_LIBS])
-	THUNAR_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensionsdir thunarx-2`
+	THUNAR_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensionsdir "thunarx-${with_thunarx}"`
 	AC_SUBST([THUNAR_EXTENSION_DIR])
 fi
 # }}}
@@ -410,7 +416,7 @@ echo "  gtkhash: ${enable_gtkhash} (gtk+-${with_gtk})"
 echo "  gtkhash-caja: ${enable_caja}"
 echo "  gtkhash-nautilus: ${enable_nautilus}"
 echo "  gtkhash-nemo: ${enable_nemo}"
-echo "  gtkhash-thunar: ${enable_thunar}"
+echo "  gtkhash-thunar: ${enable_thunar} (thunarx-${with_thunarx})"
 
 blake2_funcs="
 	BLAKE2b BLAKE2s BLAKE2bp BLAKE2sp"
