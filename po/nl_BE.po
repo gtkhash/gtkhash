@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2017-11-01 12:20+0000\n"
-"PO-Revision-Date: 2018-04-23 23:37+0000\n"
-"Last-Translator: Nathan Follens <nathan@email.is>\n"
+"PO-Revision-Date: 2018-06-18 13:37+0000\n"
+"Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Flemish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/nl_BE/>\n"
 "Language: nl_BE\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
@@ -177,7 +177,7 @@ msgstr "Onbekenden hashfunctienaam ‘%s’"
 #: ../src/main.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Controleerd aan d’hand van den opgegeven digest of controlesom"
+msgstr "Controleert aan de hand van den opgegeven digest of controlesom"
 
 #: ../src/main.c:98
 msgctxt " --help"
@@ -187,7 +187,7 @@ msgstr "DIGEST"
 #: ../src/main.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "Controleerd digests of controlesommen van het opgegeven bestand"
+msgstr "Controleert digests of controlesommen van het opgegeven bestand"
 
 #: ../src/main.c:104
 msgctxt " --help"
@@ -197,7 +197,7 @@ msgstr "BESTAND|URI"
 #: ../src/main.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr "Schakeld d’aangegeven hashfunctie in (bv. MD5)"
+msgstr "Schakelt de aangegeven hashfunctie in (bv. MD5)"
 
 #: ../src/main.c:110
 msgctxt " --help"
@@ -283,7 +283,7 @@ msgid ""
 "programs such as md5sum."
 msgstr ""
 "GtkHash is een toepassing voor het berekenen van bestandscontrolesommen en "
-"berichtdigests. Z’is ontworpen als eenvoudig te gebruiken grafisch "
+"berichtdigests. Ze is ontworpen als eenvoudig te gebruiken grafisch "
 "alternatief voor opdrachtregelprogramma’s als md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
@@ -295,4 +295,4 @@ msgstr "Ondersteunde hashfuncties zijn MD5, SHA1, SHA256, SHA512 en CRC32."
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
-msgstr "Voegd berichtdigests of controlesommen toe aan bestandseigenschappen"
+msgstr "Voegt berichtdigests of controlesommen toe aan bestandseigenschappen"
