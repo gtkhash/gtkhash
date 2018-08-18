@@ -211,7 +211,7 @@ void gtkhash_properties_list_refilter(struct page_s *page)
 	gtk_tree_view_columns_autosize(page->treeview);
 }
 
-static bool gtkhash_properties_list_filter(GtkTreeModel *model,
+static gboolean gtkhash_properties_list_filter(GtkTreeModel *model,
 	GtkTreeIter *iter, struct page_s *page)
 {
 	gboolean enabled;

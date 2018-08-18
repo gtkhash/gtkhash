@@ -490,15 +490,15 @@ static GList *gtkhash_properties_get_pages(
 
 static void gtkhash_properties_iface_init(
 #if IN_NAUTILUS_EXTENSION
-	NautilusPropertyPageProviderIface *iface
+	NautilusPropertyPageProviderIface *iface,
 #elif IN_CAJA_EXTENSION
-	CajaPropertyPageProviderIface *iface
+	CajaPropertyPageProviderIface *iface,
 #elif IN_NEMO_EXTENSION
-	NemoPropertyPageProviderIface *iface
+	NemoPropertyPageProviderIface *iface,
 #elif IN_THUNAR_EXTENSION
-	ThunarxPropertyPageProviderIface *iface
+	ThunarxPropertyPageProviderIface *iface,
 #endif
-	)
+	G_GNUC_UNUSED void *data)
 {
 	iface->get_pages = gtkhash_properties_get_pages;
 }
