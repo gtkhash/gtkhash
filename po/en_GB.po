@@ -2,13 +2,13 @@
 # Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
-#
+# Tristan Heaven <tristan@tristanheaven.net>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2017-11-01 12:20+0000\n"
-"PO-Revision-Date: 2016-08-14 12:37+0000\n"
+"PO-Revision-Date: 2018-08-19 15:13+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/en_GB/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 "X-Launchpad-Export-Date: 2012-12-11 04:50+0000\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
@@ -107,9 +107,8 @@ msgid "Calculate message digests or checksums"
 msgstr "Calculate message digests or checksums"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
-#, fuzzy
 msgid "Check Digests"
-msgstr "Save Digests"
+msgstr "Check Digests"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
@@ -123,12 +122,11 @@ msgstr "_Cancel"
 
 #: ../src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
-msgstr ""
+msgstr "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 
 #: ../src/callbacks.c:78
-#, fuzzy
 msgid "All Files"
-msgstr "Select Files"
+msgstr "All Files"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
 msgid "Save Digests"
@@ -143,13 +141,12 @@ msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "A GTK+ utility for computing message digests or checksums."
 
 #: ../src/callbacks.c:295
-#, fuzzy
 msgid "translator-credits"
 msgstr ""
 "Abhishek https://launchpad.net/~ar.abhishek\n"
 "Julian Beckmann https://launchpad.net/~julian-beckmann\n"
 "Stefan Pynappels https://launchpad.net/~stefan-pynappels\n"
-"Tristan Heaven\n"
+"Tristan Heaven"
 
 #: ../src/callbacks.c:321 ../src/callbacks.c:325
 msgid "Select Files"
@@ -161,82 +158,70 @@ msgid "_Show HMAC Key"
 msgstr "_Show HMAC Key"
 
 #: ../src/check.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
-"Failed to read \"%s\":\n"
-"%s"
+msgstr "Failed to read check file \"%s\": %s"
 
 #: ../src/gui.c:373
 msgid "Not a regular file"
 msgstr "Not a regular file"
 
 #: ../src/gui.c:396
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
-"Failed to add \"%s\":\n"
-"%s"
+msgstr "Failed to add file \"%s\": %s"
 
 #: ../src/hash.c:183 ../src/prefs.c:109
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "Hash Functions:"
+msgstr "Unknown Hash Function name \"%s\""
 
 #: ../src/main.c:97
-#, fuzzy
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Check against the specified digest or checksum"
 
 #: ../src/main.c:98
-#, fuzzy
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "DIGEST"
 
 #: ../src/main.c:103
-#, fuzzy
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "Adds message digests or checksums to file properties"
+msgstr "Check digests or checksums from the specified file"
 
 #: ../src/main.c:104
-#, fuzzy
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr "[FILE|URI…]"
+msgstr "FILE|URI"
 
 #: ../src/main.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "Enable the specified Hash Function (e.g. MD5)"
 
 #: ../src/main.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "FUNCTION"
 
 #: ../src/main.c:114
-#, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Hash the specified text"
 
 #: ../src/main.c:115
-#, fuzzy
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEXT"
 
 #: ../src/main.c:119
-#, fuzzy
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Show version information"
 
 #: ../src/main.c:123
-#, fuzzy
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI…]"
