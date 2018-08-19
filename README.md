@@ -57,7 +57,9 @@ version.
 
 Translations
 ------------
-If you would like to help with translations, the easiest way is by using
+![Translation Details](https://hosted.weblate.org/widgets/gtkhash/-/multi-auto.svg)
+
+If you would like to contribute a translation, the easiest way is by using
 Weblate:
 
 https://hosted.weblate.org/projects/gtkhash/
