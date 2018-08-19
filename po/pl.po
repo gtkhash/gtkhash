@@ -7,12 +7,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2016-06-14 16:05+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-01 12:20+0000\n"
 "PO-Revision-Date: 2017-07-29 13:29+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
-"Language-Team: Polish "
-"<https://hosted.weblate.org/projects/gtkhash/translations/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/"
+"translations/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,89 +107,139 @@ msgstr "Kalkulator sum kontrolnych"
 msgid "Calculate message digests or checksums"
 msgstr "Obliczanie skrótów wiadomości i sum kontrolnych"
 
-#: ../src/callbacks.c:48
-msgid "Save Digests"
+#: ../src/callbacks.c:51 ../src/callbacks.c:55
+#, fuzzy
+msgid "Check Digests"
 msgstr "Zapis skrótów"
 
-#: ../src/callbacks.c:50 ../src/callbacks.c:300
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
+#: ../src/callbacks.c:328
+msgid "_Open"
+msgstr "_Otwórz"
+
+#: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
+#: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: ../src/callbacks.c:51
+#: ../src/callbacks.c:73
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgstr ""
+
+#: ../src/callbacks.c:78
+#, fuzzy
+msgid "All Files"
+msgstr "Wybór plików"
+
+#: ../src/callbacks.c:120 ../src/callbacks.c:124
+msgid "Save Digests"
+msgstr "Zapis skrótów"
+
+#: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
 msgstr "_Zapisz"
 
-#: ../src/callbacks.c:265
+#: ../src/callbacks.c:286
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "Narzędzie GTK+ do obliczania skrótów wiadomości i sum kontrolnych."
 
-#: ../src/callbacks.c:274
+#: ../src/callbacks.c:295
 msgid "translator-credits"
 msgstr ""
 "Łukasz Szeremeta <https://launchpad.net/~l-szeremeta>, 2011\n"
 "Piotr Drąg <piotrdrag@gmail.com>, 2017"
 
-#: ../src/callbacks.c:298
+#: ../src/callbacks.c:321 ../src/callbacks.c:325
 msgid "Select Files"
 msgstr "Wybór plików"
 
-#: ../src/callbacks.c:301
-msgid "_Open"
-msgstr "_Otwórz"
-
 #. Add checkbutton
-#: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
+#: ../src/callbacks.c:523 ../src/nautilus/properties.c:223
 msgid "_Show HMAC Key"
 msgstr "_Klucz HMAC"
 
-#: ../src/gui.c:339
-msgid "Not a regular file"
-msgstr "Nie jest zwykłym plikiem"
-
-#: ../src/gui.c:361
-msgid "Unknown error"
-msgstr "Nieznany błąd"
-
-#: ../src/gui.c:363
-#, c-format
-msgid ""
-"Failed to add \"%s\":\n"
-"%s"
+#: ../src/check.c:202
+#, fuzzy, c-format
+msgid "Failed to read check file \"%s\": %s"
 msgstr ""
 "Dodanie „%s” się nie powiodło:\n"
 "%s"
 
-#: ../src/main.c:81
-msgctxt "gtkhash --help"
+#: ../src/gui.c:373
+msgid "Not a regular file"
+msgstr "Nie jest zwykłym plikiem"
+
+#: ../src/gui.c:396
+#, fuzzy, c-format
+msgid "Failed to add file \"%s\": %s"
+msgstr ""
+"Dodanie „%s” się nie powiodło:\n"
+"%s"
+
+#: ../src/hash.c:183 ../src/prefs.c:109
+#, fuzzy, c-format
+msgid "Unknown Hash Function name \"%s\""
+msgstr "Funkcje sum kontrolnych:"
+
+#: ../src/main.c:97
+#, fuzzy
+msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Sprawdza z podanym skrótem lub sumą kontrolną"
 
-#: ../src/main.c:82
-msgctxt "gtkhash --help"
+#: ../src/main.c:98
+#, fuzzy
+msgctxt " --help"
 msgid "DIGEST"
 msgstr "SKRÓT"
 
-#: ../src/main.c:86
-msgctxt "gtkhash --help"
+#: ../src/main.c:103
+#, fuzzy
+msgctxt " --help"
+msgid "Check digests or checksums from the specified file"
+msgstr "Dodaje skróty wiadomości i sumy kontrolne do właściwości plików"
+
+#: ../src/main.c:104
+#, fuzzy
+msgctxt " --help"
+msgid "FILE|URI"
+msgstr "[PLIK|URI…]"
+
+#: ../src/main.c:109
+msgctxt " --help"
+msgid "Enable the specified Hash Function (e.g. MD5)"
+msgstr ""
+
+#: ../src/main.c:110
+msgctxt " --help"
+msgid "FUNCTION"
+msgstr ""
+
+#: ../src/main.c:114
+#, fuzzy
+msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Oblicza sumę kontrolną podanego tekstu"
 
-#: ../src/main.c:87
-msgctxt "gtkhash --help"
+#: ../src/main.c:115
+#, fuzzy
+msgctxt " --help"
 msgid "TEXT"
 msgstr "TEKST"
 
-#: ../src/main.c:91
-msgctxt "gtkhash --help"
+#: ../src/main.c:119
+#, fuzzy
+msgctxt " --help"
 msgid "Show version information"
 msgstr "Wyświetla informacje o wersji"
 
-#: ../src/main.c:95
-msgctxt "gtkhash --help"
+#: ../src/main.c:123
+#, fuzzy
+msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[PLIK|URI…]"
 
-#: ../src/prefs.c:76
+#: ../src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
 msgstr "Włączenie obsługiwanej funkcji sum kontrolnych się nie powiodło."
 
@@ -234,8 +284,8 @@ msgstr "Skrót"
 msgid "H_ash"
 msgstr "_Oblicz"
 
-#: ../src/nautilus/properties.c:459 ../src/nautilus/properties.c:462
-#: ../src/nautilus/properties.c:465 ../src/nautilus/properties.c:467
+#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
+#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
@@ -255,7 +305,8 @@ msgstr ""
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr "Obsługiwane funkcje sum kontrolnych: MD5, SHA1, SHA256, SHA512 i CRC32."
+msgstr ""
+"Obsługiwane funkcje sum kontrolnych: MD5, SHA1, SHA256, SHA512 i CRC32."
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
@@ -263,3 +314,6 @@ msgstr "Obsługiwane funkcje sum kontrolnych: MD5, SHA1, SHA256, SHA512 i CRC32
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr "Dodaje skróty wiadomości i sumy kontrolne do właściwości plików"
+
+#~ msgid "Unknown error"
+#~ msgstr "Nieznany błąd"

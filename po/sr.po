@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-14 16:05+0100\n"
+"POT-Creation-Date: 2017-11-01 12:20+0000\n"
 "PO-Revision-Date: 2016-01-23 06:48+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
@@ -105,94 +105,138 @@ msgstr ""
 msgid "Calculate message digests or checksums"
 msgstr "Помагало Гтк+ за израчунавање сажетака порука или сума провере."
 
-#: ../src/callbacks.c:48
-msgid "Save Digests"
+#: ../src/callbacks.c:51 ../src/callbacks.c:55
+#, fuzzy
+msgid "Check Digests"
 msgstr "Сачувај сажетке"
 
-#: ../src/callbacks.c:50 ../src/callbacks.c:300
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
+#: ../src/callbacks.c:328
+msgid "_Open"
+msgstr ""
+
+#: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
+#: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
 msgid "_Cancel"
 msgstr ""
 
-#: ../src/callbacks.c:51
+#: ../src/callbacks.c:73
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgstr ""
+
+#: ../src/callbacks.c:78
+#, fuzzy
+msgid "All Files"
+msgstr "Изабери датотеке"
+
+#: ../src/callbacks.c:120 ../src/callbacks.c:124
+msgid "Save Digests"
+msgstr "Сачувај сажетке"
+
+#: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
 msgstr ""
 
-#: ../src/callbacks.c:265
+#: ../src/callbacks.c:286
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr "Помагало Гтк+ за израчунавање сажетака порука или сума провере."
 
-#: ../src/callbacks.c:274
+#: ../src/callbacks.c:295
 #, fuzzy
 msgid "translator-credits"
 msgstr "Мирослав Николић https://launchpad.net/~lipek\n"
 
-#: ../src/callbacks.c:298
+#: ../src/callbacks.c:321 ../src/callbacks.c:325
 msgid "Select Files"
 msgstr "Изабери датотеке"
 
-#: ../src/callbacks.c:301
-msgid "_Open"
-msgstr ""
-
 #. Add checkbutton
-#: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
+#: ../src/callbacks.c:523 ../src/nautilus/properties.c:223
 msgid "_Show HMAC Key"
 msgstr ""
 
-#: ../src/gui.c:339
+#: ../src/check.c:202
+#, fuzzy, c-format
+msgid "Failed to read check file \"%s\": %s"
+msgstr ""
+"Нисам успео да прочитам „%s“:\n"
+"%s"
+
+#: ../src/gui.c:373
 msgid "Not a regular file"
 msgstr "Није исправна датотека"
 
-#: ../src/gui.c:361
-msgid "Unknown error"
-msgstr "Непозната грешка"
-
-#: ../src/gui.c:363
-#, c-format
-msgid ""
-"Failed to add \"%s\":\n"
-"%s"
+#: ../src/gui.c:396
+#, fuzzy, c-format
+msgid "Failed to add file \"%s\": %s"
 msgstr ""
 "Нисам успео да додам „%s“:\n"
 "%s"
 
-#: ../src/main.c:81
+#: ../src/hash.c:183 ../src/prefs.c:109
+#, fuzzy, c-format
+msgid "Unknown Hash Function name \"%s\""
+msgstr "Функције хеша:"
+
+#: ../src/main.c:97
 #, fuzzy
-msgctxt "gtkhash --help"
+msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Проверите има ли наведеног сажетка или суме провере"
 
-#: ../src/main.c:82
+#: ../src/main.c:98
 #, fuzzy
-msgctxt "gtkhash --help"
+msgctxt " --help"
 msgid "DIGEST"
 msgstr "САЖЕТАК"
 
-#: ../src/main.c:86
+#: ../src/main.c:103
 #, fuzzy
-msgctxt "gtkhash --help"
+msgctxt " --help"
+msgid "Check digests or checksums from the specified file"
+msgstr "Помагало Гтк+ за израчунавање сажетака порука или сума провере."
+
+#: ../src/main.c:104
+#, fuzzy
+msgctxt " --help"
+msgid "FILE|URI"
+msgstr "[Датотека|Путања...]"
+
+#: ../src/main.c:109
+msgctxt " --help"
+msgid "Enable the specified Hash Function (e.g. MD5)"
+msgstr ""
+
+#: ../src/main.c:110
+msgctxt " --help"
+msgid "FUNCTION"
+msgstr ""
+
+#: ../src/main.c:114
+#, fuzzy
+msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Хешира наведени текст"
 
-#: ../src/main.c:87
+#: ../src/main.c:115
 #, fuzzy
-msgctxt "gtkhash --help"
+msgctxt " --help"
 msgid "TEXT"
 msgstr "ТЕКСТ"
 
-#: ../src/main.c:91
+#: ../src/main.c:119
 #, fuzzy
-msgctxt "gtkhash --help"
+msgctxt " --help"
 msgid "Show version information"
 msgstr "Приказује податке о издању"
 
-#: ../src/main.c:95
+#: ../src/main.c:123
 #, fuzzy
-msgctxt "gtkhash --help"
+msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[Датотека|Путања...]"
 
-#: ../src/prefs.c:76
+#: ../src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
 msgstr "Нисам успео да укључим ниједну од подржаних хеш функција."
 
@@ -235,8 +279,8 @@ msgstr "Сажетак"
 msgid "H_ash"
 msgstr "Х_еш"
 
-#: ../src/nautilus/properties.c:459 ../src/nautilus/properties.c:462
-#: ../src/nautilus/properties.c:465 ../src/nautilus/properties.c:467
+#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
+#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
@@ -263,6 +307,9 @@ msgstr ""
 msgid "Adds message digests or checksums to file properties"
 msgstr "Помагало Гтк+ за израчунавање сажетака порука или сума провере."
 
+#~ msgid "Unknown error"
+#~ msgstr "Непозната грешка"
+
 #~ msgid "%s of %s - 1 minute left (%s/sec)"
 #~ msgstr "%s од %s — 1 минут преостаје (%s/сек)"
 
@@ -283,13 +330,6 @@ msgstr "Помагало Гтк+ за израчунавање сажетака 
 
 #~ msgid "Failed to read \"%s\""
 #~ msgstr "Нисам успео да прочитам „%s“"
-
-#~ msgid ""
-#~ "Failed to read \"%s\":\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Нисам успео да прочитам „%s“:\n"
-#~ "%s"
 
 #, fuzzy
 #~ msgctxt "gtkhash --help"

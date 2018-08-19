@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-14 16:05+0100\n"
+"POT-Creation-Date: 2017-11-01 12:20+0000\n"
 "PO-Revision-Date: 2011-10-27 06:29+0000\n"
 "Last-Translator: meo bogliolo <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -106,93 +106,138 @@ msgid "Calculate message digests or checksums"
 msgstr ""
 "Un'utility GTK+ per calcolare i digest (impronte) di messaggi o checksum."
 
-#: ../src/callbacks.c:48
-msgid "Save Digests"
+#: ../src/callbacks.c:51 ../src/callbacks.c:55
+#, fuzzy
+msgid "Check Digests"
 msgstr "Salva impronta (Digest)"
 
-#: ../src/callbacks.c:50 ../src/callbacks.c:300
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
+#: ../src/callbacks.c:328
+msgid "_Open"
+msgstr ""
+
+#: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
+#: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
 msgid "_Cancel"
 msgstr ""
 
-#: ../src/callbacks.c:51
+#: ../src/callbacks.c:73
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgstr ""
+
+#: ../src/callbacks.c:78
+#, fuzzy
+msgid "All Files"
+msgstr "Seleziona i files"
+
+#: ../src/callbacks.c:120 ../src/callbacks.c:124
+msgid "Save Digests"
+msgstr "Salva impronta (Digest)"
+
+#: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
 msgstr ""
 
-#: ../src/callbacks.c:265
+#: ../src/callbacks.c:286
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 "Un'utility GTK+ per calcolare i digest (impronte) di messaggi o checksum."
 
-#: ../src/callbacks.c:274
+#: ../src/callbacks.c:295
 #, fuzzy
 msgid "translator-credits"
 msgstr "meo bogliolo https://launchpad.net/~meo\n"
 
-#: ../src/callbacks.c:298
+#: ../src/callbacks.c:321 ../src/callbacks.c:325
 msgid "Select Files"
 msgstr "Seleziona i files"
 
-#: ../src/callbacks.c:301
-msgid "_Open"
-msgstr ""
-
 #. Add checkbutton
-#: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
+#: ../src/callbacks.c:523 ../src/nautilus/properties.c:223
 msgid "_Show HMAC Key"
 msgstr ""
 
-#: ../src/gui.c:339
-msgid "Not a regular file"
-msgstr "Non e' un file regolare"
-
-#: ../src/gui.c:361
-msgid "Unknown error"
-msgstr "Errore sconosciuto"
-
-#: ../src/gui.c:363
-#, c-format
-msgid ""
-"Failed to add \"%s\":\n"
-"%s"
+#: ../src/check.c:202
+#, fuzzy, c-format
+msgid "Failed to read check file \"%s\": %s"
 msgstr ""
 "Errore aggiungendo \"%s\":\n"
 "%s"
 
-#: ../src/main.c:81
+#: ../src/gui.c:373
+msgid "Not a regular file"
+msgstr "Non e' un file regolare"
+
+#: ../src/gui.c:396
+#, fuzzy, c-format
+msgid "Failed to add file \"%s\": %s"
+msgstr ""
+"Errore aggiungendo \"%s\":\n"
+"%s"
+
+#: ../src/hash.c:183 ../src/prefs.c:109
+#, fuzzy, c-format
+msgid "Unknown Hash Function name \"%s\""
+msgstr "Funzioni di Hash:"
+
+#: ../src/main.c:97
 #, fuzzy
-msgctxt "gtkhash --help"
+msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr ""
 "Un'utility GTK+ per calcolare i digest (impronte) di messaggi o checksum."
 
-#: ../src/main.c:82
-msgctxt "gtkhash --help"
+#: ../src/main.c:98
+msgctxt " --help"
 msgid "DIGEST"
 msgstr ""
 
-#: ../src/main.c:86
-msgctxt "gtkhash --help"
+#: ../src/main.c:103
+#, fuzzy
+msgctxt " --help"
+msgid "Check digests or checksums from the specified file"
+msgstr ""
+"Un'utility GTK+ per calcolare i digest (impronte) di messaggi o checksum."
+
+#: ../src/main.c:104
+#, fuzzy
+msgctxt " --help"
+msgid "FILE|URI"
+msgstr "[FILE|URI...]"
+
+#: ../src/main.c:109
+msgctxt " --help"
+msgid "Enable the specified Hash Function (e.g. MD5)"
+msgstr ""
+
+#: ../src/main.c:110
+msgctxt " --help"
+msgid "FUNCTION"
+msgstr ""
+
+#: ../src/main.c:114
+msgctxt " --help"
 msgid "Hash the specified text"
 msgstr ""
 
-#: ../src/main.c:87
-msgctxt "gtkhash --help"
+#: ../src/main.c:115
+msgctxt " --help"
 msgid "TEXT"
 msgstr ""
 
-#: ../src/main.c:91
+#: ../src/main.c:119
 #, fuzzy
-msgctxt "gtkhash --help"
+msgctxt " --help"
 msgid "Show version information"
 msgstr "Mostra le informazioni sulla versione"
 
-#: ../src/main.c:95
+#: ../src/main.c:123
 #, fuzzy
-msgctxt "gtkhash --help"
+msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
 
-#: ../src/prefs.c:76
+#: ../src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
 msgstr "Errore nell'abilitare le funzioni di hash."
 
@@ -235,8 +280,8 @@ msgstr "Impronta (Digest)"
 msgid "H_ash"
 msgstr "H_ash"
 
-#: ../src/nautilus/properties.c:459 ../src/nautilus/properties.c:462
-#: ../src/nautilus/properties.c:465 ../src/nautilus/properties.c:467
+#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
+#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
@@ -263,6 +308,9 @@ msgstr ""
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
 "Un'utility GTK+ per calcolare i digest (impronte) di messaggi o checksum."
+
+#~ msgid "Unknown error"
+#~ msgstr "Errore sconosciuto"
 
 #~ msgid "%s of %s - 1 minute left (%s/sec)"
 #~ msgstr "%s di %s - minuto (%s/sec)"

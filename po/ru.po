@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-14 16:05+0100\n"
+"POT-Creation-Date: 2017-11-01 12:20+0000\n"
 "PO-Revision-Date: 2017-03-26 22:17+0000\n"
 "Last-Translator: TotalCaesar659 <x24cm5b8c54q6szxw@yandex.ru>\n"
-"Language-Team: Russian "
-"<https://hosted.weblate.org/projects/gtkhash/translations/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/gtkhash/"
+"translations/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.12\n"
 "X-Launchpad-Export-Date: 2016-03-16 05:31+0000\n"
 
@@ -107,92 +107,142 @@ msgstr "Калькулятор контрольных сумм"
 msgid "Calculate message digests or checksums"
 msgstr "Вычисление цифровых отпечатков или контрольных сумм"
 
-#: ../src/callbacks.c:48
-msgid "Save Digests"
+#: ../src/callbacks.c:51 ../src/callbacks.c:55
+#, fuzzy
+msgid "Check Digests"
 msgstr "Сохранить символы"
 
-#: ../src/callbacks.c:50 ../src/callbacks.c:300
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
+#: ../src/callbacks.c:328
+msgid "_Open"
+msgstr "_Открыть"
+
+#: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
+#: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
 msgid "_Cancel"
 msgstr "_Отмена"
 
-#: ../src/callbacks.c:51
+#: ../src/callbacks.c:73
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgstr ""
+
+#: ../src/callbacks.c:78
+#, fuzzy
+msgid "All Files"
+msgstr "Выбрать файлы"
+
+#: ../src/callbacks.c:120 ../src/callbacks.c:124
+msgid "Save Digests"
+msgstr "Сохранить символы"
+
+#: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
 msgstr "_Сохранить"
 
-#: ../src/callbacks.c:265
+#: ../src/callbacks.c:286
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 "Программа для вычисления цифровых отпечатков или контрольных сумм, "
 "основанная на GTK+."
 
-#: ../src/callbacks.c:274
+#: ../src/callbacks.c:295
 msgid "translator-credits"
 msgstr ""
 "Alexey Shentyakov https://launchpad.net/~alexey-shentyakov\n"
 "Grigorii Chirkov https://launchpad.net/~ridgentsailor\n"
 "WhiteRabbit https://launchpad.net/~whiterabbit"
 
-#: ../src/callbacks.c:298
+#: ../src/callbacks.c:321 ../src/callbacks.c:325
 msgid "Select Files"
 msgstr "Выбрать файлы"
 
-#: ../src/callbacks.c:301
-msgid "_Open"
-msgstr "_Открыть"
-
 #. Add checkbutton
-#: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
+#: ../src/callbacks.c:523 ../src/nautilus/properties.c:223
 msgid "_Show HMAC Key"
 msgstr "_Показать ключ HMAC"
 
-#: ../src/gui.c:339
+#: ../src/check.c:202
+#, fuzzy, c-format
+msgid "Failed to read check file \"%s\": %s"
+msgstr ""
+"Не удалось прочитать \"%s\":\n"
+"%s"
+
+#: ../src/gui.c:373
 msgid "Not a regular file"
 msgstr "Не является обычным файлом"
 
-#: ../src/gui.c:361
-msgid "Unknown error"
-msgstr "Неизвестная ошибка"
-
-#: ../src/gui.c:363
-#, c-format
-msgid ""
-"Failed to add \"%s\":\n"
-"%s"
+#: ../src/gui.c:396
+#, fuzzy, c-format
+msgid "Failed to add file \"%s\": %s"
 msgstr ""
 "Не удалось добавить \"%s\":\n"
 "%s"
 
-#: ../src/main.c:81
-msgctxt "gtkhash --help"
+#: ../src/hash.c:183 ../src/prefs.c:109
+#, fuzzy, c-format
+msgid "Unknown Hash Function name \"%s\""
+msgstr "Хеш функции:"
+
+#: ../src/main.c:97
+#, fuzzy
+msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Сравнить с определённым дайджестом или контрольной суммой"
 
-#: ../src/main.c:82
-msgctxt "gtkhash --help"
+#: ../src/main.c:98
+#, fuzzy
+msgctxt " --help"
 msgid "DIGEST"
 msgstr "ДАЙДЖЕСТ"
 
-#: ../src/main.c:86
-msgctxt "gtkhash --help"
+#: ../src/main.c:103
+#, fuzzy
+msgctxt " --help"
+msgid "Check digests or checksums from the specified file"
+msgstr "Добавляет цифровые отпечатки или контрольные суммы в свойства файлов"
+
+#: ../src/main.c:104
+#, fuzzy
+msgctxt " --help"
+msgid "FILE|URI"
+msgstr "[ФАЙЛ|URI…]"
+
+#: ../src/main.c:109
+msgctxt " --help"
+msgid "Enable the specified Hash Function (e.g. MD5)"
+msgstr ""
+
+#: ../src/main.c:110
+msgctxt " --help"
+msgid "FUNCTION"
+msgstr ""
+
+#: ../src/main.c:114
+#, fuzzy
+msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Подсчитать контрольную сумму указанного текста"
 
-#: ../src/main.c:87
-msgctxt "gtkhash --help"
+#: ../src/main.c:115
+#, fuzzy
+msgctxt " --help"
 msgid "TEXT"
 msgstr "ТЕКСТ"
 
-#: ../src/main.c:91
-msgctxt "gtkhash --help"
+#: ../src/main.c:119
+#, fuzzy
+msgctxt " --help"
 msgid "Show version information"
 msgstr "Показать информацию о версии"
 
-#: ../src/main.c:95
-msgctxt "gtkhash --help"
+#: ../src/main.c:123
+#, fuzzy
+msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ФАЙЛ|URI…]"
 
-#: ../src/prefs.c:76
+#: ../src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
 msgstr "Не удалось активировать поддерживаемые хэш-функции."
 
@@ -237,8 +287,8 @@ msgstr "Дайджест"
 msgid "H_ash"
 msgstr "Х_эш"
 
-#: ../src/nautilus/properties.c:459 ../src/nautilus/properties.c:462
-#: ../src/nautilus/properties.c:465 ../src/nautilus/properties.c:467
+#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
+#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
@@ -267,6 +317,9 @@ msgstr "Поддерживаются хэш-функции MD5, SHA1, SHA256, SH
 msgid "Adds message digests or checksums to file properties"
 msgstr "Добавляет цифровые отпечатки или контрольные суммы в свойства файлов"
 
+#~ msgid "Unknown error"
+#~ msgstr "Неизвестная ошибка"
+
 #~ msgid "%s of %s - 1 minute left (%s/sec)"
 #~ msgstr "%s из %s - осталась 1 минута (%s/сек)"
 
@@ -287,13 +340,6 @@ msgstr "Добавляет цифровые отпечатки или контр
 
 #~ msgid "Failed to read \"%s\""
 #~ msgstr "Не удалось прочитать \"%s\""
-
-#~ msgid ""
-#~ "Failed to read \"%s\":\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Не удалось прочитать \"%s\":\n"
-#~ "%s"
 
 #, fuzzy
 #~ msgctxt "gtkhash --help"

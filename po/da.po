@@ -5,12 +5,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2016-06-14 16:05+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-01 12:20+0000\n"
 "PO-Revision-Date: 2017-08-12 14:47+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
-"Language-Team: Danish "
-"<https://hosted.weblate.org/projects/gtkhash/translations/da/>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/gtkhash/"
+"translations/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -104,87 +104,137 @@ msgstr "Tjeksum-udregner"
 msgid "Calculate message digests or checksums"
 msgstr "Udregn fingeraftryk eller tjeksummer"
 
-#: ../src/callbacks.c:48
-msgid "Save Digests"
+#: ../src/callbacks.c:51 ../src/callbacks.c:55
+#, fuzzy
+msgid "Check Digests"
 msgstr "Gem fingeraftryk"
 
-#: ../src/callbacks.c:50 ../src/callbacks.c:300
-msgid "_Cancel"
-msgstr "_Annuller"
-
-#: ../src/callbacks.c:51
-msgid "_Save"
-msgstr "_Gem"
-
-#: ../src/callbacks.c:265
-msgid "A GTK+ utility for computing message digests or checksums."
-msgstr "Et GTK+-værktøj til at udregne fingeraftryk eller tjeksummer."
-
-#: ../src/callbacks.c:274
-msgid "translator-credits"
-msgstr "scootergrisen"
-
-#: ../src/callbacks.c:298
-msgid "Select Files"
-msgstr "Vælg filer"
-
-#: ../src/callbacks.c:301
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
+#: ../src/callbacks.c:328
 msgid "_Open"
 msgstr "_Åbn"
 
+#: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
+#: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
+msgid "_Cancel"
+msgstr "_Annuller"
+
+#: ../src/callbacks.c:73
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgstr ""
+
+#: ../src/callbacks.c:78
+#, fuzzy
+msgid "All Files"
+msgstr "Vælg filer"
+
+#: ../src/callbacks.c:120 ../src/callbacks.c:124
+msgid "Save Digests"
+msgstr "Gem fingeraftryk"
+
+#: ../src/callbacks.c:121 ../src/callbacks.c:127
+msgid "_Save"
+msgstr "_Gem"
+
+#: ../src/callbacks.c:286
+msgid "A GTK+ utility for computing message digests or checksums."
+msgstr "Et GTK+-værktøj til at udregne fingeraftryk eller tjeksummer."
+
+#: ../src/callbacks.c:295
+msgid "translator-credits"
+msgstr "scootergrisen"
+
+#: ../src/callbacks.c:321 ../src/callbacks.c:325
+msgid "Select Files"
+msgstr "Vælg filer"
+
 #. Add checkbutton
-#: ../src/callbacks.c:475 ../src/nautilus/properties.c:211
+#: ../src/callbacks.c:523 ../src/nautilus/properties.c:223
 msgid "_Show HMAC Key"
 msgstr "_Vis HMAC-nøgle"
 
-#: ../src/gui.c:339
-msgid "Not a regular file"
-msgstr "Ikke en almindelig fil"
-
-#: ../src/gui.c:361
-msgid "Unknown error"
-msgstr "Ukendt fejl"
-
-#: ../src/gui.c:363
-#, c-format
-msgid ""
-"Failed to add \"%s\":\n"
-"%s"
+#: ../src/check.c:202
+#, fuzzy, c-format
+msgid "Failed to read check file \"%s\": %s"
 msgstr ""
 "Kunne ikke tilføje \"%s\":\n"
 "%s"
 
-#: ../src/main.c:81
-msgctxt "gtkhash --help"
+#: ../src/gui.c:373
+msgid "Not a regular file"
+msgstr "Ikke en almindelig fil"
+
+#: ../src/gui.c:396
+#, fuzzy, c-format
+msgid "Failed to add file \"%s\": %s"
+msgstr ""
+"Kunne ikke tilføje \"%s\":\n"
+"%s"
+
+#: ../src/hash.c:183 ../src/prefs.c:109
+#, fuzzy, c-format
+msgid "Unknown Hash Function name \"%s\""
+msgstr "Hash-funktioner:"
+
+#: ../src/main.c:97
+#, fuzzy
+msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Tjek mod det angivne fingeraftryk eller tjeksum"
 
-#: ../src/main.c:82
-msgctxt "gtkhash --help"
+#: ../src/main.c:98
+#, fuzzy
+msgctxt " --help"
 msgid "DIGEST"
 msgstr "FINGERAFTRYK"
 
-#: ../src/main.c:86
-msgctxt "gtkhash --help"
+#: ../src/main.c:103
+#, fuzzy
+msgctxt " --help"
+msgid "Check digests or checksums from the specified file"
+msgstr "Tilføjer fingeraftryk eller tjeksummer til filegenskaber"
+
+#: ../src/main.c:104
+#, fuzzy
+msgctxt " --help"
+msgid "FILE|URI"
+msgstr "[FIL|URI...]"
+
+#: ../src/main.c:109
+msgctxt " --help"
+msgid "Enable the specified Hash Function (e.g. MD5)"
+msgstr ""
+
+#: ../src/main.c:110
+msgctxt " --help"
+msgid "FUNCTION"
+msgstr ""
+
+#: ../src/main.c:114
+#, fuzzy
+msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Hash den angivne tekst"
 
-#: ../src/main.c:87
-msgctxt "gtkhash --help"
+#: ../src/main.c:115
+#, fuzzy
+msgctxt " --help"
 msgid "TEXT"
 msgstr "TEKST"
 
-#: ../src/main.c:91
-msgctxt "gtkhash --help"
+#: ../src/main.c:119
+#, fuzzy
+msgctxt " --help"
 msgid "Show version information"
 msgstr "Vis versionsinformation"
 
-#: ../src/main.c:95
-msgctxt "gtkhash --help"
+#: ../src/main.c:123
+#, fuzzy
+msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FIL|URI...]"
 
-#: ../src/prefs.c:76
+#: ../src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
 msgstr "Kunne ikke aktivere nogen understøttede hash-funktioner."
 
@@ -227,8 +277,8 @@ msgstr "Fingeraftryk"
 msgid "H_ash"
 msgstr "H_ash"
 
-#: ../src/nautilus/properties.c:459 ../src/nautilus/properties.c:462
-#: ../src/nautilus/properties.c:465 ../src/nautilus/properties.c:467
+#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
+#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
@@ -257,3 +307,6 @@ msgstr ""
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr "Tilføjer fingeraftryk eller tjeksummer til filegenskaber"
+
+#~ msgid "Unknown error"
+#~ msgstr "Ukendt fejl"
