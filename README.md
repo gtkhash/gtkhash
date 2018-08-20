@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tristanheaven/gtkhash.svg?branch=master)](https://travis-ci.org/tristanheaven/gtkhash)
+[![Build Status](https://travis-ci.com/tristanheaven/gtkhash.svg?branch=master)](https://travis-ci.com/tristanheaven/gtkhash)
 [![Translation Status](https://hosted.weblate.org/widgets/gtkhash/-/svg-badge.svg)](https://hosted.weblate.org/projects/gtkhash/)
 
 GtkHash
