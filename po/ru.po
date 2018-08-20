@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2017-11-01 12:20+0000\n"
-"PO-Revision-Date: 2018-08-20 12:56+0000\n"
+"PO-Revision-Date: 2018-08-20 14:42+0000\n"
 "Last-Translator: Igor <f2404@yandex.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ru/>\n"
@@ -225,11 +225,11 @@ msgstr "Показать информацию о версии"
 #: ../src/main.c:123
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr "[ФАЙЛ|URI…]"
+msgstr "[ФАЙЛ|URI...]"
 
 #: ../src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
-msgstr "Не удалось активировать поддерживаемые хэш-функции."
+msgstr "Не удалось активировать поддерживаемые хеш-функции."
 
 #: ../src/util/util.c:35
 #, c-format
@@ -258,11 +258,11 @@ msgstr "_Копировать дайджест"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
-msgstr "П_оказать отключённые хэш-функции"
+msgstr "П_оказать отключённые хеш-функции"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
-msgstr "Хэш-функция"
+msgstr "Хеш-функция"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
@@ -270,7 +270,7 @@ msgstr "Дайджест"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
-msgstr "Х_эш"
+msgstr "Х_еш"
 
 #: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
 #: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
@@ -287,20 +287,20 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
-"GtkHash — это программа для вычисления контрольной суммы файлов, или "
-"цифровых отпечатков. Программа проста в использовании и является более "
-"удобной альтернативой утилитам командной строки, таким как md5sum."
+"GtkHash — это программа для вычисления контрольной суммы файлов или "
+"дайджестов. Программа проста в использовании и является более удобной "
+"альтернативой утилитам командной строки, таким как md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr "Поддерживаются хэш-функции MD5, SHA1, SHA256, SHA512 и CRC32."
+msgstr "Поддерживаются хеш-функции MD5, SHA1, SHA256, SHA512 и CRC32."
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
-msgstr "Добавляет цифровые отпечатки или контрольные суммы в свойства файлов"
+msgstr "Добавляет дайджесты или контрольные суммы в свойства файлов"
 
 #~ msgid "Unknown error"
 #~ msgstr "Неизвестная ошибка"
