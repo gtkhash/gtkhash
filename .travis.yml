@@ -16,7 +16,6 @@ addons:
       - libgtk2.0-dev
       - libgcrypt20-dev
       - nettle-dev
-      - libmbedtls-dev
       - linux-libc-dev
       - librsvg2-bin
       - at-spi2-core
@@ -27,6 +26,6 @@ env:
 
 script:
   - ./autogen.sh
-  - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{debug,glib-checksums,mbedtls,nettle,linux-crypto} --disable-blake2 --disable-dependency-tracking)
+  - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{debug,glib-checksums,nettle,linux-crypto} --disable-blake2 --disable-dependency-tracking)
   - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
   - make -j$(nproc) distcheck VERBOSE=1
