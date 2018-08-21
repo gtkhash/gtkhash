@@ -2,12 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # scootergrisen, 2017.
+# scootergrisen <scootergrisen@gmail.com>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2017-11-01 12:20+0000\n"
-"PO-Revision-Date: 2017-08-12 14:47+0000\n"
+"PO-Revision-Date: 2018-08-21 11:14+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/da/>\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
@@ -105,9 +106,8 @@ msgid "Calculate message digests or checksums"
 msgstr "Udregn fingeraftryk eller tjeksummer"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
-#, fuzzy
 msgid "Check Digests"
-msgstr "Gem fingeraftryk"
+msgstr "Tjek fingeraftryk"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
@@ -121,12 +121,11 @@ msgstr "_Annuller"
 
 #: ../src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
-msgstr ""
+msgstr "Fingeraftryk-/tjeksum-filer (*.sha1, *.md5, *.sfv, ...)"
 
 #: ../src/callbacks.c:78
-#, fuzzy
 msgid "All Files"
-msgstr "Vælg filer"
+msgstr "Alle filer"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
 msgid "Save Digests"
@@ -154,82 +153,70 @@ msgid "_Show HMAC Key"
 msgstr "_Vis HMAC-nøgle"
 
 #: ../src/check.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
-"Kunne ikke tilføje \"%s\":\n"
-"%s"
+msgstr "Kunne ikke tjekke filen \"%s\": %s"
 
 #: ../src/gui.c:373
 msgid "Not a regular file"
 msgstr "Ikke en almindelig fil"
 
 #: ../src/gui.c:396
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
-"Kunne ikke tilføje \"%s\":\n"
-"%s"
+msgstr "Kunne ikke tilføje filen \"%s\": %s"
 
 #: ../src/hash.c:183 ../src/prefs.c:109
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "Hash-funktioner:"
+msgstr "Ukendt hash-funktionsnavn \"%s\""
 
 #: ../src/main.c:97
-#, fuzzy
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Tjek mod det angivne fingeraftryk eller tjeksum"
 
 #: ../src/main.c:98
-#, fuzzy
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "FINGERAFTRYK"
 
 #: ../src/main.c:103
-#, fuzzy
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "Tilføjer fingeraftryk eller tjeksummer til filegenskaber"
+msgstr "Tjek fingeraftryk eller tjeksummer fra den angivne fil"
 
 #: ../src/main.c:104
-#, fuzzy
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr "[FIL|URI...]"
+msgstr "FIL|URI"
 
 #: ../src/main.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "Aktivér den angivne hash-funktion (f.eks. MD5)"
 
 #: ../src/main.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "FUNKTION"
 
 #: ../src/main.c:114
-#, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Hash den angivne tekst"
 
 #: ../src/main.c:115
-#, fuzzy
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEKST"
 
 #: ../src/main.c:119
-#, fuzzy
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Vis versionsinformation"
 
 #: ../src/main.c:123
-#, fuzzy
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FIL|URI...]"
