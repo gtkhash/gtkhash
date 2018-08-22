@@ -401,6 +401,8 @@ AC_DEFINE([HASH_FILE_REPORT_INTERVAL], [166], [Define progress report interval (
 AC_CONFIG_FILES([Makefile])
 AC_CONFIG_FILES([data/Makefile])
 AC_CONFIG_FILES([data/appdata/Makefile])
+AC_CONFIG_FILES([data/caja/Makefile])
+AC_CONFIG_FILES([data/caja/libgtkhash-properties-caja.caja-extension.in])
 AC_CONFIG_FILES([data/icons/Makefile])
 AC_CONFIG_FILES([data/nautilus/Makefile])
 AC_CONFIG_FILES([po/Makefile.in])

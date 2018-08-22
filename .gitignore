@@ -5,6 +5,9 @@ src/resources.h
 src/nautilus/properties-resources.c
 src/nautilus/properties-resources.h
 
+data/caja/libgtkhash-properties-caja.caja-extension
+data/caja/libgtkhash-properties-caja.caja-extension.in
+
 data/icons/32/
 data/icons/48/
 data/icons/64/

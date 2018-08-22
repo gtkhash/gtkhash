@@ -1,0 +1,8 @@
+[Caja Extension]
+Icon=gtkhash
+_Name=Digests
+_Description=Calculate message digests or checksums
+Author=Tristan Heaven <tristan@tristanheaven.net>
+Copyright=
+Version=@PACKAGE_VERSION@
+Website=https://github.com/tristanheaven/gtkhash
