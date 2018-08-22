@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-01 12:20+0000\n"
+"POT-Creation-Date: 2018-08-22 22:59+0100\n"
 "PO-Revision-Date: 2017-12-25 08:29+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtkhash/"
@@ -102,7 +102,9 @@ msgstr "ハッシュ (_S)"
 msgid "Checksum Calculator"
 msgstr "チェックサム計算機"
 
-#: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../data/gtkhash.desktop.in.h:2
+#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
+#: ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "メッセージダイジェストやチェックサムの計算"
 
@@ -261,6 +263,16 @@ msgstr[0] "残り %u 秒"
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s / %s - %s (毎秒 %s)"
 
+#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
+#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
+#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
+#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
+msgid "Digests"
+msgstr "ダイジェスト"
+
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
 msgstr "ダイジェスト値のコピー (_C)"
@@ -280,15 +292,6 @@ msgstr "ダイジェスト"
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
 msgstr "ハッシュ (_A)"
-
-#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
-#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
-msgid "Digests"
-msgstr "ダイジェスト"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-01 12:20+0000\n"
+"POT-Creation-Date: 2018-08-22 22:59+0100\n"
 "PO-Revision-Date: 2016-10-08 17:37+0000\n"
 "Last-Translator: Rafael Capaci Pereira <rafaelcp123@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -102,7 +102,9 @@ msgstr "Ha_sh"
 msgid "Checksum Calculator"
 msgstr "Calculadora Checksum"
 
-#: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../data/gtkhash.desktop.in.h:2
+#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
+#: ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Calcular resumos de mensagens ou somas de verificação (checksums)"
 
@@ -271,6 +273,16 @@ msgstr[1] "%u segundos restantes"
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s de %s - %s minutos restantes (%s/s)"
 
+#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
+#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
+#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
+#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
+msgid "Digests"
+msgstr "Cômputos"
+
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
 msgstr "_Copiar cômputo"
@@ -290,15 +302,6 @@ msgstr "Cômputo"
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
 msgstr "H_ash"
-
-#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
-#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
-msgid "Digests"
-msgstr "Cômputos"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""

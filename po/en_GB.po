@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-01 12:20+0000\n"
+"POT-Creation-Date: 2018-08-22 22:59+0100\n"
 "PO-Revision-Date: 2018-08-19 15:13+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
@@ -102,7 +102,9 @@ msgstr "Ha_sh"
 msgid "Checksum Calculator"
 msgstr "Checksum Calculator"
 
-#: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../data/gtkhash.desktop.in.h:2
+#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
+#: ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Calculate message digests or checksums"
 
@@ -249,6 +251,16 @@ msgstr[1] "%u seconds left"
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s of %s - %s (%s/sec)"
 
+#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
+#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
+#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
+#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
+msgid "Digests"
+msgstr "Digests"
+
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
 msgstr "_Copy Digest"
@@ -268,15 +280,6 @@ msgstr "Digest"
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
 msgstr "H_ash"
-
-#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
-#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
-msgid "Digests"
-msgstr "Digests"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""

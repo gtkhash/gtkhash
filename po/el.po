@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-01 12:20+0000\n"
+"POT-Creation-Date: 2018-08-22 22:59+0100\n"
 "PO-Revision-Date: 2017-06-28 00:04+0000\n"
 "Last-Translator: xin <xin@riseup.net>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtkhash/"
@@ -101,7 +101,9 @@ msgstr "Κα_τατεμαχισμός"
 msgid "Checksum Calculator"
 msgstr "Υπολογιστής  Αθροίσματος Ελέγχου"
 
-#: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../data/gtkhash.desktop.in.h:2
+#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
+#: ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Υπολογίστε συνόψεις μηνυμάτων ή  αθροίσματα ελέγχου"
 
@@ -264,6 +266,16 @@ msgstr[1] "%u 2 δευτερόλεπτα έμειναν"
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s 1 of %s 2 - %s 3 (%s 4/dδευτ.)"
 
+#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
+#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
+#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
+#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
+msgid "Digests"
+msgstr "Συνόψεις"
+
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
 msgstr "_Αντιγραφή Σύνοψης"
@@ -283,15 +295,6 @@ msgstr "Σύνοψη"
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
 msgstr "Σ_ύνοψη"
-
-#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
-#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
-msgid "Digests"
-msgstr "Συνόψεις"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-01 12:20+0000\n"
+"POT-Creation-Date: 2018-08-22 22:59+0100\n"
 "PO-Revision-Date: 2016-12-28 13:56+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtkhash/"
@@ -101,7 +101,9 @@ msgstr "_Calcula"
 msgid "Checksum Calculator"
 msgstr "Calculadora de la suma de verificació"
 
-#: ../data/gtkhash.desktop.in.h:2 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../data/gtkhash.desktop.in.h:2
+#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
+#: ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Calcula resums de missatges o sumes de verificació"
 
@@ -260,6 +262,16 @@ msgstr[1] "falten %u segons"
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s de %s - %s (%s/s)"
 
+#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
+#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
+#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
+#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
+msgid "Digests"
+msgstr "Resums"
+
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
 msgstr "_Copia el resum"
@@ -279,15 +291,6 @@ msgstr "Resum"
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
 msgstr "_Calcula"
-
-#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
-#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
-msgid "Digests"
-msgstr "Resums"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""
