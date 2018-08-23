@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2017 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -35,6 +35,7 @@
 #elif IN_NEMO_EXTENSION
 	#include <libnemo-extension/nemo-property-page.h>
 	#include <libnemo-extension/nemo-property-page-provider.h>
+	#include <libnemo-extension/nemo-name-and-desc-provider.h>
 #elif IN_THUNAR_EXTENSION
 	#include <thunarx/thunarx.h>
 #endif
@@ -488,7 +489,7 @@ static GList *gtkhash_properties_get_pages(
 	return pages;
 }
 
-static void gtkhash_properties_iface_init(
+static void gtkhash_properties_pp_iface_init(
 #if IN_NAUTILUS_EXTENSION
 	NautilusPropertyPageProviderIface *iface,
 #elif IN_CAJA_EXTENSION
@@ -502,6 +503,22 @@ static void gtkhash_properties_iface_init(
 {
 	iface->get_pages = gtkhash_properties_get_pages;
 }
+
+#if IN_NEMO_EXTENSION
+static char *gtkhash_properties_nd_string = NULL;
+
+static GList *gtkhash_properties_get_name_desc(
+	G_GNUC_UNUSED NemoNameAndDescProvider *provider)
+{
+	return g_list_append(NULL, gtkhash_properties_nd_string);
+}
+
+static void gtkhash_properties_nd_iface_init(NemoNameAndDescProviderIface *iface,
+	G_GNUC_UNUSED void *data)
+{
+	iface->get_name_and_desc = gtkhash_properties_get_name_desc;
+}
+#endif
 
 static void gtkhash_properties_register_type(GTypeModule *module)
 {
@@ -521,8 +538,8 @@ static void gtkhash_properties_register_type(GTypeModule *module)
 	page_type = g_type_module_register_type(module, G_TYPE_OBJECT,
 		"GtkHash", &info, 0);
 
-	const GInterfaceInfo iface_info = {
-		(GInterfaceInitFunc)gtkhash_properties_iface_init,
+	const GInterfaceInfo pp_iface_info = {
+		(GInterfaceInitFunc)gtkhash_properties_pp_iface_init,
 		(GInterfaceFinalizeFunc)NULL,
 		NULL
 	};
@@ -537,7 +554,18 @@ static void gtkhash_properties_register_type(GTypeModule *module)
 #elif IN_THUNAR_EXTENSION
 		THUNARX_TYPE_PROPERTY_PAGE_PROVIDER,
 #endif
-		&iface_info);
+		&pp_iface_info);
+
+#if IN_NEMO_EXTENSION
+	const GInterfaceInfo nd_iface_info = {
+		(GInterfaceInitFunc)gtkhash_properties_nd_iface_init,
+		(GInterfaceFinalizeFunc)NULL,
+		NULL
+	};
+
+	g_type_module_add_interface(module, page_type,
+		NEMO_TYPE_NAME_AND_DESC_PROVIDER, &nd_iface_info);
+#endif
 }
 
 #if __GNUC__
@@ -563,6 +591,11 @@ PUBLIC void thunar_extension_initialize(GTypeModule *module)
 	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
 #endif
+
+#if IN_NEMO_EXTENSION
+	gtkhash_properties_nd_string = g_strdup_printf("GtkHash:::%s",
+		_("Calculate message digests or checksums"));
+#endif
 }
 
 #if IN_NAUTILUS_EXTENSION
@@ -576,6 +609,10 @@ PUBLIC void thunar_extension_shutdown(void);
 PUBLIC void thunar_extension_shutdown(void)
 #endif
 {
+#if IN_NEMO_EXTENSION
+	g_free(gtkhash_properties_nd_string);
+	gtkhash_properties_nd_string = NULL;
+#endif
 }
 
 #if IN_NAUTILUS_EXTENSION
