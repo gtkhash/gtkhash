@@ -16,6 +16,7 @@ src/util/util.c
 # gtkhash-properties
 [type: gettext/ini]data/caja/libgtkhash-properties-caja.caja-extension.in
 [type: gettext/glade]data/nautilus/gtkhash-properties.xml
+[type: gettext/ini]data/peony/libgtkhash-properties-peony.peony-extension.in
 src/nautilus/properties.c
 src/nautilus/properties-hash.c
 src/nautilus/properties-list.c

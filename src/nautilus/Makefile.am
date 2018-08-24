@@ -106,6 +106,37 @@ libgtkhash_properties_nemo_la_LIBADD = \
 
 endif
 
+if ENABLE_PEONY
+
+peonydir = $(PEONY_EXTENSION_DIR)
+peony_LTLIBRARIES = libgtkhash-properties-peony.la
+
+nodist_libgtkhash_properties_peony_la_SOURCES = \
+	properties-resources.c
+
+libgtkhash_properties_peony_la_SOURCES = \
+	properties.c properties.h \
+	properties-hash.c properties-hash.h \
+	properties-list.c properties-list.h \
+	properties-prefs.c properties-prefs.h
+
+libgtkhash_properties_peony_la_CPPFLAGS = \
+	$(common_cppflags) \
+	$(PEONY_CFLAGS) \
+	-DIN_PEONY_EXTENSION=1
+
+libgtkhash_properties_peony_la_CFLAGS = $(GTKHASH_CFLAGS)
+
+libgtkhash_properties_peony_la_LDFLAGS = \
+	$(common_ldflags) \
+	-export-symbols-regex ^peony_module_
+
+libgtkhash_properties_peony_la_LIBADD = \
+	$(common_libadd) \
+	$(PEONY_LIBS)
+
+endif
+
 if ENABLE_THUNAR
 
 thunardir = $(THUNAR_EXTENSION_DIR)

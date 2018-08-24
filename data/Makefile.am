@@ -1,4 +1,4 @@
-SUBDIRS =
+SUBDIRS = icons
 
 if ENABLE_APPSTREAM
 SUBDIRS += appdata
@@ -12,9 +12,11 @@ if ENABLE_NAUTILUS_DATA
 SUBDIRS += nautilus
 endif
 
-if ENABLE_GTKHASH
+if ENABLE_PEONY
+SUBDIRS += peony
+endif
 
-SUBDIRS += icons
+if ENABLE_GTKHASH
 
 applicationsdir = $(datadir)/applications
 applications_DATA = gtkhash.desktop

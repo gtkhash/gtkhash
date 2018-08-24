@@ -46,6 +46,7 @@ File Manager Extensions
 * Caja (MATE)
 * Nautilus (GNOME)
 * Nemo (Cinnamon)
+* Peony (UKUI)
 * Thunar (Xfce)
 
 Licence
