@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-22 22:59+0100\n"
+"POT-Creation-Date: 2018-08-24 19:48+0100\n"
 "PO-Revision-Date: 2015-08-03 17:07+0000\n"
 "Last-Translator: Abbod <abbod-mar@hotmail.com>\n"
 "Language-Team: Arabic <ar@li.org>\n"
@@ -102,7 +102,8 @@ msgstr ""
 
 #: ../data/gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
-#: ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
+#: ../src/nautilus/properties.c:614 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr ""
 
@@ -152,7 +153,7 @@ msgid "Select Files"
 msgstr "اختر الملفات"
 
 #. Add checkbutton
-#: ../src/callbacks.c:523 ../src/nautilus/properties.c:223
+#: ../src/callbacks.c:523 ../src/nautilus/properties.c:227
 msgid "_Show HMAC Key"
 msgstr ""
 
@@ -257,8 +258,10 @@ msgid "%s of %s - %s (%s/sec)"
 msgstr "%s من %s - %u دقيقة متبقية (%s/ثانية)"
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
-#: ../src/nautilus/properties.c:474 ../src/nautilus/properties.c:477
-#: ../src/nautilus/properties.c:480 ../src/nautilus/properties.c:482
+#: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
+#: ../src/nautilus/properties.c:483 ../src/nautilus/properties.c:486
+#: ../src/nautilus/properties.c:489 ../src/nautilus/properties.c:492
+#: ../src/nautilus/properties.c:494
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
