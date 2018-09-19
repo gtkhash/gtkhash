@@ -1,14 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Allan Nordhøy <epost@anotheragency.no>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2018-08-24 19:48+0100\n"
-"PO-Revision-Date: 2018-01-27 12:36+0000\n"
+"PO-Revision-Date: 2018-09-19 06:30+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtkhash/"
 "translations/nb_NO/>\n"
@@ -17,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
@@ -124,8 +123,9 @@ msgid "_Cancel"
 msgstr "_Avbryt"
 
 #: ../src/callbacks.c:73
+#, fuzzy
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
-msgstr ""
+msgstr "Portefølje-/sjekksum-filer (*.sha1, *.md5, *.sfv, …)"
 
 #: ../src/callbacks.c:78
 #, fuzzy
@@ -207,12 +207,12 @@ msgstr "[FIL|URI…]"
 #: ../src/main.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "Skru på angitt sjekksummeringsfunksjon (f.eks MD5)"
 
 #: ../src/main.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "FUNKSJON"
 
 #: ../src/main.c:114
 #, fuzzy
