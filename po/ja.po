@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 # Kyotaro Iijima <kyotaro.eyes@gmail.com>, 2018.
+# YAMADA Shinichirou <yamada_strong_yamada_nice_64bit@yahoo.co.jp>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2018-08-24 19:48+0100\n"
-"PO-Revision-Date: 2018-09-11 16:21+0000\n"
-"Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
+"PO-Revision-Date: 2018-10-04 19:30+0000\n"
+"Last-Translator: YAMADA Shinichirou "
+"<yamada_strong_yamada_nice_64bit@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ja/>\n"
 "Language: ja\n"
@@ -42,35 +44,35 @@ msgstr "16 進数大文字"
 
 #: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
-msgstr "ダイジェスト値のコピー (_D)"
+msgstr "ダイジェスト値のコピー(_D)"
 
 #: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
-msgstr "ツールバーの表示 (_T)"
+msgstr "ツールバーの表示(_T)"
 
 #: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
-msgstr "ファイル (_F)"
+msgstr "ファイル(_F)"
 
 #: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:6
 msgid "_Edit"
-msgstr "編集 (_E)"
+msgstr "編集(_E)"
 
 #: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:7
 msgid "_View"
-msgstr "表示 (_V)"
+msgstr "表示(_V)"
 
 #: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:8
 msgid "_Text"
-msgstr "テキスト (_T)"
+msgstr "テキスト(_T)"
 
 #: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:9
 msgid "File _List"
-msgstr "ファイルリスト (_L)"
+msgstr "ファイルリスト(_L)"
 
 #: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:10
 msgid "_Help"
-msgstr "ヘルプ (_H)"
+msgstr "ヘルプ(_H)"
 
 #: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:11
 msgid "File:"
@@ -96,7 +98,7 @@ msgstr "ファイル"
 
 #: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:16
 msgid "Ha_sh"
-msgstr "ハッシュ (_S)"
+msgstr "ハッシュ(_S)"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
@@ -116,16 +118,16 @@ msgstr "ダイジェスト値の確認"
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
 msgid "_Open"
-msgstr "開く (_O)"
+msgstr "開く(_O)"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
 #: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
 msgid "_Cancel"
-msgstr "キャンセル (_C)"
+msgstr "キャンセル(_C)"
 
 #: ../src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
-msgstr "ダイジェスト / チェックサム ファイル (*.sha1, *.md5, *.sfv, ...)"
+msgstr "ダイジェスト・チェックサムファイル (*.sha1, *.md5, *.sfv, ...)"
 
 #: ../src/callbacks.c:78
 msgid "All Files"
@@ -137,11 +139,11 @@ msgstr "ダイジェスト値の保存"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
-msgstr "保存 (_S)"
+msgstr "保存(_S)"
 
 #: ../src/callbacks.c:286
 msgid "A GTK+ utility for computing message digests or checksums."
-msgstr "メッセージ ダイジェストやチェックサムの計算を行なうための GTK+ ユーティリティです。"
+msgstr "メッセージダイジェストやチェックサムの計算を行なうための GTK+ ユーティリティです。"
 
 #: ../src/callbacks.c:295
 msgid "translator-credits"
@@ -156,12 +158,12 @@ msgstr "ファイルの選択"
 #. Add checkbutton
 #: ../src/callbacks.c:523 ../src/nautilus/properties.c:227
 msgid "_Show HMAC Key"
-msgstr "HMAC キーの表示 (_S)"
+msgstr "HMAC キーの表示(_S)"
 
 #: ../src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr "\"%s\" のチェック ファイルの読み込みに失敗しました: %s"
+msgstr "チェックファイル \"%s\" の読み込みに失敗しました: %s"
 
 #: ../src/gui.c:373
 msgid "Not a regular file"
@@ -170,7 +172,7 @@ msgstr "正常なファイルではありません"
 #: ../src/gui.c:396
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr "\"%s\" ファイルの追加に失敗しました: %s"
+msgstr "ファイル \"%s\" の追加に失敗しました: %s"
 
 #: ../src/hash.c:183 ../src/prefs.c:109
 #, c-format
@@ -200,7 +202,7 @@ msgstr "FILE|URI"
 #: ../src/main.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr "指定したハッシュ関数を有効にする（例 MD5）"
+msgstr "指定したハッシュ関数を有効にする (例: MD5)"
 
 #: ../src/main.c:110
 msgctxt " --help"
@@ -262,11 +264,11 @@ msgstr "ダイジェスト"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr "ダイジェスト値のコピー (_C)"
+msgstr "ダイジェスト値のコピー(_C)"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
-msgstr "無効化されたハッシュ関数の表示 (_D)"
+msgstr "無効化されたハッシュ関数の表示(_D)"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
@@ -278,7 +280,7 @@ msgstr "ダイジェスト"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "H_ash"
-msgstr "ハッシュ (_A)"
+msgstr "ハッシュ(_A)"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""
@@ -286,8 +288,8 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
-"GtkHash はファイルのチェックサムやメッセージのダイジェスト値を計算するためのアプリケーションです。 md5sum のようなコマンドライン "
-"プログラムと比べて、使いやすくグラフィカルな表示を特長としています。"
+"GtkHash はファイルのチェックサムやメッセージのダイジェスト値を計算するためのアプリケーションです。 md5sum "
+"のようなコマンドラインプログラムと比べて、使いやすくグラフィカルな表示を特長としています。"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
