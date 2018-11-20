@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 19:48+0100\n"
+"POT-Creation-Date: 2018-11-20 22:07+0000\n"
 "PO-Revision-Date: 2011-04-09 09:57+0000\n"
 "Last-Translator: Kristjan SCHMIDT <Unknown>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -258,6 +258,7 @@ msgstr ""
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
 msgstr ""
@@ -296,6 +297,7 @@ msgstr ""
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
+#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr ""

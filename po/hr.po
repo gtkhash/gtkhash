@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-24 19:48+0100\n"
+"POT-Creation-Date: 2018-11-20 22:07+0000\n"
 "PO-Revision-Date: 2014-04-22 19:46+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -270,6 +270,7 @@ msgstr "%s od %s - %u minuta preostalo (%s/sec)"
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
 msgstr "Zbirovi"
@@ -308,6 +309,7 @@ msgstr ""
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
+#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 #, fuzzy
 msgid "Adds message digests or checksums to file properties"
