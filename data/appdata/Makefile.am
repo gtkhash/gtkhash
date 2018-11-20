@@ -1,4 +1,4 @@
-appdatadir = $(datadir)/appdata
+appdatadir = $(datadir)/metainfo
 appdata_DATA =
 
 if ENABLE_GTKHASH
@@ -17,6 +17,10 @@ if ENABLE_NEMO
 appdata_DATA += nemo-gtkhash.metainfo.xml
 endif
 
+if ENABLE_PEONY
+appdata_DATA += peony-gtkhash.metainfo.xml
+endif
+
 if ENABLE_THUNAR
 appdata_DATA += thunar-gtkhash.metainfo.xml
 endif
@@ -28,6 +32,7 @@ EXTRA_DIST = \
 	caja-gtkhash.metainfo.xml.in \
 	nautilus-gtkhash.metainfo.xml.in \
 	nemo-gtkhash.metainfo.xml.in \
+	peony-gtkhash.metainfo.xml.in \
 	thunar-gtkhash.metainfo.xml.in
 
 @INTLTOOL_XML_RULE@

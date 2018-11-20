@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
-  <id>gtkhash.desktop</id>
+<component type="desktop-application">
+  <id>org.gtkhash.gtkhash</id>
+  <launchable type="desktop-id">gtkhash.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>GtkHash</name>
@@ -8,19 +9,26 @@
   <description>
     <_p>
       GtkHash is an application for computing file checksums, or message
-	  digests. It's designed to be an easy to use, graphical alternative to
+      digests. It's designed to be an easy to use, graphical alternative to
       command-line programs such as md5sum.
     </_p>
     <_p>
-	  Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32.
+      Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32.
     </_p>
   </description>
   <screenshots>
-    <screenshot type="default">https://raw.githubusercontent.com/tristanheaven/gtkhash/master/screenshots/gtkhash-screenshot-light.png</screenshot>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/tristanheaven/gtkhash/master/screenshots/gtkhash-screenshot-light.png</image>
+    </screenshot>
 <!--
-    <screenshot type="default">https://raw.githubusercontent.com/tristanheaven/gtkhash/master/screenshots/gtkhash-screenshot-dark.png</screenshot>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/tristanheaven/gtkhash/master/screenshots/gtkhash-screenshot-dark.png</image>
+    </screenshot>
 -->
   </screenshots>
+  <provides>
+    <binary>gtkhash</binary>
+  </provides>
   <url type="homepage">https://github.com/tristanheaven/gtkhash</url>
   <url type="bugtracker">https://github.com/tristanheaven/gtkhash/issues</url>
   <developer_name>Tristan Heaven</developer_name>

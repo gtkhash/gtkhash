@@ -27,4 +27,5 @@ data/appdata/gtkhash.appdata.xml.in
 data/appdata/caja-gtkhash.metainfo.xml.in
 data/appdata/nautilus-gtkhash.metainfo.xml.in
 data/appdata/nemo-gtkhash.metainfo.xml.in
+data/appdata/peony-gtkhash.metainfo.xml.in
 data/appdata/thunar-gtkhash.metainfo.xml.in
