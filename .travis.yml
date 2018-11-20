@@ -18,6 +18,7 @@ addons:
       - linux-libc-dev
       - librsvg2-bin
       - at-spi2-core
+      - libnautilus-extension-dev
 
 env:
   - WITH_GTK=3.0
@@ -25,6 +26,6 @@ env:
 
 script:
   - ./autogen.sh
-  - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{debug,glib-checksums,nettle,linux-crypto} --disable-blake2 --disable-dependency-tracking)
+  - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{debug,glib-checksums,nettle,linux-crypto,nautilus} --disable-{dependency-tracking,blake2})
   - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
   - make -j$(nproc) distcheck VERBOSE=1
