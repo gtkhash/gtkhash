@@ -15,10 +15,16 @@ addons:
       - libgtk2.0-dev
       - libgcrypt20-dev
       - nettle-dev
+      - libb2-dev
+      - libmbedtls-dev
+      - libmhash-dev
       - linux-libc-dev
       - librsvg2-bin
       - at-spi2-core
       - libnautilus-extension-dev
+      - libnemo-extension-dev
+      - libcaja-extension-dev
+      - libthunarx-2-dev
 
 env:
   - WITH_GTK=3.0
@@ -26,6 +32,21 @@ env:
 
 script:
   - ./autogen.sh
-  - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{debug,glib-checksums,nettle,linux-crypto,nautilus} --disable-{dependency-tracking,blake2})
+  - export DISTCHECK_CONFIGURE_FLAGS=$(echo
+      --with-gtk=${WITH_GTK}
+      --enable-debug
+      --enable-blake2
+      --enable-gcrypt
+      --enable-glib-checksums
+      --enable-mbedtls
+      --enable-mhash
+      --enable-nettle
+      --enable-linux-crypto
+      --enable-nautilus
+      --enable-nemo
+      --enable-caja
+      --enable-thunar --with-thunarx=2
+      --disable-dependency-tracking
+      )
   - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
   - make -j$(nproc) VERBOSE=1 DESTDIR=$(mktemp -d) distcheck
