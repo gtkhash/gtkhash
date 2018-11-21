@@ -28,4 +28,4 @@ script:
   - ./autogen.sh
   - export DISTCHECK_CONFIGURE_FLAGS=$(echo --with-gtk=${WITH_GTK} --enable-{debug,glib-checksums,nettle,linux-crypto,nautilus} --disable-{dependency-tracking,blake2})
   - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
-  - make -j$(nproc) distcheck VERBOSE=1
+  - make -j$(nproc) VERBOSE=1 DESTDIR=$(mktemp -d) distcheck
