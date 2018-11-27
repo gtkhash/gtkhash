@@ -1,6 +1,7 @@
 Summary of changes for each GtkHash release:
 
-1.2 (2018-00-00)
+1.2 (2018-11-27)
+	* Added compatibility for Thunar 1.7
 	* Added optional Peony (UKUI file manager) extension
 
 1.1.1 (2017-11-01)
