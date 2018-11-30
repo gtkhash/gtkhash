@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # ssantos <ssantos@web.de>, 2018.
+# Ettore Atalan <atalanttore@googlemail.com>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2018-11-20 22:07+0000\n"
-"PO-Revision-Date: 2018-11-27 22:07+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"PO-Revision-Date: 2018-11-30 03:08+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtkhash/"
 "translations/de/>\n"
 "Language: de\n"
@@ -193,17 +194,14 @@ msgid "DIGEST"
 msgstr "DIGEST"
 
 #: ../src/main.c:103
-#, fuzzy
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr ""
-"Hinzufügen von Nachrichten-Digests oder Prüfsummen zu Dateieigenschaften"
+msgstr "Digests oder Prüfsummen aus der angegebenen Datei überprüfen"
 
 #: ../src/main.c:104
-#, fuzzy
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr "[DATEI|URI …]"
+msgstr "DATEI|URI"
 
 #: ../src/main.c:109
 msgctxt " --help"
@@ -222,22 +220,19 @@ msgid "Hash the specified text"
 msgstr "Hashe den Text"
 
 #: ../src/main.c:115
-#, fuzzy
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEXT"
 
 #: ../src/main.c:119
-#, fuzzy
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Versionsinformationen anzeigen"
 
 #: ../src/main.c:123
-#, fuzzy
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr "[DATEI|URI …]"
+msgstr "[DATEI|URI...]"
 
 #: ../src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
