@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -64,6 +64,7 @@ enum hash_func_e {
 	HASH_FUNC_RIPEMD320,
 	HASH_FUNC_TIGER192,
 	HASH_FUNC_WHIRLPOOL,
+	HASH_FUNC_SM3,
 	HASH_FUNC_HAVAL128_3,
 	HASH_FUNC_HAVAL160_3,
 	HASH_FUNC_HAVAL192_3,

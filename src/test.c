@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2017 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -123,6 +123,7 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(SHA3_256,   "", "a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a");
 	t(SHA3_384,   "", "0c63a75b845e4f7d01107d852e4c2485c51a50aaaa94fc61995e71bbee983a2ac3713831264adb47fb6bd1e058d5f004");
 	t(SHA3_512,   "", "a69f73cca23a9ac5c8b567dc185a756e97c982164fe25859e0d1dcc1475c80a615b2123af1f5f94c11e3e9402c3ac558f500199d95b6d3e301758586281dcd26");
+	t(SM3,        "", "1ab21d8355cfa17f8e61194831e81a8f22bec8c728fefb747ed035eb5082aa2b");
 	t(SNEFRU128,  "", "8617f366566a011837f4fb4ba5bedea2");
 	t(SNEFRU256,  "", "8617f366566a011837f4fb4ba5bedea2b892f3ed8b894023d16ae344b2be5881");
 	t(TIGER192,   "", "24f0130c63ac933216166e76b1bb925ff373de2d49584e7a");
@@ -156,7 +157,10 @@ static void test_hash_func(const struct hash_func_s *func)
 
 	t(ADLER32,  "abc", "024d0127");
 	t(CRC32,    "abc", "352441c2");
+	t(SM3,      "abc", "66c7f0f462eeedd9d1f2d46bdc10e4e24167c4875cf2f7a2297da02b8f4ba8e0");
 	t(TIGER192, "abc", "f258c1e88414ab2a527ab541ffc5b8bf935f7b951c132951");
+
+	t(SM3, "abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd", "debe9ff92275b8a138604889c18e5a4d6fdb70e5387e5765293dcba39c0c5732");
 
 #undef t
 

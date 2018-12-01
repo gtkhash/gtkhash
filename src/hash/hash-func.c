@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -67,6 +67,7 @@ static const struct {
 	[HASH_FUNC_SHA3_256]   = { "SHA3-256",     32, 136, },
 	[HASH_FUNC_SHA3_384]   = { "SHA3-384",     48, 104, },
 	[HASH_FUNC_SHA3_512]   = { "SHA3-512",     64,  72, },
+	[HASH_FUNC_SM3]        = { "SM3",          32,   0, },
 	[HASH_FUNC_SNEFRU128]  = { "SNEFRU128",    16,   0, },
 	[HASH_FUNC_SNEFRU256]  = { "SNEFRU256",    32,   0, },
 	[HASH_FUNC_TIGER192]   = { "TIGER192",     24,   0, },

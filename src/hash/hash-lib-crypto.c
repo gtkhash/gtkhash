@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2017 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -87,6 +87,10 @@ static const EVP_MD *gtkhash_hash_lib_crypto_get_md(const enum hash_func_e id)
 			return EVP_sha384();
 		case HASH_FUNC_SHA512:
 			return EVP_sha512();
+#ifndef OPENSSL_NO_SM3
+		case HASH_FUNC_SM3:
+			return EVP_sm3();
+#endif
 #ifndef OPENSSL_NO_WHIRLPOOL
 		case HASH_FUNC_WHIRLPOOL:
 			return EVP_whirlpool();
