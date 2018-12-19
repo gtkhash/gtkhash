@@ -55,15 +55,15 @@
      transform="matrix(1.0490837,0,0,1.0490837,-3.8408021,-2.5859614)"
      id="g4294">
     <path
-       d="M 10.144484,21.41398 51.708764,52.588593 119.25068,31.805518 72.874456,4.1874385 10.144484,21.41398 Z"
+       d="M 10.144484,21.41398 51.708764,52.588593 119.25068,31.805518 72.874456,4.1874385 Z"
        id="path6976"
        style="display:inline;fill:#21038c;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:2.68023467;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
-       d="m 12.742248,86.361428 -2.597764,-64.947448 41.56428,31.174613 0,70.143477 -38.966516,-36.370642 z"
+       d="M 12.742248,86.361428 10.144484,21.41398 51.708764,52.588593 v 70.143477 z"
        id="path6978"
        style="display:inline;fill:#bf1b1b;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:2.68023467;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
-       d="m 51.708764,122.73207 62.346346,-25.979095 5.19557,-64.947457 -67.541916,20.78308 0,70.143472 z"
+       d="M 51.708764,122.73207 114.05511,96.752975 119.25068,31.805518 51.708764,52.588598 Z"
        id="path6980"
        style="display:inline;fill:#3aae32;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:2.68023467;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
@@ -71,19 +71,18 @@
        id="path6982"
        style="fill:none;stroke:#ffffff;stroke-width:1.5776149;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
-       d="m 72.681654,5.0681641 0,61.9804299"
+       d="M 72.681654,5.0681641 V 67.048594"
        id="path6984"
        style="fill:#babdb6;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.5776149;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:109.42938995px;line-height:125%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:url(#linearGradient4317);fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       x="16.345556"
-       y="122.31812"
-       id="text3340"
-       transform="matrix(1.0783196,-0.28380068,0.14009042,0.89049873,0,0)"><tspan
-         id="tspan3342"
-         x="16.345556"
-         y="122.31812"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:109.42938995px;line-height:125%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:url(#linearGradient4317);fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">#</tspan></text>
+    <g
+       aria-label="#"
+       transform="matrix(1.0783196,-0.28380068,0.14009042,0.89049873,0,0)"
+       style="fill:url(#linearGradient4317);fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="text3340">
+      <path
+         d="M 52.893263,43.772613 47.336301,65.947026 H 60.42722 l 5.610393,-22.174413 h 8.549171 l -5.610393,22.174413 h 13.037486 v 8.228577 H 66.999395 L 62.51108,92.021998 h 13.35808 v 8.175142 H 60.42722 l -5.556962,22.12098 h -8.549171 l 5.610394,-22.12098 H 38.78713 l -5.610393,22.12098 h -8.495739 l 5.556961,-22.12098 H 16.452421 V 92.021998 H 32.32182 L 36.810135,74.175603 H 22.597138 V 65.947026 H 38.78713 l 5.556962,-22.174413 z m 5.556961,30.40299 H 45.359306 l -4.488315,17.846395 h 13.14435 z"
+         style="fill:url(#linearGradient4317);fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path20" />
+    </g>
   </g>
 </svg>

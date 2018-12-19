@@ -1,0 +1,29 @@
+version: git-{branch}.{build}
+
+image: Visual Studio 2015
+
+platform: x64
+
+environment:
+  MSYSTEM: MINGW64
+
+init:
+  - cmd: PATH C:\msys64\mingw64\bin;C:\msys64\usr\bin;C:\msys64\bin;%PATH%
+
+install:
+  - cmd: bash -l -c "exec pacman -Syy --debug --noconfirm"
+  - cmd: bash -l -c "exec pacman -Suu --noconfirm"
+  - cmd: bash -l -c "exec pacman -Suu --noconfirm"
+  - cmd: bash -l %APPVEYOR_BUILD_FOLDER%\msys2\installdeps.sh
+
+build_script:
+  - cmd: bash -l %APPVEYOR_BUILD_FOLDER%\msys2\makepkg.sh
+
+after_build:
+  - cmd: bash -l %APPVEYOR_BUILD_FOLDER%\msys2\styrene.sh
+
+artifacts:
+  - path: 'msys2\styrene\gtkhash-w64-*-installer.exe'
+  - path: 'msys2\styrene\gtkhash-w32-*-installer.exe'
+  - path: 'msys2\styrene\gtkhash-w64-*-standalone.zip'
+  - path: 'msys2\styrene\gtkhash-w32-*-standalone.zip'

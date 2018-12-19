@@ -1,0 +1,57 @@
+_realname=gtkhash
+pkgbase=mingw-w64-${_realname}
+pkgname=${MINGW_PACKAGE_PREFIX}-${_realname}
+pkgver=git
+pkgrel=1
+arch=( any )
+pkgdesc="GTK+ utility for computing message digests or checksums (mingw-w64)"
+depends=(
+	${MINGW_PACKAGE_PREFIX}-gsettings-desktop-schemas
+	${MINGW_PACKAGE_PREFIX}-gtk3
+	${MINGW_PACKAGE_PREFIX}-adwaita-icon-theme
+	${MINGW_PACKAGE_PREFIX}-libgcrypt
+)
+makedepends=(
+	${MINGW_PACKAGE_PREFIX}-libtool
+	${MINGW_PACKAGE_PREFIX}-pkg-config
+	git
+	intltool
+)
+options=( strip )
+license=( GPL )
+url="https://github.com/tristanheaven/gtkhash"
+install=${_realname}-${CARCH}.install
+source=( ${_realname}.tar.gz )
+sha256sums=( SKIP )
+
+pkgver() {
+	git describe --always | sed -e 's/v//' -e 's/-/+/g'
+}
+
+_getdir() {
+	echo "${srcdir}"/${_realname}-*
+}
+
+build() {
+	cd "$(_getdir)"
+	./configure \
+		--host=${MINGW_CHOST} \
+		--build=${MINGW_CHOST} \
+		--prefix="${MINGW_PREFIX}" \
+		--disable-appstream \
+		--disable-blake2 \
+		--disable-dependency-tracking \
+		--disable-schemas-compile \
+		--disable-silent-rules
+	make
+}
+
+check() {
+	cd "$(_getdir)"
+	make VERBOSE=1 LOG_COMPILER= check
+}
+
+package() {
+	cd "$(_getdir)"
+	make DESTDIR="${pkgdir}" install
+}
