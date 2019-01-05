@@ -1,15 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Giorgos Kostopoulos <giorgosk67@gmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2018-11-20 22:07+0000\n"
-"PO-Revision-Date: 2017-06-28 00:04+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"PO-Revision-Date: 2019-01-05 20:06+0000\n"
+"Last-Translator: Giorgos Kostopoulos <giorgosk67@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtkhash/"
 "translations/el/>\n"
 "Language: el\n"
@@ -17,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
 msgid "GtkHash Preferences"
@@ -109,7 +108,6 @@ msgid "Calculate message digests or checksums"
 msgstr "Υπολογίστε συνόψεις μηνυμάτων ή  αθροίσματα ελέγχου"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
-#, fuzzy
 msgid "Check Digests"
 msgstr "Αποθήκευση Συνόψεων"
 
@@ -125,12 +123,11 @@ msgstr "_Άκυρο"
 
 #: ../src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
-msgstr ""
+msgstr "Αρχεία Αθροισμάτων (*.sha1, *.md5, *.sfv, ...)"
 
 #: ../src/callbacks.c:78
-#, fuzzy
 msgid "All Files"
-msgstr "Επιλογή Αρχείων"
+msgstr "Όλα τ' Αρχεία"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
 msgid "Save Digests"
@@ -161,10 +158,10 @@ msgid "_Show HMAC Key"
 msgstr "Προσθήκη checkbutton"
 
 #: ../src/check.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr ""
-"Αποτυχία προσθήκης\"%s 1\":\n"
+"Αποτυχία ανάγνωσης αρχείου ελέγχου \"%s 1\":\n"
 "%s 2"
 
 #: ../src/gui.c:373
@@ -172,38 +169,33 @@ msgid "Not a regular file"
 msgstr "Μη κανονικό αρχείο"
 
 #: ../src/gui.c:396
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
-"Αποτυχία προσθήκης\"%s 1\":\n"
+"Αποτυχία προσθήκης αρχείου \"%s 1\":\n"
 "%s 2"
 
 #: ../src/hash.c:183 ../src/prefs.c:109
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "Λειτουργίες Κατατεμαχισμού:"
+msgstr "'Άγνωστο όνομα Λειτουργίας Ελέγχου \"%s\""
 
 #: ../src/main.c:97
-#, fuzzy
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Σύγκριση με σύνοψη ή άθροισμα ελέγχου"
+msgstr "Σύγκριση με συγκεκριμένη σύνοψη ή άθροισμα ελέγχου"
 
 #: ../src/main.c:98
-#, fuzzy
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "ΣΥΝΟΨΗ"
 
 #: ../src/main.c:103
-#, fuzzy
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr ""
-"Πρόσθεση συνόψεων μηνυμάτων ή αθροισμάτων ελέγχου στις ιδιότητες αρχείου"
+msgstr "Έλεγχος συνόψεων ή αθροισμάτων ελέγχου απ' το συγκεκριμένο αρχείο"
 
 #: ../src/main.c:104
-#, fuzzy
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "[ΑΡΧΕΙΟ|URI...]"
@@ -211,33 +203,29 @@ msgstr "[ΑΡΧΕΙΟ|URI...]"
 #: ../src/main.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "Ενεργοποίηση συγκεκριμένης Λειτουργίας Αθροίσματος (e.g. MD5)"
 
 #: ../src/main.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "ΛΕΙΤΟΥΡΓΙΑ"
 
 #: ../src/main.c:114
-#, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr "Κατατεμαχισμός του συγκεκριμένου κειμένου"
+msgstr "'Ελεγχος του συγκεκριμένου κειμένου"
 
 #: ../src/main.c:115
-#, fuzzy
 msgctxt " --help"
 msgid "TEXT"
 msgstr "ΚΕΙΜΕΝΟ"
 
 #: ../src/main.c:119
-#, fuzzy
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Προβολή πληροφοριών έκδοσης"
 
 #: ../src/main.c:123
-#, fuzzy
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ΑΡΧΕΙΟ|URI...]"
