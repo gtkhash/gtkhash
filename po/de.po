@@ -4,13 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # ssantos <ssantos@web.de>, 2018.
 # Ettore Atalan <atalanttore@googlemail.com>, 2018.
+# nautilusx <mail.ka@mailbox.org>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2018-11-20 22:07+0000\n"
-"PO-Revision-Date: 2018-11-30 03:08+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2019-01-26 17:04+0000\n"
+"Last-Translator: nautilusx <mail.ka@mailbox.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtkhash/"
 "translations/de/>\n"
 "Language: de\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 "X-Launchpad-Export-Date: 2012-12-04 05:56+0000\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
@@ -214,10 +215,9 @@ msgid "FUNCTION"
 msgstr "FUNKTIONEN"
 
 #: ../src/main.c:114
-#, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr "Hashe den Text"
+msgstr "Hashe den angegebenen Text"
 
 #: ../src/main.c:115
 msgctxt " --help"
