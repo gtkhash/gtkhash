@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-20 22:07+0000\n"
 "PO-Revision-Date: 2019-01-28 04:05+0000\n"
 "Last-Translator: Muha Aliss <muhaaliss@pm.me>\n"
@@ -182,7 +182,7 @@ msgid "Failed to add file \"%s\": %s"
 msgstr ""
 
 #: ../src/hash.c:183 ../src/prefs.c:109
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "\"%s\" bilinmeyen hash fonksiyon adı"
 
