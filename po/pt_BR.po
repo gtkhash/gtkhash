@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-20 22:07+0000\n"
 "PO-Revision-Date: 2016-10-08 17:37+0000\n"
-"Last-Translator: Rafael Capaci Pereira <rafaelcp123@gmail.com>\n"
+"Last-Translator: Cezar Campos <cizordj@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -26,7 +26,7 @@ msgstr "Preferências do GtkHash"
 
 #: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:18
 msgid "Hash Functions:"
-msgstr "Funções de hash:"
+msgstr "Funções hash:"
 
 #: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:19
 msgid "Digest Format:"
@@ -34,11 +34,11 @@ msgstr "Formato do cômputo:"
 
 #: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
-msgstr "Hexadecimal em caixa baixa"
+msgstr "Hexadecimal em minúscula"
 
 #: ../data/gtkhash-gtk2.xml.h:5 ../data/gtkhash-gtk3.xml.h:2
 msgid "Uppercase Hexadecimal"
-msgstr "Hexadecimal em caixa alta"
+msgstr "Hexadecimal em maiúscula"
 
 #: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
@@ -126,7 +126,7 @@ msgstr "_Cancelar"
 
 #: ../src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
-msgstr ""
+msgstr "Calcular/Somas de verificação (*.sha1, *md5, *.sfv, ...)"
 
 #: ../src/callbacks.c:78
 #, fuzzy
@@ -135,7 +135,7 @@ msgstr "Selecionar arquivos"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
 msgid "Save Digests"
-msgstr "Salvar cômputos"
+msgstr "Salvar cálculos"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
@@ -156,7 +156,8 @@ msgstr ""
 "Lucas Silveira Melo https://launchpad.net/~lucas-silveiramelo\n"
 "Marco https://launchpad.net/~marcodefreitas\n"
 "Rafael Neri https://launchpad.net/~rafepel\n"
-"Rafael Capaci https://github.com/capaci"
+"Rafael Capaci https://github.com/capaci\n"
+"Cezar Campos https://github.com/cizordj"
 
 #: ../src/callbacks.c:321 ../src/callbacks.c:325
 msgid "Select Files"
@@ -182,13 +183,13 @@ msgstr "Não é um arquivo comum"
 #, fuzzy, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
-"Ocorreu uma falha ao adicionar \"%s\":\n"
+"Falha ao adicionar \"%s\":\n"
 "%s"
 
 #: ../src/hash.c:183 ../src/prefs.c:109
 #, fuzzy, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "Funções de hash:"
+msgstr "Nome de função hash desconhecida \"%s\""
 
 #: ../src/main.c:97
 #, fuzzy
@@ -207,9 +208,7 @@ msgstr "RESUMO"
 #, fuzzy
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr ""
-"Adicionar resumos de mensagens ou somas de verificação as propriedades do "
-"arquivo"
+msgstr "Verificar resumos ou checksums do arquivo especificado"
 
 #: ../src/main.c:104
 #, fuzzy
@@ -220,12 +219,12 @@ msgstr "[ARQUIVO|URI...]"
 #: ../src/main.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "Ativa a função hash especificada (ex. MD5)"
 
 #: ../src/main.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "FUNÇÃO"
 
 #: ../src/main.c:114
 #, fuzzy
@@ -285,11 +284,11 @@ msgstr "%s de %s - %s minutos restantes (%s/s)"
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
-msgstr "Cômputos"
+msgstr "Cálculos"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr "_Copiar cômputo"
+msgstr "_Copiar cálculo"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
@@ -315,7 +314,7 @@ msgid ""
 msgstr ""
 "GtkHash é uma aplicação para computar checksums de arquivos, ou resumos de "
 "mensagens. Foi projetado para ser fácil de usar e para ser uma alternativa "
-"gráfica para programas de linha de comando como o md5sum."
+"gráfica aos programas de linha de comando como o md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
@@ -329,7 +328,7 @@ msgstr ""
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
-"Adicionar resumos de mensagens ou somas de verificação as propriedades do "
+"Adicionar resumos de mensagens ou somas de verificação às propriedades do "
 "arquivo"
 
 #~ msgid "Unknown error"
@@ -350,7 +349,7 @@ msgstr ""
 #~ "\n"
 #~ "%s"
 #~ msgstr ""
-#~ "Ocorreu uma falha ao adicionar \"%s\":\n"
+#~ "Falha ao adicionar \"%s\":\n"
 #~ "%s"
 
 #~ msgid "Failed to read \"%s\""
