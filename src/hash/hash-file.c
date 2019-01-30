@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2019 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -39,7 +39,7 @@ guint gdk_threads_add_timeout(guint, GSourceFunc, gpointer);
 // (this might cause other problems)
 
 static gboolean gtkhash_hash_file_source_func(struct hash_file_s *data);
-static void gtkhash_hash_file_hash_thread_func(void *func,
+static void gtkhash_hash_file_hash_thread_func(struct hash_func_s *func,
 	struct hash_file_s *data);
 
 enum hash_file_state_e {
@@ -278,11 +278,10 @@ static void gtkhash_hash_file_read(struct hash_file_s *data)
 		data);
 }
 
-static void gtkhash_hash_file_hash_thread_func(void *func,
+static void gtkhash_hash_file_hash_thread_func(struct hash_func_s *func,
 	struct hash_file_s *data)
 {
-	gtkhash_hash_lib_update(&data->funcs[GPOINTER_TO_UINT(func) - 1],
-		data->buffer, data->just_read);
+	gtkhash_hash_lib_update(func, data->buffer, data->just_read);
 
 	if (g_atomic_int_dec_and_test(&data->threads))
 		gtkhash_hash_file_add_source(data);
@@ -296,13 +295,13 @@ static void gtkhash_hash_file_hash(struct hash_file_s *data)
 	}
 
 	gtkhash_hash_file_remove_source(data);
-	data->state =  HASH_FILE_STATE_HASH_FINISH;
+	data->state = HASH_FILE_STATE_HASH_FINISH;
 
 	g_atomic_int_inc(&data->threads);
-	for (unsigned int i = 0; i < HASH_FUNCS_N; i++) {
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (data->funcs[i].enabled) {
 			g_atomic_int_inc(&data->threads);
-			g_thread_pool_push(data->thread_pool, GUINT_TO_POINTER(i + 1), NULL);
+			g_thread_pool_push(data->thread_pool, &data->funcs[i], NULL);
 		}
 	}
 
@@ -337,7 +336,7 @@ static void gtkhash_hash_file_close_finish(G_GNUC_UNUSED GObject *source,
 	g_object_unref(data->stream);
 
 	gtkhash_hash_file_remove_report_source(data);
-	data->state =  HASH_FILE_STATE_FINISH;
+	data->state = HASH_FILE_STATE_FINISH;
 	gtkhash_hash_file_add_source(data);
 }
 
