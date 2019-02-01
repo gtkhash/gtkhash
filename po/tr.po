@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # Muha Aliss <muhaaliss@pm.me>, 2019.
+# Kemal Oktay Aktoğan <oktay454@disroot.org>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2018-11-20 22:07+0000\n"
-"PO-Revision-Date: 2019-01-28 04:05+0000\n"
-"Last-Translator: Muha Aliss <muhaaliss@pm.me>\n"
+"PO-Revision-Date: 2019-02-02 00:09+0000\n"
+"Last-Translator: Kemal Oktay Aktoğan <oktay454@disroot.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/tr/>\n"
 "Language: tr\n"
@@ -146,11 +147,8 @@ msgid "_Save"
 msgstr "_Kaydet"
 
 #: ../src/callbacks.c:286
-#, fuzzy
 msgid "A GTK+ utility for computing message digests or checksums."
-msgstr ""
-"Mesaj özeti veya sağlama toplamlarını hesaplamak için GTK+ bir yardımcı "
-"program."
+msgstr "İleti özeti ya da sağlama hesaplamaları için bir GTK yardımcı programı."
 
 #: ../src/callbacks.c:295
 #, fuzzy
@@ -163,7 +161,6 @@ msgstr "Dosyaları Seç"
 
 #. Add checkbutton
 #: ../src/callbacks.c:523 ../src/nautilus/properties.c:227
-#, fuzzy
 msgid "_Show HMAC Key"
 msgstr "HMAC Anahtarını _Göster"
 
