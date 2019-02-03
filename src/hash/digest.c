@@ -53,7 +53,7 @@ struct digest_s *gtkhash_digest_new(void)
 	return digest;
 }
 
-// Sets all stored digest representations using the given binary value
+// Sets the stored digest using the given binary value
 void gtkhash_digest_set_data(struct digest_s *digest, uint8_t *bin,
 	const size_t size)
 {
