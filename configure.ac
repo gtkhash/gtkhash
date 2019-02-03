@@ -329,6 +329,12 @@ if test "${enable_nautilus}" = "yes" ; then
 	AC_SUBST([NAUTILUS_LIBS])
 	NAUTILUS_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensiondir libnautilus-extension`
 	AC_SUBST([NAUTILUS_EXTENSION_DIR])
+
+	# nautilus-3.29.90+ moved to a different header file
+	ac_save_CPPFLAGS="${CPPFLAGS}"
+	CPPFLAGS="${CPPFLAGS} ${NAUTILUS_CFLAGS}"
+	AC_CHECK_HEADERS([nautilus-extension.h])
+	CPPFLAGS="${ac_save_CPPFLAGS}"
 fi
 # }}}
 

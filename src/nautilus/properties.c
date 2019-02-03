@@ -27,8 +27,12 @@
 #include <gtk/gtk.h>
 
 #if IN_NAUTILUS_EXTENSION
-	#include <libnautilus-extension/nautilus-property-page.h>
-	#include <libnautilus-extension/nautilus-property-page-provider.h>
+	#if HAVE_NAUTILUS_EXTENSION_H
+		#include <nautilus-extension.h>
+	#else
+		#include <libnautilus-extension/nautilus-property-page.h>
+		#include <libnautilus-extension/nautilus-property-page-provider.h>
+	#endif
 #elif IN_CAJA_EXTENSION
 	#include <libcaja-extension/caja-property-page.h>
 	#include <libcaja-extension/caja-property-page-provider.h>
