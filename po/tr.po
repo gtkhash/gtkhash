@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2018-11-20 22:07+0000\n"
-"PO-Revision-Date: 2019-02-02 00:09+0000\n"
+"PO-Revision-Date: 2019-02-07 07:09+0000\n"
 "Last-Translator: Kemal Oktay Aktoğan <oktay454@disroot.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/tr/>\n"
@@ -42,9 +42,8 @@ msgid "Uppercase Hexadecimal"
 msgstr "Büyük Harf Onaltılık"
 
 #: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
-#, fuzzy
 msgid "Copy _Digest"
-msgstr "Özet_Kopyala"
+msgstr "Özet _Kopyala"
 
 #: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
@@ -67,7 +66,6 @@ msgid "_Text"
 msgstr "_Metin"
 
 #: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:9
-#, fuzzy
 msgid "File _List"
 msgstr "Dosya _Listesi"
 
@@ -119,13 +117,11 @@ msgstr "Özetleri Kontrol Et"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
-#, fuzzy
 msgid "_Open"
 msgstr "_Aç"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
 #: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
-#, fuzzy
 msgid "_Cancel"
 msgstr "_İptal"
 
