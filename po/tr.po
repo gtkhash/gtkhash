@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-20 22:07+0000\n"
 "PO-Revision-Date: 2019-02-07 07:09+0000\n"
 "Last-Translator: Kemal Oktay Aktoğan <oktay454@disroot.org>\n"
@@ -144,7 +144,8 @@ msgstr "_Kaydet"
 
 #: ../src/callbacks.c:286
 msgid "A GTK+ utility for computing message digests or checksums."
-msgstr "İleti özeti ya da sağlama hesaplamaları için bir GTK yardımcı programı."
+msgstr ""
+"İleti özeti ya da sağlama hesaplamaları için bir GTK yardımcı programı."
 
 #: ../src/callbacks.c:295
 #, fuzzy
