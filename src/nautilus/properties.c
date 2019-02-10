@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2019 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -203,6 +203,20 @@ static void gtkhash_properties_on_entry_check_changed(struct page_s *page)
 	gtkhash_properties_list_check_digests(page);
 }
 
+static void gtkhash_properties_on_entry_check_icon_press(GtkEntry *entry,
+	GtkEntryIconPosition pos, GdkEventButton *event)
+{
+	if (pos != GTK_ENTRY_ICON_PRIMARY)
+		return;
+	if (event->type != GDK_BUTTON_PRESS)
+		return;
+	if (event->button != 1)
+		return;
+
+	gtk_entry_set_text(entry, "");
+	gtk_editable_paste_clipboard(GTK_EDITABLE(entry));
+}
+
 static void gtkhash_properties_on_entry_hmac_changed(struct page_s *page)
 {
 	gtkhash_properties_list_clear_digests(page);
@@ -355,6 +369,8 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 	// Check
 	g_signal_connect_swapped(page->entry_check, "changed",
 		G_CALLBACK(gtkhash_properties_on_entry_check_changed), page);
+	g_signal_connect(page->entry_check, "icon-press",
+		G_CALLBACK(gtkhash_properties_on_entry_check_icon_press), NULL);
 
 	// HMAC
 	g_signal_connect_swapped(page->togglebutton_hmac, "toggled",

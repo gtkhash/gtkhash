@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2017 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2019 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -479,6 +479,20 @@ static void on_button_hash_clicked(void)
 	gui_start_hash();
 }
 
+static void on_entry_check_icon_press(GtkEntry *entry,
+	GtkEntryIconPosition pos, GdkEventButton *event)
+{
+	if (pos != GTK_ENTRY_ICON_PRIMARY)
+		return;
+	if (event->type != GDK_BUTTON_PRESS)
+		return;
+	if (event->button != 1)
+		return;
+
+	gtk_entry_set_text(entry, "");
+	gtk_editable_paste_clipboard(GTK_EDITABLE(entry));
+}
+
 static void on_togglebutton_hmac_file_toggled(void)
 {
 	g_assert(gui.view == GUI_VIEW_FILE);
@@ -584,7 +598,9 @@ void callbacks_init(void)
 	CON(gui.entry_hmac_file,                "changed",             gui_clear_digests);
 	CON(gui.entry_hmac_text,                "changed",             hash_string);
 	CON(gui.entry_check_file,               "changed",             gui_check_digests);
+	CON(gui.entry_check_file,               "icon-press",          on_entry_check_icon_press);
 	CON(gui.entry_check_text,               "changed",             gui_check_digests);
+	CON(gui.entry_check_text,               "icon-press",          on_entry_check_icon_press);
 	CON(gui.toolbutton_add,                 "clicked",             on_toolbutton_add_clicked);
 	CON(gui.toolbutton_remove,              "clicked",             list_remove_selection);
 	CON(gui.toolbutton_clear,               "clicked",             list_clear);

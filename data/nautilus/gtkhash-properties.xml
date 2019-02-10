@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
 <interface domain="gtkhash">
   <requires lib="gtk+" version="2.24"/>
   <object class="GtkImage" id="image_copy">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="icon_name">edit-copy</property>
-    <property name="icon-size">1</property>
-  </object>
-  <object class="GtkImage" id="image_execute">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="icon_name">system-run</property>
-  </object>
-  <object class="GtkListStore" id="liststore">
-    <columns>
-      <!-- column-name id -->
-      <column type="gint"/>
-      <!-- column-name enabled -->
-      <column type="gboolean"/>
-      <!-- column-name hash_func -->
-      <column type="gchararray"/>
-      <!-- column-name digest -->
-      <column type="gchararray"/>
-    </columns>
+    <property name="icon_size">1</property>
   </object>
   <object class="GtkMenu" id="menu">
     <property name="visible">True</property>
@@ -53,6 +37,23 @@
         <property name="active">True</property>
       </object>
     </child>
+  </object>
+  <object class="GtkImage" id="image_execute">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">system-run</property>
+  </object>
+  <object class="GtkListStore" id="liststore">
+    <columns>
+      <!-- column-name id -->
+      <column type="gint"/>
+      <!-- column-name enabled -->
+      <column type="gboolean"/>
+      <!-- column-name hash_func -->
+      <column type="gchararray"/>
+      <!-- column-name digest -->
+      <column type="gchararray"/>
+    </columns>
   </object>
   <object class="GtkTreeModelFilter" id="treemodelfilter">
     <property name="child_model">liststore</property>
@@ -151,7 +152,10 @@
                   <object class="GtkEntry" id="entry_check">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="truncate_multiline">True</property>
+                    <property name="primary_icon_stock">gtk-paste</property>
                     <property name="secondary_icon_activatable">False</property>
+                    <property name="primary_icon_tooltip_text" translatable="yes">Paste digest from clipboard</property>
                   </object>
                   <packing>
                     <property name="expand">True</property>

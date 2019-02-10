@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.0 -->
+<!-- Generated with glade 3.22.1 -->
 <interface domain="gtkhash">
   <requires lib="gtk+" version="3.10"/>
   <object class="GtkListStore" id="dialog_liststore">
@@ -109,6 +109,9 @@
     <property name="title">GtkHash</property>
     <property name="default_width">330</property>
     <property name="icon_name">gtkhash</property>
+    <child>
+      <placeholder/>
+    </child>
     <child>
       <object class="GtkBox" id="vbox">
         <property name="visible">True</property>
@@ -489,7 +492,11 @@
                               <object class="GtkEntry" id="entry_check_file">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
+                                <property name="truncate_multiline">True</property>
+                                <property name="primary_icon_stock">gtk-paste</property>
                                 <property name="secondary_icon_activatable">False</property>
+                                <property name="primary_icon_tooltip_text" translatable="yes">Paste digest from clipboard</property>
+                                <property name="input_hints">GTK_INPUT_HINT_NO_SPELLCHECK | GTK_INPUT_HINT_NO_EMOJI | GTK_INPUT_HINT_NONE</property>
                                 <style>
                                   <class name="monospace"/>
                                 </style>
@@ -504,7 +511,11 @@
                               <object class="GtkEntry" id="entry_check_text">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
+                                <property name="truncate_multiline">True</property>
+                                <property name="primary_icon_stock">gtk-paste</property>
                                 <property name="secondary_icon_activatable">False</property>
+                                <property name="primary_icon_tooltip_text" translatable="yes">Paste digest from clipboard</property>
+                                <property name="input_hints">GTK_INPUT_HINT_NO_SPELLCHECK | GTK_INPUT_HINT_NO_EMOJI | GTK_INPUT_HINT_NONE</property>
                                 <style>
                                   <class name="monospace"/>
                                 </style>
@@ -898,6 +909,9 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="transient_for">window</property>
+    <child>
+      <placeholder/>
+    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog_box">
         <property name="visible">True</property>
