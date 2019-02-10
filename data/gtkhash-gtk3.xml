@@ -496,7 +496,6 @@
                                 <property name="primary_icon_stock">gtk-paste</property>
                                 <property name="secondary_icon_activatable">False</property>
                                 <property name="primary_icon_tooltip_text" translatable="yes">Paste digest from clipboard</property>
-                                <property name="input_hints">GTK_INPUT_HINT_NO_SPELLCHECK | GTK_INPUT_HINT_NO_EMOJI | GTK_INPUT_HINT_NONE</property>
                                 <style>
                                   <class name="monospace"/>
                                 </style>
@@ -515,7 +514,6 @@
                                 <property name="primary_icon_stock">gtk-paste</property>
                                 <property name="secondary_icon_activatable">False</property>
                                 <property name="primary_icon_tooltip_text" translatable="yes">Paste digest from clipboard</property>
-                                <property name="input_hints">GTK_INPUT_HINT_NO_SPELLCHECK | GTK_INPUT_HINT_NO_EMOJI | GTK_INPUT_HINT_NONE</property>
                                 <style>
                                   <class name="monospace"/>
                                 </style>
