@@ -2,13 +2,13 @@
 # Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
-# Tristan Heaven <tristan@tristanheaven.net>, 2018.
+# Tristan Heaven <tristan@tristanheaven.net>, 2018, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-02-10 15:53+0000\n"
-"PO-Revision-Date: 2018-08-19 15:13+0000\n"
+"PO-Revision-Date: 2019-02-13 22:03+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/en_GB/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 "X-Launchpad-Export-Date: 2012-12-11 04:50+0000\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:18
@@ -100,7 +100,7 @@ msgstr "Ha_sh"
 
 #: ../data/gtkhash-gtk3.xml.h:14 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "Paste digest from clipboard"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
