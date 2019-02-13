@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-20 22:07+0000\n"
+"POT-Creation-Date: 2019-02-10 15:53+0000\n"
 "PO-Revision-Date: 2018-08-21 11:14+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/gtkhash/"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.2-dev\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:17
+#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:18
 msgid "GtkHash Preferences"
 msgstr "GtkHash-præferencer"
 
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:18
+#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:19
 msgid "Hash Functions:"
 msgstr "Hash-funktioner:"
 
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:19
+#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:20
 msgid "Digest Format:"
 msgstr "Format for fingeraftryk:"
 
@@ -84,18 +84,22 @@ msgstr "Tekst:"
 msgid "Check:"
 msgstr "Tjek:"
 
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:14
-#: ../data/nautilus/gtkhash-properties.xml.h:6
+#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:15
+#: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "HMAC Key:"
 msgstr "HMAC-nøgle:"
 
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:15
+#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:16
 msgid "File"
 msgstr "Fil"
 
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:16
+#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:17
 msgid "Ha_sh"
 msgstr "Ha_sh"
+
+#: ../data/gtkhash-gtk3.xml.h:14 ../data/nautilus/gtkhash-properties.xml.h:6
+msgid "Paste digest from clipboard"
+msgstr ""
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
@@ -104,7 +108,7 @@ msgstr "Tjeksum-udregner"
 #: ../data/gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:614 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../src/nautilus/properties.c:634 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Udregn fingeraftryk eller tjeksummer"
 
@@ -151,7 +155,7 @@ msgid "Select Files"
 msgstr "Vælg filer"
 
 #. Add checkbutton
-#: ../src/callbacks.c:523 ../src/nautilus/properties.c:227
+#: ../src/callbacks.c:537 ../src/nautilus/properties.c:245
 msgid "_Show HMAC Key"
 msgstr "_Vis HMAC-nøgle"
 
@@ -249,9 +253,9 @@ msgstr "%s af %s - %s (%s/sek.)"
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
-#: ../src/nautilus/properties.c:483 ../src/nautilus/properties.c:486
-#: ../src/nautilus/properties.c:489 ../src/nautilus/properties.c:492
-#: ../src/nautilus/properties.c:494
+#: ../src/nautilus/properties.c:503 ../src/nautilus/properties.c:506
+#: ../src/nautilus/properties.c:509 ../src/nautilus/properties.c:512
+#: ../src/nautilus/properties.c:514
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
@@ -276,7 +280,7 @@ msgstr "Hash-funktion"
 msgid "Digest"
 msgstr "Fingeraftryk"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:7
+#: ../data/nautilus/gtkhash-properties.xml.h:8
 msgid "H_ash"
 msgstr "H_ash"
 
