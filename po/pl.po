@@ -2,13 +2,13 @@
 # Copyright © 2011, 2017 the gtkhash authors.
 # This file is distributed under the same license as the gtkhash package.
 # Łukasz Szeremeta <https://launchpad.net/~l-szeremeta>, 2011.
-# Piotr Drąg <piotrdrag@gmail.com>, 2017, 2018.
+# Piotr Drąg <piotrdrag@gmail.com>, 2017, 2018, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-02-10 15:53+0000\n"
-"PO-Revision-Date: 2018-08-19 17:48+0000\n"
+"PO-Revision-Date: 2019-02-13 21:55+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/pl/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:18
 msgid "GtkHash Preferences"
@@ -100,7 +100,7 @@ msgstr "_Oblicz"
 
 #: ../data/gtkhash-gtk3.xml.h:14 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "Wkleja skrót ze schowka"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
