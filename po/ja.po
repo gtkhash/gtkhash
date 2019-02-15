@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 # Kyotaro Iijima <kyotaro.eyes@gmail.com>, 2018.
-# YAMADA Shinichirou <yamada_strong_yamada_nice_64bit@yahoo.co.jp>, 2018.
+# YAMADA Shinichirou <yamada_strong_yamada_nice_64bit@yahoo.co.jp>, 2018, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-02-10 15:53+0000\n"
-"PO-Revision-Date: 2018-10-04 19:30+0000\n"
-"Last-Translator: YAMADA Shinichirou <yamada_strong_yamada_nice_64bit@yahoo."
-"co.jp>\n"
+"PO-Revision-Date: 2019-02-15 12:26+0000\n"
+"Last-Translator: YAMADA Shinichirou "
+"<yamada_strong_yamada_nice_64bit@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ja/>\n"
 "Language: ja\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:18
@@ -102,7 +102,7 @@ msgstr "ハッシュ(_S)"
 
 #: ../data/gtkhash-gtk3.xml.h:14 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "クリップボードからダイジェスト値を貼り付け"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
