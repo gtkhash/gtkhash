@@ -107,14 +107,15 @@ AC_ARG_ENABLE([blake2],
 	[enable_blake2="${enableval}"], [enable_blake2="yes"])
 AC_MSG_RESULT([${enable_blake2}])
 AM_CONDITIONAL([ENABLE_BLAKE2], [test "${enable_blake2}" = "yes"])
-AC_DEFINE([ENABLE_BLAKE2], [0], [Use libb2])
 
 if test "${enable_blake2}" = "yes" ; then
 	AC_CHECK_HEADER([blake2.h], [:], [AC_MSG_ERROR([blake2 header not found])])
 	AC_CHECK_LIB([b2], [blake2sp_init], [:], [AC_MSG_ERROR([blake2 library not found])])
 	BLAKE2_LIBS="-lb2"
 	AC_SUBST([BLAKE2_LIBS])
-	AC_DEFINE([ENABLE_BLAKE2], [1])
+	AC_DEFINE([ENABLE_BLAKE2], [1], [libb2])
+else
+	AC_DEFINE([ENABLE_BLAKE2], [0], [libb2])
 fi
 # }}}
 
@@ -125,7 +126,6 @@ AC_ARG_ENABLE([gcrypt],
 	[enable_gcrypt="${enableval}"], [enable_gcrypt="yes"])
 AC_MSG_RESULT([${enable_gcrypt}])
 AM_CONDITIONAL([ENABLE_GCRYPT], [test "${enable_gcrypt}" = "yes"])
-AC_DEFINE([ENABLE_GCRYPT], [0], [Use Libgcrypt])
 
 gcrypt_funcs=
 
@@ -134,7 +134,7 @@ AC_DEFINE_UNQUOTED([HASH_LIB_GCRYPT_MIN_VER], ["${HASH_LIB_GCRYPT_MIN_VER}"], [r
 
 if test "${enable_gcrypt}" = "yes" ; then
 	AM_PATH_LIBGCRYPT(["${HASH_LIB_GCRYPT_MIN_VER}"], [:], [AC_MSG_ERROR([Libgcrypt not found])])
-	AC_DEFINE([ENABLE_GCRYPT], [1])
+	AC_DEFINE([ENABLE_GCRYPT], [1], [Libgcrypt])
 
 	ac_save_CFLAGS="${CFLAGS}"
 	CFLAGS="${CFLAGS} ${LIBGCRYPT_CFLAGS} ${LIBGCRYPT_LIBS}"
@@ -147,6 +147,8 @@ if test "${enable_gcrypt}" = "yes" ; then
 		[#include <gcrypt.h>])
 
 	CFLAGS="${ac_save_CFLAGS}"
+else
+	AC_DEFINE([ENABLE_GCRYPT], [0], [Libgcrypt])
 fi
 # }}}
 
@@ -157,10 +159,11 @@ AC_ARG_ENABLE([glib-checksums],
 	[enable_glib_checksums="${enableval}"], [enable_glib_checksums="no"])
 AC_MSG_RESULT([${enable_glib_checksums}])
 AM_CONDITIONAL([ENABLE_GLIB_CHECKSUMS], [test "${enable_glib_checksums}" = "yes"])
-AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [0], [Use Glib Checksums])
 
 if test "${enable_glib_checksums}" = "yes" ; then
-	AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [1])
+	AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [1], [Glib Checksums])
+else
+	AC_DEFINE([ENABLE_GLIB_CHECKSUMS], [0], [Glib Checksums])
 fi
 # }}}
 
@@ -172,10 +175,11 @@ AC_ARG_ENABLE([internal-md6],
 	[enable_internal_md6="${enableval}"], [enable_internal_md6="yes"])
 AC_MSG_RESULT([${enable_internal_md6}])
 AM_CONDITIONAL([ENABLE_MD6], [test "${enable_internal_md6}" = "yes"])
-AC_DEFINE([ENABLE_MD6], [0], [Use MD6])
 
 if test "${enable_internal_md6}" = "yes" ; then
-	AC_DEFINE([ENABLE_MD6], [1])
+	AC_DEFINE([ENABLE_MD6], [1], [MD6])
+else
+	AC_DEFINE([ENABLE_MD6], [0], [MD6])
 fi
 # }}}
 
@@ -186,13 +190,14 @@ AC_ARG_ENABLE([libcrypto],
 	[enable_libcrypto="${enableval}"], [enable_libcrypto="no"])
 AC_MSG_RESULT([${enable_libcrypto}])
 AM_CONDITIONAL([ENABLE_LIBCRYPTO], [test "${enable_libcrypto}" = "yes"])
-AC_DEFINE([ENABLE_LIBCRYPTO], [0], [Use libcrypto])
 
 if test "${enable_libcrypto}" = "yes" ; then
 	PKG_CHECK_MODULES([LIBCRYPTO], [libcrypto >= 1.1])
 	AC_SUBST([LIBCRYPTO_CFLAGS])
 	AC_SUBST([LIBCRYPTO_LIBS])
-	AC_DEFINE([ENABLE_LIBCRYPTO], [1])
+	AC_DEFINE([ENABLE_LIBCRYPTO], [1], [libcrypto])
+else
+	AC_DEFINE([ENABLE_LIBCRYPTO], [0], [libcrypto])
 fi
 # }}}
 
@@ -203,29 +208,31 @@ AC_ARG_ENABLE([linux-crypto],
 	[enable_linux_crypto="${enableval}"], [enable_linux_crypto="no"])
 AC_MSG_RESULT([${enable_linux_crypto}])
 AM_CONDITIONAL([ENABLE_LINUX_CRYPTO], [test "${enable_linux_crypto}" = "yes"])
-AC_DEFINE([ENABLE_LINUX_CRYPTO], [0], [Use Linux Crypto])
 
 if test "${enable_linux_crypto}" = "yes" ; then
 	AC_CHECK_HEADER([linux/if_alg.h], [:], [AC_MSG_ERROR([linux/if_alg.h not found])])
-	AC_DEFINE([ENABLE_LINUX_CRYPTO], [1])
+	AC_DEFINE([ENABLE_LINUX_CRYPTO], [1], [Linux kernel AF_ALG])
+else
+	AC_DEFINE([ENABLE_LINUX_CRYPTO], [0], [Linux kernel AF_ALG])
 fi
 # }}}
 
 # mbedtls option {{{
-AC_MSG_CHECKING([whether to use mbed TLS])
+AC_MSG_CHECKING([whether to use Mbed TLS])
 AC_ARG_ENABLE([mbedtls],
-	[AS_HELP_STRING([--enable-mbedtls], [use mbed TLS])],
+	[AS_HELP_STRING([--enable-mbedtls], [use Mbed TLS])],
 	[enable_mbedtls="${enableval}"], [enable_mbedtls="no"])
 AC_MSG_RESULT([${enable_mbedtls}])
 AM_CONDITIONAL([ENABLE_MBEDTLS], [test "${enable_mbedtls}" = "yes"])
-AC_DEFINE([ENABLE_MBEDTLS], [0], [Use mbed TLS])
 
 if test "${enable_mbedtls}" = "yes" ; then
 	AC_CHECK_HEADER([mbedtls/md.h], [:], [AC_MSG_ERROR([mbedtls headers not found])])
 	AC_CHECK_LIB([mbedcrypto], [mbedtls_md_update], [:], [AC_MSG_ERROR([mbedtls library not found])])
 	MBEDTLS_LIBS="-lmbedcrypto"
 	AC_SUBST([MBEDTLS_LIBS])
-	AC_DEFINE([ENABLE_MBEDTLS], [1])
+	AC_DEFINE([ENABLE_MBEDTLS], [1], [Mbed TLS])
+else
+	AC_DEFINE([ENABLE_MBEDTLS], [0], [Mbed TLS])
 fi
 # }}}
 
@@ -236,14 +243,15 @@ AC_ARG_ENABLE([mhash],
 	[enable_mhash="${enableval}"], [enable_mhash="no"])
 AC_MSG_RESULT([${enable_mhash}])
 AM_CONDITIONAL([ENABLE_MHASH], [test "${enable_mhash}" = "yes"])
-AC_DEFINE([ENABLE_MHASH], [0], [Use mhash])
 
 if test "${enable_mhash}" = "yes" ; then
 	AC_CHECK_HEADER([mhash.h], [:], [AC_MSG_ERROR([mhash.h not found])])
 	AC_CHECK_LIB([mhash], [mhash], [:], [AC_MSG_ERROR([mhash library not found])])
 	MHASH_LIBS="-lmhash"
 	AC_SUBST([MHASH_LIBS])
-	AC_DEFINE([ENABLE_MHASH], [1])
+	AC_DEFINE([ENABLE_MHASH], [1], [mhash])
+else
+	AC_DEFINE([ENABLE_MHASH], [0], [mhash])
 fi
 # }}}
 
@@ -254,13 +262,14 @@ AC_ARG_ENABLE([nettle],
 	[enable_nettle="${enableval}"], [enable_nettle="no"])
 AC_MSG_RESULT([${enable_nettle}])
 AM_CONDITIONAL([ENABLE_NETTLE], [test "${enable_nettle}" = "yes"])
-AC_DEFINE([ENABLE_NETTLE], [0], [Use Nettle])
 
 if test "${enable_nettle}" = "yes" ; then
 	PKG_CHECK_MODULES([NETTLE], [nettle])
 	AC_SUBST([NETTLE_CFLAGS])
 	AC_SUBST([NETTLE_LIBS])
-	AC_DEFINE([ENABLE_NETTLE], [1])
+	AC_DEFINE([ENABLE_NETTLE], [1], [Nettle])
+else
+	AC_DEFINE([ENABLE_NETTLE], [0], [Nettle])
 fi
 # }}}
 
@@ -271,13 +280,14 @@ AC_ARG_ENABLE([zlib],
 	[enable_zlib="${enableval}"], [enable_zlib="yes"])
 AC_MSG_RESULT([${enable_zlib}])
 AM_CONDITIONAL([ENABLE_ZLIB], [test "${enable_zlib}" = "yes"])
-AC_DEFINE([ENABLE_ZLIB], [0], [Use zlib])
 
 if test "${enable_zlib}" = "yes" ; then
 	PKG_CHECK_MODULES([ZLIB], [zlib])
 	AC_SUBST([ZLIB_CFLAGS])
 	AC_SUBST([ZLIB_LIBS])
-	AC_DEFINE([ENABLE_ZLIB], [1])
+	AC_DEFINE([ENABLE_ZLIB], [1], [zlib])
+else
+	AC_DEFINE([ENABLE_ZLIB], [0], [zlib])
 fi
 # }}}
 
@@ -409,14 +419,15 @@ AM_CONDITIONAL([ENABLE_NAUTILUS_DATA], [
 # nls option {{{
 AM_CONDITIONAL([ENABLE_NLS], [test "${enable_nls}" != "no"])
 
-if test "${enable_nls}" = "no" ; then
-	AC_DEFINE([ENABLE_NLS], [0])
-else
+if test "${enable_nls}" != "no" ; then
+	AC_DEFINE([ENABLE_NLS], [1], [Native Language Support])
 	GETTEXT_PACKAGE="${PACKAGE}"
 	AC_SUBST([GETTEXT_PACKAGE])
 	AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["${GETTEXT_PACKAGE}"], [Define the gettext package])
 	IT_PROG_INTLTOOL([0.40.6])
 	AM_GLIB_GNU_GETTEXT
+else
+	AC_DEFINE([ENABLE_NLS], [0], [Native Language Support])
 fi
 # }}}
 
