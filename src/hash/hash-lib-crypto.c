@@ -51,50 +51,66 @@ struct hash_lib_crypto_s {
 static const EVP_MD *gtkhash_hash_lib_crypto_get_md(const enum hash_func_e id)
 {
 	switch (id) {
+
 #ifndef OPENSSL_NO_BLAKE2
-		case HASH_FUNC_BLAKE2B:
-			return EVP_blake2b512();
-		case HASH_FUNC_BLAKE2S:
-			return EVP_blake2s256();
+		case HASH_FUNC_BLAKE2B: return EVP_blake2b512();
+		case HASH_FUNC_BLAKE2S: return EVP_blake2s256();
+#else
+	#warning "BLAKE2 is disabled in OpenSSL"
 #endif
+
 #ifndef OPENSSL_NO_MD2
-		case HASH_FUNC_MD2:
-			return EVP_md2();
+		case HASH_FUNC_MD2: return EVP_md2();
+#else
+	#warning "MD2 is disabled in OpenSSL"
 #endif
+
 #ifndef OPENSSL_NO_MD4
-		case HASH_FUNC_MD4:
-			return EVP_md4();
+		case HASH_FUNC_MD4: return EVP_md4();
+#else
+	#warning "MD4 is disabled in OpenSSL"
 #endif
+
 #ifndef OPENSSL_NO_MD5
-		case HASH_FUNC_MD5:
-			return EVP_md5();
+		case HASH_FUNC_MD5: return EVP_md5();
+#else
+	#warning "MD5 is disabled in OpenSSL"
 #endif
+
 #ifndef OPENSSL_NO_MDC2
-		case HASH_FUNC_MDC2:
-			return EVP_mdc2();
+		case HASH_FUNC_MDC2: return EVP_mdc2();
+#else
+	#warning "MDC2 is disabled in OpenSSL"
 #endif
+
 #ifndef OPENSSL_NO_RMD160
-		case HASH_FUNC_RIPEMD160:
-			return EVP_ripemd160();
+		case HASH_FUNC_RIPEMD160: return EVP_ripemd160();
+#else
+	#warning "RIPEMD160 is disabled in OpenSSL"
 #endif
-		case HASH_FUNC_SHA1:
-			return EVP_sha1();
-		case HASH_FUNC_SHA224:
-			return EVP_sha224();
-		case HASH_FUNC_SHA256:
-			return EVP_sha256();
-		case HASH_FUNC_SHA384:
-			return EVP_sha384();
-		case HASH_FUNC_SHA512:
-			return EVP_sha512();
+
 #ifndef OPENSSL_NO_SM3
-		case HASH_FUNC_SM3:
-			return EVP_sm3();
+		case HASH_FUNC_SM3: return EVP_sm3();
+#else
+	#warning "SM3 is disabled in OpenSSL"
 #endif
+
 #ifndef OPENSSL_NO_WHIRLPOOL
-		case HASH_FUNC_WHIRLPOOL:
-			return EVP_whirlpool();
+		case HASH_FUNC_WHIRLPOOL: return EVP_whirlpool();
+#else
+	#warning "WHIRLPOOL is disabled in OpenSSL"
 #endif
+
+		case HASH_FUNC_SHA1:     return EVP_sha1();
+		case HASH_FUNC_SHA224:   return EVP_sha224();
+		case HASH_FUNC_SHA256:   return EVP_sha256();
+		case HASH_FUNC_SHA384:   return EVP_sha384();
+		case HASH_FUNC_SHA512:   return EVP_sha512();
+		case HASH_FUNC_SHA3_224: return EVP_sha3_224();
+		case HASH_FUNC_SHA3_256: return EVP_sha3_256();
+		case HASH_FUNC_SHA3_384: return EVP_sha3_384();
+		case HASH_FUNC_SHA3_512: return EVP_sha3_512();
+
 		default:
 			return NULL;
 	}
