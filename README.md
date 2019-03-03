@@ -14,7 +14,7 @@ tools such as md5sum.
 Some interesting features:
 * Support for verifying checksum files from sfv, sha256sum, etc.
 * Keyed hashing (HMAC)
-* Parallel/threaded hash calculation
+* Parallel/multi-threaded hash calculation
 * Remote file access using GIO/GVfs
 * File manager integration
 * Small and fast, written in C
@@ -27,19 +27,16 @@ Required Dependencies
 Optional Dependencies
 ---------------------
 * Libgcrypt (default)
-* Nettle
 * libb2 (default)
+* Nettle
 * OpenSSL
 * mbed TLS
 * mhash
-* Linux Kernel Crypto (`CONFIG_CRYPTO_USER_API_HASH=y`)
+* Linux Kernel Crypto (AF_ALG)
 
-GtkHash will attempt to select the best available implementation of each
-hash function based on its performance, but this can differ wildly between
-library versions and CPU architectures.
-
-See `./configure --help` for a full list of options. Dependencies are not
-detected implicitly or "automagically".
+GtkHash attempts to select the fastest available hash function
+implementations at startup. See `./configure --help` for a full list of
+options. Build dependencies are not detected implicitly or "automagically".
 
 File Manager Extensions
 -----------------------
