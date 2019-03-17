@@ -1,16 +1,16 @@
 # Turkish translation for gtkhash
 # Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
 # This file is distributed under the same license as the gtkhash package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # Muha Aliss <muhaaliss@pm.me>, 2019.
 # Kemal Oktay Aktoğan <oktay454@disroot.org>, 2019.
+# Serdar Sağlam <teknomobil@yandex.com>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: gtkhash\n"
+"Project-Id-Version: Turkish (GtkHash)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 15:53+0000\n"
-"PO-Revision-Date: 2019-02-07 07:09+0000\n"
-"Last-Translator: Kemal Oktay Aktoğan <oktay454@disroot.org>\n"
+"POT-Creation-Date: 2019-03-17 01:41+0200\n"
+"PO-Revision-Date: 2019-03-17 03:48+0300\n"
+"Last-Translator: Serdar Sağlam <teknomobil@yandex.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/tr/>\n"
 "Language: tr\n"
@@ -18,157 +18,155 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
-"X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
+"X-Generator: Poedit 2.2.1\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:18
+#: ../data/gtkhash-gtk2.xml.h:1, ../data/gtkhash-gtk3.xml.h:18
 msgid "GtkHash Preferences"
 msgstr "GtkHash Tercihleri"
 
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:19
+#: ../data/gtkhash-gtk2.xml.h:2, ../data/gtkhash-gtk3.xml.h:19
 msgid "Hash Functions:"
-msgstr "Hash Fonksiyonları:"
+msgstr "Hash İşlevleri:"
 
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:20
+#: ../data/gtkhash-gtk2.xml.h:3, ../data/gtkhash-gtk3.xml.h:20
 msgid "Digest Format:"
-msgstr "Özet Şekli:"
+msgstr "Özet Biçimi:"
 
-#: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
+#: ../data/gtkhash-gtk2.xml.h:4, ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
 msgstr "Küçük Harf Onaltılık"
 
-#: ../data/gtkhash-gtk2.xml.h:5 ../data/gtkhash-gtk3.xml.h:2
+#: ../data/gtkhash-gtk2.xml.h:5, ../data/gtkhash-gtk3.xml.h:2
 msgid "Uppercase Hexadecimal"
 msgstr "Büyük Harf Onaltılık"
 
-#: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
+#: ../data/gtkhash-gtk2.xml.h:6, ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
-msgstr "Özet _Kopyala"
+msgstr "_Özeti Kopyala"
 
-#: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
+#: ../data/gtkhash-gtk2.xml.h:7, ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
-msgstr "_Toolbar'ı göster"
+msgstr "_Araç Çubuğunu Göster"
 
-#: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:5
+#: ../data/gtkhash-gtk2.xml.h:8, ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
 msgstr "_Dosya"
 
-#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:6
+#: ../data/gtkhash-gtk2.xml.h:9, ../data/gtkhash-gtk3.xml.h:6
 msgid "_Edit"
 msgstr "_Düzenle"
 
-#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:7
+#: ../data/gtkhash-gtk2.xml.h:10, ../data/gtkhash-gtk3.xml.h:7
 msgid "_View"
 msgstr "_Görünüm"
 
-#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:8
+#: ../data/gtkhash-gtk2.xml.h:11, ../data/gtkhash-gtk3.xml.h:8
 msgid "_Text"
 msgstr "_Metin"
 
-#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:9
+#: ../data/gtkhash-gtk2.xml.h:12, ../data/gtkhash-gtk3.xml.h:9
 msgid "File _List"
 msgstr "Dosya _Listesi"
 
-#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:10
+#: ../data/gtkhash-gtk2.xml.h:13, ../data/gtkhash-gtk3.xml.h:10
 msgid "_Help"
 msgstr "_Yardım"
 
-#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:11
+#: ../data/gtkhash-gtk2.xml.h:14, ../data/gtkhash-gtk3.xml.h:11
 msgid "File:"
 msgstr "Dosya:"
 
-#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:12
+#: ../data/gtkhash-gtk2.xml.h:15, ../data/gtkhash-gtk3.xml.h:12
 msgid "Text:"
 msgstr "Metin:"
 
-#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:13
+#: ../data/gtkhash-gtk2.xml.h:16, ../data/gtkhash-gtk3.xml.h:13,
 #: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
 msgstr "Kontrol:"
 
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:15
+#: ../data/gtkhash-gtk2.xml.h:17, ../data/gtkhash-gtk3.xml.h:15,
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "HMAC Key:"
 msgstr "HMAC Anahtarı:"
 
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:16
+#: ../data/gtkhash-gtk2.xml.h:18, ../data/gtkhash-gtk3.xml.h:16
 msgid "File"
 msgstr "Dosya"
 
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:17
-#, fuzzy
+#: ../data/gtkhash-gtk2.xml.h:19, ../data/gtkhash-gtk3.xml.h:17
 msgid "Ha_sh"
 msgstr "Ha_sh"
 
-#: ../data/gtkhash-gtk3.xml.h:14 ../data/nautilus/gtkhash-properties.xml.h:6
+#: ../data/gtkhash-gtk3.xml.h:14, ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "Panodaki özeti yapıştır"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
-msgstr "Sağlama hesaplayıcı"
+msgstr "Sağlama Hesaplayıcı"
 
-#: ../data/gtkhash.desktop.in.h:2
-#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
-#: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:634 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../data/gtkhash.desktop.in.h:2,
+#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2,
+#: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2,
+#: ../src/nautilus/properties.c:634, ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Mesaj özetlerini veya sağlama toplamlarını hesapla"
 
-#: ../src/callbacks.c:51 ../src/callbacks.c:55
+#: ../src/callbacks.c:51, ../src/callbacks.c:55
 msgid "Check Digests"
 msgstr "Özetleri Kontrol Et"
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
+#: ../src/callbacks.c:52, ../src/callbacks.c:58, ../src/callbacks.c:322,
 #: ../src/callbacks.c:328
 msgid "_Open"
 msgstr "_Aç"
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
+#: ../src/callbacks.c:52, ../src/callbacks.c:57, ../src/callbacks.c:121,
+#: ../src/callbacks.c:126, ../src/callbacks.c:322, ../src/callbacks.c:327
 msgid "_Cancel"
 msgstr "_İptal"
 
 #: ../src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
-msgstr "Özet/Sağlama dosyaları (*.sha1, *.md5, *.sfv, ...)"
+msgstr "Özet/Sağlama Dosyaları (*.sha1, *.md5, *.sfv, ...)"
 
 #: ../src/callbacks.c:78
 msgid "All Files"
-msgstr "Tüm dosyalar"
+msgstr "Tüm Dosyalar"
 
-#: ../src/callbacks.c:120 ../src/callbacks.c:124
+#: ../src/callbacks.c:120, ../src/callbacks.c:124
 msgid "Save Digests"
 msgstr "Özeti Kaydet"
 
-#: ../src/callbacks.c:121 ../src/callbacks.c:127
-#, fuzzy
+#: ../src/callbacks.c:121, ../src/callbacks.c:127
 msgid "_Save"
 msgstr "_Kaydet"
 
 #: ../src/callbacks.c:286
 msgid "A GTK+ utility for computing message digests or checksums."
-msgstr ""
-"İleti özeti ya da sağlama hesaplamaları için bir GTK yardımcı programı."
+msgstr "İleti özeti ya da sağlama hesaplamak için GTK yardımcı aracı."
 
 #: ../src/callbacks.c:295
-#, fuzzy
 msgid "translator-credits"
-msgstr "translator-credits"
+msgstr ""
+"Muha Aliss <muhaaliss@pm.me>\n"
+"Kemal Oktay Aktoğan <oktay454@disroot.org>\n"
+"Serdar Sağlam <teknomobil@yandex.com>"
 
-#: ../src/callbacks.c:321 ../src/callbacks.c:325
+#: ../src/callbacks.c:321, ../src/callbacks.c:325
 msgid "Select Files"
 msgstr "Dosyaları Seç"
 
 #. Add checkbutton
-#: ../src/callbacks.c:537 ../src/nautilus/properties.c:245
+#: ../src/callbacks.c:537, ../src/nautilus/properties.c:245
 msgid "_Show HMAC Key"
 msgstr "HMAC Anahtarını _Göster"
 
 #: ../src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
+msgstr "Kontrol dosyasını okumadı \"%s\": %s"
 
 #: ../src/gui.c:373
 msgid "Not a regular file"
@@ -177,12 +175,12 @@ msgstr "Normal bir dosya değil"
 #: ../src/gui.c:396
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
+msgstr "Dosya eklenemedi \"%s\": %s"
 
-#: ../src/hash.c:183 ../src/prefs.c:109
-#, fuzzy, c-format
+#: ../src/hash.c:183, ../src/prefs.c:109
+#, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "\"%s\" bilinmeyen hash fonksiyon adı"
+msgstr "Bilinmeyen Hash İşlevi adı \"%s\""
 
 #: ../src/main.c:97
 msgctxt " --help"
@@ -212,12 +210,12 @@ msgstr "Belirtilen Hash İşlevini etkinleştirin (örneğin, MD5)"
 #: ../src/main.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr "FONKSİYON"
+msgstr "İŞLEV"
 
 #: ../src/main.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr ""
+msgstr "Belirtilen metni hash'la"
 
 #: ../src/main.c:115
 msgctxt " --help"
@@ -236,7 +234,7 @@ msgstr "[DOSYA|URI...]"
 
 #: ../src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
-msgstr "Desteklenen herhangi bir hash fonksiyonu etkinleştirilemedi."
+msgstr "Desteklenen hiçbir bir hash işlevi etkinleştirilemedi."
 
 #: ../src/util/util.c:35
 #, c-format
@@ -257,39 +255,36 @@ msgstr[1] "%u saniye daha kaldı"
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s için %s - %s (%s/san)"
 
-#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
-#: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
-#: ../src/nautilus/properties.c:503 ../src/nautilus/properties.c:506
-#: ../src/nautilus/properties.c:509 ../src/nautilus/properties.c:512
-#: ../src/nautilus/properties.c:514
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
+#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1,
+#: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1,
+#: ../src/nautilus/properties.c:503, ../src/nautilus/properties.c:506,
+#: ../src/nautilus/properties.c:509, ../src/nautilus/properties.c:512,
+#: ../src/nautilus/properties.c:514,
+#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1,
+#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1,
+#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1,
+#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1,
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
 msgstr "Özet"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
-#, fuzzy
 msgid "_Copy Digest"
 msgstr "Özeti _Kopyala"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
-#, fuzzy
 msgid "Show _Disabled Hash Functions"
-msgstr "_Devre Dışı Bırakılmış İşlevleri Göster"
+msgstr "_Devre Dışı Bırakılmış Hash İşlevini Göster"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
-msgstr "Hash Fonksiyonu"
+msgstr "Hash İşlevi"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
 msgstr "Özet"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:8
-#, fuzzy
 msgid "H_ash"
 msgstr "H_ash"
 
@@ -305,12 +300,12 @@ msgstr ""
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr "Desteklenen hash fonksiyonları MD5, SHA1, SHA256, SHA512 ve CRC32."
+msgstr "Desteklenen hash işlevleri MD5, SHA1, SHA256, SHA512 ve CRC32."
 
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:2
+#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2,
+#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2,
+#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2,
+#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:2,
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
-msgstr ""
+msgstr "Dosya özelliklerine ileti özetleri veya sağlama toplamları ekler"
