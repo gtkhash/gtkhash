@@ -48,11 +48,11 @@ static void on_menuitem_open_activate(void)
 {
 #if GTK_CHECK_VERSION(3,20,0)
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(gtk_file_chooser_native_new(
-		_("Check Digests"), gui.window, GTK_FILE_CHOOSER_ACTION_OPEN,
+		_("Open Digest File"), gui.window, GTK_FILE_CHOOSER_ACTION_OPEN,
 		_("_Open"), _("_Cancel")));
 #else
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
-		gtk_file_chooser_dialog_new(_("Check Digests"), gui.window,
+		gtk_file_chooser_dialog_new(_("Open Digest File"), gui.window,
 			GTK_FILE_CHOOSER_ACTION_OPEN,
 			_("_Cancel"), GTK_RESPONSE_CANCEL,
 			_("_Open"), GTK_RESPONSE_ACCEPT,
@@ -117,11 +117,11 @@ static void on_menuitem_save_as_activate(void)
 {
 #if GTK_CHECK_VERSION(3,20,0)
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(gtk_file_chooser_native_new(
-		_("Save Digests"), gui.window, GTK_FILE_CHOOSER_ACTION_SAVE,
+		_("Save Digest File"), gui.window, GTK_FILE_CHOOSER_ACTION_SAVE,
 		_("_Save"), _("_Cancel")));
 #else
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
-		gtk_file_chooser_dialog_new(_("Save Digests"), gui.window,
+		gtk_file_chooser_dialog_new(_("Save Digest File"), gui.window,
 			GTK_FILE_CHOOSER_ACTION_SAVE,
 			_("_Cancel"), GTK_RESPONSE_CANCEL,
 			_("_Save"), GTK_RESPONSE_ACCEPT,

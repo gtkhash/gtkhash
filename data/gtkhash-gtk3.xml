@@ -104,6 +104,18 @@
     <property name="can_focus">False</property>
     <property name="icon_name">system-run</property>
   </object>
+  <object class="GtkImage" id="image_open">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">document-open</property>
+    <property name="icon_size">1</property>
+  </object>
+  <object class="GtkImage" id="image_save_as">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">document-save-as</property>
+    <property name="icon_size">1</property>
+  </object>
   <object class="GtkWindow" id="window">
     <property name="can_focus">False</property>
     <property name="title">GtkHash</property>
@@ -133,22 +145,24 @@
                     <property name="can_focus">False</property>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_open">
-                        <property name="label">gtk-open</property>
+                        <property name="label" translatable="yes" context="menu">_Open Digest File...</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image_open</property>
+                        <property name="use_stock">False</property>
                         <property name="always_show_image">True</property>
                       </object>
                     </child>
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_save_as">
-                        <property name="label">gtk-save-as</property>
+                        <property name="label" translatable="yes" context="menu">_Save Digest File...</property>
                         <property name="visible">True</property>
                         <property name="sensitive">False</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
+                        <property name="image">image_save_as</property>
+                        <property name="use_stock">False</property>
                         <property name="always_show_image">True</property>
                       </object>
                     </child>
