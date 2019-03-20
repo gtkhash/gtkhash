@@ -8,9 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-03-18 00:10+0000\n"
-"PO-Revision-Date: 2019-03-17 02:03+0000\n"
+"PO-Revision-Date: 2019-03-20 16:03+0000\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/tr/>\n"
@@ -103,14 +103,12 @@ msgstr "Ha_sh"
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
 msgid "_Open Digest File..."
-msgstr ""
+msgstr "Özet Dosyasını _Aç..."
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
-#| msgid "Save Digests"
 msgctxt "menu"
 msgid "_Save Digest File..."
-msgstr "Özeti Kaydet"
+msgstr "Özet Dosyasını _Kaydet..."
 
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
@@ -129,7 +127,7 @@ msgstr "Mesaj özetlerini veya sağlama toplamlarını hesapla"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "Özet Dosyasını Aç"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
@@ -150,10 +148,8 @@ msgid "All Files"
 msgstr "Tüm Dosyalar"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-#, fuzzy
-#| msgid "Save Digests"
 msgid "Save Digest File"
-msgstr "Özeti Kaydet"
+msgstr "Özet Dosyasını Kaydet"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
