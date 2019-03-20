@@ -120,7 +120,7 @@ static void read_opts_preinit(int *argc, char ***argv)
 		},
 		{
 			G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY, &opts.files,
-			NULL, C_(PACKAGE " --help", "[FILE|URI...]")
+			NULL, C_(PACKAGE " --help", "[FILE|URI…]")
 		},
 		{ NULL, 0, 0, 0, NULL, NULL, NULL }
 	};
