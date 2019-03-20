@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 15:53+0000\n"
+"POT-Creation-Date: 2019-03-18 00:10+0000\n"
 "PO-Revision-Date: 2016-01-28 18:00+0000\n"
 "Last-Translator: ttv20 <ttv200@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
@@ -18,15 +18,15 @@ msgstr ""
 "X-Launchpad-Export-Date: 2016-01-29 05:16+0000\n"
 "X-Generator: Launchpad (build 17902)\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:18
+#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
 msgid "GtkHash Preferences"
 msgstr "GtkHash העדפות"
 
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:19
+#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:21
 msgid "Hash Functions:"
 msgstr "פונקציית גיבוב"
 
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:20
+#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:22
 msgid "Digest Format:"
 msgstr ""
 
@@ -50,53 +50,63 @@ msgstr ""
 msgid "_File"
 msgstr ""
 
-#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:6
+#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
 msgstr ""
 
-#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:7
+#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:9
 msgid "_View"
 msgstr ""
 
-#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:8
+#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:10
 msgid "_Text"
 msgstr ""
 
-#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:9
+#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:11
 msgid "File _List"
 msgstr ""
 
-#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:10
+#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:12
 msgid "_Help"
 msgstr ""
 
-#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:11
+#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:13
 msgid "File:"
 msgstr ""
 
-#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:12
+#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:14
 msgid "Text:"
 msgstr ""
 
-#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:13
+#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:15
 #: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
 msgstr ""
 
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:15
+#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:17
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "HMAC Key:"
 msgstr ""
 
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:16
+#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:18
 msgid "File"
 msgstr ""
 
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:17
+#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:19
 msgid "Ha_sh"
 msgstr ""
 
-#: ../data/gtkhash-gtk3.xml.h:14 ../data/nautilus/gtkhash-properties.xml.h:6
+#: ../data/gtkhash-gtk3.xml.h:6
+msgctxt "menu"
+msgid "_Open Digest File..."
+msgstr ""
+
+#: ../data/gtkhash-gtk3.xml.h:7
+msgctxt "menu"
+msgid "_Save Digest File..."
+msgstr ""
+
+#: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
 msgstr ""
 
@@ -112,7 +122,7 @@ msgid "Calculate message digests or checksums"
 msgstr ""
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
-msgid "Check Digests"
+msgid "Open Digest File"
 msgstr ""
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
@@ -134,7 +144,7 @@ msgid "All Files"
 msgstr ""
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-msgid "Save Digests"
+msgid "Save Digest File"
 msgstr ""
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127

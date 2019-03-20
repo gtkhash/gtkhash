@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 15:53+0000\n"
+"POT-Creation-Date: 2019-03-18 00:10+0000\n"
 "PO-Revision-Date: 2019-02-15 12:26+0000\n"
 "Last-Translator: YAMADA Shinichirou <yamada_strong_yamada_nice_64bit@yahoo."
 "co.jp>\n"
@@ -22,15 +22,15 @@ msgstr ""
 "X-Generator: Weblate 3.5-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:18
+#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
 msgid "GtkHash Preferences"
 msgstr "GtkHash の設定"
 
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:19
+#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:21
 msgid "Hash Functions:"
 msgstr "ハッシュ関数:"
 
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:20
+#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:22
 msgid "Digest Format:"
 msgstr "ダイジェスト形式:"
 
@@ -54,53 +54,65 @@ msgstr "ツールバーの表示(_T)"
 msgid "_File"
 msgstr "ファイル(_F)"
 
-#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:6
+#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
 msgstr "編集(_E)"
 
-#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:7
+#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:9
 msgid "_View"
 msgstr "表示(_V)"
 
-#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:8
+#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:10
 msgid "_Text"
 msgstr "テキスト(_T)"
 
-#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:9
+#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:11
 msgid "File _List"
 msgstr "ファイルリスト(_L)"
 
-#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:10
+#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:12
 msgid "_Help"
 msgstr "ヘルプ(_H)"
 
-#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:11
+#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:13
 msgid "File:"
 msgstr "ファイル:"
 
-#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:12
+#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:14
 msgid "Text:"
 msgstr "テキスト:"
 
-#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:13
+#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:15
 #: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
 msgstr "チェック:"
 
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:15
+#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:17
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "HMAC Key:"
 msgstr "HMAC キー:"
 
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:16
+#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:18
 msgid "File"
 msgstr "ファイル"
 
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:17
+#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:19
 msgid "Ha_sh"
 msgstr "ハッシュ(_S)"
 
-#: ../data/gtkhash-gtk3.xml.h:14 ../data/nautilus/gtkhash-properties.xml.h:6
+#: ../data/gtkhash-gtk3.xml.h:6
+msgctxt "menu"
+msgid "_Open Digest File..."
+msgstr ""
+
+#: ../data/gtkhash-gtk3.xml.h:7
+#, fuzzy
+#| msgid "Save Digests"
+msgctxt "menu"
+msgid "_Save Digest File..."
+msgstr "ダイジェスト値の保存"
+
+#: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
 msgstr "クリップボードからダイジェスト値を貼り付け"
 
@@ -116,8 +128,8 @@ msgid "Calculate message digests or checksums"
 msgstr "メッセージダイジェストやチェックサムの計算"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
-msgid "Check Digests"
-msgstr "ダイジェスト値の確認"
+msgid "Open Digest File"
+msgstr ""
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
@@ -138,7 +150,9 @@ msgid "All Files"
 msgstr "すべてのファイル"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-msgid "Save Digests"
+#, fuzzy
+#| msgid "Save Digests"
+msgid "Save Digest File"
 msgstr "ダイジェスト値の保存"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
@@ -310,6 +324,9 @@ msgstr "対応するハッシュ関数は、MD5、SHA1、SHA256、SHA512、CRC32
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr "ファイルのプロパティに対するメッセージダイジェストやチェックサムの追加"
+
+#~ msgid "Check Digests"
+#~ msgstr "ダイジェスト値の確認"
 
 #~ msgid "Unknown error"
 #~ msgstr "不明なエラー"

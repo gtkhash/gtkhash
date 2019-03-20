@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2019-02-10 15:53+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-18 00:10+0000\n"
 "PO-Revision-Date: 2019-03-17 16:03+0000\n"
 "Last-Translator: nautilusx <mail.ka@mailbox.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtkhash/"
@@ -22,15 +22,15 @@ msgstr ""
 "X-Generator: Weblate 3.6-dev\n"
 "X-Launchpad-Export-Date: 2012-12-04 05:56+0000\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:18
+#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
 msgid "GtkHash Preferences"
 msgstr "GtkHash-Einstellungen"
 
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:19
+#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:21
 msgid "Hash Functions:"
 msgstr "Hash-Funktionen:"
 
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:20
+#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:22
 msgid "Digest Format:"
 msgstr "Digest-Format:"
 
@@ -54,53 +54,65 @@ msgstr "_Werkzeugleiste anzeigen"
 msgid "_File"
 msgstr "_Datei"
 
-#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:6
+#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
 msgstr "_Bearbeiten"
 
-#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:7
+#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:9
 msgid "_View"
 msgstr "_Ansicht"
 
-#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:8
+#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:10
 msgid "_Text"
 msgstr "_Text"
 
-#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:9
+#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:11
 msgid "File _List"
 msgstr "Dateiliste"
 
-#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:10
+#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:12
 msgid "_Help"
 msgstr "_Hilfe"
 
-#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:11
+#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:13
 msgid "File:"
 msgstr "Datei:"
 
-#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:12
+#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:14
 msgid "Text:"
 msgstr "Text:"
 
-#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:13
+#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:15
 #: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
 msgstr "Prüfung:"
 
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:15
+#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:17
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "HMAC Key:"
 msgstr "HMAC Schlüssel:"
 
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:16
+#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:18
 msgid "File"
 msgstr "Datei"
 
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:17
+#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:19
 msgid "Ha_sh"
 msgstr "Ha_sh"
 
-#: ../data/gtkhash-gtk3.xml.h:14 ../data/nautilus/gtkhash-properties.xml.h:6
+#: ../data/gtkhash-gtk3.xml.h:6
+msgctxt "menu"
+msgid "_Open Digest File..."
+msgstr ""
+
+#: ../data/gtkhash-gtk3.xml.h:7
+#, fuzzy
+#| msgid "Save Digests"
+msgctxt "menu"
+msgid "_Save Digest File..."
+msgstr "Digests speichern"
+
+#: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
 msgstr "Digest aus der Zwischenablage einfügen"
 
@@ -116,8 +128,8 @@ msgid "Calculate message digests or checksums"
 msgstr "Berechnet Message Digest oder Prüfsummen"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
-msgid "Check Digests"
-msgstr "Digests prüfen"
+msgid "Open Digest File"
+msgstr ""
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
@@ -138,7 +150,9 @@ msgid "All Files"
 msgstr "Alle Dateien"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-msgid "Save Digests"
+#, fuzzy
+#| msgid "Save Digests"
+msgid "Save Digest File"
 msgstr "Digests speichern"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
@@ -318,6 +332,9 @@ msgstr ""
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
 "Hinzufügen von Nachrichten-Digests oder Prüfsummen zu Dateieigenschaften"
+
+#~ msgid "Check Digests"
+#~ msgstr "Digests prüfen"
 
 #~ msgid "Unknown error"
 #~ msgstr "Unbekannter Fehler"

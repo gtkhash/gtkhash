@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 15:53+0000\n"
+"POT-Creation-Date: 2019-03-18 00:10+0000\n"
 "PO-Revision-Date: 2019-02-20 23:18+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/gtkhash/"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.5-dev\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:18
+#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
 msgid "GtkHash Preferences"
 msgstr "GtkHash-præferencer"
 
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:19
+#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:21
 msgid "Hash Functions:"
 msgstr "Hash-funktioner:"
 
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:20
+#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:22
 msgid "Digest Format:"
 msgstr "Format for fingeraftryk:"
 
@@ -51,53 +51,65 @@ msgstr "Vis _værktøjslinje"
 msgid "_File"
 msgstr "_Fil"
 
-#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:6
+#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
 msgstr "_Rediger"
 
-#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:7
+#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:9
 msgid "_View"
 msgstr "_Vis"
 
-#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:8
+#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:10
 msgid "_Text"
 msgstr "_Tekst"
 
-#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:9
+#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:11
 msgid "File _List"
 msgstr "Fil_liste"
 
-#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:10
+#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:12
 msgid "_Help"
 msgstr "_Hjælp"
 
-#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:11
+#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:13
 msgid "File:"
 msgstr "Fil:"
 
-#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:12
+#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:14
 msgid "Text:"
 msgstr "Tekst:"
 
-#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:13
+#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:15
 #: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
 msgstr "Tjek:"
 
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:15
+#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:17
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "HMAC Key:"
 msgstr "HMAC-nøgle:"
 
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:16
+#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:18
 msgid "File"
 msgstr "Fil"
 
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:17
+#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:19
 msgid "Ha_sh"
 msgstr "Ha_sh"
 
-#: ../data/gtkhash-gtk3.xml.h:14 ../data/nautilus/gtkhash-properties.xml.h:6
+#: ../data/gtkhash-gtk3.xml.h:6
+msgctxt "menu"
+msgid "_Open Digest File..."
+msgstr ""
+
+#: ../data/gtkhash-gtk3.xml.h:7
+#, fuzzy
+#| msgid "Save Digests"
+msgctxt "menu"
+msgid "_Save Digest File..."
+msgstr "Gem fingeraftryk"
+
+#: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
 msgstr "Indsæt fingeraftryk fra udklipsholder"
 
@@ -113,8 +125,8 @@ msgid "Calculate message digests or checksums"
 msgstr "Udregn fingeraftryk eller tjeksummer"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
-msgid "Check Digests"
-msgstr "Tjek fingeraftryk"
+msgid "Open Digest File"
+msgstr ""
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
@@ -135,7 +147,9 @@ msgid "All Files"
 msgstr "Alle filer"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-msgid "Save Digests"
+#, fuzzy
+#| msgid "Save Digests"
+msgid "Save Digest File"
 msgstr "Gem fingeraftryk"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
@@ -306,6 +320,9 @@ msgstr ""
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr "Tilføjer fingeraftryk eller tjeksummer til filegenskaber"
+
+#~ msgid "Check Digests"
+#~ msgstr "Tjek fingeraftryk"
 
 #~ msgid "Unknown error"
 #~ msgstr "Ukendt fejl"

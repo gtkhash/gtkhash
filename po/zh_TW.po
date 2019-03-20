@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 15:53+0000\n"
+"POT-Creation-Date: 2019-03-18 00:10+0000\n"
 "PO-Revision-Date: 2017-12-03 11:45+0000\n"
 "Last-Translator: Vdragon, Ｖ字龍 <Vdragon.Taiwan@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -20,15 +20,15 @@ msgstr ""
 "X-Generator: Weblate 2.18-dev\n"
 "X-Launchpad-Export-Date: 2013-04-26 05:41+0000\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:18
+#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
 msgid "GtkHash Preferences"
 msgstr "GtkHash 偏好設定"
 
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:19
+#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:21
 msgid "Hash Functions:"
 msgstr "雜湊函式："
 
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:20
+#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:22
 msgid "Digest Format:"
 msgstr "訊息摘要(message digest)格式："
 
@@ -52,54 +52,66 @@ msgstr "顯示工具列(_T)"
 msgid "_File"
 msgstr "檔案(_F)"
 
-#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:6
+#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
 msgstr "編輯(_E)"
 
-#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:7
+#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:9
 msgid "_View"
 msgstr "檢視(_V)"
 
-#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:8
+#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:10
 msgid "_Text"
 msgstr "純文字(_T)"
 
-#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:9
+#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:11
 msgid "File _List"
 msgstr "檔案清單"
 
-#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:10
+#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:12
 msgid "_Help"
 msgstr "尋求幫助(_H)"
 
-#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:11
+#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:13
 msgid "File:"
 msgstr "檔案："
 
-#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:12
+#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:14
 msgid "Text:"
 msgstr "純文字:"
 
-#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:13
+#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:15
 #: ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
 msgstr "比對："
 
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:15
+#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:17
 #: ../data/nautilus/gtkhash-properties.xml.h:7
 #, fuzzy
 msgid "HMAC Key:"
 msgstr "HMAC 鍵："
 
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:16
+#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:18
 msgid "File"
 msgstr "檔案"
 
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:17
+#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:19
 msgid "Ha_sh"
 msgstr "開始計算(_S)"
 
-#: ../data/gtkhash-gtk3.xml.h:14 ../data/nautilus/gtkhash-properties.xml.h:6
+#: ../data/gtkhash-gtk3.xml.h:6
+msgctxt "menu"
+msgid "_Open Digest File..."
+msgstr ""
+
+#: ../data/gtkhash-gtk3.xml.h:7
+#, fuzzy
+#| msgid "Save Digests"
+msgctxt "menu"
+msgid "_Save Digest File..."
+msgstr "保存訊息摘要"
+
+#: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
 msgstr ""
 
@@ -115,9 +127,8 @@ msgid "Calculate message digests or checksums"
 msgstr "計算訊息摘要或資料校驗值"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
-#, fuzzy
-msgid "Check Digests"
-msgstr "保存訊息摘要"
+msgid "Open Digest File"
+msgstr ""
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
@@ -139,7 +150,9 @@ msgid "All Files"
 msgstr "選擇檔案"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-msgid "Save Digests"
+#, fuzzy
+#| msgid "Save Digests"
+msgid "Save Digest File"
 msgstr "保存訊息摘要"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
@@ -319,6 +332,10 @@ msgstr ""
 #, fuzzy
 msgid "Adds message digests or checksums to file properties"
 msgstr "一個基於 GTK+ 用於計算訊息摘要與校驗值的工具"
+
+#, fuzzy
+#~ msgid "Check Digests"
+#~ msgstr "保存訊息摘要"
 
 #~ msgid "Unknown error"
 #~ msgstr "發生未知的錯誤"
