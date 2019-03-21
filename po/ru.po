@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-03-18 00:10+0000\n"
-"PO-Revision-Date: 2019-03-09 17:03+0000\n"
+"PO-Revision-Date: 2019-03-21 16:03+0000\n"
 "Last-Translator: Igor <f2404@yandex.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ru/>\n"
@@ -16,9 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.5.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.6-dev\n"
 "X-Launchpad-Export-Date: 2016-03-16 05:31+0000\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
@@ -102,14 +102,12 @@ msgstr "_Хэш"
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
 msgid "_Open Digest File..."
-msgstr ""
+msgstr "_Открыть файл дайджеста..."
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
-#| msgid "Save Digests"
 msgctxt "menu"
 msgid "_Save Digest File..."
-msgstr "Сохранить дайджесты"
+msgstr "_Сохранить файл дайджеста..."
 
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
@@ -128,7 +126,7 @@ msgstr "Вычисление дайджестов или контрольных 
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "Открыть файл дайджеста"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
@@ -149,10 +147,8 @@ msgid "All Files"
 msgstr "Все файлы"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-#, fuzzy
-#| msgid "Save Digests"
 msgid "Save Digest File"
-msgstr "Сохранить дайджесты"
+msgstr "Сохранить файл дайджеста"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
