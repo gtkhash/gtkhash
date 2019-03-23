@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-03-18 00:10+0000\n"
-"PO-Revision-Date: 2019-02-22 11:17+0000\n"
+"PO-Revision-Date: 2019-03-23 10:38+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtkhash/"
 "translations/nl/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.6-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
@@ -101,14 +101,12 @@ msgstr "Ha_sh"
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
 msgid "_Open Digest File..."
-msgstr ""
+msgstr "Digest-bestand _openen…"
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
-#| msgid "Save Digests"
 msgctxt "menu"
 msgid "_Save Digest File..."
-msgstr "Digests opslaan"
+msgstr "Digest-bestand op_slaan…"
 
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
@@ -127,7 +125,7 @@ msgstr "Berichtdigests of controlesommen berekenen"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "Digest-bestand openen"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
@@ -148,10 +146,8 @@ msgid "All Files"
 msgstr "Alle bestanden"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-#, fuzzy
-#| msgid "Save Digests"
 msgid "Save Digest File"
-msgstr "Digests opslaan"
+msgstr "Digest-bestand opslaan"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
