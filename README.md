@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/tristanheaven/gtkhash.svg?branch=master)](https://travis-ci.com/tristanheaven/gtkhash)
+[![Pipeline status](https://gitlab.com/tristanheaven/gtkhash/badges/master/pipeline.svg)](https://gitlab.com/tristanheaven/gtkhash/commits/master)
 [![Translation Status](https://hosted.weblate.org/widgets/gtkhash/-/svg-badge.svg)](https://hosted.weblate.org/projects/gtkhash/)
 
 GtkHash
