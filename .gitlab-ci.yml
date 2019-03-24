@@ -1,6 +1,7 @@
 image: ubuntu:18.10
 
 before_script:
+  - export DEBIAN_FRONTEND=noninteractive
   - apt-get -y update
   - apt-get -y install
       intltool
