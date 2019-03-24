@@ -42,8 +42,9 @@ gtkhash:
       )
     - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
     - make -j$(nproc) VERBOSE=1 DESTDIR=$(mktemp -d) distcheck
+    - sha256sum *.tar.gz > "$(echo *.tar.gz)".sha256
+    - sha256sum *.tar.xz > "$(echo *.tar.xz)".sha256
 
   artifacts:
     paths:
-      - gtkhash-*.tar.gz
-      - gtkhash-*.tar.xz
+      - gtkhash-*.tar.*
