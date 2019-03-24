@@ -21,11 +21,6 @@
 	#include "config.h"
 #endif
 
-#include <stdlib.h>
-#include <stdbool.h>
-#include <gio/gio.h>
-#include <gtk/gtk.h>
-
 #if IN_NAUTILUS_EXTENSION
 	#if HAVE_NAUTILUS_EXTENSION_H
 		#include <nautilus-extension.h>
@@ -44,8 +39,14 @@
 	#include <libpeony-extension/peony-property-page.h>
 	#include <libpeony-extension/peony-property-page-provider.h>
 #elif IN_THUNAR_EXTENSION
+	#undef GTK_DISABLE_DEPRECATED // thunarx-3 doesn't build with this
 	#include <thunarx/thunarx.h>
 #endif
+
+#include <stdlib.h>
+#include <stdbool.h>
+#include <gio/gio.h>
+#include <gtk/gtk.h>
 
 #include "properties.h"
 #include "properties-list.h"
