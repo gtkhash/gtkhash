@@ -1,8 +1,8 @@
 image: ubuntu:18.10
 
 before_script:
-  - apt update
-  - apt -y install
+  - apt-get -y update
+  - apt-get -y install
       intltool
       libglib2.0-dev
       libgtk-3-dev
@@ -14,10 +14,12 @@ before_script:
       linux-libc-dev
       librsvg2-bin
       at-spi2-core
+      xvfb
       libnautilus-extension-dev
       libnemo-extension-dev
       libcaja-extension-dev
       libthunarx-3-dev
+      libpeony-extension-dev
 
 gtkhash:
   script:
@@ -35,6 +37,7 @@ gtkhash:
         --enable-nemo
         --enable-caja
         --enable-thunar
+        --enable-peony
         --disable-dependency-tracking
       )
     - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
