@@ -11,8 +11,10 @@ before_script:
       libb2-dev
       libmbedtls-dev
       libmhash-dev
+      libssl-dev
       linux-libc-dev
       librsvg2-bin
+      libxml2-utils
       at-spi2-core
       xvfb
       libnautilus-extension-dev
@@ -32,6 +34,7 @@ gtkhash:
         --enable-mbedtls
         --enable-mhash
         --enable-nettle
+        --enable-libcrypto
         --enable-linux-crypto
         --enable-nautilus
         --enable-nemo
