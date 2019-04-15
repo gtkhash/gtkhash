@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # emma peel <emma.peel@riseup.net>, 2018.
+# Toni Estévez <toni.estevez@gmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-03-18 00:10+0000\n"
-"PO-Revision-Date: 2018-10-29 13:23+0000\n"
-"Last-Translator: emma peel <emma.peel@riseup.net>\n"
+"PO-Revision-Date: 2019-04-15 17:04+0000\n"
+"Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/es/>\n"
 "Language: es\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.6-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
@@ -101,33 +102,31 @@ msgstr "_Calcular"
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
 msgid "_Open Digest File..."
-msgstr ""
+msgstr "_Abrir un archivo de resúmenes..."
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
-#| msgid "Save Digests"
 msgctxt "menu"
 msgid "_Save Digest File..."
-msgstr "Guardar los resúmenes"
+msgstr "_Guardar los resúmenes en un archivo..."
 
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "Pegar el resumen del portapapeles"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
-msgstr "Calculadora de la suma de verificación"
+msgstr "Calculadora de la suma de comprobación"
 
 #: ../data/gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
 #: ../src/nautilus/properties.c:634 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
-msgstr "Calcular resúmenes de mensajes o sumas de verificación"
+msgstr "Calcular resúmenes de mensajes o sumas de comprobación"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "Abrir un archivo de resúmenes"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
 #: ../src/callbacks.c:328
@@ -141,18 +140,15 @@ msgstr "_Cancelar"
 
 #: ../src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
-msgstr "Archivos Digest/Checksum (*.sha1, *.md5, *.sfv, ....)"
+msgstr "Archivos de resumen/comprobación (*.sha1, *.md5, *.sfv...)"
 
 #: ../src/callbacks.c:78
-#, fuzzy
 msgid "All Files"
 msgstr "Todos los archivos"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-#, fuzzy
-#| msgid "Save Digests"
 msgid "Save Digest File"
-msgstr "Guardar los resúmenes"
+msgstr "Guardar los resúmenes en un archivo"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
@@ -162,11 +158,11 @@ msgstr "_Guardar"
 msgid "A GTK+ utility for computing message digests or checksums."
 msgstr ""
 "Una herramienta GTK+ para calcular resúmenes de mensajes o sumas de "
-"verificación."
+"comprobación."
 
 #: ../src/callbacks.c:295
 msgid "translator-credits"
-msgstr "Toni Estevez toni.estevez@gmail.com"
+msgstr "Toni Estevez <toni.estevez@gmail.com>"
 
 #: ../src/callbacks.c:321 ../src/callbacks.c:325
 msgid "Select Files"
@@ -178,29 +174,28 @@ msgid "_Show HMAC Key"
 msgstr "_Mostrar la clave HMAC"
 
 #: ../src/check.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr "Error al leer el archivo de comprobación \"%s\": %s"
+msgstr "Se ha producido un error al leer el archivo de comprobación «%s»: %s"
 
 #: ../src/gui.c:373
 msgid "Not a regular file"
 msgstr "No es un archivo válido"
 
 #: ../src/gui.c:396
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr "No se ha podido añadir el archivo \"%s\": %s"
+msgstr "No se ha podido añadir el archivo «%s»: %s"
 
 #: ../src/hash.c:183 ../src/prefs.c:109
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "Nombre de función hash desconocida \"% s\""
+msgstr "Nombre de función resumen desconocido «%s»"
 
 #: ../src/main.c:97
-#, fuzzy
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Comparación con el resumen o la suma de comprobación especificados"
+msgstr "Comparar con el resumen o la suma de comprobación especificados"
 
 #: ../src/main.c:98
 msgctxt " --help"
@@ -210,7 +205,8 @@ msgstr "RESUMEN"
 #: ../src/main.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "Añade resúmenes o sumas de verificación a las propiedades de archivo"
+msgstr ""
+"Comprobar  los resúmenes o las sumas de comprobación del archivo especificado"
 
 #: ../src/main.c:104
 msgctxt " --help"
@@ -220,7 +216,7 @@ msgstr "ARCHIVO|URI"
 #: ../src/main.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr "Habilitar la función Hash especificada (p. ej. MD5)"
+msgstr "Activar la función resumen especificada (p. ej. MD5)"
 
 #: ../src/main.c:110
 msgctxt " --help"
@@ -230,7 +226,7 @@ msgstr "FUNCIÓN"
 #: ../src/main.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr "Calcular el hash del texto especificado"
+msgstr "Calcular el resumen del texto especificado"
 
 #: ../src/main.c:115
 msgctxt " --help"
@@ -249,21 +245,21 @@ msgstr "[ARCHIVO|URI...]"
 
 #: ../src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
-msgstr "Se ha producido un error al activar las funciones resumen compatibles"
+msgstr "Se ha producido un error al activar las funciones resumen compatibles."
 
 #: ../src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] "queda %u minuto"
-msgstr[1] "quedan %u minutos"
+msgstr[0] "falta %u minuto"
+msgstr[1] "faltan %u minutos"
 
 #: ../src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] "queda %u segundo"
-msgstr[1] "quedan %u segundos"
+msgstr[0] "falta %u segundo"
+msgstr[1] "faltan %u segundos"
 
 #: ../src/util/util.c:58
 #, c-format
@@ -309,10 +305,9 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
-"GtkHash es una aplicación para el cálculo de sumas de verificación de "
-"archivos o resúmenes de mensajes. Se ha diseñado para ser una herramienta "
-"fácil de utilizar, una alternativa gráfica para programas de línea de "
-"comandos como md5sum."
+"GtkHash es una aplicación para calcular sumas de comprobación de archivos o "
+"resúmenes de mensajes. Se ha diseñado para ser una alternativa gráfica fácil "
+"de usar para programas de línea de comandos como md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
@@ -326,7 +321,7 @@ msgstr ""
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
-"Añade resúmenes de mensaje o sumas de verificación a las propiedades de "
+"Añade resúmenes de mensajes o sumas de comprobación a las propiedades de un "
 "archivo."
 
 #, fuzzy
