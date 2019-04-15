@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-18 00:10+0000\n"
 "PO-Revision-Date: 2019-03-20 02:03+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
