@@ -4,7 +4,7 @@ pkgname=${MINGW_PACKAGE_PREFIX}-${_realname}
 pkgver=git
 pkgrel=1
 arch=( any )
-pkgdesc="GTK+ utility for computing message digests or checksums (mingw-w64)"
+pkgdesc="Desktop utility for computing message digests or checksums (mingw-w64)"
 depends=(
 	${MINGW_PACKAGE_PREFIX}-gsettings-desktop-schemas
 	${MINGW_PACKAGE_PREFIX}-gtk3

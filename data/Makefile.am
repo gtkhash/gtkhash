@@ -26,7 +26,6 @@ gsettings_SCHEMAS = org.gtkhash.gschema.xml
 EXTRA_DIST = \
 	$(applications_DATA).in \
 	$(gsettings_SCHEMAS) \
-	gtkhash-gtk2.xml gtkhash-gtk2.gresource.xml \
 	gtkhash-gtk3.xml gtkhash-gtk3.gresource.xml
 
 CLEANFILES = $(applications_DATA)

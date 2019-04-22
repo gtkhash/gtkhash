@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface domain="gtkhash">
-  <requires lib="gtk+" version="2.24"/>
+  <requires lib="gtk+" version="3.18"/>
   <object class="GtkImage" id="image_copy">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -58,9 +58,10 @@
   <object class="GtkTreeModelFilter" id="treemodelfilter">
     <property name="child_model">liststore</property>
   </object>
-  <object class="GtkVBox" id="vbox">
+  <object class="GtkBox" id="vbox">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="orientation">vertical</property>
     <child>
       <object class="GtkScrolledWindow" id="scrolledwindow">
         <property name="visible">True</property>
@@ -128,11 +129,11 @@
         <property name="left_padding">8</property>
         <property name="right_padding">8</property>
         <child>
-          <object class="GtkHBox" id="hbox_inputs">
+          <object class="GtkBox" id="hbox_inputs">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkHBox" id="hbox_check">
+              <object class="GtkBox" id="hbox_check">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="spacing">6</property>
@@ -171,7 +172,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkHBox" id="hbox_hmac">
+              <object class="GtkBox" id="hbox_hmac">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>
@@ -218,7 +219,7 @@
       </packing>
     </child>
     <child>
-      <object class="GtkHBox" id="hbox_buttons">
+      <object class="GtkBox" id="hbox_buttons">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
@@ -243,7 +244,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHButtonBox" id="hbuttonbox">
+          <object class="GtkButtonBox" id="hbuttonbox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="border_width">8</property>
@@ -257,6 +258,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
+                <property name="always_show_image">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -272,6 +274,7 @@
                 <property name="receives_default">True</property>
                 <property name="image">image_execute</property>
                 <property name="use_underline">True</property>
+                <property name="always_show_image">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>

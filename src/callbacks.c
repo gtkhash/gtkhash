@@ -63,7 +63,7 @@ static void on_menuitem_open_activate(void)
 	gtk_file_chooser_set_local_only(chooser, false);
 
 #ifndef G_OS_WIN32
-	/* Note: Adding filters causes GTK+ to fallback to GtkFileChooserDialog.
+	/* Note: Adding filters causes GTK to fallback to GtkFileChooserDialog.
 	   On Windows, having a native file chooser is definitely preferable. */
 
 	GtkFileFilter *filter = NULL;
@@ -253,24 +253,9 @@ static void on_radiomenuitem_toggled(void)
 
 static void on_menuitem_about_activate(void)
 {
-#if (GTK_MAJOR_VERSION < 3)
-	static const char * const license = {
-		"This program is free software: you can redistribute it and/or modify\n"
-		"it under the terms of the GNU General Public License as published by\n"
-		"the Free Software Foundation, either version 2 of the License, or\n"
-		"(at your option) any later version.\n\n"
-		"This program is distributed in the hope that it will be useful,\n"
-		"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
-		"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n"
-		"GNU General Public License for more details.\n\n"
-		"You should have received a copy of the GNU General Public License along\n"
-		"with this program; if not, see <https://gnu.org/licenses/gpl-2.0.txt>.\n"
-	};
-#endif
-
 	static const char * const artists[] = {
-		"Icon derived from GTK+ Logo "
-		"https://wiki.gnome.org/Projects/GTK%2B/Logo",
+		"Icon derived from GTK Logo "
+		"https://wiki.gnome.org/Projects/GTK/Logo",
 		NULL
 	};
 
@@ -283,12 +268,8 @@ static void on_menuitem_about_activate(void)
 			gui.window,
 			"artists", artists,
 			"authors", authors,
-			"comments", _("A GTK+ utility for computing message digests or checksums."),
-#if (GTK_MAJOR_VERSION > 2)
+			"comments", _("A desktop utility for computing message digests or checksums"),
 			"license-type", GTK_LICENSE_GPL_2_0,
-#else
-			"license", license,
-#endif
 			"logo-icon-name", PACKAGE,
 			"program-name", PACKAGE_NAME,
 #if ENABLE_NLS
@@ -413,12 +394,7 @@ static void on_treeview_popup_menu(void)
 static bool on_treeview_button_press_event(G_GNUC_UNUSED GtkWidget *widget,
 	GdkEventButton *event)
 {
-#if (GTK_MAJOR_VERSION > 2)
-	if (gdk_event_triggers_context_menu((GdkEvent *)event))
-#else
-	if ((event->type == GDK_BUTTON_PRESS) && (event->button == 3))
-#endif
-	{
+	if (gdk_event_triggers_context_menu((GdkEvent *)event)) {
 		show_menu_treeview(event);
 		// Stop processing the event now so the selection won't be changed
 		return true;

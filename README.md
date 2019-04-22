@@ -22,8 +22,8 @@ Some interesting features:
 
 Required Dependencies
 -------------
-* GTK+ 3 or 2
-* GLib
+* GTK 3.18
+* GLib 2.48
 
 Optional Dependencies
 ---------------------

@@ -156,11 +156,7 @@ static void gtkhash_properties_on_treeview_popup_menu(struct page_s *page)
 static bool gtkhash_properties_on_treeview_button_press_event(
 	struct page_s *page, GdkEventButton *event)
 {
-#if (GTK_MAJOR_VERSION > 2)
 	if (gdk_event_triggers_context_menu((GdkEvent *)event))
-#else
-	if ((event->type == GDK_BUTTON_PRESS) && (event->button == 3))
-#endif
 #if GTK_CHECK_VERSION(3,22,0)
 		gtk_menu_popup_at_pointer(page->menu, (GdkEvent *)event);
 #else
@@ -339,10 +335,6 @@ static void gtkhash_properties_init_objects(struct page_s *page,
 		"button_hash"));
 	page->button_stop = GTK_BUTTON(gtkhash_properties_get_object(builder,
 		"button_stop"));
-#if (GTK_MAJOR_VERSION > 2)
-	gtk_button_set_always_show_image(page->button_hash, true);
-	gtk_button_set_always_show_image(page->button_stop, true);
-#endif
 }
 
 static void gtkhash_properties_connect_signals(struct page_s *page)
@@ -388,43 +380,9 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 		G_CALLBACK(gtkhash_properties_on_button_stop_clicked), page);
 }
 
-static GtkBuilder *gtkhash_properties_init_builder(void)
-{
-#if (GTK_MAJOR_VERSION > 2)
-	return gtk_builder_new_from_resource(PROPERTIES_XML_RESOURCE);
-#else
-	GError *error = NULL;
-	GBytes *bytes = g_resources_lookup_data(PROPERTIES_XML_RESOURCE,
-		G_RESOURCE_LOOKUP_FLAGS_NONE, &error);
-
-	if (G_UNLIKELY(error)) {
-		g_warning("%s", error->message);
-		g_error_free(error);
-		return NULL;
-	}
-
-	gsize xml_len = 0;
-	char *xml = g_bytes_unref_to_data(bytes, &xml_len);
-	GtkBuilder *builder = gtk_builder_new();
-
-	gtk_builder_add_from_string(builder, xml, xml_len, &error);
-	g_free(xml);
-
-	if (G_UNLIKELY(error)) {
-		g_warning("%s", error->message);
-		g_error_free(error);
-		g_object_unref(builder);
-
-		return NULL;
-	}
-
-	return builder;
-#endif
-}
-
 static struct page_s *gtkhash_properties_new_page(char *uri)
 {
-	GtkBuilder *builder = gtkhash_properties_init_builder();
+	GtkBuilder *builder = gtk_builder_new_from_resource(PROPERTIES_XML_RESOURCE);
 	if (!builder)
 		return NULL;
 

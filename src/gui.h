@@ -23,15 +23,6 @@
 #include <stdbool.h>
 #include <gtk/gtk.h>
 
-#ifndef GTK_HBOX // Gtk+ 3
-	#define GtkHBox GtkBox
-	#define GTK_HBOX GTK_BOX
-	#define GtkVBox GtkBox
-	#define GTK_VBOX GTK_BOX
-	#define GtkHSeparator GtkSeparator
-	#define GTK_HSEPARATOR GTK_SEPARATOR
-#endif
-
 #include "hash.h"
 #include "uri-digest.h"
 #include "hash/hash-func.h"
@@ -62,9 +53,9 @@ extern struct gui_s {
 	GtkRadioMenuItem *radiomenuitem_file, *radiomenuitem_text, *radiomenuitem_file_list;
 	GtkToolbar *toolbar;
 	GtkToolButton *toolbutton_add, *toolbutton_remove, *toolbutton_clear;
-	GtkVBox *vbox_single, *vbox_list;
-	GtkHBox *hbox_input, *hbox_output;
-	GtkVBox *vbox_outputlabels, *vbox_digests_file, *vbox_digests_text;
+	GtkBox *vbox_single, *vbox_list;
+	GtkBox *hbox_input, *hbox_output;
+	GtkBox *vbox_outputlabels, *vbox_digests_file, *vbox_digests_text;
 	GtkEntry *entry_text, *entry_check_file, *entry_check_text;
 	GtkEntry *entry_hmac_file, *entry_hmac_text;
 	GtkFileChooserButton *filechooserbutton;
@@ -80,15 +71,11 @@ extern struct gui_s {
 	GtkMenu *menu_treeview_copy;
 	GtkMenuItem *menuitem_treeview_copy;
 	GtkMenuItem *menuitem_treeview_show_toolbar;
-	GtkHSeparator *hseparator_buttons;
+	GtkSeparator *hseparator_buttons;
 	GtkProgressBar *progressbar;
 	GtkButton *button_hash, *button_stop;
 	GtkDialog *dialog;
-#if (GTK_MAJOR_VERSION > 2)
 	GtkGrid *dialog_grid;
-#else
-	GtkTable *dialog_table;
-#endif
 	GtkComboBox *dialog_combobox;
 	GtkButton *dialog_button_close;
 	enum gui_view_e view;

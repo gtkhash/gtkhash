@@ -52,16 +52,9 @@ LOG_COMPILER = xvfb-run -s "-screen 0 800x600x24"
 
 CLEANFILES = resources.c resources.h
 
-if WITH_GTK2
-resources.c resources.h: \
-	../data/gtkhash-gtk2.gresource.xml \
-	../data/gtkhash-gtk2.xml
-endif
-if WITH_GTK3
 resources.c resources.h: \
 	../data/gtkhash-gtk3.gresource.xml \
 	../data/gtkhash-gtk3.xml
-endif
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) \
 		--c-name resources \
 		--internal \

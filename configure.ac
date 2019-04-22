@@ -52,11 +52,11 @@ AC_SUBST([GTKHASH_CFLAGS])
 PKG_PROG_PKG_CONFIG
 
 # check for glib/gio {{{
-PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.36])
+PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.48])
 AC_SUBST([GLIB_CFLAGS])
 AC_SUBST([GLIB_LIBS])
 
-PKG_CHECK_MODULES([GIO], [gio-2.0 >= 2.36])
+PKG_CHECK_MODULES([GIO], [gio-2.0 >= 2.48])
 AC_SUBST([GIO_CFLAGS])
 AC_SUBST([GIO_LIBS])
 
@@ -68,19 +68,16 @@ AC_SUBST([GLIB_COMPILE_RESOURCES])
 GLIB_GSETTINGS
 # }}}
 
-# check for gtk+ {{{
-AC_MSG_CHECKING([which GTK+ version to use])
+# check for gtk {{{
+AC_MSG_CHECKING([which GTK version to use])
 AC_ARG_WITH([gtk],
-	[AS_HELP_STRING([--with-gtk=2.0|3.0], [GTK+ version to use [default=3.0]])],
+	[AS_HELP_STRING([--with-gtk=3.0], [GTK version to use [default=3.0]])],
 	[with_gtk="${withval}"], [with_gtk="3.0"])
 AC_MSG_RESULT([${with_gtk}])
 
-PKG_CHECK_MODULES([GTK], ["gtk+-${with_gtk}" >= 2.24])
+PKG_CHECK_MODULES([GTK], ["gtk+-${with_gtk}" >= 3.18])
 AC_SUBST([GTK_CFLAGS])
 AC_SUBST([GTK_LIBS])
-
-AM_CONDITIONAL([WITH_GTK2], [test "${with_gtk}" = "2.0"])
-AM_CONDITIONAL([WITH_GTK3], [test "${with_gtk}" = "3.0"])
 # }}}
 
 # debug option {{{
@@ -93,7 +90,7 @@ AC_MSG_RESULT([${enable_debug}])
 if test "${enable_debug}" = "yes" ; then
 	AC_DEFINE([G_DISABLE_DEPRECATED], [1], [disable glib deprecated])
 	AC_DEFINE([GDK_DISABLE_DEPRECATED], [1], [disable gdk deprecated])
-	AC_DEFINE([GTK_DISABLE_DEPRECATED], [1], [disable gtk+ deprecated])
+	AC_DEFINE([GTK_DISABLE_DEPRECATED], [1], [disable gtk deprecated])
 else
 	AC_DEFINE([G_DISABLE_ASSERT], [1], [disable glib assert])
 	AC_DEFINE([G_DISABLE_CAST_CHECKS], [1], [disable glib cast checks])
