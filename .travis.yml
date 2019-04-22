@@ -22,8 +22,6 @@ addons:
       - at-spi2-core
       - libnautilus-extension-dev
       - libnemo-extension-dev
-      - libcaja-extension-dev
-      - libthunarx-2-dev
 
 env:
   - WITH_GTK=3.0
@@ -42,8 +40,6 @@ script:
       --enable-linux-crypto
       --enable-nautilus
       --enable-nemo
-      --enable-caja
-      --enable-thunar --with-thunarx=2
       --disable-dependency-tracking
       )
   - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
