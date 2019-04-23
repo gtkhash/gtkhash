@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-18 00:10+0000\n"
+"POT-Creation-Date: 2019-04-22 14:03+0100\n"
 "PO-Revision-Date: 2012-07-13 20:27+0000\n"
 "Last-Translator: Zbyněk Schwarz <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -18,83 +18,25 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-07-14 06:30+0000\n"
 "X-Generator: Launchpad (build 15614)\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
-msgid "GtkHash Preferences"
-msgstr "Možnosti GtkHash"
-
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:21
-msgid "Hash Functions:"
-msgstr "Hashovací funkce"
-
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:22
-msgid "Digest Format:"
-msgstr "Formát Digest:"
-
-#: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
+#: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
 msgstr "Hexadecimální malými písmeny"
 
-#: ../data/gtkhash-gtk2.xml.h:5 ../data/gtkhash-gtk3.xml.h:2
+#: ../data/gtkhash-gtk3.xml.h:2
 msgid "Uppercase Hexadecimal"
 msgstr "Hexadecimální velkými písmeny"
 
-#: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
+#: ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
 msgstr "Kopírovat _Digest"
 
-#: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
+#: ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
 msgstr "Zobrazi_t lištu nástrojů"
 
-#: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:5
+#: ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
 msgstr "_Soubor"
-
-#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:8
-msgid "_Edit"
-msgstr "Ú_pravy"
-
-#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:9
-msgid "_View"
-msgstr "_Zobrazit"
-
-#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:10
-msgid "_Text"
-msgstr "_Text"
-
-#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:11
-msgid "File _List"
-msgstr "Sezna_m souborů"
-
-#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:12
-msgid "_Help"
-msgstr "_Nápověda"
-
-#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:13
-msgid "File:"
-msgstr "Soubor:"
-
-#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:14
-msgid "Text:"
-msgstr "Text:"
-
-#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:15
-#: ../data/nautilus/gtkhash-properties.xml.h:5
-msgid "Check:"
-msgstr "Kontrola:"
-
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:17
-#: ../data/nautilus/gtkhash-properties.xml.h:7
-msgid "HMAC Key:"
-msgstr ""
-
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:18
-msgid "File"
-msgstr "Soubor"
-
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:19
-msgid "Ha_sh"
-msgstr "Ha_sh"
 
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
@@ -108,9 +50,65 @@ msgctxt "menu"
 msgid "_Save Digest File..."
 msgstr "Uložit Digest"
 
+#: ../data/gtkhash-gtk3.xml.h:8
+msgid "_Edit"
+msgstr "Ú_pravy"
+
+#: ../data/gtkhash-gtk3.xml.h:9
+msgid "_View"
+msgstr "_Zobrazit"
+
+#: ../data/gtkhash-gtk3.xml.h:10
+msgid "_Text"
+msgstr "_Text"
+
+#: ../data/gtkhash-gtk3.xml.h:11
+msgid "File _List"
+msgstr "Sezna_m souborů"
+
+#: ../data/gtkhash-gtk3.xml.h:12
+msgid "_Help"
+msgstr "_Nápověda"
+
+#: ../data/gtkhash-gtk3.xml.h:13
+msgid "File:"
+msgstr "Soubor:"
+
+#: ../data/gtkhash-gtk3.xml.h:14
+msgid "Text:"
+msgstr "Text:"
+
+#: ../data/gtkhash-gtk3.xml.h:15 ../data/nautilus/gtkhash-properties.xml.h:5
+msgid "Check:"
+msgstr "Kontrola:"
+
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
 msgstr ""
+
+#: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
+msgid "HMAC Key:"
+msgstr ""
+
+#: ../data/gtkhash-gtk3.xml.h:18
+msgid "File"
+msgstr "Soubor"
+
+#: ../data/gtkhash-gtk3.xml.h:19
+msgid "Ha_sh"
+msgstr "Ha_sh"
+
+#: ../data/gtkhash-gtk3.xml.h:20
+msgid "GtkHash Preferences"
+msgstr "Možnosti GtkHash"
+
+#: ../data/gtkhash-gtk3.xml.h:21
+msgid "Hash Functions:"
+msgstr "Hashovací funkce"
+
+#: ../data/gtkhash-gtk3.xml.h:22
+msgid "Digest Format:"
+msgstr "Formát Digest:"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
@@ -119,7 +117,7 @@ msgstr ""
 #: ../data/gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:634 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../src/nautilus/properties.c:593 ../data/appdata/gtkhash.appdata.xml.in.h:1
 #, fuzzy
 msgid "Calculate message digests or checksums"
 msgstr "Nástroj GTK+ pro výpočet digestu zpráv nebo kontrolních součtů"
@@ -128,13 +126,13 @@ msgstr "Nástroj GTK+ pro výpočet digestu zpráv nebo kontrolních součtů"
 msgid "Open Digest File"
 msgstr ""
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
-#: ../src/callbacks.c:328
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:303
+#: ../src/callbacks.c:309
 msgid "_Open"
 msgstr ""
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
+#: ../src/callbacks.c:126 ../src/callbacks.c:303 ../src/callbacks.c:308
 msgid "_Cancel"
 msgstr ""
 
@@ -157,11 +155,13 @@ msgstr "Uložit Digest"
 msgid "_Save"
 msgstr ""
 
-#: ../src/callbacks.c:286
-msgid "A GTK+ utility for computing message digests or checksums."
+#: ../src/callbacks.c:271
+#, fuzzy
+#| msgid "A GTK+ utility for computing message digests or checksums."
+msgid "A desktop utility for computing message digests or checksums"
 msgstr "Nástroj GTK+ pro výpočet digestu zpráv nebo kontrolních součtů"
 
-#: ../src/callbacks.c:295
+#: ../src/callbacks.c:276
 #, fuzzy
 msgid "translator-credits"
 msgstr ""
@@ -170,12 +170,12 @@ msgstr ""
 "Martin \"sachy\" Šácha https://launchpad.net/~sachy\n"
 "Zbyněk Schwarz https://launchpad.net/~tsbook\n"
 
-#: ../src/callbacks.c:321 ../src/callbacks.c:325
+#: ../src/callbacks.c:302 ../src/callbacks.c:306
 msgid "Select Files"
 msgstr "Vyberte soubory"
 
 #. Add checkbutton
-#: ../src/callbacks.c:537 ../src/nautilus/properties.c:245
+#: ../src/callbacks.c:513 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
 msgstr ""
 
@@ -186,11 +186,11 @@ msgstr ""
 "Nelze přečíst \"%s\":\n"
 "%s"
 
-#: ../src/gui.c:373
+#: ../src/gui.c:285
 msgid "Not a regular file"
 msgstr "Není běžný soubor"
 
-#: ../src/gui.c:396
+#: ../src/gui.c:308
 #, fuzzy, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
@@ -285,9 +285,9 @@ msgstr "%s of %s - zbývají %u minuty (%s/sec)"
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
-#: ../src/nautilus/properties.c:503 ../src/nautilus/properties.c:506
-#: ../src/nautilus/properties.c:509 ../src/nautilus/properties.c:512
-#: ../src/nautilus/properties.c:514
+#: ../src/nautilus/properties.c:462 ../src/nautilus/properties.c:465
+#: ../src/nautilus/properties.c:468 ../src/nautilus/properties.c:471
+#: ../src/nautilus/properties.c:473
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1

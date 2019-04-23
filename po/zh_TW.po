@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-18 00:10+0000\n"
+"POT-Creation-Date: 2019-04-22 14:03+0100\n"
 "PO-Revision-Date: 2017-12-03 11:45+0000\n"
 "Last-Translator: Vdragon, Ｖ字龍 <Vdragon.Taiwan@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -20,84 +20,25 @@ msgstr ""
 "X-Generator: Weblate 2.18-dev\n"
 "X-Launchpad-Export-Date: 2013-04-26 05:41+0000\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
-msgid "GtkHash Preferences"
-msgstr "GtkHash 偏好設定"
-
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:21
-msgid "Hash Functions:"
-msgstr "雜湊函式："
-
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:22
-msgid "Digest Format:"
-msgstr "訊息摘要(message digest)格式："
-
-#: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
+#: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
 msgstr "十六進位小寫"
 
-#: ../data/gtkhash-gtk2.xml.h:5 ../data/gtkhash-gtk3.xml.h:2
+#: ../data/gtkhash-gtk3.xml.h:2
 msgid "Uppercase Hexadecimal"
 msgstr "十六進位大寫"
 
-#: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
+#: ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
 msgstr "複製訊息摘要(_D)"
 
-#: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
+#: ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
 msgstr "顯示工具列(_T)"
 
-#: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:5
+#: ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
 msgstr "檔案(_F)"
-
-#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:8
-msgid "_Edit"
-msgstr "編輯(_E)"
-
-#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:9
-msgid "_View"
-msgstr "檢視(_V)"
-
-#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:10
-msgid "_Text"
-msgstr "純文字(_T)"
-
-#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:11
-msgid "File _List"
-msgstr "檔案清單"
-
-#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:12
-msgid "_Help"
-msgstr "尋求幫助(_H)"
-
-#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:13
-msgid "File:"
-msgstr "檔案："
-
-#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:14
-msgid "Text:"
-msgstr "純文字:"
-
-#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:15
-#: ../data/nautilus/gtkhash-properties.xml.h:5
-msgid "Check:"
-msgstr "比對："
-
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:17
-#: ../data/nautilus/gtkhash-properties.xml.h:7
-#, fuzzy
-msgid "HMAC Key:"
-msgstr "HMAC 鍵："
-
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:18
-msgid "File"
-msgstr "檔案"
-
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:19
-msgid "Ha_sh"
-msgstr "開始計算(_S)"
 
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
@@ -111,9 +52,66 @@ msgctxt "menu"
 msgid "_Save Digest File..."
 msgstr "保存訊息摘要"
 
+#: ../data/gtkhash-gtk3.xml.h:8
+msgid "_Edit"
+msgstr "編輯(_E)"
+
+#: ../data/gtkhash-gtk3.xml.h:9
+msgid "_View"
+msgstr "檢視(_V)"
+
+#: ../data/gtkhash-gtk3.xml.h:10
+msgid "_Text"
+msgstr "純文字(_T)"
+
+#: ../data/gtkhash-gtk3.xml.h:11
+msgid "File _List"
+msgstr "檔案清單"
+
+#: ../data/gtkhash-gtk3.xml.h:12
+msgid "_Help"
+msgstr "尋求幫助(_H)"
+
+#: ../data/gtkhash-gtk3.xml.h:13
+msgid "File:"
+msgstr "檔案："
+
+#: ../data/gtkhash-gtk3.xml.h:14
+msgid "Text:"
+msgstr "純文字:"
+
+#: ../data/gtkhash-gtk3.xml.h:15 ../data/nautilus/gtkhash-properties.xml.h:5
+msgid "Check:"
+msgstr "比對："
+
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
 msgstr ""
+
+#: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
+#, fuzzy
+msgid "HMAC Key:"
+msgstr "HMAC 鍵："
+
+#: ../data/gtkhash-gtk3.xml.h:18
+msgid "File"
+msgstr "檔案"
+
+#: ../data/gtkhash-gtk3.xml.h:19
+msgid "Ha_sh"
+msgstr "開始計算(_S)"
+
+#: ../data/gtkhash-gtk3.xml.h:20
+msgid "GtkHash Preferences"
+msgstr "GtkHash 偏好設定"
+
+#: ../data/gtkhash-gtk3.xml.h:21
+msgid "Hash Functions:"
+msgstr "雜湊函式："
+
+#: ../data/gtkhash-gtk3.xml.h:22
+msgid "Digest Format:"
+msgstr "訊息摘要(message digest)格式："
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
@@ -122,7 +120,7 @@ msgstr "資料校驗值計算器"
 #: ../data/gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:634 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../src/nautilus/properties.c:593 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "計算訊息摘要或資料校驗值"
 
@@ -130,13 +128,13 @@ msgstr "計算訊息摘要或資料校驗值"
 msgid "Open Digest File"
 msgstr ""
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
-#: ../src/callbacks.c:328
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:303
+#: ../src/callbacks.c:309
 msgid "_Open"
 msgstr "開啟(_O)"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
+#: ../src/callbacks.c:126 ../src/callbacks.c:303 ../src/callbacks.c:308
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -159,20 +157,22 @@ msgstr "保存訊息摘要"
 msgid "_Save"
 msgstr "保存(_S)"
 
-#: ../src/callbacks.c:286
-msgid "A GTK+ utility for computing message digests or checksums."
+#: ../src/callbacks.c:271
+#, fuzzy
+#| msgid "A GTK+ utility for computing message digests or checksums."
+msgid "A desktop utility for computing message digests or checksums"
 msgstr "一個基於 GTK+ 用於計算訊息摘要與校驗值的工具"
 
-#: ../src/callbacks.c:295
+#: ../src/callbacks.c:276
 msgid "translator-credits"
 msgstr "Ｖ字龍(Vdragon) https://launchpad.net/~vdragon"
 
-#: ../src/callbacks.c:321 ../src/callbacks.c:325
+#: ../src/callbacks.c:302 ../src/callbacks.c:306
 msgid "Select Files"
 msgstr "選擇檔案"
 
 #. Add checkbutton
-#: ../src/callbacks.c:537 ../src/nautilus/properties.c:245
+#: ../src/callbacks.c:513 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
 msgstr "顯示 HMAC 鍵(_S)"
 
@@ -183,11 +183,11 @@ msgstr ""
 "無法讀取「%s」：\n"
 "%s"
 
-#: ../src/gui.c:373
+#: ../src/gui.c:285
 msgid "Not a regular file"
 msgstr "不是一般檔案(regular file)"
 
-#: ../src/gui.c:396
+#: ../src/gui.c:308
 #, fuzzy, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
@@ -282,9 +282,9 @@ msgstr "已處理 %s （總共：%s） - 剩下約 %u 分鐘（%s 每秒）"
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
-#: ../src/nautilus/properties.c:503 ../src/nautilus/properties.c:506
-#: ../src/nautilus/properties.c:509 ../src/nautilus/properties.c:512
-#: ../src/nautilus/properties.c:514
+#: ../src/nautilus/properties.c:462 ../src/nautilus/properties.c:465
+#: ../src/nautilus/properties.c:468 ../src/nautilus/properties.c:471
+#: ../src/nautilus/properties.c:473
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1

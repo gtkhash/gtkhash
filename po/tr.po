@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-18 00:10+0000\n"
+"POT-Creation-Date: 2019-04-22 14:03+0100\n"
 "PO-Revision-Date: 2019-03-20 16:03+0000\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
@@ -22,83 +22,25 @@ msgstr ""
 "X-Generator: Weblate 3.6-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
-msgid "GtkHash Preferences"
-msgstr "GtkHash Tercihleri"
-
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:21
-msgid "Hash Functions:"
-msgstr "Hash İşlevleri:"
-
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:22
-msgid "Digest Format:"
-msgstr "Özet Biçimi:"
-
-#: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
+#: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
 msgstr "Küçük Harf Onaltılık"
 
-#: ../data/gtkhash-gtk2.xml.h:5 ../data/gtkhash-gtk3.xml.h:2
+#: ../data/gtkhash-gtk3.xml.h:2
 msgid "Uppercase Hexadecimal"
 msgstr "Büyük Harf Onaltılık"
 
-#: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
+#: ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
 msgstr "_Özeti Kopyala"
 
-#: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
+#: ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
 msgstr "_Araç Çubuğunu Göster"
 
-#: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:5
+#: ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
 msgstr "_Dosya"
-
-#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:8
-msgid "_Edit"
-msgstr "_Düzenle"
-
-#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:9
-msgid "_View"
-msgstr "_Görünüm"
-
-#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:10
-msgid "_Text"
-msgstr "_Metin"
-
-#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:11
-msgid "File _List"
-msgstr "Dosya _Listesi"
-
-#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:12
-msgid "_Help"
-msgstr "_Yardım"
-
-#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:13
-msgid "File:"
-msgstr "Dosya:"
-
-#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:14
-msgid "Text:"
-msgstr "Metin:"
-
-#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:15
-#: ../data/nautilus/gtkhash-properties.xml.h:5
-msgid "Check:"
-msgstr "Kontrol:"
-
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:17
-#: ../data/nautilus/gtkhash-properties.xml.h:7
-msgid "HMAC Key:"
-msgstr "HMAC Anahtarı:"
-
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:18
-msgid "File"
-msgstr "Dosya"
-
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:19
-msgid "Ha_sh"
-msgstr "Ha_sh"
 
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
@@ -110,9 +52,65 @@ msgctxt "menu"
 msgid "_Save Digest File..."
 msgstr "Özet Dosyasını _Kaydet..."
 
+#: ../data/gtkhash-gtk3.xml.h:8
+msgid "_Edit"
+msgstr "_Düzenle"
+
+#: ../data/gtkhash-gtk3.xml.h:9
+msgid "_View"
+msgstr "_Görünüm"
+
+#: ../data/gtkhash-gtk3.xml.h:10
+msgid "_Text"
+msgstr "_Metin"
+
+#: ../data/gtkhash-gtk3.xml.h:11
+msgid "File _List"
+msgstr "Dosya _Listesi"
+
+#: ../data/gtkhash-gtk3.xml.h:12
+msgid "_Help"
+msgstr "_Yardım"
+
+#: ../data/gtkhash-gtk3.xml.h:13
+msgid "File:"
+msgstr "Dosya:"
+
+#: ../data/gtkhash-gtk3.xml.h:14
+msgid "Text:"
+msgstr "Metin:"
+
+#: ../data/gtkhash-gtk3.xml.h:15 ../data/nautilus/gtkhash-properties.xml.h:5
+msgid "Check:"
+msgstr "Kontrol:"
+
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
 msgstr "Panodaki özeti yapıştır"
+
+#: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
+msgid "HMAC Key:"
+msgstr "HMAC Anahtarı:"
+
+#: ../data/gtkhash-gtk3.xml.h:18
+msgid "File"
+msgstr "Dosya"
+
+#: ../data/gtkhash-gtk3.xml.h:19
+msgid "Ha_sh"
+msgstr "Ha_sh"
+
+#: ../data/gtkhash-gtk3.xml.h:20
+msgid "GtkHash Preferences"
+msgstr "GtkHash Tercihleri"
+
+#: ../data/gtkhash-gtk3.xml.h:21
+msgid "Hash Functions:"
+msgstr "Hash İşlevleri:"
+
+#: ../data/gtkhash-gtk3.xml.h:22
+msgid "Digest Format:"
+msgstr "Özet Biçimi:"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
@@ -121,7 +119,7 @@ msgstr "Sağlama Hesaplayıcı"
 #: ../data/gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:634 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../src/nautilus/properties.c:593 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Mesaj özetlerini veya sağlama toplamlarını hesapla"
 
@@ -129,13 +127,13 @@ msgstr "Mesaj özetlerini veya sağlama toplamlarını hesapla"
 msgid "Open Digest File"
 msgstr "Özet Dosyasını Aç"
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
-#: ../src/callbacks.c:328
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:303
+#: ../src/callbacks.c:309
 msgid "_Open"
 msgstr "_Aç"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
+#: ../src/callbacks.c:126 ../src/callbacks.c:303 ../src/callbacks.c:308
 msgid "_Cancel"
 msgstr "_İptal"
 
@@ -155,23 +153,25 @@ msgstr "Özet Dosyasını Kaydet"
 msgid "_Save"
 msgstr "_Kaydet"
 
-#: ../src/callbacks.c:286
-msgid "A GTK+ utility for computing message digests or checksums."
+#: ../src/callbacks.c:271
+#, fuzzy
+#| msgid "A GTK+ utility for computing message digests or checksums."
+msgid "A desktop utility for computing message digests or checksums"
 msgstr "İleti özeti ya da sağlama hesaplamak için GTK yardımcı aracı."
 
-#: ../src/callbacks.c:295
+#: ../src/callbacks.c:276
 msgid "translator-credits"
 msgstr ""
 "Muha Aliss <muhaaliss@pm.me>\n"
 "Kemal Oktay Aktoğan <oktay454@disroot.org>\n"
 "Serdar Sağlam <teknomobil@yandex.com>"
 
-#: ../src/callbacks.c:321 ../src/callbacks.c:325
+#: ../src/callbacks.c:302 ../src/callbacks.c:306
 msgid "Select Files"
 msgstr "Dosyaları Seç"
 
 #. Add checkbutton
-#: ../src/callbacks.c:537 ../src/nautilus/properties.c:245
+#: ../src/callbacks.c:513 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
 msgstr "HMAC Anahtarını _Göster"
 
@@ -180,11 +180,11 @@ msgstr "HMAC Anahtarını _Göster"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Kontrol dosyasını okumadı \"%s\": %s"
 
-#: ../src/gui.c:373
+#: ../src/gui.c:285
 msgid "Not a regular file"
 msgstr "Normal bir dosya değil"
 
-#: ../src/gui.c:396
+#: ../src/gui.c:308
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Dosya eklenemedi \"%s\": %s"
@@ -269,9 +269,9 @@ msgstr "%s için %s - %s (%s/san)"
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
-#: ../src/nautilus/properties.c:503 ../src/nautilus/properties.c:506
-#: ../src/nautilus/properties.c:509 ../src/nautilus/properties.c:512
-#: ../src/nautilus/properties.c:514
+#: ../src/nautilus/properties.c:462 ../src/nautilus/properties.c:465
+#: ../src/nautilus/properties.c:468 ../src/nautilus/properties.c:471
+#: ../src/nautilus/properties.c:473
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
