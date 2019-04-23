@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-04-22 14:03+0100\n"
-"PO-Revision-Date: 2019-03-20 11:03+0000\n"
+"PO-Revision-Date: 2019-04-23 22:06+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/pl/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
@@ -152,10 +152,8 @@ msgid "_Save"
 msgstr "_Zapisz"
 
 #: ../src/callbacks.c:271
-#, fuzzy
-#| msgid "A GTK+ utility for computing message digests or checksums."
 msgid "A desktop utility for computing message digests or checksums"
-msgstr "Narzędzie GTK+ do obliczania skrótów wiadomości i sum kontrolnych."
+msgstr "Narzędzie do obliczania skrótów wiadomości i sum kontrolnych"
 
 #: ../src/callbacks.c:276
 msgid "translator-credits"
