@@ -5,9 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-04-22 14:03+0100\n"
-"PO-Revision-Date: 2019-03-20 16:03+0000\n"
+"PO-Revision-Date: 2019-04-25 14:48+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/lt/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.6.1-dev\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
@@ -152,12 +152,10 @@ msgid "_Save"
 msgstr "Į_rašyti"
 
 #: ../src/callbacks.c:271
-#, fuzzy
-#| msgid "A GTK+ utility for computing message digests or checksums."
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
-"GTK+ paslaugų programa, skirta maišos reikšmių ar kontrolinės sumos žinučių "
-"apskaičiavimui."
+"Darbalaukio paslaugų programa, skirta maišos reikšmių ar kontrolinės sumos "
+"žinučių apskaičiavimui"
 
 #: ../src/callbacks.c:276
 msgid "translator-credits"
