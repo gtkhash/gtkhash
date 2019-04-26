@@ -7,9 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-04-22 14:03+0100\n"
-"PO-Revision-Date: 2019-03-21 21:03+0000\n"
+"PO-Revision-Date: 2019-04-26 18:48+0000\n"
 "Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ja/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
@@ -153,12 +153,8 @@ msgid "_Save"
 msgstr "保存(_S)"
 
 #: ../src/callbacks.c:271
-#, fuzzy
-#| msgid "A GTK+ utility for computing message digests or checksums."
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
-"メッセージダイジェストやチェックサムの計算を行なうための GTK+ ユーティリティ"
-"です。"
+msgstr "メッセージ ダイジェストやチェックサムの計算を行なうための デスクトップ ユーティリティです"
 
 #: ../src/callbacks.c:276
 msgid "translator-credits"
