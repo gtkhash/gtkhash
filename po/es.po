@@ -4,13 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # emma peel <emma.peel@riseup.net>, 2018.
 # Toni Estévez <toni.estevez@gmail.com>, 2019.
+# Sebastian Duque <sebastiandg7@gmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-04-22 14:03+0100\n"
-"PO-Revision-Date: 2019-04-15 17:04+0000\n"
-"Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
+"PO-Revision-Date: 2019-05-01 19:48+0000\n"
+"Last-Translator: Sebastian Duque <sebastiandg7@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/es/>\n"
 "Language: es\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
@@ -153,12 +154,10 @@ msgid "_Save"
 msgstr "_Guardar"
 
 #: ../src/callbacks.c:271
-#, fuzzy
-#| msgid "A GTK+ utility for computing message digests or checksums."
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
-"Una herramienta GTK+ para calcular resúmenes de mensajes o sumas de "
-"comprobación."
+"Una herramienta de escritorio para calcular compendios de mensajes o sumas "
+"de comprobación"
 
 #: ../src/callbacks.c:276
 msgid "translator-credits"
