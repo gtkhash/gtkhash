@@ -7,11 +7,10 @@ cd "$(dirname "$0")"/styrene
 
 do_styrene() {
 	local tmpdir=$(mktemp -d -t w${1}-XXXXXX -p /tmp)
+	local pkgdir=$(readlink -f ../mingw-w64-gtkhash)
 
-	MSYSTEM=MINGW${1} /mingw${1}/bin/styrene \
-		--pkg-dir ../mingw-w64-gtkhash \
-		--output-dir "${tmpdir}" \
-		styrene.cfg
+	MSYSTEM=MINGW${1} bash -l -x -c \
+		"exec styrene --pkg-dir \"${pkgdir}\" --output-dir \"${tmpdir}\" styrene.cfg"
 
 	mv -vf "${tmpdir}"/gtkhash-w${1}-*-installer.exe .
 	mv -vf "${tmpdir}"/gtkhash-w${1}-*-standalone.zip .
