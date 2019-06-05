@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-04-22 14:03+0100\n"
-"PO-Revision-Date: 2019-03-23 10:38+0000\n"
+"PO-Revision-Date: 2019-06-18 19:03+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtkhash/"
 "translations/nl/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.7\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
@@ -152,11 +152,10 @@ msgid "_Save"
 msgstr "Op_slaan"
 
 #: ../src/callbacks.c:271
-#, fuzzy
-#| msgid "A GTK+ utility for computing message digests or checksums."
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
-"Een GTK+-hulpmiddel voor het berekenen van berichtdigests of controlesommen."
+"Een bureaubladhulpmiddel voor het berekenen van berichtdigests of "
+"controlesommen"
 
 #: ../src/callbacks.c:276
 msgid "translator-credits"
