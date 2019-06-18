@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-22 14:03+0100\n"
 "PO-Revision-Date: 2019-04-26 18:48+0000\n"
 "Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
@@ -154,7 +154,9 @@ msgstr "保存(_S)"
 
 #: ../src/callbacks.c:271
 msgid "A desktop utility for computing message digests or checksums"
-msgstr "メッセージ ダイジェストやチェックサムの計算を行なうための デスクトップ ユーティリティです"
+msgstr ""
+"メッセージ ダイジェストやチェックサムの計算を行なうための デスクトップ ユー"
+"ティリティです"
 
 #: ../src/callbacks.c:276
 msgid "translator-credits"
