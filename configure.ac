@@ -392,13 +392,13 @@ AM_CONDITIONAL([ENABLE_THUNAR], [test "${enable_thunar}" = "yes"])
 
 AC_MSG_CHECKING([which Thunarx version to use])
 AC_ARG_WITH([thunarx],
-	[AS_HELP_STRING([--with-thunarx=2|3], [Thunarx version to use [default=3]])],
+	[AS_HELP_STRING([--with-thunarx=3], [Thunarx version to use [default=3]])],
 	[with_thunar="${withval}"], [with_thunarx="3"])
 AC_MSG_RESULT([${with_thunarx}])
 
 if test "${enable_thunar}" = "yes" ; then
 	# Check for thunar
-	PKG_CHECK_MODULES([THUNAR], ["thunarx-${with_thunarx}"])
+	PKG_CHECK_MODULES([THUNAR], ["thunarx-${with_thunarx}" >= 1.7.0])
 	AC_SUBST([THUNAR_CFLAGS])
 	AC_SUBST([THUNAR_LIBS])
 	THUNAR_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensionsdir "thunarx-${with_thunarx}"`
