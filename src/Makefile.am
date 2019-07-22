@@ -50,7 +50,7 @@ TESTS = gtkhash-test
 
 LOG_COMPILER = xvfb-run -s "-screen 0 800x600x24"
 
-CLEANFILES = resources.c resources.h
+CLEANFILES = resources.c resources.h *.gcda *.gcno
 
 resources.c resources.h: \
 	../data/gtkhash-gtk3.gresource.xml \

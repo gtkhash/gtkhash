@@ -42,5 +42,9 @@ script:
       --enable-nemo
       --disable-dependency-tracking
       )
-  - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
+  - CFLAGS="--coverage" ./configure ${DISTCHECK_CONFIGURE_FLAGS}
+  - make -j$(nproc) VERBOSE=1 check
   - make -j$(nproc) VERBOSE=1 DESTDIR=$(mktemp -d) distcheck
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
