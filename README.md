@@ -2,7 +2,7 @@
 [![Pipeline Status](https://gitlab.com/tristanheaven/gtkhash/badges/master/pipeline.svg)](https://gitlab.com/tristanheaven/gtkhash/commits/master)
 [![Windows Build Status](https://ci.appveyor.com/api/projects/status/1hm3cs5f0islas0w/branch/master?svg=true)](https://ci.appveyor.com/project/tristanheaven/gtkhash/branch/master)
 [![Test Coverage](https://codecov.io/gh/tristanheaven/gtkhash/branch/master/graph/badge.svg)](https://codecov.io/gh/tristanheaven/gtkhash)
-[![Translations](https://hosted.weblate.org/widgets/gtkhash/-/svg-badge.svg)](https://hosted.weblate.org/projects/gtkhash/)
+[![Translations](https://hosted.weblate.org/widgets/gtkhash/-/svg-badge.svg)](https://hosted.weblate.org/engage/gtkhash/)
 
 GtkHash
 =======
@@ -63,7 +63,7 @@ Translations
 If you would like to contribute a translation, the easiest way is by using
 Weblate:
 
-https://hosted.weblate.org/projects/gtkhash/
+https://hosted.weblate.org/engage/gtkhash/
 
 Alternatively, updated .po files can be submitted as a Pull Request or Issue on
 GitHub:
