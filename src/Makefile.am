@@ -10,29 +10,31 @@ bin_PROGRAMS = gtkhash
 
 BUILT_SOURCES = resources.c resources.h
 
-nodist_gtkhash_SOURCES = resources.c resources.h
+nodist_gtkhash_SOURCES = $(BUILT_SOURCES)
 
 gtkhash_SOURCES = \
+	main.c main.h \
 	callbacks.c callbacks.h \
 	check.c check.h \
 	gui.c gui.h \
 	hash.c hash.h \
 	list.c list.h \
-	main.c main.h \
 	prefs.c prefs.h \
+	opts.c opts.h \
 	uri-digest.c uri-digest.h
 
 noinst_PROGRAMS = gtkhash-test
 
-nodist_gtkhash_test_SOURCES = resources.c
+nodist_gtkhash_test_SOURCES = $(BUILT_SOURCES)
 
 gtkhash_test_SOURCES = \
+	test.c \
 	callbacks.c \
 	check.c \
 	gui.c \
 	hash.c \
 	list.c \
-	test.c \
+	opts.c \
 	uri-digest.c
 
 AM_CPPFLAGS = \
@@ -50,7 +52,7 @@ TESTS = gtkhash-test
 
 LOG_COMPILER = xvfb-run -s "-screen 0 800x600x24"
 
-CLEANFILES = resources.c resources.h *.gcda *.gcno
+CLEANFILES = $(BUILT_SOURCES) *.gcda *.gcno
 
 resources.c resources.h: \
 	../data/gtkhash-gtk3.gresource.xml \

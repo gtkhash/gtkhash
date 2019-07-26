@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2019 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -31,6 +31,7 @@
 #include "gui.h"
 #include "hash.h"
 #include "list.h"
+#include "opts.h"
 #include "resources.h"
 #include "hash/hash-func.h"
 
@@ -293,6 +294,107 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 	select_func(func->id, false);
 }
 
+static void test_opt_help(void)
+{
+	if (g_test_subprocess()) {
+		gint argc;
+		char **argv;
+		g_shell_parse_argv("t --help", &argc, &argv, NULL);
+
+		opts_preinit(&argc, &argv);
+
+		g_test_fail();
+		return;
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("*--help*");
+	g_test_trap_assert_stdout("*--version*");
+}
+
+static void test_opt_version(void)
+{
+	if (g_test_subprocess()) {
+		gint argc;
+		char **argv;
+		g_shell_parse_argv("t --version", &argc, &argv, NULL);
+
+		opts_preinit(&argc, &argv);
+
+		g_test_fail();
+		return;
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout(PACKAGE_STRING "*");
+}
+
+static void test_opt_check_text(void)
+{
+	if (g_test_subprocess()) {
+		gint argc;
+		char **argv;
+		g_shell_parse_argv("t -c fail -t aa --check 0123abcdef", &argc, &argv, NULL);
+
+		opts_preinit(&argc, &argv);
+
+		opts_postinit();
+		delay();
+
+		puts(gtk_entry_get_text(gui.entry_check_text));
+		exit(EXIT_SUCCESS);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("0123abcdef*");
+}
+
+static void test_opt_function(void)
+{
+	if (g_test_subprocess()) {
+		enum hash_func_e id = HASH_FUNC_INVALID;
+
+		// Select first available function for the test
+		for (int i = 0; i < HASH_FUNCS_N; i++) {
+			if (hash.funcs[i].supported) {
+				id = i;
+				break;
+			}
+		}
+
+		if (id == HASH_FUNC_INVALID)
+			exit(EXIT_FAILURE);
+
+		// Disable the function
+		gtk_toggle_button_set_active(gui.hash_widgets[id].button, false);
+		delay();
+
+		if (hash.funcs[id].enabled)
+			exit(EXIT_FAILURE);
+
+		// Enable the function from cmdline
+		char *str = g_strdup_printf("%s %s", "-t --function XX -f", hash.funcs[id].name);
+		gint argc;
+		char **argv;
+		g_shell_parse_argv(str, &argc, &argv, NULL);
+
+		opts_preinit(&argc, &argv);
+		delay();
+
+		if (hash.funcs[id].enabled)
+			exit(EXIT_SUCCESS);
+		else
+			exit(EXIT_FAILURE);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stderr("*Unknown*XX*");
+}
+
 static void test_init(void)
 {
 	gui_set_view(GUI_VIEW_TEXT);
@@ -316,6 +418,12 @@ static void test_init(void)
 			(GTestDataFunc)test_hash_func_hmac);
 		g_free(str);
 	}
+
+	// Test cmdline options
+	g_test_add_func("/opt/help", test_opt_help);
+	g_test_add_func("/opt/version", test_opt_version);
+	g_test_add_func("/opt/check/text", test_opt_check_text);
+	g_test_add_func("/opt/function", test_opt_function);
 
 	g_test_set_nonfatal_assertions();
 }
