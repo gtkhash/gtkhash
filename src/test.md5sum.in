@@ -1,0 +1,13 @@
+# GNU
+d41d8cd98f00b204e9800998ecf8427e  @builddir@/0.bytes
+93b885adfe0da089cdf634904fd59f71  @builddir@/1.bytes
+f1c9645dbc14efddc7d8a322685f26eb  @builddir@/10M.bytes
+ec4bcc8776ea04479b786e063a9ace45  @builddir@/5G.bytes
+# GNU (binary)
+badbadbadbadbadbadbadbadbadbadbad *@builddir@/0.bytes
+93b885adfe0da089cdf634904fd59f71 *@builddir@/1.bytes
+f1c9645dbc14efddc7d8a322685f26eb *@builddir@/10M.bytes
+# BSD
+MD5 (@builddir@/0.bytes) = d41d8cd98f00b204e9800998ecf8427e
+MD5 (@builddir@/1.bytes) = 93b885adfe0da089cdf634904fd59f71
+MD5 (notfound.bytes) = d41d8cd98f00b204e9800998ecf8427e

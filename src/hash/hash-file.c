@@ -81,7 +81,7 @@ static void gtkhash_hash_file_add_source(struct hash_file_s *data)
 {
 	g_mutex_lock(&data->mtx);
 	g_assert(!data->source);
-	data->source = g_idle_add((GSourceFunc)gtkhash_hash_file_source_func,
+	data->source = g_idle_add(G_SOURCE_FUNC(gtkhash_hash_file_source_func),
 		data);
 	g_mutex_unlock(&data->mtx);
 }
@@ -113,7 +113,7 @@ static void gtkhash_hash_file_add_report_source(struct hash_file_s *data)
 {
 	g_assert(!data->report_source);
 	data->report_source = gdk_threads_add_timeout(HASH_FILE_REPORT_INTERVAL,
-		(GSourceFunc)gtkhash_hash_file_report_source_func, data);
+		G_SOURCE_FUNC(gtkhash_hash_file_report_source_func), data);
 }
 
 static void gtkhash_hash_file_remove_report_source(struct hash_file_s *data)
@@ -414,7 +414,7 @@ static void gtkhash_hash_file_callback(struct hash_file_s *data)
 			(void *)data->cb_data);
 	} else {
 		gdk_threads_add_idle(
-			(GSourceFunc)gtkhash_hash_file_callback_finish_func, data);
+			G_SOURCE_FUNC(gtkhash_hash_file_callback_finish_func), data);
 	}
 
 	g_object_unref(data->cancellable);

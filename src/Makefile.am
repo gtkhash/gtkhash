@@ -25,6 +25,8 @@ gtkhash_SOURCES = \
 
 noinst_PROGRAMS = gtkhash-test
 
+noinst_DATA = 0.bytes 1.bytes 10M.bytes 5G.bytes
+
 nodist_gtkhash_test_SOURCES = $(BUILT_SOURCES)
 
 gtkhash_test_SOURCES = \
@@ -52,7 +54,12 @@ TESTS = gtkhash-test
 
 LOG_COMPILER = xvfb-run -s "-screen 0 800x600x24"
 
-CLEANFILES = $(BUILT_SOURCES) *.gcda *.gcno
+CLEANFILES = \
+	$(BUILT_SOURCES) \
+	$(noinst_DATA) \
+	*.gcda *.gcno
+
+EXTRA_DIST = test.md5sum.in
 
 resources.c resources.h: \
 	../data/gtkhash-gtk3.gresource.xml \
@@ -65,5 +72,8 @@ resources.c resources.h: \
 		--sourcedir="$(srcdir)"/../data/ \
 		--target=$@ \
 		$<
+
+%.bytes:
+	$(AM_V_GEN) truncate -s $* $@
 
 endif # ENABLE_GTKHASH

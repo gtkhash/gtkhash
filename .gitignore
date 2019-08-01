@@ -38,10 +38,14 @@ configure
 libtool
 stamp-h1
 stamp-it
+test.md5sum
 
 *~
 *.appdata.xml
+*.bytes
 *.desktop
+*.gcda
+*.gcno
 *.gmo
 *.gz
 *.la

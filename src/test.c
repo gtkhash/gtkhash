@@ -28,6 +28,7 @@
 #include <gtk/gtk.h>
 
 #include "callbacks.h"
+#include "check.h"
 #include "gui.h"
 #include "hash.h"
 #include "list.h"
@@ -303,8 +304,7 @@ static void test_opt_help(void)
 
 		opts_preinit(&argc, &argv);
 
-		g_test_fail();
-		return;
+		exit(EXIT_FAILURE);
 	}
 
 	g_test_trap_subprocess(NULL, 0, 0);
@@ -322,8 +322,7 @@ static void test_opt_version(void)
 
 		opts_preinit(&argc, &argv);
 
-		g_test_fail();
-		return;
+		exit(EXIT_FAILURE);
 	}
 
 	g_test_trap_subprocess(NULL, 0, 0);
@@ -350,6 +349,42 @@ static void test_opt_check_text(void)
 	g_test_trap_subprocess(NULL, 0, 0);
 	g_test_trap_assert_passed();
 	g_test_trap_assert_stdout("0123abcdef*");
+}
+
+static void test_opt_check_file(void)
+{
+	if (g_test_subprocess()) {
+		gint argc;
+		char **argv;
+		char *format = g_strdup_printf("t --check-file %s",
+			g_test_get_filename(G_TEST_BUILT, "test.md5sum", NULL));
+
+		g_shell_parse_argv(format, &argc, &argv, NULL);
+		g_free(format);
+
+		opts_preinit(&argc, &argv);
+
+		opts_postinit();
+		delay();
+
+		g_assert(hash.funcs[HASH_FUNC_MD5].supported);
+		g_assert(hash.funcs[HASH_FUNC_MD5].enabled);
+		g_assert(gui.view == GUI_VIEW_FILE_LIST);
+		g_assert(list.rows == 9);
+
+		// OK to exit before finish, with warnings
+		g_test_expect_message(G_LOG_DOMAIN, G_LOG_LEVEL_WARNING, "*");
+		gdk_threads_add_timeout_seconds(2, G_SOURCE_FUNC(exit), NULL);
+
+		for (;;)
+			gtk_main_iteration_do(false);
+
+		exit(EXIT_FAILURE);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stderr("*notfound.bytes*");
 }
 
 static void test_opt_function(void)
@@ -423,6 +458,7 @@ static void test_init(void)
 	g_test_add_func("/opt/help", test_opt_help);
 	g_test_add_func("/opt/version", test_opt_version);
 	g_test_add_func("/opt/check/text", test_opt_check_text);
+	g_test_add_func("/opt/check/file", test_opt_check_file);
 	g_test_add_func("/opt/function", test_opt_function);
 
 	g_test_set_nonfatal_assertions();
@@ -433,9 +469,17 @@ int main(int argc, char **argv)
 	gtk_test_init(&argc, &argv);
 
 	hash_init();
+	atexit(hash_deinit);
+
 	resources_register_resource();
 	gui_init();
+	atexit(gui_deinit);
+	resources_unregister_resource();
+
 	list_init();
+
+	check_init();
+	atexit(check_deinit);
 
 	// Ignore user input during testing
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.window), false);
