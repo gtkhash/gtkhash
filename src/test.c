@@ -36,6 +36,10 @@
 #include "resources.h"
 #include "hash/hash-func.h"
 
+#ifndef G_SOURCE_FUNC
+#define G_SOURCE_FUNC(f) ((GSourceFunc) (void (*)(void)) (f))
+#endif
+
 static void delay(void)
 {
 	if (g_test_slow())

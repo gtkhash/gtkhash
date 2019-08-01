@@ -31,6 +31,10 @@
 #include "hash-lib.h"
 #include "digest-format.h"
 
+#ifndef G_SOURCE_FUNC
+#define G_SOURCE_FUNC(f) ((GSourceFunc) (void (*)(void)) (f))
+#endif
+
 // This lib can use GDK 2 or 3, but doesn't link either directly.
 // Try to avoid potential ABI/API mismatch issues by only declaring
 // necessary gdk.h functions...
