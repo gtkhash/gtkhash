@@ -361,7 +361,7 @@ static void test_opt_check_file(void)
 		gint argc;
 		char **argv;
 		char *format = g_strdup_printf("t --check-file %s",
-			g_test_get_filename(G_TEST_BUILT, "test.md5sum", NULL));
+			g_test_get_filename(G_TEST_BUILT, G_DIR_SEPARATOR_S "test.md5sum", NULL));
 
 		g_shell_parse_argv(format, &argc, &argv, NULL);
 		g_free(format);
