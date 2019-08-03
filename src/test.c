@@ -360,11 +360,11 @@ static void test_opt_check_file(void)
 	if (g_test_subprocess()) {
 		gint argc;
 		char **argv;
-		char *format = g_strdup_printf("t --check-file %s",
+		char *args = g_strdup_printf("t --check-file '%s'",
 			g_test_get_filename(G_TEST_BUILT, "test.md5sum", NULL));
 
-		g_shell_parse_argv(format, &argc, &argv, NULL);
-		g_free(format);
+		g_shell_parse_argv(args, &argc, &argv, NULL);
+		g_free(args);
 
 		opts_preinit(&argc, &argv);
 
