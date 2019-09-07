@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-04-15 17:04+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtkhash/"
@@ -153,7 +153,6 @@ msgstr "_Desa"
 
 #: ../src/callbacks.c:271
 #, fuzzy
-#| msgid "A GTK+ utility for computing message digests or checksums."
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "Una eina GTK+ per calcular resums de missatges o sumes de verificació."
 
@@ -188,10 +187,6 @@ msgstr "S'ha produït un error en afegir el fitxer «%s»: %s"
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "El nom de la funció resum «%s» és desconegut"
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "S'ha produït un error en activar les funcions resum compatibles."
 
 #: ../src/opts.c:97
 msgctxt " --help"
@@ -242,6 +237,10 @@ msgstr "Mostra informació de la versió"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FITXER|URI...]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "S'ha produït un error en activar les funcions resum compatibles."
 
 #: ../src/util/util.c:35
 #, c-format

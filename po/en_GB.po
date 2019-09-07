@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-03-20 02:03+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
@@ -153,7 +153,6 @@ msgstr "_Save"
 
 #: ../src/callbacks.c:271
 #, fuzzy
-#| msgid "A GTK+ utility for computing message digests or checksums."
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "A GTK+ utility for computing message digests or checksums."
 
@@ -192,10 +191,6 @@ msgstr "Failed to add file \"%s\": %s"
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Unknown Hash Function name \"%s\""
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Failed to enable any supported hash functions."
 
 #: ../src/opts.c:97
 msgctxt " --help"
@@ -246,6 +241,10 @@ msgstr "Show version information"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI…]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Failed to enable any supported hash functions."
 
 #: ../src/util/util.c:35
 #, c-format

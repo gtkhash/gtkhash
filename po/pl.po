@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-04-23 22:06+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/"
@@ -189,10 +189,6 @@ msgstr "Dodanie pliku „%s” się nie powiodło: %s"
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Nieznana nazwa funkcji sum kontrolnych „%s”"
 
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Włączenie obsługiwanej funkcji sum kontrolnych się nie powiodło."
-
 #: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
@@ -242,6 +238,10 @@ msgstr "Wyświetla informacje o wersji"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[PLIK|URI…]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Włączenie obsługiwanej funkcji sum kontrolnych się nie powiodło."
 
 #: ../src/util/util.c:35
 #, c-format

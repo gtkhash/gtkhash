@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2017-12-03 11:45+0000\n"
 "Last-Translator: Vdragon, Ｖ字龍 <Vdragon.Taiwan@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -47,7 +47,6 @@ msgstr ""
 
 #: ../data/gtkhash-gtk3.xml.h:7
 #, fuzzy
-#| msgid "Save Digests"
 msgctxt "menu"
 msgid "_Save Digest File..."
 msgstr "保存訊息摘要"
@@ -149,7 +148,6 @@ msgstr "選擇檔案"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
 #, fuzzy
-#| msgid "Save Digests"
 msgid "Save Digest File"
 msgstr "保存訊息摘要"
 
@@ -159,7 +157,6 @@ msgstr "保存(_S)"
 
 #: ../src/callbacks.c:271
 #, fuzzy
-#| msgid "A GTK+ utility for computing message digests or checksums."
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "一個基於 GTK+ 用於計算訊息摘要與校驗值的工具"
 
@@ -198,10 +195,6 @@ msgstr ""
 #, fuzzy, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "雜湊函式："
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "無法啟用任何支援的雜湊函式"
 
 #: ../src/opts.c:97
 #, fuzzy
@@ -260,6 +253,10 @@ msgstr "顯示版本資訊"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[檔案|網址...]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "無法啟用任何支援的雜湊函式"
 
 #: ../src/util/util.c:35
 #, c-format

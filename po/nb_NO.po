@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-03-20 02:03+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtkhash/"
@@ -45,7 +45,6 @@ msgstr "_Åpne føljetongsfil…"
 
 #: ../data/gtkhash-gtk3.xml.h:7
 #, fuzzy
-#| msgid "Save Digests"
 msgctxt "menu"
 msgid "_Save Digest File..."
 msgstr "Lagre føljetonger"
@@ -153,7 +152,6 @@ msgstr "_Lagre"
 
 #: ../src/callbacks.c:271
 #, fuzzy
-#| msgid "A GTK+ utility for computing message digests or checksums."
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "Et GTK+verktøy for utregning av meldingsføljetonger eller sjekksummer."
 
@@ -190,10 +188,6 @@ msgstr ""
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Ukjent sjekksummeringsfunksjonsnavn \"%s\""
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Klarte ikke å skru på noen støttede sjekksummeringsfunksjoner."
 
 #: ../src/opts.c:97
 #, fuzzy
@@ -251,6 +245,10 @@ msgstr "Vis versjonsinformasjon"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FIL|URI…]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Klarte ikke å skru på noen støttede sjekksummeringsfunksjoner."
 
 #: ../src/util/util.c:35
 #, c-format

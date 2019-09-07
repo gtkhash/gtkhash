@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2014-04-22 19:46+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -45,7 +45,6 @@ msgstr ""
 
 #: ../data/gtkhash-gtk3.xml.h:7
 #, fuzzy
-#| msgid "Save Digests"
 msgctxt "menu"
 msgid "_Save Digest File..."
 msgstr "Spremi zbirove"
@@ -147,7 +146,6 @@ msgstr "Odaberi datoteke"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
 #, fuzzy
-#| msgid "Save Digests"
 msgid "Save Digest File"
 msgstr "Spremi zbirove"
 
@@ -157,7 +155,6 @@ msgstr ""
 
 #: ../src/callbacks.c:271
 #, fuzzy
-#| msgid "A GTK+ utility for computing message digests or checksums."
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "GTK+ program za izračunavanje zbirova poruke ili kontrolnog zbroja."
 
@@ -197,10 +194,6 @@ msgstr ""
 #, fuzzy, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Hash funkcije"
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Neuspjelo omogućavanje bilo koje hash funkcije."
 
 #: ../src/opts.c:97
 #, fuzzy
@@ -259,6 +252,10 @@ msgstr "Prikaži informacije o inačici"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[DATOTEKA|URI...]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Neuspjelo omogućavanje bilo koje hash funkcije."
 
 #: ../src/util/util.c:35
 #, c-format

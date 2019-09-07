@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-04-27 16:48+0000\n"
 "Last-Translator: Igor <f2404@yandex.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtkhash/"
@@ -191,10 +191,6 @@ msgstr "Не удалось добавить файл \"%s\": %s"
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Неизвестное имя хеш функции \"%s\""
 
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Не удалось активировать поддерживаемые хеш-функции."
-
 #: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
@@ -244,6 +240,10 @@ msgstr "Показать информацию о версии"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ФАЙЛ|URI...]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Не удалось активировать поддерживаемые хеш-функции."
 
 #: ../src/util/util.c:35
 #, c-format

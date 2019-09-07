@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-04-26 18:48+0000\n"
 "Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtkhash/"
@@ -192,10 +192,6 @@ msgstr "ファイル \"%s\" の追加に失敗しました: %s"
 msgid "Unknown Hash Function name \"%s\""
 msgstr "不明なハッシュ関数名 \"%s\""
 
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "全ての対応するハッシュ関数の有効化に失敗しました。"
-
 #: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
@@ -245,6 +241,10 @@ msgstr "バージョン情報の表示"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "全ての対応するハッシュ関数の有効化に失敗しました。"
 
 #: ../src/util/util.c:35
 #, c-format

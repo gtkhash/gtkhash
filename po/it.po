@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2018-12-12 23:08+0000\n"
 "Last-Translator: Matteo Fumagalli <f.mustang@protonmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/gtkhash/"
@@ -47,7 +47,6 @@ msgstr ""
 
 #: ../data/gtkhash-gtk3.xml.h:7
 #, fuzzy
-#| msgid "Save Digests"
 msgctxt "menu"
 msgid "_Save Digest File..."
 msgstr "Salva impronta (Digest)"
@@ -148,7 +147,6 @@ msgstr "Tutti i File"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
 #, fuzzy
-#| msgid "Save Digests"
 msgid "Save Digest File"
 msgstr "Salva impronta (Digest)"
 
@@ -158,7 +156,6 @@ msgstr "_Salva"
 
 #: ../src/callbacks.c:271
 #, fuzzy
-#| msgid "A GTK+ utility for computing message digests or checksums."
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
 "Un'utility GTK+ per calcolare i digest (impronte) di messaggi o checksum."
@@ -194,10 +191,6 @@ msgstr "Errore aggiungendo \"%s\":%s"
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Nome della funzione di Hash \"%s\" sconosciuto"
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Errore nell'abilitare le funzioni di hash."
 
 #: ../src/opts.c:97
 msgctxt " --help"
@@ -248,6 +241,10 @@ msgstr "Mostra le informazioni sulla versione"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Errore nell'abilitare le funzioni di hash."
 
 #: ../src/util/util.c:35
 #, c-format

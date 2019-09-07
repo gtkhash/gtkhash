@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-04-24 10:48+0000\n"
 "Last-Translator: Rui Mendes <xz9@protonmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -197,10 +197,6 @@ msgstr "Falha ao adicionar o arquivo \"%s\": %s"
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Nome de função hash desconhecida \"%s\""
 
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Falha ao habilitar funções de hash suportadas."
-
 #: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
@@ -251,6 +247,10 @@ msgstr "Exibir informações da versão"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ARQUIVO|URI...]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Falha ao habilitar funções de hash suportadas."
 
 #: ../src/util/util.c:35
 #, c-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-06-18 19:03+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtkhash/"
@@ -191,10 +191,6 @@ msgstr "Toevoegen van bestand ‘%s’ mislukt: %s"
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Onbekende hashfunctienaam ‘%s’"
 
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Inschakelen van ondersteunde hashfuncties mislukt."
-
 #: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
@@ -244,6 +240,10 @@ msgstr "Versieinformatie tonen"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[BESTAND|URI...]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Inschakelen van ondersteunde hashfuncties mislukt."
 
 #: ../src/util/util.c:35
 #, c-format

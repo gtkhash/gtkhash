@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-04-23 23:48+0000\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
@@ -192,10 +192,6 @@ msgstr "Dosya eklenemedi \"%s\": %s"
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Bilinmeyen Hash İşlevi adı \"%s\""
 
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Desteklenen hiçbir bir hash işlevi etkinleştirilemedi."
-
 #: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
@@ -245,6 +241,10 @@ msgstr "Sürüm bilgisini göster"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[DOSYA|URI...]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Desteklenen hiçbir bir hash işlevi etkinleştirilemedi."
 
 #: ../src/util/util.c:35
 #, c-format

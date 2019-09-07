@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-06-18 19:03+0000\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Occidental <https://hosted.weblate.org/projects/gtkhash/"
@@ -185,10 +185,6 @@ msgstr "Ne successat adjunter un file «%s»: %s"
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Ínconosset nómine de function hash «%s»"
 
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Ne successat activar alquel supportat function hash."
-
 #: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
@@ -238,6 +234,10 @@ msgstr "Monstrar li information pri li version"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI…]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Ne successat activar alquel supportat function hash."
 
 #: ../src/util/util.c:35
 #, c-format

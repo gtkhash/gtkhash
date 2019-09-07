@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-05-01 19:48+0000\n"
 "Last-Translator: Sebastian Duque <sebastiandg7@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
@@ -191,10 +191,6 @@ msgstr "No se ha podido añadir el archivo «%s»: %s"
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Nombre de función resumen desconocido «%s»"
 
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Se ha producido un error al activar las funciones resumen compatibles."
-
 #: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
@@ -245,6 +241,10 @@ msgstr "Mostrar información de la versión"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ARCHIVO|URI...]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Se ha producido un error al activar las funciones resumen compatibles."
 
 #: ../src/util/util.c:35
 #, c-format

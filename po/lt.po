@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 20:12+0100\n"
+"POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-04-25 14:48+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/gtkhash/"
@@ -189,10 +189,6 @@ msgstr "Nepavyko pridėti failo \"%s\": %s"
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Nežinomas maišos funkcijos pavadinimas \"%s\""
 
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Nepavyko įjungti jokių palaikomų maišos funkcijų."
-
 #: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
@@ -242,6 +238,10 @@ msgstr "Rodyti versijos informaciją"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FAILAS|URI...]"
+
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Nepavyko įjungti jokių palaikomų maišos funkcijų."
 
 #: ../src/util/util.c:35
 #, c-format
