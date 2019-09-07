@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-22 14:03+0100\n"
+"POT-Creation-Date: 2019-07-26 20:12+0100\n"
 "PO-Revision-Date: 2019-04-23 23:48+0000\n"
 "Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
@@ -192,59 +192,59 @@ msgstr "Dosya eklenemedi \"%s\": %s"
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Bilinmeyen Hash İşlevi adı \"%s\""
 
-#: ../src/main.c:97
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Desteklenen hiçbir bir hash işlevi etkinleştirilemedi."
+
+#: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Belirtilen özete veya sağlama toplamına karşı kontrol edin"
 
-#: ../src/main.c:98
+#: ../src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "ÖZET"
 
-#: ../src/main.c:103
+#: ../src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Belirtilen dosyadan özetleri veya sağlama toplamlarını kontrol et"
 
-#: ../src/main.c:104
+#: ../src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "DOSYA|URI"
 
-#: ../src/main.c:109
+#: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
 msgstr "Belirtilen Hash İşlevini etkinleştirin (örneğin, MD5)"
 
-#: ../src/main.c:110
+#: ../src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
 msgstr "İŞLEV"
 
-#: ../src/main.c:114
+#: ../src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Belirtilen metni hash'la"
 
-#: ../src/main.c:115
+#: ../src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
 msgstr "METİN"
 
-#: ../src/main.c:119
+#: ../src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Sürüm bilgisini göster"
 
-#: ../src/main.c:123
+#: ../src/opts.c:123
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[DOSYA|URI...]"
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Desteklenen hiçbir bir hash işlevi etkinleştirilemedi."
 
 #: ../src/util/util.c:35
 #, c-format

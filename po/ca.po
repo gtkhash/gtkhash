@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-22 14:03+0100\n"
+"POT-Creation-Date: 2019-07-26 20:12+0100\n"
 "PO-Revision-Date: 2019-04-15 17:04+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtkhash/"
@@ -189,59 +189,59 @@ msgstr "S'ha produït un error en afegir el fitxer «%s»: %s"
 msgid "Unknown Hash Function name \"%s\""
 msgstr "El nom de la funció resum «%s» és desconegut"
 
-#: ../src/main.c:97
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "S'ha produït un error en activar les funcions resum compatibles."
+
+#: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Compara amb el resum o la suma de verificació especificats"
 
-#: ../src/main.c:98
+#: ../src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "RESUM"
 
-#: ../src/main.c:103
+#: ../src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Comprova els resums o les sumes de verificació del fitxer especificat"
 
-#: ../src/main.c:104
+#: ../src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "[FITXER|URI...]"
 
-#: ../src/main.c:109
+#: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
 msgstr "Activa la funció resum especificada (p. ex. MD5)"
 
-#: ../src/main.c:110
+#: ../src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
 msgstr "FUNCIÓ"
 
-#: ../src/main.c:114
+#: ../src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Calcula el resum del text especificat"
 
-#: ../src/main.c:115
+#: ../src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEXT"
 
-#: ../src/main.c:119
+#: ../src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Mostra informació de la versió"
 
-#: ../src/main.c:123
+#: ../src/opts.c:123
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FITXER|URI...]"
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "S'ha produït un error en activar les funcions resum compatibles."
 
 #: ../src/util/util.c:35
 #, c-format

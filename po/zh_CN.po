@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-22 14:03+0100\n"
+"POT-Creation-Date: 2019-07-26 20:12+0100\n"
 "PO-Revision-Date: 2017-05-11 09:42+0800\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
@@ -200,67 +200,67 @@ msgstr ""
 msgid "Unknown Hash Function name \"%s\""
 msgstr "哈希函数："
 
-#: ../src/main.c:97
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "无法启用任何支持的哈希函数。"
+
+#: ../src/opts.c:97
 #, fuzzy
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "再次检查指定的摘要或校验和"
 
-#: ../src/main.c:98
+#: ../src/opts.c:98
 #, fuzzy
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "摘要"
 
-#: ../src/main.c:103
+#: ../src/opts.c:103
 #, fuzzy
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "将消息摘要或校验和添加到文件属性"
 
-#: ../src/main.c:104
+#: ../src/opts.c:104
 #, fuzzy
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "[文件|位置...]"
 
-#: ../src/main.c:109
+#: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
 msgstr ""
 
-#: ../src/main.c:110
+#: ../src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
 msgstr ""
 
-#: ../src/main.c:114
+#: ../src/opts.c:114
 #, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "哈希指定的文本"
 
-#: ../src/main.c:115
+#: ../src/opts.c:115
 #, fuzzy
 msgctxt " --help"
 msgid "TEXT"
 msgstr "文本"
 
-#: ../src/main.c:119
+#: ../src/opts.c:119
 #, fuzzy
 msgctxt " --help"
 msgid "Show version information"
 msgstr "显示版本信息"
 
-#: ../src/main.c:123
+#: ../src/opts.c:123
 #, fuzzy
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[文件|位置...]"
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "无法启用任何支持的哈希函数。"
 
 #: ../src/util/util.c:35
 #, c-format

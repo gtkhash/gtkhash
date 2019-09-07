@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-22 14:03+0100\n"
+"POT-Creation-Date: 2019-07-26 20:12+0100\n"
 "PO-Revision-Date: 2019-04-24 08:48+0000\n"
 "Last-Translator: nautilusx <mail.ka@mailbox.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtkhash/"
@@ -195,59 +195,59 @@ msgstr "Die Datei \"%s\" konnte nicht hinzugefügt werden: %s"
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Unbekannter Name der Hash-Funktion \"%s\""
 
-#: ../src/main.c:97
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Es konnte keine der unterstützten Hash-Funktionen aktiviert werden."
+
+#: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Prüfe gegen die bestimmte Digests oder Prüfsumme"
 
-#: ../src/main.c:98
+#: ../src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "DIGEST"
 
-#: ../src/main.c:103
+#: ../src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Digests oder Prüfsummen aus der angegebenen Datei überprüfen"
 
-#: ../src/main.c:104
+#: ../src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "DATEI|URI"
 
-#: ../src/main.c:109
+#: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
 msgstr "Aktivieren der angegebenen Hash-Funktion (z.B. MD5)"
 
-#: ../src/main.c:110
+#: ../src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
 msgstr "FUNKTIONEN"
 
-#: ../src/main.c:114
+#: ../src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Hashe den angegebenen Text"
 
-#: ../src/main.c:115
+#: ../src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEXT"
 
-#: ../src/main.c:119
+#: ../src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Versionsinformationen anzeigen"
 
-#: ../src/main.c:123
+#: ../src/opts.c:123
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[DATEI|URI...]"
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Es konnte keine der unterstützten Hash-Funktionen aktiviert werden."
 
 #: ../src/util/util.c:35
 #, c-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-22 14:03+0100\n"
+"POT-Creation-Date: 2019-07-26 20:12+0100\n"
 "PO-Revision-Date: 2018-09-29 10:21+0000\n"
 "Last-Translator: mohammadA <mohammadAbdulhadi1@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/gtkhash/"
@@ -197,62 +197,62 @@ msgstr ""
 msgid "Unknown Hash Function name \"%s\""
 msgstr "دالة التجزئة:"
 
-#: ../src/main.c:97
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "فشل تمكين أي وظائف تجزئة."
+
+#: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr ""
 
-#: ../src/main.c:98
+#: ../src/opts.c:98
 #, fuzzy
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "الملخص"
 
-#: ../src/main.c:103
+#: ../src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr ""
 
-#: ../src/main.c:104
+#: ../src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr ""
 
-#: ../src/main.c:109
+#: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
 msgstr ""
 
-#: ../src/main.c:110
+#: ../src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
 msgstr ""
 
-#: ../src/main.c:114
+#: ../src/opts.c:114
 #, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "جزئ النص المحدد"
 
-#: ../src/main.c:115
+#: ../src/opts.c:115
 #, fuzzy
 msgctxt " --help"
 msgid "TEXT"
 msgstr "نص"
 
-#: ../src/main.c:119
+#: ../src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
 msgstr "أظهر معلومات الإصدار"
 
-#: ../src/main.c:123
+#: ../src/opts.c:123
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr ""
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "فشل تمكين أي وظائف تجزئة."
 
 #: ../src/util/util.c:35
 #, c-format

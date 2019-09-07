@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-22 14:03+0100\n"
+"POT-Creation-Date: 2019-07-26 20:12+0100\n"
 "PO-Revision-Date: 2012-07-13 20:27+0000\n"
 "Last-Translator: Zbyněk Schwarz <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -202,67 +202,67 @@ msgstr ""
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Hashovací funkce"
 
-#: ../src/main.c:97
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Selhalo povolení všech podporovaných hash funkcí."
+
+#: ../src/opts.c:97
 #, fuzzy
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Zkontrolovat pomocí zadaného digestu či kontrolního součtu"
 
-#: ../src/main.c:98
+#: ../src/opts.c:98
 #, fuzzy
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "DIGEST"
 
-#: ../src/main.c:103
+#: ../src/opts.c:103
 #, fuzzy
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Nástroj GTK+ pro výpočet digestu zpráv nebo kontrolních součtů"
 
-#: ../src/main.c:104
+#: ../src/opts.c:104
 #, fuzzy
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "[FILE|URI...]"
 
-#: ../src/main.c:109
+#: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
 msgstr ""
 
-#: ../src/main.c:110
+#: ../src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
 msgstr ""
 
-#: ../src/main.c:114
+#: ../src/opts.c:114
 #, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Hashovat zadaný text"
 
-#: ../src/main.c:115
+#: ../src/opts.c:115
 #, fuzzy
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEXT"
 
-#: ../src/main.c:119
+#: ../src/opts.c:119
 #, fuzzy
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Zobrazit informace o verzi"
 
-#: ../src/main.c:123
+#: ../src/opts.c:123
 #, fuzzy
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Selhalo povolení všech podporovaných hash funkcí."
 
 #: ../src/util/util.c:35
 #, c-format

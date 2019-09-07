@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-22 14:03+0100\n"
+"POT-Creation-Date: 2019-07-26 20:12+0100\n"
 "PO-Revision-Date: 2019-03-20 02:03+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtkhash/"
@@ -191,66 +191,66 @@ msgstr ""
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Ukjent sjekksummeringsfunksjonsnavn \"%s\""
 
-#: ../src/main.c:97
+#: ../src/prefs.c:81
+msgid "Failed to enable any supported hash functions."
+msgstr "Klarte ikke å skru på noen støttede sjekksummeringsfunksjoner."
+
+#: ../src/opts.c:97
 #, fuzzy
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Sjekk mot angitt føljetong eller sjekksum"
 
-#: ../src/main.c:98
+#: ../src/opts.c:98
 #, fuzzy
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "FØLJETONG"
 
-#: ../src/main.c:103
+#: ../src/opts.c:103
 #, fuzzy
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Legger til føljetonger eller sjekksummer til filegenskaper"
 
-#: ../src/main.c:104
+#: ../src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "FIL|URI"
 
-#: ../src/main.c:109
+#: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
 msgstr "Skru på angitt sjekksummeringsfunksjon (f.eks MD5)"
 
-#: ../src/main.c:110
+#: ../src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
 msgstr "FUNKSJON"
 
-#: ../src/main.c:114
+#: ../src/opts.c:114
 #, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Sjekksummer valgt tekst"
 
-#: ../src/main.c:115
+#: ../src/opts.c:115
 #, fuzzy
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEKST"
 
-#: ../src/main.c:119
+#: ../src/opts.c:119
 #, fuzzy
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Vis versjonsinformasjon"
 
-#: ../src/main.c:123
+#: ../src/opts.c:123
 #, fuzzy
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FIL|URI…]"
-
-#: ../src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Klarte ikke å skru på noen støttede sjekksummeringsfunksjoner."
 
 #: ../src/util/util.c:35
 #, c-format
