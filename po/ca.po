@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-09-07 13:57+0100\n"
-"PO-Revision-Date: 2019-04-15 17:04+0000\n"
+"PO-Revision-Date: 2019-10-06 11:56+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 "X-Launchpad-Export-Date: 2016-01-29 05:16+0000\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
@@ -152,9 +152,9 @@ msgid "_Save"
 msgstr "_Desa"
 
 #: ../src/callbacks.c:271
-#, fuzzy
 msgid "A desktop utility for computing message digests or checksums"
-msgstr "Una eina GTK+ per calcular resums de missatges o sumes de verificació."
+msgstr ""
+"Una eina d'escriptori per calcular resums de missatges o sumes de verificació"
 
 #: ../src/callbacks.c:276
 msgid "translator-credits"
