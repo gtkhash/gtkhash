@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # xin <xin@riseup.net>, 2019.
+# Éfrit <Efrit@posteo.net>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-09-07 13:57+0100\n"
-"PO-Revision-Date: 2019-01-06 01:08+0000\n"
-"Last-Translator: xin <xin@riseup.net>\n"
+"PO-Revision-Date: 2019-11-01 00:03+0000\n"
+"Last-Translator: Éfrit <Efrit@posteo.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gtkhash/"
 "translations/fr/>\n"
 "Language: fr\n"
@@ -17,24 +18,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 "X-Launchpad-Export-Date: 2012-09-16 04:40+0000\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
-msgstr "Minuscule hexadécimale"
+msgstr "Hexadécimal en minuscule"
 
 #: ../data/gtkhash-gtk3.xml.h:2
 msgid "Uppercase Hexadecimal"
-msgstr "Majuscule hexadécimale"
+msgstr "Hexadécimal en majuscule"
 
 #: ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
-msgstr "_Copier l'empreinte"
+msgstr "Copier le con_densat"
 
 #: ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
-msgstr "Afficher la _barre d'outils"
+msgstr "Afficher la barre d’ou_tils"
 
 #: ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
@@ -43,17 +44,16 @@ msgstr "_Fichier"
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
 msgid "_Open Digest File..."
-msgstr ""
+msgstr "_Ouvrir un condensat"
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
 msgctxt "menu"
 msgid "_Save Digest File..."
-msgstr "Enregistrer empreintes"
+msgstr "Enregi_strer le condensat"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
-msgstr "_Édition"
+msgstr "Édition"
 
 #: ../data/gtkhash-gtk3.xml.h:9
 msgid "_View"
@@ -69,7 +69,7 @@ msgstr "_Liste de fichiers"
 
 #: ../data/gtkhash-gtk3.xml.h:12
 msgid "_Help"
-msgstr "_Aide"
+msgstr "Aide"
 
 #: ../data/gtkhash-gtk3.xml.h:13
 msgid "File:"
@@ -81,15 +81,15 @@ msgstr "Texte :"
 
 #: ../data/gtkhash-gtk3.xml.h:15 ../data/nautilus/gtkhash-properties.xml.h:5
 msgid "Check:"
-msgstr "Vérifier :"
+msgstr "Vérifier :"
 
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "Copier le condensat depuis le presse-papier"
 
 #: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "HMAC Key:"
-msgstr "Clé HMAC :"
+msgstr "Clé HMAC :"
 
 #: ../data/gtkhash-gtk3.xml.h:18
 msgid "File"
@@ -97,7 +97,7 @@ msgstr "Fichier"
 
 #: ../data/gtkhash-gtk3.xml.h:19
 msgid "Ha_sh"
-msgstr "Ha_cher"
+msgstr "Hacher"
 
 #: ../data/gtkhash-gtk3.xml.h:20
 msgid "GtkHash Preferences"
@@ -105,26 +105,26 @@ msgstr "Préférences GtkHash"
 
 #: ../data/gtkhash-gtk3.xml.h:21
 msgid "Hash Functions:"
-msgstr "Fonctions de hachage :"
+msgstr "Fonctions de hachage :"
 
 #: ../data/gtkhash-gtk3.xml.h:22
 msgid "Digest Format:"
-msgstr "Format de l'empreinte :"
+msgstr "Format du condensat :"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
-msgstr "Calculateur de somme de contrôle"
+msgstr "Calculateur de sommes de contrôle"
 
 #: ../data/gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
 #: ../src/nautilus/properties.c:593 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
-msgstr "Calculer des empreintes numériques ou des sommes de contrôle"
+msgstr "Calculer des condensats ou des sommes de contrôle"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "Ouvrir un fichier de condensat"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:303
 #: ../src/callbacks.c:309
@@ -134,31 +134,28 @@ msgstr "_Ouvrir"
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
 #: ../src/callbacks.c:126 ../src/callbacks.c:303 ../src/callbacks.c:308
 msgid "_Cancel"
-msgstr "_Annuler"
+msgstr "Annuler"
 
 #: ../src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
-msgstr "Fichiers empreintes/sommes de contrôle (*.sha1, *.md5, *.sfv, ...)"
+msgstr "Fichiers de condensats ou de sommes de contrôle"
 
 #: ../src/callbacks.c:78
 msgid "All Files"
 msgstr "Tous les fichiers"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-#, fuzzy
 msgid "Save Digest File"
-msgstr "Enregistrer empreintes"
+msgstr "Enregistrer le condensat"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
-msgstr "_Enregistrer"
+msgstr "Enregi_strer"
 
 #: ../src/callbacks.c:271
-#, fuzzy
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
-"Un utilitaire GTK+ pour calculer des empreintes numériques ou des sommes de "
-"contrôle."
+"Un utilitaire GTK+ pour calculer des condensats ou des sommes de contrôle"
 
 #: ../src/callbacks.c:276
 msgid "translator-credits"
@@ -175,41 +172,41 @@ msgstr "Sélectionner les fichiers"
 #. Add checkbutton
 #: ../src/callbacks.c:513 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
-msgstr "_Voir la clé HMAC"
+msgstr "Afficher la clé HMAC"
 
 #: ../src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr "Échec de lecture du fichier de vérification \"%s\" : %s"
+msgstr "Échec de la lecture du fichier de vérification « %s » : %s"
 
 #: ../src/gui.c:285
 msgid "Not a regular file"
-msgstr "Pas un fichier régulier"
+msgstr "Ce n’est pas un fichier ordinaire"
 
 #: ../src/gui.c:308
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr "Échec de l'ajout du fichier \"%s\" : %s"
+msgstr "Échec de l’ajout du fichier « %s » : %s"
 
 #: ../src/hash.c:183 ../src/prefs.c:109
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "Nom de fonction de hachage inconnu \"%s\""
+msgstr "Fonction de hachage « %s » inconnue"
 
 #: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Vérifier par rapport à l'empreinte ou à la somme de contrôle spécifiée"
+msgstr "Vérifier par rapport au condensat ou à la somme de contrôle spécifiée"
 
 #: ../src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
-msgstr "EMPREINTE"
+msgstr "CONDENSAT"
 
 #: ../src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "Vérifier les empreintes ou les sommes de contrôle du fichier spécifié"
+msgstr "Vérifier les condensats ou les sommes de contrôle du fichier spécifié"
 
 #: ../src/opts.c:104
 msgctxt " --help"
@@ -219,7 +216,7 @@ msgstr "FICHIER|URI"
 #: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr "Activer la fonction de hachage spécifiée (p. ex. MD5)"
+msgstr "Activer la fonction de hachage spécifiée (p. ex. SHA-256)"
 
 #: ../src/opts.c:110
 msgctxt " --help"
@@ -244,11 +241,11 @@ msgstr "Afficher les informations de version"
 #: ../src/opts.c:123
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr "[FICHIER|URI...]"
+msgstr "[FICHIER|URI…]"
 
 #: ../src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
-msgstr "Impossible d'activer les fonctions de hachage supportées."
+msgstr "Échec de l’activation des fonctions de hachage prises en charge."
 
 #: ../src/util/util.c:35
 #, c-format
@@ -267,7 +264,7 @@ msgstr[1] "%u secondes restantes"
 #: ../src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s de %s - %s (%s/sec)"
+msgstr "%s de %s – %s (%s/s)"
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
@@ -280,15 +277,15 @@ msgstr "%s de %s - %s (%s/sec)"
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
-msgstr "Empreintes"
+msgstr "Condensats"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr "_Copier l'empreinte"
+msgstr "_Copier le condensat"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
-msgstr "Voir les fonctions de hachage _désactivées"
+msgstr "Afficher les fonctions de hachage _désactivées"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
@@ -296,7 +293,7 @@ msgstr "Fonction de hachage"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
-msgstr "Empreinte"
+msgstr "Condensat"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:8
 msgid "H_ash"
@@ -308,6 +305,10 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash est une application permettant de calculer les sommes de contrôle ou "
+"les condensats des fichiers. Elle est conçue pour être une alternative "
+"graphique facile à utiliser \n"
+"\n"
 "GtkHash est une application pour calculer les sommes de contrôle de fichiers "
 "ou des empreintes numériques. Elle est conçue pour être une alternative "
 "facile à utiliser aux programmes en ligne de commande comme md5sum."
@@ -315,7 +316,8 @@ msgstr ""
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
-"Les fonctions de hachage supportés sont MD5, SHA1, SHA256, SHA512 et CRC32."
+"Les fonctions de hachage prises en charge sont MD5, SHA-1, SHA-256, SHA-512 "
+"et le code cyclique CRC32."
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
@@ -324,8 +326,7 @@ msgstr ""
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
-"Ajouter des empreintes numériques ou des sommes de contrôle aux propriétés "
-"d'un fichier"
+"Ajoute les condensats ou les sommes de contrôle aux propriétés du fichier"
 
 #~ msgid "Check Digests"
 #~ msgstr "Vérifier empreintes"
