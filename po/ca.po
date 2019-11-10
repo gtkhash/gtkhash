@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-07 13:57+0100\n"
 "PO-Revision-Date: 2019-10-06 11:56+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
