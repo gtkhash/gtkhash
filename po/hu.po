@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # notramo <notramo@vipmail.hu>, 2018.
+# notramo <notramo@protonmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-11-10 13:21+0000\n"
-"PO-Revision-Date: 2018-09-02 18:18+0000\n"
-"Last-Translator: notramo <notramo@vipmail.hu>\n"
+"PO-Revision-Date: 2019-11-18 21:04+0000\n"
+"Last-Translator: notramo <notramo@protonmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/hu/>\n"
 "Language: hu\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
@@ -41,12 +42,12 @@ msgstr "_Fájl"
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
 msgid "_Open Digest File..."
-msgstr ""
+msgstr "_Digest fájl megnyitása..."
 
 #: ../data/gtkhash-gtk3.xml.h:7
 msgctxt "menu"
 msgid "_Save Digest File..."
-msgstr ""
+msgstr "Digest fájl _mentése..."
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -82,7 +83,7 @@ msgstr "Ellenőrzés:"
 
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "Hash beillesztése a vágólapról"
 
 #: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "HMAC Key:"
