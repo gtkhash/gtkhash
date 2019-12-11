@@ -1,4 +1,4 @@
-image: ubuntu:18.10
+image: ubuntu:rolling
 
 before_script:
   - export DEBIAN_FRONTEND=noninteractive
