@@ -342,7 +342,6 @@ static void test_opt_check_text(void)
 		g_shell_parse_argv("t -c fail -t aa --check 0123abcdef", &argc, &argv, NULL);
 
 		opts_preinit(&argc, &argv);
-
 		opts_postinit();
 		delay();
 
@@ -367,7 +366,6 @@ static void test_opt_check_file(void)
 		g_free(args);
 
 		opts_preinit(&argc, &argv);
-
 		opts_postinit();
 		delay();
 
@@ -415,13 +413,12 @@ static void test_opt_function(void)
 			exit(EXIT_FAILURE);
 
 		// Enable the function from cmdline
-		char *str = g_strdup_printf("%s %s", "-t --function XX -f", hash.funcs[id].name);
+		char *str = g_strdup_printf("%s %s", "t --function XX -f", hash.funcs[id].name);
 		gint argc;
 		char **argv;
 		g_shell_parse_argv(str, &argc, &argv, NULL);
 
 		opts_preinit(&argc, &argv);
-		delay();
 
 		if (hash.funcs[id].enabled)
 			exit(EXIT_SUCCESS);
@@ -432,6 +429,78 @@ static void test_opt_function(void)
 	g_test_trap_subprocess(NULL, 0, 0);
 	g_test_trap_assert_passed();
 	g_test_trap_assert_stderr("*Unknown*XX*");
+}
+
+static void test_opt_file(void)
+{
+	if (g_test_subprocess()) {
+		gint argc;
+		char **argv;
+		char *args = g_strdup_printf("t -- '%s'",
+			g_test_get_filename(G_TEST_BUILT, "10M.bytes", NULL));
+
+		g_shell_parse_argv(args, &argc, &argv, NULL);
+		g_free(args);
+
+		select_func(HASH_FUNC_MD5, true);
+
+		opts_preinit(&argc, &argv);
+		opts_postinit();
+		delay();
+
+		g_assert(gui.view == GUI_VIEW_FILE);
+
+		while (!*gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file))
+			gtk_main_iteration_do(false);
+		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file));
+
+		exit(EXIT_SUCCESS);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("*f1c9645dbc14efddc7d8a322685f26eb*");
+}
+
+static void test_opt_file_list(void)
+{
+	if (g_test_subprocess()) {
+		gint argc;
+		char **argv;
+		char *args = g_strdup_printf("t -- '%s' '%s'",
+			g_test_get_filename(G_TEST_BUILT, "0.bytes", NULL),
+			g_test_get_filename(G_TEST_BUILT, "0.bytes", NULL));
+
+		g_shell_parse_argv(args, &argc, &argv, NULL);
+		g_free(args);
+
+		select_func(HASH_FUNC_MD5, true);
+
+		opts_preinit(&argc, &argv);
+		opts_postinit();
+		delay();
+
+		g_assert(gui.view == GUI_VIEW_FILE_LIST);
+		g_assert(list.rows == 2);
+
+		char *digest;
+		while (!(digest = list_get_digest(1, HASH_FUNC_MD5)) || !*digest)
+			gtk_main_iteration_do(false);
+		puts(digest);
+		g_free(digest);
+
+		gtk_tree_selection_select_all(gui.treeselection);
+		delay();
+		list_remove_selection();
+		delay();
+		g_assert(list.rows == 0);
+
+		exit(EXIT_SUCCESS);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("*d41d8cd98f00b204e9800998ecf8427e*");
 }
 
 static void test_init(void)
@@ -464,6 +533,8 @@ static void test_init(void)
 	g_test_add_func("/opt/check/text", test_opt_check_text);
 	g_test_add_func("/opt/check/file", test_opt_check_file);
 	g_test_add_func("/opt/function", test_opt_function);
+	g_test_add_func("/opt/file", test_opt_file);
+	g_test_add_func("/opt/file-list", test_opt_file_list);
 
 	g_test_set_nonfatal_assertions();
 }
@@ -487,9 +558,12 @@ int main(int argc, char **argv)
 
 	// Ignore user input during testing
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.window), false);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog), false);
 
-	if (g_test_slow())
+	if (g_test_slow()) {
 		gtk_widget_show_now(GTK_WIDGET(gui.window));
+		gtk_widget_show_now(GTK_WIDGET(gui.dialog));
+	}
 
 	callbacks_init();
 	test_init();
