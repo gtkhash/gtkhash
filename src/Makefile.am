@@ -23,9 +23,9 @@ gtkhash_SOURCES = \
 	opts.c opts.h \
 	uri-digest.c uri-digest.h
 
-noinst_PROGRAMS = gtkhash-test
+check_PROGRAMS = gtkhash-test
 
-noinst_DATA = 0.bytes 1.bytes 10M.bytes 5G.bytes
+check_DATA = 0.bytes 1.bytes 10M.bytes 5G.bytes
 
 nodist_gtkhash_test_SOURCES = $(BUILT_SOURCES)
 
@@ -50,16 +50,18 @@ LDADD = \
 	util/util.la \
 	$(GTK_LIBS)
 
-TESTS = gtkhash-test
+TESTS = $(check_PROGRAMS)
 
-LOG_COMPILER = xvfb-run -s "-screen 0 800x600x24"
+AM_TESTS_ENVIRONMENT = HASH_LIBS="$(HASH_LIBS)"; export HASH_LIBS;
+
+LOG_COMPILER = xvfb-run -s "-screen 0 800x600x24" $(srcdir)/gtkhash-test.sh
 
 CLEANFILES = \
 	$(BUILT_SOURCES) \
-	$(noinst_DATA) \
+	$(check_DATA) \
 	*.gcda *.gcno
 
-EXTRA_DIST = test.md5sum.in
+EXTRA_DIST = gtkhash-test.sh test.md5sum.in
 
 resources.c resources.h: \
 	../data/gtkhash-gtk3.gresource.xml \

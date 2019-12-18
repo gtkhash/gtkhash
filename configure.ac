@@ -428,6 +428,10 @@ else
 fi
 # }}}
 
+# Matches preferred order from src/hash/hash-lib.c
+HASH_LIBS="zlib blake2 gcrypt libcrypto mbedtls nettle linux_crypto glib_checksums mhash internal_md6"
+AC_SUBST([HASH_LIBS])
+
 AC_DEFINE_UNQUOTED([G_LOG_DOMAIN], ["${PACKAGE_NAME}"], [Define the Glib log domain])
 AC_DEFINE([HASH_FILE_BUFFER_SIZE], [131072], [Define file read buffer size (bytes)])
 AC_DEFINE([HASH_FILE_REPORT_INTERVAL], [166], [Define progress report interval (milliseconds)])
@@ -555,19 +559,7 @@ for func in \
 do
 	printf "  %-20s" "${func}"
 	enabled=""
-	# Matches preferred order from src/hash/hash-lib.c
-	for lib in \
-		zlib \
-		blake2 \
-		gcrypt \
-		libcrypto \
-		mbedtls \
-		nettle \
-		linux_crypto \
-		glib_checksums \
-		mhash \
-		internal_md6
-	do
+	for lib in ${HASH_LIBS} ; do
 		eval test \${enable_${lib}} = "yes" || continue
 
 		if eval echo \${${lib}_funcs} | tr ' ' '\n' \

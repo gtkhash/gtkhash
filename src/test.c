@@ -178,6 +178,11 @@ static void test_hash_func(const struct hash_func_s *func)
 
 static void test_hash_func_hmac(const struct hash_func_s *func)
 {
+	if (!func->supported || !func->hmac_supported) {
+		g_test_skip("not supported");
+		return;
+	}
+
 	bool tested = false;
 
 #define t(FUNC, TEXT, HMAC, DIGEST) \
@@ -508,24 +513,34 @@ static void test_init(void)
 	gui_set_view(GUI_VIEW_TEXT);
 	delay();
 
+	const char * const lib = g_getenv("GTKHASH_TEST_LIB");
+
 	// Test plain hash
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		char *str = g_strdup_printf("/hash/func/%s", hash.funcs[i].name);
-		g_test_add_data_func(str, &hash.funcs[i],
+		if (lib && !hash.funcs[i].supported)
+			continue;
+
+		char *path = g_strdup_printf("/hash/lib/%s/%s", lib ? lib : "any",
+			hash.funcs[i].name);
+		g_test_add_data_func(path, &hash.funcs[i],
 			(GTestDataFunc)test_hash_func);
-		g_free(str);
+		g_free(path);
 	}
 
 	// Test HMAC
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (!hash.funcs[i].supported || !hash.funcs[i].hmac_supported)
+		if (lib && (!hash.funcs[i].supported || !hash.funcs[i].hmac_supported))
 			continue;
 
-		char *str = g_strdup_printf("/hash/func/HMAC-%s", hash.funcs[i].name);
-		g_test_add_data_func(str, &hash.funcs[i],
+		char *path = g_strdup_printf("/hash/lib/%s/HMAC-%s", lib ? lib : "any",
+			hash.funcs[i].name);
+		g_test_add_data_func(path, &hash.funcs[i],
 			(GTestDataFunc)test_hash_func_hmac);
-		g_free(str);
+		g_free(path);
 	}
+
+	if (lib)
+		return;
 
 	// Test cmdline options
 	g_test_add_func("/opt/help", test_opt_help);
@@ -535,8 +550,6 @@ static void test_init(void)
 	g_test_add_func("/opt/function", test_opt_function);
 	g_test_add_func("/opt/file", test_opt_file);
 	g_test_add_func("/opt/file-list", test_opt_file_list);
-
-	g_test_set_nonfatal_assertions();
 }
 
 int main(int argc, char **argv)
@@ -568,5 +581,6 @@ int main(int argc, char **argv)
 	callbacks_init();
 	test_init();
 
+	g_test_set_nonfatal_assertions();
 	return g_test_run();
 }

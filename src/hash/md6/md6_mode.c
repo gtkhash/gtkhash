@@ -845,6 +845,7 @@ int md6_final( md6_state *st , unsigned char *hashval)
 /* Routines for hashing message given "all at once".
 */
 
+#if 0
 int md6_full_hash( int d,                    /* hash bit length */
 		   unsigned char *data,/* complete data to hash */
 		   uint64_t databitlen,   /* its length in bits */
@@ -878,6 +879,7 @@ int md6_hash( int d,                         /* hash bit length */
   if (err) return err;
   return MD6_SUCCESS;
 }
+#endif
 
 
 /*
