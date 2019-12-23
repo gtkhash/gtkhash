@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-11-10 13:21+0000\n"
-"PO-Revision-Date: 2019-11-01 00:03+0000\n"
+"PO-Revision-Date: 2019-12-23 22:21+0000\n"
 "Last-Translator: Éfrit <Efrit@posteo.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gtkhash/"
 "translations/fr/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 3.10\n"
 "X-Launchpad-Export-Date: 2012-09-16 04:40+0000\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
@@ -85,7 +85,7 @@ msgstr "Vérifier :"
 
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
-msgstr "Copier le condensat depuis le presse-papier"
+msgstr "Coller le condensat depuis le presse-papier"
 
 #: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "HMAC Key:"
@@ -120,7 +120,7 @@ msgstr "Calculateur de sommes de contrôle"
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
 #: ../src/nautilus/properties.c:593 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
-msgstr "Calculer des condensats ou des sommes de contrôle"
+msgstr "Calcule des condensats ou des sommes de contrôle"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
 msgid "Open Digest File"
@@ -196,7 +196,7 @@ msgstr "Fonction de hachage « %s » inconnue"
 #: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Vérifier par rapport au condensat ou à la somme de contrôle spécifiée"
+msgstr "Compare au condensat ou à la somme de contrôle spécifiée"
 
 #: ../src/opts.c:98
 msgctxt " --help"
@@ -206,7 +206,7 @@ msgstr "CONDENSAT"
 #: ../src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "Vérifier les condensats ou les sommes de contrôle du fichier spécifié"
+msgstr "Compare aux condensats ou aux sommes de contrôle du fichier spécifié"
 
 #: ../src/opts.c:104
 msgctxt " --help"
@@ -216,7 +216,7 @@ msgstr "FICHIER|URI"
 #: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr "Activer la fonction de hachage spécifiée (p. ex. SHA-256)"
+msgstr "Active la fonction de hachage spécifiée (p. ex. SHA-256)"
 
 #: ../src/opts.c:110
 msgctxt " --help"
@@ -226,7 +226,7 @@ msgstr "FONCTION"
 #: ../src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr "Hacher le texte spécifié"
+msgstr "Hache le texte spécifié"
 
 #: ../src/opts.c:115
 msgctxt " --help"
@@ -236,7 +236,7 @@ msgstr "TEXTE"
 #: ../src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr "Afficher les informations de version"
+msgstr "Affiche les informations de version"
 
 #: ../src/opts.c:123
 msgctxt " --help"
@@ -306,12 +306,9 @@ msgid ""
 "programs such as md5sum."
 msgstr ""
 "GtkHash est une application permettant de calculer les sommes de contrôle ou "
-"les condensats des fichiers. Elle est conçue pour être une alternative "
-"graphique facile à utiliser \n"
-"\n"
-"GtkHash est une application pour calculer les sommes de contrôle de fichiers "
-"ou des empreintes numériques. Elle est conçue pour être une alternative "
-"facile à utiliser aux programmes en ligne de commande comme md5sum."
+"les condensats de fichier. Elle est conçue pour être une alternative "
+"graphique aux programmes en ligne de commande comme md5sum, et facile à "
+"utiliser."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
