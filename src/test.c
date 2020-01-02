@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2019 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -33,7 +33,6 @@
 #include "hash.h"
 #include "list.h"
 #include "opts.h"
-#include "resources.h"
 #include "hash/hash-func.h"
 
 #ifndef G_SOURCE_FUNC
@@ -557,17 +556,8 @@ int main(int argc, char **argv)
 	gtk_test_init(&argc, &argv);
 
 	hash_init();
-	atexit(hash_deinit);
-
-	resources_register_resource();
 	gui_init();
-	atexit(gui_deinit);
-	resources_unregister_resource();
-
-	list_init();
-
 	check_init();
-	atexit(check_deinit);
 
 	// Ignore user input during testing
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.window), false);
@@ -582,5 +572,11 @@ int main(int argc, char **argv)
 	test_init();
 
 	g_test_set_nonfatal_assertions();
-	return g_test_run();
+	const int status = g_test_run();
+
+	check_deinit();
+	gui_deinit();
+	hash_deinit();
+
+	return status;
 }

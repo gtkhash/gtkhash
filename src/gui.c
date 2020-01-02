@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -34,6 +34,7 @@
 #include "hash.h"
 #include "list.h"
 #include "prefs.h"
+#include "resources.h"
 #include "uri-digest.h"
 #include "hash/digest-format.h"
 #include "hash/hash-func.h"
@@ -251,11 +252,14 @@ static void gui_init_hash_funcs(void)
 
 void gui_init(void)
 {
+	resources_register_resource();
 	GtkBuilder *builder = gtk_builder_new_from_resource(GUI_XML_RESOURCE);
 	gui_init_objects(builder);
 	g_object_unref(builder);
+	resources_unregister_resource();
 
 	gui_init_hash_funcs();
+	list_init();
 
 	gui_set_state(GUI_STATE_IDLE);
 }

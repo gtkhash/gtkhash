@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2019 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -30,9 +30,7 @@
 #include "opts.h"
 #include "hash.h"
 #include "gui.h"
-#include "list.h"
 #include "prefs.h"
-#include "resources.h"
 #include "check.h"
 
 int main(int argc, char **argv)
@@ -44,29 +42,23 @@ int main(int argc, char **argv)
 #endif
 
 	hash_init();
-	atexit(hash_deinit);
 
 	opts_preinit(&argc, &argv);
 
 	gtk_init(NULL, NULL);
 
-	// Init gui using GResource data
-	resources_register_resource();
 	gui_init();
-	atexit(gui_deinit);
-	resources_unregister_resource();
-
-	list_init();
-
 	prefs_init();
-	atexit(prefs_deinit);
-
 	check_init();
-	atexit(check_deinit);
 
 	opts_postinit();
 
 	gui_run();
+
+	check_deinit();
+	prefs_deinit();
+	gui_deinit();
+	hash_deinit();
 
 	return EXIT_SUCCESS;
 }
