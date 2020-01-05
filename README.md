@@ -6,6 +6,7 @@
 
 GtkHash
 =======
+![Screenshot](screenshots/readme.png)
 
 GtkHash is a desktop utility for computing message digests or checksums.
 Most well-known hash functions are supported, including MD5, SHA1,
@@ -21,6 +22,11 @@ Some interesting features:
 * Remote file access using GIO/GVfs
 * File manager integration
 * Small and fast, written in C
+
+GtkHash is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 2 of the License, or (at your option) any later
+version.
 
 Required Dependencies
 -------------
@@ -48,13 +54,6 @@ File Manager Extensions
 * Nemo (Cinnamon)
 * Peony (UKUI)
 * Thunar (Xfce)
-
-Licence
--------
-GtkHash is free software: you can redistribute it and/or modify it under the
-terms of the GNU General Public License as published by the Free Software
-Foundation, either version 2 of the License, or (at your option) any later
-version.
 
 Translations
 ------------
