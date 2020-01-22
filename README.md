@@ -3,6 +3,7 @@
 [![Windows Build Status](https://ci.appveyor.com/api/projects/status/1hm3cs5f0islas0w/branch/master?svg=true)](https://ci.appveyor.com/project/tristanheaven/gtkhash/branch/master)
 [![Test Coverage](https://codecov.io/gh/tristanheaven/gtkhash/branch/master/graph/badge.svg)](https://codecov.io/gh/tristanheaven/gtkhash)
 [![Translations](https://hosted.weblate.org/widgets/gtkhash/-/svg-badge.svg)](https://hosted.weblate.org/engage/gtkhash/)
+[![Snap Status](https://build.snapcraft.io/badge/tristanheaven/gtkhash.svg)](https://build.snapcraft.io/user/tristanheaven/gtkhash)
 
 GtkHash
 =======
