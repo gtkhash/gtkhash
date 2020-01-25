@@ -476,7 +476,7 @@ gcrypt_funcs="${gcrypt_funcs}
 glib_checksums_funcs="
 	MD5
 	SHA1
-	SHA256 SHA512"
+	SHA256 SHA384 SHA512"
 internal_md6_funcs="
 	MD6-224 MD6-256 MD6-384 MD6-512"
 libcrypto_funcs="
