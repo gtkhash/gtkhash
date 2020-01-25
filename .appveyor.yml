@@ -1,6 +1,6 @@
 version: git-{branch}.{build}
 
-image: Visual Studio 2015
+image: Visual Studio 2019
 
 platform: x64
 
