@@ -119,7 +119,7 @@
   <object class="GtkWindow" id="window">
     <property name="can_focus">False</property>
     <property name="title">GtkHash</property>
-    <property name="default_width">330</property>
+    <property name="default_height">340</property>
     <property name="icon_name">gtkhash</property>
     <child>
       <placeholder/>
