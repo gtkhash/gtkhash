@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2019 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -264,6 +264,13 @@ static void on_menuitem_about_activate(void)
 		NULL
 	};
 
+	const char *snap_version = NULL;
+	if (g_strcmp0(g_getenv("SNAP_NAME"), PACKAGE) == 0)
+		snap_version = g_getenv("SNAP_VERSION");
+
+	char *version = g_markup_printf_escaped("%s",
+		snap_version ? snap_version : VERSION);
+
 	gtk_show_about_dialog(
 			gui.window,
 			"artists", artists,
@@ -275,9 +282,11 @@ static void on_menuitem_about_activate(void)
 #if ENABLE_NLS
 			"translator-credits", _("translator-credits"),
 #endif
-			"version", VERSION,
+			"version", version,
 			"website", "https://github.com/tristanheaven/gtkhash",
 			NULL);
+
+	g_free(version);
 }
 
 static void on_filechooserbutton_selection_changed(void)
