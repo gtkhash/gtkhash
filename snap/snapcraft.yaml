@@ -1,7 +1,7 @@
 name: gtkhash
 adopt-info: gtkhash
 version: git
-grade: devel
+grade: stable
 base: core18
 confinement: strict
 

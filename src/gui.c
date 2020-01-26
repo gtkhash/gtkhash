@@ -252,6 +252,12 @@ static void gui_init_hash_funcs(void)
 
 void gui_init(void)
 {
+	// Override user icon theme when running in confined snap environment
+	if (g_strcmp0(g_getenv("SNAP_NAME"), PACKAGE) == 0) {
+		g_object_set(gtk_settings_get_default(),
+			"gtk-icon-theme-name", "Humanity", NULL);
+	}
+
 	resources_register_resource();
 	GtkBuilder *builder = gtk_builder_new_from_resource(GUI_XML_RESOURCE);
 	gui_init_objects(builder);
