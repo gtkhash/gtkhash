@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # emma peel <emma.peel@riseup.net>, 2018.
-# Toni Estévez <toni.estevez@gmail.com>, 2019.
+# Toni Estévez <toni.estevez@gmail.com>, 2019, 2020.
 # Sebastian Duque <sebastiandg7@gmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-11-10 13:21+0000\n"
-"PO-Revision-Date: 2019-10-06 11:56+0000\n"
+"PO-Revision-Date: 2020-01-27 22:50+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/es/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 3.11-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
@@ -70,7 +70,7 @@ msgstr "_Lista de archivos"
 
 #: ../data/gtkhash-gtk3.xml.h:12
 msgid "_Help"
-msgstr "_Ayuda"
+msgstr "Ay_uda"
 
 #: ../data/gtkhash-gtk3.xml.h:13
 msgid "File:"
@@ -189,7 +189,7 @@ msgstr "No se ha podido añadir el archivo «%s»: %s"
 #: ../src/hash.c:183 ../src/prefs.c:109
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "Nombre de función resumen desconocido «%s»"
+msgstr "El nombre de la función resumen «%s» es desconocido"
 
 #: ../src/opts.c:97
 msgctxt " --help"
@@ -306,7 +306,7 @@ msgid ""
 msgstr ""
 "GtkHash es una aplicación para calcular sumas de comprobación de archivos o "
 "resúmenes de mensajes. Se ha diseñado para ser una alternativa gráfica fácil "
-"de usar para programas de línea de comandos como md5sum."
+"de usar para programas de línea de órdenes como md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
