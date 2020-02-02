@@ -41,11 +41,12 @@
 
 static void delay(void)
 {
-	if (g_test_slow())
-		g_usleep(G_USEC_PER_SEC / 10);
+	for (int i = 0; i < 10; i++) {
+		while (gtk_events_pending())
+			gtk_main_iteration();
 
-	while (gtk_events_pending())
-		gtk_main_iteration();
+		g_usleep(G_USEC_PER_SEC / 250);
+	}
 }
 
 static void select_func(const enum hash_func_e id, const bool active)
@@ -57,6 +58,14 @@ static void select_func(const enum hash_func_e id, const bool active)
 	delay();
 
 	g_assert_true(hash.funcs[id].enabled == active);
+}
+
+static void select_digest_format(const enum digest_format_e format)
+{
+	gui_set_digest_format(format);
+	delay();
+
+	g_assert_true(gui_get_digest_format() == format);
 }
 
 static void test_hash_func_digest(const enum hash_func_e id, const char *text,
@@ -522,6 +531,58 @@ static void test_opt_file_list(void)
 	g_test_trap_assert_stdout("*d41d8cd98f00b204e9800998ecf8427e*");
 }
 
+static void test_digest_format_hex_lower()
+{
+	if (g_test_subprocess()) {
+		gui_set_view(GUI_VIEW_TEXT);
+		select_func(HASH_FUNC_MD5, true);
+		select_digest_format(DIGEST_FORMAT_HEX_LOWER);
+
+		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_text));
+
+		exit(EXIT_SUCCESS);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("*d41d8cd98f00b204e9800998ecf8427e*");
+}
+
+static void test_digest_format_hex_upper()
+{
+	if (g_test_subprocess()) {
+		gui_set_view(GUI_VIEW_TEXT);
+		delay();
+		select_func(HASH_FUNC_MD5, true);
+		select_digest_format(DIGEST_FORMAT_HEX_UPPER);
+
+		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_text));
+
+		exit(EXIT_SUCCESS);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("*D41D8CD98F00B204E9800998ECF8427E*");
+}
+
+static void test_digest_format_base64()
+{
+	if (g_test_subprocess()) {
+		gui_set_view(GUI_VIEW_TEXT);
+		select_func(HASH_FUNC_MD5, true);
+		select_digest_format(DIGEST_FORMAT_BASE64);
+
+		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_text));
+
+		exit(EXIT_SUCCESS);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("*1B2M2Y8AsgTpgAmY7PhCfg==*");
+}
+
 static void test_init(void)
 {
 	gui_set_view(GUI_VIEW_TEXT);
@@ -564,6 +625,11 @@ static void test_init(void)
 	g_test_add_func("/opt/function", test_opt_function);
 	g_test_add_func("/opt/file", test_opt_file);
 	g_test_add_func("/opt/file-list", test_opt_file_list);
+
+	// Test digest formats
+	g_test_add_func("/digest-format/base64", test_digest_format_base64);
+	g_test_add_func("/digest-format/hex-lower", test_digest_format_hex_lower);
+	g_test_add_func("/digest-format/hex-upper", test_digest_format_hex_upper);
 }
 
 int main(int argc, char **argv)
@@ -578,10 +644,8 @@ int main(int argc, char **argv)
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.window), false);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog), false);
 
-	if (g_test_slow()) {
-		gtk_widget_show_now(GTK_WIDGET(gui.window));
-		gtk_widget_show_now(GTK_WIDGET(gui.dialog));
-	}
+	gtk_widget_show_now(GTK_WIDGET(gui.window));
+	gtk_widget_show_now(GTK_WIDGET(gui.dialog));
 
 	callbacks_init();
 	test_init();
