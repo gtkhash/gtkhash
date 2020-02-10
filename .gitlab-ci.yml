@@ -19,6 +19,7 @@ before_script:
       libxml2-utils
       at-spi2-core
       xvfb
+      gnome-icon-theme
       libnautilus-extension-dev
       libnemo-extension-dev
       libcaja-extension-dev

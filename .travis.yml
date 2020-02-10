@@ -20,7 +20,10 @@ addons:
       - libmhash-dev
       - linux-libc-dev
       - librsvg2-bin
+      - libxml2-utils
       - at-spi2-core
+      - xvfb
+      - gnome-icon-theme
       - libnautilus-extension-dev
       - libnemo-extension-dev
 
