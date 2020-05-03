@@ -4,6 +4,7 @@ before_script:
   - export DEBIAN_FRONTEND=noninteractive
   - apt-get -y update
   - apt-get -y install
+      build-essential
       libtool
       intltool
       libglib2.0-dev
