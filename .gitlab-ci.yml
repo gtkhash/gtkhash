@@ -24,7 +24,6 @@ before_script:
       libnemo-extension-dev
       libcaja-extension-dev
       libthunarx-3-dev
-      libpeony-extension-dev
 
 gtkhash:
   script:
@@ -43,7 +42,6 @@ gtkhash:
         --enable-nemo
         --enable-caja
         --enable-thunar
-        --enable-peony
         --disable-dependency-tracking
       )
     - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
