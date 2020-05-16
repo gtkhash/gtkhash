@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-11-10 13:21+0000\n"
-"PO-Revision-Date: 2020-05-02 16:11+0000\n"
+"PO-Revision-Date: 2020-05-07 11:12+0000\n"
 "Last-Translator: Oymate <dhruboadittya96@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/bn_BD/>\n"
@@ -147,116 +147,116 @@ msgstr "ডাইজেস্ট ফাইল সংরক্ষণ করুন
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
-msgstr ""
+msgstr "_সংরক্ষণ"
 
 #: ../src/callbacks.c:271
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
+msgstr "ডাইজেস্ট বা চেকসামের গণনা বার্তার জন্য একটি ডেস্কটপ যন্ত্র"
 
 #: ../src/callbacks.c:276
 msgid "translator-credits"
-msgstr ""
+msgstr "অনুবাদকারি-কৃতিত্ব"
 
 #: ../src/callbacks.c:302 ../src/callbacks.c:306
 msgid "Select Files"
-msgstr ""
+msgstr "ফাইল নির্বাচন করুন"
 
 #. Add checkbutton
 #: ../src/callbacks.c:513 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "_এইচএমএসি(HMAC) কী দেখান"
 
 #: ../src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
+msgstr "\"%s\" ফাইলটি পরীক্ষা করতে ব্যর্থ : %s"
 
 #: ../src/gui.c:285
 msgid "Not a regular file"
-msgstr ""
+msgstr "একটি সাধারণ ফাইল না"
 
 #: ../src/gui.c:308
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
+msgstr "\"%s\" ফাইলটি যুক্ত করতে ব্যর্থ : %s"
 
 #: ../src/hash.c:183 ../src/prefs.c:109
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr ""
+msgstr "অজানা হ্যাশ ফাংশনের নাম \"%s\""
 
 #: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr ""
+msgstr "নির্দিষ্ট হজম বা চেকসামের সাথে পরীক্ষা করুন"
 
 #: ../src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
-msgstr ""
+msgstr "ডাইজেস্ট"
 
 #: ../src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr ""
+msgstr "নির্দিষ্ট ফাইল থেকে ডাইজেস্ট বা চেকসাম পরীক্ষা করুন"
 
 #: ../src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr ""
+msgstr "ফাইল|URI"
 
 #: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "নির্দিষ্ট হ্যাশ ফাংশন সক্ষম করুন (উদাঃ এমডি৫)"
 
 #: ../src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "ফাংশন"
 
 #: ../src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr ""
+msgstr "নির্দিষ্ট লেখা হ্যাশ করুন"
 
 #: ../src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
-msgstr ""
+msgstr "টেক্সট"
 
 #: ../src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr ""
+msgstr "সংস্করণ তথ্য প্রদর্শন করুন"
 
 #: ../src/opts.c:123
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr ""
+msgstr "[ফাইল|URI...]"
 
 #: ../src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
-msgstr ""
+msgstr "কোনও সমর্থিত হ্যাশ ফাংশন সক্ষম করতে ব্যর্থ।"
 
 #: ../src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u মিনিট বাকি"
+msgstr[1] "%u মিনিট বাকি"
 
 #: ../src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u সেকেন্ড বাকি"
+msgstr[1] "%u সেকেন্ড বাকি"
 
 #: ../src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr ""
+msgstr "%s এর %s - %s(%s/সেকেন্ড)"
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
@@ -269,27 +269,27 @@ msgstr ""
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
-msgstr ""
+msgstr "ডাইজেস্ট"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr ""
+msgstr "_কপি ডাইজেস্ট"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
-msgstr ""
+msgstr "দেখান _অক্ষমকৃত হ্যাশ ফাংশনগুলি"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
-msgstr ""
+msgstr "হ্যাশ ফাংশন"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
-msgstr ""
+msgstr "ডাইজেস্ট"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:8
 msgid "H_ash"
-msgstr ""
+msgstr "H_ash"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""
@@ -297,10 +297,12 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"ফাইল বা বার্তা ডাইজেস্টের জন্য জিটিকেহ্যাশ একটি অ্যাপ্লিকেশন। এটি এমডি৫সামের "
+"মতো কমান্ড-লাইন প্রোগ্রামগুলির গ্রাফিকাল বিকল্প, যা সহজে ব্যবহারযোগ্য।"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
+msgstr "সমর্থিত হ্যাশ ফাংশন অন্তর্ভুক্ত এমডি৫, শা১, শা২৫৬, শা৫১২ এবং সিআরসি৩২।"
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
@@ -308,4 +310,4 @@ msgstr ""
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
-msgstr ""
+msgstr "ফাইলের বৈশিষ্ট্যে বার্তা ডাইজেস্ট বা চেকসাম যুক্ত করে"
