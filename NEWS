@@ -1,6 +1,10 @@
 Summary of changes for each GtkHash release:
 
-1.3 (2019-00-00)
+1.3 (2020-05-25)
+	* Fixed crash when program is closed (#47)
+	* Added vertical scrolling to File/Text view (#35)
+	* Added clipboard paste button to Check input
+	* Added Windows compatibility
 	* Removed support for GTK 2
 
 1.2 (2018-11-27)
