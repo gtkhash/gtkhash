@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Giorgos Kostopoulos <giorgosk67@gmail.com>, 2019.
+# Giorgos Kostopoulos <giorgosk67@gmail.com>, 2019, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2019-11-10 13:21+0000\n"
-"PO-Revision-Date: 2019-01-05 20:06+0000\n"
+"PO-Revision-Date: 2020-05-26 05:41+0000\n"
 "Last-Translator: Giorgos Kostopoulos <giorgosk67@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtkhash/"
 "translations/el/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
@@ -41,13 +41,12 @@ msgstr "_Αρχείο"
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
 msgid "_Open Digest File..."
-msgstr ""
+msgstr "_Άνοιγμα Αρχείου Σύνοψης..."
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
 msgctxt "menu"
 msgid "_Save Digest File..."
-msgstr "Αποθήκευση Συνόψεων"
+msgstr "_Αποθήκευση Αρχείου Σύνοψης..."
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -83,7 +82,7 @@ msgstr "Έλεγχος:"
 
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "Επικόλληση από πρόχειρο"
 
 #: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
 msgid "HMAC Key:"
@@ -122,7 +121,7 @@ msgstr "Υπολογίστε συνόψεις μηνυμάτων ή  αθροί�
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "Άνοιγμα Αρχείου Σύνοψης"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:303
 #: ../src/callbacks.c:309
@@ -143,19 +142,16 @@ msgid "All Files"
 msgstr "Όλα τ' Αρχεία"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-#, fuzzy
 msgid "Save Digest File"
-msgstr "Αποθήκευση Συνόψεων"
+msgstr "Αποθήκευση Αρχείου Σύνοψης"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
 msgstr "_Αποθήκευση"
 
 #: ../src/callbacks.c:271
-#, fuzzy
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
-"Ένα εργαλείο GTK+ για υπολογισμό συνόψεων μηνυμάτων ή  αθροισμάτων ελέγχου."
+msgstr "Ένα εργαλείο για υπολογισμό συνόψεων μηνυμάτων ή αθροισμάτων ελέγχου"
 
 #: ../src/callbacks.c:276
 msgid "translator-credits"
