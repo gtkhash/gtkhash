@@ -33,12 +33,28 @@
 #include "prefs.h"
 #include "check.h"
 
+#if ENABLE_NLS
+static void nls_init(void)
+{
+#ifdef G_OS_WIN32
+	char *pkgdir = g_win32_get_package_installation_directory_of_module(NULL);
+	char *localedir = g_build_filename(pkgdir, "share", "locale", NULL);
+	bindtextdomain(GETTEXT_PACKAGE, localedir);
+	g_free(localedir);
+	g_free(pkgdir);
+#else
+	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
+#endif
+
+	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+	textdomain(GETTEXT_PACKAGE);
+}
+#endif
+
 int main(int argc, char **argv)
 {
 #if ENABLE_NLS
-	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
-	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
-	textdomain(GETTEXT_PACKAGE);
+	nls_init();
 #endif
 
 	hash_init();
