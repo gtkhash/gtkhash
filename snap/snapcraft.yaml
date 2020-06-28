@@ -1,6 +1,7 @@
 name: gtkhash
 adopt-info: gtkhash
 version: git
+license: GPL-2.0+
 grade: stable
 base: core18
 confinement: strict
