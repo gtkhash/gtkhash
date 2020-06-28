@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2020-06-28 19:45+0100\n"
-"PO-Revision-Date: 2020-06-28 22:38+0000\n"
+"PO-Revision-Date: 2020-06-29 00:47+0000\n"
 "Last-Translator: Roi Klevansky <roiklevansky@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/gtkhash/"
 "translations/he/>\n"
@@ -53,11 +53,11 @@ msgstr "_שמור לקובץ קוד גיבוב..."
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
-msgstr ""
+msgstr "_עריכה"
 
 #: ../data/gtkhash-gtk3.xml.h:9
 msgid "_View"
-msgstr ""
+msgstr "_תצוגה"
 
 #: ../data/gtkhash-gtk3.xml.h:10
 msgid "_Text"
@@ -80,16 +80,14 @@ msgid "Text:"
 msgstr "טקסט:"
 
 #: ../data/gtkhash-gtk3.xml.h:15 ../data/nautilus/gtkhash-properties.xml.h:5
-#, fuzzy
 msgid "Check:"
-msgstr "השווה ל:"
+msgstr "בדוק מול:"
 
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
 msgstr "הדבק קוד גיבוב מלוח העתקה"
 
 #: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
-#, fuzzy
 msgid "HMAC Key:"
 msgstr "מפתח HMAC:"
 
@@ -98,9 +96,8 @@ msgid "File"
 msgstr "קובץ"
 
 #: ../data/gtkhash-gtk3.xml.h:19
-#, fuzzy
 msgid "Ha_sh"
-msgstr "גי_בוב"
+msgstr "ח_שב"
 
 #: ../data/gtkhash-gtk3.xml.h:20
 msgid "GtkHash Preferences"
@@ -140,7 +137,6 @@ msgstr "פתח"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
 #: ../src/callbacks.c:126 ../src/callbacks.c:308 ../src/callbacks.c:313
-#, fuzzy
 msgid "_Cancel"
 msgstr "בטל"
 
@@ -161,7 +157,6 @@ msgid "_Save"
 msgstr "_שמור"
 
 #: ../src/callbacks.c:274
-#, fuzzy
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "כלי לשולחן עבודה לחישוב קוד גיבוב או סיכום ביקורת"
 
@@ -183,7 +178,7 @@ msgstr "_הצג מפתח HMAC"
 #: ../src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
+msgstr "נכשל בקריאת קובץ הבדיקה \"%s\": %s"
 
 #: ../src/gui.c:295
 msgid "Not a regular file"
@@ -217,7 +212,7 @@ msgstr "חשב את קודי הגיבוב או סיכומי הביקורת מה�
 #: ../src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr ""
+msgstr "FILE|URI"
 
 #: ../src/opts.c:109
 msgctxt " --help"
@@ -227,17 +222,17 @@ msgstr "הפעל את פונקציית הגיבוב שצוינה (לדוגמה, 
 #: ../src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "FUNCTION"
 
 #: ../src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr ""
+msgstr "חשב את הטקסט שצוין"
 
 #: ../src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
-msgstr ""
+msgstr "TEXT"
 
 #: ../src/opts.c:119
 msgctxt " --help"
@@ -247,7 +242,7 @@ msgstr "הצג מידע אודות הגירסה"
 #: ../src/opts.c:123
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr ""
+msgstr "[FILE|URI...]"
 
 #: ../src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
@@ -257,20 +252,24 @@ msgstr "הפעלת פונקציות הגיבוב הנתמכות נכשלה."
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "נשארה דקה אחת"
+msgstr[1] "נשארו שתי דקות"
+msgstr[2] "נשארו %u דקות"
+msgstr[3] "נשארו %u דקות"
 
 #: ../src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "נשארה שנייה אחת"
+msgstr[1] "נשארו שתי שניות"
+msgstr[2] "נשארו %u שניות"
+msgstr[3] "נשארו %u שניות"
 
 #: ../src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr ""
+msgstr "%s מתוך %s - %s (%s/שנייה)"
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
@@ -283,27 +282,27 @@ msgstr ""
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
-msgstr ""
+msgstr "קודי גבוב"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr ""
+msgstr "_העתק קוד גבוב"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
-msgstr ""
+msgstr "הצג_פונקציות גבוב לא מופעלות"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
-msgstr ""
+msgstr "פונקציית גבוב"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
-msgstr ""
+msgstr "קוד גבוב"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:8
 msgid "H_ash"
-msgstr ""
+msgstr "_חשב"
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:2
 msgid ""
@@ -311,10 +310,12 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash הוא כלי לשולחן עבודה לחישוב קוד גיבוב או סיכום ביקורת. הכלי נועד "
+"להיות חלופה גרפית קלה לשימוש, לתוכניות שורת פקודה כמו md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
+msgstr "פונקציות גבוב נתמכות כוללות MD5, SHA1, SHA256, SHA512 ו-CRC32."
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
@@ -322,4 +323,4 @@ msgstr ""
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
-msgstr ""
+msgstr "הוספת קודי גבוב או סיכומי ביקורת למאפייני קובץ"
