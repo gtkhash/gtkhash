@@ -186,6 +186,8 @@ static void gui_init_objects(GtkBuilder *builder)
 		"dialog"));
 	gui.dialog_grid = GTK_GRID(gui_get_object(builder,
 		"dialog_grid"));
+	gui.dialog_togglebutton_show_hmac = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"dialog_togglebutton_show_hmac"));
 	gui.dialog_combobox = GTK_COMBO_BOX(gui_get_object(builder,
 		"dialog_combobox"));
 	gui.dialog_button_close = GTK_BUTTON(gui_get_object(builder,
@@ -232,13 +234,11 @@ static void gui_init_hash_funcs(void)
 		// Dialog checkbuttons
 		gui.hash_widgets[i].button = GTK_TOGGLE_BUTTON(
 			gtk_check_button_new_with_label(hash.funcs[i].name));
-
 		gtk_grid_attach(gui.dialog_grid,
 			GTK_WIDGET(gui.hash_widgets[i].button),
-			supported % 2 ? 1 : 0, // column
-			supported / 2,         // row
-			1,                     // width
-			1);                    // height
+			supported % 3, // column
+			supported / 3, // row
+			1, 1); // width, height
 
 		// Could be enabled already by cmdline arg
 		if (hash.funcs[i].enabled)
@@ -585,26 +585,37 @@ static void gui_update_hash_funcs(void)
 
 static void gui_update_hmac(void)
 {
+	bool enabled = gtk_toggle_button_get_active(gui.dialog_togglebutton_show_hmac);
 	bool active = false;
 
 	switch (gui.view) {
 		case GUI_VIEW_FILE:
 			gtk_widget_hide(GTK_WIDGET(gui.entry_hmac_text));
 			gtk_widget_hide(GTK_WIDGET(gui.togglebutton_hmac_text));
-			gtk_widget_show(GTK_WIDGET(gui.entry_hmac_file));
-			gtk_widget_show(GTK_WIDGET(gui.togglebutton_hmac_file));
+			gtk_widget_set_visible(GTK_WIDGET(gui.entry_hmac_file), enabled);
+			gtk_widget_set_visible(GTK_WIDGET(gui.togglebutton_hmac_file), enabled);
 
 			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_file);
 			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file), active);
+
+			if (active && !enabled) {
+				gtk_toggle_button_set_active(gui.togglebutton_hmac_file, false);
+				active = false;
+			}
 			break;
 		case GUI_VIEW_TEXT:
 			gtk_widget_hide(GTK_WIDGET(gui.entry_hmac_file));
 			gtk_widget_hide(GTK_WIDGET(gui.togglebutton_hmac_file));
-			gtk_widget_show(GTK_WIDGET(gui.entry_hmac_text));
-			gtk_widget_show(GTK_WIDGET(gui.togglebutton_hmac_text));
+			gtk_widget_set_visible(GTK_WIDGET(gui.entry_hmac_text), enabled);
+			gtk_widget_set_visible(GTK_WIDGET(gui.togglebutton_hmac_text), enabled);
 
 			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_text);
 			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_text), active);
+
+			if (active && !enabled) {
+				gtk_toggle_button_set_active(gui.togglebutton_hmac_text, false);
+				active = false;
+			}
 			break;
 		default:
 			g_assert_not_reached();
@@ -820,6 +831,7 @@ void gui_set_state(const enum gui_state_e state)
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_file_list), !busy);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_grid), !busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_togglebutton_show_hmac), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_combobox), !busy);
 
 	if (busy)

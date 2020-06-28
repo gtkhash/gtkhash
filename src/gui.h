@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -76,6 +76,7 @@ extern struct gui_s {
 	GtkButton *button_hash, *button_stop;
 	GtkDialog *dialog;
 	GtkGrid *dialog_grid;
+	GtkToggleButton *dialog_togglebutton_show_hmac;
 	GtkComboBox *dialog_combobox;
 	GtkButton *dialog_button_close;
 	enum gui_view_e view;

@@ -75,9 +75,11 @@ static void test_hash_func_digest(const enum hash_func_e id, const char *text,
 	gtk_entry_set_text(gui.entry_text, text);
 
 	if (hmac) {
+		gtk_toggle_button_set_active(gui.dialog_togglebutton_show_hmac, true);
 		gtk_toggle_button_set_active(gui.togglebutton_hmac_text, true);
 		gtk_entry_set_text(gui.entry_hmac_text, hmac);
 	} else {
+		gtk_toggle_button_set_active(gui.dialog_togglebutton_show_hmac, false);
 		gtk_toggle_button_set_active(gui.togglebutton_hmac_text, false);
 		gtk_entry_set_text(gui.entry_hmac_text, "");
 	}

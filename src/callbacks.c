@@ -243,12 +243,8 @@ static void on_radiomenuitem_toggled(void)
 		view = GUI_VIEW_FILE_LIST;
 	}
 
-	g_assert(GUI_VIEW_IS_VALID(view));
-
-	if (gui.view != view) {
-		gui.view = view;
-		gui_update();
-	}
+	gui_set_view(view);
+	gui_update();
 }
 
 static void on_menuitem_about_activate(void)
@@ -484,6 +480,7 @@ static void on_togglebutton_hmac_file_toggled(void)
 
 	bool active = gtk_toggle_button_get_active(gui.togglebutton_hmac_file);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file), active);
+
 	gui_clear_digests();
 
 	gui_update_hash_func_labels(active);
@@ -601,6 +598,7 @@ void callbacks_init(void)
 	CON(gui.button_stop,                    "clicked",             gui_stop_hash);
 	CON(gui.dialog,                         "delete-event",        G_CALLBACK(on_dialog_delete_event));
 	CON(gui.dialog_button_close,            "clicked",             G_CALLBACK(on_dialog_delete_event));
+	CON(gui.dialog_togglebutton_show_hmac,  "toggled",             gui_update);
 	CON(gui.dialog_combobox,                "changed",             on_dialog_combobox_changed);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -36,6 +36,7 @@
 #define PREFS_SCHEMA "org.gtkhash"
 #define PREFS_KEY_DIGEST_FORMAT "digest-format"
 #define PREFS_KEY_HASH_FUNCS "hash-functions"
+#define PREFS_KEY_SHOW_HMAC "show-hmac"
 #define PREFS_KEY_SHOW_TOOLBAR "show-toolbar"
 #define PREFS_KEY_VIEW "view"
 #define PREFS_KEY_WINDOW_HEIGHT "window-height"
@@ -82,8 +83,11 @@ static void default_hash_funcs(void)
 	exit(EXIT_FAILURE);
 }
 
-static void default_show_toolbar(void)
+static void default_show_widgets(void)
 {
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(
+		gui.dialog_togglebutton_show_hmac), false);
+
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
 		gui.menuitem_treeview_show_toolbar), true);
 }
@@ -91,7 +95,7 @@ static void default_show_toolbar(void)
 static void prefs_default(void)
 {
 	default_hash_funcs();
-	default_show_toolbar();
+	default_show_widgets();
 }
 
 static void load_hash_funcs(void)
@@ -153,8 +157,11 @@ static void load_view(void)
 	g_free(str);
 }
 
-static void load_show_toolbar(void)
+static void load_show_widgets(void)
 {
+	g_settings_bind(prefs_priv.settings, PREFS_KEY_SHOW_HMAC,
+		gui.dialog_togglebutton_show_hmac, "active", PREFS_BIND_FLAGS);
+
 	g_settings_bind(prefs_priv.settings, PREFS_KEY_SHOW_TOOLBAR,
 		gui.menuitem_treeview_show_toolbar, "active", PREFS_BIND_FLAGS);
 }
@@ -180,7 +187,7 @@ static void prefs_load(void)
 	load_hash_funcs();
 	load_digest_format();
 	load_view();
-	load_show_toolbar();
+	load_show_widgets();
 	load_window_size();
 }
 
