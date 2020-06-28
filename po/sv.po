@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2019-11-10 13:21+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-28 19:45+0100\n"
 "PO-Revision-Date: 2017-09-24 08:10+0000\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/gtkhash/"
@@ -104,10 +104,18 @@ msgid "GtkHash Preferences"
 msgstr "GtkHash-inställningar"
 
 #: ../data/gtkhash-gtk3.xml.h:21
-msgid "Hash Functions:"
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "Hash Functions"
 msgstr "Hashfunktioner:"
 
 #: ../data/gtkhash-gtk3.xml.h:22
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "MAC Functions"
+msgstr "Hashfunktioner:"
+
+#: ../data/gtkhash-gtk3.xml.h:23
 msgid "Digest Format:"
 msgstr "Sammandragsformat:"
 
@@ -126,13 +134,13 @@ msgstr "Beräkna meddelandesammandrag eller kontrollsummor"
 msgid "Open Digest File"
 msgstr ""
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:303
-#: ../src/callbacks.c:309
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:308
+#: ../src/callbacks.c:314
 msgid "_Open"
 msgstr "Ö_ppna"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:303 ../src/callbacks.c:308
+#: ../src/callbacks.c:126 ../src/callbacks.c:308 ../src/callbacks.c:313
 msgid "_Cancel"
 msgstr "A_vbryt"
 
@@ -154,23 +162,23 @@ msgstr "Spara sammandrag"
 msgid "_Save"
 msgstr "_Spara"
 
-#: ../src/callbacks.c:271
+#: ../src/callbacks.c:274
 #, fuzzy
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "Ett GTK+-verktyg för att beräkna sammandrag eller kontrollsummor."
 
-#: ../src/callbacks.c:276
+#: ../src/callbacks.c:279
 msgid "translator-credits"
 msgstr ""
 "Mattias Ohlsson https://launchpad.net/~mattias-oh\n"
 "Anders Jonsson <anders.jonsson@norsjovallen.se>"
 
-#: ../src/callbacks.c:302 ../src/callbacks.c:306
+#: ../src/callbacks.c:307 ../src/callbacks.c:311
 msgid "Select Files"
 msgstr "Välj filer"
 
 #. Add checkbutton
-#: ../src/callbacks.c:513 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
 msgstr "_Visa HMAC-nyckel"
 
@@ -181,18 +189,18 @@ msgstr ""
 "Misslyckades med att lägga till ”%s”:\n"
 "%s"
 
-#: ../src/gui.c:285
+#: ../src/gui.c:295
 msgid "Not a regular file"
 msgstr "Inte en vanlig fil"
 
-#: ../src/gui.c:308
+#: ../src/gui.c:318
 #, fuzzy, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
 "Misslyckades med att lägga till ”%s”:\n"
 "%s"
 
-#: ../src/hash.c:183 ../src/prefs.c:109
+#: ../src/hash.c:183 ../src/prefs.c:113
 #, fuzzy, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Hashfunktioner:"
@@ -256,7 +264,7 @@ msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FIL|URI…]"
 
-#: ../src/prefs.c:81
+#: ../src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
 msgstr "Lyckades inte aktivera någon hashfunktion som stöds."
 

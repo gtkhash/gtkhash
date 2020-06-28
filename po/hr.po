@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2019-11-10 13:21+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-28 19:45+0100\n"
 "PO-Revision-Date: 2020-01-19 23:21+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/gtkhash/"
@@ -104,10 +104,18 @@ msgid "GtkHash Preferences"
 msgstr "GtkHash osobitosti"
 
 #: ../data/gtkhash-gtk3.xml.h:21
-msgid "Hash Functions:"
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "Hash Functions"
 msgstr "Hash funkcije:"
 
 #: ../data/gtkhash-gtk3.xml.h:22
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "MAC Functions"
+msgstr "Hash funkcije:"
+
+#: ../data/gtkhash-gtk3.xml.h:23
 msgid "Digest Format:"
 msgstr "Format sažetka:"
 
@@ -126,13 +134,13 @@ msgstr "Izračunaj sažetke poruka ili kontrolne sume"
 msgid "Open Digest File"
 msgstr "Otvori datoteku sažetka"
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:303
-#: ../src/callbacks.c:309
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:308
+#: ../src/callbacks.c:314
 msgid "_Open"
 msgstr "_Otvori"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:303 ../src/callbacks.c:308
+#: ../src/callbacks.c:126 ../src/callbacks.c:308 ../src/callbacks.c:313
 msgid "_Cancel"
 msgstr "O_dustani"
 
@@ -152,23 +160,23 @@ msgstr "Spremi datoteku sažetka"
 msgid "_Save"
 msgstr "_Spremi"
 
-#: ../src/callbacks.c:271
+#: ../src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
 "Uslužni program za izračunavanje sažetaka poruka ili kontrolnih zbrojeva"
 
-#: ../src/callbacks.c:276
+#: ../src/callbacks.c:279
 msgid "translator-credits"
 msgstr ""
 "gogo https://launchpad.net/~trebelnik-stefina\n"
 "Milo Ivir <mail@milotype.de>, 2020."
 
-#: ../src/callbacks.c:302 ../src/callbacks.c:306
+#: ../src/callbacks.c:307 ../src/callbacks.c:311
 msgid "Select Files"
 msgstr "Odaberi datoteke"
 
 #. Add checkbutton
-#: ../src/callbacks.c:513 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
 msgstr "_Prikaži HMAC ključ"
 
@@ -177,16 +185,16 @@ msgstr "_Prikaži HMAC ključ"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Neuspjelo čitanje datoteke za provjeru „%s”: %s"
 
-#: ../src/gui.c:285
+#: ../src/gui.c:295
 msgid "Not a regular file"
 msgstr "Nije regularna datoteka"
 
-#: ../src/gui.c:308
+#: ../src/gui.c:318
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Neuspjelo dodavanje datoteke „%s”: %s"
 
-#: ../src/hash.c:183 ../src/prefs.c:109
+#: ../src/hash.c:183 ../src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Nepoznato ime hash funkcije „%s”"
@@ -241,7 +249,7 @@ msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[DATOTEKA|URI …]"
 
-#: ../src/prefs.c:81
+#: ../src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
 msgstr "Neuspjelo omogućavanje bilo koje podržane hash funkcije."
 
