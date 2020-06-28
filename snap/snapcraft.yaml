@@ -9,7 +9,7 @@ confinement: strict
 apps:
   gtkhash:
     command: bin/gtkhash
-    desktop: share/applications/gtkhash.desktop
+    desktop: usr/share/applications/gtkhash.desktop
     common-id: org.gtkhash.gtkhash
     extensions: [ gnome-3-28 ]
     plugs:
@@ -35,9 +35,15 @@ parts:
       - libgtk-3-0
       - libgcrypt20
       - libb2-1
+    build-environment:
+      - CFLAGS: "${CFLAGS} -O2 -s"
+    configflags:
+      - --prefix=/usr # For snap's bindtextdomain() hack
+      - --enable-linux-crypto
+      - --disable-silent-rules
     override-build: |
       sed -i '/^Icon=/s:=.*:=${SNAP}/meta/gui/gtkhash.svg:' data/gtkhash.desktop.in
       snapcraftctl build
-      mkdir -vp ${SNAPCRAFT_PART_INSTALL}/meta/gui
-      cp -vf data/icons/scalable/gtkhash.svg ${SNAPCRAFT_PART_INSTALL}/meta/gui/
-    parse-info: [ share/metainfo/gtkhash.appdata.xml ]
+      mkdir -vp -- "${SNAPCRAFT_PART_INSTALL}"/meta/gui
+      cp -vf -- data/icons/scalable/gtkhash.svg "${SNAPCRAFT_PART_INSTALL}"/meta/gui/
+    parse-info: [ usr/share/metainfo/gtkhash.appdata.xml ]
