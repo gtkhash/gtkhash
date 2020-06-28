@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2019-11-10 13:21+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-28 19:45+0100\n"
 "PO-Revision-Date: 2019-12-23 22:21+0000\n"
 "Last-Translator: Éfrit <Efrit@posteo.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gtkhash/"
@@ -104,10 +104,18 @@ msgid "GtkHash Preferences"
 msgstr "Préférences GtkHash"
 
 #: ../data/gtkhash-gtk3.xml.h:21
-msgid "Hash Functions:"
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "Hash Functions"
 msgstr "Fonctions de hachage :"
 
 #: ../data/gtkhash-gtk3.xml.h:22
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "MAC Functions"
+msgstr "Fonctions de hachage :"
+
+#: ../data/gtkhash-gtk3.xml.h:23
 msgid "Digest Format:"
 msgstr "Format du condensat :"
 
@@ -126,13 +134,13 @@ msgstr "Calcule des condensats ou des sommes de contrôle"
 msgid "Open Digest File"
 msgstr "Ouvrir un fichier de condensat"
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:303
-#: ../src/callbacks.c:309
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:308
+#: ../src/callbacks.c:314
 msgid "_Open"
 msgstr "_Ouvrir"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:303 ../src/callbacks.c:308
+#: ../src/callbacks.c:126 ../src/callbacks.c:308 ../src/callbacks.c:313
 msgid "_Cancel"
 msgstr "Annuler"
 
@@ -152,12 +160,12 @@ msgstr "Enregistrer le condensat"
 msgid "_Save"
 msgstr "Enregi_strer"
 
-#: ../src/callbacks.c:271
+#: ../src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
 "Un utilitaire GTK+ pour calculer des condensats ou des sommes de contrôle"
 
-#: ../src/callbacks.c:276
+#: ../src/callbacks.c:279
 msgid "translator-credits"
 msgstr ""
 "ERE https://launchpad.net/~karfter\n"
@@ -165,12 +173,12 @@ msgstr ""
 "Thibault Févry https://launchpad.net/~thibaultfevry\n"
 "jc1 https://launchpad.net/~jc1-quebecos"
 
-#: ../src/callbacks.c:302 ../src/callbacks.c:306
+#: ../src/callbacks.c:307 ../src/callbacks.c:311
 msgid "Select Files"
 msgstr "Sélectionner les fichiers"
 
 #. Add checkbutton
-#: ../src/callbacks.c:513 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
 msgstr "Afficher la clé HMAC"
 
@@ -179,16 +187,16 @@ msgstr "Afficher la clé HMAC"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Échec de la lecture du fichier de vérification « %s » : %s"
 
-#: ../src/gui.c:285
+#: ../src/gui.c:295
 msgid "Not a regular file"
 msgstr "Ce n’est pas un fichier ordinaire"
 
-#: ../src/gui.c:308
+#: ../src/gui.c:318
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Échec de l’ajout du fichier « %s » : %s"
 
-#: ../src/hash.c:183 ../src/prefs.c:109
+#: ../src/hash.c:183 ../src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Fonction de hachage « %s » inconnue"
@@ -243,7 +251,7 @@ msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FICHIER|URI…]"
 
-#: ../src/prefs.c:81
+#: ../src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
 msgstr "Échec de l’activation des fonctions de hachage prises en charge."
 

@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2019-11-10 13:21+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-28 19:45+0100\n"
 "PO-Revision-Date: 2020-05-26 05:41+0000\n"
 "Last-Translator: Giorgos Kostopoulos <giorgosk67@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtkhash/"
@@ -101,10 +101,18 @@ msgid "GtkHash Preferences"
 msgstr "Προτιμήσεις GtkHash"
 
 #: ../data/gtkhash-gtk3.xml.h:21
-msgid "Hash Functions:"
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "Hash Functions"
 msgstr "Λειτουργίες Κατατεμαχισμού:"
 
 #: ../data/gtkhash-gtk3.xml.h:22
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "MAC Functions"
+msgstr "Λειτουργίες Κατατεμαχισμού:"
+
+#: ../data/gtkhash-gtk3.xml.h:23
 msgid "Digest Format:"
 msgstr "Σχήμα Σύνοψης:"
 
@@ -123,13 +131,13 @@ msgstr "Υπολογίστε συνόψεις μηνυμάτων ή  αθροί�
 msgid "Open Digest File"
 msgstr "Άνοιγμα Αρχείου Σύνοψης"
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:303
-#: ../src/callbacks.c:309
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:308
+#: ../src/callbacks.c:314
 msgid "_Open"
 msgstr "_Άνοιγμα"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:303 ../src/callbacks.c:308
+#: ../src/callbacks.c:126 ../src/callbacks.c:308 ../src/callbacks.c:313
 msgid "_Cancel"
 msgstr "_Άκυρο"
 
@@ -149,22 +157,22 @@ msgstr "Αποθήκευση Αρχείου Σύνοψης"
 msgid "_Save"
 msgstr "_Αποθήκευση"
 
-#: ../src/callbacks.c:271
+#: ../src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "Ένα εργαλείο για υπολογισμό συνόψεων μηνυμάτων ή αθροισμάτων ελέγχου"
 
-#: ../src/callbacks.c:276
+#: ../src/callbacks.c:279
 msgid "translator-credits"
 msgstr ""
 "Μεταφραστής - μνεία\n"
 "Γιώργος Κωστόπουλος giorgosk67@gmail.com"
 
-#: ../src/callbacks.c:302 ../src/callbacks.c:306
+#: ../src/callbacks.c:307 ../src/callbacks.c:311
 msgid "Select Files"
 msgstr "Επιλογή Αρχείων"
 
 #. Add checkbutton
-#: ../src/callbacks.c:513 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
 msgstr "Προσθήκη checkbutton"
 
@@ -175,18 +183,18 @@ msgstr ""
 "Αποτυχία ανάγνωσης αρχείου ελέγχου \"%s 1\":\n"
 "%s 2"
 
-#: ../src/gui.c:285
+#: ../src/gui.c:295
 msgid "Not a regular file"
 msgstr "Μη κανονικό αρχείο"
 
-#: ../src/gui.c:308
+#: ../src/gui.c:318
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
 "Αποτυχία προσθήκης αρχείου \"%s 1\":\n"
 "%s 2"
 
-#: ../src/hash.c:183 ../src/prefs.c:109
+#: ../src/hash.c:183 ../src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "'Άγνωστο όνομα Λειτουργίας Ελέγχου \"%s\""
@@ -241,7 +249,7 @@ msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ΑΡΧΕΙΟ|URI...]"
 
-#: ../src/prefs.c:81
+#: ../src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
 msgstr ""
 "Αποτυχία ενεργοποίησης οποιασδήποτε υποστηριζόμενης λειτουργίας "

@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2019-11-10 13:21+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-28 19:45+0100\n"
 "PO-Revision-Date: 2012-07-13 20:27+0000\n"
 "Last-Translator: Zbyněk Schwarz <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -102,10 +102,18 @@ msgid "GtkHash Preferences"
 msgstr "Možnosti GtkHash"
 
 #: ../data/gtkhash-gtk3.xml.h:21
-msgid "Hash Functions:"
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "Hash Functions"
 msgstr "Hashovací funkce"
 
 #: ../data/gtkhash-gtk3.xml.h:22
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "MAC Functions"
+msgstr "Hashovací funkce"
+
+#: ../data/gtkhash-gtk3.xml.h:23
 msgid "Digest Format:"
 msgstr "Formát Digest:"
 
@@ -125,13 +133,13 @@ msgstr "Nástroj GTK+ pro výpočet digestu zpráv nebo kontrolních součtů"
 msgid "Open Digest File"
 msgstr ""
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:303
-#: ../src/callbacks.c:309
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:308
+#: ../src/callbacks.c:314
 msgid "_Open"
 msgstr ""
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:303 ../src/callbacks.c:308
+#: ../src/callbacks.c:126 ../src/callbacks.c:308 ../src/callbacks.c:313
 msgid "_Cancel"
 msgstr ""
 
@@ -153,12 +161,12 @@ msgstr "Uložit Digest"
 msgid "_Save"
 msgstr ""
 
-#: ../src/callbacks.c:271
+#: ../src/callbacks.c:274
 #, fuzzy
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "Nástroj GTK+ pro výpočet digestu zpráv nebo kontrolních součtů"
 
-#: ../src/callbacks.c:276
+#: ../src/callbacks.c:279
 #, fuzzy
 msgid "translator-credits"
 msgstr ""
@@ -167,12 +175,12 @@ msgstr ""
 "Martin \"sachy\" Šácha https://launchpad.net/~sachy\n"
 "Zbyněk Schwarz https://launchpad.net/~tsbook\n"
 
-#: ../src/callbacks.c:302 ../src/callbacks.c:306
+#: ../src/callbacks.c:307 ../src/callbacks.c:311
 msgid "Select Files"
 msgstr "Vyberte soubory"
 
 #. Add checkbutton
-#: ../src/callbacks.c:513 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
 msgstr ""
 
@@ -183,18 +191,18 @@ msgstr ""
 "Nelze přečíst \"%s\":\n"
 "%s"
 
-#: ../src/gui.c:285
+#: ../src/gui.c:295
 msgid "Not a regular file"
 msgstr "Není běžný soubor"
 
-#: ../src/gui.c:308
+#: ../src/gui.c:318
 #, fuzzy, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
 "Nelze přidat \"%s\":\n"
 "%s"
 
-#: ../src/hash.c:183 ../src/prefs.c:109
+#: ../src/hash.c:183 ../src/prefs.c:113
 #, fuzzy, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Hashovací funkce"
@@ -257,7 +265,7 @@ msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
 
-#: ../src/prefs.c:81
+#: ../src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
 msgstr "Selhalo povolení všech podporovaných hash funkcí."
 
