@@ -16,13 +16,13 @@ SHA2 (SHA256/SHA512), SHA3 and BLAKE2.
 It's designed to be an easy to use, graphical alternative to command-line
 tools such as md5sum.
 
-Some interesting features:
+Features:
 * Support for verifying checksum files from sfv, sha256sum, etc.
 * Keyed hashing (HMAC)
 * Parallel/multi-threaded hash calculation
 * Remote file access using GIO/GVfs
 * File manager integration
-* Small and fast, written in C
+* Small and fast
 
 GtkHash is free software: you can redistribute it and/or modify it under the
 terms of the GNU General Public License as published by the Free Software
@@ -44,12 +44,13 @@ Optional Dependencies
 * mhash
 * Linux Kernel Crypto (AF_ALG)
 
-GtkHash attempts to select the fastest available hash function
-implementations at startup. See `./configure --help` for a full list of
-options. Build dependencies are not detected implicitly or "automagically".
+See `./configure --help` for the full list of build options.
 
-File Manager Extensions
+File Manager Extension
 -----------------------
+![Screenshot](screenshots/gtkhash-nemo-properties.png)
+
+Adds a Hash feature to File Properties in:
 * Caja (MATE)
 * Nautilus (GNOME)
 * Nemo (Cinnamon)
