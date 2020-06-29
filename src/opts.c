@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2019 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -120,6 +120,7 @@ void opts_preinit(int *argc, char ***argv)
 		},
 		{
 			G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY, &opts.files,
+			// Translators: Unicode ellipsis(…) can be used here
 			NULL, C_(PACKAGE " --help", "[FILE|URI...]")
 		},
 		{ NULL, 0, 0, 0, NULL, NULL, NULL }

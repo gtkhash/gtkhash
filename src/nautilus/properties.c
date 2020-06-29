@@ -238,8 +238,8 @@ static void gtkhash_properties_on_entry_hmac_populate_popup(GtkEntry *entry,
 	gtk_widget_show(item);
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
 
-	// Add checkbutton
 	item = gtk_check_menu_item_new_with_mnemonic(_("_Show HMAC Key"));
+	// Add checkbutton
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item),
 		gtk_entry_get_visibility(entry));
 	gtk_widget_show(item);

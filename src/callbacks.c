@@ -70,7 +70,7 @@ static void on_menuitem_open_activate(void)
 
 	filter = gtk_file_filter_new();
 	gtk_file_filter_set_name(filter,
-		_("Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"));
+		_("Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"));
 	check_file_add_filters(filter);
 	gtk_file_chooser_add_filter(chooser, filter);
 
@@ -515,8 +515,8 @@ static void on_entry_hmac_populate_popup(GtkEntry *entry, GtkMenu *menu)
 	gtk_widget_show(item);
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
 
-	// Add checkbutton
 	item = gtk_check_menu_item_new_with_mnemonic(_("_Show HMAC Key"));
+	// Add checkbutton
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item),
 		gtk_entry_get_visibility(entry));
 	gtk_widget_show(item);
