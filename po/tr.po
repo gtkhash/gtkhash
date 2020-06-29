@@ -9,9 +9,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2020-06-29 14:38+0100\n"
-"PO-Revision-Date: 2020-06-28 20:02+0000\n"
+"PO-Revision-Date: 2020-06-29 19:41+0000\n"
 "Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/tr/>\n"
@@ -44,18 +44,14 @@ msgid "_File"
 msgstr "_Dosya"
 
 #: ../data/gtkhash-gtk3.xml.h:6
-#, fuzzy
-#| msgid "Open Digest File"
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Özet Dosyasını Aç"
+msgstr "Özet Dosyasını _Aç…"
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
-#| msgid "Save Digest File"
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Özet Dosyasını Kaydet"
+msgstr "Özet Dosyasını _Kaydet…"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -147,10 +143,8 @@ msgid "_Cancel"
 msgstr "_İptal"
 
 #: ../src/callbacks.c:73
-#, fuzzy
-#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "Özet/Sağlama Dosyaları (*.sha1, *.md5, *.sfv, ...)"
+msgstr "Özet/Sağlama Dosyaları (*.sha1, *.md5, *.sfv, …)"
 
 #: ../src/callbacks.c:78
 msgid "All Files"
