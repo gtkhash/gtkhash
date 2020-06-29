@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2020-06-29 14:38+0100\n"
-"PO-Revision-Date: 2020-06-28 19:38+0000\n"
+"PO-Revision-Date: 2020-06-29 14:45+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/pl/>\n"
@@ -41,18 +41,14 @@ msgid "_File"
 msgstr "_Plik"
 
 #: ../data/gtkhash-gtk3.xml.h:6
-#, fuzzy
-#| msgid "Open Digest File"
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Otwarcie pliku skrótu"
+msgstr "_Otwórz plik skrótu…"
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
-#| msgid "Save Digest File"
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Zapis pliku skrótu"
+msgstr "Zapi_sz plik skrótu…"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -144,8 +140,6 @@ msgid "_Cancel"
 msgstr "_Anuluj"
 
 #: ../src/callbacks.c:73
-#, fuzzy
-#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Pliki skrótów/sum kontrolnych (*.sha1, *.md5, *.sfv…)"
 
