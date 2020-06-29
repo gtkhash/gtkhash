@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-29 14:38+0100\n"
 "PO-Revision-Date: 2020-06-29 09:41+0000\n"
 "Last-Translator: nautilusx <mail.ka@mailbox.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtkhash/"
@@ -43,14 +43,18 @@ msgid "_File"
 msgstr "_Datei"
 
 #: ../data/gtkhash-gtk3.xml.h:6
+#, fuzzy
+#| msgid "Open Digest File"
 msgctxt "menu"
-msgid "_Open Digest File..."
-msgstr "_Digest-Datei öffnen..."
+msgid "_Open Digest File…"
+msgstr "Digest-Datei öffnen"
 
 #: ../data/gtkhash-gtk3.xml.h:7
+#, fuzzy
+#| msgid "Save Digest File"
 msgctxt "menu"
-msgid "_Save Digest File..."
-msgstr "_Digests-Datei speichern..."
+msgid "_Save Digest File…"
+msgstr "Digest-Datei speichern"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -142,7 +146,9 @@ msgid "_Cancel"
 msgstr "_Abbrechen"
 
 #: ../src/callbacks.c:73
-msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+#, fuzzy
+#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Digest/Prüfsummen-Dateien (*.sha1, *.md5, *.sfv, ...)"
 
 #: ../src/callbacks.c:78
@@ -175,8 +181,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "Dateien auswählen"
 
-#. Add checkbutton
-#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:518 ../src/nautilus/properties.c:241
 msgid "_Show HMAC Key"
 msgstr "_Zeige HMAC Schlüssel"
 
@@ -244,7 +249,8 @@ msgctxt " --help"
 msgid "Show version information"
 msgstr "Versionsinformationen anzeigen"
 
-#: ../src/opts.c:123
+#. Translators: Unicode ellipsis(…) can be used here
+#: ../src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[DATEI|URI...]"
@@ -329,6 +335,14 @@ msgstr ""
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
 "Hinzufügen von Nachrichten-Digests oder Prüfsummen zu Dateieigenschaften"
+
+#~ msgctxt "menu"
+#~ msgid "_Open Digest File..."
+#~ msgstr "_Digest-Datei öffnen..."
+
+#~ msgctxt "menu"
+#~ msgid "_Save Digest File..."
+#~ msgstr "_Digests-Datei speichern..."
 
 #~ msgid "Check Digests"
 #~ msgstr "Digests prüfen"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"POT-Creation-Date: 2020-06-29 14:38+0100\n"
 "PO-Revision-Date: 2020-05-26 05:41+0000\n"
 "Last-Translator: Giorgos Kostopoulos <giorgosk67@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtkhash/"
@@ -39,14 +39,18 @@ msgid "_File"
 msgstr "_Αρχείο"
 
 #: ../data/gtkhash-gtk3.xml.h:6
+#, fuzzy
+#| msgid "Open Digest File"
 msgctxt "menu"
-msgid "_Open Digest File..."
-msgstr "_Άνοιγμα Αρχείου Σύνοψης..."
+msgid "_Open Digest File…"
+msgstr "Άνοιγμα Αρχείου Σύνοψης"
 
 #: ../data/gtkhash-gtk3.xml.h:7
+#, fuzzy
+#| msgid "Save Digest File"
 msgctxt "menu"
-msgid "_Save Digest File..."
-msgstr "_Αποθήκευση Αρχείου Σύνοψης..."
+msgid "_Save Digest File…"
+msgstr "Αποθήκευση Αρχείου Σύνοψης"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -142,7 +146,9 @@ msgid "_Cancel"
 msgstr "_Άκυρο"
 
 #: ../src/callbacks.c:73
-msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+#, fuzzy
+#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Αρχεία Αθροισμάτων (*.sha1, *.md5, *.sfv, ...)"
 
 #: ../src/callbacks.c:78
@@ -171,8 +177,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "Επιλογή Αρχείων"
 
-#. Add checkbutton
-#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:518 ../src/nautilus/properties.c:241
 msgid "_Show HMAC Key"
 msgstr "Προσθήκη checkbutton"
 
@@ -244,7 +249,8 @@ msgctxt " --help"
 msgid "Show version information"
 msgstr "Προβολή πληροφοριών έκδοσης"
 
-#: ../src/opts.c:123
+#. Translators: Unicode ellipsis(…) can be used here
+#: ../src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ΑΡΧΕΙΟ|URI...]"
@@ -331,6 +337,14 @@ msgstr ""
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
 "Πρόσθεση συνόψεων μηνυμάτων ή αθροισμάτων ελέγχου στις ιδιότητες αρχείου"
+
+#~ msgctxt "menu"
+#~ msgid "_Open Digest File..."
+#~ msgstr "_Άνοιγμα Αρχείου Σύνοψης..."
+
+#~ msgctxt "menu"
+#~ msgid "_Save Digest File..."
+#~ msgstr "_Αποθήκευση Αρχείου Σύνοψης..."
 
 #~ msgid "Check Digests"
 #~ msgstr "Αποθήκευση Συνόψεων"

@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-29 14:38+0100\n"
 "PO-Revision-Date: 2020-06-29 00:47+0000\n"
 "Last-Translator: Roi Klevansky <roiklevansky@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/gtkhash/"
@@ -42,14 +42,18 @@ msgid "_File"
 msgstr "_קובץ"
 
 #: ../data/gtkhash-gtk3.xml.h:6
+#, fuzzy
+#| msgid "Open Digest File"
 msgctxt "menu"
-msgid "_Open Digest File..."
-msgstr "_פתח קובץ קוד גיבוב..."
+msgid "_Open Digest File…"
+msgstr "פתח קובץ קוד גיבוב"
 
 #: ../data/gtkhash-gtk3.xml.h:7
+#, fuzzy
+#| msgid "Save Digest File"
 msgctxt "menu"
-msgid "_Save Digest File..."
-msgstr "_שמור לקובץ קוד גיבוב..."
+msgid "_Save Digest File…"
+msgstr "שמור לקובץ קוד גיבוב"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -141,7 +145,9 @@ msgid "_Cancel"
 msgstr "בטל"
 
 #: ../src/callbacks.c:73
-msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+#, fuzzy
+#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "קבצי קוד גיבוב/סיכום ביקורת (*.sha1, *.md5, *.sfv, ...)"
 
 #: ../src/callbacks.c:78
@@ -170,8 +176,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "בחר קבצים"
 
-#. Add checkbutton
-#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:518 ../src/nautilus/properties.c:241
 msgid "_Show HMAC Key"
 msgstr "_הצג מפתח HMAC"
 
@@ -239,7 +244,8 @@ msgctxt " --help"
 msgid "Show version information"
 msgstr "הצג מידע אודות הגירסה"
 
-#: ../src/opts.c:123
+#. Translators: Unicode ellipsis(…) can be used here
+#: ../src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
@@ -324,3 +330,11 @@ msgstr "פונקציות גבוב נתמכות כוללות MD5, SHA1, SHA256, S
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr "הוספת קודי גבוב או סיכומי ביקורת למאפייני קובץ"
+
+#~ msgctxt "menu"
+#~ msgid "_Open Digest File..."
+#~ msgstr "_פתח קובץ קוד גיבוב..."
+
+#~ msgctxt "menu"
+#~ msgid "_Save Digest File..."
+#~ msgstr "_שמור לקובץ קוד גיבוב..."

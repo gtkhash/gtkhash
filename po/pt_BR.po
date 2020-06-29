@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"POT-Creation-Date: 2020-06-29 14:38+0100\n"
 "PO-Revision-Date: 2019-04-24 10:48+0000\n"
 "Last-Translator: Rui Mendes <xz9@protonmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -41,14 +41,18 @@ msgid "_File"
 msgstr "_Arquivo"
 
 #: ../data/gtkhash-gtk3.xml.h:6
+#, fuzzy
+#| msgid "Open Digest File"
 msgctxt "menu"
-msgid "_Open Digest File..."
-msgstr "_Abrir arquivo de resumo..."
+msgid "_Open Digest File…"
+msgstr "Abrir arquivo de resumo"
 
 #: ../data/gtkhash-gtk3.xml.h:7
+#, fuzzy
+#| msgid "Save Digest File"
 msgctxt "menu"
-msgid "_Save Digest File..."
-msgstr "_Salvar arquivo de resumo..."
+msgid "_Save Digest File…"
+msgstr "Salvar arquivo de resumo"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -144,7 +148,9 @@ msgid "_Cancel"
 msgstr "_Cancelar"
 
 #: ../src/callbacks.c:73
-msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+#, fuzzy
+#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Arquivos de resumo / somas de verificação (*.sha1, *md5, *.sfv...)"
 
 #: ../src/callbacks.c:78
@@ -181,8 +187,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "Selecionar arquivos"
 
-#. Add checkbutton
-#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:518 ../src/nautilus/properties.c:241
 msgid "_Show HMAC Key"
 msgstr "_Exibir chave HMAC"
 
@@ -251,7 +256,8 @@ msgctxt " --help"
 msgid "Show version information"
 msgstr "Exibir informações da versão"
 
-#: ../src/opts.c:123
+#. Translators: Unicode ellipsis(…) can be used here
+#: ../src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ARQUIVO|URI...]"
@@ -337,6 +343,14 @@ msgid "Adds message digests or checksums to file properties"
 msgstr ""
 "Adicionar resumos de mensagens ou somas de verificação às propriedades do "
 "arquivo"
+
+#~ msgctxt "menu"
+#~ msgid "_Open Digest File..."
+#~ msgstr "_Abrir arquivo de resumo..."
+
+#~ msgctxt "menu"
+#~ msgid "_Save Digest File..."
+#~ msgstr "_Salvar arquivo de resumo..."
 
 #, fuzzy
 #~ msgid "Check Digests"

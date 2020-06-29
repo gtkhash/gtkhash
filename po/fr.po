@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"POT-Creation-Date: 2020-06-29 14:38+0100\n"
 "PO-Revision-Date: 2019-12-23 22:21+0000\n"
 "Last-Translator: Éfrit <Efrit@posteo.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gtkhash/"
@@ -42,14 +42,18 @@ msgid "_File"
 msgstr "_Fichier"
 
 #: ../data/gtkhash-gtk3.xml.h:6
+#, fuzzy
+#| msgid "Open Digest File"
 msgctxt "menu"
-msgid "_Open Digest File..."
-msgstr "_Ouvrir un condensat"
+msgid "_Open Digest File…"
+msgstr "Ouvrir un fichier de condensat"
 
 #: ../data/gtkhash-gtk3.xml.h:7
+#, fuzzy
+#| msgid "Save Digest File"
 msgctxt "menu"
-msgid "_Save Digest File..."
-msgstr "Enregi_strer le condensat"
+msgid "_Save Digest File…"
+msgstr "Enregistrer le condensat"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -145,7 +149,9 @@ msgid "_Cancel"
 msgstr "Annuler"
 
 #: ../src/callbacks.c:73
-msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+#, fuzzy
+#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Fichiers de condensats ou de sommes de contrôle"
 
 #: ../src/callbacks.c:78
@@ -177,8 +183,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "Sélectionner les fichiers"
 
-#. Add checkbutton
-#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:518 ../src/nautilus/properties.c:241
 msgid "_Show HMAC Key"
 msgstr "Afficher la clé HMAC"
 
@@ -246,7 +251,8 @@ msgctxt " --help"
 msgid "Show version information"
 msgstr "Affiche les informations de version"
 
-#: ../src/opts.c:123
+#. Translators: Unicode ellipsis(…) can be used here
+#: ../src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FICHIER|URI…]"
@@ -332,6 +338,14 @@ msgstr ""
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
 "Ajoute les condensats ou les sommes de contrôle aux propriétés du fichier"
+
+#~ msgctxt "menu"
+#~ msgid "_Open Digest File..."
+#~ msgstr "_Ouvrir un condensat"
+
+#~ msgctxt "menu"
+#~ msgid "_Save Digest File..."
+#~ msgstr "Enregi_strer le condensat"
 
 #~ msgid "Check Digests"
 #~ msgstr "Vérifier empreintes"

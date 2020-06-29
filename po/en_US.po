@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"POT-Creation-Date: 2020-06-29 14:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -38,12 +38,12 @@ msgstr ""
 
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
-msgid "_Open Digest File..."
+msgid "_Open Digest File…"
 msgstr ""
 
 #: ../data/gtkhash-gtk3.xml.h:7
 msgctxt "menu"
-msgid "_Save Digest File..."
+msgid "_Save Digest File…"
 msgstr ""
 
 #: ../data/gtkhash-gtk3.xml.h:8
@@ -136,7 +136,7 @@ msgid "_Cancel"
 msgstr ""
 
 #: ../src/callbacks.c:73
-msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr ""
 
 #: ../src/callbacks.c:78
@@ -163,8 +163,7 @@ msgstr ""
 msgid "Select Files"
 msgstr ""
 
-#. Add checkbutton
-#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:518 ../src/nautilus/properties.c:241
 msgid "_Show HMAC Key"
 msgstr ""
 
@@ -232,7 +231,8 @@ msgctxt " --help"
 msgid "Show version information"
 msgstr ""
 
-#: ../src/opts.c:123
+#. Translators: Unicode ellipsis(…) can be used here
+#: ../src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr ""
