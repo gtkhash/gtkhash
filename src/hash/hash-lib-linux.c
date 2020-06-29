@@ -45,6 +45,8 @@ struct hash_lib_linux_s {
 static const char *gtkhash_hash_lib_linux_get_name(const enum hash_func_e id)
 {
 	switch (id) {
+		case HASH_FUNC_BLAKE2B:   return "blake2b-512";
+		case HASH_FUNC_BLAKE2S:   return "blake2s-256";
 		case HASH_FUNC_MD4:       return "md4";
 		case HASH_FUNC_MD5:       return "md5";
 		case HASH_FUNC_RIPEMD128: return "rmd128";

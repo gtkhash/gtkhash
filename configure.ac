@@ -492,6 +492,7 @@ libcrypto_funcs="
 	SM3
 	WHIRLPOOL"
 linux_crypto_funcs="
+	BLAKE2b BLAKE2s
 	MD4
 	MD5
 	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320
