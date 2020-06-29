@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"POT-Creation-Date: 2020-06-29 14:38+0100\n"
 "PO-Revision-Date: 2019-04-27 21:48+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/gtkhash/"
@@ -40,14 +40,18 @@ msgid "_File"
 msgstr "_Fil"
 
 #: ../data/gtkhash-gtk3.xml.h:6
+#, fuzzy
+#| msgid "Open Digest File"
 msgctxt "menu"
-msgid "_Open Digest File..."
-msgstr "_Åbn fingeraftryksfil..."
+msgid "_Open Digest File…"
+msgstr "Åbn fingeraftryksfil"
 
 #: ../data/gtkhash-gtk3.xml.h:7
+#, fuzzy
+#| msgid "Save Digest File"
 msgctxt "menu"
-msgid "_Save Digest File..."
-msgstr "_Gem fingeraftryksfil..."
+msgid "_Save Digest File…"
+msgstr "Gem fingeraftryksfil"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -143,7 +147,9 @@ msgid "_Cancel"
 msgstr "_Annuller"
 
 #: ../src/callbacks.c:73
-msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+#, fuzzy
+#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Fingeraftryk-/tjeksum-filer (*.sha1, *.md5, *.sfv, ...)"
 
 #: ../src/callbacks.c:78
@@ -170,8 +176,7 @@ msgstr "scootergrisen"
 msgid "Select Files"
 msgstr "Vælg filer"
 
-#. Add checkbutton
-#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:518 ../src/nautilus/properties.c:241
 msgid "_Show HMAC Key"
 msgstr "_Vis HMAC-nøgle"
 
@@ -239,7 +244,8 @@ msgctxt " --help"
 msgid "Show version information"
 msgstr "Vis versionsinformation"
 
-#: ../src/opts.c:123
+#. Translators: Unicode ellipsis(…) can be used here
+#: ../src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FIL|URI...]"
@@ -322,6 +328,14 @@ msgstr ""
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr "Tilføjer fingeraftryk eller tjeksumme til filegenskaber"
+
+#~ msgctxt "menu"
+#~ msgid "_Open Digest File..."
+#~ msgstr "_Åbn fingeraftryksfil..."
+
+#~ msgctxt "menu"
+#~ msgid "_Save Digest File..."
+#~ msgstr "_Gem fingeraftryksfil..."
 
 #~ msgid "Check Digests"
 #~ msgstr "Tjek fingeraftryk"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"POT-Creation-Date: 2020-06-29 14:38+0100\n"
 "PO-Revision-Date: 2016-01-23 06:48+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
@@ -39,14 +39,15 @@ msgid "_File"
 msgstr "_Датотека"
 
 #: ../data/gtkhash-gtk3.xml.h:6
+#, fuzzy
 msgctxt "menu"
-msgid "_Open Digest File..."
-msgstr ""
+msgid "_Open Digest File…"
+msgstr "Сачувај сажетке"
 
 #: ../data/gtkhash-gtk3.xml.h:7
 #, fuzzy
 msgctxt "menu"
-msgid "_Save Digest File..."
+msgid "_Save Digest File…"
 msgstr "Сачувај сажетке"
 
 #: ../data/gtkhash-gtk3.xml.h:8
@@ -144,7 +145,7 @@ msgid "_Cancel"
 msgstr ""
 
 #: ../src/callbacks.c:73
-msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr ""
 
 #: ../src/callbacks.c:78
@@ -175,8 +176,7 @@ msgstr "Мирослав Николић https://launchpad.net/~lipek\n"
 msgid "Select Files"
 msgstr "Изабери датотеке"
 
-#. Add checkbutton
-#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:518 ../src/nautilus/properties.c:241
 msgid "_Show HMAC Key"
 msgstr ""
 
@@ -255,7 +255,8 @@ msgctxt " --help"
 msgid "Show version information"
 msgstr "Приказује податке о издању"
 
-#: ../src/opts.c:123
+#. Translators: Unicode ellipsis(…) can be used here
+#: ../src/opts.c:124
 #, fuzzy
 msgctxt " --help"
 msgid "[FILE|URI...]"
@@ -336,6 +337,11 @@ msgstr ""
 #, fuzzy
 msgid "Adds message digests or checksums to file properties"
 msgstr "Помагало Гтк+ за израчунавање сажетака порука или сума провере."
+
+#, fuzzy
+#~ msgctxt "menu"
+#~ msgid "_Save Digest File..."
+#~ msgstr "Сачувај сажетке"
 
 #, fuzzy
 #~ msgid "Check Digests"

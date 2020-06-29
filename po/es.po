@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"POT-Creation-Date: 2020-06-29 14:38+0100\n"
 "PO-Revision-Date: 2020-01-27 22:50+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
@@ -43,14 +43,18 @@ msgid "_File"
 msgstr "_Archivo"
 
 #: ../data/gtkhash-gtk3.xml.h:6
+#, fuzzy
+#| msgid "Open Digest File"
 msgctxt "menu"
-msgid "_Open Digest File..."
-msgstr "_Abrir un archivo de resúmenes..."
+msgid "_Open Digest File…"
+msgstr "Abrir un archivo de resúmenes"
 
 #: ../data/gtkhash-gtk3.xml.h:7
+#, fuzzy
+#| msgid "Save Digest File"
 msgctxt "menu"
-msgid "_Save Digest File..."
-msgstr "_Guardar los resúmenes en un archivo..."
+msgid "_Save Digest File…"
+msgstr "Guardar los resúmenes en un archivo"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -146,7 +150,9 @@ msgid "_Cancel"
 msgstr "_Cancelar"
 
 #: ../src/callbacks.c:73
-msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+#, fuzzy
+#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Archivos de resumen/comprobación (*.sha1, *.md5, *.sfv...)"
 
 #: ../src/callbacks.c:78
@@ -175,8 +181,7 @@ msgstr "Toni Estevez <toni.estevez@gmail.com>"
 msgid "Select Files"
 msgstr "Seleccionar archivos"
 
-#. Add checkbutton
-#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:518 ../src/nautilus/properties.c:241
 msgid "_Show HMAC Key"
 msgstr "_Mostrar la clave HMAC"
 
@@ -245,7 +250,8 @@ msgctxt " --help"
 msgid "Show version information"
 msgstr "Mostrar información de la versión"
 
-#: ../src/opts.c:123
+#. Translators: Unicode ellipsis(…) can be used here
+#: ../src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ARCHIVO|URI...]"
@@ -330,6 +336,14 @@ msgid "Adds message digests or checksums to file properties"
 msgstr ""
 "Añade resúmenes de mensajes o sumas de comprobación a las propiedades de un "
 "archivo."
+
+#~ msgctxt "menu"
+#~ msgid "_Open Digest File..."
+#~ msgstr "_Abrir un archivo de resúmenes..."
+
+#~ msgctxt "menu"
+#~ msgid "_Save Digest File..."
+#~ msgstr "_Guardar los resúmenes en un archivo..."
 
 #, fuzzy
 #~ msgid "Check Digests"

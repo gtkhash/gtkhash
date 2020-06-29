@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"POT-Creation-Date: 2020-06-29 14:38+0100\n"
 "PO-Revision-Date: 2019-06-18 19:03+0000\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Occidental <https://hosted.weblate.org/projects/gtkhash/"
@@ -39,14 +39,18 @@ msgid "_File"
 msgstr "_File"
 
 #: ../data/gtkhash-gtk3.xml.h:6
+#, fuzzy
+#| msgid "Open Digest File"
 msgctxt "menu"
-msgid "_Open Digest File..."
-msgstr "_Aperter un file de digeste..."
+msgid "_Open Digest File…"
+msgstr "Aperter un file de digeste"
 
 #: ../data/gtkhash-gtk3.xml.h:7
+#, fuzzy
+#| msgid "Save Digest File"
 msgctxt "menu"
-msgid "_Save Digest File..."
-msgstr "_Gardar li digeste..."
+msgid "_Save Digest File…"
+msgstr "Gardar li digeste"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -142,7 +146,9 @@ msgid "_Cancel"
 msgstr "_Anullar"
 
 #: ../src/callbacks.c:73
-msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+#, fuzzy
+#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
+msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Files de digestes  e summas (*.sha1, *.md5, *.sfv, ...)"
 
 #: ../src/callbacks.c:78
@@ -169,8 +175,7 @@ msgstr "OIS <mistress-silvara@hotmail.com>, 2018"
 msgid "Select Files"
 msgstr "Selecter files"
 
-#. Add checkbutton
-#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
+#: ../src/callbacks.c:518 ../src/nautilus/properties.c:241
 msgid "_Show HMAC Key"
 msgstr "_Monstrar clave HMAC"
 
@@ -238,7 +243,8 @@ msgctxt " --help"
 msgid "Show version information"
 msgstr "Monstrar li information pri li version"
 
-#: ../src/opts.c:123
+#. Translators: Unicode ellipsis(…) can be used here
+#: ../src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI…]"
@@ -320,3 +326,11 @@ msgstr "Supportat hash-functiones include MD5, SHA1, SHA256, SHA512 e CRC32."
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr "Adjunter digestes o summas de control al proprietás de un file"
+
+#~ msgctxt "menu"
+#~ msgid "_Open Digest File..."
+#~ msgstr "_Aperter un file de digeste..."
+
+#~ msgctxt "menu"
+#~ msgid "_Save Digest File..."
+#~ msgstr "_Gardar li digeste..."
