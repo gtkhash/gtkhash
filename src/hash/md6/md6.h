@@ -321,6 +321,7 @@ extern int md6_final( md6_state *st,            /* initialized/updated */
 ** and md6_full_hash if you want to specify additional parameters.
 */
 
+#if 0
 extern int md6_hash( int d,                         /* hash bit length */
 		     unsigned char *data,     /* complete data to hash */
 		     uint64_t databitlen,        /* its length in bits */
@@ -336,6 +337,7 @@ extern int md6_full_hash( int d,                    /* hash bit length */
 			  int r,                   /* number of rounds */
 			  unsigned char *hashval             /* output */
 			  );
+#endif
 
 
 /* MD6 return codes.

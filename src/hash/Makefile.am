@@ -74,3 +74,5 @@ hash_la_SOURCES += hash-lib-zlib.c
 hash_la_CPPFLAGS += $(ZLIB_CFLAGS)
 hash_la_LIBADD += $(ZLIB_LIBS)
 endif
+
+CLEANFILES = *.gcda *.gcno md6/*.gcda md6/*.gcno

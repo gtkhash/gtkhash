@@ -10,29 +10,33 @@ bin_PROGRAMS = gtkhash
 
 BUILT_SOURCES = resources.c resources.h
 
-nodist_gtkhash_SOURCES = resources.c resources.h
+nodist_gtkhash_SOURCES = $(BUILT_SOURCES)
 
 gtkhash_SOURCES = \
+	main.c main.h \
 	callbacks.c callbacks.h \
 	check.c check.h \
 	gui.c gui.h \
 	hash.c hash.h \
 	list.c list.h \
-	main.c main.h \
 	prefs.c prefs.h \
+	opts.c opts.h \
 	uri-digest.c uri-digest.h
 
-noinst_PROGRAMS = gtkhash-test
+check_PROGRAMS = gtkhash-test
 
-nodist_gtkhash_test_SOURCES = resources.c
+check_DATA = 0.bytes 1.bytes 10M.bytes 5G.bytes
+
+nodist_gtkhash_test_SOURCES = $(BUILT_SOURCES)
 
 gtkhash_test_SOURCES = \
+	test.c \
 	callbacks.c \
 	check.c \
 	gui.c \
 	hash.c \
 	list.c \
-	test.c \
+	opts.c \
 	uri-digest.c
 
 AM_CPPFLAGS = \
@@ -46,22 +50,22 @@ LDADD = \
 	util/util.la \
 	$(GTK_LIBS)
 
-TESTS = gtkhash-test
+TESTS = $(check_PROGRAMS)
 
-LOG_COMPILER = xvfb-run -s "-screen 0 800x600x24"
+AM_TESTS_ENVIRONMENT = HASH_LIBS="$(HASH_LIBS)"; export HASH_LIBS;
 
-CLEANFILES = resources.c resources.h
+LOG_COMPILER = xvfb-run -s "-screen 0 800x600x24" $(srcdir)/gtkhash-test.sh
 
-if WITH_GTK2
-resources.c resources.h: \
-	../data/gtkhash-gtk2.gresource.xml \
-	../data/gtkhash-gtk2.xml
-endif
-if WITH_GTK3
+CLEANFILES = \
+	$(BUILT_SOURCES) \
+	$(check_DATA) \
+	*.gcda *.gcno
+
+EXTRA_DIST = gtkhash-test.sh test.md5sum.in
+
 resources.c resources.h: \
 	../data/gtkhash-gtk3.gresource.xml \
 	../data/gtkhash-gtk3.xml
-endif
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) \
 		--c-name resources \
 		--internal \
@@ -70,5 +74,8 @@ endif
 		--sourcedir="$(srcdir)"/../data/ \
 		--target=$@ \
 		$<
+
+%.bytes:
+	$(AM_V_GEN) truncate -s $* $@
 
 endif # ENABLE_GTKHASH

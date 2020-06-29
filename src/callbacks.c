@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2019 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -63,7 +63,7 @@ static void on_menuitem_open_activate(void)
 	gtk_file_chooser_set_local_only(chooser, false);
 
 #ifndef G_OS_WIN32
-	/* Note: Adding filters causes GTK+ to fallback to GtkFileChooserDialog.
+	/* Note: Adding filters causes GTK to fallback to GtkFileChooserDialog.
 	   On Windows, having a native file chooser is definitely preferable. */
 
 	GtkFileFilter *filter = NULL;
@@ -243,34 +243,15 @@ static void on_radiomenuitem_toggled(void)
 		view = GUI_VIEW_FILE_LIST;
 	}
 
-	g_assert(GUI_VIEW_IS_VALID(view));
-
-	if (gui.view != view) {
-		gui.view = view;
-		gui_update();
-	}
+	gui_set_view(view);
+	gui_update();
 }
 
 static void on_menuitem_about_activate(void)
 {
-#if (GTK_MAJOR_VERSION < 3)
-	static const char * const license = {
-		"This program is free software: you can redistribute it and/or modify\n"
-		"it under the terms of the GNU General Public License as published by\n"
-		"the Free Software Foundation, either version 2 of the License, or\n"
-		"(at your option) any later version.\n\n"
-		"This program is distributed in the hope that it will be useful,\n"
-		"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
-		"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n"
-		"GNU General Public License for more details.\n\n"
-		"You should have received a copy of the GNU General Public License along\n"
-		"with this program; if not, see <https://gnu.org/licenses/gpl-2.0.txt>.\n"
-	};
-#endif
-
 	static const char * const artists[] = {
-		"Icon derived from GTK+ Logo "
-		"https://wiki.gnome.org/Projects/GTK%2B/Logo",
+		"Icon derived from GTK Logo "
+		"https://wiki.gnome.org/Projects/GTK/Logo",
 		NULL
 	};
 
@@ -279,24 +260,29 @@ static void on_menuitem_about_activate(void)
 		NULL
 	};
 
+	const char *snap_version = NULL;
+	if (g_strcmp0(g_getenv("SNAP_NAME"), PACKAGE) == 0)
+		snap_version = g_getenv("SNAP_VERSION");
+
+	char *version = g_markup_printf_escaped("%s",
+		snap_version ? snap_version : VERSION);
+
 	gtk_show_about_dialog(
 			gui.window,
 			"artists", artists,
 			"authors", authors,
-			"comments", _("A GTK+ utility for computing message digests or checksums."),
-#if (GTK_MAJOR_VERSION > 2)
+			"comments", _("A desktop utility for computing message digests or checksums"),
 			"license-type", GTK_LICENSE_GPL_2_0,
-#else
-			"license", license,
-#endif
 			"logo-icon-name", PACKAGE,
 			"program-name", PACKAGE_NAME,
 #if ENABLE_NLS
 			"translator-credits", _("translator-credits"),
 #endif
-			"version", VERSION,
+			"version", version,
 			"website", "https://github.com/tristanheaven/gtkhash",
 			NULL);
+
+	g_free(version);
 }
 
 static void on_filechooserbutton_selection_changed(void)
@@ -413,12 +399,7 @@ static void on_treeview_popup_menu(void)
 static bool on_treeview_button_press_event(G_GNUC_UNUSED GtkWidget *widget,
 	GdkEventButton *event)
 {
-#if (GTK_MAJOR_VERSION > 2)
-	if (gdk_event_triggers_context_menu((GdkEvent *)event))
-#else
-	if ((event->type == GDK_BUTTON_PRESS) && (event->button == 3))
-#endif
-	{
+	if (gdk_event_triggers_context_menu((GdkEvent *)event)) {
 		show_menu_treeview(event);
 		// Stop processing the event now so the selection won't be changed
 		return true;
@@ -499,6 +480,7 @@ static void on_togglebutton_hmac_file_toggled(void)
 
 	bool active = gtk_toggle_button_get_active(gui.togglebutton_hmac_file);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file), active);
+
 	gui_clear_digests();
 
 	gui_update_hash_func_labels(active);
@@ -616,6 +598,7 @@ void callbacks_init(void)
 	CON(gui.button_stop,                    "clicked",             gui_stop_hash);
 	CON(gui.dialog,                         "delete-event",        G_CALLBACK(on_dialog_delete_event));
 	CON(gui.dialog_button_close,            "clicked",             G_CALLBACK(on_dialog_delete_event));
+	CON(gui.dialog_togglebutton_show_hmac,  "toggled",             gui_update);
 	CON(gui.dialog_combobox,                "changed",             on_dialog_combobox_changed);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {

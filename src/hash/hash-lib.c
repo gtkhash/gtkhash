@@ -24,6 +24,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <string.h>
 #include <glib.h>
 
 #include "hash-lib.h"
@@ -104,66 +105,88 @@ static void gtkhash_hash_lib_init_once(void)
 	for (enum hash_func_e i = 0; i < HASH_FUNCS_N; i++)
 		hash_libs[i] = HASH_LIB_INVALID;
 
+	const char * const test_lib = g_getenv("GTKHASH_TEST_LIB");
+
 	// Note: Preferred lib selections are defined by the order used here
 	for (enum hash_func_e i = 0; i < HASH_FUNCS_N; i++) {
 #if ENABLE_ZLIB
-		if (gtkhash_hash_lib_zlib_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_ZLIB;
-			continue;
+		if (!test_lib || (test_lib && strcmp(test_lib, "zlib") == 0)) {
+			if (gtkhash_hash_lib_zlib_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_ZLIB;
+				continue;
+			}
 		}
 #endif
 #if ENABLE_BLAKE2
-		if (gtkhash_hash_lib_blake2_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_BLAKE2;
-			continue;
+		if (!test_lib || (test_lib && strcmp(test_lib, "blake2") == 0)) {
+			if (gtkhash_hash_lib_blake2_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_BLAKE2;
+				continue;
+			}
 		}
 #endif
 #if ENABLE_GCRYPT
-		if (gtkhash_hash_lib_gcrypt_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_GCRYPT;
-			continue;
+		if (!test_lib || (test_lib && strcmp(test_lib, "gcrypt") == 0)) {
+			if (gtkhash_hash_lib_gcrypt_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_GCRYPT;
+				continue;
+			}
 		}
 #endif
 #if ENABLE_LIBCRYPTO
-		if (gtkhash_hash_lib_crypto_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_CRYPTO;
-			continue;
+		if (!test_lib || (test_lib && strcmp(test_lib, "libcrypto") == 0)) {
+			if (gtkhash_hash_lib_crypto_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_CRYPTO;
+				continue;
+			}
 		}
 #endif
 #if ENABLE_MBEDTLS
-		if (gtkhash_hash_lib_mbedtls_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_MBEDTLS;
-			continue;
+		if (!test_lib || (test_lib && strcmp(test_lib, "mbedtls") == 0)) {
+			if (gtkhash_hash_lib_mbedtls_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_MBEDTLS;
+				continue;
+			}
 		}
 #endif
 #if ENABLE_NETTLE
-		if (gtkhash_hash_lib_nettle_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_NETTLE;
-			continue;
+		if (!test_lib || (test_lib && strcmp(test_lib, "nettle") == 0)) {
+			if (gtkhash_hash_lib_nettle_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_NETTLE;
+				continue;
+			}
 		}
 #endif
 #if ENABLE_LINUX_CRYPTO
-		if (gtkhash_hash_lib_linux_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_LINUX;
-			continue;
+		if (!test_lib || (test_lib && strcmp(test_lib, "linux_crypto") == 0)) {
+			if (gtkhash_hash_lib_linux_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_LINUX;
+				continue;
+			}
 		}
 #endif
 #if ENABLE_GLIB_CHECKSUMS
-		if (gtkhash_hash_lib_glib_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_GLIB;
-			continue;
+		if (!test_lib || (test_lib && strcmp(test_lib, "glib_checksums") == 0)) {
+			if (gtkhash_hash_lib_glib_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_GLIB;
+				continue;
+			}
 		}
 #endif
 #if ENABLE_MHASH
-		if (gtkhash_hash_lib_mhash_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_MHASH;
-			continue;
+		if (!test_lib || (test_lib && strcmp(test_lib, "mhash") == 0)) {
+			if (gtkhash_hash_lib_mhash_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_MHASH;
+				continue;
+			}
 		}
 #endif
 #if ENABLE_MD6
-		if (gtkhash_hash_lib_md6_is_supported(i)) {
-			hash_libs[i] = HASH_LIB_MD6;
-			continue;
+		if (!test_lib || (test_lib && strcmp(test_lib, "internal_md6") == 0)) {
+			if (gtkhash_hash_lib_md6_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_MD6;
+				continue;
+			}
 		}
 #endif
 	}

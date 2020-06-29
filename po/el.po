@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Giorgos Kostopoulos <giorgosk67@gmail.com>, 2019.
+# Giorgos Kostopoulos <giorgosk67@gmail.com>, 2019, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-18 00:10+0000\n"
-"PO-Revision-Date: 2019-01-05 20:06+0000\n"
+"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"PO-Revision-Date: 2020-05-26 05:41+0000\n"
 "Last-Translator: Giorgos Kostopoulos <giorgosk67@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtkhash/"
 "translations/el/>\n"
@@ -16,101 +16,105 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
-msgid "GtkHash Preferences"
-msgstr "Προτιμήσεις GtkHash"
-
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:21
-msgid "Hash Functions:"
-msgstr "Λειτουργίες Κατατεμαχισμού:"
-
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:22
-msgid "Digest Format:"
-msgstr "Σχήμα Σύνοψης:"
-
-#: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
+#: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
 msgstr "Πεζά Δεκαεξαδικά"
 
-#: ../data/gtkhash-gtk2.xml.h:5 ../data/gtkhash-gtk3.xml.h:2
+#: ../data/gtkhash-gtk3.xml.h:2
 msgid "Uppercase Hexadecimal"
 msgstr "Κεφαλαία δεκαεξαδικά"
 
-#: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
+#: ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
 msgstr "Αντιγραφή _Σύνοψης"
 
-#: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
+#: ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
 msgstr "Προβολή _Εργαλειοθήκης"
 
-#: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:5
+#: ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
 msgstr "_Αρχείο"
-
-#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:8
-msgid "_Edit"
-msgstr "_Επεξεργασία"
-
-#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:9
-msgid "_View"
-msgstr "_Εμφάνιση"
-
-#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:10
-msgid "_Text"
-msgstr "_Κείμενο"
-
-#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:11
-msgid "File _List"
-msgstr "Αρχείων _Κατάλογος"
-
-#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:12
-msgid "_Help"
-msgstr "_Βοήθεια"
-
-#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:13
-msgid "File:"
-msgstr "Αρχείο:"
-
-#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:14
-msgid "Text:"
-msgstr "Κείμενο:"
-
-#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:15
-#: ../data/nautilus/gtkhash-properties.xml.h:5
-msgid "Check:"
-msgstr "Έλεγχος:"
-
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:17
-#: ../data/nautilus/gtkhash-properties.xml.h:7
-msgid "HMAC Key:"
-msgstr "Κλειδί HMAC:"
-
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:18
-msgid "File"
-msgstr "Αρχείο"
-
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:19
-msgid "Ha_sh"
-msgstr "Κα_τατεμαχισμός"
 
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
 msgid "_Open Digest File..."
-msgstr ""
+msgstr "_Άνοιγμα Αρχείου Σύνοψης..."
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
-#| msgid "Save Digests"
 msgctxt "menu"
 msgid "_Save Digest File..."
-msgstr "Αποθήκευση Συνόψεων"
+msgstr "_Αποθήκευση Αρχείου Σύνοψης..."
+
+#: ../data/gtkhash-gtk3.xml.h:8
+msgid "_Edit"
+msgstr "_Επεξεργασία"
+
+#: ../data/gtkhash-gtk3.xml.h:9
+msgid "_View"
+msgstr "_Εμφάνιση"
+
+#: ../data/gtkhash-gtk3.xml.h:10
+msgid "_Text"
+msgstr "_Κείμενο"
+
+#: ../data/gtkhash-gtk3.xml.h:11
+msgid "File _List"
+msgstr "Αρχείων _Κατάλογος"
+
+#: ../data/gtkhash-gtk3.xml.h:12
+msgid "_Help"
+msgstr "_Βοήθεια"
+
+#: ../data/gtkhash-gtk3.xml.h:13
+msgid "File:"
+msgstr "Αρχείο:"
+
+#: ../data/gtkhash-gtk3.xml.h:14
+msgid "Text:"
+msgstr "Κείμενο:"
+
+#: ../data/gtkhash-gtk3.xml.h:15 ../data/nautilus/gtkhash-properties.xml.h:5
+msgid "Check:"
+msgstr "Έλεγχος:"
 
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "Επικόλληση από πρόχειρο"
+
+#: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
+msgid "HMAC Key:"
+msgstr "Κλειδί HMAC:"
+
+#: ../data/gtkhash-gtk3.xml.h:18
+msgid "File"
+msgstr "Αρχείο"
+
+#: ../data/gtkhash-gtk3.xml.h:19
+msgid "Ha_sh"
+msgstr "Κα_τατεμαχισμός"
+
+#: ../data/gtkhash-gtk3.xml.h:20
+msgid "GtkHash Preferences"
+msgstr "Προτιμήσεις GtkHash"
+
+#: ../data/gtkhash-gtk3.xml.h:21
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "Hash Functions"
+msgstr "Λειτουργίες Κατατεμαχισμού:"
+
+#: ../data/gtkhash-gtk3.xml.h:22
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "MAC Functions"
+msgstr "Λειτουργίες Κατατεμαχισμού:"
+
+#: ../data/gtkhash-gtk3.xml.h:23
+msgid "Digest Format:"
+msgstr "Σχήμα Σύνοψης:"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
@@ -119,21 +123,21 @@ msgstr "Υπολογιστής  Αθροίσματος Ελέγχου"
 #: ../data/gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:634 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../src/nautilus/properties.c:593 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Υπολογίστε συνόψεις μηνυμάτων ή  αθροίσματα ελέγχου"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "Άνοιγμα Αρχείου Σύνοψης"
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
-#: ../src/callbacks.c:328
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:308
+#: ../src/callbacks.c:314
 msgid "_Open"
 msgstr "_Άνοιγμα"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
+#: ../src/callbacks.c:126 ../src/callbacks.c:308 ../src/callbacks.c:313
 msgid "_Cancel"
 msgstr "_Άκυρο"
 
@@ -146,32 +150,29 @@ msgid "All Files"
 msgstr "Όλα τ' Αρχεία"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-#, fuzzy
-#| msgid "Save Digests"
 msgid "Save Digest File"
-msgstr "Αποθήκευση Συνόψεων"
+msgstr "Αποθήκευση Αρχείου Σύνοψης"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
 msgstr "_Αποθήκευση"
 
-#: ../src/callbacks.c:286
-msgid "A GTK+ utility for computing message digests or checksums."
-msgstr ""
-"Ένα εργαλείο GTK+ για υπολογισμό συνόψεων μηνυμάτων ή  αθροισμάτων ελέγχου."
+#: ../src/callbacks.c:274
+msgid "A desktop utility for computing message digests or checksums"
+msgstr "Ένα εργαλείο για υπολογισμό συνόψεων μηνυμάτων ή αθροισμάτων ελέγχου"
 
-#: ../src/callbacks.c:295
+#: ../src/callbacks.c:279
 msgid "translator-credits"
 msgstr ""
 "Μεταφραστής - μνεία\n"
 "Γιώργος Κωστόπουλος giorgosk67@gmail.com"
 
-#: ../src/callbacks.c:321 ../src/callbacks.c:325
+#: ../src/callbacks.c:307 ../src/callbacks.c:311
 msgid "Select Files"
 msgstr "Επιλογή Αρχείων"
 
 #. Add checkbutton
-#: ../src/callbacks.c:537 ../src/nautilus/properties.c:245
+#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
 msgstr "Προσθήκη checkbutton"
 
@@ -182,73 +183,73 @@ msgstr ""
 "Αποτυχία ανάγνωσης αρχείου ελέγχου \"%s 1\":\n"
 "%s 2"
 
-#: ../src/gui.c:373
+#: ../src/gui.c:295
 msgid "Not a regular file"
 msgstr "Μη κανονικό αρχείο"
 
-#: ../src/gui.c:396
+#: ../src/gui.c:318
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
 "Αποτυχία προσθήκης αρχείου \"%s 1\":\n"
 "%s 2"
 
-#: ../src/hash.c:183 ../src/prefs.c:109
+#: ../src/hash.c:183 ../src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "'Άγνωστο όνομα Λειτουργίας Ελέγχου \"%s\""
 
-#: ../src/main.c:97
+#: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Σύγκριση με συγκεκριμένη σύνοψη ή άθροισμα ελέγχου"
 
-#: ../src/main.c:98
+#: ../src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "ΣΥΝΟΨΗ"
 
-#: ../src/main.c:103
+#: ../src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Έλεγχος συνόψεων ή αθροισμάτων ελέγχου απ' το συγκεκριμένο αρχείο"
 
-#: ../src/main.c:104
+#: ../src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "[ΑΡΧΕΙΟ|URI...]"
 
-#: ../src/main.c:109
+#: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
 msgstr "Ενεργοποίηση συγκεκριμένης Λειτουργίας Αθροίσματος (e.g. MD5)"
 
-#: ../src/main.c:110
+#: ../src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
 msgstr "ΛΕΙΤΟΥΡΓΙΑ"
 
-#: ../src/main.c:114
+#: ../src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "'Ελεγχος του συγκεκριμένου κειμένου"
 
-#: ../src/main.c:115
+#: ../src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
 msgstr "ΚΕΙΜΕΝΟ"
 
-#: ../src/main.c:119
+#: ../src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Προβολή πληροφοριών έκδοσης"
 
-#: ../src/main.c:123
+#: ../src/opts.c:123
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ΑΡΧΕΙΟ|URI...]"
 
-#: ../src/prefs.c:81
+#: ../src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
 msgstr ""
 "Αποτυχία ενεργοποίησης οποιασδήποτε υποστηριζόμενης λειτουργίας "
@@ -275,9 +276,9 @@ msgstr "%s 1 of %s 2 - %s 3 (%s 4/dδευτ.)"
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
-#: ../src/nautilus/properties.c:503 ../src/nautilus/properties.c:506
-#: ../src/nautilus/properties.c:509 ../src/nautilus/properties.c:512
-#: ../src/nautilus/properties.c:514
+#: ../src/nautilus/properties.c:462 ../src/nautilus/properties.c:465
+#: ../src/nautilus/properties.c:468 ../src/nautilus/properties.c:471
+#: ../src/nautilus/properties.c:473
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1

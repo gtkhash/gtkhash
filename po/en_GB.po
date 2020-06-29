@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # Tristan Heaven <tristan@tristanheaven.net>, 2018, 2019.
+# Oymate <dhruboadittya96@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-18 00:10+0000\n"
-"PO-Revision-Date: 2019-02-13 22:03+0000\n"
-"Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
+"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"PO-Revision-Date: 2020-05-10 10:12+0000\n"
+"Last-Translator: Oymate <dhruboadittya96@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/en_GB/>\n"
 "Language: en_GB\n"
@@ -17,102 +18,106 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 "X-Launchpad-Export-Date: 2012-12-11 04:50+0000\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
-msgid "GtkHash Preferences"
-msgstr "GtkHash Preferences"
-
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:21
-msgid "Hash Functions:"
-msgstr "Hash Functions:"
-
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:22
-msgid "Digest Format:"
-msgstr "Digest Format:"
-
-#: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
+#: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
 msgstr "Lowercase Hexadecimal"
 
-#: ../data/gtkhash-gtk2.xml.h:5 ../data/gtkhash-gtk3.xml.h:2
+#: ../data/gtkhash-gtk3.xml.h:2
 msgid "Uppercase Hexadecimal"
 msgstr "Uppercase Hexadecimal"
 
-#: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
+#: ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
 msgstr "Copy _Digest"
 
-#: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
+#: ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
 msgstr "Show _Toolbar"
 
-#: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:5
+#: ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
 msgstr "_File"
-
-#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:8
-msgid "_Edit"
-msgstr "_Edit"
-
-#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:9
-msgid "_View"
-msgstr "_View"
-
-#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:10
-msgid "_Text"
-msgstr "_Text"
-
-#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:11
-msgid "File _List"
-msgstr "File _List"
-
-#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:12
-msgid "_Help"
-msgstr "_Help"
-
-#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:13
-msgid "File:"
-msgstr "File:"
-
-#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:14
-msgid "Text:"
-msgstr "Text:"
-
-#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:15
-#: ../data/nautilus/gtkhash-properties.xml.h:5
-msgid "Check:"
-msgstr "Check:"
-
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:17
-#: ../data/nautilus/gtkhash-properties.xml.h:7
-msgid "HMAC Key:"
-msgstr "HMAC Key:"
-
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:18
-msgid "File"
-msgstr "File"
-
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:19
-msgid "Ha_sh"
-msgstr "Ha_sh"
 
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
 msgid "_Open Digest File..."
-msgstr ""
+msgstr "_Open Digest File..."
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
-#| msgid "Save Digests"
 msgctxt "menu"
 msgid "_Save Digest File..."
-msgstr "Save Digests"
+msgstr "_Save Digest File..."
+
+#: ../data/gtkhash-gtk3.xml.h:8
+msgid "_Edit"
+msgstr "_Edit"
+
+#: ../data/gtkhash-gtk3.xml.h:9
+msgid "_View"
+msgstr "_View"
+
+#: ../data/gtkhash-gtk3.xml.h:10
+msgid "_Text"
+msgstr "_Text"
+
+#: ../data/gtkhash-gtk3.xml.h:11
+msgid "File _List"
+msgstr "File _List"
+
+#: ../data/gtkhash-gtk3.xml.h:12
+msgid "_Help"
+msgstr "_Help"
+
+#: ../data/gtkhash-gtk3.xml.h:13
+msgid "File:"
+msgstr "File:"
+
+#: ../data/gtkhash-gtk3.xml.h:14
+msgid "Text:"
+msgstr "Text:"
+
+#: ../data/gtkhash-gtk3.xml.h:15 ../data/nautilus/gtkhash-properties.xml.h:5
+msgid "Check:"
+msgstr "Check:"
 
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
 msgstr "Paste digest from clipboard"
+
+#: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
+msgid "HMAC Key:"
+msgstr "HMAC Key:"
+
+#: ../data/gtkhash-gtk3.xml.h:18
+msgid "File"
+msgstr "File"
+
+#: ../data/gtkhash-gtk3.xml.h:19
+msgid "Ha_sh"
+msgstr "Ha_sh"
+
+#: ../data/gtkhash-gtk3.xml.h:20
+msgid "GtkHash Preferences"
+msgstr "GtkHash Preferences"
+
+#: ../data/gtkhash-gtk3.xml.h:21
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "Hash Functions"
+msgstr "Hash Functions:"
+
+#: ../data/gtkhash-gtk3.xml.h:22
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "MAC Functions"
+msgstr "Hash Functions:"
+
+#: ../data/gtkhash-gtk3.xml.h:23
+msgid "Digest Format:"
+msgstr "Digest Format:"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
@@ -121,21 +126,21 @@ msgstr "Checksum Calculator"
 #: ../data/gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:634 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../src/nautilus/properties.c:593 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Calculate message digests or checksums"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "Open Digest File"
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
-#: ../src/callbacks.c:328
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:308
+#: ../src/callbacks.c:314
 msgid "_Open"
 msgstr "_Open"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
+#: ../src/callbacks.c:126 ../src/callbacks.c:308 ../src/callbacks.c:313
 msgid "_Cancel"
 msgstr "_Cancel"
 
@@ -148,20 +153,18 @@ msgid "All Files"
 msgstr "All Files"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-#, fuzzy
-#| msgid "Save Digests"
 msgid "Save Digest File"
-msgstr "Save Digests"
+msgstr "Save Digest File"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
 msgstr "_Save"
 
-#: ../src/callbacks.c:286
-msgid "A GTK+ utility for computing message digests or checksums."
-msgstr "A GTK+ utility for computing message digests or checksums."
+#: ../src/callbacks.c:274
+msgid "A desktop utility for computing message digests or checksums"
+msgstr "A desktop utility for computing message digests or checksums"
 
-#: ../src/callbacks.c:295
+#: ../src/callbacks.c:279
 msgid "translator-credits"
 msgstr ""
 "Abhishek https://launchpad.net/~ar.abhishek\n"
@@ -169,12 +172,12 @@ msgstr ""
 "Stefan Pynappels https://launchpad.net/~stefan-pynappels\n"
 "Tristan Heaven"
 
-#: ../src/callbacks.c:321 ../src/callbacks.c:325
+#: ../src/callbacks.c:307 ../src/callbacks.c:311
 msgid "Select Files"
 msgstr "Select Files"
 
 #. Add checkbutton
-#: ../src/callbacks.c:537 ../src/nautilus/properties.c:245
+#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
 msgstr "_Show HMAC Key"
 
@@ -183,71 +186,71 @@ msgstr "_Show HMAC Key"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Failed to read check file \"%s\": %s"
 
-#: ../src/gui.c:373
+#: ../src/gui.c:295
 msgid "Not a regular file"
 msgstr "Not a regular file"
 
-#: ../src/gui.c:396
+#: ../src/gui.c:318
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Failed to add file \"%s\": %s"
 
-#: ../src/hash.c:183 ../src/prefs.c:109
+#: ../src/hash.c:183 ../src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Unknown Hash Function name \"%s\""
 
-#: ../src/main.c:97
+#: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Check against the specified digest or checksum"
 
-#: ../src/main.c:98
+#: ../src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "DIGEST"
 
-#: ../src/main.c:103
+#: ../src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Check digests or checksums from the specified file"
 
-#: ../src/main.c:104
+#: ../src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "FILE|URI"
 
-#: ../src/main.c:109
+#: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
 msgstr "Enable the specified Hash Function (e.g. MD5)"
 
-#: ../src/main.c:110
+#: ../src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
 msgstr "FUNCTION"
 
-#: ../src/main.c:114
+#: ../src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Hash the specified text"
 
-#: ../src/main.c:115
+#: ../src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEXT"
 
-#: ../src/main.c:119
+#: ../src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Show version information"
 
-#: ../src/main.c:123
+#: ../src/opts.c:123
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI…]"
 
-#: ../src/prefs.c:81
+#: ../src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
 msgstr "Failed to enable any supported hash functions."
 
@@ -272,9 +275,9 @@ msgstr "%s of %s - %s (%s/sec)"
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
-#: ../src/nautilus/properties.c:503 ../src/nautilus/properties.c:506
-#: ../src/nautilus/properties.c:509 ../src/nautilus/properties.c:512
-#: ../src/nautilus/properties.c:514
+#: ../src/nautilus/properties.c:462 ../src/nautilus/properties.c:465
+#: ../src/nautilus/properties.c:468 ../src/nautilus/properties.c:471
+#: ../src/nautilus/properties.c:473
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1

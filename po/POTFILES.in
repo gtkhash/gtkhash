@@ -1,7 +1,6 @@
 [encoding: UTF-8]
 
 # gtkhash
-[type: gettext/glade]data/gtkhash-gtk2.xml
 [type: gettext/glade]data/gtkhash-gtk3.xml
 data/gtkhash.desktop.in
 src/callbacks.c
@@ -10,6 +9,7 @@ src/gui.c
 src/hash.c
 src/list.c
 src/main.c
+src/opts.c
 src/prefs.c
 src/util/util.c
 

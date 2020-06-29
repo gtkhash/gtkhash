@@ -1,5 +1,5 @@
 AC_PREREQ([2.61])
-AC_INIT([GtkHash], [1.2])
+AC_INIT([GtkHash], [1.3])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_AUX_DIR([build-aux])
@@ -52,11 +52,11 @@ AC_SUBST([GTKHASH_CFLAGS])
 PKG_PROG_PKG_CONFIG
 
 # check for glib/gio {{{
-PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.36])
+PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.48])
 AC_SUBST([GLIB_CFLAGS])
 AC_SUBST([GLIB_LIBS])
 
-PKG_CHECK_MODULES([GIO], [gio-2.0 >= 2.36])
+PKG_CHECK_MODULES([GIO], [gio-2.0 >= 2.48])
 AC_SUBST([GIO_CFLAGS])
 AC_SUBST([GIO_LIBS])
 
@@ -68,19 +68,16 @@ AC_SUBST([GLIB_COMPILE_RESOURCES])
 GLIB_GSETTINGS
 # }}}
 
-# check for gtk+ {{{
-AC_MSG_CHECKING([which GTK+ version to use])
+# check for gtk {{{
+AC_MSG_CHECKING([which GTK version to use])
 AC_ARG_WITH([gtk],
-	[AS_HELP_STRING([--with-gtk=2.0|3.0], [GTK+ version to use [default=3.0]])],
+	[AS_HELP_STRING([--with-gtk=3.0], [GTK version to use [default=3.0]])],
 	[with_gtk="${withval}"], [with_gtk="3.0"])
 AC_MSG_RESULT([${with_gtk}])
 
-PKG_CHECK_MODULES([GTK], ["gtk+-${with_gtk}" >= 2.24])
+PKG_CHECK_MODULES([GTK], ["gtk+-${with_gtk}" >= 3.18])
 AC_SUBST([GTK_CFLAGS])
 AC_SUBST([GTK_LIBS])
-
-AM_CONDITIONAL([WITH_GTK2], [test "${with_gtk}" = "2.0"])
-AM_CONDITIONAL([WITH_GTK3], [test "${with_gtk}" = "3.0"])
 # }}}
 
 # debug option {{{
@@ -93,7 +90,7 @@ AC_MSG_RESULT([${enable_debug}])
 if test "${enable_debug}" = "yes" ; then
 	AC_DEFINE([G_DISABLE_DEPRECATED], [1], [disable glib deprecated])
 	AC_DEFINE([GDK_DISABLE_DEPRECATED], [1], [disable gdk deprecated])
-	AC_DEFINE([GTK_DISABLE_DEPRECATED], [1], [disable gtk+ deprecated])
+	AC_DEFINE([GTK_DISABLE_DEPRECATED], [1], [disable gtk deprecated])
 else
 	AC_DEFINE([G_DISABLE_ASSERT], [1], [disable glib assert])
 	AC_DEFINE([G_DISABLE_CAST_CHECKS], [1], [disable glib cast checks])
@@ -395,13 +392,13 @@ AM_CONDITIONAL([ENABLE_THUNAR], [test "${enable_thunar}" = "yes"])
 
 AC_MSG_CHECKING([which Thunarx version to use])
 AC_ARG_WITH([thunarx],
-	[AS_HELP_STRING([--with-thunarx=2|3], [Thunarx version to use [default=3]])],
+	[AS_HELP_STRING([--with-thunarx=3], [Thunarx version to use [default=3]])],
 	[with_thunar="${withval}"], [with_thunarx="3"])
 AC_MSG_RESULT([${with_thunarx}])
 
 if test "${enable_thunar}" = "yes" ; then
 	# Check for thunar
-	PKG_CHECK_MODULES([THUNAR], ["thunarx-${with_thunarx}"])
+	PKG_CHECK_MODULES([THUNAR], ["thunarx-${with_thunarx}" >= 1.7.0])
 	AC_SUBST([THUNAR_CFLAGS])
 	AC_SUBST([THUNAR_LIBS])
 	THUNAR_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensionsdir "thunarx-${with_thunarx}"`
@@ -431,6 +428,10 @@ else
 fi
 # }}}
 
+# Matches preferred order from src/hash/hash-lib.c
+HASH_LIBS="zlib blake2 gcrypt libcrypto mbedtls nettle linux_crypto glib_checksums mhash internal_md6"
+AC_SUBST([HASH_LIBS])
+
 AC_DEFINE_UNQUOTED([G_LOG_DOMAIN], ["${PACKAGE_NAME}"], [Define the Glib log domain])
 AC_DEFINE([HASH_FILE_BUFFER_SIZE], [131072], [Define file read buffer size (bytes)])
 AC_DEFINE([HASH_FILE_REPORT_INTERVAL], [166], [Define progress report interval (milliseconds)])
@@ -447,6 +448,7 @@ AC_CONFIG_FILES([data/peony/libgtkhash-properties-peony.peony-extension.in])
 AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([src/Makefile])
 AC_CONFIG_FILES([src/hash/Makefile])
+AC_CONFIG_FILES([src/test.md5sum])
 AC_CONFIG_FILES([src/nautilus/Makefile])
 AC_CONFIG_FILES([src/util/Makefile])
 AC_OUTPUT
@@ -474,7 +476,7 @@ gcrypt_funcs="${gcrypt_funcs}
 glib_checksums_funcs="
 	MD5
 	SHA1
-	SHA256 SHA512"
+	SHA256 SHA384 SHA512"
 internal_md6_funcs="
 	MD6-224 MD6-256 MD6-384 MD6-512"
 libcrypto_funcs="
@@ -557,19 +559,7 @@ for func in \
 do
 	printf "  %-20s" "${func}"
 	enabled=""
-	# Matches preferred order from src/hash/hash-lib.c
-	for lib in \
-		zlib \
-		blake2 \
-		gcrypt \
-		libcrypto \
-		mbedtls \
-		nettle \
-		linux_crypto \
-		glib_checksums \
-		mhash \
-		internal_md6
-	do
+	for lib in ${HASH_LIBS} ; do
 		eval test \${enable_${lib}} = "yes" || continue
 
 		if eval echo \${${lib}_funcs} | tr ' ' '\n' \

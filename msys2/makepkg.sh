@@ -19,7 +19,7 @@ make -j$(nproc) dist-gzip
 cp -avf gtkhash-*.tar.gz msys2/mingw-w64-gtkhash/gtkhash.tar.gz
 
 cd msys2/mingw-w64-gtkhash
-makepkg-mingw \
+PKGEXT='.pkg.tar.xz' makepkg-mingw \
 	--noconfirm \
 	--noprogressbar \
 	--syncdeps \

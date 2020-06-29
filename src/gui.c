@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -34,15 +34,12 @@
 #include "hash.h"
 #include "list.h"
 #include "prefs.h"
+#include "resources.h"
 #include "uri-digest.h"
 #include "hash/digest-format.h"
 #include "hash/hash-func.h"
 
-#if (GTK_MAJOR_VERSION > 2)
 #define GUI_XML_RESOURCE "/org/gtkhash/gtkhash-gtk3.xml"
-#else
-#define GUI_XML_RESOURCE "/org/gtkhash/gtkhash-gtk2.xml"
-#endif
 
 struct gui_s gui = {
 	.view = GUI_VIEW_INVALID,
@@ -112,19 +109,19 @@ static void gui_init_objects(GtkBuilder *builder)
 		"toolbutton_clear"));
 
 	// Containers
-	gui.vbox_single = GTK_VBOX(gui_get_object(builder,
+	gui.vbox_single = GTK_BOX(gui_get_object(builder,
 		"vbox_single"));
-	gui.vbox_list = GTK_VBOX(gui_get_object(builder,
+	gui.vbox_list = GTK_BOX(gui_get_object(builder,
 		"vbox_list"));
-	gui.hbox_input = GTK_HBOX(gui_get_object(builder,
+	gui.hbox_input = GTK_BOX(gui_get_object(builder,
 		"hbox_input"));
-	gui.hbox_output = GTK_HBOX(gui_get_object(builder,
+	gui.hbox_output = GTK_BOX(gui_get_object(builder,
 		"hbox_output"));
-	gui.vbox_outputlabels = GTK_VBOX(gui_get_object(builder,
+	gui.vbox_outputlabels = GTK_BOX(gui_get_object(builder,
 		"vbox_outputlabels"));
-	gui.vbox_digests_file = GTK_VBOX(gui_get_object(builder,
+	gui.vbox_digests_file = GTK_BOX(gui_get_object(builder,
 		"vbox_digests_file"));
-	gui.vbox_digests_text = GTK_VBOX(gui_get_object(builder,
+	gui.vbox_digests_text = GTK_BOX(gui_get_object(builder,
 		"vbox_digests_text"));
 
 	// Inputs
@@ -173,7 +170,7 @@ static void gui_init_objects(GtkBuilder *builder)
 		"menuitem_treeview_show_toolbar"));
 
 	// Buttons
-	gui.hseparator_buttons = GTK_HSEPARATOR(gui_get_object(builder,
+	gui.hseparator_buttons = GTK_SEPARATOR(gui_get_object(builder,
 		"hseparator_buttons"));
 	gui.button_hash = GTK_BUTTON(gui_get_object(builder,
 		"button_hash"));
@@ -187,13 +184,10 @@ static void gui_init_objects(GtkBuilder *builder)
 	// Dialog
 	gui.dialog = GTK_DIALOG(gui_get_object(builder,
 		"dialog"));
-#if (GTK_MAJOR_VERSION > 2)
 	gui.dialog_grid = GTK_GRID(gui_get_object(builder,
 		"dialog_grid"));
-#else
-	gui.dialog_table = GTK_TABLE(gui_get_object(builder,
-		"dialog_table"));
-#endif
+	gui.dialog_togglebutton_show_hmac = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"dialog_togglebutton_show_hmac"));
 	gui.dialog_combobox = GTK_COMBO_BOX(gui_get_object(builder,
 		"dialog_combobox"));
 	gui.dialog_button_close = GTK_BUTTON(gui_get_object(builder,
@@ -210,14 +204,8 @@ static void gui_init_hash_funcs(void)
 		gui.hash_widgets[i].label = GTK_LABEL(gtk_label_new(NULL));
 		gtk_container_add(GTK_CONTAINER(gui.vbox_outputlabels),
 			GTK_WIDGET(gui.hash_widgets[i].label));
-#if (GTK_MAJOR_VERSION > 2)
 		gtk_widget_set_halign(GTK_WIDGET(gui.hash_widgets[i].label),
 			GTK_ALIGN_START);
-#else
-		gtk_misc_set_alignment(GTK_MISC(gui.hash_widgets[i].label),
-			// Left align
-			0.0, 0.5);
-#endif
 
 		// File view digests
 		gui.hash_widgets[i].entry_file = GTK_ENTRY(gtk_entry_new());
@@ -246,23 +234,12 @@ static void gui_init_hash_funcs(void)
 		// Dialog checkbuttons
 		gui.hash_widgets[i].button = GTK_TOGGLE_BUTTON(
 			gtk_check_button_new_with_label(hash.funcs[i].name));
-
-#if (GTK_MAJOR_VERSION > 2)
 		gtk_grid_attach(gui.dialog_grid,
 			GTK_WIDGET(gui.hash_widgets[i].button),
-			supported % 2 ? 1 : 0, // column
-			supported / 2,         // row
-			1,                     // width
-			1);                    // height
-#else
-		gtk_table_attach_defaults(gui.dialog_table,
-			GTK_WIDGET(gui.hash_widgets[i].button),
-			// Sort checkbuttons into 2 columns
-			supported % 2 ? 1 : 0,
-			supported % 2 ? 2 : 1,
-			supported / 2,
-			supported / 2 + 1);
-#endif
+			supported % 3, // column
+			supported / 3, // row
+			1, 1); // width, height
+
 		// Could be enabled already by cmdline arg
 		if (hash.funcs[i].enabled)
 			gui_enable_hash_func(i);
@@ -273,77 +250,22 @@ static void gui_init_hash_funcs(void)
 	}
 }
 
-#if (GTK_MAJOR_VERSION < 3)
-static void gui_init_fonts(void)
-{
-	PangoFontDescription *desc = pango_font_description_from_string(
-		"monospace");
-
-	gtk_widget_modify_font(GTK_WIDGET(gui.entry_check_file), desc);
-	gtk_widget_modify_font(GTK_WIDGET(gui.entry_check_text), desc);
-	gtk_widget_modify_font(GTK_WIDGET(gui.treeview), desc);
-
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (!hash.funcs[i].supported)
-			continue;
-
-		gtk_widget_modify_font(GTK_WIDGET(gui.hash_widgets[i].entry_file), desc);
-		gtk_widget_modify_font(GTK_WIDGET(gui.hash_widgets[i].entry_text), desc);
-	}
-
-	pango_font_description_free(desc);
-}
-#endif
-
-static GtkBuilder *gui_init_builder(void)
-{
-#if (GTK_MAJOR_VERSION > 2)
-	return gtk_builder_new_from_resource(GUI_XML_RESOURCE);
-#else
-	GError *error = NULL;
-	GBytes *bytes = g_resources_lookup_data(GUI_XML_RESOURCE,
-		G_RESOURCE_LOOKUP_FLAGS_NONE, &error);
-
-	if (G_UNLIKELY(error)) {
-		gui_error(error->message);
-		g_error_free(error);
-
-		exit(EXIT_FAILURE);
-	}
-
-	gsize xml_len = 0;
-	char *xml = g_bytes_unref_to_data(bytes, &xml_len);
-	GtkBuilder *builder = gtk_builder_new();
-
-	gtk_builder_add_from_string(builder, xml, xml_len, &error);
-	g_free(xml);
-
-	if (G_UNLIKELY(error)) {
-		gui_error(error->message);
-		g_error_free(error);
-		g_object_unref(builder);
-
-		exit(EXIT_FAILURE);
-	}
-
-	return builder;
-#endif
-}
-
 void gui_init(void)
 {
-	GtkBuilder *builder = gui_init_builder();
+	// Override user icon theme when running in confined snap environment
+	if (g_strcmp0(g_getenv("SNAP_NAME"), PACKAGE) == 0) {
+		g_object_set(gtk_settings_get_default(),
+			"gtk-icon-theme-name", "Humanity", NULL);
+	}
+
+	resources_register_resource();
+	GtkBuilder *builder = gtk_builder_new_from_resource(GUI_XML_RESOURCE);
 	gui_init_objects(builder);
 	g_object_unref(builder);
+	resources_unregister_resource();
 
 	gui_init_hash_funcs();
-
-#if (GTK_MAJOR_VERSION < 3)
-	gui_init_fonts();
-
-	g_object_set(gtk_settings_get_default(), "gtk-button-images", true, NULL);
-	g_object_set(gtk_settings_get_default(), "gtk-menu-images", true, NULL);
-#endif
+	list_init();
 
 	gui_set_state(GUI_STATE_IDLE);
 }
@@ -663,26 +585,37 @@ static void gui_update_hash_funcs(void)
 
 static void gui_update_hmac(void)
 {
+	bool enabled = gtk_toggle_button_get_active(gui.dialog_togglebutton_show_hmac);
 	bool active = false;
 
 	switch (gui.view) {
 		case GUI_VIEW_FILE:
 			gtk_widget_hide(GTK_WIDGET(gui.entry_hmac_text));
 			gtk_widget_hide(GTK_WIDGET(gui.togglebutton_hmac_text));
-			gtk_widget_show(GTK_WIDGET(gui.entry_hmac_file));
-			gtk_widget_show(GTK_WIDGET(gui.togglebutton_hmac_file));
+			gtk_widget_set_visible(GTK_WIDGET(gui.entry_hmac_file), enabled);
+			gtk_widget_set_visible(GTK_WIDGET(gui.togglebutton_hmac_file), enabled);
 
 			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_file);
 			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file), active);
+
+			if (active && !enabled) {
+				gtk_toggle_button_set_active(gui.togglebutton_hmac_file, false);
+				active = false;
+			}
 			break;
 		case GUI_VIEW_TEXT:
 			gtk_widget_hide(GTK_WIDGET(gui.entry_hmac_file));
 			gtk_widget_hide(GTK_WIDGET(gui.togglebutton_hmac_file));
-			gtk_widget_show(GTK_WIDGET(gui.entry_hmac_text));
-			gtk_widget_show(GTK_WIDGET(gui.togglebutton_hmac_text));
+			gtk_widget_set_visible(GTK_WIDGET(gui.entry_hmac_text), enabled);
+			gtk_widget_set_visible(GTK_WIDGET(gui.togglebutton_hmac_text), enabled);
 
 			active = gtk_toggle_button_get_active(gui.togglebutton_hmac_text);
 			gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_text), active);
+
+			if (active && !enabled) {
+				gtk_toggle_button_set_active(gui.togglebutton_hmac_text, false);
+				active = false;
+			}
 			break;
 		default:
 			g_assert_not_reached();
@@ -897,12 +830,8 @@ void gui_set_state(const enum gui_state_e state)
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_file), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_file_list), !busy);
 
-#if (GTK_MAJOR_VERSION > 2)
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_grid), !busy);
-#else
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_table), !busy);
-#endif
-
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_togglebutton_show_hmac), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_combobox), !busy);
 
 	if (busy)

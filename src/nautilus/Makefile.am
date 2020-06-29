@@ -11,7 +11,7 @@ common_libadd = \
 
 BUILT_SOURCES = properties-resources.c
 
-CLEANFILES = properties-resources.c
+CLEANFILES = properties-resources.c *.gcda *.gcno
 
 if ENABLE_CAJA
 

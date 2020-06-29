@@ -1,5 +1,12 @@
 Summary of changes for each GtkHash release:
 
+1.3 (2020-05-25)
+	* Fixed crash when program is closed (#47)
+	* Added vertical scrolling to File/Text view (#35)
+	* Added clipboard paste button to Check input
+	* Added Windows compatibility
+	* Removed support for GTK 2
+
 1.2 (2018-11-27)
 	* Added compatibility for Thunar 1.7
 	* Added optional Peony (UKUI file manager) extension
@@ -23,7 +30,7 @@ Summary of changes for each GtkHash release:
 	* Added Caja (MATE file manager) extension
 	* Added BLAKE2 hash functions
 	* Added support for mbed TLS
-	* Switched to use GTK+ 3 by default
+	* Switched to use GTK 3 by default
 	* Added desktop menu entry and icon
 
 0.7.0 (2013-10-30)
@@ -49,7 +56,7 @@ Summary of changes for each GtkHash release:
 	* Added optional support for other hash libraries/interfaces
 	* Added Digest Format option
 	* Added optional Thunar (Xfce file manager) plugin
-	* Added support for GTK+ 3
+	* Added support for GTK 3
 	* General usability improvements
 
 0.3.0 (2009-11-22)

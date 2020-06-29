@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -28,19 +28,25 @@
 #include <gtk/gtk.h>
 
 #include "callbacks.h"
+#include "check.h"
 #include "gui.h"
 #include "hash.h"
 #include "list.h"
-#include "resources.h"
+#include "opts.h"
 #include "hash/hash-func.h"
+
+#ifndef G_SOURCE_FUNC
+#define G_SOURCE_FUNC(f) ((GSourceFunc) (void (*)(void)) (f))
+#endif
 
 static void delay(void)
 {
-	if (g_test_slow())
-		g_usleep(G_USEC_PER_SEC / 10);
+	for (int i = 0; i < 10; i++) {
+		while (gtk_events_pending())
+			gtk_main_iteration();
 
-	while (gtk_events_pending())
-		gtk_main_iteration();
+		g_usleep(G_USEC_PER_SEC / 250);
+	}
 }
 
 static void select_func(const enum hash_func_e id, const bool active)
@@ -54,6 +60,14 @@ static void select_func(const enum hash_func_e id, const bool active)
 	g_assert_true(hash.funcs[id].enabled == active);
 }
 
+static void select_digest_format(const enum digest_format_e format)
+{
+	gui_set_digest_format(format);
+	delay();
+
+	g_assert_true(gui_get_digest_format() == format);
+}
+
 static void test_hash_func_digest(const enum hash_func_e id, const char *text,
 	const char *hmac, const char *digest)
 {
@@ -61,10 +75,11 @@ static void test_hash_func_digest(const enum hash_func_e id, const char *text,
 	gtk_entry_set_text(gui.entry_text, text);
 
 	if (hmac) {
+		gtk_toggle_button_set_active(gui.dialog_togglebutton_show_hmac, true);
 		gtk_toggle_button_set_active(gui.togglebutton_hmac_text, true);
-		gtk_entry_set_visibility(gui.entry_hmac_text, true);
 		gtk_entry_set_text(gui.entry_hmac_text, hmac);
 	} else {
+		gtk_toggle_button_set_active(gui.dialog_togglebutton_show_hmac, false);
 		gtk_toggle_button_set_active(gui.togglebutton_hmac_text, false);
 		gtk_entry_set_text(gui.entry_hmac_text, "");
 	}
@@ -172,6 +187,11 @@ static void test_hash_func(const struct hash_func_s *func)
 
 static void test_hash_func_hmac(const struct hash_func_s *func)
 {
+	if (!func->supported || !func->hmac_supported) {
+		g_test_skip("not supported");
+		return;
+	}
+
 	bool tested = false;
 
 #define t(FUNC, TEXT, HMAC, DIGEST) \
@@ -226,6 +246,10 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 		"what do ya want for nothing?",
 		"Jefe",
 		"a30e01098bc6dbbf45690f3a7e9e6d0f8bbea2a39e6148008fd05e44");
+	t(SHA224,
+		"This is a test using a larger than block-size key and a larger than block-size data. The key needs to be hashed before being used by the HMAC algorithm.",
+		"\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa",
+		"3a854166ac5d9f023f54d517d0b39dbd946770db9c2b95c9f6f565d1");
 	t(SHA256,
 		"Hi There",
 		"\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b",
@@ -234,6 +258,10 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 		"what do ya want for nothing?",
 		"Jefe",
 		"5bdcc146bf60754e6a042426089575c75a003f089d2739839dec58b964ec3843");
+	t(SHA256,
+		"This is a test using a larger than block-size key and a larger than block-size data. The key needs to be hashed before being used by the HMAC algorithm.",
+		"\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa",
+		"9b09ffa71b942fcb27635fbcd5b0e944bfdc63644f0713938a7f51535c3a35e2");
 	t(SHA384,
 		"Hi There",
 		"\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b",
@@ -242,6 +270,10 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 		"what do ya want for nothing?",
 		"Jefe",
 		"af45d2e376484031617f78d2b58a6b1b9c7ef464f5a01b47e42ec3736322445e8e2240ca5e69e2c78b3239ecfab21649");
+	t(SHA384,
+		"This is a test using a larger than block-size key and a larger than block-size data. The key needs to be hashed before being used by the HMAC algorithm.",
+		"\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa",
+		"6617178e941f020d351e2f254e8fd32c602420feb0b8fb9adccebb82461e99c5a678cc31e799176d3860e6110c46523e");
 	t(SHA512,
 		"Hi There",
 		"\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b",
@@ -250,6 +282,10 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 		"what do ya want for nothing?",
 		"Jefe",
 		"164b7a7bfcf819e2e395fbe73b56e0a387bd64222e831fd610270cd7ea2505549758bf75c05a994a6d034f65f8f0e6fdcaeab1a34d4a6b4b636e070a38bce737");
+	t(SHA512,
+		"This is a test using a larger than block-size key and a larger than block-size data. The key needs to be hashed before being used by the HMAC algorithm.",
+		"\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa",
+		"e37b6a775dc87dbaa4dfa9f96e5e3ffddebd71f8867289865df5a32d20cdc944b6022cac3c4982b10d5eeb55c3e4de15134676fb6de0446065c97440fa8c6a58");
 
 	// http://wolfgang-ehrhardt.de/hmac-sha3-testvectors.html
 	t(SHA3_224,
@@ -293,31 +329,309 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 	select_func(func->id, false);
 }
 
+static void test_opt_help(void)
+{
+	if (g_test_subprocess()) {
+		gint argc;
+		char **argv;
+		g_shell_parse_argv("t --help", &argc, &argv, NULL);
+
+		opts_preinit(&argc, &argv);
+
+		exit(EXIT_FAILURE);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("*--help*");
+	g_test_trap_assert_stdout("*--version*");
+}
+
+static void test_opt_version(void)
+{
+	if (g_test_subprocess()) {
+		gint argc;
+		char **argv;
+		g_shell_parse_argv("t --version", &argc, &argv, NULL);
+
+		opts_preinit(&argc, &argv);
+
+		exit(EXIT_FAILURE);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout(PACKAGE_STRING "*");
+}
+
+static void test_opt_check_text(void)
+{
+	if (g_test_subprocess()) {
+		gint argc;
+		char **argv;
+		g_shell_parse_argv("t -c fail -t aa --check 0123abcdef", &argc, &argv, NULL);
+
+		opts_preinit(&argc, &argv);
+		opts_postinit();
+		delay();
+
+		puts(gtk_entry_get_text(gui.entry_check_text));
+		exit(EXIT_SUCCESS);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("0123abcdef*");
+}
+
+static void test_opt_check_file(void)
+{
+	if (g_test_subprocess()) {
+		gint argc;
+		char **argv;
+		char *args = g_strdup_printf("t --check-file '%s'",
+			g_test_get_filename(G_TEST_BUILT, "test.md5sum", NULL));
+
+		g_shell_parse_argv(args, &argc, &argv, NULL);
+		g_free(args);
+
+		opts_preinit(&argc, &argv);
+		opts_postinit();
+		delay();
+
+		g_assert(hash.funcs[HASH_FUNC_MD5].supported);
+		g_assert(hash.funcs[HASH_FUNC_MD5].enabled);
+		g_assert(gui.view == GUI_VIEW_FILE_LIST);
+		g_assert(list.rows == 9);
+
+		// OK to exit before finish, with warnings
+		g_test_expect_message(G_LOG_DOMAIN, G_LOG_LEVEL_WARNING, "*");
+		gdk_threads_add_timeout_seconds(2, G_SOURCE_FUNC(exit), NULL);
+
+		for (;;)
+			gtk_main_iteration_do(false);
+
+		exit(EXIT_FAILURE);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stderr("*notfound.bytes*");
+}
+
+static void test_opt_function(void)
+{
+	if (g_test_subprocess()) {
+		enum hash_func_e id = HASH_FUNC_INVALID;
+
+		// Select first available function for the test
+		for (int i = 0; i < HASH_FUNCS_N; i++) {
+			if (hash.funcs[i].supported) {
+				id = i;
+				break;
+			}
+		}
+
+		if (id == HASH_FUNC_INVALID)
+			exit(EXIT_FAILURE);
+
+		// Disable the function
+		gtk_toggle_button_set_active(gui.hash_widgets[id].button, false);
+		delay();
+
+		if (hash.funcs[id].enabled)
+			exit(EXIT_FAILURE);
+
+		// Enable the function from cmdline
+		char *str = g_strdup_printf("%s %s", "t --function XX -f", hash.funcs[id].name);
+		gint argc;
+		char **argv;
+		g_shell_parse_argv(str, &argc, &argv, NULL);
+
+		opts_preinit(&argc, &argv);
+
+		if (hash.funcs[id].enabled)
+			exit(EXIT_SUCCESS);
+		else
+			exit(EXIT_FAILURE);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stderr("*Unknown*XX*");
+}
+
+static void test_opt_file(void)
+{
+	if (g_test_subprocess()) {
+		gint argc;
+		char **argv;
+		char *args = g_strdup_printf("t -- '%s'",
+			g_test_get_filename(G_TEST_BUILT, "10M.bytes", NULL));
+
+		g_shell_parse_argv(args, &argc, &argv, NULL);
+		g_free(args);
+
+		select_func(HASH_FUNC_MD5, true);
+
+		opts_preinit(&argc, &argv);
+		opts_postinit();
+		delay();
+
+		g_assert(gui.view == GUI_VIEW_FILE);
+
+		while (!*gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file))
+			gtk_main_iteration_do(false);
+		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file));
+
+		exit(EXIT_SUCCESS);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("*f1c9645dbc14efddc7d8a322685f26eb*");
+}
+
+static void test_opt_file_list(void)
+{
+	if (g_test_subprocess()) {
+		gint argc;
+		char **argv;
+		char *args = g_strdup_printf("t -- '%s' '%s'",
+			g_test_get_filename(G_TEST_BUILT, "0.bytes", NULL),
+			g_test_get_filename(G_TEST_BUILT, "0.bytes", NULL));
+
+		g_shell_parse_argv(args, &argc, &argv, NULL);
+		g_free(args);
+
+		select_func(HASH_FUNC_MD5, true);
+
+		opts_preinit(&argc, &argv);
+		opts_postinit();
+		delay();
+
+		g_assert(gui.view == GUI_VIEW_FILE_LIST);
+		g_assert(list.rows == 2);
+
+		char *digest;
+		while (!(digest = list_get_digest(1, HASH_FUNC_MD5)) || !*digest)
+			gtk_main_iteration_do(false);
+		puts(digest);
+		g_free(digest);
+
+		gtk_tree_selection_select_all(gui.treeselection);
+		delay();
+		list_remove_selection();
+		delay();
+		g_assert(list.rows == 0);
+
+		exit(EXIT_SUCCESS);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("*d41d8cd98f00b204e9800998ecf8427e*");
+}
+
+static void test_digest_format_hex_lower()
+{
+	if (g_test_subprocess()) {
+		gui_set_view(GUI_VIEW_TEXT);
+		select_func(HASH_FUNC_MD5, true);
+		select_digest_format(DIGEST_FORMAT_HEX_LOWER);
+
+		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_text));
+
+		exit(EXIT_SUCCESS);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("*d41d8cd98f00b204e9800998ecf8427e*");
+}
+
+static void test_digest_format_hex_upper()
+{
+	if (g_test_subprocess()) {
+		gui_set_view(GUI_VIEW_TEXT);
+		delay();
+		select_func(HASH_FUNC_MD5, true);
+		select_digest_format(DIGEST_FORMAT_HEX_UPPER);
+
+		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_text));
+
+		exit(EXIT_SUCCESS);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("*D41D8CD98F00B204E9800998ECF8427E*");
+}
+
+static void test_digest_format_base64()
+{
+	if (g_test_subprocess()) {
+		gui_set_view(GUI_VIEW_TEXT);
+		select_func(HASH_FUNC_MD5, true);
+		select_digest_format(DIGEST_FORMAT_BASE64);
+
+		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_text));
+
+		exit(EXIT_SUCCESS);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
+	g_test_trap_assert_stdout("*1B2M2Y8AsgTpgAmY7PhCfg==*");
+}
+
 static void test_init(void)
 {
 	gui_set_view(GUI_VIEW_TEXT);
 	delay();
 
+	const char * const lib = g_getenv("GTKHASH_TEST_LIB");
+
 	// Test plain hash
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		char *str = g_strdup_printf("/hash/func/%s", hash.funcs[i].name);
-		g_test_add_data_func(str, &hash.funcs[i],
+		if (lib && !hash.funcs[i].supported)
+			continue;
+
+		char *path = g_strdup_printf("/hash/lib/%s/%s", lib ? lib : "any",
+			hash.funcs[i].name);
+		g_test_add_data_func(path, &hash.funcs[i],
 			(GTestDataFunc)test_hash_func);
-		g_free(str);
+		g_free(path);
 	}
 
 	// Test HMAC
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (!hash.funcs[i].supported || !hash.funcs[i].hmac_supported)
+		if (lib && (!hash.funcs[i].supported || !hash.funcs[i].hmac_supported))
 			continue;
 
-		char *str = g_strdup_printf("/hash/func/HMAC-%s", hash.funcs[i].name);
-		g_test_add_data_func(str, &hash.funcs[i],
+		char *path = g_strdup_printf("/hash/lib/%s/HMAC-%s", lib ? lib : "any",
+			hash.funcs[i].name);
+		g_test_add_data_func(path, &hash.funcs[i],
 			(GTestDataFunc)test_hash_func_hmac);
-		g_free(str);
+		g_free(path);
 	}
 
-	g_test_set_nonfatal_assertions();
+	if (lib)
+		return;
+
+	// Test cmdline options
+	g_test_add_func("/opt/help", test_opt_help);
+	g_test_add_func("/opt/version", test_opt_version);
+	g_test_add_func("/opt/check/text", test_opt_check_text);
+	g_test_add_func("/opt/check/file", test_opt_check_file);
+	g_test_add_func("/opt/function", test_opt_function);
+	g_test_add_func("/opt/file", test_opt_file);
+	g_test_add_func("/opt/file-list", test_opt_file_list);
+
+	// Test digest formats
+	g_test_add_func("/digest-format/base64", test_digest_format_base64);
+	g_test_add_func("/digest-format/hex-lower", test_digest_format_hex_lower);
+	g_test_add_func("/digest-format/hex-upper", test_digest_format_hex_upper);
 }
 
 int main(int argc, char **argv)
@@ -325,18 +639,25 @@ int main(int argc, char **argv)
 	gtk_test_init(&argc, &argv);
 
 	hash_init();
-	resources_register_resource();
 	gui_init();
-	list_init();
+	check_init();
 
 	// Ignore user input during testing
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.window), false);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog), false);
 
-	if (g_test_slow())
-		gtk_widget_show_now(GTK_WIDGET(gui.window));
+	gtk_widget_show_now(GTK_WIDGET(gui.window));
+	gtk_widget_show_now(GTK_WIDGET(gui.dialog));
 
 	callbacks_init();
 	test_init();
 
-	return g_test_run();
+	g_test_set_nonfatal_assertions();
+	const int status = g_test_run();
+
+	check_deinit();
+	gui_deinit();
+	hash_deinit();
+
+	return status;
 }

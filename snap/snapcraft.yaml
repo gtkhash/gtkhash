@@ -1,0 +1,49 @@
+name: gtkhash
+adopt-info: gtkhash
+version: git
+license: GPL-2.0+
+grade: stable
+base: core18
+confinement: strict
+
+apps:
+  gtkhash:
+    command: bin/gtkhash
+    desktop: usr/share/applications/gtkhash.desktop
+    common-id: org.gtkhash.gtkhash
+    extensions: [ gnome-3-28 ]
+    plugs:
+      - gsettings
+      - home
+
+parts:
+  gtkhash:
+    source: https://github.com/tristanheaven/gtkhash.git
+    plugin: autotools
+    build-packages:
+      - pkg-config
+      - libtool
+      - gettext
+      - intltool
+      - libglib2.0-dev
+      - libgtk-3-dev
+      - libgcrypt20-dev
+      - libb2-dev
+      - librsvg2-bin
+      - libxml2-utils
+    stage-packages:
+      - libgtk-3-0
+      - libgcrypt20
+      - libb2-1
+    build-environment:
+      - CFLAGS: "${CFLAGS} -O2 -s"
+    configflags:
+      - --prefix=/usr # For snap's bindtextdomain() hack
+      - --enable-linux-crypto
+      - --disable-silent-rules
+    override-build: |
+      sed -i '/^Icon=/s:=.*:=${SNAP}/meta/gui/gtkhash.svg:' data/gtkhash.desktop.in
+      snapcraftctl build
+      mkdir -vp -- "${SNAPCRAFT_PART_INSTALL}"/meta/gui
+      cp -vf -- data/icons/scalable/gtkhash.svg "${SNAPCRAFT_PART_INSTALL}"/meta/gui/
+    parse-info: [ usr/share/metainfo/gtkhash.appdata.xml ]

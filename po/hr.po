@@ -2,299 +2,294 @@
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
-#
+# Milo Ivir <mail@milotype.de>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-18 00:10+0000\n"
-"PO-Revision-Date: 2014-04-22 19:46+0000\n"
-"Last-Translator: gogo <trebelnik2@gmail.com>\n"
-"Language-Team: Croatian <hr@li.org>\n"
+"POT-Creation-Date: 2020-06-28 19:45+0100\n"
+"PO-Revision-Date: 2020-01-19 23:21+0000\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/gtkhash/"
+"translations/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.11-dev\n"
 "X-Launchpad-Export-Date: 2014-04-23 05:49+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
 
-#: ../data/gtkhash-gtk2.xml.h:1 ../data/gtkhash-gtk3.xml.h:20
-msgid "GtkHash Preferences"
-msgstr "GtkHash osobitosti"
-
-#: ../data/gtkhash-gtk2.xml.h:2 ../data/gtkhash-gtk3.xml.h:21
-msgid "Hash Functions:"
-msgstr "Hash funkcije"
-
-#: ../data/gtkhash-gtk2.xml.h:3 ../data/gtkhash-gtk3.xml.h:22
-msgid "Digest Format:"
-msgstr "Format zbira:"
-
-#: ../data/gtkhash-gtk2.xml.h:4 ../data/gtkhash-gtk3.xml.h:1
+#: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
-msgstr "Mala slova heksadesimanlna"
+msgstr "Heksadecimalna mala slova"
 
-#: ../data/gtkhash-gtk2.xml.h:5 ../data/gtkhash-gtk3.xml.h:2
+#: ../data/gtkhash-gtk3.xml.h:2
 msgid "Uppercase Hexadecimal"
-msgstr "Velika slova heksadesimanlna"
+msgstr "Heksadecimalna velika slova"
 
-#: ../data/gtkhash-gtk2.xml.h:6 ../data/gtkhash-gtk3.xml.h:3
+#: ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
-msgstr "Kopiraj _zbir"
+msgstr "Kopiraj _sažetak"
 
-#: ../data/gtkhash-gtk2.xml.h:7 ../data/gtkhash-gtk3.xml.h:4
+#: ../data/gtkhash-gtk3.xml.h:4
 msgid "Show _Toolbar"
 msgstr "Prikaži _alatnu traku"
 
-#: ../data/gtkhash-gtk2.xml.h:8 ../data/gtkhash-gtk3.xml.h:5
+#: ../data/gtkhash-gtk3.xml.h:5
 msgid "_File"
 msgstr "_Datoteka"
-
-#: ../data/gtkhash-gtk2.xml.h:9 ../data/gtkhash-gtk3.xml.h:8
-msgid "_Edit"
-msgstr "_Uredi"
-
-#: ../data/gtkhash-gtk2.xml.h:10 ../data/gtkhash-gtk3.xml.h:9
-msgid "_View"
-msgstr "_Pogled"
-
-#: ../data/gtkhash-gtk2.xml.h:11 ../data/gtkhash-gtk3.xml.h:10
-msgid "_Text"
-msgstr "_Tekst"
-
-#: ../data/gtkhash-gtk2.xml.h:12 ../data/gtkhash-gtk3.xml.h:11
-msgid "File _List"
-msgstr "Popis _datoteka"
-
-#: ../data/gtkhash-gtk2.xml.h:13 ../data/gtkhash-gtk3.xml.h:12
-msgid "_Help"
-msgstr "_Pomoć"
-
-#: ../data/gtkhash-gtk2.xml.h:14 ../data/gtkhash-gtk3.xml.h:13
-msgid "File:"
-msgstr "Datoteka:"
-
-#: ../data/gtkhash-gtk2.xml.h:15 ../data/gtkhash-gtk3.xml.h:14
-msgid "Text:"
-msgstr "Tekst:"
-
-#: ../data/gtkhash-gtk2.xml.h:16 ../data/gtkhash-gtk3.xml.h:15
-#: ../data/nautilus/gtkhash-properties.xml.h:5
-msgid "Check:"
-msgstr "Provjeri:"
-
-#: ../data/gtkhash-gtk2.xml.h:17 ../data/gtkhash-gtk3.xml.h:17
-#: ../data/nautilus/gtkhash-properties.xml.h:7
-msgid "HMAC Key:"
-msgstr ""
-
-#: ../data/gtkhash-gtk2.xml.h:18 ../data/gtkhash-gtk3.xml.h:18
-msgid "File"
-msgstr "Datoteka"
-
-#: ../data/gtkhash-gtk2.xml.h:19 ../data/gtkhash-gtk3.xml.h:19
-msgid "Ha_sh"
-msgstr "Ha_sh"
 
 #: ../data/gtkhash-gtk3.xml.h:6
 msgctxt "menu"
 msgid "_Open Digest File..."
-msgstr ""
+msgstr "_Otvori datoteku sažetka …"
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
-#| msgid "Save Digests"
 msgctxt "menu"
 msgid "_Save Digest File..."
-msgstr "Spremi zbirove"
+msgstr "_Spremi datoteku sažetka …"
+
+#: ../data/gtkhash-gtk3.xml.h:8
+msgid "_Edit"
+msgstr "_Uredi"
+
+#: ../data/gtkhash-gtk3.xml.h:9
+msgid "_View"
+msgstr "_Pogled"
+
+#: ../data/gtkhash-gtk3.xml.h:10
+msgid "_Text"
+msgstr "_Tekst"
+
+#: ../data/gtkhash-gtk3.xml.h:11
+msgid "File _List"
+msgstr "Popis _datoteka"
+
+#: ../data/gtkhash-gtk3.xml.h:12
+msgid "_Help"
+msgstr "_Pomoć"
+
+#: ../data/gtkhash-gtk3.xml.h:13
+msgid "File:"
+msgstr "Datoteka:"
+
+#: ../data/gtkhash-gtk3.xml.h:14
+msgid "Text:"
+msgstr "Tekst:"
+
+#: ../data/gtkhash-gtk3.xml.h:15 ../data/nautilus/gtkhash-properties.xml.h:5
+msgid "Check:"
+msgstr "Provjera:"
 
 #: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "Umetni sažetak iz međuspremnika"
+
+#: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
+msgid "HMAC Key:"
+msgstr "HMAC ključ:"
+
+#: ../data/gtkhash-gtk3.xml.h:18
+msgid "File"
+msgstr "Datoteka"
+
+#: ../data/gtkhash-gtk3.xml.h:19
+msgid "Ha_sh"
+msgstr "Ha_sh"
+
+#: ../data/gtkhash-gtk3.xml.h:20
+msgid "GtkHash Preferences"
+msgstr "GtkHash osobitosti"
+
+#: ../data/gtkhash-gtk3.xml.h:21
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "Hash Functions"
+msgstr "Hash funkcije:"
+
+#: ../data/gtkhash-gtk3.xml.h:22
+#, fuzzy
+#| msgid "Hash Functions:"
+msgid "MAC Functions"
+msgstr "Hash funkcije:"
+
+#: ../data/gtkhash-gtk3.xml.h:23
+msgid "Digest Format:"
+msgstr "Format sažetka:"
 
 #: ../data/gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
-msgstr ""
+msgstr "Kalkulator kontrolne sume"
 
 #: ../data/gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:634 ../data/appdata/gtkhash.appdata.xml.in.h:1
-#, fuzzy
+#: ../src/nautilus/properties.c:593 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
-msgstr "GTK+ program za izračunavanje zbirova poruke ili kontrolnog zbroja."
+msgstr "Izračunaj sažetke poruka ili kontrolne sume"
 
 #: ../src/callbacks.c:51 ../src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "Otvori datoteku sažetka"
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:322
-#: ../src/callbacks.c:328
+#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:308
+#: ../src/callbacks.c:314
 msgid "_Open"
-msgstr ""
+msgstr "_Otvori"
 
 #: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:322 ../src/callbacks.c:327
+#: ../src/callbacks.c:126 ../src/callbacks.c:308 ../src/callbacks.c:313
 msgid "_Cancel"
-msgstr ""
+msgstr "O_dustani"
 
 #: ../src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
-msgstr ""
+msgstr "Datoteke sažetka/kontrolnog zbroja (*.sha1, *.md5, *.sfv, …)"
 
 #: ../src/callbacks.c:78
-#, fuzzy
 msgid "All Files"
-msgstr "Odaberi datoteke"
+msgstr "Sve datoteke"
 
 #: ../src/callbacks.c:120 ../src/callbacks.c:124
-#, fuzzy
-#| msgid "Save Digests"
 msgid "Save Digest File"
-msgstr "Spremi zbirove"
+msgstr "Spremi datoteku sažetka"
 
 #: ../src/callbacks.c:121 ../src/callbacks.c:127
 msgid "_Save"
+msgstr "_Spremi"
+
+#: ../src/callbacks.c:274
+msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
+"Uslužni program za izračunavanje sažetaka poruka ili kontrolnih zbrojeva"
 
-#: ../src/callbacks.c:286
-msgid "A GTK+ utility for computing message digests or checksums."
-msgstr "GTK+ program za izračunavanje zbirova poruke ili kontrolnog zbroja."
-
-#: ../src/callbacks.c:295
-#, fuzzy
+#: ../src/callbacks.c:279
 msgid "translator-credits"
-msgstr "gogo https://launchpad.net/~trebelnik-stefina\n"
+msgstr ""
+"gogo https://launchpad.net/~trebelnik-stefina\n"
+"Milo Ivir <mail@milotype.de>, 2020."
 
-#: ../src/callbacks.c:321 ../src/callbacks.c:325
+#: ../src/callbacks.c:307 ../src/callbacks.c:311
 msgid "Select Files"
 msgstr "Odaberi datoteke"
 
 #. Add checkbutton
-#: ../src/callbacks.c:537 ../src/nautilus/properties.c:245
+#: ../src/callbacks.c:519 ../src/nautilus/properties.c:242
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "_Prikaži HMAC ključ"
 
 #: ../src/check.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
-"Neuspjelo čitanje \"%s\":\n"
-"%s"
+msgstr "Neuspjelo čitanje datoteke za provjeru „%s”: %s"
 
-#: ../src/gui.c:373
+#: ../src/gui.c:295
 msgid "Not a regular file"
 msgstr "Nije regularna datoteka"
 
-#: ../src/gui.c:396
-#, fuzzy, c-format
+#: ../src/gui.c:318
+#, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
-"Neuspjelo dodavanje \"%s\":\n"
-"%s"
+msgstr "Neuspjelo dodavanje datoteke „%s”: %s"
 
-#: ../src/hash.c:183 ../src/prefs.c:109
-#, fuzzy, c-format
+#: ../src/hash.c:183 ../src/prefs.c:113
+#, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "Hash funkcije"
+msgstr "Nepoznato ime hash funkcije „%s”"
 
-#: ../src/main.c:97
-#, fuzzy
+#: ../src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Provjeri određeni zbir ili kontrolni zbroj"
+msgstr "Provjeri određeni sažetak ili kontrolni zbroj"
 
-#: ../src/main.c:98
-#, fuzzy
+#: ../src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
-msgstr "ZBIR"
+msgstr "SAŽETAK"
 
-#: ../src/main.c:103
-#, fuzzy
+#: ../src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "GTK+ program za izračunavanje zbirova poruke ili kontrolnog zbroja."
+msgstr "Provjeri sažetke ili kontrolne zbrojeve navedene datoteke"
 
-#: ../src/main.c:104
-#, fuzzy
+#: ../src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr "[DATOTEKA|URI...]"
+msgstr "DATOTEKA|URI"
 
-#: ../src/main.c:109
+#: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "Omogući određenu hash funkciju (npr. MD5)"
 
-#: ../src/main.c:110
+#: ../src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "FUNKCIJA"
 
-#: ../src/main.c:114
-#, fuzzy
+#: ../src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr "Hash određeni tekst"
+msgstr "Izračunaj kontrolni zbroj određenog teksta"
 
-#: ../src/main.c:115
-#, fuzzy
+#: ../src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEKST"
 
-#: ../src/main.c:119
-#, fuzzy
+#: ../src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr "Prikaži informacije o inačici"
+msgstr "Prikaži informacije o verziji"
 
-#: ../src/main.c:123
-#, fuzzy
+#: ../src/opts.c:123
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr "[DATOTEKA|URI...]"
+msgstr "[DATOTEKA|URI …]"
 
-#: ../src/prefs.c:81
+#: ../src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr "Neuspjelo omogućavanje bilo koje hash funkcije."
+msgstr "Neuspjelo omogućavanje bilo koje podržane hash funkcije."
 
 #: ../src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "preostala %u minuta"
+msgstr[1] "preostale %u minute"
+msgstr[2] "preostalo %u minuta"
 
 #: ../src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "preostala %u sekunda"
+msgstr[1] "preostale %u sekunde"
+msgstr[2] "preostalo %u sekundi"
 
 #: ../src/util/util.c:58
-#, fuzzy, c-format
+#, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s od %s - %u minuta preostalo (%s/sec)"
+msgstr "%s od %s – %s (%s/s)"
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
-#: ../src/nautilus/properties.c:503 ../src/nautilus/properties.c:506
-#: ../src/nautilus/properties.c:509 ../src/nautilus/properties.c:512
-#: ../src/nautilus/properties.c:514
+#: ../src/nautilus/properties.c:462 ../src/nautilus/properties.c:465
+#: ../src/nautilus/properties.c:468 ../src/nautilus/properties.c:471
+#: ../src/nautilus/properties.c:473
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
 msgid "Digests"
-msgstr "Zbirovi"
+msgstr "Sažeci"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
-msgstr "_Kopiraj zbir"
+msgstr "_Kopiraj sažetak"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
@@ -306,7 +301,7 @@ msgstr "Hash funkcije"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:4
 msgid "Digest"
-msgstr "Zbir"
+msgstr "Sažetak"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:8
 msgid "H_ash"
@@ -318,19 +313,21 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash je program za računanje kontrolnih zbrojeva datoteka ili sažetaka "
+"poruka. Zamišljen je da bude jednostavan u upotrebi i kao grafička "
+"alternativa programima naredbenog retka poput md5sum."
 
 #: ../data/appdata/gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
+msgstr "Podržane hash funkcije uključuju MD5, SHA1, SHA256, SHA512 i CRC32."
 
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:2
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
-#, fuzzy
 msgid "Adds message digests or checksums to file properties"
-msgstr "GTK+ program za izračunavanje zbirova poruke ili kontrolnog zbroja."
+msgstr "Dodaje sažetke poruka ili kontrolne zbrojeve svojstvima datoteke"
 
 #, fuzzy
 #~ msgid "Check Digests"

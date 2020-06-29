@@ -83,10 +83,6 @@ void list_init(void)
 
 	gtk_tree_view_set_model(gui.treeview, gui.treemodel);
 
-#if (GTK_MAJOR_VERSION < 3)
-	gtk_tree_selection_set_mode(gui.treeselection, GTK_SELECTION_MULTIPLE);
-#endif
-
 	const GtkTargetEntry targets[] = {
 		{ (char *)"text/uri-list", 0, 0 }
 	};

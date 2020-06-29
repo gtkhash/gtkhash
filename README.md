@@ -1,8 +1,13 @@
 [![Build Status](https://travis-ci.com/tristanheaven/gtkhash.svg?branch=master)](https://travis-ci.com/tristanheaven/gtkhash)
-[![Translation Status](https://hosted.weblate.org/widgets/gtkhash/-/svg-badge.svg)](https://hosted.weblate.org/projects/gtkhash/)
+[![Pipeline Status](https://gitlab.com/tristanheaven/gtkhash/badges/master/pipeline.svg)](https://gitlab.com/tristanheaven/gtkhash/commits/master)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/1hm3cs5f0islas0w/branch/master?svg=true)](https://ci.appveyor.com/project/tristanheaven/gtkhash/branch/master)
+[![Test Coverage](https://codecov.io/gh/tristanheaven/gtkhash/branch/master/graph/badge.svg)](https://codecov.io/gh/tristanheaven/gtkhash)
+[![Translations](https://hosted.weblate.org/widgets/gtkhash/-/svg-badge.svg)](https://hosted.weblate.org/engage/gtkhash/)
+[![Snap Status](https://build.snapcraft.io/badge/tristanheaven/gtkhash.svg)](https://snapcraft.io/gtkhash/builds)
 
 GtkHash
 =======
+![Screenshot](screenshots/readme.png)
 
 GtkHash is a desktop utility for computing message digests or checksums.
 Most well-known hash functions are supported, including MD5, SHA1,
@@ -19,10 +24,15 @@ Some interesting features:
 * File manager integration
 * Small and fast, written in C
 
+GtkHash is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 2 of the License, or (at your option) any later
+version.
+
 Required Dependencies
 -------------
-* GTK+ 3 or 2
-* GLib
+* GTK 3.18
+* GLib 2.48
 
 Optional Dependencies
 ---------------------
@@ -46,13 +56,6 @@ File Manager Extensions
 * Peony (UKUI)
 * Thunar (Xfce)
 
-Licence
--------
-GtkHash is free software: you can redistribute it and/or modify it under the
-terms of the GNU General Public License as published by the Free Software
-Foundation, either version 2 of the License, or (at your option) any later
-version.
-
 Translations
 ------------
 ![Translation Details](https://hosted.weblate.org/widgets/gtkhash/-/multi-auto.svg)
@@ -60,7 +63,7 @@ Translations
 If you would like to contribute a translation, the easiest way is by using
 Weblate:
 
-https://hosted.weblate.org/projects/gtkhash/
+https://hosted.weblate.org/engage/gtkhash/
 
 Alternatively, updated .po files can be submitted as a Pull Request or Issue on
 GitHub:

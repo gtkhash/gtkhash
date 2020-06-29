@@ -13,3 +13,5 @@ util_la_LDFLAGS = -avoid-version -module
 util_la_LIBADD = \
 	$(GLIB_LIBS) \
 	$(GIO_LIBS)
+
+CLEANFILES = *.gcda *.gcno
