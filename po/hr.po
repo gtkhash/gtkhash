@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2020-06-29 14:38+0100\n"
-"PO-Revision-Date: 2020-01-19 23:21+0000\n"
+"PO-Revision-Date: 2020-07-01 16:41+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/hr/>\n"
@@ -18,16 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 "X-Launchpad-Export-Date: 2014-04-23 05:49+0000\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
-msgstr "Heksadecimalna mala slova"
+msgstr "Mala slova, heksadecimalno"
 
 #: ../data/gtkhash-gtk3.xml.h:2
 msgid "Uppercase Hexadecimal"
-msgstr "Heksadecimalna velika slova"
+msgstr "Velika slova, heksadecimalno"
 
 #: ../data/gtkhash-gtk3.xml.h:3
 msgid "Copy _Digest"
@@ -42,18 +42,14 @@ msgid "_File"
 msgstr "_Datoteka"
 
 #: ../data/gtkhash-gtk3.xml.h:6
-#, fuzzy
-#| msgid "Open Digest File"
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Otvori datoteku sažetka"
+msgstr "_Otvori datoteku sažetka …"
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
-#| msgid "Save Digest File"
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Spremi datoteku sažetka"
+msgstr "_Spremi datoteku sažetka …"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -61,7 +57,7 @@ msgstr "_Uredi"
 
 #: ../data/gtkhash-gtk3.xml.h:9
 msgid "_View"
-msgstr "_Pogled"
+msgstr "_Prikaz"
 
 #: ../data/gtkhash-gtk3.xml.h:10
 msgid "_Text"
@@ -73,7 +69,7 @@ msgstr "Popis _datoteka"
 
 #: ../data/gtkhash-gtk3.xml.h:12
 msgid "_Help"
-msgstr "_Pomoć"
+msgstr "Po_moć"
 
 #: ../data/gtkhash-gtk3.xml.h:13
 msgid "File:"
@@ -108,16 +104,12 @@ msgid "GtkHash Preferences"
 msgstr "GtkHash osobitosti"
 
 #: ../data/gtkhash-gtk3.xml.h:21
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
-msgstr "Hash funkcije:"
+msgstr "Hash funkcije"
 
 #: ../data/gtkhash-gtk3.xml.h:22
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
-msgstr "Hash funkcije:"
+msgstr "MAC funkcije"
 
 #: ../data/gtkhash-gtk3.xml.h:23
 msgid "Digest Format:"
@@ -149,8 +141,6 @@ msgid "_Cancel"
 msgstr "O_dustani"
 
 #: ../src/callbacks.c:73
-#, fuzzy
-#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Datoteke sažetka/kontrolnog zbroja (*.sha1, *.md5, *.sfv, …)"
 
@@ -227,7 +217,7 @@ msgstr "DATOTEKA|URI"
 #: ../src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr "Omogući određenu hash funkciju (npr. MD5)"
+msgstr "Aktiviraj određenu hash funkciju (npr. MD5)"
 
 #: ../src/opts.c:110
 msgctxt " --help"
@@ -247,7 +237,7 @@ msgstr "TEKST"
 #: ../src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr "Prikaži informacije o verziji"
+msgstr "Prikaži podatke verzije"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: ../src/opts.c:124
@@ -257,7 +247,7 @@ msgstr "[DATOTEKA|URI …]"
 
 #: ../src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr "Neuspjelo omogućavanje bilo koje podržane hash funkcije."
+msgstr "Neuspjelo aktiviranje bilo koje podržane hash funkcije."
 
 #: ../src/util/util.c:35
 #, c-format
@@ -299,7 +289,7 @@ msgstr "_Kopiraj sažetak"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:2
 msgid "Show _Disabled Hash Functions"
-msgstr "Prikaži _onemogućene hash funkcije"
+msgstr "Prikaži _deaktivirane hash funkcije"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:3
 msgid "Hash Function"
