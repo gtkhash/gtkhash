@@ -82,7 +82,8 @@ extern struct gui_s {
 	enum gui_view_e view;
 	struct {
 		GtkToggleButton *button;
-		GtkLabel *label;
+		GtkModelButton *label_file;
+		GtkLabel *label_text;
 		GtkEntry *entry_file, *entry_text;
 		GtkMenuItem *menuitem_treeview_copy;
 	} hash_widgets[HASH_FUNCS_N];
@@ -101,6 +102,7 @@ enum digest_format_e gui_get_digest_format(void);
 const uint8_t *gui_get_hmac_key(size_t *key_size);
 void gui_enable_hash_func(enum hash_func_e id);
 void gui_update_hash_func_labels(bool hmac_enabled);
+void gui_update_hash_funcs(void);
 void gui_update(void);
 void gui_clear_digests(void);
 void gui_check_digests(void);

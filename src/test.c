@@ -480,6 +480,21 @@ static void test_opt_file(void)
 
 		g_assert(gui.view == GUI_VIEW_FILE);
 
+		// Started from cmdline
+		while (!*gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file))
+			gtk_main_iteration_do(false);
+		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file));
+
+		// Started from Hash button
+		gtk_button_clicked(gui.button_hash);
+		delay();
+		while (!*gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file))
+			gtk_main_iteration_do(false);
+		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file));
+
+		// Started from function label
+		gtk_button_clicked(GTK_BUTTON(gui.hash_widgets[HASH_FUNC_MD5].label_file));
+		delay();
 		while (!*gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file))
 			gtk_main_iteration_do(false);
 		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file));
@@ -489,7 +504,10 @@ static void test_opt_file(void)
 
 	g_test_trap_subprocess(NULL, 0, 0);
 	g_test_trap_assert_passed();
-	g_test_trap_assert_stdout("*f1c9645dbc14efddc7d8a322685f26eb*");
+	g_test_trap_assert_stdout(
+		"*f1c9645dbc14efddc7d8a322685f26eb*"
+		"*f1c9645dbc14efddc7d8a322685f26eb*"
+		"*f1c9645dbc14efddc7d8a322685f26eb*");
 }
 
 static void test_opt_file_list(void)

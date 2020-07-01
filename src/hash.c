@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -87,9 +87,9 @@ void gtkhash_hash_file_digest_cb(const enum hash_func_e id,
 	}
 }
 
-void gtkhash_hash_file_finish_cb(void *data)
+void gtkhash_hash_file_finish_cb(void *uri)
 {
-	g_free(data); // uri
+	g_free(uri);
 
 	if (gui.view == GUI_VIEW_FILE_LIST) {
 		list_check_digests(hash_priv.list_row);
@@ -99,24 +99,29 @@ void gtkhash_hash_file_finish_cb(void *data)
 			gtk_progress_bar_set_text(gui.progressbar, " ");
 
 			// Next file
-			char *uri = list_get_uri(hash_priv.list_row);
-			hash_file_start(uri);
-
+			hash_file_start(list_get_uri(hash_priv.list_row));
 			return;
 		} else
 			hash_priv.list_row = 0;
+	} else {
+		// Reset enabled state following single-function hash
+		gui_update_hash_funcs();
 	}
 
-	gui_set_state(GUI_STATE_IDLE);
 	gui_check_digests();
+	gui_set_state(GUI_STATE_IDLE);
 }
 
-void gtkhash_hash_file_stop_cb(void *data)
+void gtkhash_hash_file_stop_cb(void *uri)
 {
-	g_free(data); // uri
+	g_free(uri);
 
 	if (gui.view == GUI_VIEW_FILE_LIST)
 		hash_priv.list_row = 0;
+	else {
+		// Reset enabled state following single-function hash
+		gui_update_hash_funcs();
+	}
 
 	gui_set_state(GUI_STATE_IDLE);
 }

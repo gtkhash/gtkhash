@@ -429,7 +429,8 @@ static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget,
 	gtk_drag_finish(context, true, true, t);
 }
 
-static void on_menuitem_treeview_copy_activate(struct hash_func_s *func)
+static void on_menuitem_treeview_copy_activate(G_GNUC_UNUSED GtkMenuItem *menuitem,
+	struct hash_func_s *func)
 {
 	char *digest = list_get_selected_digest(func->id);
 	g_assert(digest);
@@ -447,14 +448,24 @@ static void on_menuitem_treeview_show_toolbar_toggled(void)
 	gtk_widget_set_visible(GTK_WIDGET(gui.toolbar), show_toolbar);
 }
 
-static void on_button_hash_clicked(void)
+static void on_button_hash_clicked(G_GNUC_UNUSED GtkButton *button,
+	struct hash_func_s *func)
 {
 	if (gui.view == GUI_VIEW_FILE) {
-		// XXX: Workaround for when user clicks Cancel in FileChooserDialog and
-		// XXX: uri is changed without emitting the "selection-changed" signal
+		// Workaround for when user clicks Cancel in FileChooserDialog and
+		// uri is changed without emitting the "selection-changed" signal
 		on_filechooserbutton_selection_changed();
 		if (!gtk_widget_get_sensitive(GTK_WIDGET(gui.button_hash)))
 			return;
+
+		// Single-function hash
+		if (func) {
+			for (int i = 0; i < HASH_FUNCS_N; i++) {
+				if (!hash.funcs[i].supported || i == func->id)
+					continue;
+				hash.funcs[i].enabled = false;
+			}
+		}
 	}
 
 	gui_start_hash();
@@ -606,7 +617,9 @@ void callbacks_init(void)
 			continue;
 
 		CON(gui.hash_widgets[i].button, "toggled", gui_update);
-		g_signal_connect_swapped(gui.hash_widgets[i].menuitem_treeview_copy,
+		g_signal_connect(gui.hash_widgets[i].label_file, "clicked",
+			G_CALLBACK(on_button_hash_clicked), &hash.funcs[i]);
+		g_signal_connect(gui.hash_widgets[i].menuitem_treeview_copy,
 			"activate", G_CALLBACK(on_menuitem_treeview_copy_activate),
 			&hash.funcs[i]);
 	}

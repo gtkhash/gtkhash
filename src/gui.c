@@ -200,12 +200,25 @@ static void gui_init_hash_funcs(void)
 		if (!hash.funcs[i].supported)
 			continue;
 
-		// File/Text view func labels
-		gui.hash_widgets[i].label = GTK_LABEL(gtk_label_new(NULL));
+		// File view func labels
+		gui.hash_widgets[i].label_file = GTK_MODEL_BUTTON(gtk_model_button_new());
+		gtk_button_set_relief(GTK_BUTTON(gui.hash_widgets[i].label_file),
+			GTK_RELIEF_NORMAL);
+		gtk_widget_set_can_focus(GTK_WIDGET(gui.hash_widgets[i].label_file), false);
 		gtk_container_add(GTK_CONTAINER(gui.vbox_outputlabels),
-			GTK_WIDGET(gui.hash_widgets[i].label));
-		gtk_widget_set_halign(GTK_WIDGET(gui.hash_widgets[i].label),
+			GTK_WIDGET(gui.hash_widgets[i].label_file));
+		GValue xalign = G_VALUE_INIT;
+		g_value_init(&xalign, G_TYPE_FLOAT);
+		g_value_set_float(&xalign, 0);
+		g_object_set_property(G_OBJECT(gui.hash_widgets[i].label_file),
+			"xalign", &xalign);
+
+		// Text view func labels
+		gui.hash_widgets[i].label_text = GTK_LABEL(gtk_label_new(NULL));
+		gtk_widget_set_halign(GTK_WIDGET(gui.hash_widgets[i].label_text),
 			GTK_ALIGN_START);
+		gtk_container_add(GTK_CONTAINER(gui.vbox_outputlabels),
+			GTK_WIDGET(gui.hash_widgets[i].label_text));
 
 		// File view digests
 		gui.hash_widgets[i].entry_file = GTK_ENTRY(gtk_entry_new());
@@ -546,6 +559,8 @@ void gui_enable_hash_func(const enum hash_func_e id)
 
 void gui_update_hash_func_labels(const bool hmac_enabled)
 {
+	g_assert(gui.view != GUI_VIEW_FILE_LIST);
+
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!hash.funcs[i].enabled)
 			continue;
@@ -558,12 +573,16 @@ void gui_update_hash_func_labels(const bool hmac_enabled)
 		else
 			str = g_strdup_printf("%s:", hash.funcs[i].name);
 
-		gtk_label_set_text(gui.hash_widgets[i].label, str);
+		if (gui.view == GUI_VIEW_FILE)
+			gtk_button_set_label(GTK_BUTTON(gui.hash_widgets[i].label_file), str);
+		else
+			gtk_label_set_text(gui.hash_widgets[i].label_text, str);
+
 		g_free(str);
 	}
 }
 
-static void gui_update_hash_funcs(void)
+void gui_update_hash_funcs(void)
 {
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!hash.funcs[i].supported)
@@ -572,8 +591,10 @@ static void gui_update_hash_funcs(void)
 		hash.funcs[i].enabled = gtk_toggle_button_get_active(
 			gui.hash_widgets[i].button);
 
-		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].label),
-			hash.funcs[i].enabled);
+		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].label_file),
+			hash.funcs[i].enabled && gui.view == GUI_VIEW_FILE);
+		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].label_text),
+			hash.funcs[i].enabled && gui.view == GUI_VIEW_TEXT);
 		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].entry_file),
 			hash.funcs[i].enabled);
 		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].entry_text),
