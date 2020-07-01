@@ -409,15 +409,14 @@ void gui_run(void)
 	callbacks_init();
 
 	gtk_main();
+
+	hash_file_stop();
+	while (gui_priv.state != GUI_STATE_IDLE)
+		gtk_main_iteration();
 }
 
 void gui_deinit(void)
 {
-	hash_file_stop();
-
-	while (gui_priv.state != GUI_STATE_IDLE)
-		gtk_main_iteration();
-
 	gtk_widget_destroy(GTK_WIDGET(gui.window));
 	g_object_unref(gui.menu_treeview);
 
