@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2020-06-29 14:38+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-02 19:38+0100\n"
 "PO-Revision-Date: 2020-07-01 16:41+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/gtkhash/"
@@ -122,7 +122,7 @@ msgstr "Kalkulator kontrolne sume"
 #: ../data/gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:593 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../src/nautilus/properties.c:610 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Izračunaj sažetke poruka ili kontrolne sume"
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "Odaberi datoteke"
 
-#: ../src/callbacks.c:518 ../src/nautilus/properties.c:241
+#: ../src/callbacks.c:529 ../src/nautilus/properties.c:256
 msgid "_Show HMAC Key"
 msgstr "_Prikaži HMAC ključ"
 
@@ -180,16 +180,16 @@ msgstr "_Prikaži HMAC ključ"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Neuspjelo čitanje datoteke za provjeru „%s”: %s"
 
-#: ../src/gui.c:295
+#: ../src/gui.c:308
 msgid "Not a regular file"
 msgstr "Nije regularna datoteka"
 
-#: ../src/gui.c:318
+#: ../src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Neuspjelo dodavanje datoteke „%s”: %s"
 
-#: ../src/hash.c:183 ../src/prefs.c:113
+#: ../src/hash.c:188 ../src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Nepoznato ime hash funkcije „%s”"
@@ -272,16 +272,18 @@ msgstr "%s od %s – %s (%s/s)"
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
-#: ../src/nautilus/properties.c:462 ../src/nautilus/properties.c:465
-#: ../src/nautilus/properties.c:468 ../src/nautilus/properties.c:471
-#: ../src/nautilus/properties.c:473
+#: ../src/nautilus/properties.c:479 ../src/nautilus/properties.c:482
+#: ../src/nautilus/properties.c:485 ../src/nautilus/properties.c:488
+#: ../src/nautilus/properties.c:490
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
-msgid "Digests"
-msgstr "Sažeci"
+#, fuzzy
+#| msgid "Check:"
+msgid "Checksums"
+msgstr "Provjera:"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
@@ -324,6 +326,9 @@ msgstr "Podržane hash funkcije uključuju MD5, SHA1, SHA256, SHA512 i CRC32."
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr "Dodaje sažetke poruka ili kontrolne zbrojeve svojstvima datoteke"
+
+#~ msgid "Digests"
+#~ msgstr "Sažeci"
 
 #~ msgctxt "menu"
 #~ msgid "_Open Digest File..."

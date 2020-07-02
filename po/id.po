@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-29 14:38+0100\n"
+"POT-Creation-Date: 2020-07-02 19:38+0100\n"
 "PO-Revision-Date: 2016-10-28 18:35+0000\n"
 "Last-Translator: John Vandenberg <jayvdb@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtkhash/"
@@ -124,7 +124,7 @@ msgstr ""
 #: ../data/gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:593 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../src/nautilus/properties.c:610 ../data/appdata/gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgstr ""
 msgid "Select Files"
 msgstr ""
 
-#: ../src/callbacks.c:518 ../src/nautilus/properties.c:241
+#: ../src/callbacks.c:529 ../src/nautilus/properties.c:256
 msgid "_Show HMAC Key"
 msgstr ""
 
@@ -179,16 +179,16 @@ msgstr ""
 msgid "Failed to read check file \"%s\": %s"
 msgstr ""
 
-#: ../src/gui.c:295
+#: ../src/gui.c:308
 msgid "Not a regular file"
 msgstr ""
 
-#: ../src/gui.c:318
+#: ../src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
 
-#: ../src/hash.c:183 ../src/prefs.c:113
+#: ../src/hash.c:188 ../src/prefs.c:113
 #, fuzzy, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Fungsi Hash:"
@@ -267,15 +267,15 @@ msgstr ""
 
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
-#: ../src/nautilus/properties.c:462 ../src/nautilus/properties.c:465
-#: ../src/nautilus/properties.c:468 ../src/nautilus/properties.c:471
-#: ../src/nautilus/properties.c:473
+#: ../src/nautilus/properties.c:479 ../src/nautilus/properties.c:482
+#: ../src/nautilus/properties.c:485 ../src/nautilus/properties.c:488
+#: ../src/nautilus/properties.c:490
 #: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
-msgid "Digests"
+msgid "Checksums"
 msgstr ""
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
