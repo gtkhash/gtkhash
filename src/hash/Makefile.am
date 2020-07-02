@@ -58,11 +58,6 @@ if ENABLE_MD6
 hash_la_SOURCES += hash-lib-md6.c md6/md6.c md6/md6.h
 endif
 
-if ENABLE_MHASH
-hash_la_SOURCES += hash-lib-mhash.c mutils/mhash_config.h
-hash_la_LIBADD += $(MHASH_LIBS)
-endif
-
 if ENABLE_NETTLE
 hash_la_SOURCES += hash-lib-nettle.c
 hash_la_CPPFLAGS += $(NETTLE_CFLAGS)

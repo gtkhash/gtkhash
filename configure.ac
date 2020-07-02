@@ -233,25 +233,6 @@ else
 fi
 # }}}
 
-# mhash option {{{
-AC_MSG_CHECKING([whether to use the mhash library])
-AC_ARG_ENABLE([mhash],
-	[AS_HELP_STRING([--enable-mhash], [use the mhash library])],
-	[enable_mhash="${enableval}"], [enable_mhash="no"])
-AC_MSG_RESULT([${enable_mhash}])
-AM_CONDITIONAL([ENABLE_MHASH], [test "${enable_mhash}" = "yes"])
-
-if test "${enable_mhash}" = "yes" ; then
-	AC_CHECK_HEADER([mhash.h], [:], [AC_MSG_ERROR([mhash.h not found])])
-	AC_CHECK_LIB([mhash], [mhash], [:], [AC_MSG_ERROR([mhash library not found])])
-	MHASH_LIBS="-lmhash"
-	AC_SUBST([MHASH_LIBS])
-	AC_DEFINE([ENABLE_MHASH], [1], [mhash])
-else
-	AC_DEFINE([ENABLE_MHASH], [0], [mhash])
-fi
-# }}}
-
 # nettle option {{{
 AC_MSG_CHECKING([whether to use Nettle])
 AC_ARG_ENABLE([nettle],
@@ -429,7 +410,7 @@ fi
 # }}}
 
 # Matches preferred order from src/hash/hash-lib.c
-HASH_LIBS="zlib blake2 gcrypt libcrypto mbedtls nettle linux_crypto glib_checksums mhash internal_md6"
+HASH_LIBS="zlib blake2 gcrypt libcrypto mbedtls nettle linux_crypto glib_checksums internal_md6"
 AC_SUBST([HASH_LIBS])
 
 AC_DEFINE_UNQUOTED([G_LOG_DOMAIN], ["${PACKAGE_NAME}"], [Define the Glib log domain])
@@ -508,18 +489,6 @@ mbedtls_funcs="
 	RIPEMD160
 	SHA1
 	SHA224 SHA256 SHA384 SHA512"
-mhash_funcs="
-	GOST
-	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3
-	MD2
-	MD4
-	MD5
-	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320
-	SHA1
-	SHA224 SHA256 SHA384 SHA512
-	SNEFRU128 SNEFRU256
-	TIGER192
-	WHIRLPOOL"
 nettle_funcs="
 	GOST
 	MD2
@@ -543,7 +512,6 @@ for func in \
 	BLAKE2b BLAKE2s BLAKE2bp BLAKE2sp \
 	CRC32 \
 	GOST \
-	HAVAL128-3 HAVAL160-3 HAVAL192-3 HAVAL224-3 HAVAL256-3 \
 	MD2 \
 	MD4 \
 	MD5 \
@@ -554,7 +522,6 @@ for func in \
 	SHA224 SHA256 SHA384 SHA512 \
 	SHA3-224 SHA3-256 SHA3-384 SHA3-512 \
 	SM3 \
-	SNEFRU128 SNEFRU256 \
 	TIGER192 \
 	WHIRLPOOL
 do

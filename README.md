@@ -41,7 +41,6 @@ Optional Dependencies
 * Nettle
 * OpenSSL
 * mbed TLS
-* mhash
 * Linux Kernel Crypto (AF_ALG)
 
 See `./configure --help` for the full list of build options.

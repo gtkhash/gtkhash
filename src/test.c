@@ -113,11 +113,6 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(BLAKE2SP,   "", "dd0e891776933f43c7d032b08a917e25741f8aa9a12c12e1cac8801500f2ca4f");
 	t(CRC32,      "", "00000000");
 	t(GOST,       "", "ce85b99cc46752fffee35cab9a7b0278abb4c2d2055cff685af4912c49490f8d");
-	t(HAVAL128_3, "", "c68f39913f901f3ddf44c707357a7d70");
-	t(HAVAL160_3, "", "d353c3ae22a25401d257643836d7231a9a95f953");
-	t(HAVAL192_3, "", "e9c48d7903eaf2a91c5b350151efcb175c0fc82de2289a4e");
-	t(HAVAL224_3, "", "c5aae9d47bffcaaf84a8c6e7ccacd60a0dd1932be7b1a192b9214b6d");
-	t(HAVAL256_3, "", "4f6938531f0bc8991f62da7bbd6f7de3fad44562b8c6f4ebf146d5b4e46f7c17");
 	t(MD2,        "", "8350e5a3e24c153df2275c9f80692773");
 	t(MD4,        "", "31d6cfe0d16ae931b73c59d7e0c089c0");
 	t(MD5,        "", "d41d8cd98f00b204e9800998ecf8427e");
@@ -139,8 +134,6 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(SHA3_384,   "", "0c63a75b845e4f7d01107d852e4c2485c51a50aaaa94fc61995e71bbee983a2ac3713831264adb47fb6bd1e058d5f004");
 	t(SHA3_512,   "", "a69f73cca23a9ac5c8b567dc185a756e97c982164fe25859e0d1dcc1475c80a615b2123af1f5f94c11e3e9402c3ac558f500199d95b6d3e301758586281dcd26");
 	t(SM3,        "", "1ab21d8355cfa17f8e61194831e81a8f22bec8c728fefb747ed035eb5082aa2b");
-	t(SNEFRU128,  "", "8617f366566a011837f4fb4ba5bedea2");
-	t(SNEFRU256,  "", "8617f366566a011837f4fb4ba5bedea2b892f3ed8b894023d16ae344b2be5881");
 	t(TIGER192,   "", "24f0130c63ac933216166e76b1bb925ff373de2d49584e7a");
 	t(WHIRLPOOL,  "", "19fa61d75522a4669b44e39c1d2e1726c530232130d407f89afee0964997f7a73e83be698b288febcf88e3e03c4f0757ea8964e59b63d93708b138cc42a66eb3");
 
@@ -160,8 +153,6 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(SHA3_256,  "The quick brown fox jumps over the lazy dog", "69070dda01975c8c120c3aada1b282394e7f032fa9cf32f4cb2259a0897dfc04");
 	t(SHA3_384,  "The quick brown fox jumps over the lazy dog", "7063465e08a93bce31cd89d2e3ca8f602498696e253592ed26f07bf7e703cf328581e1471a7ba7ab119b1a9ebdf8be41");
 	t(SHA3_512,  "The quick brown fox jumps over the lazy dog", "01dedd5de4ef14642445ba5f5b97c15e47b9ad931326e4b0727cd94cefc44fff23f07bf543139939b49128caf436dc1bdee54fcb24023a08d9403f9b4bf0d450");
-	t(SNEFRU128, "The quick brown fox jumps over the lazy dog", "59d9539d0dd96d635b5bdbd1395bb86c");
-	t(SNEFRU256, "The quick brown fox jumps over the lazy dog", "674caa75f9d8fd2089856b95e93a4fb42fa6c8702f8980e11d97a142d76cb358");
 	t(WHIRLPOOL, "The quick brown fox jumps over the lazy dog", "b97de512e91e3828b40d2b0fdce9ceb3c4a71f9bea8d88e75c4fa854df36725fd2b52eb6544edcacd6f8beddfea403cb55ae31f03ad62a5ef54e42ee82c3fb35");
 
 	t(RIPEMD128, "message digest", "9e327b3d6e523062afc1132d7df9d1b8");
