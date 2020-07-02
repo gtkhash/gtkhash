@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2019 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -167,6 +167,21 @@ static bool gtkhash_properties_on_treeview_button_press_event(
 	return false;
 }
 
+static void gtkhash_properties_on_treeview_row_activated(
+	struct page_s *page, GtkTreePath *path, GtkTreeViewColumn *column,
+	G_GNUC_UNUSED GtkTreeView *treeview)
+{
+	// Ignore checkbutton column
+	if (!*gtk_tree_view_column_get_title(column))
+		return;
+
+	if (!gtk_tree_selection_path_is_selected(page->treeselection, path))
+		return;
+
+	if (gtkhash_properties_list_hash_selected(page))
+		gtkhash_properties_busy(page);
+}
+
 static void gtkhash_properties_on_menu_map_event(struct page_s *page)
 {
 	bool sensitive = false;
@@ -265,9 +280,9 @@ static void gtkhash_properties_on_button_hash_clicked(struct page_s *page)
 			page->entry_hmac);
 		GtkEntryBuffer *buffer = gtk_entry_get_buffer(page->entry_hmac);
 		const size_t key_size = gtk_entry_buffer_get_bytes(buffer);
-		gtkhash_properties_hash_start(page, hmac_key, key_size);
+		gtkhash_properties_hash_start(page, NULL, hmac_key, key_size);
 	} else
-		gtkhash_properties_hash_start(page, NULL, 0);
+		gtkhash_properties_hash_start(page, NULL, NULL, 0);
 }
 
 static void gtkhash_properties_on_button_stop_clicked(struct page_s *page)
@@ -350,6 +365,8 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 		G_CALLBACK(gtkhash_properties_on_treeview_popup_menu), page);
 	g_signal_connect_swapped(page->treeview, "button-press-event",
 		G_CALLBACK(gtkhash_properties_on_treeview_button_press_event), page);
+	g_signal_connect_swapped(page->treeview, "row-activated",
+		G_CALLBACK(gtkhash_properties_on_treeview_row_activated), page);
 
 	// Popup menu
 	g_signal_connect_swapped(page->menu, "map-event",

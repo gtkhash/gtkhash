@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -68,17 +68,32 @@ void gtkhash_hash_file_digest_cb(const enum hash_func_e id,
 
 void gtkhash_hash_file_finish_cb(void *data)
 {
+	// Reset enabled state following single-function hash
+	gtkhash_properties_list_reset_enabled(data);
+
 	gtkhash_properties_idle(data);
 }
 
 void gtkhash_hash_file_stop_cb(void *data)
 {
+	// Reset enabled state following single-function hash
+	gtkhash_properties_list_reset_enabled(data);
+
 	gtkhash_properties_idle((struct page_s *)data);
 }
 
 void gtkhash_properties_hash_start(struct page_s *page,
-	const uint8_t *hmac_key, const size_t key_size)
+	struct hash_func_s *func, const uint8_t *hmac_key, const size_t key_size)
 {
+	// Single-function hash
+	if (func) {
+		for (int i = 0; i < HASH_FUNCS_N; i++) {
+			if (!page->funcs[i].supported || i == func->id)
+				continue;
+			page->funcs[i].enabled = false;
+		}
+	}
+
 	gtkhash_hash_file(page->hfile, page->uri, DIGEST_FORMAT_HEX_LOWER,
 		hmac_key, key_size, page);
 }

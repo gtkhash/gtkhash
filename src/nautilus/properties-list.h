@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -24,12 +24,14 @@
 
 void gtkhash_properties_list_update_enabled(struct page_s *page,
 	char *path_str);
+void gtkhash_properties_list_reset_enabled(struct page_s *page);
 void gtkhash_properties_list_update_hash_func_names(struct page_s *page);
 void gtkhash_properties_list_clear_digests(struct page_s *page);
 void gtkhash_properties_list_check_digests(struct page_s *page);
 void gtkhash_properties_list_set_digest(struct page_s *page, enum hash_func_e id,
 	const char *digest);
 char *gtkhash_properties_list_get_selected_digest(struct page_s *page);
+bool gtkhash_properties_list_hash_selected(struct page_s *page);
 void gtkhash_properties_list_refilter(struct page_s *page);
 void gtkhash_properties_list_init(struct page_s *page);
 
