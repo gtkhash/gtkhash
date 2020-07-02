@@ -476,18 +476,18 @@ static GList *gtkhash_properties_get_pages(
 
 #if IN_NAUTILUS_EXTENSION
 	NautilusPropertyPage *ppage = nautilus_property_page_new(
-		"GtkHash::properties", gtk_label_new(_("Digests")), page->box);
+		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
 #elif IN_CAJA_EXTENSION
 	CajaPropertyPage *ppage = caja_property_page_new(
-		"GtkHash::properties", gtk_label_new(_("Digests")), page->box);
+		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
 #elif IN_NEMO_EXTENSION
 	NemoPropertyPage *ppage = nemo_property_page_new(
-		"GtkHash::properties", gtk_label_new(_("Digests")), page->box);
+		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
 #elif IN_PEONY_EXTENSION
 	PeonyPropertyPage *ppage = peony_property_page_new(
-		"GtkHash::properties", gtk_label_new(_("Digests")), page->box);
+		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
 #elif IN_THUNAR_EXTENSION
-	GtkWidget *ppage = thunarx_property_page_new(_("Digests"));
+	GtkWidget *ppage = thunarx_property_page_new(_("Checksums"));
 	gtk_container_add(GTK_CONTAINER(ppage), page->box);
 #endif
 

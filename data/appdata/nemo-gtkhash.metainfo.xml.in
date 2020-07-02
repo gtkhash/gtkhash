@@ -5,7 +5,7 @@
   <extends>org.Nemo.desktop</extends>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
-  <_name>Digests</_name>
+  <_name>Checksums</_name>
   <_summary>Adds message digests or checksums to file properties</_summary>
   <url type="homepage">https://github.com/tristanheaven/gtkhash</url>
   <url type="bugtracker">https://github.com/tristanheaven/gtkhash/issues</url>

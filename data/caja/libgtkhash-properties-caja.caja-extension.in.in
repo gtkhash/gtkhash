@@ -1,6 +1,6 @@
 [Caja Extension]
 Icon=gtkhash
-_Name=Digests
+_Name=Checksums
 _Description=Calculate message digests or checksums
 Author=Tristan Heaven <tristan@tristanheaven.net>
 Copyright=
