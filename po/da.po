@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # scootergrisen, 2017.
-# scootergrisen <scootergrisen@gmail.com>, 2018, 2019.
+# scootergrisen <scootergrisen@gmail.com>, 2018, 2019, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2020-07-02 19:38+0100\n"
-"PO-Revision-Date: 2019-04-27 21:48+0000\n"
+"PO-Revision-Date: 2020-07-03 21:08+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/da/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
 msgid "Lowercase Hexadecimal"
@@ -40,18 +40,14 @@ msgid "_File"
 msgstr "_Fil"
 
 #: ../data/gtkhash-gtk3.xml.h:6
-#, fuzzy
-#| msgid "Open Digest File"
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Åbn fingeraftryksfil"
+msgstr "_Åbn fingeraftryksfil …"
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
-#| msgid "Save Digest File"
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Gem fingeraftryksfil"
+msgstr "_Gem fingeraftryksfil …"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -106,16 +102,12 @@ msgid "GtkHash Preferences"
 msgstr "GtkHash-præferencer"
 
 #: ../data/gtkhash-gtk3.xml.h:21
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
-msgstr "Hash-funktioner:"
+msgstr "Hash-funktioner"
 
 #: ../data/gtkhash-gtk3.xml.h:22
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
-msgstr "Hash-funktioner:"
+msgstr "MAC-funktioner"
 
 #: ../data/gtkhash-gtk3.xml.h:23
 msgid "Digest Format:"
@@ -147,10 +139,8 @@ msgid "_Cancel"
 msgstr "_Annuller"
 
 #: ../src/callbacks.c:73
-#, fuzzy
-#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "Fingeraftryk-/tjeksum-filer (*.sha1, *.md5, *.sfv, ...)"
+msgstr "Fingeraftryk-/tjeksum-filer (*.sha1, *.md5, *.sfv, …)"
 
 #: ../src/callbacks.c:78
 msgid "All Files"
@@ -283,10 +273,8 @@ msgstr "%s af %s - %s (%s/sek.)"
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "Tjek:"
+msgstr "Tjeksumme"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
