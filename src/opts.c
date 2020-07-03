@@ -142,7 +142,11 @@ void opts_preinit(int *argc, char ***argv)
 	}
 
 	if (opts.version) {
-		printf("%s\n", PACKAGE_STRING);
+		const char *snap_version = NULL;
+		if (g_strcmp0(g_getenv("SNAP_NAME"), PACKAGE) == 0)
+			snap_version = g_getenv("SNAP_VERSION");
+		printf("%s %s\n", PACKAGE_NAME, snap_version ? snap_version : VERSION);
+
 		free_opts();
 		exit(EXIT_SUCCESS);
 	}
