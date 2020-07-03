@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -33,11 +33,12 @@
 #include "gui.h"
 
 enum {
-	COL_STATUS    = 0,
-	COL_ICON_NAME = 1,
-	COL_PNAME     = 2,
-	COL_CHECK     = 3,
-	COL_DIGESTS  // 4+
+	COL_STATUS,    // 0
+	COL_ICON_NAME, // 1
+	COL_PNAME,     // 2
+	COL_TOOLTIP,   // 3
+	COL_CHECK,     // 4
+	COL_DIGESTS,   // 5+
 };
 
 struct list_s list;
@@ -69,6 +70,7 @@ void list_init(void)
 	types[COL_STATUS]    = G_TYPE_CHAR;
 	types[COL_ICON_NAME] = G_TYPE_STRING;
 	types[COL_PNAME]     = G_TYPE_STRING;
+	types[COL_TOOLTIP]   = G_TYPE_STRING;
 	types[COL_CHECK]     = G_TYPE_STRING;
 
 	for (int i = COL_DIGESTS; i < cols; i++) {
@@ -119,14 +121,20 @@ void list_append_row(const char * const uri, const char * const check)
 
 	GFile *file = g_file_new_for_uri(uri);
 	char *pname = g_file_get_parse_name(file);
-	g_object_unref(file);
+	char *basename = g_filename_display_basename(pname);
+	char *tooltip = g_markup_escape_text(basename, -1);
 
 	gtk_list_store_insert_with_values(gui.liststore, NULL, list.rows + 1,
 		COL_PNAME, pname,
+		COL_TOOLTIP, tooltip,
 		COL_CHECK, check ? check : "",
 		-1);
 	list.rows++;
+
+	g_free(tooltip);
+	g_free(basename);
 	g_free(pname);
+	g_object_unref(file);
 
 	if (check)
 		list_priv.show_status = true;

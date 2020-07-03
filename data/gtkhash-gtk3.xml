@@ -745,7 +745,7 @@
                             <property name="search_column">2</property>
                             <property name="show_expanders">False</property>
                             <property name="rubber_banding">True</property>
-                            <property name="tooltip_column">2</property>
+                            <property name="tooltip_column">3</property>
                             <child internal-child="selection">
                               <object class="GtkTreeSelection" id="treeselection">
                                 <property name="mode">multiple</property>
@@ -755,6 +755,7 @@
                               <object class="GtkTreeViewColumn" id="treeviewcolumn_status">
                                 <property name="visible">False</property>
                                 <property name="clickable">True</property>
+                                <property name="sort_indicator">True</property>
                                 <property name="sort_column_id">1</property>
                                 <child>
                                   <object class="GtkCellRendererPixbuf" id="cellrenderer_status"/>
@@ -792,12 +793,23 @@
                               </object>
                             </child>
                             <child>
+                              <object class="GtkTreeViewColumn" id="treeviewcolumn_basename">
+                                <property name="visible">False</property>
+                                <child>
+                                  <object class="GtkCellRendererText" id="cellrenderer_basename"/>
+                                  <attributes>
+                                    <attribute name="text">3</attribute>
+                                  </attributes>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
                               <object class="GtkTreeViewColumn" id="treeviewcolumn_check">
                                 <property name="visible">False</property>
                                 <child>
                                   <object class="GtkCellRendererText" id="cellrenderer_check"/>
                                   <attributes>
-                                    <attribute name="text">3</attribute>
+                                    <attribute name="text">4</attribute>
                                   </attributes>
                                 </child>
                               </object>
