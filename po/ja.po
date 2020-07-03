@@ -7,11 +7,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2020-07-02 19:38+0100\n"
-"PO-Revision-Date: 2020-06-30 15:41+0000\n"
-"Last-Translator: YAMADA Shinichirou <yamada_strong_yamada_nice_64bit@yahoo."
-"co.jp>\n"
+"PO-Revision-Date: 2020-07-03 21:08+0000\n"
+"Last-Translator: YAMADA Shinichirou <yamada_strong_yamada_nice_64bit@yahoo.co"
+".jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ja/>\n"
 "Language: ja\n"
@@ -159,9 +159,7 @@ msgstr "保存(_S)"
 
 #: ../src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
-"メッセージダイジェストやチェックサムの計算を行なうためのデスクトップユーティ"
-"リティです"
+msgstr "メッセージダイジェストやチェックサムの計算を行うためのデスクトップユーティリティです"
 
 #: ../src/callbacks.c:279
 msgid "translator-credits"
@@ -279,10 +277,8 @@ msgstr "%s / %s - %s (毎秒 %s)"
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "チェック:"
+msgstr "チェックサム"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
