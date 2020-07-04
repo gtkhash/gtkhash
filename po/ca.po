@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2020-07-02 19:38+0100\n"
-"PO-Revision-Date: 2020-07-02 01:41+0000\n"
+"PO-Revision-Date: 2020-07-04 23:41+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ca/>\n"
@@ -275,10 +275,8 @@ msgstr "%s de %s - %s (%s/s)"
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "Verifica:"
+msgstr "Sumes de verificació"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
