@@ -2,7 +2,7 @@
 
 # gtkhash
 [type: gettext/glade]data/gtkhash-gtk3.xml
-data/gtkhash.desktop.in
+data/org.gtkhash.gtkhash.desktop.in
 src/callbacks.c
 src/check.c
 src/gui.c

@@ -8,8 +8,8 @@ confinement: strict
 
 apps:
   gtkhash:
-    command: bin/gtkhash
-    desktop: usr/share/applications/gtkhash.desktop
+    command: gtkhash
+    desktop: usr/share/applications/org.gtkhash.gtkhash.desktop
     common-id: org.gtkhash.gtkhash
     extensions: [ gnome-3-28 ]
     plugs:
@@ -42,7 +42,7 @@ parts:
       - --enable-linux-crypto
       - --disable-silent-rules
     override-build: |
-      sed -i '/^Icon=/s:=.*:=${SNAP}/meta/gui/gtkhash.svg:' data/gtkhash.desktop.in
+      sed -i '/^Icon=/s:=.*:=${SNAP}/meta/gui/gtkhash.svg:' data/org.gtkhash.gtkhash.desktop.in
       snapcraftctl build
       mkdir -vp -- "${SNAPCRAFT_PART_INSTALL}"/meta/gui
       cp -vf -- data/icons/scalable/gtkhash.svg "${SNAPCRAFT_PART_INSTALL}"/meta/gui/

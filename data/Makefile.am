@@ -19,7 +19,7 @@ endif
 if ENABLE_GTKHASH
 
 applicationsdir = $(datadir)/applications
-applications_DATA = gtkhash.desktop
+applications_DATA = org.gtkhash.gtkhash.desktop
 
 gsettings_SCHEMAS = org.gtkhash.gschema.xml
 

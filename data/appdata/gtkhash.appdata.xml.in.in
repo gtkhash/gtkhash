@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <id>org.gtkhash.gtkhash</id>
-  <launchable type="desktop-id">gtkhash.desktop</launchable>
+  <launchable type="desktop-id">org.gtkhash.gtkhash.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>GtkHash</name>
