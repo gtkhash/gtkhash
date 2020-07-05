@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="addon">
-  <id>org.gtkhash.caja</id>
-  <extends>caja.desktop</extends>
+  <id>org.gtkhash.nautilus</id>
+  <extends>org.gnome.Nautilus.desktop</extends>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <_name>Checksums</_name>
@@ -11,4 +11,7 @@
   <developer_name>Tristan Heaven</developer_name>
   <update_contact>tristan@tristanheaven.net</update_contact>
   <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="@VERSION@" date="@RELEASE_DATE@"/>
+  </releases>
 </component>

@@ -1,0 +1,13 @@
+# appdata
+data/appdata/gtkhash.appdata.xml.in.in
+data/appdata/caja-gtkhash.metainfo.xml.in.in
+data/appdata/nautilus-gtkhash.metainfo.xml.in.in
+data/appdata/nemo-gtkhash.metainfo.xml.in.in
+data/appdata/peony-gtkhash.metainfo.xml.in.in
+data/appdata/thunar-gtkhash.metainfo.xml.in.in
+sub/data/appdata/gtkhash.appdata.xml.in
+sub/data/appdata/caja-gtkhash.metainfo.xml.in
+sub/data/appdata/nautilus-gtkhash.metainfo.xml.in
+sub/data/appdata/nemo-gtkhash.metainfo.xml.in
+sub/data/appdata/peony-gtkhash.metainfo.xml.in
+sub/data/appdata/thunar-gtkhash.metainfo.xml.in

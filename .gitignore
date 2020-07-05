@@ -5,6 +5,8 @@ src/resources.h
 src/nautilus/properties-resources.c
 src/nautilus/properties-resources.h
 
+data/appdata/*.xml
+data/appdata/*.xml.in
 data/caja/libgtkhash-properties-caja.caja-extension
 data/caja/libgtkhash-properties-caja.caja-extension.in
 data/peony/libgtkhash-properties-peony.peony-extension
@@ -41,7 +43,6 @@ stamp-it
 test.md5sum
 
 *~
-*.appdata.xml
 *.bytes
 *.desktop
 *.gcda
@@ -51,7 +52,6 @@ test.md5sum
 *.la
 *.lo
 *.log
-*.metainfo.xml
 *.o
 *.trs
 *.valid
