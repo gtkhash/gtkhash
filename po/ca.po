@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-05 19:46+0100\n"
+"POT-Creation-Date: 2020-07-05 22:18+0100\n"
 "PO-Revision-Date: 2020-07-04 23:41+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtkhash/"
@@ -121,7 +121,8 @@ msgstr "Calculadora de la suma de verificació"
 #: ../data/org.gtkhash.gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:610 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../src/nautilus/properties.c:610
+#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Calcula resums de missatges o sumes de verificació"
 
@@ -270,11 +271,11 @@ msgstr "%s de %s - %s (%s/s)"
 #: ../src/nautilus/properties.c:479 ../src/nautilus/properties.c:482
 #: ../src/nautilus/properties.c:485 ../src/nautilus/properties.c:488
 #: ../src/nautilus/properties.c:490
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.caja.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.nautilus.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:1
 msgid "Checksums"
 msgstr "Sumes de verificació"
 
@@ -298,7 +299,7 @@ msgstr "Resum"
 msgid "H_ash"
 msgstr "_Calcula"
 
-#: ../data/appdata/gtkhash.appdata.xml.in.h:2
+#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:2
 msgid ""
 "GtkHash is an application for computing file checksums, or message digests. "
 "It's designed to be an easy to use, graphical alternative to command-line "
@@ -308,16 +309,16 @@ msgstr ""
 "resums de missatges. S'ha dissenyat per ser una alternativa gràfica fàcil "
 "d'utilitzar per a programes de línia d'ordres com md5sum."
 
-#: ../data/appdata/gtkhash.appdata.xml.in.h:3
+#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 "Les funcions resum compatibles inclouen MD5, SHA1, SHA256, SHA512 i CRC32."
 
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.caja.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.nautilus.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
 "Afegeix resums de missatges o sumes de verificació a les propietats d'un "

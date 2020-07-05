@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-05 19:46+0100\n"
+"POT-Creation-Date: 2020-07-05 22:18+0100\n"
 "PO-Revision-Date: 2019-06-18 19:03+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Flemish <https://hosted.weblate.org/projects/gtkhash/"
@@ -127,7 +127,8 @@ msgstr "Controlesomberekening"
 #: ../data/org.gtkhash.gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:610 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../src/nautilus/properties.c:610
+#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Berichtdigests of controlesommen berekenen"
 
@@ -281,11 +282,11 @@ msgstr "%s van %s - %s (%s/sec)"
 #: ../src/nautilus/properties.c:479 ../src/nautilus/properties.c:482
 #: ../src/nautilus/properties.c:485 ../src/nautilus/properties.c:488
 #: ../src/nautilus/properties.c:490
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.caja.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.nautilus.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:1
 #, fuzzy
 #| msgid "Check:"
 msgid "Checksums"
@@ -311,7 +312,7 @@ msgstr "Digest"
 msgid "H_ash"
 msgstr "H_ash"
 
-#: ../data/appdata/gtkhash.appdata.xml.in.h:2
+#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:2
 msgid ""
 "GtkHash is an application for computing file checksums, or message digests. "
 "It's designed to be an easy to use, graphical alternative to command-line "
@@ -321,15 +322,15 @@ msgstr ""
 "berichtdigests. Ze is ontworpen als eenvoudig te gebruiken grafisch "
 "alternatief voor opdrachtregelprogramma’s als md5sum."
 
-#: ../data/appdata/gtkhash.appdata.xml.in.h:3
+#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "Ondersteunde hashfuncties zijn MD5, SHA1, SHA256, SHA512 en CRC32."
 
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.caja.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.nautilus.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr "Voegt berichtdigests of controlesommen toe aan bestandseigenschappen"
 

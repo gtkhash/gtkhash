@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-05 19:46+0100\n"
+"POT-Creation-Date: 2020-07-05 22:18+0100\n"
 "PO-Revision-Date: 2020-07-03 16:41+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/gtkhash/"
@@ -120,7 +120,8 @@ msgstr "Kontrolinės sumos skaičiuotuvas"
 #: ../data/org.gtkhash.gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:610 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../src/nautilus/properties.c:610
+#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "Apskaičiuoti žinučių maišos reikšmes ar kontrolines sumas"
 
@@ -272,11 +273,11 @@ msgstr "%s iš %s - %s (%s/sek.)"
 #: ../src/nautilus/properties.c:479 ../src/nautilus/properties.c:482
 #: ../src/nautilus/properties.c:485 ../src/nautilus/properties.c:488
 #: ../src/nautilus/properties.c:490
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.caja.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.nautilus.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:1
 msgid "Checksums"
 msgstr "Kontrolinės sumos"
 
@@ -300,7 +301,7 @@ msgstr "Maišos reikšmė"
 msgid "H_ash"
 msgstr "M_aiša"
 
-#: ../data/appdata/gtkhash.appdata.xml.in.h:2
+#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:2
 msgid ""
 "GtkHash is an application for computing file checksums, or message digests. "
 "It's designed to be an easy to use, graphical alternative to command-line "
@@ -310,16 +311,16 @@ msgstr ""
 "maišos reikšmes. Ji yra sukurta, kad būtų lengva naudoti ir kaip grafinė "
 "alternatyva tokioms komandų eilutės programoms kaip md5sum."
 
-#: ../data/appdata/gtkhash.appdata.xml.in.h:3
+#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 "Palaikomos maišos funkcijos, įskaitant MD5, SHA1, SHA256, SHA512 ir CRC32."
 
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.caja.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.nautilus.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr "Prideda žinutės maišos reikšmes ar kontrolines sumas į failo savybes"
 

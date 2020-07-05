@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-05 19:46+0100\n"
+"POT-Creation-Date: 2020-07-05 22:18+0100\n"
 "PO-Revision-Date: 2020-05-07 11:12+0000\n"
 "Last-Translator: Oymate <dhruboadittya96@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) <https://hosted.weblate.org/projects/"
@@ -127,7 +127,8 @@ msgstr "চেকসাম ক্যালকুলেটর"
 #: ../data/org.gtkhash.gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:610 ../data/appdata/gtkhash.appdata.xml.in.h:1
+#: ../src/nautilus/properties.c:610
+#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:1
 msgid "Calculate message digests or checksums"
 msgstr "ডাইজেস্ট বা চেকসাম বার্তা গণনা করুন"
 
@@ -277,11 +278,11 @@ msgstr "%s এর %s - %s(%s/সেকেন্ড)"
 #: ../src/nautilus/properties.c:479 ../src/nautilus/properties.c:482
 #: ../src/nautilus/properties.c:485 ../src/nautilus/properties.c:488
 #: ../src/nautilus/properties.c:490
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.caja.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.nautilus.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:1
+#: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:1
 #, fuzzy
 #| msgid "Check:"
 msgid "Checksums"
@@ -307,7 +308,7 @@ msgstr "ডাইজেস্ট"
 msgid "H_ash"
 msgstr "H_ash"
 
-#: ../data/appdata/gtkhash.appdata.xml.in.h:2
+#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:2
 msgid ""
 "GtkHash is an application for computing file checksums, or message digests. "
 "It's designed to be an easy to use, graphical alternative to command-line "
@@ -316,15 +317,15 @@ msgstr ""
 "ফাইল বা বার্তা ডাইজেস্টের জন্য জিটিকেহ্যাশ একটি অ্যাপ্লিকেশন। এটি এমডি৫সামের মতো "
 "কমান্ড-লাইন প্রোগ্রামগুলির গ্রাফিকাল বিকল্প, যা সহজে ব্যবহারযোগ্য।"
 
-#: ../data/appdata/gtkhash.appdata.xml.in.h:3
+#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:3
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "সমর্থিত হ্যাশ ফাংশন অন্তর্ভুক্ত এমডি৫, শা১, শা২৫৬, শা৫১২ এবং সিআরসি৩২।"
 
-#: ../data/appdata/caja-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/nautilus-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:2
-#: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.caja.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.nautilus.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:2
+#: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:2
 msgid "Adds message digests or checksums to file properties"
 msgstr "ফাইলের বৈশিষ্ট্যে বার্তা ডাইজেস্ট বা চেকসাম যুক্ত করে"
 
