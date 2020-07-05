@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2020-07-02 19:38+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-05 19:46+0100\n"
 "PO-Revision-Date: 2020-07-04 23:41+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtkhash/"
@@ -117,11 +117,11 @@ msgstr "MAC-Funktionen"
 msgid "Digest Format:"
 msgstr "Digest-Format:"
 
-#: ../data/gtkhash.desktop.in.h:1
+#: ../data/org.gtkhash.gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
 msgstr "Prüfsummenrechner"
 
-#: ../data/gtkhash.desktop.in.h:2
+#: ../data/org.gtkhash.gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
 #: ../src/nautilus/properties.c:610 ../data/appdata/gtkhash.appdata.xml.in.h:1

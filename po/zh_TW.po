@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-02 19:38+0100\n"
+"POT-Creation-Date: 2020-07-05 19:46+0100\n"
 "PO-Revision-Date: 2017-12-03 11:45+0000\n"
 "Last-Translator: Vdragon, Ｖ字龍 <Vdragon.Taiwan@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -121,11 +121,11 @@ msgstr "雜湊函式："
 msgid "Digest Format:"
 msgstr "訊息摘要(message digest)格式："
 
-#: ../data/gtkhash.desktop.in.h:1
+#: ../data/org.gtkhash.gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
 msgstr "資料校驗值計算器"
 
-#: ../data/gtkhash.desktop.in.h:2
+#: ../data/org.gtkhash.gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
 #: ../src/nautilus/properties.c:610 ../data/appdata/gtkhash.appdata.xml.in.h:1

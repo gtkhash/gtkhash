@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-02 19:38+0100\n"
+"POT-Creation-Date: 2020-07-05 19:46+0100\n"
 "PO-Revision-Date: 2019-04-24 10:48+0000\n"
 "Last-Translator: Rui Mendes <xz9@protonmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -122,11 +122,11 @@ msgstr "Funções hash:"
 msgid "Digest Format:"
 msgstr "Formato do resumo:"
 
-#: ../data/gtkhash.desktop.in.h:1
+#: ../data/org.gtkhash.gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
 msgstr "Calculadora Checksum"
 
-#: ../data/gtkhash.desktop.in.h:2
+#: ../data/org.gtkhash.gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
 #: ../src/nautilus/properties.c:610 ../data/appdata/gtkhash.appdata.xml.in.h:1

@@ -7,11 +7,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
-"POT-Creation-Date: 2020-07-02 19:38+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-05 19:46+0100\n"
 "PO-Revision-Date: 2020-07-03 21:08+0000\n"
-"Last-Translator: YAMADA Shinichirou <yamada_strong_yamada_nice_64bit@yahoo.co"
-".jp>\n"
+"Last-Translator: YAMADA Shinichirou <yamada_strong_yamada_nice_64bit@yahoo."
+"co.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ja/>\n"
 "Language: ja\n"
@@ -116,11 +116,11 @@ msgstr "MAC 関数"
 msgid "Digest Format:"
 msgstr "ダイジェスト形式:"
 
-#: ../data/gtkhash.desktop.in.h:1
+#: ../data/org.gtkhash.gtkhash.desktop.in.h:1
 msgid "Checksum Calculator"
 msgstr "チェックサム計算機"
 
-#: ../data/gtkhash.desktop.in.h:2
+#: ../data/org.gtkhash.gtkhash.desktop.in.h:2
 #: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
 #: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
 #: ../src/nautilus/properties.c:610 ../data/appdata/gtkhash.appdata.xml.in.h:1
@@ -159,7 +159,9 @@ msgstr "保存(_S)"
 
 #: ../src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
-msgstr "メッセージダイジェストやチェックサムの計算を行うためのデスクトップユーティリティです"
+msgstr ""
+"メッセージダイジェストやチェックサムの計算を行うためのデスクトップユーティリ"
+"ティです"
 
 #: ../src/callbacks.c:279
 msgid "translator-credits"
