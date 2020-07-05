@@ -46,4 +46,4 @@ parts:
       snapcraftctl build
       mkdir -vp -- "${SNAPCRAFT_PART_INSTALL}"/meta/gui
       cp -vf -- data/icons/scalable/org.gtkhash.gtkhash.svg "${SNAPCRAFT_PART_INSTALL}"/meta/gui/gtkhash.svg
-    parse-info: [ usr/share/metainfo/gtkhash.appdata.xml ]
+    parse-info: [ usr/share/metainfo/org.gtkhash.gtkhash.appdata.xml ]

@@ -23,9 +23,9 @@ src/nautilus/properties-list.c
 src/nautilus/properties-prefs.c
 
 # appdata
-data/appdata/gtkhash.appdata.xml.in
-data/appdata/caja-gtkhash.metainfo.xml.in
-data/appdata/nautilus-gtkhash.metainfo.xml.in
-data/appdata/nemo-gtkhash.metainfo.xml.in
-data/appdata/peony-gtkhash.metainfo.xml.in
-data/appdata/thunar-gtkhash.metainfo.xml.in
+data/appdata/org.gtkhash.gtkhash.appdata.xml.in
+data/appdata/org.gtkhash.caja.metainfo.xml.in
+data/appdata/org.gtkhash.nautilus.metainfo.xml.in
+data/appdata/org.gtkhash.nemo.metainfo.xml.in
+data/appdata/org.gtkhash.peony.metainfo.xml.in
+data/appdata/org.gtkhash.thunar.metainfo.xml.in

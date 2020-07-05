@@ -2,37 +2,37 @@ appdatadir = $(datadir)/metainfo
 appdata_DATA =
 
 if ENABLE_GTKHASH
-appdata_DATA += gtkhash.appdata.xml
+appdata_DATA += org.gtkhash.gtkhash.appdata.xml
 endif
 
 if ENABLE_CAJA
-appdata_DATA += caja-gtkhash.metainfo.xml
+appdata_DATA += org.gtkhash.caja.metainfo.xml
 endif
 
 if ENABLE_NAUTILUS
-appdata_DATA += nautilus-gtkhash.metainfo.xml
+appdata_DATA += org.gtkhash.nautilus.metainfo.xml
 endif
 
 if ENABLE_NEMO
-appdata_DATA += nemo-gtkhash.metainfo.xml
+appdata_DATA += org.gtkhash.nemo.metainfo.xml
 endif
 
 if ENABLE_PEONY
-appdata_DATA += peony-gtkhash.metainfo.xml
+appdata_DATA += org.gtkhash.peony.metainfo.xml
 endif
 
 if ENABLE_THUNAR
-appdata_DATA += thunar-gtkhash.metainfo.xml
+appdata_DATA += org.gtkhash.thunar.metainfo.xml
 endif
 
 CLEANFILES = $(appdata_DATA)
 
 EXTRA_DIST = \
-	gtkhash.appdata.xml.in \
-	caja-gtkhash.metainfo.xml.in \
-	nautilus-gtkhash.metainfo.xml.in \
-	nemo-gtkhash.metainfo.xml.in \
-	peony-gtkhash.metainfo.xml.in \
-	thunar-gtkhash.metainfo.xml.in
+	org.gtkhash.gtkhash.appdata.xml.in \
+	org.gtkhash.caja.metainfo.xml.in \
+	org.gtkhash.nautilus.metainfo.xml.in \
+	org.gtkhash.nemo.metainfo.xml.in \
+	org.gtkhash.peony.metainfo.xml.in \
+	org.gtkhash.thunar.metainfo.xml.in
 
 @INTLTOOL_XML_RULE@

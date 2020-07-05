@@ -1,13 +1,13 @@
 # appdata
-data/appdata/gtkhash.appdata.xml.in.in
-data/appdata/caja-gtkhash.metainfo.xml.in.in
-data/appdata/nautilus-gtkhash.metainfo.xml.in.in
-data/appdata/nemo-gtkhash.metainfo.xml.in.in
-data/appdata/peony-gtkhash.metainfo.xml.in.in
-data/appdata/thunar-gtkhash.metainfo.xml.in.in
-sub/data/appdata/gtkhash.appdata.xml.in
-sub/data/appdata/caja-gtkhash.metainfo.xml.in
-sub/data/appdata/nautilus-gtkhash.metainfo.xml.in
-sub/data/appdata/nemo-gtkhash.metainfo.xml.in
-sub/data/appdata/peony-gtkhash.metainfo.xml.in
-sub/data/appdata/thunar-gtkhash.metainfo.xml.in
+data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in
+data/appdata/org.gtkhash.caja.metainfo.xml.in.in
+data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in
+data/appdata/org.gtkhash.nemo.metainfo.xml.in.in
+data/appdata/org.gtkhash.peony.metainfo.xml.in.in
+data/appdata/org.gtkhash.thunar.metainfo.xml.in.in
+sub/data/appdata/org.gtkhash.gtkhash.appdata.xml.in
+sub/data/appdata/org.gtkhash.caja.metainfo.xml.in
+sub/data/appdata/org.gtkhash.nautilus.metainfo.xml.in
+sub/data/appdata/org.gtkhash.nemo.metainfo.xml.in
+sub/data/appdata/org.gtkhash.peony.metainfo.xml.in
+sub/data/appdata/org.gtkhash.thunar.metainfo.xml.in
