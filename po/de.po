@@ -5,13 +5,14 @@
 # ssantos <ssantos@web.de>, 2018.
 # Ettore Atalan <atalanttore@googlemail.com>, 2018.
 # nautilusx <mail.ka@mailbox.org>, 2019, 2020.
+# Milo Ivir <mail@milotype.de>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2020-07-02 19:38+0100\n"
-"PO-Revision-Date: 2020-06-29 16:41+0000\n"
-"Last-Translator: nautilusx <mail.ka@mailbox.org>\n"
+"PO-Revision-Date: 2020-07-04 23:41+0000\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtkhash/"
 "translations/de/>\n"
 "Language: de\n"
@@ -282,10 +283,8 @@ msgstr "%s von %s - %s (%s/sek.)"
 #: ../data/appdata/nemo-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/peony-gtkhash.metainfo.xml.in.h:1
 #: ../data/appdata/thunar-gtkhash.metainfo.xml.in.h:1
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "Prüfung:"
+msgstr "Prüfsummen"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
