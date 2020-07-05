@@ -10,4 +10,5 @@
   <url type="bugtracker">https://github.com/tristanheaven/gtkhash/issues</url>
   <developer_name>Tristan Heaven</developer_name>
   <update_contact>tristan@tristanheaven.net</update_contact>
+  <content_rating type="oars-1.1"/>
 </component>
