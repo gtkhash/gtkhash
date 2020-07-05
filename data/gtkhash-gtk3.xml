@@ -121,7 +121,7 @@
     <property name="title">GtkHash</property>
     <property name="default_width">500</property>
     <property name="default_height">340</property>
-    <property name="icon_name">gtkhash</property>
+    <property name="icon_name">org.gtkhash.gtkhash</property>
     <child type="titlebar">
       <placeholder/>
     </child>
