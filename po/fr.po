@@ -4,13 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # xin <xin@riseup.net>, 2019.
 # Éfrit <Efrit@posteo.net>, 2019.
+# Éfrit <efrit@posteo.net>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: tristan@tristanheaven.net\n"
 "POT-Creation-Date: 2020-07-05 22:18+0100\n"
-"PO-Revision-Date: 2019-12-23 22:21+0000\n"
-"Last-Translator: Éfrit <Efrit@posteo.net>\n"
+"PO-Revision-Date: 2020-07-06 21:41+0000\n"
+"Last-Translator: Éfrit <efrit@posteo.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gtkhash/"
 "translations/fr/>\n"
 "Language: fr\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.2-dev\n"
 "X-Launchpad-Export-Date: 2012-09-16 04:40+0000\n"
 
 #: ../data/gtkhash-gtk3.xml.h:1
@@ -42,18 +43,14 @@ msgid "_File"
 msgstr "_Fichier"
 
 #: ../data/gtkhash-gtk3.xml.h:6
-#, fuzzy
-#| msgid "Open Digest File"
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Ouvrir un fichier de condensat"
+msgstr "_Ouvrir un fichier de condensat"
 
 #: ../data/gtkhash-gtk3.xml.h:7
-#, fuzzy
-#| msgid "Save Digest File"
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Enregistrer le condensat"
+msgstr "Enregi_strer le condensat"
 
 #: ../data/gtkhash-gtk3.xml.h:8
 msgid "_Edit"
@@ -108,16 +105,12 @@ msgid "GtkHash Preferences"
 msgstr "Préférences GtkHash"
 
 #: ../data/gtkhash-gtk3.xml.h:21
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
-msgstr "Fonctions de hachage :"
+msgstr "Fonctions de hachage"
 
 #: ../data/gtkhash-gtk3.xml.h:22
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
-msgstr "Fonctions de hachage :"
+msgstr "Fonctions de code d’authentification de message"
 
 #: ../data/gtkhash-gtk3.xml.h:23
 msgid "Digest Format:"
@@ -150,8 +143,6 @@ msgid "_Cancel"
 msgstr "Annuler"
 
 #: ../src/callbacks.c:73
-#, fuzzy
-#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Fichiers de condensats ou de sommes de contrôle"
 
@@ -291,10 +282,8 @@ msgstr "%s de %s – %s (%s/s)"
 #: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:1
 #: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:1
 #: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:1
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "Vérifier :"
+msgstr "Sommes de contrôle"
 
 #: ../data/nautilus/gtkhash-properties.xml.h:1
 msgid "_Copy Digest"
