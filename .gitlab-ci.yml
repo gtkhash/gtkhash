@@ -1,53 +1,81 @@
-image: ubuntu:rolling
+.build_gtkhash: &build_gtkhash
+  - ./autogen.sh
+  - export DISTCHECK_CONFIGURE_FLAGS=$(echo
+      --enable-debug
+      --enable-blake2
+      --enable-gcrypt
+      --enable-glib-checksums
+      --enable-mbedtls
+      --enable-nettle
+      --enable-libcrypto
+      --enable-linux-crypto
+      --enable-nautilus
+      --enable-nemo
+      --enable-caja
+      --enable-thunar
+      --disable-dependency-tracking
+    )
+  - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
+  - make -j$(nproc) VERBOSE=1 DESTDIR=$(mktemp -d) distcheck
 
-before_script:
-  - export DEBIAN_FRONTEND=noninteractive
-  - apt-get -y update
-  - apt-get -y install
-      build-essential
-      libtool
-      intltool
-      libglib2.0-dev
-      libgtk-3-dev
-      libgcrypt20-dev
-      nettle-dev
-      libb2-dev
-      libmbedtls-dev
-      libssl-dev
-      linux-libc-dev
-      librsvg2-bin
-      libxml2-utils
-      at-spi2-core
-      xvfb
-      gnome-icon-theme
-      libnautilus-extension-dev
-      libnemo-extension-dev
-      libcaja-extension-dev
-      libthunarx-3-dev
-
-gtkhash:
+fedora:
+  image: fedora
+  before_script:
+    - dnf -y install
+        make
+        libtool
+        intltool
+        glib-devel
+        gtk3-devel
+        libgcrypt-devel
+        nettle-devel
+        libb2-devel
+        mbedtls-devel
+        openssl-devel
+        kernel-headers
+        librsvg2-tools
+        libxml2
+        at-spi2-core
+        xorg-x11-server-Xvfb
+        gnome-icon-theme
+        nautilus-devel
+        nemo-devel
+        caja-devel
+        Thunar-devel
   script:
-    - ./autogen.sh
-    - export DISTCHECK_CONFIGURE_FLAGS=$(echo
-        --enable-debug
-        --enable-blake2
-        --enable-gcrypt
-        --enable-glib-checksums
-        --enable-mbedtls
-        --enable-nettle
-        --enable-libcrypto
-        --enable-linux-crypto
-        --enable-nautilus
-        --enable-nemo
-        --enable-caja
-        --enable-thunar
-        --disable-dependency-tracking
-      )
-    - ./configure ${DISTCHECK_CONFIGURE_FLAGS}
-    - make -j$(nproc) VERBOSE=1 DESTDIR=$(mktemp -d) distcheck
+    - export NO_AT_BRIDGE=1
+    - *build_gtkhash
     - sha256sum *.tar.gz > "$(echo *.tar.gz)".sha256
     - sha256sum *.tar.xz > "$(echo *.tar.xz)".sha256
-
   artifacts:
     paths:
       - gtkhash-*.tar.*
+
+ubuntu:
+  image: ubuntu:rolling
+  before_script:
+    - export DEBIAN_FRONTEND=noninteractive
+    - apt-get -y update
+    - apt-get -y install
+        build-essential
+        libtool
+        intltool
+        libglib2.0-dev
+        libgtk-3-dev
+        libgcrypt20-dev
+        nettle-dev
+        libb2-dev
+        libmbedtls-dev
+        libssl-dev
+        linux-libc-dev
+        librsvg2-bin
+        libxml2-utils
+        at-spi2-core
+        xvfb
+        gnome-icon-theme
+        libnautilus-extension-dev
+        libnemo-extension-dev
+        libcaja-extension-dev
+        libthunarx-3-dev
+  script:
+    - *build_gtkhash
