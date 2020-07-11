@@ -81,6 +81,20 @@ AC_SUBST([GTK_CFLAGS])
 AC_SUBST([GTK_LIBS])
 # }}}
 
+# native file chooser option {{{
+AC_MSG_CHECKING([whether to enable native file chooser dialogs])
+AC_ARG_ENABLE([native-file-chooser],
+	[AS_HELP_STRING([--disable-native-file-chooser], [disable native file chooser dialogs])],
+	[enable_native_file_chooser="${enableval}"], [enable_native_file_chooser="yes"])
+AC_MSG_RESULT([${enable_native_file_chooser}])
+
+if test "${enable_native_file_chooser}" = "yes" ; then
+	AC_DEFINE([ENABLE_NATIVE_FILE_CHOOSER], [1], [Native file chooser])
+else
+	AC_DEFINE([ENABLE_NATIVE_FILE_CHOOSER], [0], [Native file chooser])
+fi
+# }}}
+
 # debug option {{{
 AC_MSG_CHECKING([whether to enable debugging])
 AC_ARG_ENABLE([debug],
