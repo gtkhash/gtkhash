@@ -78,8 +78,10 @@ bool gtkhash_hash_lib_linux_is_supported(const enum hash_func_e id)
 	if (!(data.name = gtkhash_hash_lib_linux_get_name(id)))
 		return false;
 
-	if ((data.sockfd = socket(AF_ALG, SOCK_SEQPACKET, 0)) == -1)
+	if ((data.sockfd = socket(AF_ALG, SOCK_SEQPACKET, 0)) == -1) {
+		g_message("Kernel AF_ALG: %s", g_strerror(errno));
 		return false;
+	}
 
 	struct sockaddr_alg addr = {
 		.salg_family = AF_ALG,
@@ -89,11 +91,38 @@ bool gtkhash_hash_lib_linux_is_supported(const enum hash_func_e id)
 	strcpy((char *)addr.salg_name, data.name);
 
 	if (bind(data.sockfd, (struct sockaddr *)&addr, sizeof(addr)) == -1) {
-		g_message("kernel AF_ALG '%s' unavailable", data.name);
+		g_message("Kernel AF_ALG '%s': %s", data.name, g_strerror(errno));
 		close(data.sockfd);
 		return false;
 	}
 
+	if ((data.connfd = accept(data.sockfd, NULL, NULL)) == -1) {
+		g_message("Kernel AF_ALG '%s': %s", data.name, g_strerror(errno));
+		close(data.sockfd);
+		return false;
+	}
+
+	// Update
+	ssize_t bytes = 0;
+	if ((bytes = send(data.connfd, "1234567", 8, MSG_MORE)) != 8) {
+		if (bytes < 0)
+			g_message("Kernel AF_ALG '%s': %s", data.name, g_strerror(errno));
+		close(data.connfd);
+		close(data.sockfd);
+		return false;
+	}
+
+	// Finish
+	uint8_t digest[4];
+	if ((bytes = read(data.connfd, &digest, 4)) != 4) {
+		if (bytes < 0)
+			g_message("Kernel AF_ALG '%s': %s", data.name, g_strerror(errno));
+		close(data.connfd);
+		close(data.sockfd);
+		return false;
+	}
+
+	close(data.connfd);
 	close(data.sockfd);
 	return true;
 }
