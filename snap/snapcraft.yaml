@@ -31,6 +31,9 @@ parts:
       - libb2-dev
       - librsvg2-bin
       - libxml2-utils
+      - at-spi2-core
+      - xvfb
+      - gnome-icon-theme
     stage-packages:
       - libgtk-3-0
       - libgcrypt20
@@ -44,6 +47,7 @@ parts:
     override-build: |
       sed -i '/^Icon=/s:=.*:=${SNAP}/meta/gui/gtkhash.svg:' data/org.gtkhash.gtkhash.desktop.in
       snapcraftctl build
+      make VERBOSE=1 check
       mkdir -vp -- "${SNAPCRAFT_PART_INSTALL}"/meta/gui
       cp -vf -- data/icons/scalable/org.gtkhash.gtkhash.svg "${SNAPCRAFT_PART_INSTALL}"/meta/gui/gtkhash.svg
     parse-info: [ usr/share/metainfo/org.gtkhash.gtkhash.appdata.xml ]
