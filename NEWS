@@ -1,8 +1,12 @@
 Summary of changes for each GtkHash release:
 
-1.4 (2020-00-00)
+1.4 (2020-07-11)
 	* Added CRC32C
 	* Replaced the word "Digest" with "Checksum" in some places (#40)
+	* Added a separate hash button for each function (#50)
+	* Added preference to show/hide HMAC feature
+	* Fixed translations not showing on Windows and Snap package
+	* Reduced Windows install size
 
 1.3 (2020-05-25)
 	* Fixed crash when program is closed (#47)
