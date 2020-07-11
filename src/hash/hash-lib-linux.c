@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -47,6 +47,7 @@ static const char *gtkhash_hash_lib_linux_get_name(const enum hash_func_e id)
 	switch (id) {
 		case HASH_FUNC_BLAKE2B:   return "blake2b-512";
 		case HASH_FUNC_BLAKE2S:   return "blake2s-256";
+		case HASH_FUNC_CRC32C:    return "crc32c";
 		case HASH_FUNC_MD4:       return "md4";
 		case HASH_FUNC_MD5:       return "md5";
 		case HASH_FUNC_RIPEMD128: return "rmd128";
@@ -142,6 +143,10 @@ uint8_t *gtkhash_hash_lib_linux_finish(struct hash_func_s *func, size_t *size)
 	close(LIB_DATA->connfd);
 	close(LIB_DATA->sockfd);
 	g_free(LIB_DATA);
+
+	// Kernel CRC32C is little-endian
+	if (func->id == HASH_FUNC_CRC32C)
+		*(uint32_t *)digest = GUINT32_SWAP_LE_BE(*(uint32_t *)digest);
 
 	return digest;
 }

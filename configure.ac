@@ -411,7 +411,7 @@ fi
 # }}}
 
 # Matches preferred order from src/hash/hash-lib.c
-HASH_LIBS="zlib blake2 gcrypt libcrypto mbedtls nettle linux_crypto glib_checksums internal_md6"
+HASH_LIBS="blake2 gcrypt libcrypto mbedtls nettle linux_crypto zlib glib_checksums internal_md6"
 AC_SUBST([HASH_LIBS])
 
 AC_DEFINE_UNQUOTED([G_LOG_DOMAIN], ["${PACKAGE_NAME}"], [Define the Glib log domain])
@@ -453,6 +453,7 @@ echo "  gtkhash-thunar:     ${enable_thunar} (thunarx-${with_thunarx})"
 blake2_funcs="
 	BLAKE2b BLAKE2s BLAKE2bp BLAKE2sp"
 gcrypt_funcs="${gcrypt_funcs}
+	CRC32
 	GOST
 	MD4
 	MD5
@@ -481,6 +482,7 @@ libcrypto_funcs="
 	WHIRLPOOL"
 linux_crypto_funcs="
 	BLAKE2b BLAKE2s
+	CRC32C
 	MD4
 	MD5
 	RIPEMD128 RIPEMD160 RIPEMD256 RIPEMD320
@@ -517,7 +519,7 @@ have_libs=""
 for func in \
 	ADLER32 \
 	BLAKE2b BLAKE2s BLAKE2bp BLAKE2sp \
-	CRC32 \
+	CRC32 CRC32C \
 	GOST \
 	MD2 \
 	MD4 \

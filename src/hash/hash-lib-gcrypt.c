@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -47,6 +47,7 @@ static bool gtkhash_hash_lib_gcrypt_set_algo(const enum hash_func_e id,
 		case HASH_FUNC_BLAKE2B:   *algo = GCRY_MD_BLAKE2B_512;  break;
 		case HASH_FUNC_BLAKE2S:   *algo = GCRY_MD_BLAKE2S_256;  break;
 #endif
+		case HASH_FUNC_CRC32:     *algo = GCRY_MD_CRC32;        break;
 		case HASH_FUNC_GOST:      *algo = GCRY_MD_GOSTR3411_94; break;
 		case HASH_FUNC_MD4:       *algo = GCRY_MD_MD4;          break;
 		case HASH_FUNC_MD5:       *algo = GCRY_MD_MD5;          break;

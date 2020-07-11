@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2017 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -103,14 +103,6 @@ static void gtkhash_hash_lib_init_once(void)
 
 	// Note: Preferred lib selections are defined by the order used here
 	for (enum hash_func_e i = 0; i < HASH_FUNCS_N; i++) {
-#if ENABLE_ZLIB
-		if (!test_lib || (test_lib && strcmp(test_lib, "zlib") == 0)) {
-			if (gtkhash_hash_lib_zlib_is_supported(i)) {
-				hash_libs[i] = HASH_LIB_ZLIB;
-				continue;
-			}
-		}
-#endif
 #if ENABLE_BLAKE2
 		if (!test_lib || (test_lib && strcmp(test_lib, "blake2") == 0)) {
 			if (gtkhash_hash_lib_blake2_is_supported(i)) {
@@ -155,6 +147,14 @@ static void gtkhash_hash_lib_init_once(void)
 		if (!test_lib || (test_lib && strcmp(test_lib, "linux_crypto") == 0)) {
 			if (gtkhash_hash_lib_linux_is_supported(i)) {
 				hash_libs[i] = HASH_LIB_LINUX;
+				continue;
+			}
+		}
+#endif
+#if ENABLE_ZLIB
+		if (!test_lib || (test_lib && strcmp(test_lib, "zlib") == 0)) {
+			if (gtkhash_hash_lib_zlib_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_ZLIB;
 				continue;
 			}
 		}

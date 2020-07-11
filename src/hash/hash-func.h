@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -68,6 +68,7 @@ enum hash_func_e {
 	HASH_FUNC_GOST,
 	HASH_FUNC_MDC2,
 	HASH_FUNC_CRC32,
+	HASH_FUNC_CRC32C,
 	HASH_FUNC_ADLER32,
 };
 

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -40,6 +40,7 @@ static const struct {
 	[HASH_FUNC_BLAKE2S]    = { "BLAKE2s",      32,   0, },
 	[HASH_FUNC_BLAKE2SP]   = { "BLAKE2sp",     32,   0, },
 	[HASH_FUNC_CRC32]      = { "CRC32",         4,   0, },
+	[HASH_FUNC_CRC32C]     = { "CRC32C",        4,   0, },
 	[HASH_FUNC_GOST]       = { "GOST",         32,   0, },
 	[HASH_FUNC_MD2]        = { "MD2",          16,   0, },
 	[HASH_FUNC_MD4]        = { "MD4",          16,   0, },
