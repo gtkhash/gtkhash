@@ -24,6 +24,8 @@ fedora:
     - dnf -y install
         make
         libtool
+        gettext
+        gettext-devel
         glib-devel
         gtk3-devel
         libgcrypt-devel
@@ -58,6 +60,8 @@ ubuntu:
     - apt-get -y install
         build-essential
         libtool
+        gettext
+        autopoint
         libglib2.0-dev
         libgtk-3-dev
         libgcrypt20-dev

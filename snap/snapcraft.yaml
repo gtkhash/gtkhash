@@ -24,6 +24,7 @@ parts:
       - pkg-config
       - libtool
       - gettext
+      - autopoint
       - libglib2.0-dev
       - libgtk-3-dev
       - libgcrypt20-dev
