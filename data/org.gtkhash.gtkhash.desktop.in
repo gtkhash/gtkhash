@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=GtkHash
-_GenericName=Checksum Calculator
-_Comment=Calculate message digests or checksums
+GenericName=Checksum Calculator
+Comment=Calculate message digests or checksums
 Keywords=hash;checksum;digest;md5;sha1;sha256;crc32;
 TryExec=gtkhash
 Exec=gtkhash %U

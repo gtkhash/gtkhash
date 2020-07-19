@@ -14,7 +14,6 @@ makedepends=(
 	${MINGW_PACKAGE_PREFIX}-libtool
 	${MINGW_PACKAGE_PREFIX}-pkg-config
 	git
-	intltool
 )
 options=( strip )
 license=( GPL )

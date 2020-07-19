@@ -170,7 +170,7 @@ endif
 
 properties-resources.c: \
 	../../data/nautilus/gtkhash-properties.gresource.xml \
-	../../data/nautilus/gtkhash-properties.xml
+	../../data/nautilus/gtkhash-properties.ui
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) \
 		--c-name gtkhash_properties_resources \
 		--internal \

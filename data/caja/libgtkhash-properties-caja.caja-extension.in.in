@@ -1,7 +1,7 @@
 [Caja Extension]
 Icon=org.gtkhash.gtkhash
-_Name=Checksums
-_Description=Calculate message digests or checksums
+Name=Checksums
+Description=Calculate message digests or checksums
 Author=Tristan Heaven <tristan@tristanheaven.net>
 Copyright=
 Version=@VERSION@

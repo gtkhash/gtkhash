@@ -26,12 +26,13 @@ gsettings_SCHEMAS = org.gtkhash.gschema.xml
 EXTRA_DIST = \
 	$(applications_DATA).in \
 	$(gsettings_SCHEMAS) \
-	gtkhash-gtk3.xml gtkhash-gtk3.gresource.xml
+	gtkhash-gtk3.ui gtkhash-gtk3.gresource.xml
 
 CLEANFILES = $(applications_DATA)
 
 endif
 
-@INTLTOOL_DESKTOP_RULE@
-@INTLTOOL_XML_NOMERGE_RULE@
+%.desktop: %.desktop.in
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
+
 @GSETTINGS_RULES@

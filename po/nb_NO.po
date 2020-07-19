@@ -275,7 +275,7 @@ msgstr[1] "%u minutter igjen"
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] "%d sekund igjen"
+msgstr[0] "%u sekund igjen"
 msgstr[1] "%u sekunder igjen"
 
 #: ../src/util/util.c:58

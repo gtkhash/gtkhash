@@ -55,7 +55,7 @@
 #include "../hash/hash-func.h"
 #include "../hash/hash-file.h"
 
-#define PROPERTIES_XML_RESOURCE "/org/gtkhash/plugin/gtkhash-properties.xml"
+#define PROPERTIES_XML_RESOURCE "/org/gtkhash/plugin/gtkhash-properties.ui"
 
 static GType page_type;
 

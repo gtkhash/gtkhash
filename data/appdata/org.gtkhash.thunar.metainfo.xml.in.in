@@ -4,10 +4,11 @@
   <extends>Thunar.desktop</extends>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
-  <_name>Checksums</_name>
-  <_summary>Adds message digests or checksums to file properties</_summary>
+  <name>Checksums</name>
+  <summary>Adds message digests or checksums to file properties</summary>
   <url type="homepage">https://github.com/tristanheaven/gtkhash</url>
   <url type="bugtracker">https://github.com/tristanheaven/gtkhash/issues</url>
+  <url type="translate">https://hosted.weblate.org/engage/gtkhash/</url>
   <developer_name>Tristan Heaven</developer_name>
   <update_contact>tristan@tristanheaven.net</update_contact>
   <content_rating type="oars-1.1"/>

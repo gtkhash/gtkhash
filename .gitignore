@@ -18,19 +18,27 @@ data/icons/64/
 data/icons/128/
 data/icons/256/
 
+po/*.header
+po/*.sed
+po/*.sin
+po/*.template
+po/POTFILES
+po/Rules-quot
+po/stamp-po
+
 .deps/
 .libs/
 autom4te.cache/
 build-aux/
+intl/
 m4/
 
 .dirstamp
-.intltool-merge-cache
+ABOUT-NLS
 INSTALL
 Makefile
 Makefile.in
 Makefile.in.in
-POTFILES
 aclocal.m4
 config.h
 config.h.in

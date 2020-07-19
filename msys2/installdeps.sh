@@ -13,5 +13,4 @@ pacman -S --noconfirm --needed --noprogressbar \
 	mingw-w64-{x86_64,i686}-gsettings-desktop-schemas \
 	mingw-w64-{x86_64,i686}-libgcrypt \
 	mingw-w64-{x86_64,i686}-styrene \
-	base-devel \
-	intltool
+	base-devel

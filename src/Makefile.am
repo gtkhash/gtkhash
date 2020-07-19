@@ -65,7 +65,7 @@ EXTRA_DIST = gtkhash-test.sh test.md5sum.in
 
 resources.c resources.h: \
 	../data/gtkhash-gtk3.gresource.xml \
-	../data/gtkhash-gtk3.xml
+	../data/gtkhash-gtk3.ui
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) \
 		--c-name resources \
 		--internal \

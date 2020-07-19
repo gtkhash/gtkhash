@@ -39,7 +39,7 @@
 #include "hash/digest-format.h"
 #include "hash/hash-func.h"
 
-#define GUI_XML_RESOURCE "/org/gtkhash/gtkhash-gtk3.xml"
+#define GUI_XML_RESOURCE "/org/gtkhash/gtkhash-gtk3.ui"
 
 struct gui_s gui = {
 	.view = GUI_VIEW_INVALID,

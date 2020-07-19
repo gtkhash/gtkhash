@@ -13,6 +13,13 @@ AM_PROG_CC_C_O
 AM_PROG_AR
 LT_INIT
 
+GETTEXT_PACKAGE="${PACKAGE}"
+AC_SUBST([GETTEXT_PACKAGE])
+AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["${GETTEXT_PACKAGE}"], [Define the gettext package])
+AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.19.7])
+AM_CONDITIONAL([ENABLE_NLS], [test "${enable_nls}" != "no"])
+
 GTKHASH_CFLAGS=""
 
 for opt in \
@@ -408,21 +415,6 @@ AM_CONDITIONAL([ENABLE_NAUTILUS_DATA], [
 	test "${enable_nemo}" = "yes" ||
 	test "${enable_peony}" = "yes" ||
 	test "${enable_thunar}" = "yes"])
-
-# nls option {{{
-AM_CONDITIONAL([ENABLE_NLS], [test "${enable_nls}" != "no"])
-
-if test "${enable_nls}" != "no" ; then
-	AC_DEFINE([ENABLE_NLS], [1], [Native Language Support])
-	GETTEXT_PACKAGE="${PACKAGE}"
-	AC_SUBST([GETTEXT_PACKAGE])
-	AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["${GETTEXT_PACKAGE}"], [Define the gettext package])
-	IT_PROG_INTLTOOL([0.40.6])
-	AM_GLIB_GNU_GETTEXT
-else
-	AC_DEFINE([ENABLE_NLS], [0], [Native Language Support])
-fi
-# }}}
 
 # Matches preferred order from src/hash/hash-lib.c
 HASH_LIBS="blake2 gcrypt libcrypto mbedtls nettle linux_crypto zlib glib_checksums internal_md6"

@@ -1,7 +1,5 @@
-[encoding: UTF-8]
-
 # gtkhash
-[type: gettext/glade]data/gtkhash-gtk3.xml
+data/gtkhash-gtk3.ui
 data/org.gtkhash.gtkhash.desktop.in
 src/callbacks.c
 src/check.c
@@ -14,9 +12,7 @@ src/prefs.c
 src/util/util.c
 
 # gtkhash-properties
-[type: gettext/ini]data/caja/libgtkhash-properties-caja.caja-extension.in
-[type: gettext/glade]data/nautilus/gtkhash-properties.xml
-[type: gettext/ini]data/peony/libgtkhash-properties-peony.peony-extension.in
+data/nautilus/gtkhash-properties.ui
 src/nautilus/properties.c
 src/nautilus/properties-hash.c
 src/nautilus/properties-list.c

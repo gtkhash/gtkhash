@@ -35,4 +35,5 @@ EXTRA_DIST = \
 	org.gtkhash.peony.metainfo.xml.in \
 	org.gtkhash.thunar.metainfo.xml.in
 
-@INTLTOOL_XML_RULE@
+%.xml: %.xml.in
+	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
