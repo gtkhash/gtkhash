@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-05 22:18+0100\n"
+"Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
+"POT-Creation-Date: 2020-07-17 00:00+0100\n"
 "PO-Revision-Date: 2020-07-04 23:41+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtkhash/"
@@ -23,147 +23,146 @@ msgstr ""
 "X-Generator: Weblate 4.2-dev\n"
 "X-Launchpad-Export-Date: 2012-12-04 05:56+0000\n"
 
-#: ../data/gtkhash-gtk3.xml.h:1
+#: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
 msgstr "Hexadezimal in Kleinschreibung"
 
-#: ../data/gtkhash-gtk3.xml.h:2
+#: data/gtkhash-gtk3.ui:15
 msgid "Uppercase Hexadecimal"
 msgstr "Hexadezimal in Großschreibung"
 
-#: ../data/gtkhash-gtk3.xml.h:3
+#: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
 msgstr "_Digest kopieren"
 
-#: ../data/gtkhash-gtk3.xml.h:4
+#: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
 msgstr "_Werkzeugleiste anzeigen"
 
-#: ../data/gtkhash-gtk3.xml.h:5
+#: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
 msgid "_File"
 msgstr "_Datei"
 
-#: ../data/gtkhash-gtk3.xml.h:6
+#: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "_Digest-Datei öffnen…"
 
-#: ../data/gtkhash-gtk3.xml.h:7
+#: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "_Digest-Datei speichern…"
 
-#: ../data/gtkhash-gtk3.xml.h:8
+#: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
 msgstr "_Bearbeiten"
 
-#: ../data/gtkhash-gtk3.xml.h:9
+#: data/gtkhash-gtk3.ui:280
 msgid "_View"
 msgstr "_Ansicht"
 
-#: ../data/gtkhash-gtk3.xml.h:10
+#: data/gtkhash-gtk3.ui:300
 msgid "_Text"
 msgstr "_Text"
 
-#: ../data/gtkhash-gtk3.xml.h:11
+#: data/gtkhash-gtk3.ui:310
 msgid "File _List"
 msgstr "Dateiliste"
 
-#: ../data/gtkhash-gtk3.xml.h:12
+#: data/gtkhash-gtk3.ui:324
 msgid "_Help"
 msgstr "_Hilfe"
 
-#: ../data/gtkhash-gtk3.xml.h:13
+#: data/gtkhash-gtk3.ui:429
 msgid "File:"
 msgstr "Datei:"
 
-#: ../data/gtkhash-gtk3.xml.h:14
+#: data/gtkhash-gtk3.ui:442
 msgid "Text:"
 msgstr "Text:"
 
-#: ../data/gtkhash-gtk3.xml.h:15 ../data/nautilus/gtkhash-properties.xml.h:5
+#: data/gtkhash-gtk3.ui:455 data/nautilus/gtkhash-properties.ui:144
 msgid "Check:"
 msgstr "Prüfung:"
 
-#: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
+#: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
+#: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
 msgstr "Digest aus der Zwischenablage einfügen"
 
-#: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
+#: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
+#: data/nautilus/gtkhash-properties.ui:180
 msgid "HMAC Key:"
 msgstr "HMAC Schlüssel:"
 
-#: ../data/gtkhash-gtk3.xml.h:18
+#: data/gtkhash-gtk3.ui:783
 msgid "File"
 msgstr "Datei"
 
-#: ../data/gtkhash-gtk3.xml.h:19
+#: data/gtkhash-gtk3.ui:887
 msgid "Ha_sh"
 msgstr "Ha_sh"
 
-#: ../data/gtkhash-gtk3.xml.h:20
+#: data/gtkhash-gtk3.ui:953
 msgid "GtkHash Preferences"
 msgstr "GtkHash-Einstellungen"
 
-#: ../data/gtkhash-gtk3.xml.h:21
+#: data/gtkhash-gtk3.ui:1039
 msgid "Hash Functions"
 msgstr "Hash-Funktionen"
 
-#: ../data/gtkhash-gtk3.xml.h:22
+#: data/gtkhash-gtk3.ui:1070
 msgid "MAC Functions"
 msgstr "MAC-Funktionen"
 
-#: ../data/gtkhash-gtk3.xml.h:23
+#: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
 msgstr "Digest-Format:"
 
-#: ../data/org.gtkhash.gtkhash.desktop.in.h:1
+#: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
 msgstr "Prüfsummenrechner"
 
-#: ../data/org.gtkhash.gtkhash.desktop.in.h:2
-#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
-#: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:610
-#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:1
+#: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:610
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
 msgstr "Berechnet Message Digest oder Prüfsummen"
 
-#: ../src/callbacks.c:51 ../src/callbacks.c:55
+#: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
 msgstr "Digest-Datei öffnen"
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:308
-#: ../src/callbacks.c:314
+#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
+#: src/callbacks.c:314
 msgid "_Open"
 msgstr "_Öffnen"
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:308 ../src/callbacks.c:313
+#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
+#: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
 msgid "_Cancel"
 msgstr "_Abbrechen"
 
-#: ../src/callbacks.c:73
+#: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Digest/Prüfsummen-Dateien (*.sha1, *.md5, *.sfv, …)"
 
-#: ../src/callbacks.c:78
+#: src/callbacks.c:78
 msgid "All Files"
 msgstr "Alle Dateien"
 
-#: ../src/callbacks.c:120 ../src/callbacks.c:124
+#: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
 msgstr "Digest-Datei speichern"
 
-#: ../src/callbacks.c:121 ../src/callbacks.c:127
+#: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
 msgstr "_Speichern"
 
-#: ../src/callbacks.c:274
+#: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "Ein Desktopprogramm zur Berechnung von Digests (Prüfsummen)"
 
-#: ../src/callbacks.c:279
+#: src/callbacks.c:279
 msgid "translator-credits"
 msgstr ""
 "Daniel Winzen https://launchpad.net/~q-d\n"
@@ -173,141 +172,139 @@ msgstr ""
 "Trip McKay https://launchpad.net/~trip-mckay\n"
 "u2ix https://launchpad.net/~u2ix"
 
-#: ../src/callbacks.c:307 ../src/callbacks.c:311
+#: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
 msgstr "Dateien auswählen"
 
-#: ../src/callbacks.c:529 ../src/nautilus/properties.c:256
+#: src/callbacks.c:529 src/nautilus/properties.c:256
 msgid "_Show HMAC Key"
 msgstr "_Zeige HMAC Schlüssel"
 
-#: ../src/check.c:202
+#: src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Die Prüfdatei \"%s\" konnte nicht gelesen werden: %s"
 
-#: ../src/gui.c:308
+#: src/gui.c:308
 msgid "Not a regular file"
 msgstr "Keine gültige Datei"
 
-#: ../src/gui.c:331
+#: src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Die Datei \"%s\" konnte nicht hinzugefügt werden: %s"
 
-#: ../src/hash.c:188 ../src/prefs.c:113
+#: src/hash.c:188 src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Unbekannter Name der Hash-Funktion \"%s\""
 
-#: ../src/opts.c:97
+#: src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Prüfe gegen die bestimmte Digests oder Prüfsumme"
 
-#: ../src/opts.c:98
+#: src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "DIGEST"
 
-#: ../src/opts.c:103
+#: src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Digests oder Prüfsummen aus der angegebenen Datei überprüfen"
 
-#: ../src/opts.c:104
+#: src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "DATEI|URI"
 
-#: ../src/opts.c:109
+#: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
 msgstr "Aktivieren der angegebenen Hash-Funktion (z.B. MD5)"
 
-#: ../src/opts.c:110
+#: src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
 msgstr "FUNKTIONEN"
 
-#: ../src/opts.c:114
+#: src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Hashe den angegebenen Text"
 
-#: ../src/opts.c:115
+#: src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEXT"
 
-#: ../src/opts.c:119
+#: src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Versionsinformationen anzeigen"
 
 #. Translators: Unicode ellipsis(…) can be used here
-#: ../src/opts.c:124
+#: src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[DATEI|URI...]"
 
-#: ../src/prefs.c:82
+#: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
 msgstr "Es konnte keine der unterstützten Hash-Funktionen aktiviert werden."
 
-#: ../src/util/util.c:35
+#: src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
 msgstr[0] "%u Minute verbleibend"
 msgstr[1] "%u Minuten verbleibend"
 
-#: ../src/util/util.c:39
+#: src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
 msgstr[0] "%u Sekunde verbleibend"
 msgstr[1] "%u Sekunden verbleibend"
 
-#: ../src/util/util.c:58
+#: src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s von %s - %s (%s/sek.)"
 
-#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
-#: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
-#: ../src/nautilus/properties.c:479 ../src/nautilus/properties.c:482
-#: ../src/nautilus/properties.c:485 ../src/nautilus/properties.c:488
-#: ../src/nautilus/properties.c:490
-#: ../data/appdata/org.gtkhash.caja.metainfo.xml.in.h:1
-#: ../data/appdata/org.gtkhash.nautilus.metainfo.xml.in.h:1
-#: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:1
-#: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:1
-#: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:1
-msgid "Checksums"
-msgstr "Prüfsummen"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:1
+#: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
 msgstr "_Digest kopieren"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:2
+#: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
 msgstr "_Deaktivierte Hash-Funktionen anzeigen"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:3
+#: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
 msgstr "Hash Funktion"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:4
+#: data/nautilus/gtkhash-properties.ui:106
 msgid "Digest"
 msgstr "Digest"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:8
+#: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
 msgstr "H_ash"
 
-#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:2
+#: src/nautilus/properties.c:479 src/nautilus/properties.c:482
+#: src/nautilus/properties.c:485 src/nautilus/properties.c:488
+#: src/nautilus/properties.c:490
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in:7
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:7
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
+#: data/appdata/org.gtkhash.peony.metainfo.xml.in:7
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
+msgid "Checksums"
+msgstr "Prüfsummen"
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
 "GtkHash is an application for computing file checksums, or message digests. "
 "It's designed to be an easy to use, graphical alternative to command-line "
@@ -317,17 +314,17 @@ msgstr ""
 "Es ist eine einfach zu bedienende, grafische Alternative zu "
 "Befehlszeilenprogrammen wie md5sum."
 
-#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:3
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 "Unterstützte Hash-Funktionen umfassen MD5, MD5, SHA1, SHA256, SHA512 und "
 "CRC32."
 
-#: ../data/appdata/org.gtkhash.caja.metainfo.xml.in.h:2
-#: ../data/appdata/org.gtkhash.nautilus.metainfo.xml.in.h:2
-#: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:2
-#: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:2
-#: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:2
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
+#: data/appdata/org.gtkhash.peony.metainfo.xml.in:8
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
 "Hinzufügen von Nachrichten-Digests oder Prüfsummen zu Dateieigenschaften"
