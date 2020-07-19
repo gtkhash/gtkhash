@@ -12,6 +12,7 @@ addons:
       - libtool
       - gettext
       - autopoint
+      - appstream
       - libglib2.0-dev
       - libgtk-3-dev
       - libgcrypt20-dev

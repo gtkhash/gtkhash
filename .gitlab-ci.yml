@@ -26,6 +26,7 @@ fedora:
         libtool
         gettext
         gettext-devel
+        appstream
         glib-devel
         gtk3-devel
         libgcrypt-devel
@@ -62,6 +63,7 @@ ubuntu:
         libtool
         gettext
         autopoint
+        appstream
         libglib2.0-dev
         libgtk-3-dev
         libgcrypt20-dev
