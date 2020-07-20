@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-05 22:18+0100\n"
+"Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
+"POT-Creation-Date: 2020-07-17 00:00+0100\n"
 "PO-Revision-Date: 2018-09-29 10:21+0000\n"
 "Last-Translator: mohammadA <mohammadAbdulhadi1@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/gtkhash/"
@@ -21,317 +21,314 @@ msgstr ""
 "X-Generator: Weblate 3.2-dev\n"
 "X-Launchpad-Export-Date: 2015-08-04 05:18+0000\n"
 
-#: ../data/gtkhash-gtk3.xml.h:1
+#: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
 msgstr ""
 
-#: ../data/gtkhash-gtk3.xml.h:2
+#: data/gtkhash-gtk3.ui:15
 msgid "Uppercase Hexadecimal"
 msgstr ""
 
-#: ../data/gtkhash-gtk3.xml.h:3
+#: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
 msgstr "انسخ ال_خلاصة"
 
-#: ../data/gtkhash-gtk3.xml.h:4
+#: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
 msgstr "أظهر _شريط الأدوات"
 
-#: ../data/gtkhash-gtk3.xml.h:5
+#: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
 msgid "_File"
 msgstr "_ملف"
 
-#: ../data/gtkhash-gtk3.xml.h:6
+#: data/gtkhash-gtk3.ui:149
 #, fuzzy
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "احفظ الخلاصة"
 
-#: ../data/gtkhash-gtk3.xml.h:7
+#: data/gtkhash-gtk3.ui:160
 #, fuzzy
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "احفظ الخلاصة"
 
-#: ../data/gtkhash-gtk3.xml.h:8
+#: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
 msgstr "_حرّر"
 
-#: ../data/gtkhash-gtk3.xml.h:9
+#: data/gtkhash-gtk3.ui:280
 msgid "_View"
 msgstr "_اعرض"
 
-#: ../data/gtkhash-gtk3.xml.h:10
+#: data/gtkhash-gtk3.ui:300
 msgid "_Text"
 msgstr "_نص"
 
-#: ../data/gtkhash-gtk3.xml.h:11
+#: data/gtkhash-gtk3.ui:310
 msgid "File _List"
 msgstr "_قائمة الملف"
 
-#: ../data/gtkhash-gtk3.xml.h:12
+#: data/gtkhash-gtk3.ui:324
 msgid "_Help"
 msgstr "_مساعدة"
 
-#: ../data/gtkhash-gtk3.xml.h:13
+#: data/gtkhash-gtk3.ui:429
 msgid "File:"
 msgstr "الملف:"
 
-#: ../data/gtkhash-gtk3.xml.h:14
+#: data/gtkhash-gtk3.ui:442
 msgid "Text:"
 msgstr "النص:"
 
-#: ../data/gtkhash-gtk3.xml.h:15 ../data/nautilus/gtkhash-properties.xml.h:5
+#: data/gtkhash-gtk3.ui:455 data/nautilus/gtkhash-properties.ui:144
 msgid "Check:"
 msgstr "فحص:"
 
-#: ../data/gtkhash-gtk3.xml.h:16 ../data/nautilus/gtkhash-properties.xml.h:6
+#: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
+#: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
 msgstr ""
 
-#: ../data/gtkhash-gtk3.xml.h:17 ../data/nautilus/gtkhash-properties.xml.h:7
+#: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
+#: data/nautilus/gtkhash-properties.ui:180
 msgid "HMAC Key:"
 msgstr "مفتاح HMAC:"
 
-#: ../data/gtkhash-gtk3.xml.h:18
+#: data/gtkhash-gtk3.ui:783
 msgid "File"
 msgstr "ملفّ"
 
-#: ../data/gtkhash-gtk3.xml.h:19
+#: data/gtkhash-gtk3.ui:887
 msgid "Ha_sh"
 msgstr "ها_ش"
 
-#: ../data/gtkhash-gtk3.xml.h:20
+#: data/gtkhash-gtk3.ui:953
 msgid "GtkHash Preferences"
 msgstr "تفضيلات GtkHash"
 
-#: ../data/gtkhash-gtk3.xml.h:21
+#: data/gtkhash-gtk3.ui:1039
 #, fuzzy
 #| msgid "Hash Functions:"
 msgid "Hash Functions"
 msgstr "دالة التجزئة:"
 
-#: ../data/gtkhash-gtk3.xml.h:22
+#: data/gtkhash-gtk3.ui:1070
 #, fuzzy
 #| msgid "Hash Functions:"
 msgid "MAC Functions"
 msgstr "دالة التجزئة:"
 
-#: ../data/gtkhash-gtk3.xml.h:23
+#: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
 msgstr "صيغة الخلاصة:"
 
-#: ../data/org.gtkhash.gtkhash.desktop.in.h:1
+#: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
 msgstr ""
 
-#: ../data/org.gtkhash.gtkhash.desktop.in.h:2
-#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:2
-#: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:2
-#: ../src/nautilus/properties.c:610
-#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:1
+#: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:610
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
 msgstr ""
 
-#: ../src/callbacks.c:51 ../src/callbacks.c:55
+#: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
 msgstr ""
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:58 ../src/callbacks.c:308
-#: ../src/callbacks.c:314
+#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
+#: src/callbacks.c:314
 msgid "_Open"
 msgstr "_افتح"
 
-#: ../src/callbacks.c:52 ../src/callbacks.c:57 ../src/callbacks.c:121
-#: ../src/callbacks.c:126 ../src/callbacks.c:308 ../src/callbacks.c:313
+#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
+#: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
 msgid "_Cancel"
 msgstr "_ألغ"
 
-#: ../src/callbacks.c:73
+#: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr ""
 
-#: ../src/callbacks.c:78
+#: src/callbacks.c:78
 msgid "All Files"
 msgstr "كل الملفات"
 
-#: ../src/callbacks.c:120 ../src/callbacks.c:124
+#: src/callbacks.c:120 src/callbacks.c:124
 #, fuzzy
 msgid "Save Digest File"
 msgstr "احفظ الخلاصة"
 
-#: ../src/callbacks.c:121 ../src/callbacks.c:127
+#: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
 msgstr "_احفظ"
 
-#: ../src/callbacks.c:274
+#: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
 
-#: ../src/callbacks.c:279
+#: src/callbacks.c:279
 #, fuzzy
 msgid "translator-credits"
 msgstr "Abbod https://launchpad.net/~abbod-mar\n"
 
-#: ../src/callbacks.c:307 ../src/callbacks.c:311
+#: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
 msgstr "اختر الملفات"
 
-#: ../src/callbacks.c:529 ../src/nautilus/properties.c:256
+#: src/callbacks.c:529 src/nautilus/properties.c:256
 msgid "_Show HMAC Key"
 msgstr "أ_ظهر مفتاح HMAC"
 
-#: ../src/check.c:202
+#: src/check.c:202
 #, fuzzy, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr ""
 "فشل في قراءة \"%s\":\n"
 "%s"
 
-#: ../src/gui.c:308
+#: src/gui.c:308
 msgid "Not a regular file"
 msgstr "ليس ملفا عاديا"
 
-#: ../src/gui.c:331
+#: src/gui.c:331
 #, fuzzy, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
 "فشل في إضافة \"%s\":\n"
 "%s"
 
-#: ../src/hash.c:188 ../src/prefs.c:113
+#: src/hash.c:188 src/prefs.c:113
 #, fuzzy, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "دالة التجزئة:"
 
-#: ../src/opts.c:97
+#: src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr ""
 
-#: ../src/opts.c:98
+#: src/opts.c:98
 #, fuzzy
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "الملخص"
 
-#: ../src/opts.c:103
+#: src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr ""
 
-#: ../src/opts.c:104
+#: src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr ""
 
-#: ../src/opts.c:109
+#: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
 msgstr ""
 
-#: ../src/opts.c:110
+#: src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
 msgstr ""
 
-#: ../src/opts.c:114
+#: src/opts.c:114
 #, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "جزئ النص المحدد"
 
-#: ../src/opts.c:115
+#: src/opts.c:115
 #, fuzzy
 msgctxt " --help"
 msgid "TEXT"
 msgstr "نص"
 
-#: ../src/opts.c:119
+#: src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
 msgstr "أظهر معلومات الإصدار"
 
 #. Translators: Unicode ellipsis(…) can be used here
-#: ../src/opts.c:124
+#: src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr ""
 
-#: ../src/prefs.c:82
+#: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
 msgstr "فشل تمكين أي وظائف تجزئة."
 
-#: ../src/util/util.c:35
+#: src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/util/util.c:39
+#: src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/util/util.c:58
+#: src/util/util.c:58
 #, fuzzy, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s من %s - %u دقيقة متبقية (%s/ثانية)"
 
-#: ../data/caja/libgtkhash-properties-caja.caja-extension.in.h:1
-#: ../data/peony/libgtkhash-properties-peony.peony-extension.in.h:1
-#: ../src/nautilus/properties.c:479 ../src/nautilus/properties.c:482
-#: ../src/nautilus/properties.c:485 ../src/nautilus/properties.c:488
-#: ../src/nautilus/properties.c:490
-#: ../data/appdata/org.gtkhash.caja.metainfo.xml.in.h:1
-#: ../data/appdata/org.gtkhash.nautilus.metainfo.xml.in.h:1
-#: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:1
-#: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:1
-#: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:1
+#: data/nautilus/gtkhash-properties.ui:16
+msgid "_Copy Digest"
+msgstr "ا_نسخ التجزئة"
+
+#: data/nautilus/gtkhash-properties.ui:35
+msgid "Show _Disabled Hash Functions"
+msgstr "أظهر دوال التجزئة الم_عطلة"
+
+#: data/nautilus/gtkhash-properties.ui:95
+msgid "Hash Function"
+msgstr "دالة الهاش"
+
+#: data/nautilus/gtkhash-properties.ui:106
+msgid "Digest"
+msgstr "ملخص"
+
+#: data/nautilus/gtkhash-properties.ui:271
+msgid "H_ash"
+msgstr "_هاش"
+
+#: src/nautilus/properties.c:479 src/nautilus/properties.c:482
+#: src/nautilus/properties.c:485 src/nautilus/properties.c:488
+#: src/nautilus/properties.c:490
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in:7
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:7
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
+#: data/appdata/org.gtkhash.peony.metainfo.xml.in:7
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
 #, fuzzy
 #| msgid "Check:"
 msgid "Checksums"
 msgstr "فحص:"
 
-#: ../data/nautilus/gtkhash-properties.xml.h:1
-msgid "_Copy Digest"
-msgstr "ا_نسخ التجزئة"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:2
-msgid "Show _Disabled Hash Functions"
-msgstr "أظهر دوال التجزئة الم_عطلة"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:3
-msgid "Hash Function"
-msgstr "دالة الهاش"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:4
-msgid "Digest"
-msgstr "ملخص"
-
-#: ../data/nautilus/gtkhash-properties.xml.h:8
-msgid "H_ash"
-msgstr "_هاش"
-
-#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:2
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
 "GtkHash is an application for computing file checksums, or message digests. "
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
 
-#: ../data/appdata/org.gtkhash.gtkhash.appdata.xml.in.h:3
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 
-#: ../data/appdata/org.gtkhash.caja.metainfo.xml.in.h:2
-#: ../data/appdata/org.gtkhash.nautilus.metainfo.xml.in.h:2
-#: ../data/appdata/org.gtkhash.nemo.metainfo.xml.in.h:2
-#: ../data/appdata/org.gtkhash.peony.metainfo.xml.in.h:2
-#: ../data/appdata/org.gtkhash.thunar.metainfo.xml.in.h:2
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
+#: data/appdata/org.gtkhash.peony.metainfo.xml.in:8
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
 
