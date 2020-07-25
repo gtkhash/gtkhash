@@ -30,7 +30,7 @@ libgtkhash_properties_caja_la_SOURCES = \
 libgtkhash_properties_caja_la_CPPFLAGS = \
 	$(common_cppflags) \
 	$(CAJA_CFLAGS) \
-	-DIN_CAJA_EXTENSION=1
+	-DIN_CAJA_EXTENSION
 
 libgtkhash_properties_caja_la_CFLAGS = $(GTKHASH_CFLAGS)
 
@@ -61,7 +61,7 @@ libgtkhash_properties_nautilus_la_SOURCES = \
 libgtkhash_properties_nautilus_la_CPPFLAGS = \
 	$(common_cppflags) \
 	$(NAUTILUS_CFLAGS) \
-	-DIN_NAUTILUS_EXTENSION=1
+	-DIN_NAUTILUS_EXTENSION
 
 libgtkhash_properties_nautilus_la_CFLAGS = $(GTKHASH_CFLAGS)
 
@@ -92,7 +92,7 @@ libgtkhash_properties_nemo_la_SOURCES = \
 libgtkhash_properties_nemo_la_CPPFLAGS = \
 	$(common_cppflags) \
 	$(NEMO_CFLAGS) \
-	-DIN_NEMO_EXTENSION=1
+	-DIN_NEMO_EXTENSION
 
 libgtkhash_properties_nemo_la_CFLAGS = $(GTKHASH_CFLAGS)
 
@@ -123,7 +123,7 @@ libgtkhash_properties_peony_la_SOURCES = \
 libgtkhash_properties_peony_la_CPPFLAGS = \
 	$(common_cppflags) \
 	$(PEONY_CFLAGS) \
-	-DIN_PEONY_EXTENSION=1
+	-DIN_PEONY_EXTENSION
 
 libgtkhash_properties_peony_la_CFLAGS = $(GTKHASH_CFLAGS)
 
@@ -154,7 +154,7 @@ libgtkhash_properties_thunar_la_SOURCES = \
 libgtkhash_properties_thunar_la_CPPFLAGS = \
 	$(common_cppflags) \
 	$(THUNAR_CFLAGS) \
-	-DIN_THUNAR_EXTENSION=1
+	-DIN_THUNAR_EXTENSION
 
 libgtkhash_properties_thunar_la_CFLAGS = $(GTKHASH_CFLAGS)
 

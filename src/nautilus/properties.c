@@ -21,24 +21,24 @@
 	#include "config.h"
 #endif
 
-#if IN_NAUTILUS_EXTENSION
+#if defined(IN_NAUTILUS_EXTENSION)
 	#if HAVE_NAUTILUS_EXTENSION_H
 		#include <nautilus-extension.h>
 	#else
 		#include <libnautilus-extension/nautilus-property-page.h>
 		#include <libnautilus-extension/nautilus-property-page-provider.h>
 	#endif
-#elif IN_CAJA_EXTENSION
+#elif defined(IN_CAJA_EXTENSION)
 	#include <libcaja-extension/caja-property-page.h>
 	#include <libcaja-extension/caja-property-page-provider.h>
-#elif IN_NEMO_EXTENSION
+#elif defined(IN_NEMO_EXTENSION)
 	#include <libnemo-extension/nemo-property-page.h>
 	#include <libnemo-extension/nemo-property-page-provider.h>
 	#include <libnemo-extension/nemo-name-and-desc-provider.h>
-#elif IN_PEONY_EXTENSION
+#elif defined(IN_PEONY_EXTENSION)
 	#include <libpeony-extension/peony-property-page.h>
 	#include <libpeony-extension/peony-property-page-provider.h>
-#elif IN_THUNAR_EXTENSION
+#elif defined(IN_THUNAR_EXTENSION)
 	#undef GTK_DISABLE_DEPRECATED // thunarx-3 doesn't build with this
 	#include <thunarx/thunarx.h>
 #endif
@@ -429,15 +429,15 @@ static struct page_s *gtkhash_properties_new_page(char *uri)
 }
 
 static GList *gtkhash_properties_get_pages(
-#if IN_NAUTILUS_EXTENSION
+#if defined(IN_NAUTILUS_EXTENSION)
 	G_GNUC_UNUSED NautilusPropertyPageProvider *provider,
-#elif IN_CAJA_EXTENSION
+#elif defined(IN_CAJA_EXTENSION)
 	G_GNUC_UNUSED CajaPropertyPageProvider *provider,
-#elif IN_NEMO_EXTENSION
+#elif defined(IN_NEMO_EXTENSION)
 	G_GNUC_UNUSED NemoPropertyPageProvider *provider,
-#elif IN_PEONY_EXTENSION
+#elif defined(IN_PEONY_EXTENSION)
 	G_GNUC_UNUSED PeonyPropertyPageProvider *provider,
-#elif IN_THUNAR_EXTENSION
+#elif defined(IN_THUNAR_EXTENSION)
 	G_GNUC_UNUSED ThunarxPropertyPageProvider *provider,
 #endif
 	GList *files)
@@ -446,19 +446,19 @@ static GList *gtkhash_properties_get_pages(
 	if (!files || files->next)
 		return NULL;
 
-#if IN_NAUTILUS_EXTENSION
+#if defined(IN_NAUTILUS_EXTENSION)
 	GFileType type = nautilus_file_info_get_file_type(files->data);
 	char *uri = nautilus_file_info_get_uri(files->data);
-#elif IN_CAJA_EXTENSION
+#elif defined(IN_CAJA_EXTENSION)
 	GFileType type = caja_file_info_get_file_type(files->data);
 	char *uri = caja_file_info_get_uri(files->data);
-#elif IN_NEMO_EXTENSION
+#elif defined(IN_NEMO_EXTENSION)
 	GFileType type = nemo_file_info_get_file_type(files->data);
 	char *uri = nemo_file_info_get_uri(files->data);
-#elif IN_PEONY_EXTENSION
+#elif defined(IN_PEONY_EXTENSION)
 	GFileType type = peony_file_info_get_file_type(files->data);
 	char *uri = peony_file_info_get_uri(files->data);
-#elif IN_THUNAR_EXTENSION
+#elif defined(IN_THUNAR_EXTENSION)
 	GFileInfo *info = thunarx_file_info_get_file_info(files->data);
 	GFileType type = g_file_info_get_file_type(info);
 	g_object_unref(info);
@@ -474,19 +474,19 @@ static GList *gtkhash_properties_get_pages(
 	if (!page)
 		return NULL;
 
-#if IN_NAUTILUS_EXTENSION
+#if defined(IN_NAUTILUS_EXTENSION)
 	NautilusPropertyPage *ppage = nautilus_property_page_new(
 		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
-#elif IN_CAJA_EXTENSION
+#elif defined(IN_CAJA_EXTENSION)
 	CajaPropertyPage *ppage = caja_property_page_new(
 		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
-#elif IN_NEMO_EXTENSION
+#elif defined(IN_NEMO_EXTENSION)
 	NemoPropertyPage *ppage = nemo_property_page_new(
 		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
-#elif IN_PEONY_EXTENSION
+#elif defined(IN_PEONY_EXTENSION)
 	PeonyPropertyPage *ppage = peony_property_page_new(
 		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
-#elif IN_THUNAR_EXTENSION
+#elif defined(IN_THUNAR_EXTENSION)
 	GtkWidget *ppage = thunarx_property_page_new(_("Checksums"));
 	gtk_container_add(GTK_CONTAINER(ppage), page->box);
 #endif
@@ -497,15 +497,15 @@ static GList *gtkhash_properties_get_pages(
 }
 
 static void gtkhash_properties_pp_iface_init(
-#if IN_NAUTILUS_EXTENSION
+#if defined(IN_NAUTILUS_EXTENSION)
 	NautilusPropertyPageProviderIface *iface,
-#elif IN_CAJA_EXTENSION
+#elif defined(IN_CAJA_EXTENSION)
 	CajaPropertyPageProviderIface *iface,
-#elif IN_NEMO_EXTENSION
+#elif defined(IN_NEMO_EXTENSION)
 	NemoPropertyPageProviderIface *iface,
-#elif IN_PEONY_EXTENSION
+#elif defined(IN_PEONY_EXTENSION)
 	PeonyPropertyPageProviderIface *iface,
-#elif IN_THUNAR_EXTENSION
+#elif defined(IN_THUNAR_EXTENSION)
 	ThunarxPropertyPageProviderIface *iface,
 #endif
 	G_GNUC_UNUSED void *data)
@@ -513,7 +513,7 @@ static void gtkhash_properties_pp_iface_init(
 	iface->get_pages = gtkhash_properties_get_pages;
 }
 
-#if IN_NEMO_EXTENSION
+#ifdef IN_NEMO_EXTENSION
 static char *gtkhash_properties_nd_string = NULL;
 
 static GList *gtkhash_properties_get_name_desc(
@@ -554,20 +554,20 @@ static void gtkhash_properties_register_type(GTypeModule *module)
 	};
 
 	g_type_module_add_interface(module, page_type,
-#if IN_NAUTILUS_EXTENSION
+#if defined(IN_NAUTILUS_EXTENSION)
 		NAUTILUS_TYPE_PROPERTY_PAGE_PROVIDER,
-#elif IN_CAJA_EXTENSION
+#elif defined(IN_CAJA_EXTENSION)
 		CAJA_TYPE_PROPERTY_PAGE_PROVIDER,
-#elif IN_NEMO_EXTENSION
+#elif defined(IN_NEMO_EXTENSION)
 		NEMO_TYPE_PROPERTY_PAGE_PROVIDER,
-#elif IN_PEONY_EXTENSION
+#elif defined(IN_PEONY_EXTENSION)
 		PEONY_TYPE_PROPERTY_PAGE_PROVIDER,
-#elif IN_THUNAR_EXTENSION
+#elif defined(IN_THUNAR_EXTENSION)
 		THUNARX_TYPE_PROPERTY_PAGE_PROVIDER,
 #endif
 		&pp_iface_info);
 
-#if IN_NEMO_EXTENSION
+#ifdef IN_NEMO_EXTENSION
 	const GInterfaceInfo nd_iface_info = {
 		(GInterfaceInitFunc)gtkhash_properties_nd_iface_init,
 		(GInterfaceFinalizeFunc)NULL,
@@ -585,15 +585,15 @@ static void gtkhash_properties_register_type(GTypeModule *module)
 	#define PUBLIC G_MODULE_EXPORT
 #endif
 
-#if IN_NAUTILUS_EXTENSION
+#if defined(IN_NAUTILUS_EXTENSION)
 PUBLIC void nautilus_module_initialize(GTypeModule *module)
-#elif IN_CAJA_EXTENSION
+#elif defined(IN_CAJA_EXTENSION)
 PUBLIC void caja_module_initialize(GTypeModule *module)
-#elif IN_NEMO_EXTENSION
+#elif defined(IN_NEMO_EXTENSION)
 PUBLIC void nemo_module_initialize(GTypeModule *module)
-#elif IN_PEONY_EXTENSION
+#elif defined(IN_PEONY_EXTENSION)
 PUBLIC void peony_module_initialize(GTypeModule *module)
-#elif IN_THUNAR_EXTENSION
+#elif defined(IN_THUNAR_EXTENSION)
 PUBLIC void thunar_extension_initialize(GTypeModule *module);
 PUBLIC void thunar_extension_initialize(GTypeModule *module)
 #endif
@@ -605,40 +605,40 @@ PUBLIC void thunar_extension_initialize(GTypeModule *module)
 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
 #endif
 
-#if IN_NEMO_EXTENSION
+#ifdef IN_NEMO_EXTENSION
 	gtkhash_properties_nd_string = g_strdup_printf("GtkHash:::%s",
 		_("Calculate message digests or checksums"));
 #endif
 }
 
-#if IN_NAUTILUS_EXTENSION
+#if defined(IN_NAUTILUS_EXTENSION)
 PUBLIC void nautilus_module_shutdown(void)
-#elif IN_CAJA_EXTENSION
+#elif defined(IN_CAJA_EXTENSION)
 PUBLIC void caja_module_shutdown(void)
-#elif IN_NEMO_EXTENSION
+#elif defined(IN_NEMO_EXTENSION)
 PUBLIC void nemo_module_shutdown(void)
-#elif IN_PEONY_EXTENSION
+#elif defined(IN_PEONY_EXTENSION)
 PUBLIC void peony_module_shutdown(void)
-#elif IN_THUNAR_EXTENSION
+#elif defined(IN_THUNAR_EXTENSION)
 PUBLIC void thunar_extension_shutdown(void);
 PUBLIC void thunar_extension_shutdown(void)
 #endif
 {
-#if IN_NEMO_EXTENSION
+#ifdef IN_NEMO_EXTENSION
 	g_free(gtkhash_properties_nd_string);
 	gtkhash_properties_nd_string = NULL;
 #endif
 }
 
-#if IN_NAUTILUS_EXTENSION
+#if defined(IN_NAUTILUS_EXTENSION)
 PUBLIC void nautilus_module_list_types(const GType **types, int *num_types)
-#elif IN_CAJA_EXTENSION
+#elif defined(IN_CAJA_EXTENSION)
 PUBLIC void caja_module_list_types(const GType **types, int *num_types)
-#elif IN_NEMO_EXTENSION
+#elif defined(IN_NEMO_EXTENSION)
 PUBLIC void nemo_module_list_types(const GType **types, int *num_types)
-#elif IN_PEONY_EXTENSION
+#elif defined(IN_PEONY_EXTENSION)
 PUBLIC void peony_module_list_types(const GType **types, int *num_types)
-#elif IN_THUNAR_EXTENSION
+#elif defined(IN_THUNAR_EXTENSION)
 PUBLIC void thunar_extension_list_types(const GType **types, int *num_types);
 PUBLIC void thunar_extension_list_types(const GType **types, int *num_types)
 #endif

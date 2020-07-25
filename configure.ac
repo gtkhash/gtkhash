@@ -41,6 +41,7 @@ for opt in \
 	-Wredundant-decls \
 	-Wshadow \
 	-Wswitch-default \
+	-Wundef \
 	-Wwrite-strings \
 	-Wno-parentheses-equality
 do
