@@ -35,6 +35,12 @@ for opt in \
 	-Wcast-align \
 	-Winit-self \
 	-Wfloat-equal \
+	-Wformat \
+	-Wformat-nonliteral \
+	-Wformat-overflow \
+	-Wformat-security \
+	-Wformat-signedness \
+	-Wformat-truncation \
 	-Wlogical-op \
 	-Wmissing-declarations \
 	-Wmissing-noreturn \

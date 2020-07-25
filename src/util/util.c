@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -27,7 +27,7 @@
 #include "util.h"
 #include "../main.h"
 
-static char *gtkhash_format_time_left(const int s)
+static char *gtkhash_format_time_left(const unsigned int s)
 {
 	if (s > 60) {
 		const unsigned int m = s / 60;

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -30,14 +30,24 @@
 
 #include "digest.h"
 
-// Returns a newly-allocated string containing a digest in hex
-static char *gtkhash_digest_get_hex(struct digest_s *digest, bool upper)
+// Returns a newly-allocated lowercase hexadecimal digest string
+static char *gtkhash_digest_get_hex_lower(struct digest_s *digest)
 {
 	char *ret = g_malloc((digest->size * 2) + 1);
-	const char *format_str = upper ? "%.2X" : "%.2x";
 
-	for (size_t i = 0; i < digest->size; i++)
-		snprintf(&ret[i * 2], 3, format_str, digest->bin[i]);
+	for (uint8_t i = 0; i < digest->size; i++)
+		snprintf(&ret[i * 2], 3, "%.2x", digest->bin[i]);
+
+	return ret;
+}
+
+// Returns a newly-allocated uppercase hexadecimal digest string
+static char *gtkhash_digest_get_hex_upper(struct digest_s *digest)
+{
+	char *ret = g_malloc((digest->size * 2) + 1);
+
+	for (uint8_t i = 0; i < digest->size; i++)
+		snprintf(&ret[i * 2], 3, "%.2X", digest->bin[i]);
 
 	return ret;
 }
@@ -76,9 +86,9 @@ char *gtkhash_digest_get_data(struct digest_s *digest,
 
 	switch (format) {
 		case DIGEST_FORMAT_HEX_LOWER:
-			return gtkhash_digest_get_hex(digest, false);
+			return gtkhash_digest_get_hex_lower(digest);
 		case DIGEST_FORMAT_HEX_UPPER:
-			return gtkhash_digest_get_hex(digest, true);
+			return gtkhash_digest_get_hex_upper(digest);
 		case DIGEST_FORMAT_BASE64:
 			return g_base64_encode(digest->bin, digest->size);
 
