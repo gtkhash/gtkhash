@@ -290,6 +290,7 @@ typedef struct {
 ** and hex formats (st->hashval and st->hexhashval).
 */
 
+#if 0
 extern int md6_init( md6_state *st,             /* state to initialize */
 		     int d                          /* hash bit length */
 		     );
@@ -310,6 +311,7 @@ extern int md6_update( md6_state *st,             /* initialized state */
 extern int md6_final( md6_state *st,            /* initialized/updated */
 		      unsigned char *hashval       /* output; NULL OK  */
 		      );
+#endif
 
 /* MD6 main interface routines
 **

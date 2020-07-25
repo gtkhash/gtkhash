@@ -154,7 +154,8 @@ extern int md6_full_hash( int d,                    /* hash bit length */
 
 /* Default number of rounds                                    */
 /* (as a function of digest size d and keylen                  */
-static int md6_default_r( int d ,
+static
+int md6_default_r( int d ,
                    int keylen )
 { int r;
   /* Default number of rounds is forty plus floor(d/4) */
@@ -270,7 +271,7 @@ static const md6_word Q[120] =
 /* routines for dealing with byte ordering */
 
 #if 0
-static int md6_byte_order = 0;    
+int md6_byte_order = 0;    
 /* md6_byte_order describes the endianness of the 
 ** underlying machine:
 ** 0 = unknown
@@ -285,7 +286,7 @@ static int md6_byte_order = 0;
 #define MD6_LITTLE_ENDIAN (md6_byte_order == 1)
 #define MD6_BIG_ENDIAN    (md6_byte_order == 2)
  
-static void md6_detect_byte_order( void )
+void md6_detect_byte_order( void )
 /* determine if underlying machine is little-endian or big-endian
 ** set global variable md6_byte_order to reflect result
 ** Written to work for any w.
@@ -298,7 +299,8 @@ static void md6_detect_byte_order( void )
 }
 #endif
 
-static md6_word md6_byte_reverse( md6_word x )
+static
+md6_word md6_byte_reverse( md6_word x )
 /* return byte-reversal of md6_word x.
 ** Written to work for any w, w=8,16,32,64.
 */
@@ -317,7 +319,8 @@ static md6_word md6_byte_reverse( md6_word x )
   return x;
 }
 
-static void md6_reverse_little_endian( md6_word *x, int count )
+static
+void md6_reverse_little_endian( md6_word *x, int count )
 /* Byte-reverse words x[0...count-1] if machine is little_endian */
 {
   int i;
@@ -329,7 +332,8 @@ static void md6_reverse_little_endian( md6_word *x, int count )
 /* Appending one bit string onto another.
 */
 
-static void append_bits( unsigned char *dest, unsigned int destlen,
+static
+void append_bits( unsigned char *dest, unsigned int destlen,
 		  unsigned char *src,  unsigned int srclen )
 /* Append bit string src to the end of bit string dest
 ** Input:
@@ -392,6 +396,7 @@ static void append_bits( unsigned char *dest, unsigned int destlen,
 ** 
 */
 
+static
 int md6_full_init( md6_state *st,       /* uninitialized state to use */
 		   int d,                          /* hash bit length */
 		   unsigned char *key,        /* key; OK to give NULL */
@@ -456,6 +461,7 @@ int md6_full_init( md6_state *st,       /* uninitialized state to use */
 **
 */
 
+static
 int md6_init( md6_state *st,
 	      int d 
 	      )
@@ -513,7 +519,8 @@ Here are some notes on the data structures used (inside state).
 /* Compress one block -- compress data at a node (md6_compress_block).
 */
 
-static int md6_compress_block( md6_word *C,
+static
+int md6_compress_block( md6_word *C,
 			md6_state *st, 
 			int ell, 
 			int z
@@ -577,7 +584,8 @@ static int md6_compress_block( md6_word *C,
 /* Process (compress) a node and its compressible ancestors.
 */
 
-static int md6_process( md6_state *st,
+static
+int md6_process( md6_state *st,
 		 int ell,
 		 int final )
 /*
@@ -663,6 +671,7 @@ static int md6_process( md6_state *st,
 /* Update -- incorporate data string into hash computation.
 */
 
+static
 int md6_update( md6_state *st, 
 		unsigned char *data, 
 		uint64_t databitlen )
@@ -725,7 +734,8 @@ int md6_update( md6_state *st,
 /* Convert hash value to hexadecimal, and store it in state.
 */
 
-static int md6_compute_hex_hashval( md6_state *st )
+static
+int md6_compute_hex_hashval( md6_state *st )
 /*
 ** Convert hashval in st->hashval into hexadecimal, and
 ** save result in st->hexhashval
@@ -758,7 +768,8 @@ static int md6_compute_hex_hashval( md6_state *st )
 /* Extract last d bits of chaining variable as hash value.
 */
 
-static void trim_hashval(md6_state *st)
+static
+void trim_hashval(md6_state *st)
 { /* trim hashval to desired length d bits by taking only last d bits */
   /* note that high-order bit of a byte is considered its *first* bit */
   int full_or_partial_bytes = (st->d+7)/8;
@@ -786,6 +797,7 @@ static void trim_hashval(md6_state *st)
 /* Final -- no more data; finish up and produce hash value.
 */
 
+static
 int md6_final( md6_state *st , unsigned char *hashval)
 /* Do final processing to produce md6 hash value
 ** Input:
@@ -825,7 +837,7 @@ int md6_final( md6_state *st , unsigned char *hashval)
 
   /* md6_process has saved final chaining value in st->hashval */
 
-  md6_reverse_little_endian( (md6_word*)(void*)st->hashval, c );
+  md6_reverse_little_endian( (md6_word*)st->hashval, c );
 
   /* 4/15/09: Following two lines were previously out of order, which 
   **          caused errors depending on whether caller took hash output 

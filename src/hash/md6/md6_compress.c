@@ -113,8 +113,8 @@
 #define RL14 loop_body( 6,31,14)
 #define RL15 loop_body(12, 9,15)
 
-static const md6_word S0 = (md6_word)0x0123456789abcdefULL;
-static const md6_word Smask = (md6_word)0x7311c2812425cfa0ULL;
+const md6_word S0 = (md6_word)0x0123456789abcdefULL;
+const md6_word Smask = (md6_word)0x7311c2812425cfa0ULL;
 
 #elif (w==32)                      /* for variant word size */
 #define RL00 loop_body( 5, 4, 0)
@@ -134,8 +134,8 @@ static const md6_word Smask = (md6_word)0x7311c2812425cfa0ULL;
 #define RL14 loop_body( 7, 2,14)
 #define RL15 loop_body( 5,11,15)
 
-static const md6_word S0 = (md6_word)0x01234567UL;
-static const md6_word Smask = (md6_word)0x7311c281UL;
+const md6_word S0 = (md6_word)0x01234567UL;
+const md6_word Smask = (md6_word)0x7311c281UL;
 
 /* Loop-unrolling setup (continued).
 **
@@ -160,8 +160,8 @@ static const md6_word Smask = (md6_word)0x7311c281UL;
 #define RL14 loop_body( 7, 4,14)
 #define RL15 loop_body( 2, 3,15)
 
-static const md6_word S0 = (md6_word)0x01234;
-static const md6_word Smask = (md6_word)0x7311;
+const md6_word S0 = (md6_word)0x01234;
+const md6_word Smask = (md6_word)0x7311;
 
 #elif (w==8)                     /* for variant word size */
 
@@ -182,8 +182,8 @@ static const md6_word Smask = (md6_word)0x7311;
 #define RL14 loop_body( 2, 3,14)
 #define RL15 loop_body( 3, 4,15)
 
-static const md6_word S0 = (md6_word)0x01;
-static const md6_word Smask = (md6_word)0x73;
+const md6_word S0 = (md6_word)0x01;
+const md6_word Smask = (md6_word)0x73;
 
 #endif
 
@@ -191,7 +191,8 @@ static const md6_word Smask = (md6_word)0x73;
 **
 */
 
-static void md6_main_compression_loop( md6_word* A , int r )
+static
+void md6_main_compression_loop( md6_word* A , int r )
 /*
 ** Perform the md6 "main compression loop" on the array A.
 ** This is where most of the computation occurs; it is the "heart"
@@ -242,7 +243,8 @@ static void md6_main_compression_loop( md6_word* A , int r )
 ** Compresses n-word input to c-word output.
 */
 
-static int md6_compress( md6_word *C,
+static
+int md6_compress( md6_word *C,
 		  md6_word *N,
 		  int r,
 		  md6_word *A
@@ -290,7 +292,8 @@ static int md6_compress( md6_word *C,
 /* Control words.
 */
 
-static md6_control_word md6_make_control_word(	int r, 
+static
+md6_control_word md6_make_control_word(	int r, 
 					int L, 
 					int z, 
 					int p, 
@@ -323,7 +326,8 @@ static md6_control_word md6_make_control_word(	int r,
 /* Node ID's.
 */
 
-static md6_nodeID md6_make_nodeID( int ell,                     /* level number */
+static
+md6_nodeID md6_make_nodeID( int ell,                     /* level number */
 			      int i    /* index (0,1,2,...) within level */
 			    )
 /* Make "unique nodeID" U based on level ell and position i 
@@ -344,7 +348,8 @@ static md6_nodeID md6_make_nodeID( int ell,                     /* level number 
 /* Assembling components of compression input.
 */
 
-static void md6_pack( md6_word*N,
+static
+void md6_pack( md6_word*N,
 	       const md6_word* Q,
 	       md6_word* K,
 	       int ell, int i,
@@ -388,7 +393,8 @@ static void md6_pack( md6_word*N,
 /* Standard compress: assemble components and then compress
 */
 
-static int md6_standard_compress( md6_word* C,
+static
+int md6_standard_compress( md6_word* C,
 			   const md6_word* Q,
 			   md6_word* K,
 			   int ell, int i,
@@ -421,15 +427,15 @@ static int md6_standard_compress( md6_word* C,
   md6_word A[5000];       /* MS VS can't handle variable size here */
 
   /* check that input values are sensible */
-  if ( C == NULL ) return MD6_NULL_C;
-  if ( B == NULL ) return MD6_NULL_B;
+  if ( (C == NULL) ) return MD6_NULL_C;
+  if ( (B == NULL) ) return MD6_NULL_B;
   if ( (r<0) | (r>md6_max_r) ) return MD6_BAD_r;
   if ( (L<0) | (L>255) ) return MD6_BAD_L;
   if ( (ell < 0) || (ell > 255) ) return MD6_BAD_ELL;
   if ( (p < 0) || (p > b*w ) ) return MD6_BAD_p;
   if ( (d <= 0) || (d > c*w/2) ) return MD6_BADHASHLEN;
-  if ( K == NULL ) return MD6_NULL_K;
-  if ( Q == NULL ) return MD6_NULL_Q;
+  if ( (K == NULL) ) return MD6_NULL_K;
+  if ( (Q == NULL) ) return MD6_NULL_Q;
 
   /* pack components into N for compression */
   md6_pack(N,Q,K,ell,i,r,L,z,p,keylen,d,B);

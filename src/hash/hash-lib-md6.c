@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -26,7 +26,10 @@
 #include <stdint.h>
 #include <glib.h>
 
+#define MD6_LITTLE_ENDIAN (G_BYTE_ORDER == G_LITTLE_ENDIAN)
 #include "md6/md6.h"
+#include "md6/md6_compress.c"
+#include "md6/md6_mode.c"
 
 #include "hash-lib.h"
 #include "hash-func.h"

@@ -22,7 +22,10 @@ hash_la_LIBADD = \
 	$(GLIB_LIBS) \
 	$(GIO_LIBS)
 
-EXTRA_DIST = md6/md6_compress.c md6/md6_mode.c
+EXTRA_DIST = \
+	md6/md6.h \
+	md6/md6_compress.c \
+	md6/md6_mode.c
 
 if ENABLE_BLAKE2
 hash_la_SOURCES += hash-lib-blake2.c
@@ -55,7 +58,7 @@ hash_la_LIBADD += $(MBEDTLS_LIBS)
 endif
 
 if ENABLE_MD6
-hash_la_SOURCES += hash-lib-md6.c md6/md6.c md6/md6.h
+hash_la_SOURCES += hash-lib-md6.c
 endif
 
 if ENABLE_NETTLE
