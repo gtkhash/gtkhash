@@ -792,25 +792,11 @@ void gui_check_digests(void)
 		const char *str_out = gtk_entry_get_text(entry);
 		const char *icon_out = NULL;
 
-		switch (format) {
-			case DIGEST_FORMAT_HEX_LOWER:
-			case DIGEST_FORMAT_HEX_UPPER:
-				if (*str_in && (g_ascii_strcasecmp(str_in, str_out) == 0)) {
-					// FIXME: find a real alternative for GTK_STOCK_YES
-					icon_out = "gtk-yes";
-					icon_in = "gtk-yes";
-				}
-				break;
-			case DIGEST_FORMAT_BASE64:
-				if (*str_in && (strcmp(str_in, str_out) == 0)) {
-					icon_out = "gtk-yes";
-					icon_in = "gtk-yes";
-				}
-				break;
-			default:
-				g_assert_not_reached();
+		if (*str_in && gtkhash_digest_format_compare(str_in, str_out, format)) {
+			// FIXME: find a real alternative for GTK_STOCK_YES
+			icon_out = "gtk-yes";
+			icon_in = "gtk-yes";
 		}
-
 		gtk_entry_set_icon_from_icon_name(entry, GTK_ENTRY_ICON_SECONDARY,
 			icon_out);
 	}

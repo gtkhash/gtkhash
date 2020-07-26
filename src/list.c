@@ -31,6 +31,7 @@
 #include "main.h"
 #include "hash.h"
 #include "gui.h"
+#include "hash/digest-format.h"
 
 enum {
 	COL_STATUS,    // 0
@@ -307,20 +308,8 @@ void list_check_digests(const unsigned int row)
 		gtk_tree_model_get_value(gui.treemodel, &iter, list_priv.hash_cols[i],
 			&digest);
 
-		switch (format) {
-			case DIGEST_FORMAT_HEX_LOWER:
-			case DIGEST_FORMAT_HEX_UPPER:
-				if (g_ascii_strcasecmp(g_value_get_string(&digest), check) == 0)
-					match = true;
-				break;
-			case DIGEST_FORMAT_BASE64:
-				if (strcmp(g_value_get_string(&digest), check) == 0)
-					match = true;
-				break;
-
-			default:
-				g_assert_not_reached();
-		}
+		const char *digest_str = g_value_get_string(&digest);
+		match = gtkhash_digest_format_compare(digest_str, check, format);
 
 		g_value_unset(&digest);
 	}

@@ -29,6 +29,7 @@
 #include "properties-list.h"
 #include "properties-hash.h"
 #include "../hash/hash-func.h"
+#include "../hash/digest-format.h"
 
 enum {
 	COL_ID,
@@ -162,14 +163,11 @@ void gtkhash_properties_list_check_digests(struct page_s *page)
 			char *digest = NULL;;
 			gtk_tree_model_get(model, &iter, COL_DIGEST, &digest, -1);
 
-			if (g_ascii_strcasecmp(check, digest) == 0) {
-				// FIXME: find a real alternative for GTK_STOCK_YES
+			if (gtkhash_digest_format_compare(check, digest, DIGEST_FORMAT_HEX_LOWER))
 				icon = "gtk-yes";
-				break;
-			}
 
 			g_free(digest);
-		} while (gtk_tree_model_iter_next(model, &iter));
+		} while (!icon && gtk_tree_model_iter_next(model, &iter));
 	}
 
 	gtk_entry_set_icon_from_icon_name(page->entry_check,
