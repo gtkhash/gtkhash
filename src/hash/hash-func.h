@@ -26,7 +26,7 @@
 
 #include "digest-format.h"
 
-#define HASH_FUNCS_N (HASH_FUNC_ADLER32 + 1)
+#define HASH_FUNCS_N (HASH_FUNC_XXH64 + 1)
 #define HASH_FUNC_IS_VALID(X) (((X) >= 0) && ((X) < HASH_FUNCS_N))
 #define HASH_FUNC_IS_DEFAULT(X) ( \
 	(X) == HASH_FUNC_MD5 || \
@@ -70,6 +70,7 @@ enum hash_func_e {
 	HASH_FUNC_CRC32,
 	HASH_FUNC_CRC32C,
 	HASH_FUNC_ADLER32,
+	HASH_FUNC_XXH64,
 };
 
 struct hash_func_s {

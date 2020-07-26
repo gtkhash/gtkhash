@@ -65,6 +65,7 @@ static const char *gtkhash_hash_lib_linux_get_name(const enum hash_func_e id)
 		case HASH_FUNC_SHA3_512:  return "sha3-512";
 		case HASH_FUNC_TIGER192:  return "tgr192";
 		case HASH_FUNC_WHIRLPOOL: return "wp512";
+		case HASH_FUNC_XXH64:     return "xxhash64";
 
 		default:
 			return NULL;
@@ -166,16 +167,31 @@ void gtkhash_hash_lib_linux_stop(struct hash_func_s *func)
 
 uint8_t *gtkhash_hash_lib_linux_finish(struct hash_func_s *func, size_t *size)
 {
-	uint8_t *digest = g_malloc(func->digest_size);
-	*size = read(LIB_DATA->connfd, digest, func->digest_size);
+	uint8_t *digest = NULL;
+
+	// Kernel CRC32C, XXH64 are little-endian
+	if (func->id == HASH_FUNC_CRC32C || func->id == HASH_FUNC_XXH64) {
+		union {
+			uint64_t u64;
+			uint32_t u32;
+		} digest_u;
+
+		*size = read(LIB_DATA->connfd, &digest_u, func->digest_size);
+
+		if (func->digest_size == 8)
+			digest_u.u64 = GUINT64_SWAP_LE_BE(digest_u.u64);
+		else if (func->digest_size == 4)
+			digest_u.u32 = GUINT32_SWAP_LE_BE(digest_u.u32);
+
+		digest = g_memdup(&digest_u, func->digest_size);
+	} else {
+		digest = g_malloc(func->digest_size);
+		*size = read(LIB_DATA->connfd, digest, func->digest_size);
+	}
 
 	close(LIB_DATA->connfd);
 	close(LIB_DATA->sockfd);
 	g_free(LIB_DATA);
-
-	// Kernel CRC32C is little-endian
-	if (func->id == HASH_FUNC_CRC32C)
-		*(uint32_t *)digest = GUINT32_SWAP_LE_BE(*(uint32_t *)digest);
 
 	return digest;
 }
