@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2020-05-07 11:12+0000\n"
+"PO-Revision-Date: 2020-07-31 08:27+0000\n"
 "Last-Translator: Oymate <dhruboadittya96@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/bn_BD/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -39,18 +39,14 @@ msgid "_File"
 msgstr "_ফাইল"
 
 #: data/gtkhash-gtk3.ui:149
-#, fuzzy
-#| msgid "Open Digest File"
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "ডাইজেস্ট ফাইল খুলুন"
+msgstr "_ডাইজেস্ট ফাইল খুলুন…"
 
 #: data/gtkhash-gtk3.ui:160
-#, fuzzy
-#| msgid "Save Digest File"
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "ডাইজেস্ট ফাইল সংরক্ষণ করুন"
+msgstr "_ডাইজেস্ট ফাইল সংরক্ষণ করো…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -107,16 +103,12 @@ msgid "GtkHash Preferences"
 msgstr "জিটিকেহ্যাশ পছন্দসমূহ"
 
 #: data/gtkhash-gtk3.ui:1039
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
-msgstr "হ্যাশ ক্রিয়া:"
+msgstr "হ্যাশ ক্রিয়া"
 
 #: data/gtkhash-gtk3.ui:1070
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
-msgstr "হ্যাশ ক্রিয়া:"
+msgstr "ম্যাক ক্রিয়া"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
@@ -146,10 +138,8 @@ msgid "_Cancel"
 msgstr "_বাতিল"
 
 #: src/callbacks.c:73
-#, fuzzy
-#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "ডাইজেস্ট /চেকসাম ফাইলগুলি (*.sha1, *.md5, *.sfv, ...)"
+msgstr "ডাইজেস্ট /চেকসাম ফাইলগুলি (*.sha1, *.md5, *.sfv, …)”"
 
 #: src/callbacks.c:78
 msgid "All Files"
@@ -300,10 +290,8 @@ msgstr "H_ash"
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.peony.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "পরীক্ষা করুন:"
+msgstr "পরীক্ষার ফল"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
