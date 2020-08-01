@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR GtkHash authors
+# This file is distributed under the same license as the gtkhash package.
 # Oymate <dhruboadittya96@gmail.com>, 2020.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2020-07-31 08:27+0000\n"
+"PO-Revision-Date: 2020-07-31 09:41+0000\n"
 "Last-Translator: Oymate <dhruboadittya96@gmail.com>\n"
-"Language-Team: Bengali (Bangladesh) <https://hosted.weblate.org/projects/"
-"gtkhash/translations/bn_BD/>\n"
-"Language: bn_BD\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/gtkhash/"
+"translations/bn/>\n"
+"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.2-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
@@ -254,13 +254,13 @@ msgstr[1] "%u মিনিট বাকি"
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] "%u সেকেন্ড বাকি"
-msgstr[1] "%u সেকেন্ড বাকি"
+msgstr[0] "%u মিনিট বাকি"
+msgstr[1] "%u মিনিট বাকি"
 
 #: src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s এর %s - %s(%s/সেকেন্ড)"
+msgstr "%s of %s - %s (%s/sec)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
@@ -299,8 +299,8 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
-"ফাইল বা বার্তা ডাইজেস্টের জন্য জিটিকেহ্যাশ একটি অ্যাপ্লিকেশন। এটি এমডি৫সামের মতো "
-"কমান্ড-লাইন প্রোগ্রামগুলির গ্রাফিকাল বিকল্প, যা সহজে ব্যবহারযোগ্য।"
+"ফাইল বা বার্তা ডাইজেস্টের জন্য জিটিকেহ্যাশ একটি অ্যাপ্লিকেশন। এটি এমডি৫সামের "
+"মতো কমান্ড-লাইন প্রোগ্রামগুলির গ্রাফিকাল বিকল্প, যা সহজে ব্যবহারযোগ্য।"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
@@ -313,14 +313,3 @@ msgstr "সমর্থিত হ্যাশ ফাংশন অন্তর্
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
 msgstr "ফাইলের বৈশিষ্ট্যে বার্তা ডাইজেস্ট বা চেকসাম যুক্ত করে"
-
-#~ msgid "Digests"
-#~ msgstr "ডাইজেস্ট"
-
-#~ msgctxt "menu"
-#~ msgid "_Open Digest File..."
-#~ msgstr "_ডাইজেস্ট ফাইল খুলুন..."
-
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "_ডাইজেস্ট ফাইল সংরক্ষণ করুন..."
