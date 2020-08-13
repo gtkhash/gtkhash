@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 # Igor <f2404@yandex.ru>, 2018, 2019.
+# Alexey Napalkov <flynbit@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2019-04-27 16:48+0000\n"
-"Last-Translator: Igor <f2404@yandex.ru>\n"
+"PO-Revision-Date: 2020-08-10 10:32+0000\n"
+"Last-Translator: Alexey Napalkov <flynbit@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ru/>\n"
 "Language: ru\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.2-dev\n"
 "X-Launchpad-Export-Date: 2016-03-16 05:31+0000\n"
 
 #: data/gtkhash-gtk3.ui:12
@@ -42,18 +43,14 @@ msgid "_File"
 msgstr "_Файл"
 
 #: data/gtkhash-gtk3.ui:149
-#, fuzzy
-#| msgid "Open Digest File"
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Открыть файл дайджеста"
+msgstr "Открыть файл дайджеста…"
 
 #: data/gtkhash-gtk3.ui:160
-#, fuzzy
-#| msgid "Save Digest File"
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Сохранить файл дайджеста"
+msgstr "Сохранить файл дайджеста…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -110,16 +107,12 @@ msgid "GtkHash Preferences"
 msgstr "Настройки GtkHash"
 
 #: data/gtkhash-gtk3.ui:1039
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
-msgstr "Хеш функции:"
+msgstr "Хеш-функции"
 
 #: data/gtkhash-gtk3.ui:1070
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
-msgstr "Хеш функции:"
+msgstr "MAC-функции"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
@@ -149,10 +142,8 @@ msgid "_Cancel"
 msgstr "_Отмена"
 
 #: src/callbacks.c:73
-#, fuzzy
-#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "Файлы дайджестов/контрольных сумм (*.sha1, *.md5, *.sfv, ...)"
+msgstr "Файлы дайджестов/контрольных сумм (*.sha1, *.md5, *.sfv, …)"
 
 #: src/callbacks.c:78
 msgid "All Files"
@@ -308,10 +299,8 @@ msgstr "Х_еш"
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.peony.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "Сравнить:"
+msgstr "Контрольные суммы"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
