@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Rui Mendes <xz9@protonmail.com>, 2019.
+# ssantos <ssantos@web.de>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2019-04-24 10:48+0000\n"
-"Last-Translator: Rui Mendes <xz9@protonmail.com>\n"
+"PO-Revision-Date: 2020-08-23 14:36+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/gtkhash/"
 "translations/pt/>\n"
 "Language: pt\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 4.2.1-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -39,18 +40,14 @@ msgid "_File"
 msgstr "_Ficheiro"
 
 #: data/gtkhash-gtk3.ui:149
-#, fuzzy
-#| msgid "Open Digest File"
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Abrir ficheiro de resumo"
+msgstr "Abrir ficheir_o de resumo…"
 
 #: data/gtkhash-gtk3.ui:160
-#, fuzzy
-#| msgid "Save Digest File"
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Guardar ficheiro de resumo"
+msgstr "Gravar ficheiro de re_sumo…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -107,16 +104,12 @@ msgid "GtkHash Preferences"
 msgstr "Preferências do GtkHash"
 
 #: data/gtkhash-gtk3.ui:1039
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
-msgstr "Funções hash:"
+msgstr "Funções de hash"
 
 #: data/gtkhash-gtk3.ui:1070
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
-msgstr "Funções hash:"
+msgstr "Funções de MAC"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
@@ -146,10 +139,8 @@ msgid "_Cancel"
 msgstr "_Cancelar"
 
 #: src/callbacks.c:73
-#, fuzzy
-#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "Ficheiros de resumo / somas de verificação (*.sha1, *md5, *.sfv...)"
+msgstr "Ficheiros de resumo / somas de verificação (*.sha1, *md5, *.sfv, …)"
 
 #: src/callbacks.c:78
 msgid "All Files"
@@ -303,10 +294,8 @@ msgstr "H_ash"
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.peony.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "Verificar:"
+msgstr "Somas de verificação"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
