@@ -86,7 +86,7 @@ msgstr "检测："
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "从剪贴板粘贴摘要"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
@@ -132,7 +132,7 @@ msgstr "计算信息摘要或校验和"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "打开摘要文件"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
@@ -146,7 +146,7 @@ msgstr "取消(_C)"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr ""
+msgstr "摘要/校验 文件(*.sha1, *.md5, *.sfv, …)"
 
 #: src/callbacks.c:78
 #, fuzzy
@@ -232,12 +232,12 @@ msgstr "[文件|位置...]"
 #: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "启用指定的哈希函数 (e.g. MD5)"
 
 #: src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "函数"
 
 #: src/opts.c:114
 #, fuzzy
