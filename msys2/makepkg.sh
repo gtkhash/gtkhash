@@ -5,17 +5,12 @@ set -e
 
 cd "$(dirname "$0")"/..
 
-if [[ ! -f configure ]] ; then
-	./autogen.sh
-fi
+./autogen.sh
+./configure \
+	--disable-appstream \
+	--disable-blake2
 
-if [[ ! -f Makefile ]] ; then
-	./configure \
-		--disable-appstream \
-		--disable-blake2
-fi
-
-make -j$(nproc) dist-gzip
+make -j1 dist-gzip
 cp -avf gtkhash-*.tar.gz msys2/mingw-w64-gtkhash/gtkhash.tar.gz
 
 cd msys2/mingw-w64-gtkhash
