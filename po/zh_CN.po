@@ -2,22 +2,23 @@
 # Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
-#
+# pessoa <accounts@pessoa.cc>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2017-05-11 09:42+0800\n"
-"Last-Translator: Wang Dianjin <Unknown>\n"
-"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"PO-Revision-Date: 2020-11-06 13:26+0000\n"
+"Last-Translator: pessoa <accounts@pessoa.cc>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"gtkhash/translations/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-10 05:35+0000\n"
-"X-Generator: Poedit 1.8.11\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.3.2\n"
+"X-Launchpad-Export-Date: 2012-07-10 05:35+0000\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -106,10 +107,8 @@ msgid "GtkHash Preferences"
 msgstr "GtkHash 首选项"
 
 #: data/gtkhash-gtk3.ui:1039
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
-msgstr "哈希函数："
+msgstr "哈希函数"
 
 #: data/gtkhash-gtk3.ui:1070
 #, fuzzy
@@ -183,27 +182,23 @@ msgid "_Show HMAC Key"
 msgstr "显示HMAC键(_S)"
 
 #: src/check.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
-"无法读取 “%s”：\n"
-"%s"
+msgstr "无法读取 “%s”：%s"
 
 #: src/gui.c:308
 msgid "Not a regular file"
 msgstr "非常规文件"
 
 #: src/gui.c:331
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
-"无法添加“%s”：\n"
-"%s"
+msgstr "无法添加 “%s”：%s"
 
 #: src/hash.c:188 src/prefs.c:113
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "哈希函数："
+msgstr "未知哈希函数 “%s”"
 
 #: src/opts.c:97
 #, fuzzy
@@ -252,7 +247,6 @@ msgid "TEXT"
 msgstr "文本"
 
 #: src/opts.c:119
-#, fuzzy
 msgctxt " --help"
 msgid "Show version information"
 msgstr "显示版本信息"
