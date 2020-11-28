@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Giorgos Kostopoulos <giorgosk67@gmail.com>, 2019, 2020.
+# george k <norhorn@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2020-07-18 17:41+0000\n"
-"Last-Translator: Giorgos Kostopoulos <giorgosk67@gmail.com>\n"
+"PO-Revision-Date: 2020-11-28 18:29+0000\n"
+"Last-Translator: george k <norhorn@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtkhash/"
 "translations/el/>\n"
 "Language: el\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -116,12 +117,12 @@ msgstr "Σχήμα Σύνοψης:"
 
 #: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
-msgstr "Υπολογιστής  Αθροίσματος Ελέγχου"
+msgstr "Υπολογιστής αθροίσματος ελέγχου"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:610
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
-msgstr "Υπολογίστε συνόψεις μηνυμάτων ή  αθροίσματα ελέγχου"
+msgstr "Υπολογίστε συνόψεις μηνυμάτων ή αθροίσματα ελέγχου"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
@@ -174,9 +175,7 @@ msgstr "Προσθήκη checkbutton"
 #: src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
-"Αποτυχία ανάγνωσης αρχείου ελέγχου \"%s\":\n"
-"%s"
+msgstr "Αποτυχία ανάγνωσης αρχείου ελέγχου \"%s\": %s"
 
 #: src/gui.c:308
 msgid "Not a regular file"
@@ -185,9 +184,7 @@ msgstr "Μη κανονικό αρχείο"
 #: src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
-"Αποτυχία προσθήκης αρχείου \"%s\":\n"
-"%s"
+msgstr "Αποτυχία προσθήκης αρχείου \"%s\":%s"
 
 #: src/hash.c:188 src/prefs.c:113
 #, c-format
