@@ -6,13 +6,14 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2018.
 # nautilusx <mail.ka@mailbox.org>, 2019, 2020.
 # Milo Ivir <mail@milotype.de>, 2020.
+# Paul <paulwiesinger+weblate@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2020-07-04 23:41+0000\n"
-"Last-Translator: Milo Ivir <mail@milotype.de>\n"
+"PO-Revision-Date: 2020-12-07 18:29+0000\n"
+"Last-Translator: Paul <paulwiesinger+weblate@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtkhash/"
 "translations/de/>\n"
 "Language: de\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 "X-Launchpad-Export-Date: 2012-12-04 05:56+0000\n"
 
 #: data/gtkhash-gtk3.ui:12
@@ -317,8 +318,7 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
-"Unterstützte Hash-Funktionen umfassen MD5, MD5, SHA1, SHA256, SHA512 und "
-"CRC32."
+"Unterstützte Hash-Funktionen umfassen MD5, SHA1, SHA256, SHA512 und CRC32."
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
