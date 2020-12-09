@@ -299,8 +299,8 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
-"ফাইল বা বার্তা ডাইজেস্টের জন্য জিটিকেহ্যাশ একটি অ্যাপ্লিকেশন। এটি এমডি৫সামের "
-"মতো কমান্ড-লাইন প্রোগ্রামগুলির গ্রাফিকাল বিকল্প, যা সহজে ব্যবহারযোগ্য।"
+"ফাইল বা বার্তা ডাইজেস্টের জন্য জিটিকেহ্যাশ একটি অ্যাপ্লিকেশন। এটি এমডি৫সামের মতো "
+"কমান্ড-লাইন প্রোগ্রামগুলির গ্রাফিকাল বিকল্প, যা সহজে ব্যবহারযোগ্য।"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
