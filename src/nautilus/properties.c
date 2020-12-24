@@ -355,6 +355,8 @@ static void gtkhash_properties_init_objects(struct page_s *page,
 static void gtkhash_properties_connect_signals(struct page_s *page)
 {
 	// Main container
+	g_signal_connect_swapped(page->box, "realize",
+		G_CALLBACK(gtkhash_properties_on_button_hash_clicked), page);
 	g_signal_connect_swapped(page->box, "destroy",
 		G_CALLBACK(gtkhash_properties_free_page), page);
 
