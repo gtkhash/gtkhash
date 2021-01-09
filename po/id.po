@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2021-01-07 16:29+0000\n"
+"PO-Revision-Date: 2021-01-09 13:32+0000\n"
 "Last-Translator: Ferdinand Tampubolon <dnandz@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/id/>\n"
@@ -155,7 +155,7 @@ msgstr "_Simpan"
 
 #: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
-msgstr "Suatu Desktop Utilitas untuk Inti Pesan Komputer  atau ceksum"
+msgstr "Suatu Desktop Utilitas untuk Inti Pesan Komputer atau ceksum"
 
 #: src/callbacks.c:279
 msgid "translator-credits"
