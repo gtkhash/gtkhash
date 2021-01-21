@@ -7,276 +7,280 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-01-22 00:39+0000\n"
+"Last-Translator: Cao Nguyen <intansemc2@gmail.com>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/gtkhash/"
+"translations/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
-msgstr ""
+msgstr "Chữ số hệ 16 in thường"
 
 #: data/gtkhash-gtk3.ui:15
 msgid "Uppercase Hexadecimal"
-msgstr ""
+msgstr "Chữ số hệ 16 in hoa"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
-msgstr ""
+msgstr "Sao chép _Chữ số"
 
 #: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
-msgstr ""
+msgstr "Hiện _Thanh công cụ"
 
 #: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
 msgid "_File"
-msgstr ""
+msgstr "_Tập tin"
 
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr ""
+msgstr "_Open Tập tin …"
 
 #: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr ""
+msgstr "_Lưu ra tập tin …"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
-msgstr ""
+msgstr "_Biên tập"
 
 #: data/gtkhash-gtk3.ui:280
 msgid "_View"
-msgstr ""
+msgstr "_Hiển thị"
 
 #: data/gtkhash-gtk3.ui:300
 msgid "_Text"
-msgstr ""
+msgstr "_Văn bản"
 
 #: data/gtkhash-gtk3.ui:310
 msgid "File _List"
-msgstr ""
+msgstr "_Danh sách Tập tin"
 
 #: data/gtkhash-gtk3.ui:324
 msgid "_Help"
-msgstr ""
+msgstr "_Hỗ trợ"
 
 #: data/gtkhash-gtk3.ui:429
 msgid "File:"
-msgstr ""
+msgstr "Tập tin:"
 
 #: data/gtkhash-gtk3.ui:442
 msgid "Text:"
-msgstr ""
+msgstr "Văn bản:"
 
 #: data/gtkhash-gtk3.ui:455 data/nautilus/gtkhash-properties.ui:144
 msgid "Check:"
-msgstr ""
+msgstr "Kiểm tra:"
 
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "Dán các chữ số từ vùng nhớ đệm"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
 msgid "HMAC Key:"
-msgstr ""
+msgstr "Khóa HMAC:"
 
 #: data/gtkhash-gtk3.ui:783
 msgid "File"
-msgstr ""
+msgstr "Tập tin"
 
 #: data/gtkhash-gtk3.ui:887
 msgid "Ha_sh"
-msgstr ""
+msgstr "Ha_sh"
 
 #: data/gtkhash-gtk3.ui:953
 msgid "GtkHash Preferences"
-msgstr ""
+msgstr "Tùy chỉnh GtkHash"
 
 #: data/gtkhash-gtk3.ui:1039
 msgid "Hash Functions"
-msgstr ""
+msgstr "Các hàm băm"
 
 #: data/gtkhash-gtk3.ui:1070
 msgid "MAC Functions"
-msgstr ""
+msgstr "Các hàm MAC"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
-msgstr ""
+msgstr "Định dạng các chữ số:"
 
 #: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
-msgstr ""
+msgstr "Công cụ Kiểm tra tổng"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:610
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
-msgstr ""
+msgstr "Tính toán thông báo các chữ số hoặc kiểm tra tổng"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "Mở tập tin chứa các chữ số"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
 msgid "_Open"
-msgstr ""
+msgstr "_Mở"
 
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
 #: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
 msgid "_Cancel"
-msgstr ""
+msgstr "_Hủy"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr ""
+msgstr "Các tập tin chứa các Chữ số/Kiểm tra tổng (*.sha1, *.md5, *.sfv, …)"
 
 #: src/callbacks.c:78
 msgid "All Files"
-msgstr ""
+msgstr "Tất cả các tập tin"
 
 #: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
-msgstr ""
+msgstr "Lưu các Chữ số ra tập tin"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
-msgstr ""
+msgstr "_Lưu"
 
 #: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
+msgstr "Một phần mềm tính toán thông báo các chữ số hoặc kiểm tra tổng"
 
 #: src/callbacks.c:279
 msgid "translator-credits"
 msgstr ""
+"Nguyen Cao \n"
+"Nguyen Cao <intansemc2@gmail.com>"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
-msgstr ""
+msgstr "Chọn tập tin"
 
 #: src/callbacks.c:529 src/nautilus/properties.c:256
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "_Hiện Khóa HMAC"
 
 #: src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
+msgstr "Không thể đọc tập tin kiểm tra \"%s\": %s"
 
 #: src/gui.c:308
 msgid "Not a regular file"
-msgstr ""
+msgstr "Không phải một tập tin thông thường"
 
 #: src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
+msgstr "Không thể thêm tập tin \"%s\": %s"
 
 #: src/hash.c:188 src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr ""
+msgstr "Tên hàm Băm không xác định \"%s\""
 
 #: src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr ""
+msgstr "Kiểm tra với các kí tự và chữ số đặc biệt"
 
 #: src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
-msgstr ""
+msgstr "CHỮ SỐ"
 
 #: src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr ""
+msgstr "Kiểm tra các chữ số hoặc kiểm tra tổng từ một tập tin nào đó"
 
 #: src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr ""
+msgstr "TẬP TIN|URI"
 
 #: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "Sử dụng một hàm băm đặc biệt (ví dụ như MD5)"
 
 #: src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "HÀM BĂM"
 
 #: src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr ""
+msgstr "Băm một đoạn văn bản nào đó"
 
 #: src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
-msgstr ""
+msgstr "VĂN BẢN"
 
 #: src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr ""
+msgstr "Hiện thông tin phiên bản"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr ""
+msgstr "[TẬP TIN|URI ...]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr ""
+msgstr "Không thể kích hoạt bất kì hàm băm nào."
 
 #: src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
+msgstr[0] "còn %u phút nữa"
 
 #: src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
+msgstr[0] "còn %u giây nữa"
 
 #: src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr ""
+msgstr "%s của %s - %s (%s/giây)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
-msgstr ""
+msgstr "_Sao chép Chữ số"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
-msgstr ""
+msgstr "Hiện các hàm băm bị _Ẩn"
 
 #: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
-msgstr ""
+msgstr "Hàm băm"
 
 #: data/nautilus/gtkhash-properties.ui:106
 msgid "Digest"
-msgstr ""
+msgstr "Chữ số"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
-msgstr ""
+msgstr "B_ăm"
 
 #: src/nautilus/properties.c:479 src/nautilus/properties.c:482
 #: src/nautilus/properties.c:485 src/nautilus/properties.c:488
@@ -287,7 +291,7 @@ msgstr ""
 #: data/appdata/org.gtkhash.peony.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
 msgid "Checksums"
-msgstr ""
+msgstr "Kiểm tra tổng"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
@@ -295,10 +299,13 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash là một ứng dụng dùng để tính toán kiểm tra tổng của tập tin hoặc của "
+"các kí tự trong văn bản. Nó được thiết kế để dễ sử dụng, giúp dử dụng giao "
+"diện đồ họa cho các chương trình dòng lệnh như md5sum."
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
+msgstr "Hỗ trợ các hàm băm như MD5, SHA1, SHA256, SHA512 và CRC32."
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
@@ -306,4 +313,4 @@ msgstr ""
 #: data/appdata/org.gtkhash.peony.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
-msgstr ""
+msgstr "Thêm các kết quả băm và kiểm tra tổng vào thuộc tính của tập tin"
