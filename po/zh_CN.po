@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # pessoa <accounts@pessoa.cc>, 2020.
+# Liu Tao <lyuutau@outlook.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2020-11-06 13:26+0000\n"
-"Last-Translator: pessoa <accounts@pessoa.cc>\n"
+"PO-Revision-Date: 2021-02-06 22:50+0000\n"
+"Last-Translator: Liu Tao <lyuutau@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.5-dev\n"
 "X-Launchpad-Export-Date: 2012-07-10 05:35+0000\n"
 
 #: data/gtkhash-gtk3.ui:12
@@ -41,16 +42,14 @@ msgid "_File"
 msgstr "文件(_F)"
 
 #: data/gtkhash-gtk3.ui:149
-#, fuzzy
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "保存摘要"
+msgstr "_打开摘要文件…"
 
 #: data/gtkhash-gtk3.ui:160
-#, fuzzy
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "保存摘要"
+msgstr "_保存摘要文件…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -111,10 +110,8 @@ msgid "Hash Functions"
 msgstr "哈希函数"
 
 #: data/gtkhash-gtk3.ui:1070
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
-msgstr "哈希函数："
+msgstr "消息认证码函数"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
@@ -148,23 +145,20 @@ msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "摘要/校验 文件(*.sha1, *.md5, *.sfv, …)"
 
 #: src/callbacks.c:78
-#, fuzzy
 msgid "All Files"
-msgstr "选择文件"
+msgstr "所有文件"
 
 #: src/callbacks.c:120 src/callbacks.c:124
-#, fuzzy
 msgid "Save Digest File"
-msgstr "保存摘要"
+msgstr "保存摘要文件"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
 msgstr "保存(_S)"
 
 #: src/callbacks.c:274
-#, fuzzy
 msgid "A desktop utility for computing message digests or checksums"
-msgstr "用来计算信息摘要或校验的 GTK+ 工具。"
+msgstr "用来计算信息摘要或校验的桌面工具"
 
 #: src/callbacks.c:279
 msgid "translator-credits"
@@ -201,28 +195,24 @@ msgid "Unknown Hash Function name \"%s\""
 msgstr "未知哈希函数 “%s”"
 
 #: src/opts.c:97
-#, fuzzy
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "再次检查指定的摘要或校验和"
+msgstr "根据指定的摘要或校验和进行检查"
 
 #: src/opts.c:98
-#, fuzzy
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "摘要"
 
 #: src/opts.c:103
-#, fuzzy
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "将消息摘要或校验和添加到文件属性"
+msgstr "检查指定文件的摘要或校验和"
 
 #: src/opts.c:104
-#, fuzzy
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr "[文件|位置...]"
+msgstr "文件|URI"
 
 #: src/opts.c:109
 msgctxt " --help"
@@ -235,13 +225,11 @@ msgid "FUNCTION"
 msgstr "函数"
 
 #: src/opts.c:114
-#, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr "哈希指定的文本"
+msgstr "散列计算指定的文本"
 
 #: src/opts.c:115
-#, fuzzy
 msgctxt " --help"
 msgid "TEXT"
 msgstr "文本"
@@ -253,10 +241,9 @@ msgstr "显示版本信息"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: src/opts.c:124
-#, fuzzy
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr "[文件|位置...]"
+msgstr "[文件|URI...]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
@@ -307,10 +294,8 @@ msgstr "哈希(_A)"
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.peony.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "检测："
+msgstr "校验"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
