@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2021-02-04 23:42+0000\n"
+"PO-Revision-Date: 2021-02-08 17:50+0000\n"
 "Last-Translator: Michalis <michalisntovas@yahoo.gr>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtkhash/"
 "translations/el/>\n"
@@ -137,7 +137,7 @@ msgstr "_Άνοιγμα"
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
 #: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
 msgid "_Cancel"
-msgstr "_Ακύρωση"
+msgstr "_Άκυρο"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
