@@ -13,6 +13,7 @@ init:
 install:
   - cmd: bash -l -c "exec pacman -Syy --debug --noconfirm"
   - cmd: bash -l -c "exec pacman -Suu --noconfirm"
+  - cmd: bash -l -c "exec pacman -Syy --debug --noconfirm"
   - cmd: bash -l -c "exec pacman -Suu --noconfirm"
   - cmd: bash -l %APPVEYOR_BUILD_FOLDER%\msys2\installdeps.sh
 
