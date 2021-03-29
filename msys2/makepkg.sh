@@ -5,20 +5,31 @@ set -e
 
 cd "$(dirname "$0")"/..
 
-./autogen.sh
-./configure \
-	--disable-appstream \
-	--disable-blake2
+meson _build \
+	--buildtype=release \
+	-Db_lto=true \
+	-Dappstream=false \
+	-Dblake2=false \
+	-Dlinux-crypto=false \
+	-Dlibcrypto=false \
+	-Dmbedtls=false \
+	-Dnettle=false \
+	-Dzlib=false
 
-make -j1 dist-gzip
-cp -avf gtkhash-*.tar.gz msys2/mingw-w64-gtkhash/gtkhash.tar.gz
+pushd _build >/dev/null
+	ninja
+	meson dist
+popd >/dev/null
 
-cd msys2/mingw-w64-gtkhash
-PKGEXT='.pkg.tar.xz' makepkg-mingw \
-	--noconfirm \
-	--noprogressbar \
-	--syncdeps \
-	--clean \
-	--cleanbuild \
-	--force \
-	--install
+cp -avf _build/meson-dist/gtkhash-*.tar.xz msys2/mingw-w64-gtkhash/gtkhash.tar.gz
+
+pushd msys2/mingw-w64-gtkhash >/dev/null
+	PKGEXT='.pkg.tar.xz' makepkg-mingw \
+		--noconfirm \
+		--noprogressbar \
+		--syncdeps \
+		--clean \
+		--cleanbuild \
+		--force \
+		--install
+popd >/dev/null
