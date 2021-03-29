@@ -57,7 +57,7 @@ hash_la_SOURCES += hash-lib-mbedtls.c
 hash_la_LIBADD += $(MBEDTLS_LIBS)
 endif
 
-if ENABLE_MD6
+if ENABLE_INTERNAL_MD6
 hash_la_SOURCES += hash-lib-md6.c
 endif
 

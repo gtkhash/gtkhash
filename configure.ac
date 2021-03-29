@@ -200,12 +200,12 @@ AC_ARG_ENABLE([internal-md6],
 	[AS_HELP_STRING([--disable-internal-md6], [do not use the internal MD6 library])],
 	[enable_internal_md6="${enableval}"], [enable_internal_md6="yes"])
 AC_MSG_RESULT([${enable_internal_md6}])
-AM_CONDITIONAL([ENABLE_MD6], [test "${enable_internal_md6}" = "yes"])
+AM_CONDITIONAL([ENABLE_INTERNAL_MD6], [test "${enable_internal_md6}" = "yes"])
 
 if test "${enable_internal_md6}" = "yes" ; then
-	AC_DEFINE([ENABLE_MD6], [1], [MD6])
+	AC_DEFINE([ENABLE_INTERNAL_MD6], [1], [MD6])
 else
-	AC_DEFINE([ENABLE_MD6], [0], [MD6])
+	AC_DEFINE([ENABLE_INTERNAL_MD6], [0], [MD6])
 fi
 # }}}
 
