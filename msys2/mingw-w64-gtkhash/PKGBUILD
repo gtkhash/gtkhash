@@ -32,24 +32,25 @@ _getdir() {
 
 build() {
 	cd "$(_getdir)"
-	./configure \
-		--host=${MINGW_CHOST} \
-		--build=${MINGW_CHOST} \
-		--prefix="${MINGW_PREFIX}" \
-		--disable-appstream \
-		--disable-blake2 \
-		--disable-dependency-tracking \
-		--disable-schemas-compile \
-		--disable-silent-rules
-	make
+	meson _build \
+		--prefix="$MINGW_PREFIX" \
+		-Db_lto=true \
+		-Dappstream=false \
+		-Dblake2=false \
+		-Dlinux-crypto=false \
+		-Dlibcrypto=false \
+		-Dmbedtls=false \
+		-Dnettle=false \
+		-Dzlib=false
+	ninja -C _build
 }
 
 check() {
 	cd "$(_getdir)"
-	make VERBOSE=1 LOG_COMPILER= check
+	ninja -C _build test
 }
 
 package() {
 	cd "$(_getdir)"
-	make DESTDIR="${pkgdir}" install
+	DESTDIR="${pkgdir}" ninja -C _build install
 }
