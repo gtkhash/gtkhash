@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 # Matteo Fumagalli <f.mustang@protonmail.com>, 2018.
+# Fabio Fantoni <fantonifabio@tiscali.it>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2018-12-12 23:08+0000\n"
-"Last-Translator: Matteo Fumagalli <f.mustang@protonmail.com>\n"
+"PO-Revision-Date: 2021-03-28 13:29+0000\n"
+"Last-Translator: Fabio Fantoni <fantonifabio@tiscali.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/it/>\n"
 "Language: it\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 4.6-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/gtkhash-gtk3.ui:12
@@ -41,16 +42,14 @@ msgid "_File"
 msgstr "_File"
 
 #: data/gtkhash-gtk3.ui:149
-#, fuzzy
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Salva impronta (Digest)"
+msgstr "Salva file impr_onta (Digest)…"
 
 #: data/gtkhash-gtk3.ui:160
-#, fuzzy
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Salva impronta (Digest)"
+msgstr "_Salva file impronta (Digest)…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -261,15 +260,15 @@ msgstr "Errore nell'abilitare le funzioni di hash."
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u minuto rimasto"
+msgstr[1] "%u minuti rimasti"
 
 #: src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u secondo rimasto"
+msgstr[1] "%u secondi rimasti"
 
 #: src/util/util.c:58
 #, c-format
