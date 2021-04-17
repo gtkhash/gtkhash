@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 # mohammadA <mohammadAbdulhadi1@gmail.com>, 2018.
+# Ahmed Eldemery <aeldemery.de@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2018-09-29 10:21+0000\n"
-"Last-Translator: mohammadA <mohammadAbdulhadi1@gmail.com>\n"
+"PO-Revision-Date: 2021-04-05 17:26+0000\n"
+"Last-Translator: Ahmed Eldemery <aeldemery.de@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ar/>\n"
 "Language: ar\n"
@@ -18,16 +19,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 4.6-dev\n"
 "X-Launchpad-Export-Date: 2015-08-04 05:18+0000\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
-msgstr ""
+msgstr "عرض بأحرف صغيرة للنظام السداسي العشري"
 
 #: data/gtkhash-gtk3.ui:15
 msgid "Uppercase Hexadecimal"
-msgstr ""
+msgstr "عرض أحرف كبيرة للنظام السداسي العشري"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
@@ -42,16 +43,14 @@ msgid "_File"
 msgstr "_ملف"
 
 #: data/gtkhash-gtk3.ui:149
-#, fuzzy
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "احفظ الخلاصة"
+msgstr "ا_فتح ملف حساب الخوارزمية…"
 
 #: data/gtkhash-gtk3.ui:160
-#, fuzzy
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "احفظ الخلاصة"
+msgstr "اح_فظ ملف حساب الخوارزمية…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -88,7 +87,7 @@ msgstr "فحص:"
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "انسخ الخوارزمية المحسوبة من الحافظة"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
@@ -108,16 +107,12 @@ msgid "GtkHash Preferences"
 msgstr "تفضيلات GtkHash"
 
 #: data/gtkhash-gtk3.ui:1039
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
-msgstr "دالة التجزئة:"
+msgstr "دوال حساب الخوارزميات"
 
 #: data/gtkhash-gtk3.ui:1070
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
-msgstr "دالة التجزئة:"
+msgstr "الدوال بنظام MAC"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
@@ -125,16 +120,16 @@ msgstr "صيغة الخلاصة:"
 
 #: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
-msgstr ""
+msgstr "حاسبة التَثَبتُ من رقم التحقق"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:610
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
-msgstr ""
+msgstr "احسب جُملة ورقم التحقق"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "افتح ملف التحقق"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
@@ -148,16 +143,15 @@ msgstr "_ألغ"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr ""
+msgstr "ملفات التحقق بنُظم تَثَبُتٍ مختلفةٍ"
 
 #: src/callbacks.c:78
 msgid "All Files"
 msgstr "كل الملفات"
 
 #: src/callbacks.c:120 src/callbacks.c:124
-#, fuzzy
 msgid "Save Digest File"
-msgstr "احفظ الخلاصة"
+msgstr "احفظ ملف التحقُق"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
@@ -165,12 +159,11 @@ msgstr "_احفظ"
 
 #: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
+msgstr "برنامج لحساب أرقام التَثَبُتُ والتحقق من موثوقية الملفات"
 
 #: src/callbacks.c:279
-#, fuzzy
 msgid "translator-credits"
-msgstr "Abbod https://launchpad.net/~abbod-mar\n"
+msgstr "Ahmed Eldemery, aeldemery.de at gmail"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
@@ -181,70 +174,64 @@ msgid "_Show HMAC Key"
 msgstr "أ_ظهر مفتاح HMAC"
 
 #: src/check.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
-"فشل في قراءة \"%s\":\n"
-"%s"
+msgstr "فشل في قراءة ملف التحقق: \"%s\" : %s"
 
 #: src/gui.c:308
 msgid "Not a regular file"
 msgstr "ليس ملفا عاديا"
 
 #: src/gui.c:331
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
-"فشل في إضافة \"%s\":\n"
-"%s"
+msgstr "فشل في إضافة ملف: \"%s\":%s"
 
 #: src/hash.c:188 src/prefs.c:113
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "دالة التجزئة:"
+msgstr "دالة تحقق غير معروفةِ الإسم \"%s\""
 
 #: src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr ""
+msgstr "تثبت من الموثوقية عن طريق المقارنة برقم تحقق"
 
 #: src/opts.c:98
-#, fuzzy
 msgctxt " --help"
 msgid "DIGEST"
-msgstr "الملخص"
+msgstr "رقم التحقق"
 
 #: src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr ""
+"تحقق من الموثوقية عن طريق مقارنة أرقام التحقق الموجودة في الملف المُعيّن"
 
 #: src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr ""
+msgstr "ملف|عنوان الملف"
 
 #: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "تنشيط دالة حساب التحقق المعيّنة (مثلاً بنظام MD5)"
 
 #: src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "الدوال والخوارزميات"
 
 #: src/opts.c:114
-#, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr "جزئ النص المحدد"
+msgstr "احسب رقم التحقق للنص المحدد"
 
 #: src/opts.c:115
-#, fuzzy
 msgctxt " --help"
 msgid "TEXT"
-msgstr "نص"
+msgstr "النصّ"
 
 #: src/opts.c:119
 msgctxt " --help"
@@ -255,34 +242,42 @@ msgstr "أظهر معلومات الإصدار"
 #: src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr ""
+msgstr "[ملف|عنوان…]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr "فشل تمكين أي وظائف تجزئة."
+msgstr "فشل تمكين أي من وظائف التحقق."
 
 #: src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "تبقى دقيقة %u"
+msgstr[1] "تبقى دقيقة %u"
+msgstr[2] "تبقى دقيقتان %u"
+msgstr[3] "تبقت %u دقائق"
+msgstr[4] "تبقت %u دقائق"
+msgstr[5] "تبقت %u دقيقة"
 
 #: src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "تبقت ثانية %u"
+msgstr[1] "تبقت ثانية %u"
+msgstr[2] "تبقت ثانيتان %u"
+msgstr[3] "تبقت %u ثوان"
+msgstr[4] "تبقت %u ثانية"
+msgstr[5] "تبقت %u ثانية"
 
 #: src/util/util.c:58
-#, fuzzy, c-format
+#, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s من %s - %u دقيقة متبقية (%s/ثانية)"
+msgstr "تبقى %s من %s - %s (%s/الثوان)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
-msgstr "ا_نسخ التجزئة"
+msgstr "ا_نسخ رقم التحقق"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
@@ -308,10 +303,8 @@ msgstr "_هاش"
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.peony.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "فحص:"
+msgstr "أرقام التحقق"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
@@ -319,10 +312,14 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"برنامج GtkHash يتيح حساب أرقام التحقق من الموثوقية. يسمح للمستخدم بأسلوب سهل "
+"وواجهة استخدام بديلة عن استخدام سطر الأوامر."
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
+"الخوارزميات وطرق الحساب المعتمدة في البرنامج تشمل الآتي MD5، SHA1، SHA256، "
+"SHA512، CRC32."
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
@@ -330,7 +327,7 @@ msgstr ""
 #: data/appdata/org.gtkhash.peony.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
-msgstr ""
+msgstr "أضِفْ رقم التحقق من الموثوقية إلى خصائص الملفّ"
 
 #~ msgid "Digests"
 #~ msgstr "ملخصات"
