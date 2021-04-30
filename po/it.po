@@ -4,13 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 # Matteo Fumagalli <f.mustang@protonmail.com>, 2018.
 # Fabio Fantoni <fantonifabio@tiscali.it>, 2021.
+# BMN <weblate@yopmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2021-03-28 13:29+0000\n"
-"Last-Translator: Fabio Fantoni <fantonifabio@tiscali.it>\n"
+"PO-Revision-Date: 2021-04-30 09:32+0000\n"
+"Last-Translator: BMN <weblate@yopmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/it/>\n"
 "Language: it\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.6-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/gtkhash-gtk3.ui:12
@@ -86,7 +87,7 @@ msgstr "Verifica:"
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "Incolla digest dagli appunti"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
@@ -106,16 +107,12 @@ msgid "GtkHash Preferences"
 msgstr "Preferenze GtkHash"
 
 #: data/gtkhash-gtk3.ui:1039
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
-msgstr "Funzioni di Hash:"
+msgstr "Funzioni Hash"
 
 #: data/gtkhash-gtk3.ui:1070
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
-msgstr "Funzioni di Hash:"
+msgstr "Funzioni MAC"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
@@ -133,7 +130,7 @@ msgstr ""
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "Apri file Digest"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
@@ -146,29 +143,24 @@ msgid "_Cancel"
 msgstr "_Annulla"
 
 #: src/callbacks.c:73
-#, fuzzy
-#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "Files Digest/Checksum (*.sha1, *.md5, *.sfv, ...)"
+msgstr "File Digest/Checksum (*.sha1, *.md5, *.sfv, …)"
 
 #: src/callbacks.c:78
 msgid "All Files"
 msgstr "Tutti i File"
 
 #: src/callbacks.c:120 src/callbacks.c:124
-#, fuzzy
 msgid "Save Digest File"
-msgstr "Salva impronta (Digest)"
+msgstr "Salva File Digest"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
 msgstr "_Salva"
 
 #: src/callbacks.c:274
-#, fuzzy
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
-"Un'utility GTK+ per calcolare i digest (impronte) di messaggi o checksum."
+msgstr "Un'utility desktop per calcolare digest o checksum di file"
 
 #: src/callbacks.c:279
 msgid "translator-credits"
@@ -176,25 +168,25 @@ msgstr "Crediti Traduzione"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
-msgstr "Seleziona i files"
+msgstr "Seleziona i file"
 
 #: src/callbacks.c:529 src/nautilus/properties.c:256
 msgid "_Show HMAC Key"
-msgstr "Mostra chiave HMAC"
+msgstr "_Mostra chiave HMAC"
 
 #: src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr "Errore aggiungendo \"%s\":%s"
+msgstr "Impossibile leggere il file di controllo \"%s\": %s"
 
 #: src/gui.c:308
 msgid "Not a regular file"
-msgstr "Non e' un file regolare"
+msgstr "Non è un file regolare"
 
 #: src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr "Errore aggiungendo \"%s\":%s"
+msgstr "Impossibile aggiungere il file \"%s\": %s"
 
 #: src/hash.c:188 src/prefs.c:113
 #, c-format
@@ -204,7 +196,7 @@ msgstr "Nome della funzione di Hash \"%s\" sconosciuto"
 #: src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Controlla con uno specifico digest o checksum"
+msgstr "Controlla con uno specifico file digest o checksum"
 
 #: src/opts.c:98
 msgctxt " --help"
@@ -224,7 +216,7 @@ msgstr "FILE|URI"
 #: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr "Abilita la specifica funzione di Hash (per esempio MD5)"
+msgstr "Abilita la funzione di Hash specificata (es. MD5)"
 
 #: src/opts.c:110
 msgctxt " --help"
@@ -234,7 +226,7 @@ msgstr "FUNZIONE"
 #: src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr "Genera funzione di Hash del testo specifico"
+msgstr "Genera Hash del testo specificato"
 
 #: src/opts.c:115
 msgctxt " --help"
@@ -244,7 +236,7 @@ msgstr "TESTO"
 #: src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr "Mostra le informazioni sulla versione"
+msgstr "Mostra informazioni sulla versione"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: src/opts.c:124
@@ -277,11 +269,11 @@ msgstr "%s di %s - %s (%s/sec)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
-msgstr "_Copia impronta (Digest)"
+msgstr "_Copia Digest"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
-msgstr "Visualizza le funzioni di Hash _Disabilitate"
+msgstr "Visualizza _Funzioni Hash Disabilitate"
 
 #: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
@@ -289,11 +281,11 @@ msgstr "Funzione di Hash"
 
 #: data/nautilus/gtkhash-properties.ui:106
 msgid "Digest"
-msgstr "Impronta (Digest)"
+msgstr "Digest"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
-msgstr "Hash"
+msgstr "H_ash"
 
 #: src/nautilus/properties.c:479 src/nautilus/properties.c:482
 #: src/nautilus/properties.c:485 src/nautilus/properties.c:488
@@ -303,10 +295,8 @@ msgstr "Hash"
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.peony.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "Verifica:"
+msgstr "Checksum"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
@@ -314,14 +304,14 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
-"GtkHash è una applicazione per calcolare checksum di files e digests. Creata "
+"GtkHash è una applicazione per calcolare checksum di file o digest. Creata "
 "per essere un'alternativa intuitiva ai programmi in riga di comando come "
 "md5sum."
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
-"Funzioni di hash supportate includono MD5, SHA1, SHA256, SHA512 and CRC32."
+"Le funzioni hash supportate includono MD5, SHA1, SHA256, SHA512 e CRC32."
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
