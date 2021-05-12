@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # notramo <notramo@vipmail.hu>, 2018.
 # notramo <notramo@protonmail.com>, 2019, 2020.
+# Noway Imtellingyouidiot <johns.videos+weblate@mailbox.org>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: 2020-05-31 18:41+0000\n"
-"Last-Translator: notramo <notramo@protonmail.com>\n"
+"PO-Revision-Date: 2021-05-12 17:33+0000\n"
+"Last-Translator: Noway Imtellingyouidiot <johns.videos+weblate@mailbox.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/hu/>\n"
 "Language: hu\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -40,11 +41,9 @@ msgid "_File"
 msgstr "_Fájl"
 
 #: data/gtkhash-gtk3.ui:149
-#, fuzzy
-#| msgid "Open Digest File"
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Kivonat fájl megnyitása"
+msgstr "_Kivonat fájl megnyitása…"
 
 #: data/gtkhash-gtk3.ui:160
 #, fuzzy
