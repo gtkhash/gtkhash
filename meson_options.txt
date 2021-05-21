@@ -1,0 +1,22 @@
+
+
+option('blake2',        type: 'boolean', value: 'true', description: 'Use libb2 for Blake2.')
+option('gcrypt',        type: 'boolean', value: 'true', description: 'Use gcrypt')
+option('glib-checksums',type: 'boolean', value: 'true', description: 'Use the Glib Data Checksums API')
+option('internal-md6',  type: 'boolean', value: 'true', description: 'Use the internal md6 library')
+option('libcrypto',     type: 'boolean', value: 'false',description: 'Use libcrypto')
+option('linux-crypto',  type: 'boolean', value: 'true', description: 'Use Linux hash algorithm interface')
+option('mbedtls',       type: 'boolean', value: 'true', description: 'Use mbed TLS')
+option('nettle',        type: 'boolean', value: 'true', description: 'Use nettle')
+option('zlib',          type: 'boolean', value: 'true', description: 'Use Zlib')
+
+option('native-file-chooser', type: 'boolean', value: 'true',description: 'Use native file chooser dialogs')
+option('appstream',     type: 'boolean', value: 'true',description: 'Install AppStream metadata files')
+
+option('build-gtkhash', type: 'boolean', value: 'false',description: 'Build GTKHash')
+option('build-caja',    type: 'boolean', value: 'false',description: 'Build the Caja extension')
+option('build-nautilus',type: 'boolean', value: 'false',description: 'Build the Nautilus extension')
+option('build-nemo',    type: 'boolean', value: 'false',description: 'Build the Nemo extension')
+option('build-peony',   type: 'boolean', value: 'false',description: 'Build the Peony extension')
+option('build-thunar',  type: 'boolean', value: 'false',description: 'Build the Thunar extension')
+option('thunarx',       type: 'string',  value: '3',    description: 'Thunarx version to use')

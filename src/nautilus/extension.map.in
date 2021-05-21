@@ -1,0 +1,6 @@
+{
+global:
+    @symbol_prefix@*;
+local:
+    *;
+};

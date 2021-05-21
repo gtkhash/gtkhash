@@ -1,4 +1,4 @@
-dist: xenial
+dist: focal
 
 language: c
 
@@ -27,28 +27,21 @@ addons:
       - gnome-icon-theme
       - libnautilus-extension-dev
       - libnemo-extension-dev
-
-env:
-  - WITH_GTK=3.0
+      - meson
 
 script:
-  - ./autogen.sh
-  - export DISTCHECK_CONFIGURE_FLAGS=$(echo
-      --with-gtk=${WITH_GTK}
-      --enable-debug
-      --enable-blake2
-      --enable-gcrypt
-      --enable-glib-checksums
-      --enable-mbedtls
-      --enable-nettle
-      --enable-linux-crypto
-      --enable-nautilus
-      --enable-nemo
-      --disable-dependency-tracking
-      )
-  - CFLAGS="--coverage" ./configure ${DISTCHECK_CONFIGURE_FLAGS}
-  - make -j$(nproc) VERBOSE=1 check
-  - make -j$(nproc) VERBOSE=1 DESTDIR=$(mktemp -d) distcheck
+  - meson _build
+      --buildtype=debug
+      -Db_coverage=true
+      -Dlibcrypto=true
+      -Dbuild-gtkhash=true
+      -Dbuild-nemo=true
+      -Dbuild-nautilus=true
+
+  - cd _build
+  - ninja
+  - xvfb-run -s "-screen 0 800x600x24" meson test -v
+  - xvfb-run -s "-screen 0 800x600x24" meson dist
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
