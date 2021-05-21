@@ -7,14 +7,16 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2020-07-17 00:00+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-05-21 15:33+0000\n"
+"Last-Translator: Ali <am30304030@gmail.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/gtkhash/"
+"translations/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -30,11 +32,11 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
-msgstr ""
+msgstr "نمایش نوار ابزار"
 
 #: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
 msgid "_File"
-msgstr ""
+msgstr "پرونده"
 
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
@@ -48,35 +50,35 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
-msgstr ""
+msgstr "ویرایش"
 
 #: data/gtkhash-gtk3.ui:280
 msgid "_View"
-msgstr ""
+msgstr "دیدن"
 
 #: data/gtkhash-gtk3.ui:300
 msgid "_Text"
-msgstr ""
+msgstr "متن"
 
 #: data/gtkhash-gtk3.ui:310
 msgid "File _List"
-msgstr ""
+msgstr "لیست فایل"
 
 #: data/gtkhash-gtk3.ui:324
 msgid "_Help"
-msgstr ""
+msgstr "کمک"
 
 #: data/gtkhash-gtk3.ui:429
 msgid "File:"
-msgstr ""
+msgstr "پرونده"
 
 #: data/gtkhash-gtk3.ui:442
 msgid "Text:"
-msgstr ""
+msgstr "متن"
 
 #: data/gtkhash-gtk3.ui:455 data/nautilus/gtkhash-properties.ui:144
 msgid "Check:"
-msgstr ""
+msgstr "بررسی"
 
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
@@ -90,7 +92,7 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:783
 msgid "File"
-msgstr ""
+msgstr "پرونده"
 
 #: data/gtkhash-gtk3.ui:887
 msgid "Ha_sh"
@@ -102,11 +104,11 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:1039
 msgid "Hash Functions"
-msgstr ""
+msgstr "توابع درهم‌سازی"
 
 #: data/gtkhash-gtk3.ui:1070
 msgid "MAC Functions"
-msgstr ""
+msgstr "توابع کد اصالت سنجی پیام"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
@@ -114,7 +116,7 @@ msgstr ""
 
 #: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
-msgstr ""
+msgstr "محاسبه گر جمع کنترلی"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:610
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
@@ -123,17 +125,17 @@ msgstr ""
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "بازکردن خلاصه پرونده"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
 msgid "_Open"
-msgstr ""
+msgstr "باز کردن"
 
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
 #: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
 msgid "_Cancel"
-msgstr ""
+msgstr "لغو کردن"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
@@ -141,7 +143,7 @@ msgstr ""
 
 #: src/callbacks.c:78
 msgid "All Files"
-msgstr ""
+msgstr "همه پوشه‌ها"
 
 #: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
@@ -149,7 +151,7 @@ msgstr ""
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
-msgstr ""
+msgstr "ذخیره کردن"
 
 #: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
@@ -157,15 +159,15 @@ msgstr ""
 
 #: src/callbacks.c:279
 msgid "translator-credits"
-msgstr ""
+msgstr "اعتبار مترجم"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
-msgstr ""
+msgstr "انتخاب پرونده‌ها"
 
 #: src/callbacks.c:529 src/nautilus/properties.c:256
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "نمایش کد اصالت‌سنجی پیام برپایه درهم‌سازی"
 
 #: src/check.c:202
 #, c-format
@@ -179,7 +181,7 @@ msgstr ""
 #: src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
+msgstr "ناموفق در اضافه کردن پرونده"
 
 #: src/hash.c:188 src/prefs.c:113
 #, c-format
