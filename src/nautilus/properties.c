@@ -35,9 +35,6 @@
 	#include <libnemo-extension/nemo-property-page.h>
 	#include <libnemo-extension/nemo-property-page-provider.h>
 	#include <libnemo-extension/nemo-name-and-desc-provider.h>
-#elif defined(IN_PEONY_EXTENSION)
-	#include <libpeony-extension/peony-property-page.h>
-	#include <libpeony-extension/peony-property-page-provider.h>
 #elif defined(IN_THUNAR_EXTENSION)
 	#undef GTK_DISABLE_DEPRECATED // thunarx-3 doesn't build with this
 	#include <thunarx/thunarx.h>
@@ -437,8 +434,6 @@ static GList *gtkhash_properties_get_pages(
 	G_GNUC_UNUSED CajaPropertyPageProvider *provider,
 #elif defined(IN_NEMO_EXTENSION)
 	G_GNUC_UNUSED NemoPropertyPageProvider *provider,
-#elif defined(IN_PEONY_EXTENSION)
-	G_GNUC_UNUSED PeonyPropertyPageProvider *provider,
 #elif defined(IN_THUNAR_EXTENSION)
 	G_GNUC_UNUSED ThunarxPropertyPageProvider *provider,
 #endif
@@ -457,9 +452,6 @@ static GList *gtkhash_properties_get_pages(
 #elif defined(IN_NEMO_EXTENSION)
 	GFileType type = nemo_file_info_get_file_type(files->data);
 	char *uri = nemo_file_info_get_uri(files->data);
-#elif defined(IN_PEONY_EXTENSION)
-	GFileType type = peony_file_info_get_file_type(files->data);
-	char *uri = peony_file_info_get_uri(files->data);
 #elif defined(IN_THUNAR_EXTENSION)
 	GFileInfo *info = thunarx_file_info_get_file_info(files->data);
 	GFileType type = g_file_info_get_file_type(info);
@@ -485,9 +477,6 @@ static GList *gtkhash_properties_get_pages(
 #elif defined(IN_NEMO_EXTENSION)
 	NemoPropertyPage *ppage = nemo_property_page_new(
 		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
-#elif defined(IN_PEONY_EXTENSION)
-	PeonyPropertyPage *ppage = peony_property_page_new(
-		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
 #elif defined(IN_THUNAR_EXTENSION)
 	GtkWidget *ppage = thunarx_property_page_new(_("Checksums"));
 	gtk_container_add(GTK_CONTAINER(ppage), page->box);
@@ -505,8 +494,6 @@ static void gtkhash_properties_pp_iface_init(
 	CajaPropertyPageProviderIface *iface,
 #elif defined(IN_NEMO_EXTENSION)
 	NemoPropertyPageProviderIface *iface,
-#elif defined(IN_PEONY_EXTENSION)
-	PeonyPropertyPageProviderIface *iface,
 #elif defined(IN_THUNAR_EXTENSION)
 	ThunarxPropertyPageProviderIface *iface,
 #endif
@@ -562,8 +549,6 @@ static void gtkhash_properties_register_type(GTypeModule *module)
 		CAJA_TYPE_PROPERTY_PAGE_PROVIDER,
 #elif defined(IN_NEMO_EXTENSION)
 		NEMO_TYPE_PROPERTY_PAGE_PROVIDER,
-#elif defined(IN_PEONY_EXTENSION)
-		PEONY_TYPE_PROPERTY_PAGE_PROVIDER,
 #elif defined(IN_THUNAR_EXTENSION)
 		THUNARX_TYPE_PROPERTY_PAGE_PROVIDER,
 #endif
@@ -593,8 +578,6 @@ PUBLIC void nautilus_module_initialize(GTypeModule *module)
 PUBLIC void caja_module_initialize(GTypeModule *module)
 #elif defined(IN_NEMO_EXTENSION)
 PUBLIC void nemo_module_initialize(GTypeModule *module)
-#elif defined(IN_PEONY_EXTENSION)
-PUBLIC void peony_module_initialize(GTypeModule *module)
 #elif defined(IN_THUNAR_EXTENSION)
 PUBLIC void thunar_extension_initialize(GTypeModule *module);
 PUBLIC void thunar_extension_initialize(GTypeModule *module)
@@ -619,8 +602,6 @@ PUBLIC void nautilus_module_shutdown(void)
 PUBLIC void caja_module_shutdown(void)
 #elif defined(IN_NEMO_EXTENSION)
 PUBLIC void nemo_module_shutdown(void)
-#elif defined(IN_PEONY_EXTENSION)
-PUBLIC void peony_module_shutdown(void)
 #elif defined(IN_THUNAR_EXTENSION)
 PUBLIC void thunar_extension_shutdown(void);
 PUBLIC void thunar_extension_shutdown(void)
@@ -638,8 +619,6 @@ PUBLIC void nautilus_module_list_types(const GType **types, int *num_types)
 PUBLIC void caja_module_list_types(const GType **types, int *num_types)
 #elif defined(IN_NEMO_EXTENSION)
 PUBLIC void nemo_module_list_types(const GType **types, int *num_types)
-#elif defined(IN_PEONY_EXTENSION)
-PUBLIC void peony_module_list_types(const GType **types, int *num_types)
 #elif defined(IN_THUNAR_EXTENSION)
 PUBLIC void thunar_extension_list_types(const GType **types, int *num_types);
 PUBLIC void thunar_extension_list_types(const GType **types, int *num_types)

@@ -9,8 +9,6 @@ data/appdata/*.xml
 data/appdata/*.xml.in
 data/caja/libgtkhash-properties-caja.caja-extension
 data/caja/libgtkhash-properties-caja.caja-extension.in
-data/peony/libgtkhash-properties-peony.peony-extension
-data/peony/libgtkhash-properties-peony.peony-extension.in
 
 data/icons/32/
 data/icons/48/

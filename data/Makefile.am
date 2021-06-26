@@ -12,10 +12,6 @@ if ENABLE_NAUTILUS_DATA
 SUBDIRS += nautilus
 endif
 
-if ENABLE_PEONY
-SUBDIRS += peony
-endif
-
 if ENABLE_GTKHASH
 
 applicationsdir = $(datadir)/applications

@@ -3,18 +3,19 @@ metainfos = []
 if build_gtkhash
     metainfos += 'org.gtkhash.gtkhash.appdata.xml'
 endif
+
 if build_caja
     metainfos += 'org.gtkhash.caja.metainfo.xml'
 endif
+
 if build_nautilus
     metainfos += 'org.gtkhash.nautilus.metainfo.xml'
 endif
+
 if build_nemo
     metainfos += 'org.gtkhash.nemo.metainfo.xml'
 endif
-if build_peony
-    metainfos += 'org.gtkhash.peony.metainfo.xml'
-endif
+
 if build_thunar
     metainfos += 'org.gtkhash.thunar.metainfo.xml'
 endif

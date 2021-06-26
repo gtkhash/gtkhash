@@ -17,10 +17,6 @@ if ENABLE_NEMO
 appdata_DATA += org.gtkhash.nemo.metainfo.xml
 endif
 
-if ENABLE_PEONY
-appdata_DATA += org.gtkhash.peony.metainfo.xml
-endif
-
 if ENABLE_THUNAR
 appdata_DATA += org.gtkhash.thunar.metainfo.xml
 endif
@@ -32,7 +28,6 @@ EXTRA_DIST = \
 	org.gtkhash.caja.metainfo.xml.in \
 	org.gtkhash.nautilus.metainfo.xml.in \
 	org.gtkhash.nemo.metainfo.xml.in \
-	org.gtkhash.peony.metainfo.xml.in \
 	org.gtkhash.thunar.metainfo.xml.in
 
 %.xml: %.xml.in

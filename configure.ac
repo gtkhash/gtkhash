@@ -374,24 +374,6 @@ if test "${enable_nemo}" = "yes" ; then
 fi
 # }}}
 
-# peony option {{{
-AC_MSG_CHECKING([whether to build the Peony extension])
-AC_ARG_ENABLE([peony],
-	[AS_HELP_STRING([--enable-peony], [build the Peony extension])],
-	[enable_peony="${enableval}"], [enable_peony="no"])
-AC_MSG_RESULT([${enable_peony}])
-AM_CONDITIONAL([ENABLE_PEONY], [test "${enable_peony}" = "yes"])
-
-if test "${enable_peony}" = "yes" ; then
-	# Check for peony
-	PKG_CHECK_MODULES([PEONY], [libpeony-extension])
-	AC_SUBST([PEONY_CFLAGS])
-	AC_SUBST([PEONY_LIBS])
-	PEONY_EXTENSION_DIR=`${PKG_CONFIG} --variable=extensiondir libpeony-extension`
-	AC_SUBST([PEONY_EXTENSION_DIR])
-fi
-# }}}
-
 # thunar option {{{
 AC_MSG_CHECKING([whether to build the Thunar extension])
 AC_ARG_ENABLE([thunar],
@@ -420,7 +402,6 @@ AM_CONDITIONAL([ENABLE_NAUTILUS_DATA], [
 	test "${enable_caja}" = "yes" ||
 	test "${enable_nautilus}" = "yes" ||
 	test "${enable_nemo}" = "yes" ||
-	test "${enable_peony}" = "yes" ||
 	test "${enable_thunar}" = "yes"])
 
 # Matches preferred order from src/hash/hash-lib.c
@@ -438,14 +419,11 @@ AC_CONFIG_FILES([data/appdata/org.gtkhash.gtkhash.appdata.xml.in])
 AC_CONFIG_FILES([data/appdata/org.gtkhash.caja.metainfo.xml.in])
 AC_CONFIG_FILES([data/appdata/org.gtkhash.nautilus.metainfo.xml.in])
 AC_CONFIG_FILES([data/appdata/org.gtkhash.nemo.metainfo.xml.in])
-AC_CONFIG_FILES([data/appdata/org.gtkhash.peony.metainfo.xml.in])
 AC_CONFIG_FILES([data/appdata/org.gtkhash.thunar.metainfo.xml.in])
 AC_CONFIG_FILES([data/caja/Makefile])
 AC_CONFIG_FILES([data/caja/libgtkhash-properties-caja.caja-extension.in])
 AC_CONFIG_FILES([data/icons/Makefile])
 AC_CONFIG_FILES([data/nautilus/Makefile])
-AC_CONFIG_FILES([data/peony/Makefile])
-AC_CONFIG_FILES([data/peony/libgtkhash-properties-peony.peony-extension.in])
 AC_CONFIG_FILES([po/Makefile.in])
 AC_CONFIG_FILES([src/Makefile])
 AC_CONFIG_FILES([src/hash/Makefile])
@@ -460,7 +438,6 @@ echo "  gtkhash:            ${enable_gtkhash} (gtk+-${with_gtk})"
 echo "  gtkhash-caja:       ${enable_caja}"
 echo "  gtkhash-nautilus:   ${enable_nautilus}"
 echo "  gtkhash-nemo:       ${enable_nemo}"
-echo "  gtkhash-peony:      ${enable_peony}"
 echo "  gtkhash-thunar:     ${enable_thunar} (thunarx-${with_thunarx})"
 
 blake2_funcs="

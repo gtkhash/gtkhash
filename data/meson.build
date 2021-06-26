@@ -8,10 +8,6 @@ if build_caja
     subdir('caja')
 endif
 
-if build_peony
-    subdir('peony')
-endif
-
 if enable_nautilus_data
     subdir('nautilus')
 endif

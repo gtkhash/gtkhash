@@ -1,5 +1,8 @@
 Summary of changes for each GtkHash release:
 
+1.5 (2021-00-00)
+	* Removed Peony extension as Peony 2+ is incompatible
+
 1.4 (2020-07-11)
 	* Added CRC32C
 	* Replaced the word "Digest" with "Checksum" in some places (#40)

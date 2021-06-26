@@ -53,7 +53,6 @@ Adds a Hash feature to File Properties in:
 * Caja (MATE)
 * Nautilus (GNOME)
 * Nemo (Cinnamon)
-* Peony (UKUI)
 * Thunar (Xfce)
 
 Translations

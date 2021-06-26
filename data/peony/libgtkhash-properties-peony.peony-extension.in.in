@@ -1,8 +1,0 @@
-[Peony Extension]
-Icon=org.gtkhash.gtkhash
-Name=Checksums
-Description=Calculate message digests or checksums
-Author=Tristan Heaven <tristan@tristanheaven.net>
-Copyright=
-Version=@VERSION@
-Website=https://github.com/tristanheaven/gtkhash

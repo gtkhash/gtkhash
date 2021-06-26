@@ -4,6 +4,7 @@ properties_resources = gnome.compile_resources(
     c_name: 'gtkhash_properties_resources',
     source_dir: meson.current_source_dir() / '..' / '..' / 'data' / 'nautilus',
 )
+
 extensions_sources = [
     'properties.c',
     'properties-hash.c',
@@ -21,6 +22,7 @@ if build_caja
         'symbol_prefix': 'caja_module_',
     }
 endif
+
 if build_nautilus
     extensions += { 'name': 'nautilus',
         'dep': nautilus,
@@ -28,6 +30,7 @@ if build_nautilus
         'symbol_prefix': 'nautilus_module_',
     }
 endif
+
 if build_nemo
     extensions += { 'name': 'nemo',
         'dep': nemo,
@@ -35,13 +38,7 @@ if build_nemo
         'symbol_prefix': 'nemo_module_',
     }
 endif
-if build_peony
-    extensions += { 'name': 'peony',
-        'dep': peony,
-        'dir': peony_extension_dir,
-        'symbol_prefix': 'peony_module_',
-    }
-endif
+
 if build_thunar
     extensions += { 'name': 'thunar',
         'dep': thunar,

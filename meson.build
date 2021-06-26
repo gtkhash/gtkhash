@@ -170,12 +170,6 @@ if build_nemo
     nemo_extension_dir = nemo.get_pkgconfig_variable('extensiondir')
 endif
 
-build_peony = get_option('build-peony')
-if build_peony
-    peony = dependency('peony')
-    peony_extension_dir = peony.get_pkgconfig_variable('extensiondir')
-endif
-
 build_thunar = get_option('build-thunar')
 thunarx = get_option('thunarx')
 if build_thunar
@@ -183,7 +177,7 @@ if build_thunar
     thunar_extension_dir = thunar.get_pkgconfig_variable('extensionsdir')
 endif
 
-enable_nautilus_data = build_caja or build_nautilus or build_nemo or build_peony or build_thunar
+enable_nautilus_data = build_caja or build_nautilus or build_nemo or build_thunar
 
 
 
@@ -324,7 +318,6 @@ summary({
     'gtkhash-caja'      : '@0@'.format(build_caja),
     'gtkhash-nautilus'  : '@0@'.format(build_nautilus),
     'gtkhash-nemo'      : '@0@'.format(build_nemo),
-    'gtkhash-peony'     : '@0@'.format(build_peony),
     'gtkhash-thunar'    : '@0@ (thunarx-@1@)'.format(build_thunar, thunarx),
     },
     section: 'Interfaces',
