@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
-"POT-Creation-Date: 2020-07-17 00:00+0100\n"
+"POT-Creation-Date: 2021-06-26 20:39+0100\n"
 "PO-Revision-Date: 2021-03-20 03:18+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/gtkhash/"
@@ -120,7 +120,7 @@ msgstr "Formo de Haketaĵo:"
 msgid "Checksum Calculator"
 msgstr "Kontrolsumo-Kalkulilo"
 
-#: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:610
+#: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
 msgstr "Kalkuli haketaĵojn aŭ kontrolsumojn"
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "Elekti Dosierojn"
 
-#: src/callbacks.c:529 src/nautilus/properties.c:256
+#: src/callbacks.c:529 src/nautilus/properties.c:253
 msgid "_Show HMAC Key"
 msgstr "_Montri HMAK-Ŝlosilon"
 
@@ -286,13 +286,11 @@ msgstr "Haketaĵo"
 msgid "H_ash"
 msgstr "Ha_ketaĵo"
 
-#: src/nautilus/properties.c:479 src/nautilus/properties.c:482
-#: src/nautilus/properties.c:485 src/nautilus/properties.c:488
-#: src/nautilus/properties.c:490
+#: src/nautilus/properties.c:473 src/nautilus/properties.c:476
+#: src/nautilus/properties.c:479 src/nautilus/properties.c:481
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.peony.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
 msgid "Checksums"
 msgstr "Kontrolsumoj"
@@ -315,7 +313,6 @@ msgstr ""
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
-#: data/appdata/org.gtkhash.peony.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
 msgstr "Aldonas haketaĵojn aŭ kontrolsumojn al dosieraj atributoj"
