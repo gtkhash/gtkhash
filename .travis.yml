@@ -9,6 +9,7 @@ compiler:
 addons:
   apt:
     packages:
+      - meson
       - gettext
       - appstream
       - libglib2.0-dev
@@ -25,7 +26,7 @@ addons:
       - gnome-icon-theme
       - libnautilus-extension-dev
       - libnemo-extension-dev
-      - meson
+      - libthunarx-3-dev
 
 script:
   - meson _build
@@ -38,6 +39,7 @@ script:
       -Dnettle=true
       -Dbuild-nautilus=true
       -Dbuild-nemo=true
+      -Dbuild-thunar=true
   - cd _build
   - xvfb-run -s "-screen 0 800x600x24" meson test -v
-  - test "${TRAVIS_COMPILER}" = "clang" && true || bash <(curl -s https://codecov.io/bash) -Z
+  - test "${TRAVIS_COMPILER}" = "clang" || bash <(curl -s https://codecov.io/bash) -Z
