@@ -38,5 +38,6 @@ script:
       -Dnettle=true
       -Dbuild-nautilus=true
       -Dbuild-nemo=true
-  - xvfb-run -s "-screen 0 800x600x24" meson test -v -C _build
-  - bash <(curl -s https://codecov.io/bash) -Z -p "${TRAVIS_BUILD_DIR}"
+  - cd _build
+  - xvfb-run -s "-screen 0 800x600x24" meson test -v
+  - test "${TRAVIS_COMPILER}" = "clang" && true || bash <(curl -s https://codecov.io/bash) -Z
