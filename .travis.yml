@@ -39,6 +39,4 @@ script:
       -Dbuild-nautilus=true
       -Dbuild-nemo=true
   - xvfb-run -s "-screen 0 800x600x24" meson test -v -C _build
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -Z -p "${TRAVIS_BUILD_DIR}"
