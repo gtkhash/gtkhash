@@ -228,9 +228,9 @@ fi
 # }}}
 
 # linux crypto option {{{
-AC_MSG_CHECKING([whether to use the Linux-2.6.38+ hash algorithm interface])
+AC_MSG_CHECKING([whether to use Linux kernel AF_ALG])
 AC_ARG_ENABLE([linux-crypto],
-	[AS_HELP_STRING([--enable-linux-crypto], [use the Linux-2.6.38+ hash algorithm interface])],
+	[AS_HELP_STRING([--enable-linux-crypto], [use Linux kernel AF_ALG])],
 	[enable_linux_crypto="${enableval}"], [enable_linux_crypto="no"])
 AC_MSG_RESULT([${enable_linux_crypto}])
 AM_CONDITIONAL([ENABLE_LINUX_CRYPTO], [test "${enable_linux_crypto}" = "yes"])

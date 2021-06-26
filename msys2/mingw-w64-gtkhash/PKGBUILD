@@ -11,7 +11,6 @@ depends=(
 	${MINGW_PACKAGE_PREFIX}-libgcrypt
 )
 makedepends=(
-	${MINGW_PACKAGE_PREFIX}-libtool
 	${MINGW_PACKAGE_PREFIX}-pkg-config
 	git
 )
@@ -36,12 +35,7 @@ build() {
 		--prefix="$MINGW_PREFIX" \
 		-Db_lto=true \
 		-Dappstream=false \
-		-Dblake2=false \
-		-Dlinux-crypto=false \
-		-Dlibcrypto=false \
-		-Dmbedtls=false \
-		-Dnettle=false \
-		-Dzlib=false
+		-Dblake2=false
 	ninja -C _build
 }
 

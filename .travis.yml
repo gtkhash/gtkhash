@@ -9,9 +9,7 @@ compiler:
 addons:
   apt:
     packages:
-      - libtool
       - gettext
-      - autopoint
       - appstream
       - libglib2.0-dev
       - libgtk-3-dev
@@ -33,15 +31,14 @@ script:
   - meson _build
       --buildtype=debug
       -Db_coverage=true
+      -Dglib-checksums=true
       -Dlibcrypto=true
-      -Dbuild-gtkhash=true
-      -Dbuild-nemo=true
+      -Dlinux-crypto=true
+      -Dmbedtls=true
+      -Dnettle=true
       -Dbuild-nautilus=true
-
-  - cd _build
-  - ninja
-  - xvfb-run -s "-screen 0 800x600x24" meson test -v
-  - xvfb-run -s "-screen 0 800x600x24" meson dist
+      -Dbuild-nemo=true
+  - xvfb-run -s "-screen 0 800x600x24" meson test -v -C _build
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
