@@ -24,6 +24,7 @@ addons:
       - at-spi2-core
       - xvfb
       - gnome-icon-theme
+      - libcaja-extension-dev
       - libnautilus-extension-dev
       - libnemo-extension-dev
       - libthunarx-3-dev
@@ -37,6 +38,7 @@ script:
       -Dlinux-crypto=true
       -Dmbedtls=true
       -Dnettle=true
+      -Dbuild-caja=true
       -Dbuild-nautilus=true
       -Dbuild-nemo=true
       -Dbuild-thunar=true
