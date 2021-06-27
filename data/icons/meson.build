@@ -1,4 +1,3 @@
-
 icons_install_dir = get_option('datadir')/'icons'/'hicolor'
 generated_sizes = [ 32, 48, 64, 128, 256, ]
 
@@ -6,9 +5,7 @@ icon_basename = 'org.gtkhash.gtkhash'
 
 svg_file = files('scalable/@0@.svg'.format(icon_basename))
 
-install_data(svg_file,
-    install_dir: icons_install_dir / 'scalable',
-)
+install_data(svg_file, install_dir: icons_install_dir / 'scalable' / 'apps')
 
 foreach size : generated_sizes
     sizestr = '@0@'.format(size)
