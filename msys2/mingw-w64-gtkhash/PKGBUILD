@@ -44,7 +44,7 @@ build() {
 
 check() {
 	cd "$(_getdir)/_build"
-	meson test -v
+	meson test -v -t 2
 }
 
 package() {
