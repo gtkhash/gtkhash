@@ -22,23 +22,22 @@ config.set_quoted('GETTEXT_PACKAGE', gettext_package)
 
 config.set10('ENABLE_NLS', true)
 
-build_gtkhash   = get_option('build-gtkhash')
-enable_appstream= get_option('appstream')
+build_gtkhash    = get_option('build-gtkhash')
+enable_appstream = get_option('appstream')
 
 config.set10('ENABLE_NATIVE_FILE_CHOOSER', get_option('native-file-chooser'))
 
 config.set('HASH_FILE_BUFFER_SIZE', 131072, description: 'File read buffer size (bytes)')
 config.set('HASH_FILE_REPORT_INTERVAL', 166, description: 'Progress report interval (milliseconds)')
 
-
+package_name = 'GtkHash'
 config.set_quoted('VERSION',        meson.project_version())
-config.set_quoted('PACKAGE_NAME',   meson.project_name())
 config.set_quoted('PACKAGE',        meson.project_name())
-config.set_quoted('PACKAGE_STRING', meson.project_name() + ' ' + meson.project_version())
-config.set_quoted('G_LOG_DOMAIN',   meson.project_name())
+config.set_quoted('PACKAGE_NAME',   package_name)
+config.set_quoted('PACKAGE_STRING', package_name + ' ' + meson.project_version())
+config.set_quoted('G_LOG_DOMAIN',   package_name)
 
 config.set_quoted('LOCALEDIR',      get_option('prefix') / get_option('localedir'))
-config.set_quoted('GNOMELOCALEDIR', get_option('prefix') / get_option('localedir'))
 
 data_config.set('VERSION', meson.project_version())
 data_config.set('RELEASE_DATE', '2020-07-11')
@@ -83,12 +82,10 @@ no_dep = dependency('', required: false)
 
 glib = dependency('glib-2.0', version: '>=2.48.0')
 gio  = dependency('gio-2.0',  version: '>=2.48.0')
-gtk3 = dependency('gtk+-3.0', version: '>=3.18')
-
+gtk  = dependency('gtk+-3.0', version: '>=3.18')
 
 #######################################
-# Encryption libraries
-
+# Hash libraries
 
 ##### Blake2
 blake2 = get_option('blake2') ? dependency('libb2') : no_dep
@@ -107,19 +104,15 @@ if cc.has_header_symbol('gcrypt.h', 'GCRY_MD_SHA3_512')
     detected_gcrypt_functions += [ 'SHA3-224', 'SHA3-256', 'SHA3-384', 'SHA3-512' ]
 endif
 
-
 ##### Glib checksums
 config.set10('ENABLE_GLIB_CHECKSUMS', get_option('glib-checksums'))
-
 
 ##### Internal MD6
 config.set10('ENABLE_INTERNAL_MD6', get_option('internal-md6'))
 
-
 ##### Libcrypto (openssl)
 libcrypto = get_option('libcrypto') ? dependency('libcrypto', version: '>=1.1') : no_dep
 config.set10('ENABLE_LIBCRYPTO', get_option('libcrypto'))
-
 
 ##### Linux crypto
 if get_option('linux-crypto')
@@ -127,25 +120,19 @@ if get_option('linux-crypto')
 endif
 config.set10('ENABLE_LINUX_CRYPTO', get_option('linux-crypto'))
 
-
 ##### MbedTLS
-
 mbedtls = get_option('mbedtls') ? \
     cc.find_library('mbedcrypto', has_headers: 'mbedtls/md.h') : no_dep
 
 config.set10('ENABLE_MBEDTLS', get_option('mbedtls'))
 
-
 ##### Nettle
 nettle = get_option('nettle') ? dependency('nettle') : no_dep
 config.set10('ENABLE_NETTLE', nettle.found())
 
-
 ##### Zlib
 zlib = get_option('zlib') ? dependency('zlib') : no_dep
 config.set10('ENABLE_ZLIB', zlib.found())
-
-
 
 #######################################
 # File manager extensions
@@ -179,15 +166,13 @@ endif
 
 enable_nautilus_data = build_caja or build_nautilus or build_nemo or build_thunar
 
-
-
 if [ 'debug', 'debugoptimized' ].contains(get_option('buildtype'))
-    add_project_arguments('-DG_DISABLE_DEPRECATED', language: 'c')
-    add_project_arguments('-DGDK_DISABLE_DEPRECATED', language: 'c')
-    add_project_arguments('-DGTK_DISABLE_DEPRECATED', language: 'c')
+    config.set10('G_DISABLE_DEPRECATED', true)
+    config.set10('GDK_DISABLE_DEPRECATED', true)
+    config.set10('GTK_DISABLE_DEPRECATED', true)
 else
-    add_project_arguments('-DG_DISABLE_ASSERT', language: 'c')
-    add_project_arguments('-DG_DISABLE_CAST_CHECKS', language: 'c')
+    config.set10('G_DISABLE_ASSERT', true)
+    config.set10('G_DISABLE_CAST_CHECKS', true)
 endif
 
 add_project_arguments('-DHAVE_CONFIG_H', language: 'c')
@@ -197,6 +182,15 @@ configure_file(
     configuration: config,
 )
 
+summary({
+    'gtkhash'           : '@0@ (@1@)'.format(build_gtkhash, gtk.name()),
+    'gtkhash-caja'      : '@0@'.format(build_caja),
+    'gtkhash-nautilus'  : '@0@'.format(build_nautilus),
+    'gtkhash-nemo'      : '@0@'.format(build_nemo),
+    'gtkhash-thunar'    : '@0@ (thunarx-@1@)'.format(build_thunar, thunarx),
+    },
+    section: 'Interfaces',
+)
 
 ################################################################################
 # List available hash functions
@@ -281,7 +275,6 @@ nettle_funcs = [
     'SHA3-224', 'SHA3-256', 'SHA3-384', 'SHA3-512',
 ]
 
-
 # Matches preferred order from src/hash/hash-lib.c
 hash_libs = {
     'blake2':           [ 'BLAKE2b', 'BLAKE2s', 'BLAKE2bp', 'BLAKE2sp', ],
@@ -295,7 +288,7 @@ hash_libs = {
     'zlib':             [ 'ADLER32', 'CRC32', ],
 }
 
-functions_provided = { '<Hash>': '<Preferred Implementation>' }
+functions_provided = { 'Hash Function': 'Preferred Implementation' }
 foreach function : hash_functions
     provide = []
     foreach lib, functions : hash_libs
@@ -307,21 +300,11 @@ foreach function : hash_functions
     functions_provided += { function: ', '.join(provide) }
 endforeach
 
-summary(functions_provided, section: 'Hash functions')
+summary(functions_provided, section: 'Libraries')
 
 if get_option('linux-crypto')
     summary({ 'linux-crypto': 'support depends on kernel module availability - check /proc/crypto'})
 endif
-
-summary({
-    'gtkhash'           : '@0@ (gtk3)'.format(build_gtkhash),
-    'gtkhash-caja'      : '@0@'.format(build_caja),
-    'gtkhash-nautilus'  : '@0@'.format(build_nautilus),
-    'gtkhash-nemo'      : '@0@'.format(build_nemo),
-    'gtkhash-thunar'    : '@0@ (thunarx-@1@)'.format(build_thunar, thunarx),
-    },
-    section: 'Interfaces',
-)
 
 ###############################################################################
 

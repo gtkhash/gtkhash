@@ -34,7 +34,7 @@ if build_gtkhash
         include_directories: root_include,
         dependencies: [
             glib,
-            gtk3,
+            gtk,
         ],
         link_with: [
             libhash,
@@ -52,7 +52,7 @@ if build_gtkhash
         include_directories: root_include,
         dependencies: [
             glib,
-            gtk3,
+            gtk,
         ],
         link_with: [
             libhash,
@@ -95,6 +95,5 @@ if build_gtkhash
         depends: test_files,
         protocol: 'tap',
     )
-    # LOG_COMPILER = xvfb-run -s "-screen 0 800x600x24" $(srcdir)/gtkhash-test.sh
 
 endif
