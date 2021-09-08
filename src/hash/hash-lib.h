@@ -26,6 +26,12 @@
 
 #include <stdlib.h>
 #include <stdint.h>
+#include <glib.h>
+
+#if GLIB_CHECK_VERSION(2,68,0)
+	#undef g_memdup
+	#define g_memdup g_memdup2
+#endif
 
 #include "hash-func.h"
 
