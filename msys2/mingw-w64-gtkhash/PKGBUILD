@@ -12,6 +12,7 @@ depends=(
 )
 makedepends=(
 	${MINGW_PACKAGE_PREFIX}-pkg-config
+	${MINGW_PACKAGE_PREFIX}-meson
 	git
 )
 options=( strip )
@@ -26,25 +27,27 @@ pkgver() {
 }
 
 _getdir() {
-	echo "${srcdir}"/${_realname}-*
+	echo "${srcdir}/${_realname}"
 }
 
 build() {
 	cd "$(_getdir)"
-	meson _build \
-		--prefix="$MINGW_PREFIX" \
+	meson setup \
+		--prefix="/${MINGW_PREFIX}" \
+		--buildtype=minsize \
 		-Db_lto=true \
 		-Dappstream=false \
-		-Dblake2=false
-	ninja -C _build
+		-Dblake2=false \
+		_build
+	meson compile -C _build
 }
 
 check() {
-	cd "$(_getdir)"
-	ninja -C _build test
+	cd "$(_getdir)/_build"
+	meson test -v -t 2
 }
 
 package() {
-	cd "$(_getdir)"
-	DESTDIR="${pkgdir}" ninja -C _build install
+	cd "$(_getdir)/_build"
+	meson install --destdir "${pkgdir}"
 }
