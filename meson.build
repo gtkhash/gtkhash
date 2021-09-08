@@ -160,7 +160,7 @@ build_nautilus = get_option('build-nautilus')
 if build_nautilus
     nautilus = dependency('libnautilus-extension')
     nautilus_extension_dir = nautilus.get_pkgconfig_variable('extensiondir')
-    have_nautilus_header = cc.has_header('nautilus-extension.h')
+    have_nautilus_header = cc.has_header('nautilus/nautilus-extension.h')
 endif
 config.set10('HAVE_NAUTILUS_EXTENSION_H', build_nautilus and have_nautilus_header)
 
