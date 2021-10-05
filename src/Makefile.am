@@ -54,7 +54,7 @@ TESTS = $(check_PROGRAMS)
 
 AM_TESTS_ENVIRONMENT = HASH_LIBS="$(HASH_LIBS)"; export HASH_LIBS;
 
-LOG_COMPILER = xvfb-run -s "-screen 0 800x600x24" $(srcdir)/gtkhash-test.sh
+LOG_COMPILER = xvfb-run --auto-servernum -s "-screen 0 800x600x24" $(srcdir)/gtkhash-test.sh
 
 CLEANFILES = \
 	$(BUILT_SOURCES) \
