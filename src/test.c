@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2021 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -49,7 +49,13 @@ static void delay(void)
 	}
 }
 
-static void select_func(const enum hash_func_e id, const bool active)
+static void select_gui_view(const enum gui_view_e view)
+{
+	gui_set_view(view);
+	delay();
+}
+
+static void select_hash_func(const enum hash_func_e id, const bool active)
 {
 	if (hash.funcs[id].enabled == active)
 		return;
@@ -101,7 +107,7 @@ static void test_hash_func(const struct hash_func_s *func)
 
 #define t(FUNC, TEXT, DIGEST) \
 	if (func->id == G_PASTE(HASH_FUNC_, FUNC)) { \
-		select_func(func->id, true); \
+		select_hash_func(func->id, true); \
 		test_hash_func_digest(func->id, TEXT, NULL, DIGEST); \
 		tested = true; \
 	}
@@ -180,7 +186,7 @@ static void test_hash_func(const struct hash_func_s *func)
 	if (!tested)
 		g_test_incomplete("not implemented");
 
-	select_func(func->id, false);
+	select_hash_func(func->id, false);
 }
 
 static void test_hash_func_hmac(const struct hash_func_s *func)
@@ -194,7 +200,7 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 
 #define t(FUNC, TEXT, HMAC, DIGEST) \
 	if (func->id == G_PASTE(HASH_FUNC_, FUNC)) { \
-		select_func(func->id, true); \
+		select_hash_func(func->id, true); \
 		test_hash_func_digest(func->id, TEXT, HMAC, DIGEST); \
 		tested = true; \
 	}
@@ -346,7 +352,7 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 	if (!tested)
 		g_test_incomplete("not implemented");
 
-	select_func(func->id, false);
+	select_hash_func(func->id, false);
 }
 
 static void test_opt_help(void)
@@ -492,7 +498,7 @@ static void test_opt_file(void)
 		g_shell_parse_argv(args, &argc, &argv, NULL);
 		g_free(args);
 
-		select_func(HASH_FUNC_MD5, true);
+		select_hash_func(HASH_FUNC_MD5, true);
 
 		opts_preinit(&argc, &argv);
 		opts_postinit();
@@ -542,7 +548,7 @@ static void test_opt_file_list(void)
 		g_shell_parse_argv(args, &argc, &argv, NULL);
 		g_free(args);
 
-		select_func(HASH_FUNC_MD5, true);
+		select_hash_func(HASH_FUNC_MD5, true);
 
 		opts_preinit(&argc, &argv);
 		opts_postinit();
@@ -574,8 +580,8 @@ static void test_opt_file_list(void)
 static void test_digest_format_hex_lower()
 {
 	if (g_test_subprocess()) {
-		gui_set_view(GUI_VIEW_TEXT);
-		select_func(HASH_FUNC_MD5, true);
+		select_gui_view(GUI_VIEW_TEXT);
+		select_hash_func(HASH_FUNC_MD5, true);
 		select_digest_format(DIGEST_FORMAT_HEX_LOWER);
 
 		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_text));
@@ -591,9 +597,8 @@ static void test_digest_format_hex_lower()
 static void test_digest_format_hex_upper()
 {
 	if (g_test_subprocess()) {
-		gui_set_view(GUI_VIEW_TEXT);
-		delay();
-		select_func(HASH_FUNC_MD5, true);
+		select_gui_view(GUI_VIEW_TEXT);
+		select_hash_func(HASH_FUNC_MD5, true);
 		select_digest_format(DIGEST_FORMAT_HEX_UPPER);
 
 		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_text));
@@ -609,8 +614,8 @@ static void test_digest_format_hex_upper()
 static void test_digest_format_base64()
 {
 	if (g_test_subprocess()) {
-		gui_set_view(GUI_VIEW_TEXT);
-		select_func(HASH_FUNC_MD5, true);
+		select_gui_view(GUI_VIEW_TEXT);
+		select_hash_func(HASH_FUNC_MD5, true);
 		select_digest_format(DIGEST_FORMAT_BASE64);
 
 		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_text));
@@ -625,8 +630,7 @@ static void test_digest_format_base64()
 
 static void test_init(void)
 {
-	gui_set_view(GUI_VIEW_TEXT);
-	delay();
+	select_gui_view(GUI_VIEW_TEXT);
 
 	const char * const lib = g_getenv("GTKHASH_TEST_LIB");
 
