@@ -11,9 +11,9 @@ init:
   - cmd: PATH C:\msys64\mingw64\bin;C:\msys64\usr\bin;C:\msys64\bin;%PATH%
 
 install:
-  - cmd: bash -l -c "exec pacman -Syy --debug --noconfirm"
+  - cmd: bash -l -c "exec pacman -Syy --noconfirm"
   - cmd: bash -l -c "exec pacman -Suu --noconfirm"
-  - cmd: bash -l -c "exec pacman -Syy --debug --noconfirm"
+  - cmd: bash -l -c "exec pacman -Syy --noconfirm"
   - cmd: bash -l -c "exec pacman -Suu --noconfirm"
   - cmd: bash -l %APPVEYOR_BUILD_FOLDER%\msys2\installdeps.sh
 
