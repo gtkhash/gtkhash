@@ -2,13 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Ferdinand Tampubolon <dnandz@gmail.com>, 2021.
+# Neko Nekowazarashi <i.musthafa66@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2021-01-09 13:32+0000\n"
-"Last-Translator: Ferdinand Tampubolon <dnandz@gmail.com>\n"
+"PO-Revision-Date: 2021-10-16 06:40+0000\n"
+"Last-Translator: Neko Nekowazarashi <i.musthafa66@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/id/>\n"
 "Language: id\n"
@@ -16,23 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4.1-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
-msgstr "Huruf kecil Hexadecimal"
+msgstr "Heksadesimal Huruf Kecil"
 
 #: data/gtkhash-gtk3.ui:15
 msgid "Uppercase Hexadecimal"
-msgstr "Huruf Besar Hexadesimal"
+msgstr "Heksadesimal Huruf Kapital"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
-msgstr "Salin_Inti"
+msgstr "Salin_Intisari"
 
 #: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
-msgstr "ToolBar_tampil"
+msgstr "Tampilkan_Bilah Alat"
 
 #: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
 msgid "_File"
@@ -41,12 +42,12 @@ msgstr "_Berkas"
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "_Buka File Inti…"
+msgstr "_Buka Berkas Inti…"
 
 #: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "_Simpan File Inti…"
+msgstr "_Simpan Berkas Inti…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -54,7 +55,7 @@ msgstr "__Ubah"
 
 #: data/gtkhash-gtk3.ui:280
 msgid "_View"
-msgstr "_Perlihatkan"
+msgstr "_Lihat"
 
 #: data/gtkhash-gtk3.ui:300
 msgid "_Text"
@@ -62,7 +63,7 @@ msgstr "_Teks"
 
 #: data/gtkhash-gtk3.ui:310
 msgid "File _List"
-msgstr "Daftar_Data"
+msgstr "Daftar_Berkas"
 
 #: data/gtkhash-gtk3.ui:324
 msgid "_Help"
@@ -70,7 +71,7 @@ msgstr "_Bantuan"
 
 #: data/gtkhash-gtk3.ui:429
 msgid "File:"
-msgstr "Data:"
+msgstr "Berkas:"
 
 #: data/gtkhash-gtk3.ui:442
 msgid "Text:"
@@ -83,7 +84,7 @@ msgstr "Cek:"
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr "Tempel Inti dari papanklip"
+msgstr "Tempel inti dari papan klip"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
@@ -92,7 +93,7 @@ msgstr "Kunci HMAC:"
 
 #: data/gtkhash-gtk3.ui:783
 msgid "File"
-msgstr "Data"
+msgstr "Berkas"
 
 #: data/gtkhash-gtk3.ui:887
 msgid "Ha_sh"
@@ -121,11 +122,11 @@ msgstr "Kalkulator Ceksum"
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
-msgstr "Menghitung Pesan Inti atau ceksum"
+msgstr "Menghitung pesan inti atau ceksum"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr "Buka File Inti"
+msgstr "Buka Berkas Inti"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
@@ -139,15 +140,15 @@ msgstr "_Batal"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "Inti/File ceksum (*.sha1, *.md5, *.sfv,...)"
+msgstr "Berkas Inti/Ceksum (*.sha1, *.md5, *.sfv, ...)"
 
 #: src/callbacks.c:78
 msgid "All Files"
-msgstr "Data Keseluruhan"
+msgstr "Semua Berkas"
 
 #: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
-msgstr "Simpan Data Inti"
+msgstr "Simpan Berkas Inti"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
@@ -155,63 +156,65 @@ msgstr "_Simpan"
 
 #: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
-msgstr "Suatu Desktop Utilitas untuk Inti Pesan Komputer atau ceksum"
+msgstr "Suatu aplikasi desktop untuk menghitung inti atau ceksum pesan"
 
 #: src/callbacks.c:279
 msgid "translator-credits"
-msgstr "Kredit Penerjemah Ferdinand Tampubolon <dnandz@gmail.com>"
+msgstr ""
+"Ferdinand Tampubolon <dnandz@gmail.com>\n"
+"Neko Nekowazarashi"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
-msgstr "Pilih Data"
+msgstr "Pilih Berkas"
 
 #: src/callbacks.c:529 src/nautilus/properties.c:253
 msgid "_Show HMAC Key"
-msgstr "_lihat Kunci HMAC"
+msgstr "_Lihat Kunci HMAC"
 
 #: src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr "Gagal untuk membaca cek data \"%s\":%s"
+msgstr "Gagal untuk membaca ceksum berkas \"%s\":%s"
 
 #: src/gui.c:308
 msgid "Not a regular file"
-msgstr "Bukan Data biasanya"
+msgstr "Bukan berkas biasa"
 
 #: src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr "Gagal untuk memasukkan data \"%s\":%s"
+msgstr "Gagal untuk menambahkan berkas \"%s\":%s"
 
 #: src/hash.c:188 src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "Hash Tidak ditemukan Nama Fungsi \"%s\""
+msgstr "Nama Fungsi Hash tidak diketahui \"%s\""
 
 #: src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Cek kembali inti yang khusus atau ceksum"
+msgstr "Cek terhadap inti atau ceksum yang diberikan"
 
 #: src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
-msgstr "Inti"
+msgstr "INTI"
 
 #: src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "Cek Inti atau ceksum dari file yang spesifik"
+msgstr "Cek inti atau ceksum dari berkas yang dipilih"
 
 #: src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr "File|URI"
+msgstr "BERKAS|URI"
 
 #: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr "Aktifkan Fungsi hash khusus (cth. MD5)"
+msgstr "Aktifkan Fungsi Hash yang diberikan (cth. MD5)"
 
 #: src/opts.c:110
 msgctxt " --help"
@@ -221,7 +224,7 @@ msgstr "FUNGSI"
 #: src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr "Hash teks khusus"
+msgstr "Hash teks yang diberikan"
 
 #: src/opts.c:115
 msgctxt " --help"
@@ -231,29 +234,29 @@ msgstr "TEKS"
 #: src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr "Lihat versi informasi"
+msgstr "Lihat info versi"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr "[File|URI...]"
+msgstr "[BERKAS|URI...]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr "Gagal untuk mengaktifkan bantuan fungsi hash apapun."
+msgstr "Gagal untuk mengaktifkan fungsi hash yang didukung mana pun."
 
 #: src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] "%u Menit lagi"
+msgstr[0] "%u menit tersisa"
 
 #: src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] "Sudah %u lewat"
+msgstr[0] "%u detik tersisa"
 
 #: src/util/util.c:58
 #, c-format
@@ -266,7 +269,7 @@ msgstr "_Salin Inti"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
-msgstr "Lihat _yang dinonaktifkan Fungsi Hash"
+msgstr "Lihat _Fungsi Hash Yang Dinonaktifkan"
 
 #: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
@@ -295,17 +298,17 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
-"GtkHash adalah sebuah aplikasi untuk pengecekan file komputer, atau pesan "
-"inti. Dibuat untuk mudah digunakan, alternatif tampilan grafik ke program "
-"perintah teks seperti md5sum."
+"GtkHash adalah sebuah aplikasi untuk mengecek ceksum berkas atau inti pesan. "
+"Di rancang untuk mudah digunakan dan alternatif grafik untuk program baris "
+"perintah seperti md5sum."
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr "Didukung Fungsi hash termasuk MD5,SHA1, SHA256, SHA512 dan CRC32."
+msgstr "Fungsi Hash yang didukung: MD5,SHA1, SHA256, SHA512, dan CRC32."
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
-msgstr "Memasukkan Pesan Inti atau ceksum ke properti file"
+msgstr "Tambahkan inti pesan atau ceksum ke properti berkas"
