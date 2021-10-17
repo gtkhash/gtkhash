@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2021 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -80,7 +80,7 @@ bool gtkhash_hash_lib_linux_is_supported(const enum hash_func_e id)
 		return false;
 
 	if ((data.sockfd = socket(AF_ALG, SOCK_SEQPACKET, 0)) == -1) {
-		g_message("Kernel AF_ALG: %s", g_strerror(errno));
+		g_debug("Kernel AF_ALG: %s", g_strerror(errno));
 		return false;
 	}
 
@@ -92,13 +92,13 @@ bool gtkhash_hash_lib_linux_is_supported(const enum hash_func_e id)
 	strcpy((char *)addr.salg_name, data.name);
 
 	if (bind(data.sockfd, (struct sockaddr *)&addr, sizeof(addr)) == -1) {
-		g_message("Kernel AF_ALG '%s': %s", data.name, g_strerror(errno));
+		g_debug("Kernel AF_ALG '%s': %s", data.name, g_strerror(errno));
 		close(data.sockfd);
 		return false;
 	}
 
 	if ((data.connfd = accept(data.sockfd, NULL, NULL)) == -1) {
-		g_message("Kernel AF_ALG '%s': %s", data.name, g_strerror(errno));
+		g_debug("Kernel AF_ALG '%s': %s", data.name, g_strerror(errno));
 		close(data.sockfd);
 		return false;
 	}
@@ -107,7 +107,7 @@ bool gtkhash_hash_lib_linux_is_supported(const enum hash_func_e id)
 	ssize_t bytes = 0;
 	if ((bytes = send(data.connfd, "1234567", 8, MSG_MORE)) != 8) {
 		if (bytes < 0)
-			g_message("Kernel AF_ALG '%s': %s", data.name, g_strerror(errno));
+			g_debug("Kernel AF_ALG '%s': %s", data.name, g_strerror(errno));
 		close(data.connfd);
 		close(data.sockfd);
 		return false;
@@ -117,7 +117,7 @@ bool gtkhash_hash_lib_linux_is_supported(const enum hash_func_e id)
 	uint8_t digest[4];
 	if ((bytes = read(data.connfd, &digest, 4)) != 4) {
 		if (bytes < 0)
-			g_message("Kernel AF_ALG '%s': %s", data.name, g_strerror(errno));
+			g_debug("Kernel AF_ALG '%s': %s", data.name, g_strerror(errno));
 		close(data.connfd);
 		close(data.sockfd);
 		return false;
