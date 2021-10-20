@@ -44,4 +44,5 @@ script:
       -Dbuild-thunar=true
   - cd _build
   - xvfb-run -s "-screen 0 800x600x24" meson test -v
-  - test "${TRAVIS_COMPILER}" = "clang" || bash <(curl -s https://codecov.io/bash) -Z
+  - curl -Os https://uploader.codecov.io/latest/linux/codecov && chmod +x codecov
+  - test "${TRAVIS_COMPILER}" = "clang" || ./codecov -Z
