@@ -103,6 +103,9 @@ endif
 if cc.has_header_symbol('gcrypt.h', 'GCRY_MD_SHA3_512')
     detected_gcrypt_functions += [ 'SHA3-224', 'SHA3-256', 'SHA3-384', 'SHA3-512' ]
 endif
+if cc.has_header_symbol('gcrypt.h', 'GCRY_MD_SM3')
+    detected_gcrypt_functions += [ 'SM3' ]
+endif
 
 ##### Glib checksums
 config.set10('ENABLE_GLIB_CHECKSUMS', get_option('glib-checksums'))

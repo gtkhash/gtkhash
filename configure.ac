@@ -171,6 +171,9 @@ if test "${enable_gcrypt}" = "yes" ; then
 	AC_CHECK_DECL([GCRY_MD_SHA3_512],
 		[gcrypt_funcs="${gcrypt_funcs} SHA3-224 SHA3-256 SHA3-384 SHA3-512"], [:],
 		[#include <gcrypt.h>])
+	AC_CHECK_DECL([GCRY_MD_SM3],
+		[gcrypt_funcs="${gcrypt_funcs} SM3"], [:],
+		[#include <gcrypt.h>])
 
 	CFLAGS="${ac_save_CFLAGS}"
 else
