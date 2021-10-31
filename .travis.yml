@@ -45,6 +45,4 @@ script:
       -Dbuild-thunar=true
   - cd _build
   - xvfb-run -s "-screen 0 800x600x24" meson test -v
-  - ninja coverage
-  - curl -Os https://uploader.codecov.io/latest/linux/codecov && chmod +x codecov
-  - test "${TRAVIS_COMPILER}" = "clang" || ./codecov -Z
+  - test "${TRAVIS_COMPILER}" = "clang" || { ninja coverage && curl -Os https://uploader.codecov.io/latest/linux/codecov && chmod +x codecov && ./codecov -Z ; }
