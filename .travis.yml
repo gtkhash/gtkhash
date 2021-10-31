@@ -10,6 +10,7 @@ addons:
   apt:
     packages:
       - meson
+      - gcovr
       - gettext
       - appstream
       - libglib2.0-dev
