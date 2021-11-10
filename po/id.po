@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Ferdinand Tampubolon <dnandz@gmail.com>, 2021.
 # Neko Nekowazarashi <i.musthafa66@gmail.com>, 2021.
+# I. Musthafa <i.musthafa66@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2021-10-16 06:40+0000\n"
-"Last-Translator: Neko Nekowazarashi <i.musthafa66@gmail.com>\n"
+"PO-Revision-Date: 2021-11-09 16:49+0000\n"
+"Last-Translator: I. Musthafa <i.musthafa66@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/id/>\n"
 "Language: id\n"
@@ -162,7 +163,7 @@ msgstr "Suatu aplikasi desktop untuk menghitung inti atau ceksum pesan"
 msgid "translator-credits"
 msgstr ""
 "Ferdinand Tampubolon <dnandz@gmail.com>\n"
-"Neko Nekowazarashi"
+"I. Musthafa"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
