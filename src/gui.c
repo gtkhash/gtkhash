@@ -268,7 +268,7 @@ void gui_init(void)
 	// Override user icon theme when running in confined snap environment
 	if (g_strcmp0(g_getenv("SNAP_NAME"), PACKAGE) == 0) {
 		g_object_set(gtk_settings_get_default(),
-			"gtk-icon-theme-name", "Humanity", NULL);
+			"gtk-icon-theme-name", "Yaru", NULL);
 	}
 
 	resources_register_resource();
