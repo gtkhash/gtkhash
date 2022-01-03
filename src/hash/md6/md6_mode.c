@@ -837,7 +837,12 @@ int md6_final( md6_state *st , unsigned char *hashval)
 
   /* md6_process has saved final chaining value in st->hashval */
 
-  md6_reverse_little_endian( (md6_word*)st->hashval, c );
+  {
+  uint8_t tmp[sizeof(st->hashval)];
+  memcpy(&tmp, st->hashval, sizeof(tmp));
+  md6_reverse_little_endian( (md6_word*)&tmp, c );
+  memcpy(&st->hashval, &tmp, sizeof(tmp));
+  }
 
   /* 4/15/09: Following two lines were previously out of order, which 
   **          caused errors depending on whether caller took hash output 
