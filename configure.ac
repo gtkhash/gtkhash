@@ -162,8 +162,10 @@ if test "${enable_gcrypt}" = "yes" ; then
 	AM_PATH_LIBGCRYPT(["${HASH_LIB_GCRYPT_MIN_VER}"], [:], [AC_MSG_ERROR([Libgcrypt not found])])
 	AC_DEFINE([ENABLE_GCRYPT], [1], [Libgcrypt])
 
-	ac_save_CFLAGS="${CFLAGS}"
-	CFLAGS="${CFLAGS} ${LIBGCRYPT_CFLAGS} ${LIBGCRYPT_LIBS}"
+	ac_save_CPPFLAGS="${CPPFLAGS}"
+	ac_save_LIBS="${LIBS}"
+	CPPFLAGS="${CPPFLAGS} ${LIBGCRYPT_CFLAGS}"
+	LIBS="${LIBS} ${LIBGCRYPT_LIBS}"
 
 	AC_CHECK_DECL([GCRY_MD_BLAKE2B_512],
 		[gcrypt_funcs="${gcrypt_funcs} BLAKE2b BLAKE2s"], [:],
@@ -175,7 +177,8 @@ if test "${enable_gcrypt}" = "yes" ; then
 		[gcrypt_funcs="${gcrypt_funcs} SM3"], [:],
 		[#include <gcrypt.h>])
 
-	CFLAGS="${ac_save_CFLAGS}"
+	CPPFLAGS="${ac_save_CPPFLAGS}"
+	LIBS="${ac_save_LIBS}"
 else
 	AC_DEFINE([ENABLE_GCRYPT], [0], [Libgcrypt])
 fi
