@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the gtkhash package.
 # Ali <am30304030@gmail.com>, 2021.
 # Tristan Heaven <tristan@tristanheaven.net>, 2021.
+# Alireza Ivaz <info@alirezaivaz.ir>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2021-06-26 09:53+0000\n"
-"Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
+"PO-Revision-Date: 2022-01-28 13:53+0000\n"
+"Last-Translator: Alireza Ivaz <info@alirezaivaz.ir>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/fa/>\n"
 "Language: fa\n"
@@ -17,15 +18,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.7.1-dev\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
-msgstr ""
+msgstr "هگزادسیمال کوچک"
 
 #: data/gtkhash-gtk3.ui:15
 msgid "Uppercase Hexadecimal"
-msgstr ""
+msgstr "هگزادسیمال بزرگ"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
