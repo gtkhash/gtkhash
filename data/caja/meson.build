@@ -7,7 +7,7 @@ cajaextension_in = configure_file(
     configuration: data_config,
 )
 
-i18n.merge_file(cajaextension,
+i18n.merge_file(
     input:  cajaextension_in,
     output: cajaextension,
     install: true,

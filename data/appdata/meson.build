@@ -26,7 +26,7 @@ foreach metainfo : metainfos
         output: metainfo + '.in',
         configuration: data_config,
     )
-    i18n.merge_file(metainfo,
+    i18n.merge_file(
         input:  metainfo_in,
         output: metainfo,
         install: true,
