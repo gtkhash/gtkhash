@@ -2,33 +2,35 @@
 # Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
-#
+# Pavel Borecki <pavel.borecki@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2012-07-13 20:27+0000\n"
-"Last-Translator: Zbyněk Schwarz <Unknown>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"PO-Revision-Date: 2022-03-05 20:57+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/gtkhash/"
+"translations/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.12-dev\n"
 "X-Launchpad-Export-Date: 2012-07-14 06:30+0000\n"
-"X-Generator: Launchpad (build 15614)\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
-msgstr "Hexadecimální malými písmeny"
+msgstr "Šestnáctkové (hexadecimální) malými písmeny"
 
 #: data/gtkhash-gtk3.ui:15
 msgid "Uppercase Hexadecimal"
-msgstr "Hexadecimální velkými písmeny"
+msgstr "Šestnáctkové (hexadecimální) velkými písmeny"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
-msgstr "Kopírovat _Digest"
+msgstr "Zkopírovat _digest"
 
 #: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
@@ -39,16 +41,14 @@ msgid "_File"
 msgstr "_Soubor"
 
 #: data/gtkhash-gtk3.ui:149
-#, fuzzy
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Uložit Digest"
+msgstr "_Otevřít soubor s digestem…"
 
 #: data/gtkhash-gtk3.ui:160
-#, fuzzy
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Uložit Digest"
+msgstr "_Uložit soubor s digestem…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -85,12 +85,12 @@ msgstr "Kontrola:"
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "Vložit digest ze schránky"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
 msgid "HMAC Key:"
-msgstr ""
+msgstr "HMAC klíč:"
 
 #: data/gtkhash-gtk3.ui:783
 msgid "File"
@@ -102,70 +102,62 @@ msgstr "Ha_sh"
 
 #: data/gtkhash-gtk3.ui:953
 msgid "GtkHash Preferences"
-msgstr "Možnosti GtkHash"
+msgstr "Předvolby pro GtkHash"
 
 #: data/gtkhash-gtk3.ui:1039
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
-msgstr "Hashovací funkce"
+msgstr "Funkce pro vytváření otisku"
 
 #: data/gtkhash-gtk3.ui:1070
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
-msgstr "Hashovací funkce"
+msgstr "MAC funkce"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
-msgstr "Formát Digest:"
+msgstr "Formát digestu:"
 
 #: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
-msgstr ""
+msgstr "Kalkulátor kontrolního součtu"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
-#, fuzzy
 msgid "Calculate message digests or checksums"
-msgstr "Nástroj GTK+ pro výpočet digestu zpráv nebo kontrolních součtů"
+msgstr "Vypočítává digest zpráv nebo kontrolní součty"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr ""
+msgstr "Otevřít soubor s digestem"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
 msgid "_Open"
-msgstr ""
+msgstr "_Otevřít"
 
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
 #: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
 msgid "_Cancel"
-msgstr ""
+msgstr "_Storno"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr ""
+msgstr "Soubory s digestem / kontrolním součtem (*.sha1, *.md5, *.sfv, …)"
 
 #: src/callbacks.c:78
-#, fuzzy
 msgid "All Files"
-msgstr "Vyberte soubory"
+msgstr "Všechny soubory"
 
 #: src/callbacks.c:120 src/callbacks.c:124
-#, fuzzy
 msgid "Save Digest File"
-msgstr "Uložit Digest"
+msgstr "Uložit soubor s digestem"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
-msgstr ""
+msgstr "_Uložit"
 
 #: src/callbacks.c:274
-#, fuzzy
 msgid "A desktop utility for computing message digests or checksums"
-msgstr "Nástroj GTK+ pro výpočet digestu zpráv nebo kontrolních součtů"
+msgstr "Nástroj pro výpočet digestu zpráv nebo kontrolních součtů"
 
 #: src/callbacks.c:279
 #, fuzzy
@@ -182,124 +174,115 @@ msgstr "Vyberte soubory"
 
 #: src/callbacks.c:529 src/nautilus/properties.c:253
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "_Zobrazit HMAC klíč"
 
 #: src/check.c:202
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
-"Nelze přečíst \"%s\":\n"
-"%s"
+msgstr "Nepodařilo se číst soubor s kontrolou „%s“: %s"
 
 #: src/gui.c:308
 msgid "Not a regular file"
 msgstr "Není běžný soubor"
 
 #: src/gui.c:331
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
-"Nelze přidat \"%s\":\n"
-"%s"
+msgstr "Nepodařilo se přidat soubor „%s“:%s"
 
 #: src/hash.c:188 src/prefs.c:113
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "Hashovací funkce"
+msgstr "Neznámá funkce pro vytváření otisku „%s“"
 
 #: src/opts.c:97
-#, fuzzy
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Zkontrolovat pomocí zadaného digestu či kontrolního součtu"
+msgstr "Zkontrolovat vůči zadanému digestu či kontrolnímu součtu"
 
 #: src/opts.c:98
-#, fuzzy
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "DIGEST"
 
 #: src/opts.c:103
-#, fuzzy
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "Nástroj GTK+ pro výpočet digestu zpráv nebo kontrolních součtů"
+msgstr "Zkontrolovat digesty nebo kontrolní součty ze zadaného souboru"
 
 #: src/opts.c:104
-#, fuzzy
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr "[FILE|URI...]"
+msgstr "FILE|URI"
 
 #: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "Zapnout danou funkci pro vytváření otisku (např. MD5)"
 
 #: src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "FUNKCE"
 
 #: src/opts.c:114
-#, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr "Hashovat zadaný text"
+msgstr "Vytvořit otisk pro zadaný text"
 
 #: src/opts.c:115
-#, fuzzy
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEXT"
 
 #: src/opts.c:119
-#, fuzzy
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Zobrazit informace o verzi"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: src/opts.c:124
-#, fuzzy
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr "[FILE|URI...]"
+msgstr "[FILE|URI…]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr "Selhalo povolení všech podporovaných hash funkcí."
+msgstr ""
+"Nepodařilo se zapnout žádnou z podporovaných funkcí pro vytváření otisku."
 
 #: src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "zbývá %u minuta"
+msgstr[1] "zbývají %u minuty"
+msgstr[2] "zbývá %u minut"
 
 #: src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "zbývá %u sekunda"
+msgstr[1] "zbývají %u sekundy"
+msgstr[2] "zbývá %u sekund"
 
 #: src/util/util.c:58
-#, fuzzy, c-format
+#, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s of %s - zbývají %u minuty (%s/sec)"
+msgstr "%s z %s – %s (%s/sek)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
-msgstr "_Kopírovat Digest"
+msgstr "_Zkopírovat digest"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
-msgstr "Zobrazit _Zakázané Hash funkce"
+msgstr "Zobrazit vypnuté funkce pro vytváření otisku"
 
 #: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
-msgstr "Hashovací funkce"
+msgstr "Funkce pro vytváření otisku"
 
 #: data/nautilus/gtkhash-properties.ui:106
 msgid "Digest"
@@ -307,7 +290,7 @@ msgstr "Digest"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
-msgstr "H_ash"
+msgstr "Otisk (ha_sh)"
 
 #: src/nautilus/properties.c:473 src/nautilus/properties.c:476
 #: src/nautilus/properties.c:479 src/nautilus/properties.c:481
@@ -315,10 +298,8 @@ msgstr "H_ash"
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "Kontrola:"
+msgstr "Kontrolní součty"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
@@ -326,18 +307,22 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash je aplikace pro vypočítávání kontrolních součtů pro soubory, nebo "
+"digesty zpráv. Je navržena jako snadno použitelná, grafická alternativa k "
+"programům pro příkazový řádek, jako například md5sum."
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
+"Mezi podporované funkce pro vytváření otisků patří MD5, SHA1, SHA256, SHA512 "
+"a CRC32."
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
-#, fuzzy
 msgid "Adds message digests or checksums to file properties"
-msgstr "Nástroj GTK+ pro výpočet digestu zpráv nebo kontrolních součtů"
+msgstr "Přidá digest zprávy nebo kontrolní součty k vlastnostem souboru"
 
 #~ msgid "Digests"
 #~ msgstr "Digesty"
