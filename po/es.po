@@ -5,13 +5,14 @@
 # emma peel <emma.peel@riseup.net>, 2018.
 # Toni Estévez <toni.estevez@gmail.com>, 2019, 2020.
 # Sebastian Duque <sebastiandg7@gmail.com>, 2019.
+# El Pirujo <boina@disroot.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2020-07-04 23:41+0000\n"
-"Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
+"PO-Revision-Date: 2022-06-15 09:20+0000\n"
+"Last-Translator: El Pirujo <boina@disroot.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/es/>\n"
 "Language: es\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/gtkhash-gtk3.ui:12
@@ -320,7 +321,7 @@ msgstr ""
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
 "Añade resúmenes de mensajes o sumas de comprobación a las propiedades de un "
-"archivo."
+"archivo"
 
 #~ msgid "Digests"
 #~ msgstr "Resúmenes"
