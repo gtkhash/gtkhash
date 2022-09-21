@@ -28,7 +28,8 @@ EXTRA_DIST = \
 	org.gtkhash.caja.metainfo.xml.in \
 	org.gtkhash.nautilus.metainfo.xml.in \
 	org.gtkhash.nemo.metainfo.xml.in \
-	org.gtkhash.thunar.metainfo.xml.in
+	org.gtkhash.thunar.metainfo.xml.in \
+	meson.build
 
 %.xml: %.xml.in
 	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@

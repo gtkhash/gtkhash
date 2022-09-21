@@ -13,6 +13,10 @@ BUILT_SOURCES = properties-resources.c
 
 CLEANFILES = properties-resources.c *.gcda *.gcno
 
+EXTRA_DIST = \
+	meson.build \
+	extension.map.in
+
 if ENABLE_CAJA
 
 cajadir = $(CAJA_EXTENSION_DIR)

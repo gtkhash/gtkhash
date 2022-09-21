@@ -22,7 +22,9 @@ gsettings_SCHEMAS = org.gtkhash.gschema.xml
 EXTRA_DIST = \
 	$(applications_DATA).in \
 	$(gsettings_SCHEMAS) \
-	gtkhash-gtk3.ui gtkhash-gtk3.gresource.xml
+	gtkhash-gtk3.ui \
+	gtkhash-gtk3.gresource.xml \
+	meson.build
 
 CLEANFILES = $(applications_DATA)
 

@@ -25,7 +25,8 @@ hash_la_LIBADD = \
 EXTRA_DIST = \
 	md6/md6.h \
 	md6/md6_compress.c \
-	md6/md6_mode.c
+	md6/md6_mode.c \
+	meson.build
 
 if ENABLE_BLAKE2
 hash_la_SOURCES += hash-lib-blake2.c

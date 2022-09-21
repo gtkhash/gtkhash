@@ -15,3 +15,5 @@ util_la_LIBADD = \
 	$(GIO_LIBS)
 
 CLEANFILES = *.gcda *.gcno
+
+EXTRA_DIST = meson.build

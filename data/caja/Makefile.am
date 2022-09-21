@@ -1,7 +1,9 @@
 cajaextensionsdir = $(datadir)/caja/extensions
 cajaextensions_DATA = libgtkhash-properties-caja.caja-extension
 
-EXTRA_DIST = $(cajaextensions_DATA).in
+EXTRA_DIST = \
+	$(cajaextensions_DATA).in \
+	meson.build
 
 CLEANFILES = $(cajaextensions_DATA)
 

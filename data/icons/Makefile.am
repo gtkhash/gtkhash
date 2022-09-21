@@ -25,7 +25,9 @@ genicons = \
 
 EXTRA_DIST = \
 	$(icon_DATA) \
-	$(genicons)
+	$(genicons) \
+	meson.build \
+	rename_icons.sh
 
 MAINTAINERCLEANFILES = $(genicons)
 

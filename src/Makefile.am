@@ -61,7 +61,10 @@ CLEANFILES = \
 	$(check_DATA) \
 	*.gcda *.gcno
 
-EXTRA_DIST = gtkhash-test.sh test.md5sum.in
+EXTRA_DIST = \
+	gtkhash-test.sh \
+	test.md5sum.in \
+	meson.build
 
 resources.c resources.h: \
 	../data/gtkhash-gtk3.gresource.xml \
