@@ -1,6 +1,11 @@
 Summary of changes for each GtkHash release:
 
-1.5 (2021-00-00)
+1.5 (2022-09-21)
+	* Added xxHash XXH64
+	* Added HMAC-BLAKE2s and HMAC-BLAKE2b (#86)
+	* Made hashing start automatically in file manager extensions (#103)
+	* Added Meson build system (#116, #140)
+	* Removed dependency on intltool
 	* Removed Peony extension as Peony 2+ is incompatible
 
 1.4 (2020-07-11)
