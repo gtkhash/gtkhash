@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2022 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -84,12 +84,12 @@ bool gtkhash_hash_lib_gcrypt_is_supported(const enum hash_func_e id)
 		return false;
 
 	if (!gcry_check_version(HASH_LIB_GCRYPT_MIN_VER)) {
-		g_warning("gcrypt-" HASH_LIB_GCRYPT_MIN_VER " is required");
+		g_debug("gcrypt-" HASH_LIB_GCRYPT_MIN_VER " is required");
 		return false;
 	}
 
 	if (G_UNLIKELY(gcry_md_open(&data.h, data.algo, 0) != GPG_ERR_NO_ERROR)) {
-		g_warning("gcry_md_open failed (%d)", id);
+		g_debug("gcry_md_open failed (%d)", id);
 		return false;
 	}
 

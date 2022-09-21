@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2022 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -65,7 +65,7 @@ bool gtkhash_hash_lib_glib_is_supported(const enum hash_func_e id)
 		return false;
 
 	if (G_UNLIKELY(g_checksum_type_get_length(type) < 0)) {
-		g_warning("g_checksum_type_get_length() failed (%d)", id);
+		g_debug("g_checksum_type_get_length() failed (%d)", id);
 		return false;
 	}
 
