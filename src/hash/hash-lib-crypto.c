@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2022 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -120,7 +120,26 @@ static const EVP_MD *gtkhash_hash_lib_crypto_get_md(const enum hash_func_e id)
 
 bool gtkhash_hash_lib_crypto_is_supported(const enum hash_func_e id)
 {
-	return gtkhash_hash_lib_crypto_get_md(id) != NULL;
+	struct hash_lib_crypto_s data;
+	uint8_t digest[EVP_MAX_MD_SIZE];
+
+	if (!(data.md = gtkhash_hash_lib_crypto_get_md(id)))
+		return false;
+
+	if (EVP_MD_size(data.md) < 1)
+		return false;
+
+	if (!(data.ctx = EVP_MD_CTX_new()))
+		return false;
+
+	if (EVP_Digest("", 0, digest, NULL, data.md, NULL) != 1) {
+		EVP_MD_CTX_free(data.ctx);
+		return false;
+	}
+
+	EVP_MD_CTX_free(data.ctx);
+
+	return true;
 }
 
 void gtkhash_hash_lib_crypto_start(struct hash_func_s *func)
