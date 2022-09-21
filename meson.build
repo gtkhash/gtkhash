@@ -40,7 +40,7 @@ config.set_quoted('G_LOG_DOMAIN',   package_name)
 config.set_quoted('LOCALEDIR',      get_option('prefix') / get_option('localedir'))
 
 data_config.set('VERSION', meson.project_version())
-data_config.set('RELEASE_DATE', '2020-07-11')
+data_config.set('RELEASE_DATE', '2022-09-21')
 
 ################################################################################
 # Compiler options
