@@ -103,7 +103,7 @@ inline static GtkListStore *gtkhash_properties_list_get_store(
 	return GTK_LIST_STORE(gtkhash_properties_list_get_model(page));
 }
 
-void gtkhash_properties_list_update_enabled(struct page_s *page,
+bool gtkhash_properties_list_update_enabled(struct page_s *page,
 	char *path_str)
 {
 	GtkTreeModel *model = gtkhash_properties_list_get_model(page);
@@ -126,6 +126,8 @@ void gtkhash_properties_list_update_enabled(struct page_s *page,
 	page->funcs[id].enabled = enabled;
 
 	gtkhash_sort_list(model);
+
+	return enabled;
 }
 
 void gtkhash_properties_list_reset_enabled(struct page_s *page)
