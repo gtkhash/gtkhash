@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2023-04-14 12:50+0000\n"
+"PO-Revision-Date: 2023-04-14 14:47+0000\n"
 "Last-Translator: Ram <airavatam@tutanota.com>\n"
 "Language-Team: Malayalam <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ml/>\n"
@@ -101,7 +101,7 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:953
 msgid "GtkHash Preferences"
-msgstr ""
+msgstr "ജിടികെഹാഷ് മുൻഗണനകൾ"
 
 #: data/gtkhash-gtk3.ui:1039
 msgid "Hash Functions"
@@ -131,7 +131,7 @@ msgstr ""
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
 msgid "_Open"
-msgstr ""
+msgstr "_തുറക്കുക"
 
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
 #: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
@@ -159,8 +159,9 @@ msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
 
 #: src/callbacks.c:279
+#, fuzzy
 msgid "translator-credits"
-msgstr ""
+msgstr "വിവർത്തകൻ-ക്രെഡിറ്റുകൾ"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
@@ -227,12 +228,12 @@ msgstr ""
 #: src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
-msgstr ""
+msgstr "വാചകം"
 
 #: src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr ""
+msgstr "പതിപ്പ് വിവരങ്ങൾ കാണിക്കുക"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: src/opts.c:124
@@ -245,17 +246,17 @@ msgid "Failed to enable any supported hash functions."
 msgstr ""
 
 #: src/util/util.c:35
-#, c-format
+#, c-format, fuzzy
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
+msgstr[0] "%u മിനിറ്റ് ശേഷിക്കുന്നു"
 msgstr[1] ""
 
 #: src/util/util.c:39
-#, c-format
+#, c-format, fuzzy
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
+msgstr[0] "%u സെക്കൻഡ് ശേഷിക്കുന്നു"
 msgstr[1] ""
 
 #: src/util/util.c:58
