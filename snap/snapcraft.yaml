@@ -17,7 +17,7 @@ apps:
 
 parts:
   gtkhash:
-    source: https://github.com/tristanheaven/gtkhash.git
+    source: https://github.com/gtkhash/gtkhash.git
     plugin: autotools
     build-packages:
       - pkg-config

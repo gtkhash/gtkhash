@@ -6,8 +6,8 @@
   <project_license>GPL-2.0+</project_license>
   <name>Checksums</name>
   <summary>Adds message digests or checksums to file properties</summary>
-  <url type="homepage">https://github.com/tristanheaven/gtkhash</url>
-  <url type="bugtracker">https://github.com/tristanheaven/gtkhash/issues</url>
+  <url type="homepage">https://github.com/gtkhash/gtkhash</url>
+  <url type="bugtracker">https://github.com/gtkhash/gtkhash/issues</url>
   <url type="translate">https://hosted.weblate.org/engage/gtkhash/</url>
   <developer_name>Tristan Heaven</developer_name>
   <update_contact>tristan@tristanheaven.net</update_contact>

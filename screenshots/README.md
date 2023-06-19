@@ -8,4 +8,4 @@
 ![File list](file-list.png)
 
 ---
-Screenshots by [Stéphane Gourichon](https://github.com/fidergo-stephane-gourichon), issue [#38](https://github.com/tristanheaven/gtkhash/issues/38).
+Screenshots by [Stéphane Gourichon](https://github.com/fidergo-stephane-gourichon), issue [#38](https://github.com/gtkhash/gtkhash/issues/38).

@@ -279,7 +279,7 @@ static void on_menuitem_about_activate(void)
 			"translator-credits", _("translator-credits"),
 #endif
 			"version", version,
-			"website", "https://github.com/tristanheaven/gtkhash",
+			"website", "https://github.com/gtkhash/gtkhash",
 			NULL);
 
 	g_free(version);
