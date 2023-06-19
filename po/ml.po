@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
-"Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
+"Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
 "PO-Revision-Date: 2023-04-14 14:47+0000\n"
 "Last-Translator: Ram <airavatam@tutanota.com>\n"
@@ -246,14 +246,14 @@ msgid "Failed to enable any supported hash functions."
 msgstr ""
 
 #: src/util/util.c:35
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
 msgstr[0] "%u മിനിറ്റ് ശേഷിക്കുന്നു"
 msgstr[1] ""
 
 #: src/util/util.c:39
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
 msgstr[0] "%u സെക്കൻഡ് ശേഷിക്കുന്നു"

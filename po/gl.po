@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: https://github.com/tristanheaven/gtkhash/issues\n"
+"Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
 "PO-Revision-Date: 2011-04-25 21:04+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
