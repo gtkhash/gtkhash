@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Rui Mendes <xz9@protonmail.com>, 2019.
 # ssantos <ssantos@web.de>, 2020.
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2021.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2021-03-17 13:18+0000\n"
+"PO-Revision-Date: 2023-06-25 09:07+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/gtkhash/"
 "translations/pt/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -141,7 +141,7 @@ msgstr "_Cancelar"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "Ficheiros de resumo / somas de verificação (*.sha1, *md5, *.sfv, …)"
+msgstr "Ficheiros de resumo/Somas de verificação (*.sha1, *md5, *.sfv, …)"
 
 #: src/callbacks.c:78
 msgid "All Files"
@@ -164,7 +164,7 @@ msgstr ""
 #: src/callbacks.c:279
 msgid "translator-credits"
 msgstr ""
-"tonela https://hosted.weblate.org/user/tonela/\n"
+"Rui Mendes https://hosted.weblate.org/user/tonela/\n"
 "Hugo Carvalho <hugokarvalho@hotmail.com>"
 
 #: src/callbacks.c:307 src/callbacks.c:311
