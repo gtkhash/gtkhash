@@ -4,13 +4,14 @@
 # Ali <am30304030@gmail.com>, 2021.
 # Tristan Heaven <tristan@tristanheaven.net>, 2021.
 # Alireza Ivaz <info@alirezaivaz.ir>, 2022.
+# Ali Nemati <AliNemati13@users.noreply.hosted.weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2022-01-28 13:53+0000\n"
-"Last-Translator: Alireza Ivaz <info@alirezaivaz.ir>\n"
+"PO-Revision-Date: 2024-02-04 12:11+0000\n"
+"Last-Translator: Ali Nemati <AliNemati13@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/fa/>\n"
 "Language: fa\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -30,7 +31,7 @@ msgstr "هگزادسیمال بزرگ"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
-msgstr ""
+msgstr "کپی هش"
 
 #: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
@@ -43,12 +44,12 @@ msgstr "پرونده"
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr ""
+msgstr "باز کردن پرونده هش…"
 
 #: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr ""
+msgstr "ذخیره پرونده هش…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -72,25 +73,25 @@ msgstr "کمک"
 
 #: data/gtkhash-gtk3.ui:429
 msgid "File:"
-msgstr "پرونده"
+msgstr "پرونده:"
 
 #: data/gtkhash-gtk3.ui:442
 msgid "Text:"
-msgstr "متن"
+msgstr "متن:"
 
 #: data/gtkhash-gtk3.ui:455 data/nautilus/gtkhash-properties.ui:144
 msgid "Check:"
-msgstr "بررسی"
+msgstr "بررسی:"
 
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "چسباندن هش از حافظه"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
 msgid "HMAC Key:"
-msgstr ""
+msgstr "کلید HMAC:"
 
 #: data/gtkhash-gtk3.ui:783
 msgid "File"
@@ -98,11 +99,11 @@ msgstr "پرونده"
 
 #: data/gtkhash-gtk3.ui:887
 msgid "Ha_sh"
-msgstr ""
+msgstr "درهمک"
 
 #: data/gtkhash-gtk3.ui:953
 msgid "GtkHash Preferences"
-msgstr ""
+msgstr "ترجیحات GtkHash"
 
 #: data/gtkhash-gtk3.ui:1039
 msgid "Hash Functions"
@@ -114,7 +115,7 @@ msgstr "توابع کد اصالت سنجی پیام"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
-msgstr ""
+msgstr "ساختار هش:"
 
 #: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
@@ -123,7 +124,7 @@ msgstr "محاسبه گر جمع کنترلی"
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
-msgstr ""
+msgstr "محاسبه پیام هش‏ ها یا جمع‌آزما ها"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
@@ -141,7 +142,7 @@ msgstr "لغو کردن"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr ""
+msgstr "پرونده های هش/جمع‌آزما (*.sha1, *.md5, *.sfv, …)"
 
 #: src/callbacks.c:78
 msgid "All Files"
@@ -149,7 +150,7 @@ msgstr "همه پوشه‌ها"
 
 #: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
-msgstr ""
+msgstr "ذخیره پرونده هش"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
@@ -157,7 +158,7 @@ msgstr "ذخیره کردن"
 
 #: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
+msgstr "یک ابزار دسکتاپ برای محاسبه پیام های هش یا جمع‌آزما ها"
 
 #: src/callbacks.c:279
 msgid "translator-credits"
