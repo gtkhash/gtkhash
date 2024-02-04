@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2024-02-04 18:01+0000\n"
+"PO-Revision-Date: 2024-02-04 20:01+0000\n"
 "Last-Translator: Ali Nemati <AliNemati13@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/fa/>\n"
@@ -86,7 +86,7 @@ msgstr "بررسی:"
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr "چسباندن خلاصه از حافظه"
+msgstr "چسباندن خلاصه (digest) از حافظه"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
@@ -107,7 +107,7 @@ msgstr "ترجیحات GtkHash"
 
 #: data/gtkhash-gtk3.ui:1039
 msgid "Hash Functions"
-msgstr "توابع درهم‌سازی"
+msgstr "توابع هش"
 
 #: data/gtkhash-gtk3.ui:1070
 msgid "MAC Functions"
@@ -124,7 +124,7 @@ msgstr "محاسبه گر چک سام"
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
-msgstr "محاسبه پیام هش‏ ها یا جمع‌آزما ها"
+msgstr "محاسبه خلاصه پیام ها یا چک سام ها"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
@@ -190,7 +190,7 @@ msgstr "افزودن فایل \"%s\" ناموفق بود: %s"
 #: src/hash.c:188 src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "تابع درهم‌سازی ناشناخته \"%s\""
+msgstr "تابع هش ناشناخته \"%s\""
 
 #: src/opts.c:97
 msgctxt " --help"
@@ -245,7 +245,7 @@ msgstr "[FILE|URI...]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr "خطا در فعال سازی تمام توابع درهم‌سازی پشتیبانی شده."
+msgstr "خطا در فعال سازی تمام توابع هش پشتیبانی شده."
 
 #: src/util/util.c:35
 #, c-format
@@ -272,11 +272,11 @@ msgstr "_کپی خلاصه"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
-msgstr "نمایش توابع درهم‌سازی _غیرفعال"
+msgstr "نمایش توابع هش _غیرفعال"
 
 #: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
-msgstr "تابع درهم‌سازی"
+msgstr "تابع هش"
 
 #: data/nautilus/gtkhash-properties.ui:106
 msgid "Digest"
@@ -307,7 +307,7 @@ msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr "توابع درهم‌سازی پشتیبان شده شامل MD5, SHA1, SHA256, SHA512 و CRC32."
+msgstr "توابع هش پشتیبان شده شامل MD5, SHA1, SHA256, SHA512 و CRC32."
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
