@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2024-02-04 16:01+0000\n"
+"PO-Revision-Date: 2024-02-04 18:01+0000\n"
 "Last-Translator: Ali Nemati <AliNemati13@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/fa/>\n"
@@ -44,12 +44,12 @@ msgstr "_پرونده"
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "_باز کردن پرونده هش…"
+msgstr "_باز کردن فایل خلاصه…"
 
 #: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "_ذخیره پرونده هش…"
+msgstr "_ذخیره فایل خلاصه…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -69,7 +69,7 @@ msgstr "_لیست فایل"
 
 #: data/gtkhash-gtk3.ui:324
 msgid "_Help"
-msgstr "_کمک"
+msgstr "_راهنما"
 
 #: data/gtkhash-gtk3.ui:429
 msgid "File:"
@@ -86,7 +86,7 @@ msgstr "بررسی:"
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr "چسباندن هش از حافظه"
+msgstr "چسباندن خلاصه از حافظه"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
@@ -146,7 +146,7 @@ msgstr "فایل های چک سام/خلاصه (*.sha1, *.md5, *.sfv, ...)"
 
 #: src/callbacks.c:78
 msgid "All Files"
-msgstr "همه فایل ها"
+msgstr "تمام فایل ها"
 
 #: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
@@ -158,7 +158,8 @@ msgstr "_ذخیره"
 
 #: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
-msgstr "یک ابزار دسکتاپ برای محاسبه پیام های هش یا جمع‌آزما ها"
+msgstr ""
+"‎یک ‫ابزارِ کمکی رایانه رومیزی برای محاسبه چکیده پیام یا کدهای تأیید صحت‬‎"
 
 #: src/callbacks.c:279
 msgid "translator-credits"
@@ -175,21 +176,21 @@ msgstr "_نمایش کلید HMAC"
 #: src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
+msgstr "خطا در خواندن فایل \"%s\" اعتبارسنجی: %s"
 
 #: src/gui.c:308
 msgid "Not a regular file"
-msgstr ""
+msgstr "فایل معتبر نیست"
 
 #: src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
+msgstr "افزودن فایل \"%s\" ناموفق بود: %s"
 
 #: src/hash.c:188 src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr ""
+msgstr "تابع درهم‌سازی ناشناخته \"%s\""
 
 #: src/opts.c:97
 msgctxt " --help"
@@ -244,46 +245,46 @@ msgstr "[FILE|URI...]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr ""
+msgstr "خطا در فعال سازی تمام توابع درهم‌سازی پشتیبانی شده."
 
 #: src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u دقیقه مانده"
+msgstr[1] "%u دقیقه مانده"
 
 #: src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u ثانیه مانده"
+msgstr[1] "%u ثانیه مانده"
 
 #: src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr ""
+msgstr "%s از %s - زمان تقریبی %s (%s/ثانیه)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
-msgstr ""
+msgstr "_کپی خلاصه"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
-msgstr ""
+msgstr "نمایش توابع درهم‌سازی _غیرفعال"
 
 #: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
-msgstr ""
+msgstr "تابع درهم‌سازی"
 
 #: data/nautilus/gtkhash-properties.ui:106
 msgid "Digest"
-msgstr ""
+msgstr "خلاصه"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
-msgstr ""
+msgstr "_هش"
 
 #: src/nautilus/properties.c:473 src/nautilus/properties.c:476
 #: src/nautilus/properties.c:479 src/nautilus/properties.c:481
@@ -292,7 +293,7 @@ msgstr ""
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
 msgid "Checksums"
-msgstr ""
+msgstr "چک سام ها"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
@@ -300,14 +301,17 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash برنامه ای برای محاسبه چک سام فایل ها یا خلاصه پیام ها است. این "
+"برنامه به گونه ای طراحی شده است که استفاده آسان و جایگزین گرافیکی برای "
+"برنامه های خط فرمان مانند md5sum باشد."
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
+msgstr "توابع درهم‌سازی پشتیبان شده شامل MD5, SHA1, SHA256, SHA512 و CRC32."
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
-msgstr ""
+msgstr "خلاصه پیام ها یا چک سام ها را به ویژگی های فایل اضافه می کند"
