@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2024-02-04 12:11+0000\n"
+"PO-Revision-Date: 2024-02-04 14:01+0000\n"
 "Last-Translator: Ali Nemati <AliNemati13@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/fa/>\n"
@@ -128,7 +128,7 @@ msgstr "محاسبه پیام هش‏ ها یا جمع‌آزما ها"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr "بازکردن خلاصه پرونده"
+msgstr "بازکردن پرونده هش (Digest)"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
@@ -146,11 +146,11 @@ msgstr "پرونده های هش/جمع‌آزما (*.sha1, *.md5, *.sfv, …)"
 
 #: src/callbacks.c:78
 msgid "All Files"
-msgstr "همه پوشه‌ها"
+msgstr "همه پرونده ها"
 
 #: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
-msgstr "ذخیره پرونده هش"
+msgstr "ذخیره پرونده هش (Digest)"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
@@ -194,53 +194,53 @@ msgstr ""
 #: src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr ""
+msgstr "Check against the specified digest or checksum"
 
 #: src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
-msgstr ""
+msgstr "DIGEST"
 
 #: src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr ""
+msgstr "Check digests or checksums from the specified file"
 
 #: src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr ""
+msgstr "FILE|URI"
 
 #: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "Enable the specified Hash Function (e.g. MD5)"
 
 #: src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "FUNCTION"
 
 #: src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr ""
+msgstr "Hash the specified text"
 
 #: src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
-msgstr ""
+msgstr "TEXT"
 
 #: src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr ""
+msgstr "Show version information"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr ""
+msgstr "[FILE|URI...]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
