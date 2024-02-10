@@ -1,0 +1,65 @@
+name: msys2
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  msys2:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        sys:
+          - mingw64
+          - mingw32
+# Not supported by styrene:
+#          - ucrt64
+#          - clang64
+#          - clang32
+    name: ${{ matrix.sys }}
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - run: git config --global core.autocrlf input
+        shell: bash
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: ${{ matrix.sys }}
+          update: true
+          install: >-
+            git
+            base-devel
+            tree
+          pacboy: >-
+            toolchain:p
+            styrene:p
+
+      - run: env
+
+      - name: Run makepkg-mingw
+        run: |
+          git archive --prefix gtkhash/ -o msys2/mingw-w64-gtkhash/gtkhash.tar.gz HEAD
+          cd msys2/mingw-w64-gtkhash
+          PKGEXT=.pkg.tar.xz makepkg-mingw --noconfirm --noprogressbar --syncdeps --clean --cleanbuild --force
+          tree
+
+      - name: Run styrene
+        run: |
+          cd msys2/styrene
+          styrene --pkg-dir $(readlink -f ../mingw-w64-gtkhash) styrene.cfg
+          tree
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.sys }}
+          if-no-files-found: error
+          path: |
+            msys2/styrene/*-installer.exe
+            msys2/styrene/*-standalone.zip
