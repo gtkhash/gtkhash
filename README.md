@@ -1,4 +1,4 @@
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/1hm3cs5f0islas0w/branch/master?svg=true)](https://ci.appveyor.com/project/tristanheaven/gtkhash/branch/master)
+[![Windows Build Status](https://github.com/gtkhash/gtkhash/actions/workflows/msys2.yml/badge.svg)](https://github.com/gtkhash/gtkhash/actions/workflows/msys2.yml)
 [![Test Coverage](https://codecov.io/gh/gtkhash/gtkhash/branch/master/graph/badge.svg)](https://app.codecov.io/gh/gtkhash/gtkhash)
 [![Translations](https://hosted.weblate.org/widgets/gtkhash/-/svg-badge.svg)](https://hosted.weblate.org/engage/gtkhash/)
 [![Snap Status](https://snapcraft.io/gtkhash/badge.svg)](https://snapcraft.io/gtkhash/builds)
