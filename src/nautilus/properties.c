@@ -56,6 +56,8 @@
 
 static GType page_type;
 
+void gtkhash_properties_on_button_hash_clicked(struct page_s *page);
+
 static GObject *gtkhash_properties_get_object(GtkBuilder *builder,
 	const char *name)
 {
@@ -132,9 +134,12 @@ void gtkhash_properties_idle(struct page_s *page)
 static void gtkhash_properties_on_cell_toggled(struct page_s *page,
 	char *path_str)
 {
-	gtkhash_properties_list_update_enabled(page, path_str);
+	bool enabled = gtkhash_properties_list_update_enabled(page, path_str);
 	gtkhash_properties_list_check_digests(page);
 	gtkhash_properties_button_hash_set_sensitive(page);
+
+ 	if (enabled)
+		gtkhash_properties_on_button_hash_clicked(page);
 }
 
 static void gtkhash_properties_on_treeview_popup_menu(struct page_s *page)
@@ -267,7 +272,7 @@ static void gtkhash_properties_on_togglebutton_hmac_toggled(struct page_s *page)
 	gtkhash_properties_list_check_digests(page);
 }
 
-static void gtkhash_properties_on_button_hash_clicked(struct page_s *page)
+void gtkhash_properties_on_button_hash_clicked(struct page_s *page)
 {
 	gtkhash_properties_busy(page);
 	gtkhash_properties_list_clear_digests(page);
@@ -630,3 +635,4 @@ PUBLIC void thunar_extension_list_types(const GType **types, int *num_types)
 	*types = type_list;
 	*num_types = G_N_ELEMENTS(type_list);
 }
+
