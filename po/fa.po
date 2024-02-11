@@ -4,13 +4,14 @@
 # Ali <am30304030@gmail.com>, 2021.
 # Tristan Heaven <tristan@tristanheaven.net>, 2021.
 # Alireza Ivaz <info@alirezaivaz.ir>, 2022.
+# Ali Nemati <AliNemati13@users.noreply.hosted.weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2022-01-28 13:53+0000\n"
-"Last-Translator: Alireza Ivaz <info@alirezaivaz.ir>\n"
+"PO-Revision-Date: 2024-02-04 20:01+0000\n"
+"Last-Translator: Ali Nemati <AliNemati13@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/fa/>\n"
 "Language: fa\n"
@@ -18,79 +19,79 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
-msgstr "هگزادسیمال کوچک"
+msgstr "نمایش هگزادسیمال با حروف کوچک"
 
 #: data/gtkhash-gtk3.ui:15
 msgid "Uppercase Hexadecimal"
-msgstr "هگزادسیمال بزرگ"
+msgstr "نمایش هگزادسیمال با حروف بزرگ"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
-msgstr ""
+msgstr "کپی _خلاصه"
 
 #: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
-msgstr "نمایش نوار ابزار"
+msgstr "نمایش _نوار ابزار"
 
 #: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
 msgid "_File"
-msgstr "پرونده"
+msgstr "_پرونده"
 
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr ""
+msgstr "_باز کردن فایل خلاصه…"
 
 #: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr ""
+msgstr "_ذخیره فایل خلاصه…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
-msgstr "ویرایش"
+msgstr "_ویرایش"
 
 #: data/gtkhash-gtk3.ui:280
 msgid "_View"
-msgstr "دیدن"
+msgstr "_نمایش"
 
 #: data/gtkhash-gtk3.ui:300
 msgid "_Text"
-msgstr "متن"
+msgstr "_متن"
 
 #: data/gtkhash-gtk3.ui:310
 msgid "File _List"
-msgstr "لیست فایل"
+msgstr "_لیست فایل"
 
 #: data/gtkhash-gtk3.ui:324
 msgid "_Help"
-msgstr "کمک"
+msgstr "_راهنما"
 
 #: data/gtkhash-gtk3.ui:429
 msgid "File:"
-msgstr "پرونده"
+msgstr "پرونده:"
 
 #: data/gtkhash-gtk3.ui:442
 msgid "Text:"
-msgstr "متن"
+msgstr "متن:"
 
 #: data/gtkhash-gtk3.ui:455 data/nautilus/gtkhash-properties.ui:144
 msgid "Check:"
-msgstr "بررسی"
+msgstr "بررسی:"
 
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr ""
+msgstr "چسباندن خلاصه (digest) از حافظه"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
 msgid "HMAC Key:"
-msgstr ""
+msgstr "کلید HMAC:"
 
 #: data/gtkhash-gtk3.ui:783
 msgid "File"
@@ -98,15 +99,15 @@ msgstr "پرونده"
 
 #: data/gtkhash-gtk3.ui:887
 msgid "Ha_sh"
-msgstr ""
+msgstr "ه_ش"
 
 #: data/gtkhash-gtk3.ui:953
 msgid "GtkHash Preferences"
-msgstr ""
+msgstr "ترجیحات GtkHash"
 
 #: data/gtkhash-gtk3.ui:1039
 msgid "Hash Functions"
-msgstr "توابع درهم‌سازی"
+msgstr "توابع هش"
 
 #: data/gtkhash-gtk3.ui:1070
 msgid "MAC Functions"
@@ -114,175 +115,176 @@ msgstr "توابع کد اصالت سنجی پیام"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
-msgstr ""
+msgstr "ساختار خلاصه:"
 
 #: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
-msgstr "محاسبه گر جمع کنترلی"
+msgstr "محاسبه گر چک سام"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
-msgstr ""
+msgstr "محاسبه خلاصه پیام ها یا چک سام ها"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr "بازکردن خلاصه پرونده"
+msgstr "بازکردن فایل خلاصه (Digest)"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
 msgid "_Open"
-msgstr "باز کردن"
+msgstr "_بازکردن"
 
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
 #: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
 msgid "_Cancel"
-msgstr "لغو کردن"
+msgstr "_لغو"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr ""
+msgstr "فایل های چک سام/خلاصه (*.sha1, *.md5, *.sfv, ...)"
 
 #: src/callbacks.c:78
 msgid "All Files"
-msgstr "همه پوشه‌ها"
+msgstr "تمام فایل ها"
 
 #: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
-msgstr ""
+msgstr "ذخیره فایل خلاصه (Digest)"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
-msgstr "ذخیره کردن"
+msgstr "_ذخیره"
 
 #: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
+"‎یک ‫ابزارِ کمکی رایانه رومیزی برای محاسبه چکیده پیام یا کدهای تأیید صحت‬‎"
 
 #: src/callbacks.c:279
 msgid "translator-credits"
-msgstr "اعتبار مترجم"
+msgstr "اعتبارات-مترجم"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
-msgstr "انتخاب پرونده‌ها"
+msgstr "انتخاب فایل ها"
 
 #: src/callbacks.c:529 src/nautilus/properties.c:253
 msgid "_Show HMAC Key"
-msgstr "نمایش کد اصالت‌سنجی پیام برپایه درهم‌سازی"
+msgstr "_نمایش کلید HMAC"
 
 #: src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
+msgstr "خطا در خواندن فایل \"%s\" اعتبارسنجی: %s"
 
 #: src/gui.c:308
 msgid "Not a regular file"
-msgstr ""
+msgstr "فایل معتبر نیست"
 
 #: src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
+msgstr "افزودن فایل \"%s\" ناموفق بود: %s"
 
 #: src/hash.c:188 src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr ""
+msgstr "تابع هش ناشناخته \"%s\""
 
 #: src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr ""
+msgstr "Check against the specified digest or checksum"
 
 #: src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
-msgstr ""
+msgstr "DIGEST"
 
 #: src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr ""
+msgstr "Check digests or checksums from the specified file"
 
 #: src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr ""
+msgstr "FILE|URI"
 
 #: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "Enable the specified Hash Function (e.g. MD5)"
 
 #: src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "FUNCTION"
 
 #: src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr ""
+msgstr "Hash the specified text"
 
 #: src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
-msgstr ""
+msgstr "TEXT"
 
 #: src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr ""
+msgstr "Show version information"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr ""
+msgstr "[FILE|URI...]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr ""
+msgstr "خطا در فعال سازی تمام توابع هش پشتیبانی شده."
 
 #: src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u دقیقه مانده"
+msgstr[1] "%u دقیقه مانده"
 
 #: src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u ثانیه مانده"
+msgstr[1] "%u ثانیه مانده"
 
 #: src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr ""
+msgstr "%s از %s - زمان تقریبی %s (%s/ثانیه)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
-msgstr ""
+msgstr "_کپی خلاصه"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
-msgstr ""
+msgstr "نمایش توابع هش _غیرفعال"
 
 #: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
-msgstr ""
+msgstr "تابع هش"
 
 #: data/nautilus/gtkhash-properties.ui:106
 msgid "Digest"
-msgstr ""
+msgstr "خلاصه"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
-msgstr ""
+msgstr "_هش"
 
 #: src/nautilus/properties.c:473 src/nautilus/properties.c:476
 #: src/nautilus/properties.c:479 src/nautilus/properties.c:481
@@ -291,7 +293,7 @@ msgstr ""
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
 msgid "Checksums"
-msgstr ""
+msgstr "چک سام ها"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
@@ -299,14 +301,17 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"GtkHash برنامه ای برای محاسبه چک سام فایل ها یا خلاصه پیام ها است. این "
+"برنامه به گونه ای طراحی شده است که استفاده آسان و جایگزین گرافیکی برای "
+"برنامه های خط فرمان مانند md5sum باشد."
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
+msgstr "توابع هش پشتیبان شده شامل MD5, SHA1, SHA256, SHA512 و CRC32."
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
-msgstr ""
+msgstr "خلاصه پیام ها یا چک سام ها را به ویژگی های فایل اضافه می کند"
