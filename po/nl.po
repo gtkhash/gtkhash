@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # Nathan Follens <nthn@unseen.is>, 2018, 2019.
+# Mikachu <micah.sh@proton.me>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2019-06-18 19:03+0000\n"
-"Last-Translator: Nathan Follens <nthn@unseen.is>\n"
+"PO-Revision-Date: 2024-03-16 16:01+0000\n"
+"Last-Translator: Mikachu <micah.sh@proton.me>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtkhash/"
 "translations/nl/>\n"
 "Language: nl\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 5.5-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/gtkhash-gtk3.ui:12
@@ -41,18 +42,14 @@ msgid "_File"
 msgstr "_Bestand"
 
 #: data/gtkhash-gtk3.ui:149
-#, fuzzy
-#| msgid "Open Digest File"
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Digest-bestand openen"
+msgstr "_Digest-bestand openen…"
 
 #: data/gtkhash-gtk3.ui:160
-#, fuzzy
-#| msgid "Save Digest File"
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Digest-bestand opslaan"
+msgstr "_Digest-bestand opslaan…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -109,16 +106,12 @@ msgid "GtkHash Preferences"
 msgstr "GtkHash-voorkeuren"
 
 #: data/gtkhash-gtk3.ui:1039
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
-msgstr "Hashfuncties:"
+msgstr "Hashfuncties"
 
 #: data/gtkhash-gtk3.ui:1070
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
-msgstr "Hashfuncties:"
+msgstr "MAC-functies"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
@@ -148,8 +141,6 @@ msgid "_Cancel"
 msgstr "_Annuleren"
 
 #: src/callbacks.c:73
-#, fuzzy
-#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Digest-/controlesombestanden (*.sha1, *.md5, *.sfv, …)"
 
@@ -304,10 +295,8 @@ msgstr "H_ash"
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "Controle:"
+msgstr "Controlesommen"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
