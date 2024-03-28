@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2024-02-24 11:02+0000\n"
+"PO-Revision-Date: 2024-03-28 13:01+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/gtkhash/"
 "translations/hi/>\n"
@@ -28,45 +28,45 @@ msgstr "अपरकेस हेक्साडेसिमल"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
-msgstr "कॉपी _डाइजेस्ट"
+msgstr "कॉपी डाइजेस्ट (_D)"
 
 #: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
-msgstr "_टूलबार दिखाएँ"
+msgstr "टूलबार दिखाएँ (_T)"
 
 #: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
 msgid "_File"
-msgstr "_फाइल"
+msgstr "फाइल (_F)"
 
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "_डाइजेस्ट फ़ाइल खोलें…"
+msgstr "डाइजेस्ट फ़ाइल खोलें… (_O)"
 
 #: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "_डाइजेस्ट फ़ाइल सहेजें…"
+msgstr "डाइजेस्ट फ़ाइल सहेजें… (_S)"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
-msgstr "_संपादित करें"
+msgstr "संपादन (_E)"
 
 #: data/gtkhash-gtk3.ui:280
 msgid "_View"
-msgstr "_देखें"
+msgstr "देखें (_V)"
 
 #: data/gtkhash-gtk3.ui:300
 msgid "_Text"
-msgstr "_टेक्स्ट"
+msgstr "टेक्स्ट (_T)"
 
 #: data/gtkhash-gtk3.ui:310
 msgid "File _List"
-msgstr "फ़ाइल_सूची"
+msgstr "फ़ाइल सूची (_L)"
 
 #: data/gtkhash-gtk3.ui:324
 msgid "_Help"
-msgstr "_मदद"
+msgstr "सहायता (_H)"
 
 #: data/gtkhash-gtk3.ui:429
 msgid "File:"
@@ -96,7 +96,7 @@ msgstr "फाइल"
 
 #: data/gtkhash-gtk3.ui:887
 msgid "Ha_sh"
-msgstr "है_श"
+msgstr "हैश (_s)"
 
 #: data/gtkhash-gtk3.ui:953
 msgid "GtkHash Preferences"
@@ -130,12 +130,12 @@ msgstr "डाइजेस्ट फ़ाइल खोलें"
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
 msgid "_Open"
-msgstr "_खोलें"
+msgstr "खोलें (_O)"
 
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
 #: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
 msgid "_Cancel"
-msgstr "_ रद्द करें"
+msgstr "रद्द (_C)"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
@@ -151,7 +151,7 @@ msgstr "डाइजेस्ट फ़ाइल सहेजें"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
-msgstr "_सहेजें"
+msgstr "सहेजें (_S)"
 
 #: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
@@ -167,7 +167,7 @@ msgstr "फ़ाइलें चुनें"
 
 #: src/callbacks.c:529 src/nautilus/properties.c:253
 msgid "_Show HMAC Key"
-msgstr "_HMAC कुँजी दिखाएँ"
+msgstr "HMAC कुँजी दिखाएँ (_S)"
 
 #: src/check.c:202
 #, c-format
@@ -264,11 +264,11 @@ msgstr "%s का %s - %s (%s/sec)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
-msgstr "_कॉपी डाइजेस्ट"
+msgstr "कॉपी डाइजेस्ट (_C)"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
-msgstr "_अक्षम हैश फ़ंक्शंस दिखाएँ"
+msgstr "अक्षम हैश फ़ंक्शंस दिखाएँ (_D)"
 
 #: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
@@ -280,7 +280,7 @@ msgstr "डाइजेस्ट"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
-msgstr "है_श"
+msgstr "हैश (_a)"
 
 #: src/nautilus/properties.c:473 src/nautilus/properties.c:476
 #: src/nautilus/properties.c:479 src/nautilus/properties.c:481
