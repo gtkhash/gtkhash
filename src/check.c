@@ -63,7 +63,7 @@ struct {
 		[CHECK_FORMAT_GNU] =
 			"^"
 			"(?<DIGEST>[[:xdigit:]]{8,})" // capture DIGEST (8+ hex chars)
-			" [* ]"                       // * indicates binary mode
+			" [* ]?"                      // * indicates binary mode
 			"(?<FILENAME>.+)"             // capture FILENAE
 			"$",
 
