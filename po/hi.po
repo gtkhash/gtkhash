@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2024-03-28 13:01+0000\n"
+"PO-Revision-Date: 2024-06-01 17:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/gtkhash/"
 "translations/hi/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -28,11 +28,11 @@ msgstr "अपरकेस हेक्साडेसिमल"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
-msgstr "कॉपी डाइजेस्ट (_D)"
+msgstr "डाइजेस्ट कॉपी करें (_D)"
 
 #: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
-msgstr "टूलबार दिखाएँ (_T)"
+msgstr "टूलबार दिखाएं (_T)"
 
 #: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
 msgid "_File"
@@ -41,16 +41,16 @@ msgstr "फाइल (_F)"
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "डाइजेस्ट फ़ाइल खोलें… (_O)"
+msgstr "डाइजेस्ट फाइल खोलें (_O)…"
 
 #: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "डाइजेस्ट फ़ाइल सहेजें… (_S)"
+msgstr "डाइजेस्ट फाइल सहेजें (_S)…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
-msgstr "संपादन (_E)"
+msgstr "संपादित करें (_E)"
 
 #: data/gtkhash-gtk3.ui:280
 msgid "_View"
@@ -58,11 +58,11 @@ msgstr "देखें (_V)"
 
 #: data/gtkhash-gtk3.ui:300
 msgid "_Text"
-msgstr "टेक्स्ट (_T)"
+msgstr "पाठ (_T)"
 
 #: data/gtkhash-gtk3.ui:310
 msgid "File _List"
-msgstr "फ़ाइल सूची (_L)"
+msgstr "फाइल सूची (_L)"
 
 #: data/gtkhash-gtk3.ui:324
 msgid "_Help"
@@ -70,11 +70,11 @@ msgstr "सहायता (_H)"
 
 #: data/gtkhash-gtk3.ui:429
 msgid "File:"
-msgstr "फ़ाइल:"
+msgstr "फाइल:"
 
 #: data/gtkhash-gtk3.ui:442
 msgid "Text:"
-msgstr "टेक्स्ट:"
+msgstr "पाठ:"
 
 #: data/gtkhash-gtk3.ui:455 data/nautilus/gtkhash-properties.ui:144
 msgid "Check:"
@@ -100,15 +100,15 @@ msgstr "हैश (_s)"
 
 #: data/gtkhash-gtk3.ui:953
 msgid "GtkHash Preferences"
-msgstr "GtkHash प्राथमिकताएँ"
+msgstr "GtkHash प्राथमिकताएं"
 
 #: data/gtkhash-gtk3.ui:1039
 msgid "Hash Functions"
-msgstr "हैश फ़ंक्शंस"
+msgstr "हैश प्रकार्य"
 
 #: data/gtkhash-gtk3.ui:1070
 msgid "MAC Functions"
-msgstr "MAC फ़ंक्शंस"
+msgstr "MAC प्रकार्य"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
@@ -125,7 +125,7 @@ msgstr "संदेश डाइजेस्ट या चेकसम की �
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr "डाइजेस्ट फ़ाइल खोलें"
+msgstr "डाइजेस्ट फाइल खोलें"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
@@ -135,11 +135,11 @@ msgstr "खोलें (_O)"
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
 #: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
 msgid "_Cancel"
-msgstr "रद्द (_C)"
+msgstr "रद्द करें (_C)"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "डाइजेस्ट/चेकसम फ़ाइलें (*.sha1, *.md5, *.sfv,…)"
+msgstr "डाइजेस्ट/चेकसम फाइलें (*.sha1, *.md5, *.sfv,…)"
 
 #: src/callbacks.c:78
 msgid "All Files"
@@ -147,7 +147,7 @@ msgstr "सभी फाइलें"
 
 #: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
-msgstr "डाइजेस्ट फ़ाइल सहेजें"
+msgstr "डाइजेस्ट फाइल सहेजें"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
@@ -163,35 +163,35 @@ msgstr "Scrambled777 <weblate.scrambled777@simplelogin.com>"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
-msgstr "फ़ाइलें चुनें"
+msgstr "फाइलें चुनें"
 
 #: src/callbacks.c:529 src/nautilus/properties.c:253
 msgid "_Show HMAC Key"
-msgstr "HMAC कुँजी दिखाएँ (_S)"
+msgstr "HMAC कुंजी दिखाएं (_S)"
 
 #: src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr "चेक फ़ाइल \"%s\" को पढ़ने में विफल: %s"
+msgstr "चेक फाइल \"%s\" को पढ़ने में विफल: %s"
 
 #: src/gui.c:308
 msgid "Not a regular file"
-msgstr "कोई नियमित फ़ाइल नहीं"
+msgstr "कोई नियमित फाइल नहीं"
 
 #: src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr "फ़ाइल \"%s\" जोड़ने में विफल: %s"
+msgstr "फाइल \"%s\" जोड़ने में विफल: %s"
 
 #: src/hash.c:188 src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "अज्ञात हैश फ़ंक्शन नाम \"%s\""
+msgstr "अज्ञात हैश प्रकार्य नाम \"%s\""
 
 #: src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "निर्दिष्ट डाइजेस्ट या चेकसम के विरुद्ध जाँच करें"
+msgstr "निर्दिष्ट डाइजेस्ट या चेकसम के विरुद्ध जांच करें"
 
 #: src/opts.c:98
 msgctxt " --help"
@@ -201,22 +201,22 @@ msgstr "डाइजेस्ट"
 #: src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "निर्दिष्ट फ़ाइल से डाइजेस्ट या चेकसम की जाँच करें"
+msgstr "निर्दिष्ट फाइल से डाइजेस्ट या चेकसम की जांच करें"
 
 #: src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr "फ़ाइल|URI"
+msgstr "फाइल|URI"
 
 #: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr "निर्दिष्ट हैश फ़ंक्शन सक्षम करें (उदा. MD5)"
+msgstr "निर्दिष्ट हैश प्रकार्य सक्षम करें (उदा. MD5)"
 
 #: src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr "फ़ंक्शन"
+msgstr "प्रकार्य"
 
 #: src/opts.c:114
 msgctxt " --help"
@@ -226,22 +226,22 @@ msgstr "निर्दिष्ट पाठ को हैश करें"
 #: src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
-msgstr "टेक्स्ट"
+msgstr "पाठ"
 
 #: src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr "संस्करण जानकारी दिखाएँ"
+msgstr "संस्करण जानकारी दिखाएं"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr "[फ़ाइल|URI...]"
+msgstr "[फाइल|URI...]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr "किसी भी समर्थित हैश फ़ंक्शन को सक्षम करने में विफल।"
+msgstr "किसी भी समर्थित हैश प्रकार्य को सक्षम करने में विफल।"
 
 #: src/util/util.c:35
 #, c-format
@@ -264,15 +264,15 @@ msgstr "%s का %s - %s (%s/sec)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
-msgstr "कॉपी डाइजेस्ट (_C)"
+msgstr "डाइजेस्ट कॉपी करें (_C)"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
-msgstr "अक्षम हैश फ़ंक्शंस दिखाएँ (_D)"
+msgstr "अक्षम हैश प्रकार्य दिखाएं (_D)"
 
 #: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
-msgstr "हैश फंक्शन"
+msgstr "हैश प्रकार्य"
 
 #: data/nautilus/gtkhash-properties.ui:106
 msgid "Digest"
@@ -297,17 +297,17 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
-"GtkHash फ़ाइल चेकसम, या संदेश डाइजेस्ट की गणना करने के लिए एक एप्लिकेशन है। "
+"GtkHash फाइल चेकसम, या संदेश डाइजेस्ट की गणना करने के लिए एक एप्लिकेशन है। "
 "इसे md5sum जैसे कमांड-लाइन प्रोग्राम के लिए उपयोग में आसान, ग्राफिकल विकल्प "
 "के रूप में डिज़ाइन किया गया है।"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr "समर्थित हैश फ़ंक्शंस में MD5, SHA1, SHA256, SHA512 और CRC32 शामिल हैं।"
+msgstr "समर्थित हैश प्रकार्य में MD5, SHA1, SHA256, SHA512 और CRC32 शामिल हैं।"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
-msgstr "फ़ाइल प्रॉपर्टी में मैसेज डाइजेस्ट या चेकसम जोड़ता है"
+msgstr "फाइल प्रॉपर्टी में मैसेज डाइजेस्ट या चेकसम जोड़ता है"
