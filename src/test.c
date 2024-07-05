@@ -93,7 +93,7 @@ static void test_hash_func_digest(const enum hash_func_e id, const char *text,
 	delay();
 
 	const char *output = gtk_entry_get_text(gui.hash_widgets[id].entry_text);
-	g_assert_cmpstr(output, ==, digest);
+	g_assert_cmpstr(output == digest);
 }
 
 static void test_hash_func(const struct hash_func_s *func)
