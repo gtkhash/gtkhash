@@ -4,13 +4,14 @@
 # Giorgos Kostopoulos <giorgosk67@gmail.com>, 2019, 2020.
 # george k <norhorn@gmail.com>, 2020.
 # Michalis <michalisntovas@yahoo.gr>, 2021.
+# Vangelis Skarmoutsos <skarmoutsosv@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2021-02-08 17:50+0000\n"
-"Last-Translator: Michalis <michalisntovas@yahoo.gr>\n"
+"PO-Revision-Date: 2024-05-30 08:09+0000\n"
+"Last-Translator: Vangelis Skarmoutsos <skarmoutsosv@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtkhash/"
 "translations/el/>\n"
 "Language: el\n"
@@ -18,11 +19,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
-msgstr "Πεζά Δεκαεξαδικά"
+msgstr "Πεζά δεκαεξαδικά"
 
 #: data/gtkhash-gtk3.ui:15
 msgid "Uppercase Hexadecimal"
@@ -30,11 +31,11 @@ msgstr "Κεφαλαία δεκαεξαδικά"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
-msgstr "Αντιγραφή _Σύνοψης"
+msgstr "Αντιγραφή _σύνοψης"
 
 #: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
-msgstr "Προβολή _Εργαλειοθήκης"
+msgstr "Προβολή _εργαλειοθήκης"
 
 #: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
 msgid "_File"
@@ -43,12 +44,12 @@ msgstr "_Αρχείο"
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Άνοιγμα Αρχείου Σύνοψης…"
+msgstr "Άνοιγμα αρχείου σύνοψης…"
 
 #: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Αποθήκευση Αρχείου Σύνοψης…"
+msgstr "Αποθήκευση αρχείου σύνοψης…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -56,7 +57,7 @@ msgstr "_Επεξεργασία"
 
 #: data/gtkhash-gtk3.ui:280
 msgid "_View"
-msgstr "_Εμφάνιση"
+msgstr "_Προβολή"
 
 #: data/gtkhash-gtk3.ui:300
 msgid "_Text"
@@ -64,7 +65,7 @@ msgstr "_Κείμενο"
 
 #: data/gtkhash-gtk3.ui:310
 msgid "File _List"
-msgstr "Αρχείων _Κατάλογος"
+msgstr "Κατάλογος αρχείων"
 
 #: data/gtkhash-gtk3.ui:324
 msgid "_Help"
@@ -85,7 +86,7 @@ msgstr "Έλεγχος:"
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr "Επικόλληση από πρόχειρο"
+msgstr "Επικόλληση σύνοψης από πρόχειρο"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
@@ -98,7 +99,7 @@ msgstr "Αρχείο"
 
 #: data/gtkhash-gtk3.ui:887
 msgid "Ha_sh"
-msgstr "Κα_τατεμαχισμός"
+msgstr "Ha_sh"
 
 #: data/gtkhash-gtk3.ui:953
 msgid "GtkHash Preferences"
@@ -106,15 +107,15 @@ msgstr "Προτιμήσεις GtkHash"
 
 #: data/gtkhash-gtk3.ui:1039
 msgid "Hash Functions"
-msgstr "Λειτουργίες Κατατεμαχισμού"
+msgstr "Συναρτήσεις Hash"
 
 #: data/gtkhash-gtk3.ui:1070
 msgid "MAC Functions"
-msgstr "Λειτουργίες MAC"
+msgstr "Συναρτήσεις MAC"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
-msgstr "Σχήμα Σύνοψης:"
+msgstr "Μορφή σύνοψης:"
 
 #: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
@@ -123,11 +124,11 @@ msgstr "Υπολογιστής αθροίσματος ελέγχου"
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
-msgstr "Υπολογίστε συνόψεις μηνυμάτων ή αθροίσματα ελέγχου"
+msgstr "Υπολογισμός συνόψεων μηνυμάτων ή αθροισμάτων ελέγχου"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr "Άνοιγμα Αρχείου Σύνοψης"
+msgstr "Άνοιγμα αρχείου σύνοψης"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
@@ -141,15 +142,15 @@ msgstr "_Άκυρο"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "Αρχεία Συνόψεων/Αθροισμάτων (*.sha1, *.md5, *.sfv, …)"
+msgstr "Αρχεία συνόψεων/αθροισμάτων (*.sha1, *.md5, *.sfv, …)"
 
 #: src/callbacks.c:78
 msgid "All Files"
-msgstr "Όλα τ' Αρχεία"
+msgstr "Όλα τα αρχεία"
 
 #: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
-msgstr "Αποθήκευση Αρχείου Σύνοψης"
+msgstr "Αποθήκευση αρχείου σύνοψης"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
@@ -162,21 +163,22 @@ msgstr "Ένα εργαλείο για υπολογισμό συνόψεων μ�
 #: src/callbacks.c:279
 msgid "translator-credits"
 msgstr ""
-"Μεταφραστής - μνεία\n"
-"Γιώργος Κωστόπουλος giorgosk67@gmail.com"
+"Μεταφραστές - μνεία\n"
+"Γιώργος Κωστόπουλος <giorgosk67@gmail.com>\n"
+"Βαγγέλης Σκαρμούτσος <skarmoutsosv@gmail.com> 2024"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
-msgstr "Επιλογή Αρχείων"
+msgstr "Επιλογή αρχείων"
 
 #: src/callbacks.c:529 src/nautilus/properties.c:253
 msgid "_Show HMAC Key"
-msgstr "Προσθήκη checkbutton"
+msgstr "Εμφάνιση κλειδιού HMAC"
 
 #: src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr "Αποτυχία ανάγνωσης αρχείου ελέγχου \"%s\": %s"
+msgstr "Αποτυχία ανάγνωσης του αρχείου ελέγχου \"%s\": %s"
 
 #: src/gui.c:308
 msgid "Not a regular file"
@@ -190,7 +192,7 @@ msgstr "Αποτυχία προσθήκης αρχείου \"%s\":%s"
 #: src/hash.c:188 src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "'Άγνωστο όνομα Λειτουργίας Ελέγχου \"%s\""
+msgstr "Άγνωστο όνομα συνάρτησης Hash \"%s\""
 
 #: src/opts.c:97
 msgctxt " --help"
@@ -210,22 +212,22 @@ msgstr "Έλεγχος συνόψεων ή αθροισμάτων ελέγχου
 #: src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr "[ΑΡΧΕΙΟ|URI...]"
+msgstr "ΑΡΧΕΙΟ|URI"
 
 #: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr "Ενεργοποίηση συγκεκριμένης Λειτουργίας Αθροίσματος (e.g. MD5)"
+msgstr "Ενεργοποίηση συγκεκριμένης συνάρτησης Hash (π.χ. MD5)"
 
 #: src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr "ΛΕΙΤΟΥΡΓΙΑ"
+msgstr "ΣΥΝΑΡΤΗΣΗ"
 
 #: src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr "'Ελεγχος του συγκεκριμένου κειμένου"
+msgstr "Hash του συγκεκριμένου κειμένου"
 
 #: src/opts.c:115
 msgctxt " --help"
@@ -235,7 +237,7 @@ msgstr "ΚΕΙΜΕΝΟ"
 #: src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr "Προβολή πληροφοριών έκδοσης"
+msgstr "Εμφάνιση πληροφοριών έκδοσης"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: src/opts.c:124
@@ -245,40 +247,38 @@ msgstr "[ΑΡΧΕΙΟ|URI...]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr ""
-"Αποτυχία ενεργοποίησης οποιασδήποτε υποστηριζόμενης λειτουργίας "
-"κατατεμαχισμού."
+msgstr "Αποτυχία ενεργοποίησης οποιασδήποτε υποστηριζόμενης συνάρτησης hash."
 
 #: src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] "%u 1 λεπτό έμεινε"
-msgstr[1] "%u 2 λεπτά έμειναν"
+msgstr[0] "έμεινε %u λεπτό"
+msgstr[1] "έμειναν %u λεπτά"
 
 #: src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] "%u 1 δευτερόλεπτο έμεινε"
-msgstr[1] "%u 2 δευτερόλεπτα έμειναν"
+msgstr[0] "έμεινε %u δευτερόλεπτο"
+msgstr[1] "έμειναν %u δευτερόλεπτα"
 
 #: src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s 1 of %s 2 - %s 3 (%s 4/dδευτ.)"
+msgstr "%s από %s - %s (%s/δευτ.)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
-msgstr "_Αντιγραφή Σύνοψης"
+msgstr "_Αντιγραφή σύνοψης"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
-msgstr "Προβολή _Απενεργοποιημένων Λειτουργιών Κατατεμαχισμού"
+msgstr "Εμφάνιση _απενεργοποιημένων συναρτήσεων Hash"
 
 #: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
-msgstr "Λειτουργία Κατατεμαχισμού"
+msgstr "Συνάρτηση Hash"
 
 #: data/nautilus/gtkhash-properties.ui:106
 msgid "Digest"
@@ -286,7 +286,7 @@ msgstr "Σύνοψη"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
-msgstr "Σ_ύνοψη"
+msgstr "H_ash"
 
 #: src/nautilus/properties.c:473 src/nautilus/properties.c:476
 #: src/nautilus/properties.c:479 src/nautilus/properties.c:481
@@ -295,7 +295,7 @@ msgstr "Σ_ύνοψη"
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
 msgid "Checksums"
-msgstr "Αθροίσματα"
+msgstr "Αθροίσματα ελέγχου"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
@@ -310,8 +310,8 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
-"Υποστηρίζονται οι λειτουργίες κατατεμαχισμού, συμπεριλαμβανομένων των MD5, "
-"SHA1, SHA256, SHA512 και CRC32."
+"Υποστηρίζονται οι συναρτήσεις hash, συμπεριλαμβανομένων των MD5, SHA1, "
+"SHA256, SHA512 και CRC32."
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
@@ -319,7 +319,7 @@ msgstr ""
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
-"Πρόσθεση συνόψεων μηνυμάτων ή αθροισμάτων ελέγχου στις ιδιότητες αρχείου"
+"Προσθήκη συνόψεων μηνυμάτων ή αθροισμάτων ελέγχου, στις ιδιότητες αρχείου"
 
 #~ msgid "Digests"
 #~ msgstr "Συνόψεις"
