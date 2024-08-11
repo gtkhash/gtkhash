@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2024-08-11 21:09+0000\n"
+"PO-Revision-Date: 2024-08-11 23:09+0000\n"
 "Last-Translator: Szia Tomi <sziatomi01@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/hu/>\n"
@@ -142,7 +142,7 @@ msgstr "M_egszakítás"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "Kivonat/Ellenőrzőösszeg fájlok (*.sha1, *.md5, *.sfv, …)"
+msgstr "Kivonat/Ellenőrzőösszeg-fájlok (*.sha1, *.md5, *.sfv, …)"
 
 #: src/callbacks.c:78
 msgid "All Files"
@@ -284,7 +284,7 @@ msgstr "Kivonat"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
-msgstr ""
+msgstr "H_ash"
 
 #: src/nautilus/properties.c:473 src/nautilus/properties.c:476
 #: src/nautilus/properties.c:479 src/nautilus/properties.c:481
@@ -292,10 +292,8 @@ msgstr ""
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:7
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-#, fuzzy
-#| msgid "Check:"
 msgid "Checksums"
-msgstr "Ellenőrzés:"
+msgstr "Ellenőrző összegek"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
 msgid ""
@@ -303,10 +301,16 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
+"A GtkHash egy fájlellenőrző összegek vagy üzenetkivonatok kiszámítására "
+"használható alkalmazás. Úgy tervezték, hogy könnyen használható, grafikus "
+"választási lehetőséget biztosítson az olyan parancssori programokkal "
+"szemben, mint az md5sum."
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
+"A támogatott hash-függvények közé tartozik az MD5, SHA1, SHA256, SHA512 és a "
+"CRC32."
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
