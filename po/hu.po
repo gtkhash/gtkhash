@@ -4,13 +4,14 @@
 # notramo <notramo@vipmail.hu>, 2018.
 # notramo <notramo@protonmail.com>, 2019, 2020.
 # Noway Imtellingyouidiot <johns.videos+weblate@mailbox.org>, 2021.
+# Szia Tomi <sziatomi01@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2021-05-12 17:33+0000\n"
-"Last-Translator: Noway Imtellingyouidiot <johns.videos+weblate@mailbox.org>\n"
+"PO-Revision-Date: 2024-08-11 21:09+0000\n"
+"Last-Translator: Szia Tomi <sziatomi01@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/hu/>\n"
 "Language: hu\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -34,7 +35,7 @@ msgstr "_Ellenőrző összeg másolása"
 
 #: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
-msgstr "E_szköztár mutatása"
+msgstr "Eszköztár mu_tatása"
 
 #: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
 msgid "_File"
@@ -46,12 +47,9 @@ msgid "_Open Digest File…"
 msgstr "_Kivonat fájl megnyitása…"
 
 #: data/gtkhash-gtk3.ui:160
-#, fuzzy
-#| msgctxt "menu"
-#| msgid "_Save Digest File..."
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Digest fájl _mentése..."
+msgstr "Kivonat fájl _mentése…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -67,11 +65,11 @@ msgstr "Sz_öveg"
 
 #: data/gtkhash-gtk3.ui:310
 msgid "File _List"
-msgstr "F_ájl lista"
+msgstr "Fájl _lista"
 
 #: data/gtkhash-gtk3.ui:324
 msgid "_Help"
-msgstr "S_úgó"
+msgstr "_Súgó"
 
 #: data/gtkhash-gtk3.ui:429
 msgid "File:"
@@ -105,41 +103,37 @@ msgstr "H_ash"
 
 #: data/gtkhash-gtk3.ui:953
 msgid "GtkHash Preferences"
-msgstr "GtkHash Beállítások"
+msgstr "GtkHash beállítások"
 
 #: data/gtkhash-gtk3.ui:1039
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
-msgstr "Hash funkciók:"
+msgstr "Hash-függvények"
 
 #: data/gtkhash-gtk3.ui:1070
-#, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
-msgstr "Hash funkciók:"
+msgstr "MAC funkciók"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
-msgstr "Ellenőrző összeg formátuma:"
+msgstr "Kivonat formátuma:"
 
 #: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
-msgstr "Ellenőrzőösszeg számoló"
+msgstr "Ellenőrzőösszeg-számoló"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
-msgstr ""
+msgstr "Üzenetadatok vagy ellenőrző összegek kiszámítása"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr "Kivonat fájl megnyitása"
+msgstr "Kivonatfájl megnyitása"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
 msgid "_Open"
-msgstr "_Megnyitás"
+msgstr "Meg_nyitás"
 
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
 #: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
@@ -147,147 +141,146 @@ msgid "_Cancel"
 msgstr "M_egszakítás"
 
 #: src/callbacks.c:73
-#, fuzzy
-#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "Kivonat/Ellenőrzőösszeg fájlok (*.sha1, *.md5, *.sfv, ...)"
+msgstr "Kivonat/Ellenőrzőösszeg fájlok (*.sha1, *.md5, *.sfv, …)"
 
 #: src/callbacks.c:78
 msgid "All Files"
-msgstr ""
+msgstr "Minden fájl"
 
 #: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
-msgstr ""
+msgstr "Kivonatfájl mentése"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
-msgstr ""
+msgstr "_Mentés"
 
 #: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
+"Asztali segédprogram üzenetkivonatok vagy ellenőrző összegek kiszámításához"
 
 #: src/callbacks.c:279
 msgid "translator-credits"
-msgstr ""
+msgstr "sziatomi sziatomi01@gmail.com"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
-msgstr ""
+msgstr "Fájlok kiválasztása"
 
 #: src/callbacks.c:529 src/nautilus/properties.c:253
 msgid "_Show HMAC Key"
-msgstr ""
+msgstr "HMAC kulcs _megjelenítése"
 
 #: src/check.c:202
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
-msgstr ""
+msgstr "%s ellenőrző fájlt nem sikerült beolvasni: %s"
 
 #: src/gui.c:308
 msgid "Not a regular file"
-msgstr ""
+msgstr "Nem szabályos fájl"
 
 #: src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr ""
+msgstr "%s fájlt nem sikerült hozzáadni: %s"
 
 #: src/hash.c:188 src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr ""
+msgstr "Ismeretlen hash-függvénynév \"%s\""
 
 #: src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr ""
+msgstr "A megadott kivonat vagy ellenőrző összeg ellenőrzése"
 
 #: src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
-msgstr ""
+msgstr "KIVONAT"
 
 #: src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr ""
+msgstr "Kivonat vagy ellenőrző összeg ellenőrzése megadott fájlból"
 
 #: src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr ""
+msgstr "FÁJL|URI"
 
 #: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr ""
+msgstr "Engedélyezi a megadott hash-függvényt (pl. MD5)"
 
 #: src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr ""
+msgstr "FÜGGVÉNY"
 
 #: src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr ""
+msgstr "Kivonatolja a megadott szöveget"
 
 #: src/opts.c:115
 msgctxt " --help"
 msgid "TEXT"
-msgstr ""
+msgstr "SZÖVEG"
 
 #: src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr ""
+msgstr "Verzióinformáció megjelenítése"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr ""
+msgstr "[FÁJL|URI...]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr ""
+msgstr "Nem sikerült engedélyezni egyetlen támogatott hash-függvényt sem."
 
 #: src/util/util.c:35
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u perc van hátra"
+msgstr[1] "%u perc van hátra"
 
 #: src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u másodperc van hátra"
+msgstr[1] "%u másodperc van hátra"
 
 #: src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr ""
+msgstr "%s-tól(-től) %s - %s (%s/mp.)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
-msgstr ""
+msgstr "Kivonat másol_ása"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
-msgstr ""
+msgstr "Le_tiltott hah-függvények mutatása"
 
 #: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
-msgstr ""
+msgstr "Hash-függvény"
 
 #: data/nautilus/gtkhash-properties.ui:106
 msgid "Digest"
-msgstr ""
+msgstr "Kivonat"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
@@ -320,7 +313,7 @@ msgstr ""
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
-msgstr ""
+msgstr "Üzenetadatok vagy ellenőrző összegek hozzáadása a fájl tulajdonságaihoz"
 
 #~ msgctxt "menu"
 #~ msgid "_Open Digest File..."
