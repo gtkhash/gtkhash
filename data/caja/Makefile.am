@@ -8,4 +8,4 @@ EXTRA_DIST = \
 CLEANFILES = $(cajaextensions_DATA)
 
 %.caja-extension: %.caja-extension.in
-	$(AM_V_GEN)$(MSGFMT) --desktop --keyword Name --keyword Description --template $< -d $(top_srcdir)/po -o $@
+	$(AM_V_GEN)$(MSGFMT) --desktop --keyword=Name --keyword=Description --template $< -d $(top_srcdir)/po -o $@
