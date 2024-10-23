@@ -16,7 +16,7 @@ i18n.merge_file(
     po_dir: po_dir,
     type: 'desktop',
     args: [
-        '--keyword', 'Name',
-        '--keyword', 'Description',
+        '--keyword=Name',
+        '--keyword=Description',
     ]
 )
