@@ -52,6 +52,7 @@ jobs:
 
       - name: Run styrene
         run: |
+          sed -i 's/SafeConfigParser/ConfigParser/' "$(python3 -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')/styrene/cmdline.py"
           cd msys2/styrene
           styrene --pkg-dir $(readlink -f ../mingw-w64-gtkhash) styrene.cfg
           tree
