@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2025-01-31 17:07+0000\n"
+"PO-Revision-Date: 2025-02-03 14:02+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/fi/>\n"
@@ -160,7 +160,7 @@ msgstr ""
 
 #: src/callbacks.c:279
 msgid "translator-credits"
-msgstr "kääntäjien ansiot"
+msgstr ""
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
