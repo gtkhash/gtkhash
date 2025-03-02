@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2025-03-02 17:55+0000\n"
+"PO-Revision-Date: 2025-03-02 19:02+0000\n"
 "Last-Translator: NicolaeFericitu <cni@disroot.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ro/>\n"
@@ -26,7 +26,7 @@ msgstr "Hexazecimal cu litere mici"
 
 #: data/gtkhash-gtk3.ui:15
 msgid "Uppercase Hexadecimal"
-msgstr "Hexazecimal majuscule"
+msgstr "Hexazecimal cu majuscule"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
@@ -270,19 +270,19 @@ msgstr "%s din %s - %s (%s/sec)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
-msgstr "_Copiază _rezumat"
+msgstr "_Copiază _rezumatul"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
-msgstr "Arată _Funcții Hash Dezactivate"
+msgstr "Afișează _funcțiile hash dezactivate"
 
 #: data/nautilus/gtkhash-properties.ui:95
 msgid "Hash Function"
-msgstr "Funcții Hash"
+msgstr "Funcția Hash"
 
 #: data/nautilus/gtkhash-properties.ui:106
 msgid "Digest"
-msgstr "Digerare"
+msgstr "Rezumat"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
@@ -303,13 +303,14 @@ msgid ""
 "It's designed to be an easy to use, graphical alternative to command-line "
 "programs such as md5sum."
 msgstr ""
-"GtkHash este o aplicație pentru calcularea sumelor de verificare a "
-"fișierelor sau mesajele digerate. Este conceput pentru a fi ușor de utilizat "
-"cu ajutorul interfeței grafice ca alternativa a liniei de comanda, ca md5sum."
+"GtkHash este o aplicație pentru calcularea sumelor de control ale "
+"fișierelor, sau a rezumatelor mesajelor. Este concepută pentru a fi o "
+"alternativă grafică, ușor de utilizat, la programele cu linie de comandă, "
+"cum ar fi md5sum."
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr "Funcțiile hash suportate includ MD5, SHA1, SHA256, SHA512 și CRC32."
+msgstr "Funcțiile hash acceptate includ MD5, SHA1, SHA256, SHA512 și CRC32."
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
@@ -317,4 +318,4 @@ msgstr "Funcțiile hash suportate includ MD5, SHA1, SHA256, SHA512 și CRC32."
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
 msgid "Adds message digests or checksums to file properties"
 msgstr ""
-"Adaugă mesajul digerat sau sumele de verificare la proprietățile fișierului"
+"Adaugă rezumate ale mesajelor sau sume de control la proprietățile fișierelor"
