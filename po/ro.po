@@ -2,13 +2,13 @@
 # Copyright (C) YEAR GtkHash authors
 # This file is distributed under the same license as the gtkhash package.
 # "Sob Data (HeavenlyChaos)" <sobdatag@gmail.com>, 2023.
-# NicolaeFericitu <cni@disroot.org>, 2024.
+# NicolaeFericitu <cni@disroot.org>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2024-05-15 19:02+0000\n"
+"PO-Revision-Date: 2025-03-02 17:55+0000\n"
 "Last-Translator: NicolaeFericitu <cni@disroot.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ro/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -30,25 +30,25 @@ msgstr "Hexazecimal majuscule"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
-msgstr "Copie _Digeră"
+msgstr "Copiere _rezumat"
 
 #: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
-msgstr "Afișați _bara de instrumente"
+msgstr "Afișare _Bară de instrumente"
 
 #: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
 msgid "_File"
-msgstr "_Fişier"
+msgstr "_Fișier"
 
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "_Deschide Fișier Digerat…"
+msgstr "_Deschidere fișier de rezumat…"
 
 #: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "_Salvare fișier Digest…"
+msgstr "_Salvare fișier de rezumat…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -64,7 +64,7 @@ msgstr "_Text"
 
 #: data/gtkhash-gtk3.ui:310
 msgid "File _List"
-msgstr "Fișier _Listă"
+msgstr "Fișier _listă"
 
 #: data/gtkhash-gtk3.ui:324
 msgid "_Help"
@@ -85,7 +85,7 @@ msgstr "Verifică:"
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr "Lipiți digerarea din clipboard"
+msgstr "Lipește rezumatul din clipboard"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
@@ -114,20 +114,20 @@ msgstr "Funcții MAC"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
-msgstr "Digerare Format:"
+msgstr "Formatul rezumatului:"
 
 #: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
-msgstr "Calculator de Sumă de Control"
+msgstr "Calculator sumă de control"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
-msgstr "Calculați digerarea mesajelor sau sumele de verificare"
+msgstr "Calculează rezumatele de mesaje sau sumele de control"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr "Deschide Digerarea Fișierului"
+msgstr "Deschideți fișierul Rezumat"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
@@ -141,25 +141,25 @@ msgstr "_Anulare"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "Digeră/Fișiere de Sumă de Control (*.sha1, *.md5, *.sfv, …)"
+msgstr "Fișiere de rezumat/Sumă de control (*.sha1, *.md5, *.sfv, …)"
 
 #: src/callbacks.c:78
 msgid "All Files"
-msgstr "Toate Fișierele"
+msgstr "Toate fișierele"
 
 #: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
-msgstr "Salveaza Fișierele Digerate"
+msgstr "Salvați fișierul Rezumat"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
-msgstr "_Salvează"
+msgstr "_Salvare"
 
 #: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
-"Un utilitar desktop pentru calcularea digerate de mesaje sau a sumelor de "
-"verificare"
+"Un utilitar desktop pentru calcularea rezumatelor de mesaje sau a sumelor de "
+"control"
 
 #: src/callbacks.c:279
 msgid "translator-credits"
@@ -167,11 +167,11 @@ msgstr "credite-traducător"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
-msgstr "Selectează Fișierele"
+msgstr "Selectează fișierele"
 
 #: src/callbacks.c:529 src/nautilus/properties.c:253
 msgid "_Show HMAC Key"
-msgstr "_Arată cheia HMAC"
+msgstr "_Afișează cheia HMAC"
 
 #: src/check.c:202
 #, c-format
@@ -185,42 +185,42 @@ msgstr "Nu este un fișier obișnuit"
 #: src/gui.c:331
 #, c-format
 msgid "Failed to add file \"%s\": %s"
-msgstr "Nu sa putut adăuga fișierul \"%s\": %s"
+msgstr "Nu s-a putut adăuga fișierul \"%s\": %s"
 
 #: src/hash.c:188 src/prefs.c:113
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
-msgstr "Nume necunoscut al Funcției Hash \"%s\""
+msgstr "Nume necunoscut al funcției Hash \"%s\""
 
 #: src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Verificați față de Digerare sau Suma de Control specificată"
+msgstr "Verifică față de rezumatul specificat sau suma de control specificată"
 
 #: src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
-msgstr "DIGERARE"
+msgstr "REZUMAT"
 
 #: src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "Verificați digerările sau sumele de control din fișierul specificat"
+msgstr "Verifică rezumatele sau sumele de control din fișierul specificat"
 
 #: src/opts.c:104
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr "FIŞIER|URI"
+msgstr "FIȘIER|URI"
 
 #: src/opts.c:109
 msgctxt " --help"
 msgid "Enable the specified Hash Function (e.g. MD5)"
-msgstr "Activați Funcția Hash specificată (e.g. MD5)"
+msgstr "Activați funcția Hash specificată (e.g. MD5)"
 
 #: src/opts.c:110
 msgctxt " --help"
 msgid "FUNCTION"
-msgstr "FUNCŢIE"
+msgstr "FUNCȚIE"
 
 #: src/opts.c:114
 msgctxt " --help"
@@ -241,11 +241,11 @@ msgstr "Afișați informații despre versiune"
 #: src/opts.c:124
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr "[FIŞIER|URI...]"
+msgstr "[FIȘIER|URI...]"
 
 #: src/prefs.c:82
 msgid "Failed to enable any supported hash functions."
-msgstr "Activare eșuată a tuturor funcțiilor hash acceptate."
+msgstr "Nu s-a reușit activarea niciunei funcții hash acceptate."
 
 #: src/util/util.c:35
 #, c-format
@@ -266,11 +266,11 @@ msgstr[2] "%u secunde rămase"
 #: src/util/util.c:58
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
-msgstr "%s de %s - %s (%s/secunde)"
+msgstr "%s din %s - %s (%s/sec)"
 
 #: data/nautilus/gtkhash-properties.ui:16
 msgid "_Copy Digest"
-msgstr "_Copie Digerarea"
+msgstr "_Copiază _rezumat"
 
 #: data/nautilus/gtkhash-properties.ui:35
 msgid "Show _Disabled Hash Functions"
