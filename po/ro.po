@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2025-03-02 19:02+0000\n"
+"PO-Revision-Date: 2025-03-02 21:02+0000\n"
 "Last-Translator: NicolaeFericitu <cni@disroot.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ro/>\n"
@@ -26,15 +26,15 @@ msgstr "Hexazecimal cu litere mici"
 
 #: data/gtkhash-gtk3.ui:15
 msgid "Uppercase Hexadecimal"
-msgstr "Hexazecimal cu majuscule"
+msgstr "Hexazecimal cu litere mari"
 
 #: data/gtkhash-gtk3.ui:71
 msgid "Copy _Digest"
-msgstr "Copiere _rezumat"
+msgstr "Copiază _Suma de control"
 
 #: data/gtkhash-gtk3.ui:97
 msgid "Show _Toolbar"
-msgstr "Afișare _Bară de instrumente"
+msgstr "Afișează _Bara de instrumente"
 
 #: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
 msgid "_File"
@@ -43,12 +43,12 @@ msgstr "_Fișier"
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "_Deschidere fișier de rezumat…"
+msgstr "_Deschide fișierul cu suma de control…"
 
 #: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "_Salvare fișier de rezumat…"
+msgstr "_Salvează fișierul cu suma de control…"
 
 #: data/gtkhash-gtk3.ui:194
 msgid "_Edit"
@@ -85,7 +85,7 @@ msgstr "Verifică:"
 #: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
 #: data/nautilus/gtkhash-properties.ui:159
 msgid "Paste digest from clipboard"
-msgstr "Lipește rezumatul din clipboard"
+msgstr "Lipește suma de control din clipboard"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
 #: data/nautilus/gtkhash-properties.ui:180
@@ -114,7 +114,7 @@ msgstr "Funcții MAC"
 
 #: data/gtkhash-gtk3.ui:1092
 msgid "Digest Format:"
-msgstr "Formatul rezumatului:"
+msgstr "Format sumă de control:"
 
 #: data/org.gtkhash.gtkhash.desktop.in:4
 msgid "Checksum Calculator"
@@ -123,11 +123,11 @@ msgstr "Calculator sumă de control"
 #: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
 msgid "Calculate message digests or checksums"
-msgstr "Calculează rezumatele de mesaje sau sumele de control"
+msgstr "Calculați coduri hash criptografice sau sume de control"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
-msgstr "Deschideți fișierul Rezumat"
+msgstr "Deschide fișier sumă de control"
 
 #: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
 #: src/callbacks.c:314
@@ -141,7 +141,7 @@ msgstr "_Anulare"
 
 #: src/callbacks.c:73
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
-msgstr "Fișiere de rezumat/Sumă de control (*.sha1, *.md5, *.sfv, …)"
+msgstr "Fișiere Digest/Sumă de Control (*.sha1, .md5, .sfv, …)"
 
 #: src/callbacks.c:78
 msgid "All Files"
@@ -149,7 +149,7 @@ msgstr "Toate fișierele"
 
 #: src/callbacks.c:120 src/callbacks.c:124
 msgid "Save Digest File"
-msgstr "Salvați fișierul Rezumat"
+msgstr "Salvează fișierul cu suma de control"
 
 #: src/callbacks.c:121 src/callbacks.c:127
 msgid "_Save"
@@ -158,8 +158,8 @@ msgstr "_Salvare"
 #: src/callbacks.c:274
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
-"Un utilitar desktop pentru calcularea rezumatelor de mesaje sau a sumelor de "
-"control"
+"O aplicație desktop pentru calcularea codurilor hash criptografice sau a "
+"sumelor de control"
 
 #: src/callbacks.c:279
 msgid "translator-credits"
@@ -195,17 +195,21 @@ msgstr "Nume necunoscut al funcției Hash \"%s\""
 #: src/opts.c:97
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr "Verifică față de rezumatul specificat sau suma de control specificată"
+msgstr ""
+"Verifică comparând cu codurile hash criptografice sau suma de control "
+"specificată"
 
 #: src/opts.c:98
 msgctxt " --help"
 msgid "DIGEST"
-msgstr "REZUMAT"
+msgstr "DIGEST"
 
 #: src/opts.c:103
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr "Verifică rezumatele sau sumele de control din fișierul specificat"
+msgstr ""
+"Verifică codurile hash criptografice sau sumele de control din fișierul "
+"specificat"
 
 #: src/opts.c:104
 msgctxt " --help"
@@ -225,7 +229,7 @@ msgstr "FUNCȚIE"
 #: src/opts.c:114
 msgctxt " --help"
 msgid "Hash the specified text"
-msgstr "Hash textul specificat"
+msgstr "Calculează codul hash criptografic pentru textul specificat"
 
 #: src/opts.c:115
 msgctxt " --help"
@@ -235,7 +239,7 @@ msgstr "TEXT"
 #: src/opts.c:119
 msgctxt " --help"
 msgid "Show version information"
-msgstr "Afișați informații despre versiune"
+msgstr "Afișează informațiile despre versiune"
 
 #. Translators: Unicode ellipsis(…) can be used here
 #: src/opts.c:124
