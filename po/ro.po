@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2025-03-02 23:03+0000\n"
+"PO-Revision-Date: 2025-03-03 11:04+0000\n"
 "Last-Translator: NicolaeFericitu <cni@disroot.org>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/ro/>\n"
@@ -290,7 +290,7 @@ msgstr "Cod hash criptografic"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
-msgstr "H_ash"
+msgstr "S_umă de control"
 
 #: src/nautilus/properties.c:473 src/nautilus/properties.c:476
 #: src/nautilus/properties.c:479 src/nautilus/properties.c:481
