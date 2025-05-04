@@ -13,7 +13,8 @@ jobs:
       matrix:
         sys:
           - mingw64
-          - mingw32
+# mingw-w64-i686-styrene is gone:
+#          - mingw32
 # Not supported by styrene:
 #          - ucrt64
 #          - clang64
@@ -54,7 +55,7 @@ jobs:
         run: |
           sed -i 's/SafeConfigParser/ConfigParser/' "$(python3 -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')/styrene/cmdline.py"
           cd msys2/styrene
-          styrene --pkg-dir $(readlink -f ../mingw-w64-gtkhash) styrene.cfg
+          python3 -m styrene --pkg-dir=$(readlink -f ../mingw-w64-gtkhash) styrene.cfg
           tree
 
       - uses: actions/upload-artifact@v4
