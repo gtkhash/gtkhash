@@ -13,7 +13,8 @@ jobs:
       matrix:
         sys:
           - mingw64
-          - mingw32
+# mingw-w64-i686-styrene is gone:
+#          - mingw32
 # Not supported by styrene:
 #          - ucrt64
 #          - clang64
