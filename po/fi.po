@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR GtkHash authors
 # This file is distributed under the same license as the gtkhash package.
-# Ricky Tigg <ricky.tigg@gmail.com>, 2021.
+# Ricky Tigg <ricky.tigg@gmail.com>, 2021, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2021-09-11 12:36+0000\n"
+"PO-Revision-Date: 2025-02-03 14:02+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/fi/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -160,7 +160,7 @@ msgstr ""
 
 #: src/callbacks.c:279
 msgid "translator-credits"
-msgstr "Vincent Toivanen"
+msgstr ""
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
