@@ -51,13 +51,59 @@ inline static GtkTreeModel *gtkhash_properties_list_get_model(
 	return gtk_tree_model_filter_get_model(filter);
 }
 
+static gint gtkhash_sort_iter_compare_func (GtkTreeModel *model,
+						  GtkTreeIter  *a,
+						  GtkTreeIter  *b,
+						  gpointer	  userdata)
+{
+  guint enabled1, enabled2;
+  gtk_tree_model_get(model, a, COL_ENABLED, &enabled1, -1);
+  gtk_tree_model_get(model, b, COL_ENABLED, &enabled2, -1);
+
+  if (enabled1 > enabled2)
+	return -1;
+  else if (enabled1 < enabled2)
+	return 1;
+  else
+  {
+	gint ret = 0;
+	gchar *name1 = NULL, *name2 = NULL;
+	gtk_tree_model_get(model, a, COL_HASH_FUNC, &name1, -1);
+	gtk_tree_model_get(model, b, COL_HASH_FUNC, &name2, -1);
+
+	if (name1 == NULL || name2 == NULL)
+	{
+	  if (name1 != NULL || name2 != NULL)
+		ret = (name1 == NULL) ? -1 : 1;
+	}
+	else
+	{
+	  ret = g_utf8_collate(name1,name2);
+	}
+
+	g_free(name1);
+	g_free(name2);
+	return ret;
+  }
+}
+
+static void gtkhash_sort_list(GtkTreeModel *liststore)
+{
+  GtkTreeSortable *sortable = GTK_TREE_SORTABLE(liststore);
+
+  gtk_tree_sortable_set_sort_func(sortable, COL_ENABLED, gtkhash_sort_iter_compare_func,
+								  NULL, NULL);
+  /* set initial sort order */
+  gtk_tree_sortable_set_sort_column_id(sortable, COL_ENABLED, GTK_SORT_ASCENDING);
+}
+
 inline static GtkListStore *gtkhash_properties_list_get_store(
 	struct page_s *page)
 {
 	return GTK_LIST_STORE(gtkhash_properties_list_get_model(page));
 }
 
-void gtkhash_properties_list_update_enabled(struct page_s *page,
+bool gtkhash_properties_list_update_enabled(struct page_s *page,
 	char *path_str)
 {
 	GtkTreeModel *model = gtkhash_properties_list_get_model(page);
@@ -78,6 +124,10 @@ void gtkhash_properties_list_update_enabled(struct page_s *page,
 	}
 
 	page->funcs[id].enabled = enabled;
+
+	gtkhash_sort_list(model);
+
+	return enabled;
 }
 
 void gtkhash_properties_list_reset_enabled(struct page_s *page)
@@ -96,6 +146,8 @@ void gtkhash_properties_list_reset_enabled(struct page_s *page)
 
 		page->funcs[id].enabled = enabled;
 	} while (gtk_tree_model_iter_next(model, &iter));
+
+	gtkhash_sort_list(model);
 }
 
 void gtkhash_properties_list_update_hash_func_names(struct page_s *page)
@@ -131,6 +183,7 @@ void gtkhash_properties_list_update_hash_func_names(struct page_s *page)
 	} while (gtk_tree_model_iter_next(model, &iter));
 
 	gtk_tree_view_columns_autosize(page->treeview);
+	gtkhash_sort_list(model);
 }
 
 void gtkhash_properties_list_clear_digests(struct page_s *page)
@@ -148,6 +201,7 @@ void gtkhash_properties_list_clear_digests(struct page_s *page)
 	} while (gtk_tree_model_iter_next(model, &iter));
 
 	gtk_tree_view_columns_autosize(page->treeview);
+	gtkhash_sort_list(model);
 }
 
 void gtkhash_properties_list_check_digests(struct page_s *page)
@@ -289,3 +343,4 @@ void gtkhash_properties_list_init(struct page_s *page)
 
 	gtkhash_properties_list_refilter(page);
 }
+
