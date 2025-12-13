@@ -4,13 +4,13 @@
 # notramo <notramo@vipmail.hu>, 2018.
 # notramo <notramo@protonmail.com>, 2019, 2020.
 # Noway Imtellingyouidiot <johns.videos+weblate@mailbox.org>, 2021.
-# Szia Tomi <sziatomi01@gmail.com>, 2024.
+# Szia Tomi <sziatomi01@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2024-10-13 22:16+0000\n"
+"PO-Revision-Date: 2025-12-13 19:00+0000\n"
 "Last-Translator: Szia Tomi <sziatomi01@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/hu/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -99,7 +99,7 @@ msgstr "Fájl"
 
 #: data/gtkhash-gtk3.ui:887
 msgid "Ha_sh"
-msgstr "H_ash"
+msgstr "_Hash"
 
 #: data/gtkhash-gtk3.ui:953
 msgid "GtkHash Preferences"
@@ -284,7 +284,7 @@ msgstr "Kivonat"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"
-msgstr "H_ash"
+msgstr "_Hash"
 
 #: src/nautilus/properties.c:473 src/nautilus/properties.c:476
 #: src/nautilus/properties.c:479 src/nautilus/properties.c:481
