@@ -6,13 +6,14 @@
 # Toni Estévez <toni.estevez@gmail.com>, 2019, 2020.
 # Sebastian Duque <sebastiandg7@gmail.com>, 2019.
 # El Pirujo <boina@disroot.org>, 2022, 2023.
+# Francisco Serrador <fserrador@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2023-06-19 16:52+0000\n"
-"Last-Translator: El Pirujo <boina@disroot.org>\n"
+"PO-Revision-Date: 2025-11-18 00:51+0000\n"
+"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/es/>\n"
 "Language: es\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18.1\n"
+"X-Generator: Weblate 5.15-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/gtkhash-gtk3.ui:12
@@ -284,7 +285,7 @@ msgstr "Función resumen"
 
 #: data/nautilus/gtkhash-properties.ui:106
 msgid "Digest"
-msgstr "Resumen"
+msgstr "Digitación"
 
 #: data/nautilus/gtkhash-properties.ui:271
 msgid "H_ash"

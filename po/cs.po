@@ -2,13 +2,13 @@
 # Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
 # This file is distributed under the same license as the gtkhash package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
-# Pavel Borecki <pavel.borecki@gmail.com>, 2022.
+# Pavel Borecki <pavel.borecki@gmail.com>, 2022, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2022-03-05 20:57+0000\n"
+"PO-Revision-Date: 2026-02-17 16:09+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/gtkhash/"
 "translations/cs/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 5.16.1-dev\n"
 "X-Launchpad-Export-Date: 2012-07-14 06:30+0000\n"
 
 #: data/gtkhash-gtk3.ui:12
@@ -160,13 +160,12 @@ msgid "A desktop utility for computing message digests or checksums"
 msgstr "Nástroj pro výpočet digestu zpráv nebo kontrolních součtů"
 
 #: src/callbacks.c:279
-#, fuzzy
 msgid "translator-credits"
 msgstr ""
 "Jakub Žáček https://launchpad.net/~dawon\n"
 "Mank https://launchpad.net/~freedcpp\n"
 "Martin \"sachy\" Šácha https://launchpad.net/~sachy\n"
-"Zbyněk Schwarz https://launchpad.net/~tsbook\n"
+"Zbyněk Schwarz https://launchpad.net/~tsbook"
 
 #: src/callbacks.c:307 src/callbacks.c:311
 msgid "Select Files"
