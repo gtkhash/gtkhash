@@ -5,13 +5,14 @@
 # Matteo Fumagalli <f.mustang@protonmail.com>, 2018.
 # Fabio Fantoni <fantonifabio@tiscali.it>, 2021.
 # BMN <weblate@yopmail.com>, 2021.
+# Tristan Heaven <tristan@tristanheaven.net>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
 "POT-Creation-Date: 2021-06-26 20:39+0100\n"
-"PO-Revision-Date: 2021-04-30 09:32+0000\n"
-"Last-Translator: BMN <weblate@yopmail.com>\n"
+"PO-Revision-Date: 2026-03-06 17:29+0000\n"
+"Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/it/>\n"
 "Language: it\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/gtkhash-gtk3.ui:12
@@ -45,7 +46,7 @@ msgstr "_File"
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Salva file impr_onta (Digest)…"
+msgstr ""
 
 #: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
