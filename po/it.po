@@ -46,7 +46,7 @@ msgstr "_File"
 #: data/gtkhash-gtk3.ui:149
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr ""
+msgstr "Apri file (Digest)..."
 
 #: data/gtkhash-gtk3.ui:160
 msgctxt "menu"
