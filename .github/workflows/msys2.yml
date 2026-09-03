@@ -58,7 +58,7 @@ jobs:
           python3 -m styrene --pkg-dir=$(readlink -f ../mingw-w64-gtkhash) styrene.cfg
           tree
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.sys }}
           if-no-files-found: error
