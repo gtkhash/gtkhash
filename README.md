@@ -41,7 +41,14 @@ Optional Dependencies
 * mbed TLS
 * Linux kernel AF_ALG
 
-See `./configure --help` for the full list of build options.
+Build
+-----
+GtkHash is built with Meson:
+
+    meson setup build
+    meson compile -C build
+
+See `meson configure build` for the full list of build options.
 
 File Manager Extension
 -----------------------
