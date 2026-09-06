@@ -3,6 +3,7 @@ project('gtkhash',
     version: '1.5',
     meson_version: '>=0.53.0',
     default_options: [
+        'buildtype=debugoptimized',
         'warning_level=2',
     ],
 )
@@ -91,7 +92,6 @@ gtk  = dependency('gtk+-3.0', version: '>=3.18')
 blake2 = get_option('blake2') ? dependency('libb2') : no_dep
 config.set10('ENABLE_BLAKE2', get_option('blake2'))
 
-
 ##### GCrypt
 libgcrypt = get_option('gcrypt') ? dependency('libgcrypt', version: '>=1.6.0') : no_dep
 config.set10('ENABLE_GCRYPT', get_option('gcrypt'))
@@ -168,15 +168,6 @@ if build_thunar
 endif
 
 enable_nautilus_data = build_caja or build_nautilus or build_nemo or build_thunar
-
-if [ 'debug', 'debugoptimized' ].contains(get_option('buildtype'))
-    config.set10('G_DISABLE_DEPRECATED', true)
-    config.set10('GDK_DISABLE_DEPRECATED', true)
-    config.set10('GTK_DISABLE_DEPRECATED', true)
-else
-    config.set10('G_DISABLE_ASSERT', true)
-    config.set10('G_DISABLE_CAST_CHECKS', true)
-endif
 
 add_project_arguments('-DHAVE_CONFIG_H', language: 'c')
 root_include = include_directories('.')
