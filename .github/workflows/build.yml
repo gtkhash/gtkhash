@@ -1,0 +1,135 @@
+name: build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: ${{ matrix.os.name }} (${{ matrix.compiler }})
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ matrix.os.image }}
+    env:
+      NO_AT_BRIDGE: 1
+      DEBIAN_FRONTEND: noninteractive
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler:
+          - clang
+          - gcc
+        os:
+          - name: debian-stable
+            image: mirror.gcr.io/library/debian:stable
+          - name: debian-testing
+            image: mirror.gcr.io/library/debian:testing
+          - name: ubuntu-22.04-lts
+            image: mirror.gcr.io/library/ubuntu:22.04
+          - name: ubuntu-24.04-lts
+            image: mirror.gcr.io/library/ubuntu:24.04
+          - name: ubuntu-26.04-lts
+            image: mirror.gcr.io/library/ubuntu:26.04
+          - name: ubuntu-26.10
+            image: mirror.gcr.io/library/ubuntu:26.10
+    steps:
+      - name: Install git
+        run: |
+          apt-get update
+          apt-get install -y \
+            ca-certificates \
+            git
+
+      - uses: actions/checkout@v7
+
+      - name: Install dependencies
+        run: |
+          apt-get install -y \
+            ${{ matrix.compiler }} \
+            build-essential \
+            curl \
+            desktop-file-utils \
+            gcovr \
+            gettext \
+            gnome-icon-theme \
+            gnupg \
+            gtk-update-icon-cache \
+            libb2-dev \
+            libcaja-extension-dev \
+            libgcrypt20-dev \
+            libgtk-3-dev \
+            libmbedtls-dev \
+            libnautilus-extension-dev \
+            libnemo-extension-dev \
+            librsvg2-bin \
+            libssl-dev \
+            libthunarx-3-dev \
+            libxml2-utils \
+            linux-libc-dev \
+            meson \
+            nettle-dev \
+            ninja-build \
+            pkg-config \
+            xvfb
+
+      - name: Configure
+        env:
+          CC: ${{ matrix.compiler }}
+        run: |
+          meson setup _build \
+            -Db_coverage=true \
+            -Dblake2=true \
+            -Dgcrypt=true \
+            -Dglib-checksums=true \
+            -Dinternal-md6=true \
+            -Dlibcrypto=true \
+            -Dlinux-crypto=true \
+            -Dmbedtls=false \
+            -Dnettle=true \
+            -Dzlib=true \
+            -Dnative-file-chooser=true \
+            -Dappstream=true \
+            -Dbuild-gtkhash=true \
+            -Dbuild-caja=true \
+            -Dbuild-nautilus=false \
+            -Dbuild-nemo=true \
+            -Dbuild-thunar=true
+
+      - name: Compile
+        run: meson compile -C _build
+
+      - name: Test
+        run: |
+          xvfb-run --auto-servernum -s "-screen 0 800x600x24" \
+            meson test -C _build -v
+
+      - name: Generate test coverage report
+        if: matrix.os.name == 'debian-testing' && matrix.compiler == 'gcc'
+        run: ninja -C _build coverage-xml
+
+      - name: Upload test coverage report to Codecov
+        if: matrix.os.name == 'debian-testing' && matrix.compiler == 'gcc'
+        uses: codecov/codecov-action@v7
+        with:
+          files: _build/meson-logs/coverage.xml
+          verbose: true
+
+      - name: Create release artifacts
+        if: matrix.os.name == 'debian-testing' && matrix.compiler == 'gcc'
+        run: |
+          meson dist -C _build --no-tests --formats=gztar,xztar
+          cd _build/meson-dist
+          for f in gtkhash-*.tar.gz gtkhash-*.tar.xz; do
+            sha256sum "$f" > "$f.sha256"
+          done
+
+      - name: Upload release artifacts
+        if: matrix.os.name == 'debian-testing' && matrix.compiler == 'gcc'
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: |
+            _build/meson-dist/gtkhash-*.tar.gz
+            _build/meson-dist/gtkhash-*.tar.xz
+            _build/meson-dist/gtkhash-*.sha256
