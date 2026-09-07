@@ -1,16 +1,16 @@
 project('gtkhash',
     'c',
     version: '1.5',
-    meson_version: '>=0.53.0',
+    meson_version: '>=0.61', # Ubuntu 22.04 LTS
+    license: 'GPL-2.0-or-later',
     default_options: [
         'buildtype=debugoptimized',
         'warning_level=2',
     ],
 )
 
-gnome       = import('gnome')
-pkgconfig   = import('pkgconfig')
-i18n        = import('i18n')
+gnome = import('gnome')
+i18n  = import('i18n')
 
 ################################################################################
 # Project configuration
@@ -50,7 +50,6 @@ cc = meson.get_compiler('c')
 
 assert(get_option('warning_level').to_int() >= 2)
 
-# Todo check which options are used by Meson
 compiler_options = [
     '-fno-common',
     '-fvisibility=hidden',
@@ -305,3 +304,11 @@ endif
 subdir('po')
 subdir('data')
 subdir('src')
+
+if build_gtkhash or enable_nautilus_data
+    gnome.post_install(
+        glib_compile_schemas: true,
+        gtk_update_icon_cache: true,
+        update_desktop_database: true,
+    )
+endif

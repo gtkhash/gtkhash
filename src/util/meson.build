@@ -7,4 +7,3 @@ libutil = static_library('util',
     ],
 
 )
-# util_la_LDFLAGS = -avoid-version -module

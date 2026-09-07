@@ -55,4 +55,3 @@ libhash = static_library('hash',
     ],
 
 )
-# hash_la_LDFLAGS = -avoid-version -module

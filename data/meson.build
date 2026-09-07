@@ -1,4 +1,6 @@
-subdir('icons')
+if build_gtkhash or build_caja
+    subdir('icons')
+endif
 
 if enable_appstream
     subdir('appdata')
@@ -13,7 +15,7 @@ if enable_nautilus_data
 endif
 
 if build_gtkhash
-    i18n.merge_file(
+    desktop_file = i18n.merge_file(
         input:  'org.gtkhash.gtkhash.desktop.in',
         output: 'org.gtkhash.gtkhash.desktop',
         install: true,
@@ -23,10 +25,17 @@ if build_gtkhash
         type: 'desktop',
     )
 
+    desktop_file_validate = find_program('desktop-file-validate', required: false)
+    if desktop_file_validate.found()
+        test('Validate desktop file', desktop_file_validate, args: [desktop_file])
+    endif
+
     install_data(
         'org.gtkhash.gschema.xml',
         install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',
     )
+
+    gnome.compile_schemas(depend_files: 'org.gtkhash.gschema.xml')
 endif
 
 gtkhash_gtk3_gresource = files('gtkhash-gtk3.gresource.xml')

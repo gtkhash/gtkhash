@@ -78,8 +78,6 @@ if build_gtkhash
     endforeach
 
     foreach lib, functions : hash_libs
-        lib_enabled = config.get('ENABLE_' + lib.to_upper()) == 1
-
         test('gtkhash-test-@0@'.format(lib),
             gtkhash_test,
             depends: test_files,
