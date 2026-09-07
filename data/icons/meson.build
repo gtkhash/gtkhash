@@ -24,7 +24,6 @@ foreach size : generated_sizes
         ],
         install: true,
         install_dir: icons_install_dir / sizedir / 'apps',
-        # install_rename: '@0@.png'.format(icon_basename),
     )
 
     # That's required because Meson does not yet allow custom_target to be
