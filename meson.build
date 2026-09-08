@@ -127,6 +127,10 @@ mbedtls = get_option('mbedtls') ? \
     cc.find_library('mbedcrypto', has_headers: 'mbedtls/md.h') : no_dep
 
 config.set10('ENABLE_MBEDTLS', get_option('mbedtls'))
+detected_mbedtls_functions = []
+if cc.has_header_symbol('mbedtls/md.h', 'MBEDTLS_MD_CAN_SHA3_512')
+    detected_mbedtls_functions += [ 'SHA3-224', 'SHA3-256', 'SHA3-384', 'SHA3-512' ]
+endif
 
 ##### Nettle
 nettle = get_option('nettle') ? dependency('nettle') : no_dep
@@ -248,9 +252,7 @@ linux_crypto_funcs = [
     'XXH64',
 ]
 
-mbedtls_funcs = [
-    'MD2',
-    'MD4',
+mbedtls_funcs = detected_mbedtls_functions + [
     'MD5',
     'RIPEMD160',
     'SHA1',

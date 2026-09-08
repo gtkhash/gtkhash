@@ -85,7 +85,7 @@ jobs:
             -Dinternal-md6=true \
             -Dlibcrypto=true \
             -Dlinux-crypto=true \
-            -Dmbedtls=false \
+            -Dmbedtls=true \
             -Dnettle=true \
             -Dzlib=true \
             -Dnative-file-chooser=true \
