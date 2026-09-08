@@ -215,7 +215,7 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 	if (!fis) {
 		check_file_error(file, error);
 		g_error_free(error);
-		return NULL;
+		return ud_list;
 	}
 
 	GDataInputStream *dis = g_data_input_stream_new((GInputStream *)fis);
