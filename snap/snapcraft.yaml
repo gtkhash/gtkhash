@@ -3,51 +3,40 @@ adopt-info: gtkhash
 version: git
 license: GPL-2.0+
 grade: stable
-base: core20
+base: core24
 confinement: strict
-compression: lzo
 
 apps:
   gtkhash:
     command: usr/bin/gtkhash
     desktop: usr/share/applications/org.gtkhash.gtkhash.desktop
     common-id: org.gtkhash.gtkhash
-    extensions: [ gnome-3-38 ]
-    plugs: [ home ]
+    extensions:
+      - gnome
+    plugs:
+      - home
+      - removable-media
 
 parts:
   gtkhash:
     source: https://github.com/gtkhash/gtkhash.git
-    plugin: autotools
+    plugin: meson
     build-packages:
-      - pkg-config
-      - libtool
-      - gettext
-      - autopoint
-      - appstream
-      - libglib2.0-dev
-      - libgtk-3-dev
-      - libgcrypt20-dev
       - libb2-dev
+      - libgcrypt20-dev
+      - libgtk-3-dev
       - librsvg2-bin
-      - libxml2-utils
-      - at-spi2-core
-      - xvfb
-      - gnome-icon-theme
     stage-packages:
-      - libgtk-3-0
-      - libgcrypt20
       - libb2-1
-    build-environment:
-      - CFLAGS: "${CFLAGS} -O2 -s"
-    autotools-configure-parameters:
-      - --prefix=/usr # For snap's bindtextdomain() hack
-      - --enable-linux-crypto
-      - --disable-silent-rules
+      - libgcrypt20
+      - libgtk-3-0
+    meson-parameters:
+      - -Dlinux-crypto=true
+      - -Dprefix=/usr
+      - -Dstrip=true
     override-build: |
-      sed -i '/^Icon=/s:=.*:=${SNAP}/meta/gui/gtkhash.svg:' data/org.gtkhash.gtkhash.desktop.in
-      snapcraftctl build
-      make VERBOSE=1 check || :
-      mkdir -vp -- "${SNAPCRAFT_PART_INSTALL}"/meta/gui
-      cp -vf -- data/icons/scalable/org.gtkhash.gtkhash.svg "${SNAPCRAFT_PART_INSTALL}"/meta/gui/gtkhash.svg
-    parse-info: [ usr/share/metainfo/org.gtkhash.gtkhash.appdata.xml ]
+      craftctl default
+      mkdir -vp -- "${CRAFT_PART_INSTALL}"/meta/gui
+      cp -vf -- "${CRAFT_PART_SRC}"/data/icons/scalable/org.gtkhash.gtkhash.svg "${CRAFT_PART_INSTALL}"/meta/gui/gtkhash.svg
+    parse-info:
+      - usr/share/metainfo/org.gtkhash.gtkhash.appdata.xml

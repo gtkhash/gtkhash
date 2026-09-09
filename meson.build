@@ -4,6 +4,8 @@ project('gtkhash',
     meson_version: '>=0.61', # Ubuntu 22.04 LTS
     license: 'GPL-2.0-or-later',
     default_options: [
+        'b_lto=true',
+        'b_pie=true',
         'buildtype=debugoptimized',
         'warning_level=2',
     ],
