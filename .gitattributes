@@ -1,5 +1,8 @@
 /.github export-ignore
 /snap export-ignore
+
 /.codecov.yml export-ignore
 /.gitattributes export-ignore
 /.gitignore export-ignore
+/flake.lock export-ignore
+/flake.nix export-ignore
