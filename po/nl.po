@@ -7,8 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
-"POT-Creation-Date: 2021-06-26 20:39+0100\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
+"translations/\n"
+"POT-Creation-Date: 2026-09-13 18:10+0000\n"
 "PO-Revision-Date: 2024-03-16 16:01+0000\n"
 "Last-Translator: Mikachu <micah.sh@proton.me>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtkhash/"
@@ -20,6 +21,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.5-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
+
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:473 src/nautilus/properties.c:476
+#: src/nautilus/properties.c:479 src/nautilus/properties.c:481
+msgid "Checksums"
+msgstr "Controlesommen"
+
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
+msgid "Adds message digests or checksums to file properties"
+msgstr "Voegt berichtdigests of controlesommen toe aan bestandseigenschappen"
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
+#: data/org.gtkhash.gtkhash.desktop.in:2
+msgid "GtkHash"
+msgstr ""
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:8
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:595
+msgid "Calculate message digests or checksums"
+msgstr "Berichtdigests of controlesommen berekenen"
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:10
+msgid ""
+"GtkHash is an application for computing file checksums, or message digests. "
+"It's designed to be an easy to use, graphical alternative to command-line "
+"programs such as md5sum."
+msgstr ""
+"GtkHash is een toepassing voor het berekenen van bestandscontrolesommen en "
+"berichtdigests. Het is ontworpen als eenvoudig te gebruiken grafisch "
+"alternatief voor opdrachtregelprogramma’s als md5sum."
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
+msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
+msgstr "Ondersteunde hashfuncties zijn MD5, SHA1, SHA256, SHA512 en CRC32."
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -117,14 +159,33 @@ msgstr "MAC-functies"
 msgid "Digest Format:"
 msgstr "Digestformaat:"
 
-#: data/org.gtkhash.gtkhash.desktop.in:4
+#: data/nautilus/gtkhash-properties.ui:16
+msgid "_Copy Digest"
+msgstr "Digest _kopiëren"
+
+#: data/nautilus/gtkhash-properties.ui:35
+msgid "Show _Disabled Hash Functions"
+msgstr "Uitgeschakel_de hashfuncties tonen"
+
+#: data/nautilus/gtkhash-properties.ui:95
+msgid "Hash Function"
+msgstr "Hashfunctie"
+
+#: data/nautilus/gtkhash-properties.ui:106
+msgid "Digest"
+msgstr "Digest"
+
+#: data/nautilus/gtkhash-properties.ui:271
+msgid "H_ash"
+msgstr "H_ash"
+
+#: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
 msgstr "Controlesomberekening"
 
-#: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
-msgid "Calculate message digests or checksums"
-msgstr "Berichtdigests of controlesommen berekenen"
+#: data/org.gtkhash.gtkhash.desktop.in:5
+msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
+msgstr ""
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
@@ -181,11 +242,11 @@ msgstr "HMAC-_sleutel tonen"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Lezen van controlebestand ‘%s’ mislukt: %s"
 
-#: src/gui.c:308
+#: src/gui.c:302
 msgid "Not a regular file"
 msgstr "Geen gewoon bestand"
 
-#: src/gui.c:331
+#: src/gui.c:325
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Toevoegen van bestand ‘%s’ mislukt: %s"
@@ -268,56 +329,6 @@ msgstr[1] "%u seconden resterend"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s van %s - %s (%s/sec)"
-
-#: data/nautilus/gtkhash-properties.ui:16
-msgid "_Copy Digest"
-msgstr "Digest _kopiëren"
-
-#: data/nautilus/gtkhash-properties.ui:35
-msgid "Show _Disabled Hash Functions"
-msgstr "Uitgeschakel_de hashfuncties tonen"
-
-#: data/nautilus/gtkhash-properties.ui:95
-msgid "Hash Function"
-msgstr "Hashfunctie"
-
-#: data/nautilus/gtkhash-properties.ui:106
-msgid "Digest"
-msgstr "Digest"
-
-#: data/nautilus/gtkhash-properties.ui:271
-msgid "H_ash"
-msgstr "H_ash"
-
-#: src/nautilus/properties.c:473 src/nautilus/properties.c:476
-#: src/nautilus/properties.c:479 src/nautilus/properties.c:481
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-msgid "Checksums"
-msgstr "Controlesommen"
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash is een toepassing voor het berekenen van bestandscontrolesommen en "
-"berichtdigests. Het is ontworpen als eenvoudig te gebruiken grafisch "
-"alternatief voor opdrachtregelprogramma’s als md5sum."
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
-msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr "Ondersteunde hashfuncties zijn MD5, SHA1, SHA256, SHA512 en CRC32."
-
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "Voegt berichtdigests of controlesommen toe aan bestandseigenschappen"
 
 #~ msgid "Digests"
 #~ msgstr "Digests"

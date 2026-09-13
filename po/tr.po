@@ -11,8 +11,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
-"POT-Creation-Date: 2021-06-26 20:39+0100\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
+"translations/\n"
+"POT-Creation-Date: 2026-09-13 18:10+0000\n"
 "PO-Revision-Date: 2023-12-25 04:11+0000\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
@@ -24,6 +25,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.4-dev\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
+
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:473 src/nautilus/properties.c:476
+#: src/nautilus/properties.c:479 src/nautilus/properties.c:481
+msgid "Checksums"
+msgstr "Sağlamalar"
+
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
+msgid "Adds message digests or checksums to file properties"
+msgstr "Dosya özelliklerine ileti özetleri veya sağlama toplamları ekler"
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
+#: data/org.gtkhash.gtkhash.desktop.in:2
+msgid "GtkHash"
+msgstr ""
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:8
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:595
+msgid "Calculate message digests or checksums"
+msgstr "Mesaj özetlerini veya sağlama toplamlarını hesapla"
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:10
+msgid ""
+"GtkHash is an application for computing file checksums, or message digests. "
+"It's designed to be an easy to use, graphical alternative to command-line "
+"programs such as md5sum."
+msgstr ""
+"GtkHash dosya sağlama toplamı veya ileti özetlerini hesaplamak için "
+"kullanılan bir uygulamadır. md5sum gibi komut satırı programlarına kullanımı "
+"kolay, grafiksel bir alternatif olacak şekilde tasarlanmıştır."
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
+msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
+msgstr "Desteklenen hash işlevleri MD5, SHA1, SHA256, SHA512 ve CRC32."
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -121,14 +163,33 @@ msgstr "MAC İşlevleri"
 msgid "Digest Format:"
 msgstr "Özet Biçimi:"
 
-#: data/org.gtkhash.gtkhash.desktop.in:4
+#: data/nautilus/gtkhash-properties.ui:16
+msgid "_Copy Digest"
+msgstr "Özeti _Kopyala"
+
+#: data/nautilus/gtkhash-properties.ui:35
+msgid "Show _Disabled Hash Functions"
+msgstr "_Devre Dışı Bırakılmış Hash İşlevini Göster"
+
+#: data/nautilus/gtkhash-properties.ui:95
+msgid "Hash Function"
+msgstr "Hash İşlevi"
+
+#: data/nautilus/gtkhash-properties.ui:106
+msgid "Digest"
+msgstr "Özet"
+
+#: data/nautilus/gtkhash-properties.ui:271
+msgid "H_ash"
+msgstr "H_ash"
+
+#: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
 msgstr "Sağlama Hesaplayıcı"
 
-#: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
-msgid "Calculate message digests or checksums"
-msgstr "Mesaj özetlerini veya sağlama toplamlarını hesapla"
+#: data/org.gtkhash.gtkhash.desktop.in:5
+msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
+msgstr ""
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
@@ -185,11 +246,11 @@ msgstr "HMAC Anahtarını _Göster"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Kontrol dosyasını okumadı \"%s\": %s"
 
-#: src/gui.c:308
+#: src/gui.c:302
 msgid "Not a regular file"
 msgstr "Normal bir dosya değil"
 
-#: src/gui.c:331
+#: src/gui.c:325
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Dosya eklenemedi \"%s\": %s"
@@ -272,56 +333,6 @@ msgstr[1] "%u saniye daha kaldı"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s için %s - %s (%s/san)"
-
-#: data/nautilus/gtkhash-properties.ui:16
-msgid "_Copy Digest"
-msgstr "Özeti _Kopyala"
-
-#: data/nautilus/gtkhash-properties.ui:35
-msgid "Show _Disabled Hash Functions"
-msgstr "_Devre Dışı Bırakılmış Hash İşlevini Göster"
-
-#: data/nautilus/gtkhash-properties.ui:95
-msgid "Hash Function"
-msgstr "Hash İşlevi"
-
-#: data/nautilus/gtkhash-properties.ui:106
-msgid "Digest"
-msgstr "Özet"
-
-#: data/nautilus/gtkhash-properties.ui:271
-msgid "H_ash"
-msgstr "H_ash"
-
-#: src/nautilus/properties.c:473 src/nautilus/properties.c:476
-#: src/nautilus/properties.c:479 src/nautilus/properties.c:481
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-msgid "Checksums"
-msgstr "Sağlamalar"
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash dosya sağlama toplamı veya ileti özetlerini hesaplamak için "
-"kullanılan bir uygulamadır. md5sum gibi komut satırı programlarına kullanımı "
-"kolay, grafiksel bir alternatif olacak şekilde tasarlanmıştır."
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
-msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr "Desteklenen hash işlevleri MD5, SHA1, SHA256, SHA512 ve CRC32."
-
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "Dosya özelliklerine ileti özetleri veya sağlama toplamları ekler"
 
 #~ msgid "Digests"
 #~ msgstr "Özet"

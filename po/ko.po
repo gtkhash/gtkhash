@@ -6,8 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
-"Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
-"POT-Creation-Date: 2021-06-26 20:39+0100\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
+"translations/\n"
+"POT-Creation-Date: 2026-09-13 18:10+0000\n"
 "PO-Revision-Date: 2023-09-11 10:49+0000\n"
 "Last-Translator: sarami <ppp821203@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtkhash/"
@@ -18,6 +19,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.0.1-dev\n"
+
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:473 src/nautilus/properties.c:476
+#: src/nautilus/properties.c:479 src/nautilus/properties.c:481
+msgid "Checksums"
+msgstr "체크섬"
+
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
+msgid "Adds message digests or checksums to file properties"
+msgstr "파일 속성에 메시지 digests 또는 체크섬 추가"
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
+#: data/org.gtkhash.gtkhash.desktop.in:2
+msgid "GtkHash"
+msgstr ""
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:8
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:595
+msgid "Calculate message digests or checksums"
+msgstr "메시지Digest 또는 체크섬 계산"
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:10
+msgid ""
+"GtkHash is an application for computing file checksums, or message digests. "
+"It's designed to be an easy to use, graphical alternative to command-line "
+"programs such as md5sum."
+msgstr ""
+"GtkHash는 파일 체크섬, 즉 메시지 digest을 계산하기 위한 응용 프로그램입니다. "
+"그것은 md5sum과 같은 명령 줄 프로그램의 사용하기 쉽고 그래픽적인 대안이 되도"
+"록 설계되었습니다."
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
+msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
+msgstr "지원되는 Hash 함수에는 MD5, SHA1, SHA256, SHA512 및 CRC32가 포함된다."
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -115,14 +157,33 @@ msgstr "MAC 함수"
 msgid "Digest Format:"
 msgstr "Digest 포맷:"
 
-#: data/org.gtkhash.gtkhash.desktop.in:4
+#: data/nautilus/gtkhash-properties.ui:16
+msgid "_Copy Digest"
+msgstr "Digest 값 복사(_C)"
+
+#: data/nautilus/gtkhash-properties.ui:35
+msgid "Show _Disabled Hash Functions"
+msgstr "비활성화된 Hash 함수 표시(_D)"
+
+#: data/nautilus/gtkhash-properties.ui:95
+msgid "Hash Function"
+msgstr "Hash 함수"
+
+#: data/nautilus/gtkhash-properties.ui:106
+msgid "Digest"
+msgstr "Digest"
+
+#: data/nautilus/gtkhash-properties.ui:271
+msgid "H_ash"
+msgstr "Hash(_a)"
+
+#: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
 msgstr "체크섬 계산"
 
-#: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
-msgid "Calculate message digests or checksums"
-msgstr "메시지Digest 또는 체크섬 계산"
+#: data/org.gtkhash.gtkhash.desktop.in:5
+msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
+msgstr ""
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
@@ -175,11 +236,11 @@ msgstr "HMAC 키 표시(_S)"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "\"%s\" 체크 파일을 읽지 못했습니다 : %s"
 
-#: src/gui.c:308
+#: src/gui.c:302
 msgid "Not a regular file"
 msgstr "일반 파일이 아님"
 
-#: src/gui.c:331
+#: src/gui.c:325
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "%s 파일을 추가 실패 : %s"
@@ -260,53 +321,3 @@ msgstr[0] "%u 초 남음"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s / %s - %s (%s/sec)"
-
-#: data/nautilus/gtkhash-properties.ui:16
-msgid "_Copy Digest"
-msgstr "Digest 값 복사(_C)"
-
-#: data/nautilus/gtkhash-properties.ui:35
-msgid "Show _Disabled Hash Functions"
-msgstr "비활성화된 Hash 함수 표시(_D)"
-
-#: data/nautilus/gtkhash-properties.ui:95
-msgid "Hash Function"
-msgstr "Hash 함수"
-
-#: data/nautilus/gtkhash-properties.ui:106
-msgid "Digest"
-msgstr "Digest"
-
-#: data/nautilus/gtkhash-properties.ui:271
-msgid "H_ash"
-msgstr "Hash(_a)"
-
-#: src/nautilus/properties.c:473 src/nautilus/properties.c:476
-#: src/nautilus/properties.c:479 src/nautilus/properties.c:481
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-msgid "Checksums"
-msgstr "체크섬"
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash는 파일 체크섬, 즉 메시지 digest을 계산하기 위한 응용 프로그램입니다. "
-"그것은 md5sum과 같은 명령 줄 프로그램의 사용하기 쉽고 그래픽적인 대안이 "
-"되도록 설계되었습니다."
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
-msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr "지원되는 Hash 함수에는 MD5, SHA1, SHA256, SHA512 및 CRC32가 포함된다."
-
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "파일 속성에 메시지 digests 또는 체크섬 추가"

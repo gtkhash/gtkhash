@@ -5,8 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: https://github.com/gtkhash/gtkhash/issues\n"
-"POT-Creation-Date: 2021-06-26 20:39+0100\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
+"translations/\n"
+"POT-Creation-Date: 2026-09-13 18:10+0000\n"
 "PO-Revision-Date: 2020-07-31 08:27+0000\n"
 "Last-Translator: Oymate <dhruboadittya96@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) <https://hosted.weblate.org/projects/"
@@ -17,6 +18,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.2-dev\n"
+
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:473 src/nautilus/properties.c:476
+#: src/nautilus/properties.c:479 src/nautilus/properties.c:481
+msgid "Checksums"
+msgstr "পরীক্ষার ফল"
+
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
+msgid "Adds message digests or checksums to file properties"
+msgstr "ফাইলের বৈশিষ্ট্যে বার্তা ডাইজেস্ট বা চেকসাম যুক্ত করে"
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
+#: data/org.gtkhash.gtkhash.desktop.in:2
+msgid "GtkHash"
+msgstr ""
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:8
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:595
+msgid "Calculate message digests or checksums"
+msgstr "ডাইজেস্ট বা চেকসাম বার্তা গণনা করুন"
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:10
+msgid ""
+"GtkHash is an application for computing file checksums, or message digests. "
+"It's designed to be an easy to use, graphical alternative to command-line "
+"programs such as md5sum."
+msgstr ""
+"ফাইল বা বার্তা ডাইজেস্টের জন্য জিটিকেহ্যাশ একটি অ্যাপ্লিকেশন। এটি এমডি৫সামের মতো "
+"কমান্ড-লাইন প্রোগ্রামগুলির গ্রাফিকাল বিকল্প, যা সহজে ব্যবহারযোগ্য।"
+
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
+msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
+msgstr "সমর্থিত হ্যাশ ফাংশন অন্তর্ভুক্ত এমডি৫, শা১, শা২৫৬, শা৫১২ এবং সিআরসি৩২।"
 
 #: data/gtkhash-gtk3.ui:12
 msgid "Lowercase Hexadecimal"
@@ -114,14 +155,33 @@ msgstr "ম্যাক ক্রিয়া"
 msgid "Digest Format:"
 msgstr "ডাইজেস্ট সজ্জা:"
 
-#: data/org.gtkhash.gtkhash.desktop.in:4
+#: data/nautilus/gtkhash-properties.ui:16
+msgid "_Copy Digest"
+msgstr "_কপি ডাইজেস্ট"
+
+#: data/nautilus/gtkhash-properties.ui:35
+msgid "Show _Disabled Hash Functions"
+msgstr "দেখান _অক্ষমকৃত হ্যাশ ফাংশনগুলি"
+
+#: data/nautilus/gtkhash-properties.ui:95
+msgid "Hash Function"
+msgstr "হ্যাশ ফাংশন"
+
+#: data/nautilus/gtkhash-properties.ui:106
+msgid "Digest"
+msgstr "ডাইজেস্ট"
+
+#: data/nautilus/gtkhash-properties.ui:271
+msgid "H_ash"
+msgstr "H_ash"
+
+#: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
 msgstr "চেকসাম ক্যালকুলেটর"
 
-#: data/org.gtkhash.gtkhash.desktop.in:5 src/nautilus/properties.c:595
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:8
-msgid "Calculate message digests or checksums"
-msgstr "ডাইজেস্ট বা চেকসাম বার্তা গণনা করুন"
+#: data/org.gtkhash.gtkhash.desktop.in:5
+msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
+msgstr ""
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
@@ -174,11 +234,11 @@ msgstr "_এইচএমএসি(HMAC) কী দেখান"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "\"%s\" ফাইলটি পরীক্ষা করতে ব্যর্থ : %s"
 
-#: src/gui.c:308
+#: src/gui.c:302
 msgid "Not a regular file"
 msgstr "একটি সাধারণ ফাইল না"
 
-#: src/gui.c:331
+#: src/gui.c:325
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "\"%s\" ফাইলটি যুক্ত করতে ব্যর্থ : %s"
@@ -261,55 +321,6 @@ msgstr[1] "%u সেকেন্ড বাকি"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s এর %s - %s(%s/সেকেন্ড)"
-
-#: data/nautilus/gtkhash-properties.ui:16
-msgid "_Copy Digest"
-msgstr "_কপি ডাইজেস্ট"
-
-#: data/nautilus/gtkhash-properties.ui:35
-msgid "Show _Disabled Hash Functions"
-msgstr "দেখান _অক্ষমকৃত হ্যাশ ফাংশনগুলি"
-
-#: data/nautilus/gtkhash-properties.ui:95
-msgid "Hash Function"
-msgstr "হ্যাশ ফাংশন"
-
-#: data/nautilus/gtkhash-properties.ui:106
-msgid "Digest"
-msgstr "ডাইজেস্ট"
-
-#: data/nautilus/gtkhash-properties.ui:271
-msgid "H_ash"
-msgstr "H_ash"
-
-#: src/nautilus/properties.c:473 src/nautilus/properties.c:476
-#: src/nautilus/properties.c:479 src/nautilus/properties.c:481
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in:7
-msgid "Checksums"
-msgstr "পরীক্ষার ফল"
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"ফাইল বা বার্তা ডাইজেস্টের জন্য জিটিকেহ্যাশ একটি অ্যাপ্লিকেশন। এটি এমডি৫সামের মতো "
-"কমান্ড-লাইন প্রোগ্রামগুলির গ্রাফিকাল বিকল্প, যা সহজে ব্যবহারযোগ্য।"
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in:15
-msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr "সমর্থিত হ্যাশ ফাংশন অন্তর্ভুক্ত এমডি৫, শা১, শা২৫৬, শা৫১২ এবং সিআরসি৩২।"
-
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in:8
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in:9
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "ফাইলের বৈশিষ্ট্যে বার্তা ডাইজেস্ট বা চেকসাম যুক্ত করে"
 
 #~ msgid "Digests"
 #~ msgstr "ডাইজেস্ট"
