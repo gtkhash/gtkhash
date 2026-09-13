@@ -1,5 +1,11 @@
-# gtkhash
+data/appdata/org.gtkhash.caja.metainfo.xml.in.in
+data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in
+data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in
+data/appdata/org.gtkhash.nemo.metainfo.xml.in.in
+data/appdata/org.gtkhash.thunar.metainfo.xml.in.in
+data/caja/libgtkhash-properties-caja.desktop.in.in
 data/gtkhash-gtk3.ui
+data/nautilus/gtkhash-properties.ui
 data/org.gtkhash.gtkhash.desktop.in
 src/callbacks.c
 src/check.c
@@ -7,20 +13,10 @@ src/gui.c
 src/hash.c
 src/list.c
 src/main.c
-src/opts.c
-src/prefs.c
-src/util/util.c
-
-# gtkhash-properties
-data/nautilus/gtkhash-properties.ui
-src/nautilus/properties.c
 src/nautilus/properties-hash.c
 src/nautilus/properties-list.c
 src/nautilus/properties-prefs.c
-
-# appdata
-data/appdata/org.gtkhash.gtkhash.appdata.xml.in
-data/appdata/org.gtkhash.caja.metainfo.xml.in
-data/appdata/org.gtkhash.nautilus.metainfo.xml.in
-data/appdata/org.gtkhash.nemo.metainfo.xml.in
-data/appdata/org.gtkhash.thunar.metainfo.xml.in
+src/nautilus/properties.c
+src/opts.c
+src/prefs.c
+src/util/util.c
