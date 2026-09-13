@@ -1,8 +1,7 @@
-
 cajaextension = 'libgtkhash-properties-caja.caja-extension'
 
 cajaextension_in = configure_file(
-    input:  cajaextension + '.in.in',
+    input:  'libgtkhash-properties-caja.desktop.in.in',
     output: cajaextension + '.in',
     configuration: data_config,
 )
