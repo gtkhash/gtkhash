@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Tristan Heaven <tristan@tristanheaven.net>, 2020.
+# Tristan Heaven <tristan@tristanheaven.net>, 2020, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-09-13 18:10+0000\n"
-"PO-Revision-Date: 2020-07-02 20:41+0000\n"
+"PO-Revision-Date: 2026-09-14 01:51+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/en_US/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
@@ -39,7 +39,7 @@ msgstr "Adds message digests or checksums to file properties"
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
 msgid "GtkHash"
-msgstr ""
+msgstr "GtkHash"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:8
 #: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:595
@@ -182,7 +182,7 @@ msgstr "Checksum Calculator"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5
 msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
-msgstr ""
+msgstr "hash;checksum;digest;md5;sha1;sha256;crc32;"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
