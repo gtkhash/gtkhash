@@ -4,14 +4,14 @@
 # notramo <notramo@vipmail.hu>, 2018.
 # notramo <notramo@protonmail.com>, 2019, 2020.
 # Noway Imtellingyouidiot <johns.videos+weblate@mailbox.org>, 2021.
-# Szia Tomi <sziatomi01@gmail.com>, 2024, 2025.
+# Szia Tomi <sziatomi01@gmail.com>, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-09-13 18:10+0000\n"
-"PO-Revision-Date: 2025-12-13 19:00+0000\n"
+"PO-Revision-Date: 2026-09-13 22:51+0000\n"
 "Last-Translator: Szia Tomi <sziatomi01@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/hu/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
@@ -43,12 +43,12 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
 msgid "GtkHash"
-msgstr ""
+msgstr "GtkHash"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:8
 #: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:595
 msgid "Calculate message digests or checksums"
-msgstr "Üzenetadatok vagy ellenőrző összegek kiszámítása"
+msgstr "Üzenetkivonatok vagy ellenőrző összegek kiszámítása"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:10
 msgid ""
@@ -189,7 +189,7 @@ msgstr "Ellenőrzőösszeg-számoló"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5
 msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
-msgstr ""
+msgstr "hash;ellenőrző összeg;kivonat;md5;sha1;sha256;crc32;"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
