@@ -73,7 +73,7 @@ jobs:
             pkg-config \
             xvfb
 
-      - name: Configure
+      - name: meson setup
         env:
           CC: ${{ matrix.compiler }}
         run: |
@@ -96,13 +96,14 @@ jobs:
             -Dbuild-nemo=true \
             -Dbuild-thunar=true
 
-      - name: Compile
+      - name: meson compile
         run: meson compile -C _build
 
-      - name: Test
-        run: |
-          xvfb-run --auto-servernum -s "-screen 0 800x600x24" \
-            meson test -C _build -v
+      - name: meson test
+        run: xvfb-run -a -s "-screen 0 800x600x24" meson test -C _build -v
+
+      - name: meson install
+        run: meson install -C _build --destdir _install
 
       - name: Generate test coverage report
         if: matrix.os.name == 'debian-testing' && matrix.compiler == 'gcc'
@@ -115,21 +116,13 @@ jobs:
           files: _build/meson-logs/coverage.xml
           verbose: true
 
-      - name: Create release artifacts
+      - name: meson dist
         if: matrix.os.name == 'debian-testing' && matrix.compiler == 'gcc'
-        run: |
-          meson dist -C _build --no-tests --formats=gztar,xztar
-          cd _build/meson-dist
-          for f in gtkhash-*.tar.gz gtkhash-*.tar.xz; do
-            sha256sum "$f" > "$f.sha256"
-          done
+        run: meson dist -C _build --no-tests
 
-      - name: Upload release artifacts
+      - uses: actions/upload-artifact@v7
         if: matrix.os.name == 'debian-testing' && matrix.compiler == 'gcc'
-        uses: actions/upload-artifact@v7
         with:
-          name: dist
-          path: |
-            _build/meson-dist/gtkhash-*.tar.gz
-            _build/meson-dist/gtkhash-*.tar.xz
-            _build/meson-dist/gtkhash-*.sha256
+          name: gtkhash-${{ github.sha }}
+          path: _build/meson-dist/*
+          if-no-files-found: error
