@@ -577,7 +577,7 @@ static void test_opt_file_list(void)
 	g_test_trap_assert_stdout("*d41d8cd98f00b204e9800998ecf8427e*");
 }
 
-static void test_digest_format_hex_lower()
+static void test_digest_format_hex_lower(void)
 {
 	if (g_test_subprocess()) {
 		select_gui_view(GUI_VIEW_TEXT);
@@ -594,7 +594,7 @@ static void test_digest_format_hex_lower()
 	g_test_trap_assert_stdout("*d41d8cd98f00b204e9800998ecf8427e*");
 }
 
-static void test_digest_format_hex_upper()
+static void test_digest_format_hex_upper(void)
 {
 	if (g_test_subprocess()) {
 		select_gui_view(GUI_VIEW_TEXT);
@@ -611,7 +611,7 @@ static void test_digest_format_hex_upper()
 	g_test_trap_assert_stdout("*D41D8CD98F00B204E9800998ECF8427E*");
 }
 
-static void test_digest_format_base64()
+static void test_digest_format_base64(void)
 {
 	if (g_test_subprocess()) {
 		select_gui_view(GUI_VIEW_TEXT);
