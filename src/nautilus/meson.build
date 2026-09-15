@@ -50,9 +50,10 @@ endif
 foreach extension : extensions
     name = extension.get('name')
 
-    extension_map_file = configure_file(
+    map_filename = 'extension_@0@.map'.format(name)
+    configure_file(
         input:  'extension.map.in',
-        output: 'extension_@0@.map'.format(name),
+        output: map_filename,
         configuration: { 'symbol_prefix': extension.get('symbol_prefix')},
     )
 
@@ -64,7 +65,7 @@ foreach extension : extensions
             libhash,
             libutil,
         ],
-        link_args: [ '-Wl,--version-script,@0@'.format(extension_map_file), ],
+        link_args: [ '-Wl,--version-script,@0@'.format(meson.current_build_dir() / map_filename), ],
         dependencies: extension.get('dep'),
         install: true,
         install_dir: extension.get('dir'),
