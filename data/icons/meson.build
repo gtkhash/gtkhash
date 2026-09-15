@@ -1,5 +1,11 @@
-icons_install_dir = get_option('datadir')/'icons'/'hicolor'
-generated_sizes = [ 32, 48, 64, 128, 256, ]
+icons_install_dir = get_option('datadir') / 'icons' / 'hicolor'
+generated_sizes = [
+    32,
+    48,
+    64,
+    128,
+    256,
+]
 
 icon_basename = 'org.gtkhash.gtkhash'
 
@@ -13,23 +19,21 @@ foreach size : generated_sizes
 
     local_icon_name = '@0@.@1@.png'.format(icon_basename, sizedir)
 
-    icon = custom_target(local_icon_name,
+    icon = custom_target(
+        local_icon_name,
         input: svg_file,
         output: local_icon_name,
-        command: [
-            'rsvg-convert',
-            '-w', sizestr,
-            '-h', sizestr,
-            '@INPUT@', '-o', '@OUTPUT@'
-        ],
+        command: ['rsvg-convert', '-w', sizestr, '-h', sizestr, '@INPUT@', '-o', '@OUTPUT@'],
         install: true,
         install_dir: icons_install_dir / sizedir / 'apps',
     )
 
     # That's required because Meson does not yet allow custom_target to be
     # renamed on install step.
-    meson.add_install_script('rename_icons.sh',
-        icons_install_dir/sizedir/'apps',
-        local_icon_name, '@0@.png'.format(icon_basename),
+    meson.add_install_script(
+        'rename_icons.sh',
+        icons_install_dir / sizedir / 'apps',
+        local_icon_name,
+        '@0@.png'.format(icon_basename),
     )
 endforeach

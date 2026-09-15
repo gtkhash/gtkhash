@@ -16,7 +16,8 @@ extensions_sources = [
 extensions = []
 
 if build_caja
-    extensions += { 'name': 'caja',
+    extensions += {
+        'name': 'caja',
         'dep': caja,
         'dir': caja_extension_dir,
         'symbol_prefix': 'caja_module_',
@@ -24,7 +25,8 @@ if build_caja
 endif
 
 if build_nautilus
-    extensions += { 'name': 'nautilus',
+    extensions += {
+        'name': 'nautilus',
         'dep': nautilus,
         'dir': nautilus_extension_dir,
         'symbol_prefix': 'nautilus_module_',
@@ -32,7 +34,8 @@ if build_nautilus
 endif
 
 if build_nemo
-    extensions += { 'name': 'nemo',
+    extensions += {
+        'name': 'nemo',
         'dep': nemo,
         'dir': nemo_extension_dir,
         'symbol_prefix': 'nemo_module_',
@@ -40,7 +43,8 @@ if build_nemo
 endif
 
 if build_thunar
-    extensions += { 'name': 'thunar',
+    extensions += {
+        'name': 'thunar',
         'dep': thunar,
         'dir': thunar_extension_dir,
         'symbol_prefix': 'thunar_extension_',
@@ -52,20 +56,25 @@ foreach extension : extensions
 
     map_filename = 'extension_@0@.map'.format(name)
     configure_file(
-        input:  'extension.map.in',
+        input: 'extension.map.in',
         output: map_filename,
-        configuration: { 'symbol_prefix': extension.get('symbol_prefix')},
+        configuration: {'symbol_prefix': extension.get('symbol_prefix')},
     )
 
-    shared_library('gtkhash-properties-@0@'.format(name),
+    shared_library(
+        'gtkhash-properties-@0@'.format(name),
         extensions_sources,
         include_directories: root_include,
-        c_args: [ '-DIN_@0@_EXTENSION'.format(name.to_upper()), ],
+        c_args: [
+            '-DIN_@0@_EXTENSION'.format(name.to_upper()),
+        ],
         link_with: [
             libhash,
             libutil,
         ],
-        link_args: [ '-Wl,--version-script,@0@'.format(meson.current_build_dir() / map_filename), ],
+        link_args: [
+            '-Wl,--version-script,@0@'.format(meson.current_build_dir() / map_filename),
+        ],
         dependencies: extension.get('dep'),
         install: true,
         install_dir: extension.get('dir'),

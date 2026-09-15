@@ -16,11 +16,10 @@ endif
 
 if build_gtkhash
     desktop_file = i18n.merge_file(
-        input:  'org.gtkhash.gtkhash.desktop.in',
+        input: 'org.gtkhash.gtkhash.desktop.in',
         output: 'org.gtkhash.gtkhash.desktop',
         install: true,
         install_dir: get_option('datadir') / 'applications',
-
         po_dir: po_dir,
         type: 'desktop',
     )
