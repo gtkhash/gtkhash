@@ -36,9 +36,9 @@ if get_option('zlib')
     libhash_sources += 'hash-lib-zlib.c'
 endif
 
-libhash = static_library('hash',
+libhash = static_library(
+    'hash',
     libhash_sources,
-
     include_directories: root_include,
     c_args: [
         '-DIN_HASH_LIB',
@@ -53,5 +53,4 @@ libhash = static_library('hash',
         nettle,
         zlib,
     ],
-
 )

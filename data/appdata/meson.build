@@ -22,16 +22,15 @@ endif
 
 foreach metainfo : metainfos
     metainfo_in = configure_file(
-        input:  metainfo + '.in.in',
+        input: metainfo + '.in.in',
         output: metainfo + '.in',
         configuration: data_config,
     )
     i18n.merge_file(
-        input:  metainfo_in,
+        input: metainfo_in,
         output: metainfo,
         install: true,
         install_dir: get_option('datadir') / 'metainfo',
-
         po_dir: po_dir,
         type: 'xml',
     )
