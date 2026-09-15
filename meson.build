@@ -148,13 +148,13 @@ config.set10('ENABLE_ZLIB', zlib.found())
 build_caja = get_option('build-caja')
 if build_caja
     caja = dependency('libcaja-extension')
-    caja_extension_dir = caja.get_pkgconfig_variable('extensiondir')
+    caja_extension_dir = caja.get_variable('extensiondir')
 endif
 
 build_nautilus = get_option('build-nautilus')
 if build_nautilus
     nautilus = dependency('libnautilus-extension')
-    nautilus_extension_dir = nautilus.get_pkgconfig_variable('extensiondir')
+    nautilus_extension_dir = nautilus.get_variable('extensiondir')
     have_nautilus_header = cc.has_header('nautilus/nautilus-extension.h')
 endif
 config.set10('HAVE_NAUTILUS_EXTENSION_H', build_nautilus and have_nautilus_header)
@@ -162,14 +162,14 @@ config.set10('HAVE_NAUTILUS_EXTENSION_H', build_nautilus and have_nautilus_heade
 build_nemo = get_option('build-nemo')
 if build_nemo
     nemo = dependency('libnemo-extension')
-    nemo_extension_dir = nemo.get_pkgconfig_variable('extensiondir')
+    nemo_extension_dir = nemo.get_variable('extensiondir')
 endif
 
 build_thunar = get_option('build-thunar')
 thunarx = get_option('thunarx')
 if build_thunar
     thunar = dependency('thunarx-' + thunarx, version: '>=1.7.0')
-    thunar_extension_dir = thunar.get_pkgconfig_variable('extensionsdir')
+    thunar_extension_dir = thunar.get_variable('extensionsdir')
 endif
 
 enable_nautilus_data = build_caja or build_nautilus or build_nemo or build_thunar
