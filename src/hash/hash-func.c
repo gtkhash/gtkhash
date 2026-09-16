@@ -39,6 +39,7 @@ static const struct {
 	[HASH_FUNC_BLAKE2BP]   = { "BLAKE2bp",     64,   0, },
 	[HASH_FUNC_BLAKE2S]    = { "BLAKE2s",      32,  64, },
 	[HASH_FUNC_BLAKE2SP]   = { "BLAKE2sp",     32,   0, },
+	[HASH_FUNC_BLAKE3]     = { "BLAKE3",       32,   0, },
 	[HASH_FUNC_CRC32]      = { "CRC32",         4,   0, },
 	[HASH_FUNC_CRC32C]     = { "CRC32C",        4,   0, },
 	[HASH_FUNC_GOST]       = { "GOST",         32,   0, },

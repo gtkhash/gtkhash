@@ -11,6 +11,9 @@ libhash_sources = [
 if get_option('blake2')
     libhash_sources += 'hash-lib-blake2.c'
 endif
+if get_option('blake3')
+    libhash_sources += 'hash-lib-blake3.c'
+endif
 if get_option('gcrypt')
     libhash_sources += 'hash-lib-gcrypt.c'
 endif
@@ -45,6 +48,7 @@ libhash = static_library(
     ],
     dependencies: [
         blake2,
+        blake3,
         gio,
         glib,
         libcrypto,
