@@ -34,6 +34,9 @@
 #if ENABLE_BLAKE2
 	HASH_LIB_DECL(blake2)
 #endif
+#if ENABLE_BLAKE3
+	HASH_LIB_DECL(blake3)
+#endif
 #if ENABLE_GCRYPT
 	HASH_LIB_DECL(gcrypt)
 #endif
@@ -63,6 +66,9 @@ enum hash_lib_e {
 	HASH_LIB_INVALID = -1,
 #if ENABLE_BLAKE2
 	HASH_LIB_BLAKE2,
+#endif
+#if ENABLE_BLAKE3
+	HASH_LIB_BLAKE3,
 #endif
 #if ENABLE_GCRYPT
 	HASH_LIB_GCRYPT,
@@ -107,6 +113,14 @@ static void gtkhash_hash_lib_init_once(void)
 		if (!test_lib || (test_lib && strcmp(test_lib, "blake2") == 0)) {
 			if (gtkhash_hash_lib_blake2_is_supported(i)) {
 				hash_libs[i] = HASH_LIB_BLAKE2;
+				continue;
+			}
+		}
+#endif
+#if ENABLE_BLAKE3
+		if (!test_lib || (test_lib && strcmp(test_lib, "blake3") == 0)) {
+			if (gtkhash_hash_lib_blake3_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_BLAKE3;
 				continue;
 			}
 		}
@@ -199,6 +213,9 @@ void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
 #if ENABLE_BLAKE2
 		[HASH_LIB_BLAKE2] = gtkhash_hash_lib_blake2_start,
 #endif
+#if ENABLE_BLAKE3
+		[HASH_LIB_BLAKE3] = gtkhash_hash_lib_blake3_start,
+#endif
 #if ENABLE_GCRYPT
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_start,
 #endif
@@ -247,6 +264,9 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 #if ENABLE_BLAKE2
 		[HASH_LIB_BLAKE2] = gtkhash_hash_lib_blake2_update,
 #endif
+#if ENABLE_BLAKE3
+		[HASH_LIB_BLAKE3] = gtkhash_hash_lib_blake3_update,
+#endif
 #if ENABLE_GCRYPT
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_update,
 #endif
@@ -287,6 +307,9 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 	static void (* const stop_funcs[])(struct hash_func_s *) = {
 #if ENABLE_BLAKE2
 		[HASH_LIB_BLAKE2] = gtkhash_hash_lib_blake2_stop,
+#endif
+#if ENABLE_BLAKE3
+		[HASH_LIB_BLAKE3] = gtkhash_hash_lib_blake3_stop,
 #endif
 #if ENABLE_GCRYPT
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_stop,
@@ -332,6 +355,9 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 	static uint8_t *(* const finish_libs[])(struct hash_func_s *, size_t *) = {
 #if ENABLE_BLAKE2
 		[HASH_LIB_BLAKE2] = gtkhash_hash_lib_blake2_finish,
+#endif
+#if ENABLE_BLAKE3
+		[HASH_LIB_BLAKE3] = gtkhash_hash_lib_blake3_finish,
 #endif
 #if ENABLE_GCRYPT
 		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_finish,

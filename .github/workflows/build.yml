@@ -45,9 +45,10 @@ jobs:
 
       - name: Install dependencies
         run: |
+          opt_pkg() { apt-cache show "$1" >/dev/null 2>&1 && echo "$1" || :; }
           apt-get install -y \
             ${{ matrix.compiler }} \
-            build-essential \
+            $(opt_pkg libblake3-dev) \
             curl \
             desktop-file-utils \
             gcovr \
@@ -77,9 +78,11 @@ jobs:
         env:
           CC: ${{ matrix.compiler }}
         run: |
+          has_pkg() { apt-cache show "$1" >/dev/null 2>&1 && echo true || echo false; }
           meson setup _build \
             -Db_coverage=true \
             -Dblake2=true \
+            -Dblake3=$(has_pkg libblake3-dev) \
             -Dgcrypt=true \
             -Dglib-checksums=true \
             -Dinternal-md6=true \

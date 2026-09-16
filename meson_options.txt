@@ -1,4 +1,5 @@
 option('blake2',         type: 'boolean', value: true,  description: 'Use libb2')
+option('blake3',         type: 'boolean', value: true,  description: 'Use libblake3')
 option('gcrypt',         type: 'boolean', value: true,  description: 'Use Libgcrypt')
 option('glib-checksums', type: 'boolean', value: false, description: 'Use the Glib Data Checksums API')
 option('internal-md6',   type: 'boolean', value: true,  description: 'Use the internal MD6 library')

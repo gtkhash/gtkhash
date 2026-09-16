@@ -117,6 +117,7 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(BLAKE2S,    "", "69217a3079908094e11121d042354a7c1f55b6482ca1a51e1b250dfd1ed0eef9");
 	t(BLAKE2BP,   "", "b5ef811a8038f70b628fa8b294daae7492b1ebe343a80eaabbf1f6ae664dd67b9d90b0120791eab81dc96985f28849f6a305186a85501b405114bfa678df9380");
 	t(BLAKE2SP,   "", "dd0e891776933f43c7d032b08a917e25741f8aa9a12c12e1cac8801500f2ca4f");
+	t(BLAKE3,     "", "af1349b9f5f9a1a6a0404dea36dcc9499bcb25c9adc112b7cc9a93cae41f3262");
 	t(CRC32,      "", "00000000");
 	t(CRC32C,     "", "00000000");
 	t(GOST,       "", "ce85b99cc46752fffee35cab9a7b0278abb4c2d2055cff685af4912c49490f8d");
@@ -172,6 +173,7 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(WHIRLPOOL, "message digest", "378c84a4126e2dc6e56dcc7458377aac838d00032230f53ce1f5700c0ffb4d3b8421557659ef55c106b4b52ac5a4aaa692ed920052838f3362e86dbd37a8903e");
 
 	t(ADLER32,  "abc", "024d0127");
+	t(BLAKE3,   "abc", "6437b3ac38465133ffb63b75273a8db548c558465d79db03fd359c6cd5bd9d85");
 	t(CRC32,    "abc", "352441c2");
 	t(SM3,      "abc", "66c7f0f462eeedd9d1f2d46bdc10e4e24167c4875cf2f7a2297da02b8f4ba8e0");
 	t(TIGER192, "abc", "f258c1e88414ab2a527ab541ffc5b8bf935f7b951c132951");

@@ -24,6 +24,7 @@
           buildInputs = with pkgs; [
             gtk3
             libb2
+            libblake3
             libgcrypt
           ];
           nativeCheckInputs = with pkgs; [
@@ -61,6 +62,7 @@
             gettext
             gtk3
             libb2
+            libblake3
             libgcrypt
             librsvg # rsvg-convert
             libxml2 # xmllint

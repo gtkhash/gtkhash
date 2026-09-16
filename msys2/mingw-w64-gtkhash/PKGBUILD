@@ -38,6 +38,7 @@ build() {
 		-Db_lto=true \
 		-Dappstream=false \
 		-Dblake2=false \
+		-Dblake3=false \
 		_build
 	meson compile -C _build
 }

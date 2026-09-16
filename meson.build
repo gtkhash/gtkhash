@@ -90,9 +90,13 @@ gtk = dependency('gtk+-3.0', version: '>=3.18')
 #######################################
 # Hash libraries
 
-##### Blake2
+##### BLAKE2
 blake2 = get_option('blake2') ? dependency('libb2') : no_dep
 config.set10('ENABLE_BLAKE2', get_option('blake2'))
+
+##### BLAKE3
+blake3 = get_option('blake3') ? dependency('libblake3') : no_dep
+config.set10('ENABLE_BLAKE3', get_option('blake3'))
 
 ##### GCrypt
 libgcrypt = get_option('gcrypt') ? dependency('libgcrypt', version: '>=1.6.0') : no_dep
@@ -127,7 +131,6 @@ config.set10('ENABLE_LINUX_CRYPTO', get_option('linux-crypto'))
 
 ##### MbedTLS
 mbedtls = get_option('mbedtls') ? cc.find_library('mbedcrypto', has_headers: 'mbedtls/md.h') : no_dep
-
 config.set10('ENABLE_MBEDTLS', get_option('mbedtls'))
 detected_mbedtls_functions = []
 if cc.has_header_symbol('mbedtls/md.h', 'MBEDTLS_MD_CAN_SHA3_512')
@@ -201,6 +204,7 @@ hash_functions = [
     'BLAKE2s',
     'BLAKE2bp',
     'BLAKE2sp',
+    'BLAKE3',
     'CRC32',
     'CRC32C',
     'GOST',
@@ -320,34 +324,16 @@ nettle_funcs = [
 
 # Matches preferred order from src/hash/hash-lib.c
 hash_libs = {
-    'blake2': [
-        'BLAKE2b',
-        'BLAKE2s',
-        'BLAKE2bp',
-        'BLAKE2sp',
-    ],
+    'blake2': ['BLAKE2b', 'BLAKE2s', 'BLAKE2bp', 'BLAKE2sp'],
+    'blake3': ['BLAKE3'],
     'gcrypt': gcrypt_funcs,
-    'glib_checksums': [
-        'MD5',
-        'SHA1',
-        'SHA256',
-        'SHA384',
-        'SHA512',
-    ],
-    'internal_md6': [
-        'MD6-224',
-        'MD6-256',
-        'MD6-384',
-        'MD6-512',
-    ],
     'libcrypto': libcrypto_funcs,
-    'linux_crypto': linux_crypto_funcs,
     'mbedtls': mbedtls_funcs,
     'nettle': nettle_funcs,
-    'zlib': [
-        'ADLER32',
-        'CRC32',
-    ],
+    'linux_crypto': linux_crypto_funcs,
+    'zlib': ['ADLER32', 'CRC32'],
+    'glib_checksums': ['MD5', 'SHA1', 'SHA256', 'SHA384', 'SHA512'],
+    'internal_md6': ['MD6-224', 'MD6-256', 'MD6-384', 'MD6-512'],
 }
 
 functions_provided = {'Hash Function': 'Preferred Implementation'}
