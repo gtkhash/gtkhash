@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -265,6 +265,13 @@ static void gui_init_hash_funcs(void)
 
 void gui_init(void)
 {
+	g_assert(g_application_id_is_valid(APPLICATION_ID));
+
+	g_set_prgname(APPLICATION_ID); // Matches .desktop
+	g_set_application_name(PACKAGE_NAME);
+
+	gtk_init(NULL, NULL);
+
 	resources_register_resource();
 	GtkBuilder *builder = gtk_builder_new_from_resource(GUI_XML_RESOURCE);
 	gui_init_objects(builder);

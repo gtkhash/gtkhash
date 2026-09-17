@@ -7,7 +7,7 @@ generated_sizes = [
     256,
 ]
 
-icon_basename = 'org.gtkhash.gtkhash'
+icon_basename = application_id
 
 svg_file = files('scalable/@0@.svg'.format(icon_basename))
 
