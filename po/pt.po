@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-13 18:10+0000\n"
+"POT-Creation-Date: 2026-09-17 21:05+0200\n"
 "PO-Revision-Date: 2023-06-25 09:07+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/gtkhash/"
@@ -245,11 +245,11 @@ msgstr "_Mostrar chave HMAC"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Ocorreu uma falha ao ler o ficheiro de verificação \"%s\": %s"
 
-#: src/gui.c:302
+#: src/gui.c:309
 msgid "Not a regular file"
 msgstr "Não é um ficheiro normal"
 
-#: src/gui.c:325
+#: src/gui.c:332
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Ocorreu uma falha ao adicionar o ficheiro \"%s\": %s"

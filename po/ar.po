@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-13 18:10+0000\n"
+"POT-Creation-Date: 2026-09-17 21:05+0200\n"
 "PO-Revision-Date: 2021-04-05 17:26+0000\n"
 "Last-Translator: Ahmed Eldemery <aeldemery.de@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/gtkhash/"
@@ -240,11 +240,11 @@ msgstr "أ_ظهر مفتاح HMAC"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "فشل في قراءة ملف التحقق: \"%s\" : %s"
 
-#: src/gui.c:302
+#: src/gui.c:309
 msgid "Not a regular file"
 msgstr "ليس ملفا عاديا"
 
-#: src/gui.c:325
+#: src/gui.c:332
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "فشل في إضافة ملف: \"%s\":%s"

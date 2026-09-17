@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-13 18:10+0000\n"
+"POT-Creation-Date: 2026-09-17 21:05+0200\n"
 "PO-Revision-Date: 2026-02-17 16:09+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/gtkhash/"
@@ -243,11 +243,11 @@ msgstr "_Zobrazit HMAC klíč"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Nepodařilo se číst soubor s kontrolou „%s“: %s"
 
-#: src/gui.c:302
+#: src/gui.c:309
 msgid "Not a regular file"
 msgstr "Není běžný soubor"
 
-#: src/gui.c:325
+#: src/gui.c:332
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Nepodařilo se přidat soubor „%s“:%s"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-13 18:10+0000\n"
+"POT-Creation-Date: 2026-09-17 21:05+0200\n"
 "PO-Revision-Date: 2023-04-03 11:38+0000\n"
 "Last-Translator: vaba <vaba@riseup.net>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/gtkhash/"
@@ -235,11 +235,11 @@ msgstr "_Näita HMAC võtit"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Kontrollfaili \"%s\" lugemine nurjus: %s"
 
-#: src/gui.c:302
+#: src/gui.c:309
 msgid "Not a regular file"
 msgstr "Pole tavaline fail"
 
-#: src/gui.c:325
+#: src/gui.c:332
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Faili \"%s\" lisamine nurjus: %s"

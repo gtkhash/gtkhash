@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-13 18:10+0000\n"
+"POT-Creation-Date: 2026-09-17 21:05+0200\n"
 "PO-Revision-Date: 2021-01-22 00:39+0000\n"
 "Last-Translator: Cao Nguyen <intansemc2@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/gtkhash/"
@@ -237,11 +237,11 @@ msgstr "_Hiện Khóa HMAC"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Không thể đọc tập tin kiểm tra \"%s\": %s"
 
-#: src/gui.c:302
+#: src/gui.c:309
 msgid "Not a regular file"
 msgstr "Không phải một tập tin thông thường"
 
-#: src/gui.c:325
+#: src/gui.c:332
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Không thể thêm tập tin \"%s\": %s"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-13 18:10+0000\n"
+"POT-Creation-Date: 2026-09-17 21:05+0200\n"
 "PO-Revision-Date: 2020-07-04 23:41+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtkhash/"
@@ -241,11 +241,11 @@ msgstr "_Mostra la clau HMAC"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "S'ha produït un error en llegir el fitxer de verificació «%s»: %s"
 
-#: src/gui.c:302
+#: src/gui.c:309
 msgid "Not a regular file"
 msgstr "No és un fitxer vàlid"
 
-#: src/gui.c:325
+#: src/gui.c:332
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "S'ha produït un error en afegir el fitxer «%s»: %s"

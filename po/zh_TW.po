@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-13 18:10+0000\n"
+"POT-Creation-Date: 2026-09-17 21:05+0200\n"
 "PO-Revision-Date: 2022-01-20 14:52+0000\n"
 "Last-Translator: 王家泽 <wshqwe123456@163.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -249,11 +249,11 @@ msgstr ""
 "無法讀取「%s」：\n"
 "%s"
 
-#: src/gui.c:302
+#: src/gui.c:309
 msgid "Not a regular file"
 msgstr "不是一般檔案(regular file)"
 
-#: src/gui.c:325
+#: src/gui.c:332
 #, fuzzy, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
