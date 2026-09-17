@@ -18,31 +18,31 @@ i18n = import('i18n')
 ################################################################################
 # Project configuration
 
-config = configuration_data()
-data_config = configuration_data()
-
-gettext_package = meson.project_name()
-config.set_quoted('GETTEXT_PACKAGE', gettext_package)
-
-config.set10('ENABLE_NLS', true)
+package_name = 'GtkHash'
+application_id = 'org.gtkhash.gtkhash'
 
 build_gtkhash = get_option('build-gtkhash')
 enable_appstream = get_option('appstream')
+
+config = configuration_data()
+config.set_quoted('APPLICATION_ID', application_id)
+config.set_quoted('G_LOG_DOMAIN', package_name)
+config.set_quoted('PACKAGE', meson.project_name())
+config.set_quoted('PACKAGE_NAME', package_name)
+config.set_quoted('PACKAGE_STRING', package_name + ' ' + meson.project_version())
+config.set_quoted('VERSION', meson.project_version())
 
 config.set10('ENABLE_NATIVE_FILE_CHOOSER', get_option('native-file-chooser'))
 
 config.set('HASH_FILE_BUFFER_SIZE', 131072, description: 'File read buffer size (bytes)')
 config.set('HASH_FILE_REPORT_INTERVAL', 166, description: 'Progress report interval (milliseconds)')
 
-package_name = 'GtkHash'
-config.set_quoted('VERSION', meson.project_version())
-config.set_quoted('PACKAGE', meson.project_name())
-config.set_quoted('PACKAGE_NAME', package_name)
-config.set_quoted('PACKAGE_STRING', package_name + ' ' + meson.project_version())
-config.set_quoted('G_LOG_DOMAIN', package_name)
-
+gettext_package = meson.project_name()
+config.set10('ENABLE_NLS', true)
+config.set_quoted('GETTEXT_PACKAGE', gettext_package)
 config.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 
+data_config = configuration_data()
 data_config.set('VERSION', meson.project_version())
 data_config.set('RELEASE_DATE', '2022-09-21')
 

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -273,7 +273,7 @@ static void on_menuitem_about_activate(void)
 			"authors", authors,
 			"comments", _("A desktop utility for computing message digests or checksums"),
 			"license-type", GTK_LICENSE_GPL_2_0,
-			"logo-icon-name", "org.gtkhash.gtkhash",
+			"logo-icon-name", APPLICATION_ID,
 			"program-name", PACKAGE_NAME,
 #if ENABLE_NLS
 			"translator-credits", _("translator-credits"),

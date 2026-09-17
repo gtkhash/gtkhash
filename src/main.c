@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -60,13 +60,9 @@ int main(int argc, char **argv)
 	hash_init();
 
 	opts_preinit(&argc, &argv);
-
-	gtk_init(NULL, NULL);
-
 	gui_init();
 	prefs_init();
 	check_init();
-
 	opts_postinit();
 
 	gui_run();
