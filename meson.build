@@ -8,6 +8,7 @@ project(
         'b_lto=true',
         'b_pie=true',
         'buildtype=debugoptimized',
+        'c_std=c17',
         'warning_level=2',
     ],
 )
