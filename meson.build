@@ -113,6 +113,9 @@ endif
 if cc.has_header_symbol('gcrypt.h', 'GCRY_MD_SM3')
     detected_gcrypt_functions += ['SM3']
 endif
+if cc.has_header_symbol('gcrypt.h', 'GCRY_MD_STRIBOG512')
+    detected_gcrypt_functions += ['STREEBOG256', 'STREEBOG512']
+endif
 
 ##### Glib checksums
 config.set10('ENABLE_GLIB_CHECKSUMS', get_option('glib-checksums'))
@@ -145,6 +148,10 @@ detected_nettle_functions = []
 if cc.has_header('nettle/sm3.h')
     detected_nettle_functions += ['SM3']
     config.set10('HAVE_NETTLE_SM3_H', true)
+endif
+if cc.has_header('nettle/streebog.h')
+    detected_nettle_functions += ['STREEBOG256', 'STREEBOG512']
+    config.set10('HAVE_NETTLE_STREEBOG_H', true)
 endif
 
 ##### xxHash
@@ -240,6 +247,8 @@ hash_functions = [
     'SHA3-384',
     'SHA3-512',
     'SM3',
+    'STREEBOG256',
+    'STREEBOG512',
     'TIGER192',
     'WHIRLPOOL',
     'XXH32',
