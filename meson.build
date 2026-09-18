@@ -140,6 +140,11 @@ endif
 ##### Nettle
 nettle = get_option('nettle') ? dependency('nettle') : no_dep
 config.set10('ENABLE_NETTLE', nettle.found())
+detected_nettle_functions = []
+if cc.has_header('nettle/sm3.h')
+    detected_nettle_functions += ['SM3']
+    config.set10('HAVE_NETTLE_SM3_H', true)
+endif
 
 ##### xxHash
 xxhash = get_option('xxhash') ? dependency('libxxhash', version: '>=0.8.0') : no_dep
@@ -312,7 +317,7 @@ mbedtls_funcs = detected_mbedtls_functions + [
     'SHA512',
 ]
 
-nettle_funcs = [
+nettle_funcs = detected_nettle_functions + [
     'GOST',
     'MD2',
     'MD4',

@@ -61,6 +61,9 @@ static bool gtkhash_hash_lib_nettle_set_meta(const enum hash_func_e id,
 		case HASH_FUNC_SHA3_384:  *meta = &nettle_sha3_384;   break;
 		case HASH_FUNC_SHA3_512:  *meta = &nettle_sha3_512;   break;
 #endif
+#ifdef HAVE_NETTLE_SM3_H
+		case HASH_FUNC_SM3:       *meta = &nettle_sm3;        break;
+#endif
 
 		default:
 			return false;
