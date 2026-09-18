@@ -28,31 +28,35 @@ terms of the GNU General Public License as published by the Free Software
 Foundation, either version 2 of the License, or (at your option) any later
 version.
 
-Required Dependencies
--------------
-* GTK 3.18
-* GLib 2.48
+Dependencies
+------------
+Required:
+* GTK 3 (>= 3.18)
+* GLib (>= 2.48)
 
-Optional Dependencies
----------------------
+Optional:
 * Libgcrypt (default)
 * libb2 (default)
+* libblake3 (default)
+* libxxhash (default)
+* zlib (default)
 * Nettle
 * OpenSSL
-* mbed TLS
+* Mbed TLS
 * Linux kernel AF_ALG
 
-Build
------
-GtkHash is built with Meson:
-
-    meson setup build
-    meson compile -C build
-
-See `meson configure build` for the full list of build options.
+Building from Source
+--------------------
+To compile and run using meson:
+```
+meson setup _build
+meson compile -C _build
+meson devenv -C _build src/gtkhash
+```
+See `meson configure _build` for the full list of build options.
 
 File Manager Extension
------------------------
+----------------------
 ![Screenshot](screenshots/gtkhash-nemo-properties.png)
 
 Adds a Hash feature to File Properties in:

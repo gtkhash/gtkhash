@@ -26,10 +26,12 @@ parts:
       - libgcrypt20-dev
       - libgtk-3-dev
       - librsvg2-bin
+      - libxxhash-dev
     stage-packages:
       - libb2-1
       - libgcrypt20
       - libgtk-3-0
+      - libxxhash0
     meson-parameters:
       - -Dblake3=false
       - -Dlinux-crypto=true

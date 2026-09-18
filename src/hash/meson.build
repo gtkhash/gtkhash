@@ -35,6 +35,9 @@ endif
 if get_option('nettle')
     libhash_sources += 'hash-lib-nettle.c'
 endif
+if get_option('xxhash')
+    libhash_sources += 'hash-lib-xxhash.c'
+endif
 if get_option('zlib')
     libhash_sources += 'hash-lib-zlib.c'
 endif
@@ -55,6 +58,7 @@ libhash = static_library(
         libgcrypt,
         mbedtls,
         nettle,
+        xxhash,
         zlib,
     ],
 )

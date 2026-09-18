@@ -7,6 +7,7 @@ option('libcrypto',      type: 'boolean', value: false, description: 'Use OpenSS
 option('linux-crypto',   type: 'boolean', value: false, description: 'Use Linux kernel AF_ALG')
 option('mbedtls',        type: 'boolean', value: false, description: 'Use Mbed TLS')
 option('nettle',         type: 'boolean', value: false, description: 'Use Nettle')
+option('xxhash',         type: 'boolean', value: true,  description: 'Use libxxhash')
 option('zlib',           type: 'boolean', value: true,  description: 'Use zlib')
 
 option('native-file-chooser', type: 'boolean', value: true, description: 'Use native file chooser dialogs')

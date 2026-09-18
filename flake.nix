@@ -26,6 +26,7 @@
             libb2
             libblake3
             libgcrypt
+            xxhash
           ];
           nativeCheckInputs = with pkgs; [
             hicolor-icon-theme
@@ -76,6 +77,7 @@
             pkg-config
             thunar
             xvfb-run
+            xxhash
           ];
           shellHook = ''
             export AR="${pkgs.llvm}/bin/llvm-ar"

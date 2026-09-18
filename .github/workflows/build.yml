@@ -67,6 +67,7 @@ jobs:
             libssl-dev \
             libthunarx-3-dev \
             libxml2-utils \
+            libxxhash-dev \
             linux-libc-dev \
             meson \
             nettle-dev \
@@ -90,6 +91,7 @@ jobs:
             -Dlinux-crypto=true \
             -Dmbedtls=true \
             -Dnettle=true \
+            -Dxxhash=true \
             -Dzlib=true \
             -Dnative-file-chooser=true \
             -Dappstream=true \

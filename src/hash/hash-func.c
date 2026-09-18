@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -67,7 +67,10 @@ static const struct {
 	[HASH_FUNC_SM3]        = { "SM3",          32,   0, },
 	[HASH_FUNC_TIGER192]   = { "TIGER192",     24,   0, },
 	[HASH_FUNC_WHIRLPOOL]  = { "WHIRLPOOL",    64,   0, },
+	[HASH_FUNC_XXH32]      = { "XXH32",         4,   0, },
 	[HASH_FUNC_XXH64]      = { "XXH64",         8,   0, },
+	[HASH_FUNC_XXH3]       = { "XXH3",          8,   0, },
+	[HASH_FUNC_XXH128]     = { "XXH128",       16,   0, },
 };
 
 enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name)

@@ -144,7 +144,10 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(SM3,        "", "1ab21d8355cfa17f8e61194831e81a8f22bec8c728fefb747ed035eb5082aa2b");
 	t(TIGER192,   "", "24f0130c63ac933216166e76b1bb925ff373de2d49584e7a");
 	t(WHIRLPOOL,  "", "19fa61d75522a4669b44e39c1d2e1726c530232130d407f89afee0964997f7a73e83be698b288febcf88e3e03c4f0757ea8964e59b63d93708b138cc42a66eb3");
+	t(XXH32,      "", "02cc5d05");
 	t(XXH64,      "", "ef46db3751d8e999");
+	t(XXH3,       "", "2d06800538d394c2");
+	t(XXH128,     "", "99aa06d3014798d86001c324468d497f");
 
 	t(CRC32,     "The quick brown fox jumps over the lazy dog", "414fa339");
 	t(CRC32C,    "The quick brown fox jumps over the lazy dog", "22620404");
@@ -164,7 +167,10 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(SHA3_384,  "The quick brown fox jumps over the lazy dog", "7063465e08a93bce31cd89d2e3ca8f602498696e253592ed26f07bf7e703cf328581e1471a7ba7ab119b1a9ebdf8be41");
 	t(SHA3_512,  "The quick brown fox jumps over the lazy dog", "01dedd5de4ef14642445ba5f5b97c15e47b9ad931326e4b0727cd94cefc44fff23f07bf543139939b49128caf436dc1bdee54fcb24023a08d9403f9b4bf0d450");
 	t(WHIRLPOOL, "The quick brown fox jumps over the lazy dog", "b97de512e91e3828b40d2b0fdce9ceb3c4a71f9bea8d88e75c4fa854df36725fd2b52eb6544edcacd6f8beddfea403cb55ae31f03ad62a5ef54e42ee82c3fb35");
+	t(XXH32,     "The quick brown fox jumps over the lazy dog", "e85ea4de");
 	t(XXH64,     "The quick brown fox jumps over the lazy dog", "0b242d361fda71bc");
+	t(XXH3,      "The quick brown fox jumps over the lazy dog", "ce7d19a5418fb365");
+	t(XXH128,    "The quick brown fox jumps over the lazy dog", "ddd650205ca3e7fa24a1cc2e3a8a7651");
 
 	t(RIPEMD128, "message digest", "9e327b3d6e523062afc1132d7df9d1b8");
 	t(RIPEMD160, "message digest", "5d0689ef49d2fae572b881b123a85ffa21595f36");
@@ -177,9 +183,17 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(CRC32,    "abc", "352441c2");
 	t(SM3,      "abc", "66c7f0f462eeedd9d1f2d46bdc10e4e24167c4875cf2f7a2297da02b8f4ba8e0");
 	t(TIGER192, "abc", "f258c1e88414ab2a527ab541ffc5b8bf935f7b951c132951");
+	t(XXH32,    "abc", "32d153ff");
+	t(XXH64,    "abc", "44bc2cf5ad770999");
+	t(XXH3,     "abc", "78af5f94892f3950");
+	t(XXH128,   "abc", "06b05ab6733a618578af5f94892f3950");
 
 	t(CRC32,  "123456789", "cbf43926");
 	t(CRC32C, "123456789", "e3069283");
+	t(XXH32,  "123456789", "937bad67");
+	t(XXH64,  "123456789", "8cb841db40e6ae83");
+	t(XXH3,   "123456789", "72dcb18b67a17dff");
+	t(XXH128, "123456789", "33119477ede5dcd5e9716427681d5860");
 
 	t(SM3, "abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd", "debe9ff92275b8a138604889c18e5a4d6fdb70e5387e5765293dcba39c0c5732");
 
