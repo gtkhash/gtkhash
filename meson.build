@@ -141,6 +141,10 @@ endif
 nettle = get_option('nettle') ? dependency('nettle') : no_dep
 config.set10('ENABLE_NETTLE', nettle.found())
 
+##### xxHash
+xxhash = get_option('xxhash') ? dependency('libxxhash', version: '>=0.8.0') : no_dep
+config.set10('ENABLE_XXHASH', xxhash.found())
+
 ##### Zlib
 zlib = get_option('zlib') ? dependency('zlib') : no_dep
 config.set10('ENABLE_ZLIB', zlib.found())
@@ -232,7 +236,10 @@ hash_functions = [
     'SM3',
     'TIGER192',
     'WHIRLPOOL',
+    'XXH32',
     'XXH64',
+    'XXH3',
+    'XXH128',
 ]
 
 gcrypt_funcs = detected_gcrypt_functions + [
@@ -326,6 +333,7 @@ nettle_funcs = [
 hash_libs = {
     'blake2': ['BLAKE2b', 'BLAKE2s', 'BLAKE2bp', 'BLAKE2sp'],
     'blake3': ['BLAKE3'],
+    'xxhash': ['XXH32', 'XXH64', 'XXH3', 'XXH128'],
     'gcrypt': gcrypt_funcs,
     'libcrypto': libcrypto_funcs,
     'mbedtls': mbedtls_funcs,

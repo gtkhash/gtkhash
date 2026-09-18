@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -58,6 +58,9 @@
 #if ENABLE_NETTLE
 	HASH_LIB_DECL(nettle)
 #endif
+#if ENABLE_XXHASH
+	HASH_LIB_DECL(xxhash)
+#endif
 #if ENABLE_ZLIB
 	HASH_LIB_DECL(zlib)
 #endif
@@ -91,6 +94,9 @@ enum hash_lib_e {
 #if ENABLE_NETTLE
 	HASH_LIB_NETTLE,
 #endif
+#if ENABLE_XXHASH
+	HASH_LIB_XXHASH,
+#endif
 #if ENABLE_ZLIB
 	HASH_LIB_ZLIB,
 #endif
@@ -121,6 +127,14 @@ static void gtkhash_hash_lib_init_once(void)
 		if (!test_lib || (test_lib && strcmp(test_lib, "blake3") == 0)) {
 			if (gtkhash_hash_lib_blake3_is_supported(i)) {
 				hash_libs[i] = HASH_LIB_BLAKE3;
+				continue;
+			}
+		}
+#endif
+#if ENABLE_XXHASH
+		if (!test_lib || (test_lib && strcmp(test_lib, "xxhash") == 0)) {
+			if (gtkhash_hash_lib_xxhash_is_supported(i)) {
+				hash_libs[i] = HASH_LIB_XXHASH;
 				continue;
 			}
 		}
@@ -237,6 +251,9 @@ void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
 #if ENABLE_NETTLE
 		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_start,
 #endif
+#if ENABLE_XXHASH
+		[HASH_LIB_XXHASH] = gtkhash_hash_lib_xxhash_start,
+#endif
 #if ENABLE_ZLIB
 		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_start,
 #endif
@@ -288,6 +305,9 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 #if ENABLE_NETTLE
 		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_update,
 #endif
+#if ENABLE_XXHASH
+		[HASH_LIB_XXHASH] = gtkhash_hash_lib_xxhash_update,
+#endif
 #if ENABLE_ZLIB
 		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_update,
 #endif
@@ -331,6 +351,9 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 #endif
 #if ENABLE_NETTLE
 		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_stop,
+#endif
+#if ENABLE_XXHASH
+		[HASH_LIB_XXHASH] = gtkhash_hash_lib_xxhash_stop,
 #endif
 #if ENABLE_ZLIB
 		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_stop,
@@ -379,6 +402,9 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 #endif
 #if ENABLE_NETTLE
 		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_finish,
+#endif
+#if ENABLE_XXHASH
+		[HASH_LIB_XXHASH] = gtkhash_hash_lib_xxhash_finish,
 #endif
 #if ENABLE_ZLIB
 		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_finish,

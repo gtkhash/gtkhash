@@ -39,6 +39,7 @@ build() {
 		-Dappstream=false \
 		-Dblake2=false \
 		-Dblake3=false \
+		-Dxxhash=false \
 		_build
 	meson compile -C _build
 }
