@@ -4,14 +4,15 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 # Rui Mendes <xz9@protonmail.com>, 2019.
 # Samuel Carvalho de Araújo <samuelnegro12345@gmail.com>, 2020.
+# Cirnos <cirnos@tuta.io>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-09-17 21:05+0200\n"
-"PO-Revision-Date: 2020-07-13 15:41+0000\n"
-"Last-Translator: Samuel Carvalho de Araújo <samuelnegro12345@gmail.com>\n"
+"PO-Revision-Date: 2026-09-18 15:51+0000\n"
+"Last-Translator: Cirnos <cirnos@tuta.io>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 "X-Launchpad-Export-Date: 2012-08-14 04:46+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
@@ -44,7 +45,7 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
 msgid "GtkHash"
-msgstr ""
+msgstr "GtkHash"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:8
 #: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:595
@@ -189,7 +190,7 @@ msgstr "Calculadora Checksum"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5
 msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
-msgstr ""
+msgstr "soma;soma de verificação;resumo;md5;sha1;sha256;crc32;"
 
 #: src/callbacks.c:51 src/callbacks.c:55
 msgid "Open Digest File"
