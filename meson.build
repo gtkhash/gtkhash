@@ -44,6 +44,8 @@ data_config = configuration_data()
 data_config.set('VERSION', meson.project_version())
 data_config.set('RELEASE_DATE', '2022-09-21')
 
+meson.add_devenv({'G_ENABLE_DIAGNOSTIC': '1', 'G_MESSAGES_DEBUG': package_name})
+
 ################################################################################
 # Compiler options
 
