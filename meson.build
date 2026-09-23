@@ -35,9 +35,6 @@ config.set_quoted('VERSION', meson.project_version())
 
 config.set10('ENABLE_NATIVE_FILE_CHOOSER', get_option('native-file-chooser'))
 
-config.set('HASH_FILE_BUFFER_SIZE', 131072, description: 'File read buffer size (bytes)')
-config.set('HASH_FILE_REPORT_INTERVAL', 166, description: 'Progress report interval (milliseconds)')
-
 gettext_package = meson.project_name()
 config.set10('ENABLE_NLS', true)
 config.set_quoted('GETTEXT_PACKAGE', gettext_package)

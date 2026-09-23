@@ -35,6 +35,9 @@
 #define G_SOURCE_FUNC(f) ((GSourceFunc) (void (*)(void)) (f))
 #endif
 
+#define HASH_FILE_BUFFER_SIZE (1 << 23) // File read buffer size (bytes)
+#define HASH_FILE_REPORT_INTERVAL 100 // Progress report interval (ms)
+
 // This lib can use GDK 2 or 3, but doesn't link either directly.
 // Try to avoid potential ABI/API mismatch issues by only declaring
 // necessary gdk.h functions...
