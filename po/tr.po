@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-17 21:05+0200\n"
+"POT-Creation-Date: 2026-09-26 00:33+0200\n"
 "PO-Revision-Date: 2026-09-14 06:51+0000\n"
 "Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
@@ -241,7 +241,7 @@ msgstr "Dosyaları Seç"
 msgid "_Show HMAC Key"
 msgstr "HMAC Anahtarını _Göster"
 
-#: src/check.c:202
+#: src/check.c:230
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Kontrol dosyasını okumadı \"%s\": %s"

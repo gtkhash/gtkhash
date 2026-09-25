@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-17 21:05+0200\n"
+"POT-Creation-Date: 2026-09-26 00:33+0200\n"
 "PO-Revision-Date: 2024-03-16 16:01+0000\n"
 "Last-Translator: Mikachu <micah.sh@proton.me>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtkhash/"
@@ -237,7 +237,7 @@ msgstr "Bestanden selecteren"
 msgid "_Show HMAC Key"
 msgstr "HMAC-_sleutel tonen"
 
-#: src/check.c:202
+#: src/check.c:230
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Lezen van controlebestand ‘%s’ mislukt: %s"

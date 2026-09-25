@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-17 21:05+0200\n"
+"POT-Creation-Date: 2026-09-26 00:33+0200\n"
 "PO-Revision-Date: 2026-09-14 01:51+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
@@ -237,7 +237,7 @@ msgstr "Select Files"
 msgid "_Show HMAC Key"
 msgstr "_Show HMAC Key"
 
-#: src/check.c:202
+#: src/check.c:230
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Failed to read check file \"%s\": %s"
