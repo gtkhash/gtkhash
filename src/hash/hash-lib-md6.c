@@ -79,7 +79,7 @@ uint8_t *gtkhash_hash_lib_md6_finish(struct hash_func_s *func, size_t *size)
 	md6_final(&LIB_DATA->state, NULL);
 
 	*size = LIB_DATA->state.hashbitlen / 8;
-	uint8_t *digest = g_memdup(&LIB_DATA->state.hashval, *size);
+	uint8_t *digest = g_memdup2(&LIB_DATA->state.hashval, *size);
 
 	g_free(LIB_DATA);
 

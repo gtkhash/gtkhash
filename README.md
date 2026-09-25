@@ -32,7 +32,7 @@ Dependencies
 ------------
 Required:
 * GTK 3 (>= 3.18)
-* GLib (>= 2.48)
+* GLib (>= 2.68)
 
 Optional:
 * Libgcrypt (default)

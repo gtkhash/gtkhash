@@ -141,25 +141,25 @@ uint8_t *gtkhash_hash_lib_xxhash_finish(struct hash_func_s *func, size_t *size)
 		case HASH_FUNC_XXH32:
 			*size = sizeof(out.xxh32);
 			XXH32_canonicalFromHash(&out.xxh32, XXH32_digest(LIB_DATA->xxh32));
-			digest = g_memdup(&out.xxh32, *size);
+			digest = g_memdup2(&out.xxh32, *size);
 			XXH32_freeState(LIB_DATA->xxh32);
 			break;
 		case HASH_FUNC_XXH64:
 			*size = sizeof(out.xxh64);
 			XXH64_canonicalFromHash(&out.xxh64, XXH64_digest(LIB_DATA->xxh64));
-			digest = g_memdup(&out.xxh64, *size);
+			digest = g_memdup2(&out.xxh64, *size);
 			XXH64_freeState(LIB_DATA->xxh64);
 			break;
 		case HASH_FUNC_XXH3:
 			*size = sizeof(out.xxh64);
 			XXH64_canonicalFromHash(&out.xxh64, XXH3_64bits_digest(LIB_DATA->xxh3));
-			digest = g_memdup(&out.xxh64, *size);
+			digest = g_memdup2(&out.xxh64, *size);
 			XXH3_freeState(LIB_DATA->xxh3);
 			break;
 		case HASH_FUNC_XXH128:
 			*size = sizeof(out.xxh128);
 			XXH128_canonicalFromHash(&out.xxh128, XXH3_128bits_digest(LIB_DATA->xxh3));
-			digest = g_memdup(&out.xxh128, *size);
+			digest = g_memdup2(&out.xxh128, *size);
 			XXH3_freeState(LIB_DATA->xxh3);
 			break;
 

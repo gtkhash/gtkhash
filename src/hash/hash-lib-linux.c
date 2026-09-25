@@ -183,7 +183,7 @@ uint8_t *gtkhash_hash_lib_linux_finish(struct hash_func_s *func, size_t *size)
 		else if (func->digest_size == 4)
 			digest_u.u32 = GUINT32_SWAP_LE_BE(digest_u.u32);
 
-		digest = g_memdup(&digest_u, func->digest_size);
+		digest = g_memdup2(&digest_u, func->digest_size);
 	} else {
 		digest = g_malloc(func->digest_size);
 		*size = read(LIB_DATA->connfd, digest, func->digest_size);

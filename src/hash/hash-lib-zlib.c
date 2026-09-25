@@ -89,7 +89,7 @@ uint8_t *gtkhash_hash_lib_zlib_finish(struct hash_func_s *func, size_t *size)
 	g_free(LIB_DATA);
 
 	*size = sizeof(csum);
-	uint8_t *digest = g_memdup(&csum, *size);
+	uint8_t *digest = g_memdup2(&csum, *size);
 
 	return digest;
 }

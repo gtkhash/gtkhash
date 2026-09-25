@@ -102,7 +102,7 @@ void gtkhash_hmac_finish(struct hash_func_s *func)
 	gtkhash_hash_lib_update(func->hmac_data, func->digest->bin, func->digest_size);
 	gtkhash_hash_lib_finish(func->hmac_data);
 
-	uint8_t *digest = g_memdup(func->hmac_data->digest->bin, func->hmac_data->digest_size);
+	uint8_t *digest = g_memdup2(func->hmac_data->digest->bin, func->hmac_data->digest_size);
 	gtkhash_hash_func_set_digest(func, digest, func->hmac_data->digest_size);
 
 	gtkhash_hmac_deinit(func);
