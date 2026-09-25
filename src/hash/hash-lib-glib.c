@@ -45,9 +45,7 @@ static bool gtkhash_hash_lib_glib_set_type(const enum hash_func_e id,
 		case HASH_FUNC_MD5:    *type = G_CHECKSUM_MD5;    break;
 		case HASH_FUNC_SHA1:   *type = G_CHECKSUM_SHA1;   break;
 		case HASH_FUNC_SHA256: *type = G_CHECKSUM_SHA256; break;
-#if GLIB_CHECK_VERSION(2,51,3)
 		case HASH_FUNC_SHA384: *type = G_CHECKSUM_SHA384; break;
-#endif
 		case HASH_FUNC_SHA512: *type = G_CHECKSUM_SHA512; break;
 
 		default:

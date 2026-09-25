@@ -83,8 +83,8 @@ add_project_arguments(cc.get_supported_arguments(compiler_options), language: 'c
 
 no_dep = dependency('', required: false)
 
-glib = dependency('glib-2.0', version: '>=2.48.0')
-gio = dependency('gio-2.0', version: '>=2.48.0')
+gio = dependency('gio-2.0', version: '>=2.68')
+glib = dependency('glib-2.0', version: '>=2.68')
 gtk = dependency('gtk+-3.0', version: '>=3.18')
 
 #######################################

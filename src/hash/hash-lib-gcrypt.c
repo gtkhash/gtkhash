@@ -129,7 +129,7 @@ uint8_t *gtkhash_hash_lib_gcrypt_finish(struct hash_func_s *func, size_t *size)
 {
 	unsigned char *digest_tmp = gcry_md_read(LIB_DATA->h, LIB_DATA->algo);
 	*size = gcry_md_get_algo_dlen(LIB_DATA->algo);
-	uint8_t *digest = g_memdup(digest_tmp, *size);
+	uint8_t *digest = g_memdup2(digest_tmp, *size);
 
 	gcry_md_close(LIB_DATA->h);
 	g_free(LIB_DATA);

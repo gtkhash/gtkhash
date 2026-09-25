@@ -28,11 +28,6 @@
 #include <stdint.h>
 #include <glib.h>
 
-#if GLIB_CHECK_VERSION(2,68,0)
-	#undef g_memdup
-	#define g_memdup g_memdup2
-#endif
-
 #include "hash-func.h"
 
 bool gtkhash_hash_lib_is_supported(enum hash_func_e id);
