@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-17 21:05+0200\n"
+"POT-Creation-Date: 2026-09-26 00:33+0200\n"
 "PO-Revision-Date: 2020-07-03 21:08+0000\n"
 "Last-Translator: YAMADA Shinichirou "
 "<yamada_strong_yamada_nice_64bit@yahoo.co.jp>\n"
@@ -239,7 +239,7 @@ msgstr "ファイルの選択"
 msgid "_Show HMAC Key"
 msgstr "HMAC キーの表示(_S)"
 
-#: src/check.c:202
+#: src/check.c:230
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr "チェックファイル \"%s\" の読み込みに失敗しました: %s"

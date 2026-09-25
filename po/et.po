@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-17 21:05+0200\n"
+"POT-Creation-Date: 2026-09-26 00:33+0200\n"
 "PO-Revision-Date: 2023-04-03 11:38+0000\n"
 "Last-Translator: vaba <vaba@riseup.net>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/gtkhash/"
@@ -230,7 +230,7 @@ msgstr "Vali Failid"
 msgid "_Show HMAC Key"
 msgstr "_Näita HMAC võtit"
 
-#: src/check.c:202
+#: src/check.c:230
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Kontrollfaili \"%s\" lugemine nurjus: %s"

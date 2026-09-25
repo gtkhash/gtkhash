@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-17 21:05+0200\n"
+"POT-Creation-Date: 2026-09-26 00:33+0200\n"
 "PO-Revision-Date: 2023-09-11 10:49+0000\n"
 "Last-Translator: sarami <ppp821203@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtkhash/"
@@ -231,7 +231,7 @@ msgstr "파일 선택"
 msgid "_Show HMAC Key"
 msgstr "HMAC 키 표시(_S)"
 
-#: src/check.c:202
+#: src/check.c:230
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr "\"%s\" 체크 파일을 읽지 못했습니다 : %s"
