@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -52,27 +52,27 @@ struct {
 	},
 	.pattern = {
 		[CHECK_FORMAT_BSD] =
-			"^"
+			"^[ \t]*"
 			"(?<FUNCTION>[[:upper:][:digit:]-]{3,16})" // capture FUNCTION
 			" \\("
 			"(?<FILENAME>.+)"                          // capture FILENAME
 			"\\) = "
 			"(?<DIGEST>[[:xdigit:]]{8,})"              // capture DIGEST
-			"$",
+			"\\r?$",
 
 		[CHECK_FORMAT_GNU] =
-			"^"
+			"^[ \t]*"
 			"(?<DIGEST>[[:xdigit:]]{8,})" // capture DIGEST (8+ hex chars)
-			" [* ]?"                      // * indicates binary mode
-			"(?<FILENAME>.+)"             // capture FILENAE
-			"$",
+			"[ \t][ *]?"                  // '*' indicates binary mode (md5sum -b)
+			"(?<FILENAME>.+)"             // capture FILENAME
+			"\\r?$",
 
 		[CHECK_FORMAT_SFV] =
-			"^"
+			"^[ \t]*"
 			"(?<FILENAME>[^;].*?[^ ]*)"   // capture FILENAME
 			"[ ]+"
 			"(?<DIGEST>[[:xdigit:]]{8})"  // capture DIGEST (8 hex chars)
-			"$",
+			"\\r?$",
 	},
 };
 
@@ -117,81 +117,109 @@ static bool check_file_parse_line(const char * const line,
 
 static void check_file_enable_hinted_hash_func(GFile *file)
 {
+	static const struct {
+		const char * const suffix;
+		const enum hash_func_e id;
+	} hints[] = {
+		{ ".md5",       HASH_FUNC_MD5 },
+		{ ".md5sum",    HASH_FUNC_MD5 },
+		{ ".sfv",       HASH_FUNC_CRC32 },
+		{ ".sha1",      HASH_FUNC_SHA1 },
+		{ ".sha1sum",   HASH_FUNC_SHA1 },
+		{ ".sha224",    HASH_FUNC_SHA224 },
+		{ ".sha224sum", HASH_FUNC_SHA224 },
+		{ ".sha256",    HASH_FUNC_SHA256 },
+		{ ".sha256sum", HASH_FUNC_SHA256 },
+		{ ".sha384",    HASH_FUNC_SHA384 },
+		{ ".sha384sum", HASH_FUNC_SHA384 },
+		{ ".sha512",    HASH_FUNC_SHA512 },
+		{ ".sha512sum", HASH_FUNC_SHA512 },
+	};
+
 	char *basename = g_file_get_basename(file);
 	if (!basename)
 		return;
 
-	size_t len = strlen(basename);
+	const size_t len = strlen(basename);
 
-#define MATCH(STR, LEN, FUNC) \
-	g_assert(strlen(STR) == LEN); \
-	if (g_ascii_strcasecmp(basename + len - LEN, STR) == 0) { \
-		gui_enable_hash_func(G_PASTE(HASH_FUNC_, FUNC)); \
-		break; \
+	for (size_t i = 0; i < G_N_ELEMENTS(hints); i++) {
+		const size_t suffix_len = strlen(hints[i].suffix);
+		if (len <= suffix_len)
+			continue;
+		if (g_ascii_strcasecmp(basename + len - suffix_len, hints[i].suffix) == 0) {
+			gui_enable_hash_func(hints[i].id);
+			break;
+		}
 	}
-
-	do {
-		if (len > 4) {
-			MATCH(".md5", 4, MD5);
-			MATCH(".sfv", 4, CRC32);
-		} else
-			break;
-		if (len > 5) {
-			MATCH(".sha1", 5, SHA1);
-		} else
-			break;
-		if (len > 7) {
-			MATCH(".md5sum", 7, MD5);
-			MATCH(".sha224", 7, SHA224);
-			MATCH(".sha256", 7, SHA256);
-			MATCH(".sha384", 7, SHA384);
-			MATCH(".sha512", 7, SHA512);
-		} else
-			break;
-		if (len > 8) {
-			MATCH(".sha1sum", 8, SHA1);
-		} else
-			break;
-		if (len > 10) {
-			MATCH(".sha224sum", 10, SHA224);
-			MATCH(".sha256sum", 10, SHA256);
-			MATCH(".sha384sum", 10, SHA384);
-			MATCH(".sha512sum", 10, SHA512);
-		} else
-			break;
-	} while (false);
-
-#undef MATCH
 
 	g_free(basename);
 }
 
-static GSList *check_file_add_uri(GSList *ud_list, GFile *file, char *filename,
-	char *digest)
+static GSList *check_file_add_uri(GSList *ud_list, GFile *file,
+	const char * const filename, const char * const digest)
 {
 	g_assert(file);
 	g_assert(filename && *filename);
 	g_assert(digest && *digest);
 
-	char *target_uri = NULL;
+	GFile *target = NULL;
 
 	if (g_path_is_absolute(filename)) {
-		GFile *target = g_file_new_for_path(filename);
-		target_uri = g_file_get_uri(target);
-		g_object_unref(target);
+		target = g_file_new_for_path(filename);
 	} else {
 		// Assume path is relative to the check file
 		GFile *dir = g_file_get_parent(file);
-		char *dir_uri = g_file_get_uri(dir);
-		target_uri = g_strdup_printf("%s" G_DIR_SEPARATOR_S "%s",
-			dir_uri, filename);
-		g_free(dir_uri);
+		if (!dir)
+			return ud_list;
+
+		if (g_file_is_native(dir)) {
+			// Native path
+			char *dir_path = g_file_get_path(dir);
+			if (dir_path) {
+				char *target_path = g_build_filename(dir_path, filename, NULL);
+				target = g_file_new_for_path(target_path);
+				g_free(target_path);
+				g_free(dir_path);
+			}
+		} else {
+			// URI
+			char *dir_uri = g_file_get_uri(dir);
+			if (dir_uri) {
+				char **segments = g_strsplit(filename, "/", -1);
+				GString *uri = g_string_new(dir_uri);
+				for (int i = 0; segments[i]; i++) {
+					if (!*segments[i])
+						continue;
+					g_string_append_c(uri, '/');
+					g_string_append_uri_escaped(uri, segments[i], NULL, true);
+				}
+				g_strfreev(segments);
+				char *target_uri = g_string_free(uri, false);
+				target = g_file_new_for_uri(target_uri);
+				g_free(target_uri);
+				g_free(dir_uri);
+			}
+		}
+
 		g_object_unref(dir);
 	}
 
-	g_free(filename);
+	if (!target)
+		return ud_list;
 
-	return g_slist_prepend(ud_list, uri_digest_new(target_uri, digest));
+	// '\' is valid in filenames but could be intended as a dir separator
+	if (strchr(filename, '\\') && !g_file_query_exists(target, NULL)) {
+		char *filename2 = g_strdelimit(g_strdup(filename), "\\", '/');
+		ud_list = check_file_add_uri(ud_list, file, filename2, digest);
+		g_free(filename2);
+	} else {
+		ud_list = g_slist_prepend(ud_list, uri_digest_new(g_file_get_uri(target),
+			g_strdup(digest)));
+	}
+
+	g_object_unref(target);
+
+	return ud_list;
 }
 
 static void check_file_error(GFile *file, GError *error)
@@ -236,6 +264,8 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 				gui_enable_hash_func(id);
 
 			ud_list = check_file_add_uri(ud_list, file, filename, digest);
+			g_free(filename);
+			g_free(digest);
 		}
 
 		g_free(line);
