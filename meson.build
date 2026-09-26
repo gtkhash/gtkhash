@@ -191,7 +191,9 @@ if build_thunar
     thunar_extension_dir = thunar.get_variable('extensionsdir')
 endif
 
+enable_icons = build_gtkhash or build_caja
 enable_nautilus_data = build_caja or build_nautilus or build_nemo or build_thunar
+enable_schemas = build_gtkhash or enable_nautilus_data
 
 add_project_arguments('-DHAVE_CONFIG_H', language: 'c')
 root_include = include_directories('.')
@@ -382,10 +384,8 @@ subdir('po')
 subdir('data')
 subdir('src')
 
-if build_gtkhash or enable_nautilus_data
-    gnome.post_install(
-        glib_compile_schemas: true,
-        gtk_update_icon_cache: true,
-        update_desktop_database: true,
-    )
-endif
+gnome.post_install(
+    glib_compile_schemas: enable_schemas,
+    gtk_update_icon_cache: enable_icons,
+    update_desktop_database: build_gtkhash,
+)

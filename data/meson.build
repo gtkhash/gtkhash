@@ -1,4 +1,4 @@
-if build_gtkhash or build_caja
+if enable_icons
     subdir('icons')
 endif
 
