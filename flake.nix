@@ -5,9 +5,7 @@
     packages = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-      in rec {
-        gtkhash = pkgs.clangStdenv.mkDerivation {
-          name = "gtkhash";
+        common = {
           src = self.sourceInfo;
           strictDeps = true;
           doCheck = true;
@@ -44,10 +42,46 @@
             runHook postCheck
           '';
           meta = {
-            mainProgram = "gtkhash";
             license = pkgs.lib.licenses.gpl2Plus;
           };
         };
+      in rec {
+        gtkhash = pkgs.clangStdenv.mkDerivation (common // {
+          name = "gtkhash";
+          meta = common.meta // {
+            mainProgram = "gtkhash";
+          };
+        });
+        gtkhash-caja = pkgs.clangStdenv.mkDerivation (common // {
+          name = "gtkhash-caja";
+          mesonFlags = [
+            "-Dbuild-gtkhash=false"
+            "-Dbuild-caja=true"
+          ];
+          buildInputs = common.buildInputs ++ [ pkgs.caja ];
+          env.PKG_CONFIG_LIBCAJA_EXTENSION_EXTENSIONDIR =
+            "${placeholder "out"}/lib/caja/extensions-2.0";
+        });
+        gtkhash-nemo = pkgs.clangStdenv.mkDerivation (common // {
+          name = "gtkhash-nemo";
+          mesonFlags = [
+            "-Dbuild-gtkhash=false"
+            "-Dbuild-nemo=true"
+          ];
+          buildInputs = common.buildInputs ++ [ pkgs.nemo ];
+          env.PKG_CONFIG_LIBNEMO_EXTENSION_EXTENSIONDIR =
+            "${placeholder "out"}/${pkgs.nemo.extensiondir}";
+        });
+        gtkhash-thunar = pkgs.clangStdenv.mkDerivation (common // {
+          name = "gtkhash-thunar";
+          mesonFlags = [
+            "-Dbuild-gtkhash=false"
+            "-Dbuild-thunar=true"
+          ];
+          buildInputs = common.buildInputs ++ [ pkgs.thunar ];
+          env.PKG_CONFIG_THUNARX_3_EXTENSIONSDIR =
+            "${placeholder "out"}/lib/thunarx-3";
+        });
         default = gtkhash;
       }
     );
