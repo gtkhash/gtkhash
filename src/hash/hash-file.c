@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2019 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -37,13 +37,6 @@
 
 #define HASH_FILE_BUFFER_SIZE (1 << 23) // File read buffer size (bytes)
 #define HASH_FILE_REPORT_INTERVAL 100 // Progress report interval (ms)
-
-// This lib can use GDK 2 or 3, but doesn't link either directly.
-// Try to avoid potential ABI/API mismatch issues by only declaring
-// necessary gdk.h functions...
-guint gdk_threads_add_idle(GSourceFunc, gpointer);
-guint gdk_threads_add_timeout(guint, GSourceFunc, gpointer);
-// (this might cause other problems)
 
 static gboolean gtkhash_hash_file_source_func(struct hash_file_s *data);
 static void gtkhash_hash_file_hash_thread_func(struct hash_func_s *func,
@@ -88,8 +81,7 @@ static void gtkhash_hash_file_add_source(struct hash_file_s *data)
 {
 	g_mutex_lock(&data->mtx);
 	g_assert(!data->source);
-	data->source = g_idle_add(G_SOURCE_FUNC(gtkhash_hash_file_source_func),
-		data);
+	data->source = g_idle_add(G_SOURCE_FUNC(gtkhash_hash_file_source_func), data);
 	g_mutex_unlock(&data->mtx);
 }
 
@@ -119,7 +111,7 @@ static gboolean gtkhash_hash_file_report_source_func(struct hash_file_s *data)
 static void gtkhash_hash_file_add_report_source(struct hash_file_s *data)
 {
 	g_assert(!data->report_source);
-	data->report_source = gdk_threads_add_timeout(HASH_FILE_REPORT_INTERVAL,
+	data->report_source = g_timeout_add(HASH_FILE_REPORT_INTERVAL,
 		G_SOURCE_FUNC(gtkhash_hash_file_report_source_func), data);
 }
 
@@ -416,13 +408,10 @@ static void gtkhash_hash_file_callback(struct hash_file_s *data)
 	gtkhash_hash_file_remove_source(data);
 	data->state = HASH_FILE_STATE_IDLE;
 
-	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable))) {
-		gdk_threads_add_idle(gtkhash_hash_file_callback_stop_func,
-			(void *)data->cb_data);
-	} else {
-		gdk_threads_add_idle(
-			G_SOURCE_FUNC(gtkhash_hash_file_callback_finish_func), data);
-	}
+	if (G_UNLIKELY(g_cancellable_is_cancelled(data->cancellable)))
+		g_idle_add(gtkhash_hash_file_callback_stop_func, (void *)data->cb_data);
+	else
+		g_idle_add(G_SOURCE_FUNC(gtkhash_hash_file_callback_finish_func), data);
 
 	g_object_unref(data->cancellable);
 	data->cancellable = NULL;
