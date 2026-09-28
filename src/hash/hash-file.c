@@ -31,10 +31,6 @@
 #include "hash-lib.h"
 #include "digest-format.h"
 
-#ifndef G_SOURCE_FUNC
-#define G_SOURCE_FUNC(f) ((GSourceFunc) (void (*)(void)) (f))
-#endif
-
 #define HASH_FILE_BUFFER_SIZE (1 << 23) // File read buffer size (bytes)
 #define HASH_FILE_REPORT_INTERVAL 100 // Progress report interval (ms)
 

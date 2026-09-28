@@ -35,10 +35,6 @@
 #include "opts.h"
 #include "hash/hash-func.h"
 
-#ifndef G_SOURCE_FUNC
-#define G_SOURCE_FUNC(f) ((GSourceFunc) (void (*)(void)) (f))
-#endif
-
 static void delay(void)
 {
 	for (int i = 0; i < 10; i++) {
