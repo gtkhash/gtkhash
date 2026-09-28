@@ -142,24 +142,14 @@ static void gtkhash_properties_on_treeview_popup_menu(struct page_s *page)
 	/* Note: Shift+F10 can trigger this, so it's possible for the pointer
 	   to be outside the window */
 
-#if GTK_CHECK_VERSION(3,22,0)
 	gtk_menu_popup_at_pointer(page->menu, NULL);
-#else
-	gtk_menu_popup(page->menu, NULL, NULL, NULL, NULL, 0,
-		gtk_get_current_event_time());
-#endif
 }
 
 static bool gtkhash_properties_on_treeview_button_press_event(
 	struct page_s *page, GdkEventButton *event)
 {
 	if (gdk_event_triggers_context_menu((GdkEvent *)event))
-#if GTK_CHECK_VERSION(3,22,0)
 		gtk_menu_popup_at_pointer(page->menu, (GdkEvent *)event);
-#else
-		gtk_menu_popup(page->menu, NULL, NULL, NULL, NULL, event->button,
-			gdk_event_get_time((GdkEvent *)event));
-#endif
 
 	return false;
 }
