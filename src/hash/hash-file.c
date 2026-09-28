@@ -105,7 +105,7 @@ static gboolean gtkhash_hash_file_report_source_func(struct hash_file_s *data)
 		gtkhash_hash_file_report_cb((void *)data->cb_data, data->file_size,
 			data->total_read, data->timer);
 
-	return true;
+	return G_SOURCE_CONTINUE;
 }
 
 static void gtkhash_hash_file_add_report_source(struct hash_file_s *data)
@@ -378,7 +378,7 @@ static gboolean gtkhash_hash_file_callback_stop_func(void *cb_data)
 {
 	gtkhash_hash_file_stop_cb(cb_data);
 
-	return false;
+	return G_SOURCE_REMOVE;
 }
 
 static gboolean gtkhash_hash_file_callback_finish_func(
@@ -400,7 +400,7 @@ static gboolean gtkhash_hash_file_callback_finish_func(
 
 	gtkhash_hash_file_finish_cb((void *)data->cb_data);
 
-	return false;
+	return G_SOURCE_REMOVE;
 }
 
 static void gtkhash_hash_file_callback(struct hash_file_s *data)
@@ -434,7 +434,7 @@ static gboolean gtkhash_hash_file_source_func(struct hash_file_s *data)
 
 	state_funcs[data->state](data);
 
-	return true;
+	return G_SOURCE_CONTINUE;
 }
 
 void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
