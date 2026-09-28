@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-26 00:33+0200\n"
+"POT-Creation-Date: 2026-09-28 20:41+0000\n"
 "PO-Revision-Date: 2025-11-18 00:51+0000\n"
 "Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
@@ -30,8 +30,8 @@ msgstr ""
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
 #: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:473 src/nautilus/properties.c:476
-#: src/nautilus/properties.c:479 src/nautilus/properties.c:481
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
 msgid "Checksums"
 msgstr "Sumas de verificación"
 
@@ -50,7 +50,7 @@ msgid "GtkHash"
 msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:595
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:585
 msgid "Calculate message digests or checksums"
 msgstr "Calcular resúmenes de mensajes o sumas de comprobación"
 
@@ -237,7 +237,7 @@ msgstr "Toni Estevez <toni.estevez@gmail.com>"
 msgid "Select Files"
 msgstr "Seleccionar archivos"
 
-#: src/callbacks.c:529 src/nautilus/properties.c:253
+#: src/callbacks.c:518 src/nautilus/properties.c:243
 msgid "_Show HMAC Key"
 msgstr "_Mostrar la clave HMAC"
 
