@@ -31,7 +31,7 @@ version.
 Dependencies
 ------------
 Required:
-* GTK 3 (>= 3.18)
+* GTK 3 (>= 3.24)
 * GLib (>= 2.68)
 
 Optional:

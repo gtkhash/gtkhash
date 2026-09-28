@@ -85,7 +85,7 @@ no_dep = dependency('', required: false)
 
 gio = dependency('gio-2.0', version: '>=2.68')
 glib = dependency('glib-2.0', version: '>=2.68')
-gtk = dependency('gtk+-3.0', version: '>=3.18')
+gtk = dependency('gtk+-3.0', version: '>=3.24')
 
 #######################################
 # Hash libraries
