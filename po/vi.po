@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-28 20:41+0000\n"
+"POT-Creation-Date: 2026-09-29 23:27+0200\n"
 "PO-Revision-Date: 2021-01-22 00:39+0000\n"
 "Last-Translator: Cao Nguyen <intansemc2@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/gtkhash/"
@@ -60,15 +60,15 @@ msgstr ""
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "Hỗ trợ các hàm băm như MD5, SHA1, SHA256, SHA512 và CRC32."
 
-#: data/gtkhash-gtk3.ui:12
+#: data/gtkhash-gtk3.ui:13
 msgid "Lowercase Hexadecimal"
 msgstr "Chữ số hệ 16 in thường"
 
-#: data/gtkhash-gtk3.ui:15
+#: data/gtkhash-gtk3.ui:16
 msgid "Uppercase Hexadecimal"
 msgstr "Chữ số hệ 16 in hoa"
 
-#: data/gtkhash-gtk3.ui:71
+#: data/gtkhash-gtk3.ui:75
 msgid "Copy _Digest"
 msgstr "Sao chép _Chữ số"
 
@@ -76,103 +76,103 @@ msgstr "Sao chép _Chữ số"
 msgid "Show _Toolbar"
 msgstr "Hiện _Thanh công cụ"
 
-#: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
+#: data/gtkhash-gtk3.ui:138 data/gtkhash-gtk3.ui:289
 msgid "_File"
 msgstr "_Tập tin"
 
-#: data/gtkhash-gtk3.ui:149
+#: data/gtkhash-gtk3.ui:150
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "_Open Tập tin …"
 
-#: data/gtkhash-gtk3.ui:160
+#: data/gtkhash-gtk3.ui:161
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "_Lưu ra tập tin …"
 
-#: data/gtkhash-gtk3.ui:194
+#: data/gtkhash-gtk3.ui:191
 msgid "_Edit"
 msgstr "_Biên tập"
 
-#: data/gtkhash-gtk3.ui:280
+#: data/gtkhash-gtk3.ui:277
 msgid "_View"
 msgstr "_Hiển thị"
 
-#: data/gtkhash-gtk3.ui:300
+#: data/gtkhash-gtk3.ui:299
 msgid "_Text"
 msgstr "_Văn bản"
 
-#: data/gtkhash-gtk3.ui:310
+#: data/gtkhash-gtk3.ui:309
 msgid "File _List"
 msgstr "_Danh sách Tập tin"
 
-#: data/gtkhash-gtk3.ui:324
+#: data/gtkhash-gtk3.ui:321
 msgid "_Help"
 msgstr "_Hỗ trợ"
 
-#: data/gtkhash-gtk3.ui:429
+#: data/gtkhash-gtk3.ui:426
 msgid "File:"
 msgstr "Tập tin:"
 
-#: data/gtkhash-gtk3.ui:442
+#: data/gtkhash-gtk3.ui:439
 msgid "Text:"
 msgstr "Văn bản:"
 
-#: data/gtkhash-gtk3.ui:455 data/nautilus/gtkhash-properties.ui:144
+#: data/gtkhash-gtk3.ui:452 data/nautilus/gtkhash-properties.ui:147
 msgid "Check:"
 msgstr "Kiểm tra:"
 
-#: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
-#: data/nautilus/gtkhash-properties.ui:159
+#: data/gtkhash-gtk3.ui:508 data/gtkhash-gtk3.ui:526
+#: data/nautilus/gtkhash-properties.ui:160
 msgid "Paste digest from clipboard"
 msgstr "Dán các chữ số từ vùng nhớ đệm"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
-#: data/nautilus/gtkhash-properties.ui:180
+#: data/nautilus/gtkhash-properties.ui:186
 msgid "HMAC Key:"
 msgstr "Khóa HMAC:"
 
-#: data/gtkhash-gtk3.ui:783
+#: data/gtkhash-gtk3.ui:777
 msgid "File"
 msgstr "Tập tin"
 
-#: data/gtkhash-gtk3.ui:887
+#: data/gtkhash-gtk3.ui:885
 msgid "Ha_sh"
 msgstr "Ha_sh"
 
-#: data/gtkhash-gtk3.ui:953
+#: data/gtkhash-gtk3.ui:948
 msgid "GtkHash Preferences"
 msgstr "Tùy chỉnh GtkHash"
 
-#: data/gtkhash-gtk3.ui:1039
+#: data/gtkhash-gtk3.ui:1002
 msgid "Hash Functions"
 msgstr "Các hàm băm"
 
-#: data/gtkhash-gtk3.ui:1070
+#: data/gtkhash-gtk3.ui:1033
 msgid "MAC Functions"
 msgstr "Các hàm MAC"
 
-#: data/gtkhash-gtk3.ui:1092
+#: data/gtkhash-gtk3.ui:1055
 msgid "Digest Format:"
 msgstr "Định dạng các chữ số:"
 
-#: data/nautilus/gtkhash-properties.ui:16
+#: data/nautilus/gtkhash-properties.ui:20
 msgid "_Copy Digest"
 msgstr "_Sao chép Chữ số"
 
-#: data/nautilus/gtkhash-properties.ui:35
+#: data/nautilus/gtkhash-properties.ui:36
 msgid "Show _Disabled Hash Functions"
 msgstr "Hiện các hàm băm bị _Ẩn"
 
-#: data/nautilus/gtkhash-properties.ui:95
+#: data/nautilus/gtkhash-properties.ui:97
 msgid "Hash Function"
 msgstr "Hàm băm"
 
-#: data/nautilus/gtkhash-properties.ui:106
+#: data/nautilus/gtkhash-properties.ui:109
 msgid "Digest"
 msgstr "Chữ số"
 
-#: data/nautilus/gtkhash-properties.ui:271
+#: data/nautilus/gtkhash-properties.ui:278
 msgid "H_ash"
 msgstr "B_ăm"
 

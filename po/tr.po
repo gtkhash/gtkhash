@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-28 20:41+0000\n"
+"POT-Creation-Date: 2026-09-29 23:27+0200\n"
 "PO-Revision-Date: 2026-09-14 06:51+0000\n"
 "Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
@@ -67,15 +67,15 @@ msgstr ""
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "Desteklenen hash işlevleri MD5, SHA1, SHA256, SHA512 ve CRC32."
 
-#: data/gtkhash-gtk3.ui:12
+#: data/gtkhash-gtk3.ui:13
 msgid "Lowercase Hexadecimal"
 msgstr "Küçük Harf Onaltılık"
 
-#: data/gtkhash-gtk3.ui:15
+#: data/gtkhash-gtk3.ui:16
 msgid "Uppercase Hexadecimal"
 msgstr "Büyük Harf Onaltılık"
 
-#: data/gtkhash-gtk3.ui:71
+#: data/gtkhash-gtk3.ui:75
 msgid "Copy _Digest"
 msgstr "_Özeti Kopyala"
 
@@ -83,103 +83,103 @@ msgstr "_Özeti Kopyala"
 msgid "Show _Toolbar"
 msgstr "_Araç Çubuğunu Göster"
 
-#: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
+#: data/gtkhash-gtk3.ui:138 data/gtkhash-gtk3.ui:289
 msgid "_File"
 msgstr "_Dosya"
 
-#: data/gtkhash-gtk3.ui:149
+#: data/gtkhash-gtk3.ui:150
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "Özet Dosyasını _Aç…"
 
-#: data/gtkhash-gtk3.ui:160
+#: data/gtkhash-gtk3.ui:161
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "Özet Dosyasını _Kaydet…"
 
-#: data/gtkhash-gtk3.ui:194
+#: data/gtkhash-gtk3.ui:191
 msgid "_Edit"
 msgstr "_Düzenle"
 
-#: data/gtkhash-gtk3.ui:280
+#: data/gtkhash-gtk3.ui:277
 msgid "_View"
 msgstr "_Görünüm"
 
-#: data/gtkhash-gtk3.ui:300
+#: data/gtkhash-gtk3.ui:299
 msgid "_Text"
 msgstr "_Metin"
 
-#: data/gtkhash-gtk3.ui:310
+#: data/gtkhash-gtk3.ui:309
 msgid "File _List"
 msgstr "Dosya _Listesi"
 
-#: data/gtkhash-gtk3.ui:324
+#: data/gtkhash-gtk3.ui:321
 msgid "_Help"
 msgstr "_Yardım"
 
-#: data/gtkhash-gtk3.ui:429
+#: data/gtkhash-gtk3.ui:426
 msgid "File:"
 msgstr "Dosya:"
 
-#: data/gtkhash-gtk3.ui:442
+#: data/gtkhash-gtk3.ui:439
 msgid "Text:"
 msgstr "Metin:"
 
-#: data/gtkhash-gtk3.ui:455 data/nautilus/gtkhash-properties.ui:144
+#: data/gtkhash-gtk3.ui:452 data/nautilus/gtkhash-properties.ui:147
 msgid "Check:"
 msgstr "Kontrol:"
 
-#: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
-#: data/nautilus/gtkhash-properties.ui:159
+#: data/gtkhash-gtk3.ui:508 data/gtkhash-gtk3.ui:526
+#: data/nautilus/gtkhash-properties.ui:160
 msgid "Paste digest from clipboard"
 msgstr "Panodaki özeti yapıştır"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
-#: data/nautilus/gtkhash-properties.ui:180
+#: data/nautilus/gtkhash-properties.ui:186
 msgid "HMAC Key:"
 msgstr "HMAC Anahtarı:"
 
-#: data/gtkhash-gtk3.ui:783
+#: data/gtkhash-gtk3.ui:777
 msgid "File"
 msgstr "Dosya"
 
-#: data/gtkhash-gtk3.ui:887
+#: data/gtkhash-gtk3.ui:885
 msgid "Ha_sh"
 msgstr "Ha_sh"
 
-#: data/gtkhash-gtk3.ui:953
+#: data/gtkhash-gtk3.ui:948
 msgid "GtkHash Preferences"
 msgstr "GtkHash Tercihleri"
 
-#: data/gtkhash-gtk3.ui:1039
+#: data/gtkhash-gtk3.ui:1002
 msgid "Hash Functions"
 msgstr "Hash İşlevleri"
 
-#: data/gtkhash-gtk3.ui:1070
+#: data/gtkhash-gtk3.ui:1033
 msgid "MAC Functions"
 msgstr "MAC İşlevleri"
 
-#: data/gtkhash-gtk3.ui:1092
+#: data/gtkhash-gtk3.ui:1055
 msgid "Digest Format:"
 msgstr "Özet Biçimi:"
 
-#: data/nautilus/gtkhash-properties.ui:16
+#: data/nautilus/gtkhash-properties.ui:20
 msgid "_Copy Digest"
 msgstr "Özeti _Kopyala"
 
-#: data/nautilus/gtkhash-properties.ui:35
+#: data/nautilus/gtkhash-properties.ui:36
 msgid "Show _Disabled Hash Functions"
 msgstr "_Devre Dışı Bırakılmış Hash İşlevini Göster"
 
-#: data/nautilus/gtkhash-properties.ui:95
+#: data/nautilus/gtkhash-properties.ui:97
 msgid "Hash Function"
 msgstr "Hash İşlevi"
 
-#: data/nautilus/gtkhash-properties.ui:106
+#: data/nautilus/gtkhash-properties.ui:109
 msgid "Digest"
 msgstr "Özet"
 
-#: data/nautilus/gtkhash-properties.ui:271
+#: data/nautilus/gtkhash-properties.ui:278
 msgid "H_ash"
 msgstr "H_ash"
 

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-28 20:41+0000\n"
+"POT-Creation-Date: 2026-09-29 23:27+0200\n"
 "PO-Revision-Date: 2024-03-16 16:01+0000\n"
 "Last-Translator: Mikachu <micah.sh@proton.me>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtkhash/"
@@ -63,15 +63,15 @@ msgstr ""
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "Ondersteunde hashfuncties zijn MD5, SHA1, SHA256, SHA512 en CRC32."
 
-#: data/gtkhash-gtk3.ui:12
+#: data/gtkhash-gtk3.ui:13
 msgid "Lowercase Hexadecimal"
 msgstr "Hexadecimaal kleine letters"
 
-#: data/gtkhash-gtk3.ui:15
+#: data/gtkhash-gtk3.ui:16
 msgid "Uppercase Hexadecimal"
 msgstr "Hexadecimaal hoofdletters"
 
-#: data/gtkhash-gtk3.ui:71
+#: data/gtkhash-gtk3.ui:75
 msgid "Copy _Digest"
 msgstr "_Digest kopiëren"
 
@@ -79,103 +79,103 @@ msgstr "_Digest kopiëren"
 msgid "Show _Toolbar"
 msgstr "Werkbalk _tonen"
 
-#: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
+#: data/gtkhash-gtk3.ui:138 data/gtkhash-gtk3.ui:289
 msgid "_File"
 msgstr "_Bestand"
 
-#: data/gtkhash-gtk3.ui:149
+#: data/gtkhash-gtk3.ui:150
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "_Digest-bestand openen…"
 
-#: data/gtkhash-gtk3.ui:160
+#: data/gtkhash-gtk3.ui:161
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "_Digest-bestand opslaan…"
 
-#: data/gtkhash-gtk3.ui:194
+#: data/gtkhash-gtk3.ui:191
 msgid "_Edit"
 msgstr "B_ewerken"
 
-#: data/gtkhash-gtk3.ui:280
+#: data/gtkhash-gtk3.ui:277
 msgid "_View"
 msgstr "_Beeld"
 
-#: data/gtkhash-gtk3.ui:300
+#: data/gtkhash-gtk3.ui:299
 msgid "_Text"
 msgstr "Te_kst"
 
-#: data/gtkhash-gtk3.ui:310
+#: data/gtkhash-gtk3.ui:309
 msgid "File _List"
 msgstr "Bestands_lijst"
 
-#: data/gtkhash-gtk3.ui:324
+#: data/gtkhash-gtk3.ui:321
 msgid "_Help"
 msgstr "_Hulp"
 
-#: data/gtkhash-gtk3.ui:429
+#: data/gtkhash-gtk3.ui:426
 msgid "File:"
 msgstr "Bestand:"
 
-#: data/gtkhash-gtk3.ui:442
+#: data/gtkhash-gtk3.ui:439
 msgid "Text:"
 msgstr "Tekst:"
 
-#: data/gtkhash-gtk3.ui:455 data/nautilus/gtkhash-properties.ui:144
+#: data/gtkhash-gtk3.ui:452 data/nautilus/gtkhash-properties.ui:147
 msgid "Check:"
 msgstr "Controle:"
 
-#: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
-#: data/nautilus/gtkhash-properties.ui:159
+#: data/gtkhash-gtk3.ui:508 data/gtkhash-gtk3.ui:526
+#: data/nautilus/gtkhash-properties.ui:160
 msgid "Paste digest from clipboard"
 msgstr "Digest kopiëren van klembord"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
-#: data/nautilus/gtkhash-properties.ui:180
+#: data/nautilus/gtkhash-properties.ui:186
 msgid "HMAC Key:"
 msgstr "HMAC-sleutel:"
 
-#: data/gtkhash-gtk3.ui:783
+#: data/gtkhash-gtk3.ui:777
 msgid "File"
 msgstr "Bestand"
 
-#: data/gtkhash-gtk3.ui:887
+#: data/gtkhash-gtk3.ui:885
 msgid "Ha_sh"
 msgstr "Ha_sh"
 
-#: data/gtkhash-gtk3.ui:953
+#: data/gtkhash-gtk3.ui:948
 msgid "GtkHash Preferences"
 msgstr "GtkHash-voorkeuren"
 
-#: data/gtkhash-gtk3.ui:1039
+#: data/gtkhash-gtk3.ui:1002
 msgid "Hash Functions"
 msgstr "Hashfuncties"
 
-#: data/gtkhash-gtk3.ui:1070
+#: data/gtkhash-gtk3.ui:1033
 msgid "MAC Functions"
 msgstr "MAC-functies"
 
-#: data/gtkhash-gtk3.ui:1092
+#: data/gtkhash-gtk3.ui:1055
 msgid "Digest Format:"
 msgstr "Digestformaat:"
 
-#: data/nautilus/gtkhash-properties.ui:16
+#: data/nautilus/gtkhash-properties.ui:20
 msgid "_Copy Digest"
 msgstr "Digest _kopiëren"
 
-#: data/nautilus/gtkhash-properties.ui:35
+#: data/nautilus/gtkhash-properties.ui:36
 msgid "Show _Disabled Hash Functions"
 msgstr "Uitgeschakel_de hashfuncties tonen"
 
-#: data/nautilus/gtkhash-properties.ui:95
+#: data/nautilus/gtkhash-properties.ui:97
 msgid "Hash Function"
 msgstr "Hashfunctie"
 
-#: data/nautilus/gtkhash-properties.ui:106
+#: data/nautilus/gtkhash-properties.ui:109
 msgid "Digest"
 msgstr "Digest"
 
-#: data/nautilus/gtkhash-properties.ui:271
+#: data/nautilus/gtkhash-properties.ui:278
 msgid "H_ash"
 msgstr "H_ash"
 
