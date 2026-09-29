@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-28 20:41+0000\n"
+"POT-Creation-Date: 2026-09-29 23:27+0200\n"
 "PO-Revision-Date: 2025-11-18 00:51+0000\n"
 "Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
@@ -69,15 +69,15 @@ msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 "Las funciones resumen compatibles incluyen MD5, SHA1, SHA256, SHA512 y CRC32."
 
-#: data/gtkhash-gtk3.ui:12
+#: data/gtkhash-gtk3.ui:13
 msgid "Lowercase Hexadecimal"
 msgstr "Hexadecimal en minúsculas"
 
-#: data/gtkhash-gtk3.ui:15
+#: data/gtkhash-gtk3.ui:16
 msgid "Uppercase Hexadecimal"
 msgstr "Hexadecimal en mayúsculas"
 
-#: data/gtkhash-gtk3.ui:71
+#: data/gtkhash-gtk3.ui:75
 msgid "Copy _Digest"
 msgstr "Copiar el _resumen"
 
@@ -85,103 +85,103 @@ msgstr "Copiar el _resumen"
 msgid "Show _Toolbar"
 msgstr "Mostrar la barra de _herramientas"
 
-#: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
+#: data/gtkhash-gtk3.ui:138 data/gtkhash-gtk3.ui:289
 msgid "_File"
 msgstr "_Archivo"
 
-#: data/gtkhash-gtk3.ui:149
+#: data/gtkhash-gtk3.ui:150
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "_Abrir un archivo de resúmenes…"
 
-#: data/gtkhash-gtk3.ui:160
+#: data/gtkhash-gtk3.ui:161
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "_Guardar los resúmenes en un archivo…"
 
-#: data/gtkhash-gtk3.ui:194
+#: data/gtkhash-gtk3.ui:191
 msgid "_Edit"
 msgstr "_Editar"
 
-#: data/gtkhash-gtk3.ui:280
+#: data/gtkhash-gtk3.ui:277
 msgid "_View"
 msgstr "_Ver"
 
-#: data/gtkhash-gtk3.ui:300
+#: data/gtkhash-gtk3.ui:299
 msgid "_Text"
 msgstr "_Texto"
 
-#: data/gtkhash-gtk3.ui:310
+#: data/gtkhash-gtk3.ui:309
 msgid "File _List"
 msgstr "_Lista de archivos"
 
-#: data/gtkhash-gtk3.ui:324
+#: data/gtkhash-gtk3.ui:321
 msgid "_Help"
 msgstr "Ay_uda"
 
-#: data/gtkhash-gtk3.ui:429
+#: data/gtkhash-gtk3.ui:426
 msgid "File:"
 msgstr "Archivo:"
 
-#: data/gtkhash-gtk3.ui:442
+#: data/gtkhash-gtk3.ui:439
 msgid "Text:"
 msgstr "Texto:"
 
-#: data/gtkhash-gtk3.ui:455 data/nautilus/gtkhash-properties.ui:144
+#: data/gtkhash-gtk3.ui:452 data/nautilus/gtkhash-properties.ui:147
 msgid "Check:"
 msgstr "Comprobar:"
 
-#: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
-#: data/nautilus/gtkhash-properties.ui:159
+#: data/gtkhash-gtk3.ui:508 data/gtkhash-gtk3.ui:526
+#: data/nautilus/gtkhash-properties.ui:160
 msgid "Paste digest from clipboard"
 msgstr "Pegar el resumen del portapapeles"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
-#: data/nautilus/gtkhash-properties.ui:180
+#: data/nautilus/gtkhash-properties.ui:186
 msgid "HMAC Key:"
 msgstr "Clave HMAC:"
 
-#: data/gtkhash-gtk3.ui:783
+#: data/gtkhash-gtk3.ui:777
 msgid "File"
 msgstr "Archivo"
 
-#: data/gtkhash-gtk3.ui:887
+#: data/gtkhash-gtk3.ui:885
 msgid "Ha_sh"
 msgstr "Re_sumen"
 
-#: data/gtkhash-gtk3.ui:953
+#: data/gtkhash-gtk3.ui:948
 msgid "GtkHash Preferences"
 msgstr "Preferencias de GtkHash"
 
-#: data/gtkhash-gtk3.ui:1039
+#: data/gtkhash-gtk3.ui:1002
 msgid "Hash Functions"
 msgstr "Funciones resumen"
 
-#: data/gtkhash-gtk3.ui:1070
+#: data/gtkhash-gtk3.ui:1033
 msgid "MAC Functions"
 msgstr "Funciones MAC"
 
-#: data/gtkhash-gtk3.ui:1092
+#: data/gtkhash-gtk3.ui:1055
 msgid "Digest Format:"
 msgstr "Formato del resumen:"
 
-#: data/nautilus/gtkhash-properties.ui:16
+#: data/nautilus/gtkhash-properties.ui:20
 msgid "_Copy Digest"
 msgstr "_Copiar el resumen"
 
-#: data/nautilus/gtkhash-properties.ui:35
+#: data/nautilus/gtkhash-properties.ui:36
 msgid "Show _Disabled Hash Functions"
 msgstr "Mostrar las funciones resumen _desactivadas"
 
-#: data/nautilus/gtkhash-properties.ui:95
+#: data/nautilus/gtkhash-properties.ui:97
 msgid "Hash Function"
 msgstr "Función resumen"
 
-#: data/nautilus/gtkhash-properties.ui:106
+#: data/nautilus/gtkhash-properties.ui:109
 msgid "Digest"
 msgstr "Digitación"
 
-#: data/nautilus/gtkhash-properties.ui:271
+#: data/nautilus/gtkhash-properties.ui:278
 msgid "H_ash"
 msgstr "Resumen"
 

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-28 20:41+0000\n"
+"POT-Creation-Date: 2026-09-29 23:27+0200\n"
 "PO-Revision-Date: 2020-07-04 23:41+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtkhash/"
@@ -65,15 +65,15 @@ msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 "Les funcions resum compatibles inclouen MD5, SHA1, SHA256, SHA512 i CRC32."
 
-#: data/gtkhash-gtk3.ui:12
+#: data/gtkhash-gtk3.ui:13
 msgid "Lowercase Hexadecimal"
 msgstr "Hexadecimal en minúscules"
 
-#: data/gtkhash-gtk3.ui:15
+#: data/gtkhash-gtk3.ui:16
 msgid "Uppercase Hexadecimal"
 msgstr "Hexadecimal en majúscules"
 
-#: data/gtkhash-gtk3.ui:71
+#: data/gtkhash-gtk3.ui:75
 msgid "Copy _Digest"
 msgstr "Copia el _resum"
 
@@ -81,103 +81,103 @@ msgstr "Copia el _resum"
 msgid "Show _Toolbar"
 msgstr "_Mostra la barra d'eines"
 
-#: data/gtkhash-gtk3.ui:141 data/gtkhash-gtk3.ui:290
+#: data/gtkhash-gtk3.ui:138 data/gtkhash-gtk3.ui:289
 msgid "_File"
 msgstr "_Fitxer"
 
-#: data/gtkhash-gtk3.ui:149
+#: data/gtkhash-gtk3.ui:150
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "_Obre un fitxer de resums…"
 
-#: data/gtkhash-gtk3.ui:160
+#: data/gtkhash-gtk3.ui:161
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "_Desa els resums en un fitxer…"
 
-#: data/gtkhash-gtk3.ui:194
+#: data/gtkhash-gtk3.ui:191
 msgid "_Edit"
 msgstr "_Edita"
 
-#: data/gtkhash-gtk3.ui:280
+#: data/gtkhash-gtk3.ui:277
 msgid "_View"
 msgstr "_Vista"
 
-#: data/gtkhash-gtk3.ui:300
+#: data/gtkhash-gtk3.ui:299
 msgid "_Text"
 msgstr "_Text"
 
-#: data/gtkhash-gtk3.ui:310
+#: data/gtkhash-gtk3.ui:309
 msgid "File _List"
 msgstr "_Llista de fitxers"
 
-#: data/gtkhash-gtk3.ui:324
+#: data/gtkhash-gtk3.ui:321
 msgid "_Help"
 msgstr "_Ajuda"
 
-#: data/gtkhash-gtk3.ui:429
+#: data/gtkhash-gtk3.ui:426
 msgid "File:"
 msgstr "Fitxer:"
 
-#: data/gtkhash-gtk3.ui:442
+#: data/gtkhash-gtk3.ui:439
 msgid "Text:"
 msgstr "Text:"
 
-#: data/gtkhash-gtk3.ui:455 data/nautilus/gtkhash-properties.ui:144
+#: data/gtkhash-gtk3.ui:452 data/nautilus/gtkhash-properties.ui:147
 msgid "Check:"
 msgstr "Verifica:"
 
-#: data/gtkhash-gtk3.ui:513 data/gtkhash-gtk3.ui:531
-#: data/nautilus/gtkhash-properties.ui:159
+#: data/gtkhash-gtk3.ui:508 data/gtkhash-gtk3.ui:526
+#: data/nautilus/gtkhash-properties.ui:160
 msgid "Paste digest from clipboard"
 msgstr "Enganxa el resum del porta-retalls"
 
 #: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
-#: data/nautilus/gtkhash-properties.ui:180
+#: data/nautilus/gtkhash-properties.ui:186
 msgid "HMAC Key:"
 msgstr "Clau HMAC:"
 
-#: data/gtkhash-gtk3.ui:783
+#: data/gtkhash-gtk3.ui:777
 msgid "File"
 msgstr "Fitxer"
 
-#: data/gtkhash-gtk3.ui:887
+#: data/gtkhash-gtk3.ui:885
 msgid "Ha_sh"
 msgstr "_Calcula"
 
-#: data/gtkhash-gtk3.ui:953
+#: data/gtkhash-gtk3.ui:948
 msgid "GtkHash Preferences"
 msgstr "Preferències del GtkHash"
 
-#: data/gtkhash-gtk3.ui:1039
+#: data/gtkhash-gtk3.ui:1002
 msgid "Hash Functions"
 msgstr "Funcions resum"
 
-#: data/gtkhash-gtk3.ui:1070
+#: data/gtkhash-gtk3.ui:1033
 msgid "MAC Functions"
 msgstr "Funcions MAC"
 
-#: data/gtkhash-gtk3.ui:1092
+#: data/gtkhash-gtk3.ui:1055
 msgid "Digest Format:"
 msgstr "Format del resum:"
 
-#: data/nautilus/gtkhash-properties.ui:16
+#: data/nautilus/gtkhash-properties.ui:20
 msgid "_Copy Digest"
 msgstr "_Copia el resum"
 
-#: data/nautilus/gtkhash-properties.ui:35
+#: data/nautilus/gtkhash-properties.ui:36
 msgid "Show _Disabled Hash Functions"
 msgstr "Mostra les funcions resum _desactivades"
 
-#: data/nautilus/gtkhash-properties.ui:95
+#: data/nautilus/gtkhash-properties.ui:97
 msgid "Hash Function"
 msgstr "Funció resum"
 
-#: data/nautilus/gtkhash-properties.ui:106
+#: data/nautilus/gtkhash-properties.ui:109
 msgid "Digest"
 msgstr "Resum"
 
-#: data/nautilus/gtkhash-properties.ui:271
+#: data/nautilus/gtkhash-properties.ui:278
 msgid "H_ash"
 msgstr "_Calcula"
 
