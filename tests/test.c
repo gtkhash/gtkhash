@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2021 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -40,8 +40,7 @@ static void delay(void)
 	for (int i = 0; i < 10; i++) {
 		while (gtk_events_pending())
 			gtk_main_iteration();
-
-		g_usleep(G_USEC_PER_SEC / 250);
+		g_usleep(g_test_slow() ? (G_USEC_PER_SEC / 250) : 1);
 	}
 }
 
@@ -448,7 +447,7 @@ static void test_opt_check_file(void)
 
 		// OK to exit before finish, with warnings
 		g_test_expect_message(G_LOG_DOMAIN, G_LOG_LEVEL_WARNING, "*");
-		gdk_threads_add_timeout_seconds(2, G_SOURCE_FUNC(exit), NULL);
+		gdk_threads_add_timeout_seconds(1, G_SOURCE_FUNC(exit), NULL);
 
 		for (;;)
 			gtk_main_iteration_do(false);
