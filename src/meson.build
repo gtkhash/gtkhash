@@ -6,7 +6,6 @@ if enable_nautilus_data
 endif
 
 if build_gtkhash
-
     gtkhash_common_sources = [
         'callbacks.c',
         'check.c',
@@ -16,7 +15,7 @@ if build_gtkhash
         'opts.c',
         'uri-digest.c',
     ]
-    gtkhash_common_sources += gnome.compile_resources(
+    gtkhash_resources = gnome.compile_resources(
         'resources',
         gtkhash_gtk3_gresource,
         c_name: 'resources',
@@ -30,6 +29,7 @@ if build_gtkhash
     gtkhash = executable(
         'gtkhash',
         gtkhash_common_sources,
+        gtkhash_resources,
         'main.c',
         'prefs.c',
         include_directories: root_include,
@@ -42,70 +42,6 @@ if build_gtkhash
             libutil,
         ],
         install: true,
-    )
-
-    # Test executable.
-
-    gtkhash_test = executable(
-        'gtkhash-test',
-        gtkhash_common_sources,
-        'test.c',
-        include_directories: root_include,
-        dependencies: [
-            glib,
-            gtk,
-        ],
-        link_with: [
-            libhash,
-            libutil,
-        ],
-    )
-
-    test_files = []
-
-    configure_file(
-        input: 'test.md5sum.in',
-        output: 'test.md5sum',
-        configuration: {
-            'builddir': meson.current_build_dir(),
-        },
-    )
-
-    bytes_tests_values = [
-        '0',
-        '1',
-        '10M',
-        '5G',
-    ]
-    foreach bytes_test : bytes_tests_values
-        filename = '@0@.bytes'.format(bytes_test)
-        test_files += custom_target(
-            filename,
-            output: filename,
-            command: [
-                'truncate',
-                '-s',
-                '@0@'.format(bytes_test),
-                '@OUTPUT@',
-            ],
-        )
-    endforeach
-
-    foreach lib, functions : hash_libs
-        test(
-            'gtkhash-test-@0@'.format(lib),
-            gtkhash_test,
-            depends: test_files,
-            env: ['GTKHASH_TEST_LIB=@0@'.format(lib)],
-            protocol: 'tap',
-        )
-    endforeach
-
-    test(
-        'gtkhash-test',
-        gtkhash_test,
-        depends: test_files,
-        protocol: 'tap',
     )
 
 endif

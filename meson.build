@@ -383,6 +383,7 @@ endif
 subdir('po')
 subdir('data')
 subdir('src')
+subdir('tests')
 
 gnome.post_install(
     glib_compile_schemas: enable_schemas,

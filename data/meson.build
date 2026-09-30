@@ -26,7 +26,7 @@ if build_gtkhash
 
     desktop_file_validate = find_program('desktop-file-validate', required: false)
     if desktop_file_validate.found()
-        test('Validate desktop file', desktop_file_validate, args: [desktop_file])
+        test('desktop-file-validate', desktop_file_validate, args: [desktop_file])
     endif
 
     install_data(
