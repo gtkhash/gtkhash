@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-29 23:27+0200\n"
+"POT-Creation-Date: 2026-10-02 21:34+0200\n"
 "PO-Revision-Date: 2025-11-18 00:51+0000\n"
 "Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
@@ -197,13 +197,13 @@ msgstr ""
 msgid "Open Digest File"
 msgstr "Abrir un archivo de resúmenes"
 
-#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
-#: src/callbacks.c:314
+#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:310
+#: src/callbacks.c:316
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
-#: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
+#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:123
+#: src/callbacks.c:128 src/callbacks.c:310 src/callbacks.c:315
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -215,29 +215,29 @@ msgstr "Archivos de resumen/comprobación (*.sha1, *.md5, *.sfv...)"
 msgid "All Files"
 msgstr "Todos los archivos"
 
-#: src/callbacks.c:120 src/callbacks.c:124
+#: src/callbacks.c:122 src/callbacks.c:126
 msgid "Save Digest File"
 msgstr "Guardar los resúmenes en un archivo"
 
-#: src/callbacks.c:121 src/callbacks.c:127
+#: src/callbacks.c:123 src/callbacks.c:129
 msgid "_Save"
 msgstr "_Guardar"
 
-#: src/callbacks.c:274
+#: src/callbacks.c:276
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
 "Una herramienta de escritorio para calcular resúmenes de mensajes o sumas de "
 "comprobación"
 
-#: src/callbacks.c:279
+#: src/callbacks.c:281
 msgid "translator-credits"
 msgstr "Toni Estevez <toni.estevez@gmail.com>"
 
-#: src/callbacks.c:307 src/callbacks.c:311
+#: src/callbacks.c:309 src/callbacks.c:313
 msgid "Select Files"
 msgstr "Seleccionar archivos"
 
-#: src/callbacks.c:518 src/nautilus/properties.c:243
+#: src/callbacks.c:520 src/nautilus/properties.c:243
 msgid "_Show HMAC Key"
 msgstr "_Mostrar la clave HMAC"
 

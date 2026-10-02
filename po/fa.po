@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-29 23:27+0200\n"
+"POT-Creation-Date: 2026-10-02 21:34+0200\n"
 "PO-Revision-Date: 2024-02-04 20:01+0000\n"
 "Last-Translator: Ali Nemati <AliNemati13@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/gtkhash/"
@@ -191,13 +191,13 @@ msgstr ""
 msgid "Open Digest File"
 msgstr "بازکردن فایل خلاصه (Digest)"
 
-#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
-#: src/callbacks.c:314
+#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:310
+#: src/callbacks.c:316
 msgid "_Open"
 msgstr "_بازکردن"
 
-#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
-#: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
+#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:123
+#: src/callbacks.c:128 src/callbacks.c:310 src/callbacks.c:315
 msgid "_Cancel"
 msgstr "_لغو"
 
@@ -209,27 +209,27 @@ msgstr "فایل های چک سام/خلاصه (*.sha1, *.md5, *.sfv, ...)"
 msgid "All Files"
 msgstr "تمام فایل ها"
 
-#: src/callbacks.c:120 src/callbacks.c:124
+#: src/callbacks.c:122 src/callbacks.c:126
 msgid "Save Digest File"
 msgstr "ذخیره فایل خلاصه (Digest)"
 
-#: src/callbacks.c:121 src/callbacks.c:127
+#: src/callbacks.c:123 src/callbacks.c:129
 msgid "_Save"
 msgstr "_ذخیره"
 
-#: src/callbacks.c:274
+#: src/callbacks.c:276
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "‎یک ‫ابزارِ کمکی رایانه رومیزی برای محاسبه چکیده پیام یا کدهای تأیید صحت‬‎"
 
-#: src/callbacks.c:279
+#: src/callbacks.c:281
 msgid "translator-credits"
 msgstr "اعتبارات-مترجم"
 
-#: src/callbacks.c:307 src/callbacks.c:311
+#: src/callbacks.c:309 src/callbacks.c:313
 msgid "Select Files"
 msgstr "انتخاب فایل ها"
 
-#: src/callbacks.c:518 src/nautilus/properties.c:243
+#: src/callbacks.c:520 src/nautilus/properties.c:243
 msgid "_Show HMAC Key"
 msgstr "_نمایش کلید HMAC"
 

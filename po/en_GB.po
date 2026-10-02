@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-29 23:27+0200\n"
+"POT-Creation-Date: 2026-10-02 21:34+0200\n"
 "PO-Revision-Date: 2026-09-14 01:51+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
@@ -191,13 +191,13 @@ msgstr "hash;checksum;digest;md5;sha1;sha256;crc32;"
 msgid "Open Digest File"
 msgstr "Open Digest File"
 
-#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
-#: src/callbacks.c:314
+#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:310
+#: src/callbacks.c:316
 msgid "_Open"
 msgstr "_Open"
 
-#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
-#: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
+#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:123
+#: src/callbacks.c:128 src/callbacks.c:310 src/callbacks.c:315
 msgid "_Cancel"
 msgstr "_Cancel"
 
@@ -209,19 +209,19 @@ msgstr "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgid "All Files"
 msgstr "All Files"
 
-#: src/callbacks.c:120 src/callbacks.c:124
+#: src/callbacks.c:122 src/callbacks.c:126
 msgid "Save Digest File"
 msgstr "Save Digest File"
 
-#: src/callbacks.c:121 src/callbacks.c:127
+#: src/callbacks.c:123 src/callbacks.c:129
 msgid "_Save"
 msgstr "_Save"
 
-#: src/callbacks.c:274
+#: src/callbacks.c:276
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "A desktop utility for computing message digests or checksums"
 
-#: src/callbacks.c:279
+#: src/callbacks.c:281
 msgid "translator-credits"
 msgstr ""
 "Abhishek https://launchpad.net/~ar.abhishek\n"
@@ -229,11 +229,11 @@ msgstr ""
 "Stefan Pynappels https://launchpad.net/~stefan-pynappels\n"
 "Tristan Heaven"
 
-#: src/callbacks.c:307 src/callbacks.c:311
+#: src/callbacks.c:309 src/callbacks.c:313
 msgid "Select Files"
 msgstr "Select Files"
 
-#: src/callbacks.c:518 src/nautilus/properties.c:243
+#: src/callbacks.c:520 src/nautilus/properties.c:243
 msgid "_Show HMAC Key"
 msgstr "_Show HMAC Key"
 

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-29 23:27+0200\n"
+"POT-Creation-Date: 2026-10-02 21:34+0200\n"
 "PO-Revision-Date: 2026-09-13 22:51+0000\n"
 "Last-Translator: Szia Tomi <sziatomi01@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/"
@@ -195,13 +195,13 @@ msgstr "hash;ellenőrző összeg;kivonat;md5;sha1;sha256;crc32;"
 msgid "Open Digest File"
 msgstr "Kivonatfájl megnyitása"
 
-#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
-#: src/callbacks.c:314
+#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:310
+#: src/callbacks.c:316
 msgid "_Open"
 msgstr "Meg_nyitás"
 
-#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
-#: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
+#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:123
+#: src/callbacks.c:128 src/callbacks.c:310 src/callbacks.c:315
 msgid "_Cancel"
 msgstr "M_egszakítás"
 
@@ -213,28 +213,28 @@ msgstr "Kivonat/Ellenőrzőösszeg-fájlok (*.sha1, *.md5, *.sfv, …)"
 msgid "All Files"
 msgstr "Minden fájl"
 
-#: src/callbacks.c:120 src/callbacks.c:124
+#: src/callbacks.c:122 src/callbacks.c:126
 msgid "Save Digest File"
 msgstr "Kivonatfájl mentése"
 
-#: src/callbacks.c:121 src/callbacks.c:127
+#: src/callbacks.c:123 src/callbacks.c:129
 msgid "_Save"
 msgstr "_Mentés"
 
-#: src/callbacks.c:274
+#: src/callbacks.c:276
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
 "Asztali segédprogram üzenetkivonatok vagy ellenőrző összegek kiszámításához"
 
-#: src/callbacks.c:279
+#: src/callbacks.c:281
 msgid "translator-credits"
 msgstr "sziatomi sziatomi01@gmail.com"
 
-#: src/callbacks.c:307 src/callbacks.c:311
+#: src/callbacks.c:309 src/callbacks.c:313
 msgid "Select Files"
 msgstr "Fájlok kiválasztása"
 
-#: src/callbacks.c:518 src/nautilus/properties.c:243
+#: src/callbacks.c:520 src/nautilus/properties.c:243
 msgid "_Show HMAC Key"
 msgstr "HMAC kulcs _megjelenítése"
 
