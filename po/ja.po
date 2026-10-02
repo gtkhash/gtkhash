@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-09-29 23:27+0200\n"
+"POT-Creation-Date: 2026-10-02 21:34+0200\n"
 "PO-Revision-Date: 2020-07-03 21:08+0000\n"
 "Last-Translator: YAMADA Shinichirou "
 "<yamada_strong_yamada_nice_64bit@yahoo.co.jp>\n"
@@ -192,13 +192,13 @@ msgstr ""
 msgid "Open Digest File"
 msgstr "ダイジェストファイルを開く"
 
-#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:308
-#: src/callbacks.c:314
+#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:310
+#: src/callbacks.c:316
 msgid "_Open"
 msgstr "開く(_O)"
 
-#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:121
-#: src/callbacks.c:126 src/callbacks.c:308 src/callbacks.c:313
+#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:123
+#: src/callbacks.c:128 src/callbacks.c:310 src/callbacks.c:315
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
@@ -210,32 +210,32 @@ msgstr "ダイジェスト/チェックサムファイル (*.sha1, *.md5, *.sfv,
 msgid "All Files"
 msgstr "すべてのファイル"
 
-#: src/callbacks.c:120 src/callbacks.c:124
+#: src/callbacks.c:122 src/callbacks.c:126
 msgid "Save Digest File"
 msgstr "ダイジェスト値の保存"
 
-#: src/callbacks.c:121 src/callbacks.c:127
+#: src/callbacks.c:123 src/callbacks.c:129
 msgid "_Save"
 msgstr "保存(_S)"
 
-#: src/callbacks.c:274
+#: src/callbacks.c:276
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
 "メッセージダイジェストやチェックサムの計算を行うためのデスクトップユーティリ"
 "ティです"
 
-#: src/callbacks.c:279
+#: src/callbacks.c:281
 msgid "translator-credits"
 msgstr ""
 "bigriver9 https://launchpad.net/~bigriver9615\n"
 "belphegor@belbel.or.jp\n"
 "Shinichirou Yamada"
 
-#: src/callbacks.c:307 src/callbacks.c:311
+#: src/callbacks.c:309 src/callbacks.c:313
 msgid "Select Files"
 msgstr "ファイルの選択"
 
-#: src/callbacks.c:518 src/nautilus/properties.c:243
+#: src/callbacks.c:520 src/nautilus/properties.c:243
 msgid "_Show HMAC Key"
 msgstr "HMAC キーの表示(_S)"
 
