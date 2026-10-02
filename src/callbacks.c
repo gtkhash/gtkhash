@@ -93,6 +93,8 @@ static void on_menuitem_open_activate(void)
 				ud_list = check_file_load(ud_list, p->data);
 
 		if (ud_list) {
+			ud_list = g_slist_reverse(ud_list);
+
 			if (gui.view == GUI_VIEW_FILE_LIST)
 				gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST);
 			else
