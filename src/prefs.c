@@ -30,6 +30,7 @@
 #include "main.h"
 #include "hash.h"
 #include "gui.h"
+#include "dfm-integration.h"
 #include "hash/digest-format.h"
 #include "hash/hash-func.h"
 
@@ -38,6 +39,7 @@
 #define PREFS_KEY_HASH_FUNCS "hash-functions"
 #define PREFS_KEY_SHOW_HMAC "show-hmac"
 #define PREFS_KEY_SHOW_TOOLBAR "show-toolbar"
+#define PREFS_KEY_DFM_INTEGRATION "deepin-file-manager-integration"
 #define PREFS_KEY_VIEW "view"
 #define PREFS_KEY_WINDOW_HEIGHT "window-height"
 #define PREFS_KEY_WINDOW_MAX "window-max"
@@ -166,6 +168,41 @@ static void load_show_widgets(void)
 		gui.menuitem_treeview_show_toolbar, "active", PREFS_BIND_FLAGS);
 }
 
+// suppresses the toggle handler while the checkbox is initialized
+static bool dfm_integration_loading = false;
+
+static void dfm_integration_toggled(GtkToggleButton *togglebutton)
+{
+	if (dfm_integration_loading)
+		return;
+
+	bool enabled = gtk_toggle_button_get_active(togglebutton);
+
+	g_settings_set_boolean(prefs_priv.settings,
+		PREFS_KEY_DFM_INTEGRATION, enabled);
+
+	dfm_integration_apply(enabled);
+}
+
+static void load_dfm_integration(void)
+{
+	bool enabled = g_settings_get_boolean(prefs_priv.settings,
+		PREFS_KEY_DFM_INTEGRATION);
+
+	dfm_integration_loading = true;
+	gtk_toggle_button_set_active(gui.dialog_togglebutton_dfm_integration,
+		enabled);
+	dfm_integration_loading = false;
+
+	dfm_integration_apply(enabled);
+}
+
+static void connect_dfm_integration(void)
+{
+	g_signal_connect(gui.dialog_togglebutton_dfm_integration, "toggled",
+		G_CALLBACK(dfm_integration_toggled), NULL);
+}
+
 static void load_window_size(void)
 {
 	if (g_settings_get_boolean(prefs_priv.settings, PREFS_KEY_WINDOW_MAX)) {
@@ -188,6 +225,8 @@ static void prefs_load(void)
 	load_digest_format();
 	load_view();
 	load_show_widgets();
+	connect_dfm_integration();
+	load_dfm_integration();
 	load_window_size();
 }
 

@@ -9,6 +9,7 @@ if build_gtkhash
     gtkhash_common_sources = [
         'callbacks.c',
         'check.c',
+        'dfm-integration.c',
         'gui.c',
         'hash.c',
         'list.c',
