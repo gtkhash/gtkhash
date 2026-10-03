@@ -164,7 +164,7 @@ void gtkhash_properties_list_check_digests(struct page_s *page)
 			gtk_tree_model_get(model, &iter, COL_DIGEST, &digest, -1);
 
 			if (gtkhash_digest_format_compare(check, digest, DIGEST_FORMAT_HEX_LOWER))
-				icon = "gtk-yes";
+				icon = "object-select-symbolic";
 
 			g_free(digest);
 		} while (!icon && gtk_tree_model_iter_next(model, &iter));

@@ -45,14 +45,10 @@ enum gui_state_e {
 
 extern struct gui_s {
 	GtkWindow *window;
-	GtkMenuItem *menuitem_open, *menuitem_save_as, *menuitem_quit;
-	GtkMenuItem *menuitem_edit;
-	GtkMenuItem *menuitem_cut, *menuitem_copy, *menuitem_paste;
-	GtkMenuItem *menuitem_delete, *menuitem_select_all, *menuitem_prefs;
-	GtkMenuItem *menuitem_about;
-	GtkRadioMenuItem *radiomenuitem_file, *radiomenuitem_text, *radiomenuitem_file_list;
-	GtkToolbar *toolbar;
-	GtkToolButton *toolbutton_add, *toolbutton_remove, *toolbutton_clear;
+	GtkBox *box_buttons;
+	GtkButton *button_add, *button_remove, *button_clear;
+	GSimpleAction *action_open, *action_save_as, *action_prefs, *action_about;
+	GtkToggleButton *togglebutton_view_file, *togglebutton_view_file_list, *togglebutton_view_text;
 	GtkBox *vbox_single, *vbox_list;
 	GtkBox *hbox_input, *hbox_output;
 	GtkBox *vbox_outputlabels, *vbox_digests_file, *vbox_digests_text;
@@ -70,7 +66,6 @@ extern struct gui_s {
 	GtkMenuItem *menuitem_treeview_clear;
 	GtkMenu *menu_treeview_copy;
 	GtkMenuItem *menuitem_treeview_copy;
-	GtkMenuItem *menuitem_treeview_show_toolbar;
 	GtkSeparator *hseparator_buttons;
 	GtkProgressBar *progressbar;
 	GtkButton *button_hash, *button_stop;

@@ -111,7 +111,7 @@ void list_update(void)
 	GtkTreeViewColumn *col = gtk_tree_view_get_column(gui.treeview, COL_STATUS);
 	gtk_tree_view_column_set_visible(col, list_priv.show_status);
 
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbutton_clear), list.rows);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_clear), list.rows);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_clear), list.rows);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), list.rows && enabled);
 }
@@ -316,9 +316,8 @@ void list_check_digests(const unsigned int row)
 
 	g_value_unset(&value);
 
-	// XXX: maybe use ✓ and ✖ instead
 	gtk_list_store_set(gui.liststore, &iter, COL_ICON_NAME,
-		match ? "gtk-yes" : "gtk-no", -1);
+		match ? "object-select-symbolic" : "window-close-symbolic", -1);
 }
 
 void list_clear_digests(void)

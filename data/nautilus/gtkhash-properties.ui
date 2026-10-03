@@ -3,22 +3,13 @@
 <interface domain="gtkhash">
   <!-- interface-name gtkhash-properties.ui -->
   <requires lib="gtk+" version="3.24"/>
-  <object class="GtkImage" id="image_copy">
-    <property name="can-focus">False</property>
-    <property name="icon-name">edit-copy</property>
-    <property name="icon-size">1</property>
-    <property name="visible">True</property>
-  </object>
   <object class="GtkMenu" id="menu">
     <property name="can-focus">False</property>
     <property name="visible">True</property>
     <child>
-      <object class="GtkImageMenuItem" id="imagemenuitem_copy">
-        <property name="always-show-image">True</property>
+      <object class="GtkMenuItem" id="menuitem_copy">
         <property name="can-focus">False</property>
-        <property name="image">image_copy</property>
         <property name="label" translatable="yes">_Copy Digest</property>
-        <property name="use-stock">False</property>
         <property name="use-underline">True</property>
         <property name="visible">True</property>
       </object>
@@ -38,11 +29,6 @@
         <property name="visible">True</property>
       </object>
     </child>
-  </object>
-  <object class="GtkImage" id="image_execute">
-    <property name="can-focus">False</property>
-    <property name="icon-name">system-run</property>
-    <property name="visible">True</property>
   </object>
   <object class="GtkListStore" id="liststore">
     <columns>
@@ -156,7 +142,7 @@
                 <child>
                   <object class="GtkEntry" id="entry_check">
                     <property name="can-focus">True</property>
-                    <property name="primary-icon-stock">gtk-paste</property>
+                    <property name="primary-icon-name">edit-paste-symbolic</property>
                     <property name="primary-icon-tooltip-text" translatable="yes">Paste digest from clipboard</property>
                     <property name="secondary-icon-activatable">False</property>
                     <property name="truncate-multiline">True</property>
@@ -256,13 +242,37 @@
             <property name="visible">True</property>
             <child>
               <object class="GtkButton" id="button_stop">
-                <property name="always-show-image">True</property>
                 <property name="can-focus">True</property>
-                <property name="label">gtk-stop</property>
                 <property name="receives-default">True</property>
                 <property name="sensitive">False</property>
-                <property name="use-stock">True</property>
                 <property name="visible">True</property>
+                <child>
+                  <object class="GtkBox" id="box_button_stop">
+                    <property name="can-focus">False</property>
+                    <property name="halign">center</property>
+                    <property name="spacing">2</property>
+                    <property name="valign">center</property>
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkImage" id="image_stop">
+                        <property name="can-focus">False</property>
+                        <property name="icon-name">process-stop-symbolic</property>
+                        <property name="valign">baseline</property>
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="label_button_stop">
+                        <property name="can-focus">False</property>
+                        <property name="label" translatable="yes">_Stop</property>
+                        <property name="mnemonic-widget">button_stop</property>
+                        <property name="use-underline">True</property>
+                        <property name="valign">baseline</property>
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -272,13 +282,36 @@
             </child>
             <child>
               <object class="GtkButton" id="button_hash">
-                <property name="always-show-image">True</property>
                 <property name="can-focus">True</property>
-                <property name="image">image_execute</property>
-                <property name="label" translatable="yes">H_ash</property>
                 <property name="receives-default">True</property>
-                <property name="use-underline">True</property>
                 <property name="visible">True</property>
+                <child>
+                  <object class="GtkBox" id="box_button_hash">
+                    <property name="can-focus">False</property>
+                    <property name="halign">center</property>
+                    <property name="spacing">2</property>
+                    <property name="valign">center</property>
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkImage" id="image_execute">
+                        <property name="can-focus">False</property>
+                        <property name="icon-name">system-run-symbolic</property>
+                        <property name="valign">baseline</property>
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="label_button_hash">
+                        <property name="can-focus">False</property>
+                        <property name="label" translatable="yes">_Hash</property>
+                        <property name="mnemonic-widget">button_hash</property>
+                        <property name="use-underline">True</property>
+                        <property name="valign">baseline</property>
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
