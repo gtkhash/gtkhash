@@ -158,6 +158,14 @@ msgstr "消息认证码函数"
 msgid "Digest Format:"
 msgstr "摘要格式："
 
+#: data/gtkhash-gtk3.ui:1070
+msgid "File Manager Integration"
+msgstr "文件管理器集成"
+
+#: data/gtkhash-gtk3.ui:1075
+msgid "Deepin File Manager"
+msgstr "深度文件管理器"
+
 #: data/nautilus/gtkhash-properties.ui:20
 msgid "_Copy Digest"
 msgstr "复制摘要(_C)"

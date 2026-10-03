@@ -188,6 +188,8 @@ static void gui_init_objects(GtkBuilder *builder)
 		"dialog_grid"));
 	gui.dialog_togglebutton_show_hmac = GTK_TOGGLE_BUTTON(gui_get_object(builder,
 		"dialog_togglebutton_show_hmac"));
+	gui.dialog_togglebutton_dfm_integration = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"dialog_togglebutton_dfm_integration"));
 	gui.dialog_combobox = GTK_COMBO_BOX(gui_get_object(builder,
 		"dialog_combobox"));
 	gui.dialog_button_close = GTK_BUTTON(gui_get_object(builder,
@@ -839,6 +841,7 @@ void gui_set_state(const enum gui_state_e state)
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_grid), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_togglebutton_show_hmac), !busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_togglebutton_dfm_integration), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_combobox), !busy);
 
 	if (busy)

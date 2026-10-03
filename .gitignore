@@ -1,0 +1,6 @@
+# Meson / ninja build directories
+build/
+obj-*/
+
+# Generated files
+data/gschemas.compiled

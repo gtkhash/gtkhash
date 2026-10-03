@@ -77,6 +77,7 @@ extern struct gui_s {
 	GtkDialog *dialog;
 	GtkGrid *dialog_grid;
 	GtkToggleButton *dialog_togglebutton_show_hmac;
+	GtkToggleButton *dialog_togglebutton_dfm_integration;
 	GtkComboBox *dialog_combobox;
 	GtkButton *dialog_button_close;
 	enum gui_view_e view;
