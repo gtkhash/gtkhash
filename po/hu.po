@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-04 00:31+0000\n"
-"PO-Revision-Date: 2026-09-13 22:51+0000\n"
+"PO-Revision-Date: 2026-10-04 20:51+0000\n"
 "Last-Translator: Szia Tomi <sziatomi01@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/hu/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.10.1.dev0\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
@@ -77,15 +77,15 @@ msgstr "nagybetűs hexadecimális"
 
 #: data/gtkhash-gtk3.ui:48
 msgid "_Add"
-msgstr ""
+msgstr "_Hozzáadás"
 
 #: data/gtkhash-gtk3.ui:79
 msgid "_Remove"
-msgstr ""
+msgstr "_Eltávolítás"
 
 #: data/gtkhash-gtk3.ui:110
 msgid "_Clear"
-msgstr ""
+msgstr "_Törlés"
 
 #: data/gtkhash-gtk3.ui:147
 msgid "Copy _Digest"
@@ -102,30 +102,24 @@ msgid "_Save Digest File…"
 msgstr "Kivonat fájl _mentése…"
 
 #: data/gtkhash-gtk3.ui:181
-#, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
-msgstr "GtkHash beállítások"
+msgstr "_Beállítások"
 
 #: data/gtkhash-gtk3.ui:186
 msgid "_About"
-msgstr ""
+msgstr "_Névjegy"
 
 #: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:725
 msgid "File"
 msgstr "Fájl"
 
 #: data/gtkhash-gtk3.ui:317
-#, fuzzy
-#| msgid "File _List"
 msgid "File List"
-msgstr "Fájl _lista"
+msgstr "Fájl_lista"
 
 #: data/gtkhash-gtk3.ui:331
-#, fuzzy
-#| msgid "_Text"
 msgid "Text"
-msgstr "Sz_öveg"
+msgstr "Szöveg"
 
 #: data/gtkhash-gtk3.ui:374
 msgid "File:"
@@ -150,24 +144,20 @@ msgid "HMAC Key:"
 msgstr "HMAC kulcs:"
 
 #: data/gtkhash-gtk3.ui:852 data/nautilus/gtkhash-properties.ui:306
-#, fuzzy
-#| msgid "GtkHash"
 msgid "_Hash"
-msgstr "GtkHash"
+msgstr "_Hash"
 
 #: data/gtkhash-gtk3.ui:891 data/nautilus/gtkhash-properties.ui:267
 msgid "_Stop"
-msgstr ""
+msgstr "_Leállítás"
 
 #: data/gtkhash-gtk3.ui:936
-#, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
-msgstr "GtkHash beállítások"
+msgstr "Beállítások"
 
 #: data/gtkhash-gtk3.ui:954
 msgid "_Close"
-msgstr ""
+msgstr "_Bezárás"
 
 #: data/gtkhash-gtk3.ui:989
 msgid "Hash Functions"
