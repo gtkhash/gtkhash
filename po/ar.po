@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-02 21:34+0200\n"
+"POT-Creation-Date: 2026-10-04 00:31+0000\n"
 "PO-Revision-Date: 2021-04-05 17:26+0000\n"
 "Last-Translator: Ahmed Eldemery <aeldemery.de@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/gtkhash/"
@@ -65,121 +65,133 @@ msgstr ""
 "الخوارزميات وطرق الحساب المعتمدة في البرنامج تشمل الآتي MD5، SHA1، SHA256، "
 "SHA512، CRC32."
 
-#: data/gtkhash-gtk3.ui:13
+#: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
 msgstr "عرض بأحرف صغيرة للنظام السداسي العشري"
 
-#: data/gtkhash-gtk3.ui:16
+#: data/gtkhash-gtk3.ui:17
 msgid "Uppercase Hexadecimal"
 msgstr "عرض أحرف كبيرة للنظام السداسي العشري"
 
-#: data/gtkhash-gtk3.ui:75
+#: data/gtkhash-gtk3.ui:48
+msgid "_Add"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:79
+msgid "_Remove"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:110
+msgid "_Clear"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:147
 msgid "Copy _Digest"
 msgstr "انسخ ال_خلاصة"
 
-#: data/gtkhash-gtk3.ui:97
-msgid "Show _Toolbar"
-msgstr "أظهر _شريط الأدوات"
-
-#: data/gtkhash-gtk3.ui:138 data/gtkhash-gtk3.ui:289
-msgid "_File"
-msgstr "_ملف"
-
-#: data/gtkhash-gtk3.ui:150
+#: data/gtkhash-gtk3.ui:169
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "ا_فتح ملف حساب الخوارزمية…"
 
-#: data/gtkhash-gtk3.ui:161
+#: data/gtkhash-gtk3.ui:174
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "اح_فظ ملف حساب الخوارزمية…"
 
-#: data/gtkhash-gtk3.ui:191
-msgid "_Edit"
-msgstr "_حرّر"
+#: data/gtkhash-gtk3.ui:181
+#, fuzzy
+#| msgid "GtkHash Preferences"
+msgid "_Preferences"
+msgstr "تفضيلات GtkHash"
 
-#: data/gtkhash-gtk3.ui:277
-msgid "_View"
-msgstr "_اعرض"
+#: data/gtkhash-gtk3.ui:186
+msgid "_About"
+msgstr ""
 
-#: data/gtkhash-gtk3.ui:299
-msgid "_Text"
-msgstr "_نص"
-
-#: data/gtkhash-gtk3.ui:309
-msgid "File _List"
-msgstr "_قائمة الملف"
-
-#: data/gtkhash-gtk3.ui:321
-msgid "_Help"
-msgstr "_مساعدة"
-
-#: data/gtkhash-gtk3.ui:426
-msgid "File:"
-msgstr "الملف:"
-
-#: data/gtkhash-gtk3.ui:439
-msgid "Text:"
-msgstr "النص:"
-
-#: data/gtkhash-gtk3.ui:452 data/nautilus/gtkhash-properties.ui:147
-msgid "Check:"
-msgstr "فحص:"
-
-#: data/gtkhash-gtk3.ui:508 data/gtkhash-gtk3.ui:526
-#: data/nautilus/gtkhash-properties.ui:160
-msgid "Paste digest from clipboard"
-msgstr "انسخ الخوارزمية المحسوبة من الحافظة"
-
-#: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
-#: data/nautilus/gtkhash-properties.ui:186
-msgid "HMAC Key:"
-msgstr "مفتاح HMAC:"
-
-#: data/gtkhash-gtk3.ui:777
+#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:725
 msgid "File"
 msgstr "ملفّ"
 
-#: data/gtkhash-gtk3.ui:885
-msgid "Ha_sh"
-msgstr "ها_ش"
+#: data/gtkhash-gtk3.ui:317
+#, fuzzy
+#| msgid "File _List"
+msgid "File List"
+msgstr "_قائمة الملف"
 
-#: data/gtkhash-gtk3.ui:948
-msgid "GtkHash Preferences"
+#: data/gtkhash-gtk3.ui:331
+#, fuzzy
+#| msgid "_Text"
+msgid "Text"
+msgstr "_نص"
+
+#: data/gtkhash-gtk3.ui:374
+msgid "File:"
+msgstr "الملف:"
+
+#: data/gtkhash-gtk3.ui:387
+msgid "Text:"
+msgstr "النص:"
+
+#: data/gtkhash-gtk3.ui:400 data/nautilus/gtkhash-properties.ui:133
+msgid "Check:"
+msgstr "فحص:"
+
+#: data/gtkhash-gtk3.ui:456 data/gtkhash-gtk3.ui:474
+#: data/nautilus/gtkhash-properties.ui:146
+msgid "Paste digest from clipboard"
+msgstr "انسخ الخوارزمية المحسوبة من الحافظة"
+
+#: data/gtkhash-gtk3.ui:492 data/gtkhash-gtk3.ui:519
+#: data/nautilus/gtkhash-properties.ui:172
+msgid "HMAC Key:"
+msgstr "مفتاح HMAC:"
+
+#: data/gtkhash-gtk3.ui:852 data/nautilus/gtkhash-properties.ui:306
+msgid "_Hash"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:891 data/nautilus/gtkhash-properties.ui:267
+msgid "_Stop"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:936
+#, fuzzy
+#| msgid "GtkHash Preferences"
+msgid "Preferences"
 msgstr "تفضيلات GtkHash"
 
-#: data/gtkhash-gtk3.ui:1002
+#: data/gtkhash-gtk3.ui:954
+msgid "_Close"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:989
 msgid "Hash Functions"
 msgstr "دوال حساب الخوارزميات"
 
-#: data/gtkhash-gtk3.ui:1033
+#: data/gtkhash-gtk3.ui:1020
 msgid "MAC Functions"
 msgstr "الدوال بنظام MAC"
 
-#: data/gtkhash-gtk3.ui:1055
+#: data/gtkhash-gtk3.ui:1042
 msgid "Digest Format:"
 msgstr "صيغة الخلاصة:"
 
-#: data/nautilus/gtkhash-properties.ui:20
+#: data/nautilus/gtkhash-properties.ui:12
 msgid "_Copy Digest"
 msgstr "ا_نسخ رقم التحقق"
 
-#: data/nautilus/gtkhash-properties.ui:36
+#: data/nautilus/gtkhash-properties.ui:27
 msgid "Show _Disabled Hash Functions"
 msgstr "أظهر دوال التجزئة الم_عطلة"
 
-#: data/nautilus/gtkhash-properties.ui:97
+#: data/nautilus/gtkhash-properties.ui:83
 msgid "Hash Function"
 msgstr "دالة الهاش"
 
-#: data/nautilus/gtkhash-properties.ui:109
+#: data/nautilus/gtkhash-properties.ui:95
 msgid "Digest"
 msgstr "ملخص"
-
-#: data/nautilus/gtkhash-properties.ui:278
-msgid "H_ash"
-msgstr "_هاش"
 
 #: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
@@ -193,13 +205,13 @@ msgstr ""
 msgid "Open Digest File"
 msgstr "افتح ملف التحقق"
 
-#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:310
-#: src/callbacks.c:316
+#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:240
+#: src/callbacks.c:246
 msgid "_Open"
 msgstr "_افتح"
 
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:123
-#: src/callbacks.c:128 src/callbacks.c:310 src/callbacks.c:315
+#: src/callbacks.c:128 src/callbacks.c:240 src/callbacks.c:245
 msgid "_Cancel"
 msgstr "_ألغ"
 
@@ -219,19 +231,19 @@ msgstr "احفظ ملف التحقُق"
 msgid "_Save"
 msgstr "_احفظ"
 
-#: src/callbacks.c:276
+#: src/callbacks.c:198
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "برنامج لحساب أرقام التَثَبُتُ والتحقق من موثوقية الملفات"
 
-#: src/callbacks.c:281
+#: src/callbacks.c:203
 msgid "translator-credits"
 msgstr "Ahmed Eldemery, aeldemery.de at gmail"
 
-#: src/callbacks.c:309 src/callbacks.c:313
+#: src/callbacks.c:233
 msgid "Select Files"
 msgstr "اختر الملفات"
 
-#: src/callbacks.c:520 src/nautilus/properties.c:243
+#: src/callbacks.c:453 src/nautilus/properties.c:243
 msgid "_Show HMAC Key"
 msgstr "أ_ظهر مفتاح HMAC"
 
@@ -240,16 +252,16 @@ msgstr "أ_ظهر مفتاح HMAC"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "فشل في قراءة ملف التحقق: \"%s\" : %s"
 
-#: src/gui.c:309
+#: src/gui.c:285
 msgid "Not a regular file"
 msgstr "ليس ملفا عاديا"
 
-#: src/gui.c:332
+#: src/gui.c:308
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "فشل في إضافة ملف: \"%s\":%s"
 
-#: src/hash.c:188 src/prefs.c:113
+#: src/hash.c:188 src/prefs.c:109
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "دالة تحقق غير معروفةِ الإسم \"%s\""
@@ -305,7 +317,7 @@ msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ملف|عنوان…]"
 
-#: src/prefs.c:82
+#: src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
 msgstr "فشل تمكين أي من وظائف التحقق."
 
@@ -335,6 +347,27 @@ msgstr[5] "تبقت %u ثانية"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "تبقى %s من %s - %s (%s/الثوان)"
+
+#~ msgid "Show _Toolbar"
+#~ msgstr "أظهر _شريط الأدوات"
+
+#~ msgid "_File"
+#~ msgstr "_ملف"
+
+#~ msgid "_Edit"
+#~ msgstr "_حرّر"
+
+#~ msgid "_View"
+#~ msgstr "_اعرض"
+
+#~ msgid "_Help"
+#~ msgstr "_مساعدة"
+
+#~ msgid "Ha_sh"
+#~ msgstr "ها_ش"
+
+#~ msgid "H_ash"
+#~ msgstr "_هاش"
 
 #~ msgid "Digests"
 #~ msgstr "ملخصات"

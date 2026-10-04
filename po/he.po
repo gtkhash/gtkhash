@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-02 21:34+0200\n"
+"POT-Creation-Date: 2026-10-04 00:31+0000\n"
 "PO-Revision-Date: 2020-07-21 11:41+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/gtkhash/"
@@ -63,121 +63,133 @@ msgstr ""
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "פונקציות הגיבוב הנתמכות כוללות את MD5,‏ SHA1,‏ SHA256,‏ SHA512 ו־CRC32."
 
-#: data/gtkhash-gtk3.ui:13
+#: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
 msgstr "הקסדצימלי באותיות קטנות"
 
-#: data/gtkhash-gtk3.ui:16
+#: data/gtkhash-gtk3.ui:17
 msgid "Uppercase Hexadecimal"
 msgstr "הקסדצימלי באותיות גדולות"
 
-#: data/gtkhash-gtk3.ui:75
+#: data/gtkhash-gtk3.ui:48
+msgid "_Add"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:79
+msgid "_Remove"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:110
+msgid "_Clear"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:147
 msgid "Copy _Digest"
 msgstr "העתקת קוד _גיבוב"
 
-#: data/gtkhash-gtk3.ui:97
-msgid "Show _Toolbar"
-msgstr "הצגת _סרגל כלים"
-
-#: data/gtkhash-gtk3.ui:138 data/gtkhash-gtk3.ui:289
-msgid "_File"
-msgstr "_קובץ"
-
-#: data/gtkhash-gtk3.ui:150
+#: data/gtkhash-gtk3.ui:169
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "_פתיחת קובץ קוד גיבוב…"
 
-#: data/gtkhash-gtk3.ui:161
+#: data/gtkhash-gtk3.ui:174
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "_שמירת קוד גיבוב לקובץ…"
 
-#: data/gtkhash-gtk3.ui:191
-msgid "_Edit"
-msgstr "_עריכה"
+#: data/gtkhash-gtk3.ui:181
+#, fuzzy
+#| msgid "GtkHash Preferences"
+msgid "_Preferences"
+msgstr "העדפות GtkHash"
 
-#: data/gtkhash-gtk3.ui:277
-msgid "_View"
-msgstr "_תצוגה"
+#: data/gtkhash-gtk3.ui:186
+msgid "_About"
+msgstr ""
 
-#: data/gtkhash-gtk3.ui:299
-msgid "_Text"
-msgstr "_טקסט"
-
-#: data/gtkhash-gtk3.ui:309
-msgid "File _List"
-msgstr "רשימת_קבצים"
-
-#: data/gtkhash-gtk3.ui:321
-msgid "_Help"
-msgstr "ע_זרה"
-
-#: data/gtkhash-gtk3.ui:426
-msgid "File:"
-msgstr "קובץ:"
-
-#: data/gtkhash-gtk3.ui:439
-msgid "Text:"
-msgstr "טקסט:"
-
-#: data/gtkhash-gtk3.ui:452 data/nautilus/gtkhash-properties.ui:147
-msgid "Check:"
-msgstr "בדיקה מול:"
-
-#: data/gtkhash-gtk3.ui:508 data/gtkhash-gtk3.ui:526
-#: data/nautilus/gtkhash-properties.ui:160
-msgid "Paste digest from clipboard"
-msgstr "הדבקת קוד גיבוב מלוח ההעתקה"
-
-#: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
-#: data/nautilus/gtkhash-properties.ui:186
-msgid "HMAC Key:"
-msgstr "מפתח HMAC:"
-
-#: data/gtkhash-gtk3.ui:777
+#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:725
 msgid "File"
 msgstr "קובץ"
 
-#: data/gtkhash-gtk3.ui:885
-msgid "Ha_sh"
-msgstr "חי_שוב"
+#: data/gtkhash-gtk3.ui:317
+#, fuzzy
+#| msgid "File _List"
+msgid "File List"
+msgstr "רשימת_קבצים"
 
-#: data/gtkhash-gtk3.ui:948
-msgid "GtkHash Preferences"
+#: data/gtkhash-gtk3.ui:331
+#, fuzzy
+#| msgid "_Text"
+msgid "Text"
+msgstr "_טקסט"
+
+#: data/gtkhash-gtk3.ui:374
+msgid "File:"
+msgstr "קובץ:"
+
+#: data/gtkhash-gtk3.ui:387
+msgid "Text:"
+msgstr "טקסט:"
+
+#: data/gtkhash-gtk3.ui:400 data/nautilus/gtkhash-properties.ui:133
+msgid "Check:"
+msgstr "בדיקה מול:"
+
+#: data/gtkhash-gtk3.ui:456 data/gtkhash-gtk3.ui:474
+#: data/nautilus/gtkhash-properties.ui:146
+msgid "Paste digest from clipboard"
+msgstr "הדבקת קוד גיבוב מלוח ההעתקה"
+
+#: data/gtkhash-gtk3.ui:492 data/gtkhash-gtk3.ui:519
+#: data/nautilus/gtkhash-properties.ui:172
+msgid "HMAC Key:"
+msgstr "מפתח HMAC:"
+
+#: data/gtkhash-gtk3.ui:852 data/nautilus/gtkhash-properties.ui:306
+msgid "_Hash"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:891 data/nautilus/gtkhash-properties.ui:267
+msgid "_Stop"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:936
+#, fuzzy
+#| msgid "GtkHash Preferences"
+msgid "Preferences"
 msgstr "העדפות GtkHash"
 
-#: data/gtkhash-gtk3.ui:1002
+#: data/gtkhash-gtk3.ui:954
+msgid "_Close"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:989
 msgid "Hash Functions"
 msgstr "פונקציות גיבוב"
 
-#: data/gtkhash-gtk3.ui:1033
+#: data/gtkhash-gtk3.ui:1020
 msgid "MAC Functions"
 msgstr "פונקציות MAC"
 
-#: data/gtkhash-gtk3.ui:1055
+#: data/gtkhash-gtk3.ui:1042
 msgid "Digest Format:"
 msgstr "תסדיר קוד גיבוב:"
 
-#: data/nautilus/gtkhash-properties.ui:20
+#: data/nautilus/gtkhash-properties.ui:12
 msgid "_Copy Digest"
 msgstr "ה_עתקת קוד גיבוב"
 
-#: data/nautilus/gtkhash-properties.ui:36
+#: data/nautilus/gtkhash-properties.ui:27
 msgid "Show _Disabled Hash Functions"
 msgstr "הצגת פונקציות גיבוב מו_שבתות"
 
-#: data/nautilus/gtkhash-properties.ui:97
+#: data/nautilus/gtkhash-properties.ui:83
 msgid "Hash Function"
 msgstr "פונקציית גיבוב"
 
-#: data/nautilus/gtkhash-properties.ui:109
+#: data/nautilus/gtkhash-properties.ui:95
 msgid "Digest"
 msgstr "קוד גיבוב"
-
-#: data/nautilus/gtkhash-properties.ui:278
-msgid "H_ash"
-msgstr "_חישוב"
 
 #: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
@@ -191,13 +203,13 @@ msgstr ""
 msgid "Open Digest File"
 msgstr "פתיחת קובץ קוד גיבוב"
 
-#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:310
-#: src/callbacks.c:316
+#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:240
+#: src/callbacks.c:246
 msgid "_Open"
 msgstr "_פתיחה"
 
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:123
-#: src/callbacks.c:128 src/callbacks.c:310 src/callbacks.c:315
+#: src/callbacks.c:128 src/callbacks.c:240 src/callbacks.c:245
 msgid "_Cancel"
 msgstr "_ביטול"
 
@@ -217,22 +229,22 @@ msgstr "שמירת קוד גיבוב לקובץ"
 msgid "_Save"
 msgstr "_שמירה"
 
-#: src/callbacks.c:276
+#: src/callbacks.c:198
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "כלי לשולחן עבודה לחישוב קוד גיבוב או סיכום ביקורת"
 
-#: src/callbacks.c:281
+#: src/callbacks.c:203
 msgid "translator-credits"
 msgstr ""
 "ttv20 https://launchpad.net/~ttv200\n"
 "Roi Klevansky https://gitlab.com/RoiKlevansky\n"
 "Yaron Shahrabani https://github.com/yarons"
 
-#: src/callbacks.c:309 src/callbacks.c:313
+#: src/callbacks.c:233
 msgid "Select Files"
 msgstr "בחירת קבצים"
 
-#: src/callbacks.c:520 src/nautilus/properties.c:243
+#: src/callbacks.c:453 src/nautilus/properties.c:243
 msgid "_Show HMAC Key"
 msgstr "ה_צגת מפתח HMAC"
 
@@ -241,16 +253,16 @@ msgstr "ה_צגת מפתח HMAC"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "קריאת קובץ הבדיקה „%s” נכשלה: %s"
 
-#: src/gui.c:309
+#: src/gui.c:285
 msgid "Not a regular file"
 msgstr "לא קובץ רגיל"
 
-#: src/gui.c:332
+#: src/gui.c:308
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "הוספת הקובץ „%s” נכשלה: %s"
 
-#: src/hash.c:188 src/prefs.c:113
+#: src/hash.c:188 src/prefs.c:109
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "לא נמצאה פונקציית גיבוב בשם „%s”"
@@ -306,7 +318,7 @@ msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
 
-#: src/prefs.c:82
+#: src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
 msgstr "הפעלת פונקציות הגיבוב הנתמכות נכשלה."
 
@@ -332,6 +344,27 @@ msgstr[3] "נשארו %u שניות"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s מתוך %s‏ - %s (%s לשנייה)"
+
+#~ msgid "Show _Toolbar"
+#~ msgstr "הצגת _סרגל כלים"
+
+#~ msgid "_File"
+#~ msgstr "_קובץ"
+
+#~ msgid "_Edit"
+#~ msgstr "_עריכה"
+
+#~ msgid "_View"
+#~ msgstr "_תצוגה"
+
+#~ msgid "_Help"
+#~ msgstr "ע_זרה"
+
+#~ msgid "Ha_sh"
+#~ msgstr "חי_שוב"
+
+#~ msgid "H_ash"
+#~ msgstr "_חישוב"
 
 #~ msgid "Digests"
 #~ msgstr "קודי גבוב"
