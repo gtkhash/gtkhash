@@ -37,7 +37,6 @@
 #define PREFS_KEY_DIGEST_FORMAT "digest-format"
 #define PREFS_KEY_HASH_FUNCS "hash-functions"
 #define PREFS_KEY_SHOW_HMAC "show-hmac"
-#define PREFS_KEY_SHOW_TOOLBAR "show-toolbar"
 #define PREFS_KEY_VIEW "view"
 #define PREFS_KEY_WINDOW_HEIGHT "window-height"
 #define PREFS_KEY_WINDOW_MAX "window-max"
@@ -87,9 +86,6 @@ static void default_show_widgets(void)
 {
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(
 		gui.dialog_togglebutton_show_hmac), false);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
-		gui.menuitem_treeview_show_toolbar), true);
 }
 
 static void prefs_default(void)
@@ -161,9 +157,6 @@ static void load_show_widgets(void)
 {
 	g_settings_bind(prefs_priv.settings, PREFS_KEY_SHOW_HMAC,
 		gui.dialog_togglebutton_show_hmac, "active", PREFS_BIND_FLAGS);
-
-	g_settings_bind(prefs_priv.settings, PREFS_KEY_SHOW_TOOLBAR,
-		gui.menuitem_treeview_show_toolbar, "active", PREFS_BIND_FLAGS);
 }
 
 static void load_window_size(void)

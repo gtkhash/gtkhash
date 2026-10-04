@@ -20,6 +20,7 @@
 #ifndef GTKHASH_CALLBACKS_H
 #define GTKHASH_CALLBACKS_H
 
+void callbacks_actions_init(void);
 void callbacks_init(void);
 
 #endif

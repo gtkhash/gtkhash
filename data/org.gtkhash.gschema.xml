@@ -15,9 +15,6 @@
     <key name="show-hmac" type="b">
       <default>false</default>
     </key>
-    <key name="show-toolbar" type="b">
-      <default>true</default>
-    </key>
     <key name="view" type="s">
       <choices>
         <choice value='file' />

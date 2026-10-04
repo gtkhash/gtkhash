@@ -318,7 +318,7 @@ static void gtkhash_properties_init_objects(struct page_s *page,
 		"menu"));
 	g_object_ref(page->menu);
 	page->menuitem_copy = GTK_MENU_ITEM(gtkhash_properties_get_object(builder,
-		"imagemenuitem_copy"));
+		"menuitem_copy"));
 	page->menuitem_show_funcs = GTK_CHECK_MENU_ITEM(gtkhash_properties_get_object(builder,
 		"checkmenuitem_show_funcs"));
 

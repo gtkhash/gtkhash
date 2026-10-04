@@ -68,45 +68,21 @@ static void gui_init_objects(GtkBuilder *builder)
 	gui.window = GTK_WINDOW(gui_get_object(builder,
 		"window"));
 
-	// Menus
-	gui.menuitem_open = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_open"));
-	gui.menuitem_save_as = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_save_as"));
-	gui.menuitem_quit = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_quit"));
-	gui.menuitem_edit = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_edit"));
-	gui.menuitem_cut = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_cut"));
-	gui.menuitem_copy = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_copy"));
-	gui.menuitem_paste = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_paste"));
-	gui.menuitem_delete = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_delete"));
-	gui.menuitem_select_all = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_select_all"));
-	gui.menuitem_prefs = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_prefs"));
-	gui.menuitem_about = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_about"));
-	gui.radiomenuitem_file = GTK_RADIO_MENU_ITEM(gui_get_object(builder,
-		"radiomenuitem_file"));
-	gui.radiomenuitem_text = GTK_RADIO_MENU_ITEM(gui_get_object(builder,
-		"radiomenuitem_text"));
-	gui.radiomenuitem_file_list = GTK_RADIO_MENU_ITEM(gui_get_object(builder,
-		"radiomenuitem_file_list"));
-
-	// Toolbar
-	gui.toolbar = GTK_TOOLBAR(gui_get_object(builder,
-		"toolbar"));
-	gui.toolbutton_add = GTK_TOOL_BUTTON(gui_get_object(builder,
-		"toolbutton_add"));
-	gui.toolbutton_remove = GTK_TOOL_BUTTON(gui_get_object(builder,
-		"toolbutton_remove"));
-	gui.toolbutton_clear = GTK_TOOL_BUTTON(gui_get_object(builder,
-		"toolbutton_clear"));
+	// Header Bar
+	gui.box_buttons = GTK_BOX(gui_get_object(builder,
+		"box_buttons"));
+	gui.button_add = GTK_BUTTON(gui_get_object(builder,
+		"button_add"));
+	gui.button_remove = GTK_BUTTON(gui_get_object(builder,
+		"button_remove"));
+	gui.button_clear = GTK_BUTTON(gui_get_object(builder,
+		"button_clear"));
+	gui.togglebutton_view_file = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"togglebutton_view_file"));
+	gui.togglebutton_view_file_list = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"togglebutton_view_file_list"));
+	gui.togglebutton_view_text = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"togglebutton_view_text"));
 
 	// Containers
 	gui.vbox_single = GTK_BOX(gui_get_object(builder,
@@ -166,8 +142,6 @@ static void gui_init_objects(GtkBuilder *builder)
 		"menu_treeview_copy"));
 	gui.menuitem_treeview_copy = GTK_MENU_ITEM(gui_get_object(builder,
 		"menuitem_treeview_copy"));
-	gui.menuitem_treeview_show_toolbar = GTK_MENU_ITEM(gui_get_object(builder,
-		"menuitem_treeview_show_toolbar"));
 
 	// Buttons
 	gui.hseparator_buttons = GTK_SEPARATOR(gui_get_object(builder,
@@ -181,7 +155,7 @@ static void gui_init_objects(GtkBuilder *builder)
 	gui.progressbar = GTK_PROGRESS_BAR(gui_get_object(builder,
 		"progressbar"));
 
-	// Dialog
+	// Preferences Dialog
 	gui.dialog = GTK_DIALOG(gui_get_object(builder,
 		"dialog"));
 	gui.dialog_grid = GTK_GRID(gui_get_object(builder,
@@ -277,6 +251,8 @@ void gui_init(void)
 	gui_init_objects(builder);
 	g_object_unref(builder);
 	resources_unregister_resource();
+
+	callbacks_actions_init();
 
 	gui_init_hash_funcs();
 	list_init();
@@ -436,16 +412,13 @@ void gui_set_view(const enum gui_view_e view)
 
 	switch (view) {
 		case GUI_VIEW_FILE:
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
-				gui.radiomenuitem_file), true);
+			gtk_toggle_button_set_active(gui.togglebutton_view_file, true);
 			break;
 		case GUI_VIEW_TEXT:
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
-				gui.radiomenuitem_text), true);
+			gtk_toggle_button_set_active(gui.togglebutton_view_text, true);
 			break;
 		case GUI_VIEW_FILE_LIST:
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(
-				gui.radiomenuitem_file_list), true);
+			gtk_toggle_button_set_active(gui.togglebutton_view_file_list, true);
 			break;
 		default:
 			g_assert_not_reached();
@@ -502,10 +475,10 @@ const uint8_t *gui_get_hmac_key(size_t *key_size)
 	return hmac_key;
 }
 
-static void gui_menuitem_save_as_set_sensitive(void)
+static void gui_action_save_as_set_enabled(void)
 {
 	if (gui_priv.state == GUI_STATE_BUSY) {
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_save_as), false);
+		g_simple_action_set_enabled(gui.action_save_as, false);
 		return;
 	}
 
@@ -546,7 +519,7 @@ static void gui_menuitem_save_as_set_sensitive(void)
 			sensitive = false;
 	}
 
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_save_as), sensitive);
+	g_simple_action_set_enabled(gui.action_save_as, sensitive);
 }
 
 void gui_enable_hash_func(const enum hash_func_e id)
@@ -657,7 +630,14 @@ void gui_update(void)
 	if ((gui.view == GUI_VIEW_FILE) || (gui.view == GUI_VIEW_TEXT)) {
 		gui_update_hmac();
 
-		gtk_widget_hide(GTK_WIDGET(gui.toolbar));
+		if (gui.view == GUI_VIEW_FILE) {
+			gtk_widget_show(GTK_WIDGET(gui.button_add));
+			gtk_widget_hide(GTK_WIDGET(gui.button_remove));
+			gtk_widget_hide(GTK_WIDGET(gui.button_clear));
+			gtk_widget_show(GTK_WIDGET(gui.box_buttons));
+		} else
+			gtk_widget_hide(GTK_WIDGET(gui.box_buttons));
+
 		gtk_widget_hide(GTK_WIDGET(gui.vbox_list));
 		gtk_widget_show(GTK_WIDGET(gui.vbox_single));
 	}
@@ -711,16 +691,17 @@ void gui_update(void)
 			gtk_widget_show(GTK_WIDGET(gui.vbox_list));
 			gtk_widget_show(GTK_WIDGET(gui.button_hash));
 
-			gtk_widget_set_visible(GTK_WIDGET(gui.toolbar),
-				gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(
-					gui.menuitem_treeview_show_toolbar)));
+			gtk_widget_show(GTK_WIDGET(gui.button_add));
+			gtk_widget_show(GTK_WIDGET(gui.button_remove));
+			gtk_widget_show(GTK_WIDGET(gui.button_clear));
+			gtk_widget_show(GTK_WIDGET(gui.box_buttons));
 			break;
 		default:
 			g_assert_not_reached();
 	}
 
 	gui_check_digests();
-	gui_menuitem_save_as_set_sensitive();
+	gui_action_save_as_set_enabled();
 }
 
 void gui_clear_digests(void)
@@ -749,7 +730,7 @@ void gui_clear_digests(void)
 			g_assert_not_reached();
 	}
 
-	gui_menuitem_save_as_set_sensitive();
+	gui_action_save_as_set_enabled();
 }
 
 void gui_check_digests(void)
@@ -794,9 +775,8 @@ void gui_check_digests(void)
 		const char *icon_out = NULL;
 
 		if (*str_in && gtkhash_digest_format_compare(str_in, str_out, format)) {
-			// FIXME: find a real alternative for GTK_STOCK_YES
-			icon_out = "gtk-yes";
-			icon_in = "gtk-yes";
+			icon_out = "object-select-symbolic";
+			icon_in = "object-select-symbolic";
 		}
 		gtk_entry_set_icon_from_icon_name(entry, GTK_ENTRY_ICON_SECONDARY,
 			icon_out);
@@ -829,13 +809,13 @@ void gui_set_state(const enum gui_state_e state)
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.hbox_input), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.hbox_output), !busy);
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.toolbar), !busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.box_buttons), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.treeview), !busy);
 
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_open), !busy);
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_text), !busy);
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_file), !busy);
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.radiomenuitem_file_list), !busy);
+	g_simple_action_set_enabled(gui.action_open, !busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.togglebutton_view_file), !busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.togglebutton_view_text), !busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.togglebutton_view_file_list), !busy);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_grid), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.dialog_togglebutton_show_hmac), !busy);
@@ -846,7 +826,7 @@ void gui_set_state(const enum gui_state_e state)
 	else
 		gtk_window_set_default(gui.window, GTK_WIDGET(gui.button_hash));
 
-	gui_menuitem_save_as_set_sensitive();
+	gui_action_save_as_set_enabled();
 }
 
 bool gui_is_maximised(void)
