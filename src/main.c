@@ -44,6 +44,12 @@ static void nls_init(void)
 	g_free(pkgdir);
 #else
 	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
+	/* Portable builds (AppImage, etc.): if TEXTDOMAINDIR is set, rebind
+	 * the message catalogs there so bundled translations are found even
+	 * though the binary was built with the system LOCALEDIR. */
+	const char *tdd = g_getenv("TEXTDOMAINDIR");
+	if (tdd != NULL && *tdd != '\0')
+		bindtextdomain(GETTEXT_PACKAGE, tdd);
 #endif
 
 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");

@@ -28,6 +28,7 @@
 #include <stdbool.h>
 #include <glib.h>
 #include <glib/gstdio.h>
+#include <gio/gio.h>
 
 #include "dfm-integration.h"
 
@@ -45,16 +46,53 @@ static const char dfm_script_contents[] =
 	"# GtkHash file-manager launcher (handles paths with spaces correctly)\n"
 	"# Used by the dde-file-manager custom context menu.\n"
 	"\n"
+	"# Optional: set the full path to your AppImage if it is not found\n"
+	"# automatically (e.g. after moving it or renaming it arbitrarily).\n"
+	"GTKHASH_APPIMAGE=\"\"\n"
+	"\n"
+	"launch() { # $1 = AppImage path, rest = file args\n"
+	"    echo \"$1\" > \"$(dirname \"$0\")/appimage-path\" 2>/dev/null\n"
+	"    exec \"$1\" \"${@:2}\"\n"
+	"}\n"
+	"\n"
+	"# 1) system installation\n"
 	"if command -v gtkhash >/dev/null 2>&1; then\n"
 	"    exec /usr/bin/gtkhash \"$@\"\n"
 	"fi\n"
 	"\n"
-	"# Fallback: look for the portable AppImage in common locations\n"
-	"for d in \"$(dirname \"$0\")\" \"$HOME/Downloads\" \"$HOME/下载\" \"$HOME/Desktop\" \"$HOME/桌面\"; do\n"
-	"    if [ -x \"$d/GtkHash-x86_64.AppImage\" ]; then\n"
-	"        exec \"$d/GtkHash-x86_64.AppImage\" \"$@\"\n"
+	"# 2) manually configured AppImage path\n"
+	"if [ -n \"$GTKHASH_APPIMAGE\" ] && [ -x \"$GTKHASH_APPIMAGE\" ]; then\n"
+	"    launch \"$GTKHASH_APPIMAGE\" \"$@\"\n"
+	"fi\n"
+	"\n"
+	"# 3) recorded AppImage path (written by register-appimage.sh, or by\n"
+	"#    launch() above once an AppImage has been found)\n"
+	"record=\"$(dirname \"$0\")/appimage-path\"\n"
+	"if [ -f \"$record\" ]; then\n"
+	"    registered=$(cat \"$record\" 2>/dev/null)\n"
+	"    if [ -n \"$registered\" ] && [ -x \"$registered\" ]; then\n"
+	"        launch \"$registered\" \"$@\"\n"
 	"    fi\n"
+	"fi\n"
+	"\n"
+	"# 4) common locations: any GtkHash*.AppImage (any case)\n"
+	"for d in \"$(dirname \"$0\")\" \"$HOME/Downloads\" \"$HOME/下载\" \"$HOME/Desktop\" \"$HOME/桌面\" \"$HOME/Applications\" \"$HOME/应用\" \"$HOME/软件\" \"$HOME/opt\" \"$HOME/.local/bin\"; do\n"
+	"    [ -d \"$d\" ] || continue\n"
+	"    for f in \"$d\"/GtkHash*.AppImage; do\n"
+	"        if [ -x \"$f\" ]; then\n"
+	"            launch \"$f\" \"$@\"\n"
+	"        fi\n"
+	"    done\n"
 	"done\n"
+	"\n"
+	"# 5) bounded search under $HOME (skips hidden dirs/Trash/node_modules)\n"
+	"while IFS= read -r f; do\n"
+	"    if [ -x \"$f\" ]; then\n"
+	"        launch \"$f\" \"$@\"\n"
+	"    fi\n"
+	"done < <(find \"$HOME\" -maxdepth 5 \\\n"
+	"    \\( -name '.*' -o -name 'Trash' -o -name 'node_modules' \\) -prune \\\n"
+	"    -o -type f -iname 'GtkHash*.AppImage' -print 2>/dev/null | head -n 50)\n"
 	"\n"
 	"notify-send \"GtkHash\" \"未找到 GtkHash 或 GtkHash-x86_64.AppImage，请先安装。\" 2>/dev/null\n"
 	"exit 1\n";
@@ -90,6 +128,24 @@ static bool install_files(void)
 	if (ok && g_mkdir_with_parents(menu_dir, 0755) != 0) {
 		g_warning("Failed to create directory \"%s\"", menu_dir);
 		ok = false;
+	}
+
+	// If GtkHash is running from a portable AppImage, copy it next to the
+	// launcher script under a canonical name. The launcher's first fallback
+	// location is its own directory ("$(dirname "$0")"), so the integration
+	// keeps working even if the user later moves or renames the original
+	// AppImage file.
+	const char *appimage = g_getenv("APPIMAGE");
+	if (ok && appimage != NULL && g_file_test(appimage, G_FILE_TEST_IS_EXECUTABLE)) {
+		char *dest = g_build_filename(script_dir, "GtkHash-x86_64.AppImage", NULL);
+		if (!g_file_copy(g_file_new_for_path(appimage),
+				 g_file_new_for_path(dest),
+				 G_FILE_COPY_OVERWRITE, NULL, NULL, NULL, NULL)) {
+			g_warning("Failed to copy AppImage to \"%s\"", dest);
+		} else {
+			g_chmod(dest, 0755);
+		}
+		g_free(dest);
 	}
 
 	// menu config references the launcher script by absolute path
@@ -154,6 +210,11 @@ static bool remove_files(void)
 
 	g_remove(script_path);
 	g_remove(menu_path);
+
+	// also remove the AppImage copy installed by install_files()
+	char *appimage_copy = g_build_filename(script_dir, "GtkHash-x86_64.AppImage", NULL);
+	g_remove(appimage_copy);
+	g_free(appimage_copy);
 
 	// best effort: remove now-empty parent directories
 	g_rmdir(script_dir);
