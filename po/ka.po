@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-02 21:34+0200\n"
+"POT-Creation-Date: 2026-10-04 00:31+0000\n"
 "PO-Revision-Date: 2026-09-20 02:51+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/gtkhash/"
@@ -63,121 +63,135 @@ msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 "მხარდაჭერილი ჰეშის ფუნქციები შეიცავს: MD5, SHA1, SHA256, SHA512 and CRC32."
 
-#: data/gtkhash-gtk3.ui:13
+#: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
 msgstr "თექვსმეტობითი პატარა ასოებით"
 
-#: data/gtkhash-gtk3.ui:16
+#: data/gtkhash-gtk3.ui:17
 msgid "Uppercase Hexadecimal"
 msgstr "თექვსმეტობითი დიდი ასოებით"
 
-#: data/gtkhash-gtk3.ui:75
+#: data/gtkhash-gtk3.ui:48
+msgid "_Add"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:79
+msgid "_Remove"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:110
+msgid "_Clear"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:147
 msgid "Copy _Digest"
 msgstr "_დაიჯესტის კოპირება"
 
-#: data/gtkhash-gtk3.ui:97
-msgid "Show _Toolbar"
-msgstr "_პანელის ჩვენება"
-
-#: data/gtkhash-gtk3.ui:138 data/gtkhash-gtk3.ui:289
-msgid "_File"
-msgstr "_ფაილი"
-
-#: data/gtkhash-gtk3.ui:150
+#: data/gtkhash-gtk3.ui:169
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "დაი_ჯესტის ფაილის გახსნა…"
 
-#: data/gtkhash-gtk3.ui:161
+#: data/gtkhash-gtk3.ui:174
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "დაიჯე_სტის ფაილის შენახვა…"
 
-#: data/gtkhash-gtk3.ui:191
-msgid "_Edit"
-msgstr "_ჩასწორება"
+#: data/gtkhash-gtk3.ui:181
+#, fuzzy
+#| msgid "GtkHash Preferences"
+msgid "_Preferences"
+msgstr "GtkHash-ის მორგება"
 
-#: data/gtkhash-gtk3.ui:277
-msgid "_View"
-msgstr "_ხედი"
+#: data/gtkhash-gtk3.ui:186
+msgid "_About"
+msgstr ""
 
-#: data/gtkhash-gtk3.ui:299
-msgid "_Text"
-msgstr "_ტექსტი"
-
-#: data/gtkhash-gtk3.ui:309
-msgid "File _List"
-msgstr "ფაი_ლების სია"
-
-#: data/gtkhash-gtk3.ui:321
-msgid "_Help"
-msgstr "_დახმარება"
-
-#: data/gtkhash-gtk3.ui:426
-msgid "File:"
-msgstr "ფაილი:"
-
-#: data/gtkhash-gtk3.ui:439
-msgid "Text:"
-msgstr "ტექსტი:"
-
-#: data/gtkhash-gtk3.ui:452 data/nautilus/gtkhash-properties.ui:147
-msgid "Check:"
-msgstr "ჩართვა:"
-
-#: data/gtkhash-gtk3.ui:508 data/gtkhash-gtk3.ui:526
-#: data/nautilus/gtkhash-properties.ui:160
-msgid "Paste digest from clipboard"
-msgstr "დაიჯესტის ჩასმა ბუფერიდან"
-
-#: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
-#: data/nautilus/gtkhash-properties.ui:186
-msgid "HMAC Key:"
-msgstr "HMAC გასაღები:"
-
-#: data/gtkhash-gtk3.ui:777
+#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:725
 msgid "File"
 msgstr "ფაილი"
 
-#: data/gtkhash-gtk3.ui:885
-msgid "Ha_sh"
-msgstr "_ჰეში"
+#: data/gtkhash-gtk3.ui:317
+#, fuzzy
+#| msgid "File _List"
+msgid "File List"
+msgstr "ფაი_ლების სია"
 
-#: data/gtkhash-gtk3.ui:948
-msgid "GtkHash Preferences"
+#: data/gtkhash-gtk3.ui:331
+#, fuzzy
+#| msgid "_Text"
+msgid "Text"
+msgstr "_ტექსტი"
+
+#: data/gtkhash-gtk3.ui:374
+msgid "File:"
+msgstr "ფაილი:"
+
+#: data/gtkhash-gtk3.ui:387
+msgid "Text:"
+msgstr "ტექსტი:"
+
+#: data/gtkhash-gtk3.ui:400 data/nautilus/gtkhash-properties.ui:133
+msgid "Check:"
+msgstr "ჩართვა:"
+
+#: data/gtkhash-gtk3.ui:456 data/gtkhash-gtk3.ui:474
+#: data/nautilus/gtkhash-properties.ui:146
+msgid "Paste digest from clipboard"
+msgstr "დაიჯესტის ჩასმა ბუფერიდან"
+
+#: data/gtkhash-gtk3.ui:492 data/gtkhash-gtk3.ui:519
+#: data/nautilus/gtkhash-properties.ui:172
+msgid "HMAC Key:"
+msgstr "HMAC გასაღები:"
+
+#: data/gtkhash-gtk3.ui:852 data/nautilus/gtkhash-properties.ui:306
+#, fuzzy
+#| msgid "GtkHash"
+msgid "_Hash"
+msgstr "GtkHash"
+
+#: data/gtkhash-gtk3.ui:891 data/nautilus/gtkhash-properties.ui:267
+msgid "_Stop"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:936
+#, fuzzy
+#| msgid "GtkHash Preferences"
+msgid "Preferences"
 msgstr "GtkHash-ის მორგება"
 
-#: data/gtkhash-gtk3.ui:1002
+#: data/gtkhash-gtk3.ui:954
+msgid "_Close"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:989
 msgid "Hash Functions"
 msgstr "ჰეშის ფუნქციები"
 
-#: data/gtkhash-gtk3.ui:1033
+#: data/gtkhash-gtk3.ui:1020
 msgid "MAC Functions"
 msgstr "MAC-ის ფუნქციები"
 
-#: data/gtkhash-gtk3.ui:1055
+#: data/gtkhash-gtk3.ui:1042
 msgid "Digest Format:"
 msgstr "დაიჯესტის ფორმატი:"
 
-#: data/nautilus/gtkhash-properties.ui:20
+#: data/nautilus/gtkhash-properties.ui:12
 msgid "_Copy Digest"
 msgstr "_დაიჯესტის კოპირება"
 
-#: data/nautilus/gtkhash-properties.ui:36
+#: data/nautilus/gtkhash-properties.ui:27
 msgid "Show _Disabled Hash Functions"
 msgstr "გათიშული ჰეშის ფუნქციების _ჩვენება"
 
-#: data/nautilus/gtkhash-properties.ui:97
+#: data/nautilus/gtkhash-properties.ui:83
 msgid "Hash Function"
 msgstr "ჰეშის ფუნქცია"
 
-#: data/nautilus/gtkhash-properties.ui:109
+#: data/nautilus/gtkhash-properties.ui:95
 msgid "Digest"
 msgstr "დაიჯესტი"
-
-#: data/nautilus/gtkhash-properties.ui:278
-msgid "H_ash"
-msgstr "ჰ_ეში"
 
 #: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
@@ -191,13 +205,13 @@ msgstr "hash;checksum;digest;md5;sha1;sha256;crc32;ჰეში;საკონ�
 msgid "Open Digest File"
 msgstr "დაიჯესტის ფაილის გახსნა"
 
-#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:310
-#: src/callbacks.c:316
+#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:240
+#: src/callbacks.c:246
 msgid "_Open"
 msgstr "_გახსნა"
 
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:123
-#: src/callbacks.c:128 src/callbacks.c:310 src/callbacks.c:315
+#: src/callbacks.c:128 src/callbacks.c:240 src/callbacks.c:245
 msgid "_Cancel"
 msgstr "გაუ_ქმება"
 
@@ -217,21 +231,21 @@ msgstr "დაიჯესტის ფაილის შენახვა"
 msgid "_Save"
 msgstr "_შენახვა"
 
-#: src/callbacks.c:276
+#: src/callbacks.c:198
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
 "კომპიუტერის პროგრამა შეტყობინების დაიჯესტების, ან საკონტროლო ჯამების "
 "გამოსათვლელად"
 
-#: src/callbacks.c:281
+#: src/callbacks.c:203
 msgid "translator-credits"
 msgstr "ეკატერინე პაპავა"
 
-#: src/callbacks.c:309 src/callbacks.c:313
+#: src/callbacks.c:233
 msgid "Select Files"
 msgstr "მონიშნეთ ფაილები"
 
-#: src/callbacks.c:520 src/nautilus/properties.c:243
+#: src/callbacks.c:453 src/nautilus/properties.c:243
 msgid "_Show HMAC Key"
 msgstr "HMAC გასაღები_ს ჩვენება"
 
@@ -240,16 +254,16 @@ msgstr "HMAC გასაღები_ს ჩვენება"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "შემოწმების ფაილის \"%s\" წაკითხვა ჩავარდა: %s"
 
-#: src/gui.c:309
+#: src/gui.c:285
 msgid "Not a regular file"
 msgstr "ფაილი ჩვეულებრივი არაა"
 
-#: src/gui.c:332
+#: src/gui.c:308
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "ფაილის \"%s\" შემოწმება ჩავარდა: %s"
 
-#: src/hash.c:188 src/prefs.c:113
+#: src/hash.c:188 src/prefs.c:109
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "უცნობი ჰეშის ფუნქციის სახელი \"%s\""
@@ -305,7 +319,7 @@ msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ფაილი|URI...]"
 
-#: src/prefs.c:82
+#: src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
 msgstr "მხარდაჭერილი ჰეშის ფუნქციების ჩართვა ჩავარდა."
 
@@ -327,3 +341,24 @@ msgstr[1] "დარჩა %u წამი"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s / %s - %s (%s/წმ)"
+
+#~ msgid "Show _Toolbar"
+#~ msgstr "_პანელის ჩვენება"
+
+#~ msgid "_File"
+#~ msgstr "_ფაილი"
+
+#~ msgid "_Edit"
+#~ msgstr "_ჩასწორება"
+
+#~ msgid "_View"
+#~ msgstr "_ხედი"
+
+#~ msgid "_Help"
+#~ msgstr "_დახმარება"
+
+#~ msgid "Ha_sh"
+#~ msgstr "_ჰეში"
+
+#~ msgid "H_ash"
+#~ msgstr "ჰ_ეში"

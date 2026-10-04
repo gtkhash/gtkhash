@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-02 21:34+0200\n"
+"POT-Creation-Date: 2026-10-04 00:31+0000\n"
 "PO-Revision-Date: 2020-07-04 23:41+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtkhash/"
@@ -65,121 +65,133 @@ msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 "Les funcions resum compatibles inclouen MD5, SHA1, SHA256, SHA512 i CRC32."
 
-#: data/gtkhash-gtk3.ui:13
+#: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
 msgstr "Hexadecimal en minúscules"
 
-#: data/gtkhash-gtk3.ui:16
+#: data/gtkhash-gtk3.ui:17
 msgid "Uppercase Hexadecimal"
 msgstr "Hexadecimal en majúscules"
 
-#: data/gtkhash-gtk3.ui:75
+#: data/gtkhash-gtk3.ui:48
+msgid "_Add"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:79
+msgid "_Remove"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:110
+msgid "_Clear"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:147
 msgid "Copy _Digest"
 msgstr "Copia el _resum"
 
-#: data/gtkhash-gtk3.ui:97
-msgid "Show _Toolbar"
-msgstr "_Mostra la barra d'eines"
-
-#: data/gtkhash-gtk3.ui:138 data/gtkhash-gtk3.ui:289
-msgid "_File"
-msgstr "_Fitxer"
-
-#: data/gtkhash-gtk3.ui:150
+#: data/gtkhash-gtk3.ui:169
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "_Obre un fitxer de resums…"
 
-#: data/gtkhash-gtk3.ui:161
+#: data/gtkhash-gtk3.ui:174
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "_Desa els resums en un fitxer…"
 
-#: data/gtkhash-gtk3.ui:191
-msgid "_Edit"
-msgstr "_Edita"
+#: data/gtkhash-gtk3.ui:181
+#, fuzzy
+#| msgid "GtkHash Preferences"
+msgid "_Preferences"
+msgstr "Preferències del GtkHash"
 
-#: data/gtkhash-gtk3.ui:277
-msgid "_View"
-msgstr "_Vista"
+#: data/gtkhash-gtk3.ui:186
+msgid "_About"
+msgstr ""
 
-#: data/gtkhash-gtk3.ui:299
-msgid "_Text"
-msgstr "_Text"
-
-#: data/gtkhash-gtk3.ui:309
-msgid "File _List"
-msgstr "_Llista de fitxers"
-
-#: data/gtkhash-gtk3.ui:321
-msgid "_Help"
-msgstr "_Ajuda"
-
-#: data/gtkhash-gtk3.ui:426
-msgid "File:"
-msgstr "Fitxer:"
-
-#: data/gtkhash-gtk3.ui:439
-msgid "Text:"
-msgstr "Text:"
-
-#: data/gtkhash-gtk3.ui:452 data/nautilus/gtkhash-properties.ui:147
-msgid "Check:"
-msgstr "Verifica:"
-
-#: data/gtkhash-gtk3.ui:508 data/gtkhash-gtk3.ui:526
-#: data/nautilus/gtkhash-properties.ui:160
-msgid "Paste digest from clipboard"
-msgstr "Enganxa el resum del porta-retalls"
-
-#: data/gtkhash-gtk3.ui:544 data/gtkhash-gtk3.ui:571
-#: data/nautilus/gtkhash-properties.ui:186
-msgid "HMAC Key:"
-msgstr "Clau HMAC:"
-
-#: data/gtkhash-gtk3.ui:777
+#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:725
 msgid "File"
 msgstr "Fitxer"
 
-#: data/gtkhash-gtk3.ui:885
-msgid "Ha_sh"
-msgstr "_Calcula"
+#: data/gtkhash-gtk3.ui:317
+#, fuzzy
+#| msgid "File _List"
+msgid "File List"
+msgstr "_Llista de fitxers"
 
-#: data/gtkhash-gtk3.ui:948
-msgid "GtkHash Preferences"
+#: data/gtkhash-gtk3.ui:331
+#, fuzzy
+#| msgid "_Text"
+msgid "Text"
+msgstr "_Text"
+
+#: data/gtkhash-gtk3.ui:374
+msgid "File:"
+msgstr "Fitxer:"
+
+#: data/gtkhash-gtk3.ui:387
+msgid "Text:"
+msgstr "Text:"
+
+#: data/gtkhash-gtk3.ui:400 data/nautilus/gtkhash-properties.ui:133
+msgid "Check:"
+msgstr "Verifica:"
+
+#: data/gtkhash-gtk3.ui:456 data/gtkhash-gtk3.ui:474
+#: data/nautilus/gtkhash-properties.ui:146
+msgid "Paste digest from clipboard"
+msgstr "Enganxa el resum del porta-retalls"
+
+#: data/gtkhash-gtk3.ui:492 data/gtkhash-gtk3.ui:519
+#: data/nautilus/gtkhash-properties.ui:172
+msgid "HMAC Key:"
+msgstr "Clau HMAC:"
+
+#: data/gtkhash-gtk3.ui:852 data/nautilus/gtkhash-properties.ui:306
+msgid "_Hash"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:891 data/nautilus/gtkhash-properties.ui:267
+msgid "_Stop"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:936
+#, fuzzy
+#| msgid "GtkHash Preferences"
+msgid "Preferences"
 msgstr "Preferències del GtkHash"
 
-#: data/gtkhash-gtk3.ui:1002
+#: data/gtkhash-gtk3.ui:954
+msgid "_Close"
+msgstr ""
+
+#: data/gtkhash-gtk3.ui:989
 msgid "Hash Functions"
 msgstr "Funcions resum"
 
-#: data/gtkhash-gtk3.ui:1033
+#: data/gtkhash-gtk3.ui:1020
 msgid "MAC Functions"
 msgstr "Funcions MAC"
 
-#: data/gtkhash-gtk3.ui:1055
+#: data/gtkhash-gtk3.ui:1042
 msgid "Digest Format:"
 msgstr "Format del resum:"
 
-#: data/nautilus/gtkhash-properties.ui:20
+#: data/nautilus/gtkhash-properties.ui:12
 msgid "_Copy Digest"
 msgstr "_Copia el resum"
 
-#: data/nautilus/gtkhash-properties.ui:36
+#: data/nautilus/gtkhash-properties.ui:27
 msgid "Show _Disabled Hash Functions"
 msgstr "Mostra les funcions resum _desactivades"
 
-#: data/nautilus/gtkhash-properties.ui:97
+#: data/nautilus/gtkhash-properties.ui:83
 msgid "Hash Function"
 msgstr "Funció resum"
 
-#: data/nautilus/gtkhash-properties.ui:109
+#: data/nautilus/gtkhash-properties.ui:95
 msgid "Digest"
 msgstr "Resum"
-
-#: data/nautilus/gtkhash-properties.ui:278
-msgid "H_ash"
-msgstr "_Calcula"
 
 #: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
@@ -193,13 +205,13 @@ msgstr ""
 msgid "Open Digest File"
 msgstr "Obre un fitxer de resums"
 
-#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:310
-#: src/callbacks.c:316
+#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:240
+#: src/callbacks.c:246
 msgid "_Open"
 msgstr "_Obre"
 
 #: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:123
-#: src/callbacks.c:128 src/callbacks.c:310 src/callbacks.c:315
+#: src/callbacks.c:128 src/callbacks.c:240 src/callbacks.c:245
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
@@ -219,20 +231,20 @@ msgstr "Desa els resums en un fitxer"
 msgid "_Save"
 msgstr "_Desa"
 
-#: src/callbacks.c:276
+#: src/callbacks.c:198
 msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
 "Una eina d'escriptori per calcular resums de missatges o sumes de verificació"
 
-#: src/callbacks.c:281
+#: src/callbacks.c:203
 msgid "translator-credits"
 msgstr "Toni Estevez <toni.estevez@gmail.com>"
 
-#: src/callbacks.c:309 src/callbacks.c:313
+#: src/callbacks.c:233
 msgid "Select Files"
 msgstr "Selecciona fitxers"
 
-#: src/callbacks.c:520 src/nautilus/properties.c:243
+#: src/callbacks.c:453 src/nautilus/properties.c:243
 msgid "_Show HMAC Key"
 msgstr "_Mostra la clau HMAC"
 
@@ -241,16 +253,16 @@ msgstr "_Mostra la clau HMAC"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "S'ha produït un error en llegir el fitxer de verificació «%s»: %s"
 
-#: src/gui.c:309
+#: src/gui.c:285
 msgid "Not a regular file"
 msgstr "No és un fitxer vàlid"
 
-#: src/gui.c:332
+#: src/gui.c:308
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "S'ha produït un error en afegir el fitxer «%s»: %s"
 
-#: src/hash.c:188 src/prefs.c:113
+#: src/hash.c:188 src/prefs.c:109
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "El nom de la funció resum «%s» és desconegut"
@@ -306,7 +318,7 @@ msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FITXER|URI...]"
 
-#: src/prefs.c:82
+#: src/prefs.c:81
 msgid "Failed to enable any supported hash functions."
 msgstr "S'ha produït un error en activar les funcions resum compatibles."
 
@@ -328,6 +340,27 @@ msgstr[1] "falten %u segons"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s de %s - %s (%s/s)"
+
+#~ msgid "Show _Toolbar"
+#~ msgstr "_Mostra la barra d'eines"
+
+#~ msgid "_File"
+#~ msgstr "_Fitxer"
+
+#~ msgid "_Edit"
+#~ msgstr "_Edita"
+
+#~ msgid "_View"
+#~ msgstr "_Vista"
+
+#~ msgid "_Help"
+#~ msgstr "_Ajuda"
+
+#~ msgid "Ha_sh"
+#~ msgstr "_Calcula"
+
+#~ msgid "H_ash"
+#~ msgstr "_Calcula"
 
 #~ msgid "Digests"
 #~ msgstr "Resums"
