@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-04 00:31+0000\n"
-"PO-Revision-Date: 2026-09-13 19:51+0000\n"
+"PO-Revision-Date: 2026-10-04 01:51+0000\n"
 "Last-Translator: Matthaiks <kitynska@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/pl/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.10.dev0\n"
+"X-Generator: Weblate 2026.10.1.dev0\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
@@ -74,15 +74,15 @@ msgstr "Szesnastkowy wielkimi znakami"
 
 #: data/gtkhash-gtk3.ui:48
 msgid "_Add"
-msgstr ""
+msgstr "_Dodaj"
 
 #: data/gtkhash-gtk3.ui:79
 msgid "_Remove"
-msgstr ""
+msgstr "_Usuń"
 
 #: data/gtkhash-gtk3.ui:110
 msgid "_Clear"
-msgstr ""
+msgstr "_Wyczyść"
 
 #: data/gtkhash-gtk3.ui:147
 msgid "Copy _Digest"
@@ -99,30 +99,24 @@ msgid "_Save Digest File…"
 msgstr "Zapi_sz plik skrótu…"
 
 #: data/gtkhash-gtk3.ui:181
-#, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
-msgstr "Preferencje GtkHash"
+msgstr "_Preferencje"
 
 #: data/gtkhash-gtk3.ui:186
 msgid "_About"
-msgstr ""
+msgstr "_Informacje"
 
 #: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:725
 msgid "File"
 msgstr "Plik"
 
 #: data/gtkhash-gtk3.ui:317
-#, fuzzy
-#| msgid "File _List"
 msgid "File List"
-msgstr "_Lista plików"
+msgstr "Lista plików"
 
 #: data/gtkhash-gtk3.ui:331
-#, fuzzy
-#| msgid "_Text"
 msgid "Text"
-msgstr "_Tekst"
+msgstr "Tekst"
 
 #: data/gtkhash-gtk3.ui:374
 msgid "File:"
@@ -147,24 +141,20 @@ msgid "HMAC Key:"
 msgstr "Klucz HMAC:"
 
 #: data/gtkhash-gtk3.ui:852 data/nautilus/gtkhash-properties.ui:306
-#, fuzzy
-#| msgid "GtkHash"
 msgid "_Hash"
-msgstr "GtkHash"
+msgstr "_Suma kontrolna"
 
 #: data/gtkhash-gtk3.ui:891 data/nautilus/gtkhash-properties.ui:267
 msgid "_Stop"
-msgstr ""
+msgstr "Za_trzymaj"
 
 #: data/gtkhash-gtk3.ui:936
-#, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
-msgstr "Preferencje GtkHash"
+msgstr "Preferencje"
 
 #: data/gtkhash-gtk3.ui:954
 msgid "_Close"
-msgstr ""
+msgstr "_Zamknij"
 
 #: data/gtkhash-gtk3.ui:989
 msgid "Hash Functions"
