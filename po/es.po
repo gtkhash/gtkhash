@@ -5,7 +5,7 @@
 # emma peel <emma.peel@riseup.net>, 2018.
 # Toni Estévez <toni.estevez@gmail.com>, 2019, 2020.
 # Sebastian Duque <sebastiandg7@gmail.com>, 2019.
-# El Pirujo <boina@disroot.org>, 2022, 2023.
+# El Pirujo <boina@disroot.org>, 2022, 2023, 2026.
 # Francisco Serrador <fserrador@gmail.com>, 2025.
 msgid ""
 msgstr ""
@@ -13,8 +13,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-04 00:31+0000\n"
-"PO-Revision-Date: 2025-11-18 00:51+0000\n"
-"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
+"PO-Revision-Date: 2026-10-08 21:51+0000\n"
+"Last-Translator: El Pirujo <boina@disroot.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/es/>\n"
 "Language: es\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 2026.10.1.dev0\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
@@ -104,10 +104,8 @@ msgid "_Save Digest File…"
 msgstr "_Guardar los resúmenes en un archivo…"
 
 #: data/gtkhash-gtk3.ui:181
-#, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
-msgstr "Preferencias de GtkHash"
+msgstr "_Preferencias"
 
 #: data/gtkhash-gtk3.ui:186
 msgid "_About"
@@ -118,16 +116,12 @@ msgid "File"
 msgstr "Archivo"
 
 #: data/gtkhash-gtk3.ui:317
-#, fuzzy
-#| msgid "File _List"
 msgid "File List"
-msgstr "_Lista de archivos"
+msgstr "Lista de archivos"
 
 #: data/gtkhash-gtk3.ui:331
-#, fuzzy
-#| msgid "_Text"
 msgid "Text"
-msgstr "_Texto"
+msgstr "Texto"
 
 #: data/gtkhash-gtk3.ui:374
 msgid "File:"
@@ -160,10 +154,8 @@ msgid "_Stop"
 msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
-#, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
-msgstr "Preferencias de GtkHash"
+msgstr "Preferencias"
 
 #: data/gtkhash-gtk3.ui:954
 msgid "_Close"
