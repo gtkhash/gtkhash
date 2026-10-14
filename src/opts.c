@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -93,21 +93,18 @@ void opts_preinit(int *argc, char ***argv)
 	GOptionEntry entries[] = {
 		{
 			"check", 'c', 0, G_OPTION_ARG_STRING, &opts.check,
-			C_(PACKAGE " --help",
-				"Check against the specified digest or checksum"),
+			C_(PACKAGE " --help", "Check against the specified digest or checksum"),
 			C_(PACKAGE " --help", "DIGEST")
 		},
 		{
 			"check-file", 'C', 0, G_OPTION_ARG_STRING_ARRAY, &opts.check_files,
-			C_(PACKAGE " --help",
-				"Check digests or checksums from the specified file"),
+			C_(PACKAGE " --help", "Check digests or checksums from the specified file"),
 			C_(PACKAGE " --help", "FILE|URI")
 		},
 		{
 			"function", 'f', 0, G_OPTION_ARG_STRING_ARRAY, &opts.funcs,
-			C_(PACKAGE " --help",
-				"Enable the specified Hash Function (e.g. MD5)"),
-			C_(PACKAGE " --help", "FUNCTION")
+			C_(PACKAGE " --help", "Enable or disable the specified hash function"),
+			C_(PACKAGE " --help", "[+-]FUNCTION")
 		},
 		{
 			"text", 't', 0, G_OPTION_ARG_STRING, &opts.text,
@@ -120,7 +117,6 @@ void opts_preinit(int *argc, char ***argv)
 		},
 		{
 			G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY, &opts.files,
-			// Translators: Unicode ellipsis(…) can be used here
 			NULL, C_(PACKAGE " --help", "[FILE|URI...]")
 		},
 		{ NULL, 0, 0, 0, NULL, NULL, NULL }
@@ -151,12 +147,13 @@ void opts_preinit(int *argc, char ***argv)
 		exit(EXIT_SUCCESS);
 	}
 
-	if (opts.funcs)
-		hash_funcs_enable_strv(opts.funcs);
 }
 
 void opts_postinit(void)
 {
+	if (opts.funcs)
+		hash_funcs_enable_strv(opts.funcs);
+
 	if (opts.check && *opts.check)
 		gui_add_check(opts.check);
 

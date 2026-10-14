@@ -227,10 +227,6 @@ static void gui_init_hash_funcs(void)
 			supported / 3, // row
 			1, 1); // width, height
 
-		// Could be enabled already by cmdline arg
-		if (hash.funcs[i].enabled)
-			gui_enable_hash_func(i);
-
 		gtk_widget_show(GTK_WIDGET(gui.hash_widgets[i].button));
 
 		supported++;
@@ -361,15 +357,6 @@ void gui_add_text(const char *text)
 	gui_update();
 
 	gtk_editable_set_position(GTK_EDITABLE(gui.entry_text), -1);
-}
-
-void gui_error(const char *message)
-{
-	GtkWidget *dialog = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL,
-		GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE, "%s", message);
-	gtk_window_set_title(GTK_WINDOW(dialog), PACKAGE_NAME);
-	gtk_dialog_run(GTK_DIALOG(dialog));
-	gtk_widget_destroy(dialog);
 }
 
 void gui_run(void)
@@ -528,6 +515,14 @@ void gui_enable_hash_func(const enum hash_func_e id)
 
 	if (hash.funcs[id].supported)
 		gtk_toggle_button_set_active(gui.hash_widgets[id].button, true);
+}
+
+void gui_disable_hash_func(const enum hash_func_e id)
+{
+	g_assert(HASH_FUNC_IS_VALID(id));
+
+	if (hash.funcs[id].supported)
+		gtk_toggle_button_set_active(gui.hash_widgets[id].button, false);
 }
 
 void gui_update_hash_func_labels(const bool hmac_enabled)
@@ -843,6 +838,9 @@ bool gui_is_maximised(void)
 
 void gui_start_hash(void)
 {
+	if (!hash_funcs_count_enabled())
+		return;
+
 	switch (gui.view) {
 		case GUI_VIEW_FILE: {
 			gui_clear_digests();

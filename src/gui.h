@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -88,7 +88,6 @@ void gui_init(void);
 unsigned int gui_add_ud_list(GSList *ud_list, enum gui_view_e view);
 void gui_add_check(const char *check);
 void gui_add_text(const char *text);
-void gui_error(const char *message);
 void gui_run(void);
 void gui_deinit(void);
 void gui_set_view(enum gui_view_e view);
@@ -96,6 +95,7 @@ void gui_set_digest_format(enum digest_format_e format);
 enum digest_format_e gui_get_digest_format(void);
 const uint8_t *gui_get_hmac_key(size_t *key_size);
 void gui_enable_hash_func(enum hash_func_e id);
+void gui_disable_hash_func(enum hash_func_e id);
 void gui_update_hash_func_labels(bool hmac_enabled);
 void gui_update_hash_funcs(void);
 void gui_update(void);

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -53,33 +53,10 @@ static struct {
 
 static void default_hash_funcs(void)
 {
-	// Some funcs could already be enabled by cmdline arg
-	if (hash_funcs_count_enabled())
-		return;
-
-	bool has_enabled = false;
-
 	// Try to enable default functions
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (HASH_FUNC_IS_DEFAULT(i) && hash.funcs[i].supported) {
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		if (HASH_FUNC_IS_DEFAULT(i) && hash.funcs[i].supported)
 			gui_enable_hash_func(i);
-			has_enabled = true;
-		}
-	}
-
-	if (has_enabled)
-		return;
-
-	// Try to enable any supported function
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (hash.funcs[i].supported) {
-			gui_enable_hash_func(i);
-			return;
-		}
-	}
-
-	gui_error(_("Failed to enable any supported hash functions."));
-	exit(EXIT_FAILURE);
 }
 
 static void default_show_widgets(void)
