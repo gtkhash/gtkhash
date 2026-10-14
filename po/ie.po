@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-04 00:31+0000\n"
+"POT-Creation-Date: 2026-10-15 01:32+0200\n"
 "PO-Revision-Date: 2019-06-18 19:03+0000\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Occidental <https://hosted.weblate.org/projects/gtkhash/"
@@ -259,74 +259,75 @@ msgstr "_Monstrar clave HMAC"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Ne successat leer un file de control «%s»: %s"
 
-#: src/gui.c:285
+#: src/gui.c:281
 msgid "Not a regular file"
 msgstr "Ne es un file regulari"
 
-#: src/gui.c:308
+#: src/gui.c:304
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Ne successat adjunter un file «%s»: %s"
 
-#: src/hash.c:188 src/prefs.c:109
+#: src/hash.c:195 src/prefs.c:86
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Ínconosset nómine de function hash «%s»"
 
-#: src/opts.c:97
+#: src/opts.c:96
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Controlar per un digeste o summa de control"
 
-#: src/opts.c:98
+#: src/opts.c:97
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "DIGESTE"
 
-#: src/opts.c:103
+#: src/opts.c:101
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Controlar digestes o summas de control de un file"
 
-#: src/opts.c:104
+#: src/opts.c:102
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "FILE|URI"
 
-#: src/opts.c:109
+#: src/opts.c:106
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
-msgid "Enable the specified Hash Function (e.g. MD5)"
+msgid "Enable or disable the specified hash function"
 msgstr "Activar li providet function hash (p.ex. MD5)"
 
-#: src/opts.c:110
+#: src/opts.c:107
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "FUNCTION"
 msgctxt " --help"
-msgid "FUNCTION"
+msgid "[+-]FUNCTION"
 msgstr "FUNCTION"
 
-#: src/opts.c:114
+#: src/opts.c:111
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Hashar li providet textu"
 
-#: src/opts.c:115
+#: src/opts.c:112
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEXTU"
 
-#: src/opts.c:119
+#: src/opts.c:116
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Monstrar li information pri li version"
 
-#. Translators: Unicode ellipsis(…) can be used here
-#: src/opts.c:124
+#: src/opts.c:120
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI…]"
-
-#: src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Ne successat activar alquel supportat function hash."
 
 #: src/util/util.c:35
 #, c-format
@@ -346,6 +347,9 @@ msgstr[1] "%u secondes resta"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s ex %s - %s (%s/sec)"
+
+#~ msgid "Failed to enable any supported hash functions."
+#~ msgstr "Ne successat activar alquel supportat function hash."
 
 #~ msgid "Show _Toolbar"
 #~ msgstr "Monstrar _instrumentarium"

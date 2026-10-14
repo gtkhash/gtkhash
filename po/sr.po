@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-04 00:31+0000\n"
+"POT-Creation-Date: 2026-10-15 01:32+0200\n"
 "PO-Revision-Date: 2021-01-08 22:32+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/gtkhash/"
@@ -250,74 +250,75 @@ msgstr "_Прикажи „HMAC“ кључ"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Нисам успео да прочитам датотеку провере „%s“: %s"
 
-#: src/gui.c:285
+#: src/gui.c:281
 msgid "Not a regular file"
 msgstr "Није обична датотека"
 
-#: src/gui.c:308
+#: src/gui.c:304
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Нисам успео да додам датотеку „%s“: %s"
 
-#: src/hash.c:188 src/prefs.c:109
+#: src/hash.c:195 src/prefs.c:86
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Непознат назив хеш функције „%s“"
 
-#: src/opts.c:97
+#: src/opts.c:96
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Проверава наведени сажетак или суму провере"
 
-#: src/opts.c:98
+#: src/opts.c:97
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "САЖЕТАК"
 
-#: src/opts.c:103
+#: src/opts.c:101
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Проверава сажетке или суме провера из наведене датотеке"
 
-#: src/opts.c:104
+#: src/opts.c:102
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "ДАТОТЕКА|ПУТАЊА"
 
-#: src/opts.c:109
+#: src/opts.c:106
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
-msgid "Enable the specified Hash Function (e.g. MD5)"
+msgid "Enable or disable the specified hash function"
 msgstr "Укључује наведену хеш функцију (нпр. MD5)"
 
-#: src/opts.c:110
+#: src/opts.c:107
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "FUNCTION"
 msgctxt " --help"
-msgid "FUNCTION"
+msgid "[+-]FUNCTION"
 msgstr "ФУНКЦИЈА"
 
-#: src/opts.c:114
+#: src/opts.c:111
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Хешира наведени текст"
 
-#: src/opts.c:115
+#: src/opts.c:112
 msgctxt " --help"
 msgid "TEXT"
 msgstr "ТЕКСТ"
 
-#: src/opts.c:119
+#: src/opts.c:116
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Приказује податке о издању"
 
-#. Translators: Unicode ellipsis(…) can be used here
-#: src/opts.c:124
+#: src/opts.c:120
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ДАТОТЕКА|ПУТАЊА...]"
-
-#: src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Нисам успео да укључим ниједну од подржаних хеш функција."
 
 #: src/util/util.c:35
 #, c-format
@@ -339,6 +340,9 @@ msgstr[2] "%u секунди је преостало"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s од %s – %s (%s/сек)"
+
+#~ msgid "Failed to enable any supported hash functions."
+#~ msgstr "Нисам успео да укључим ниједну од подржаних хеш функција."
 
 #~ msgid "Show _Toolbar"
 #~ msgstr "Прикажи траку _алата"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-04 00:31+0000\n"
+"POT-Creation-Date: 2026-10-15 01:32+0200\n"
 "PO-Revision-Date: 2024-02-04 20:01+0000\n"
 "Last-Translator: Ali Nemati <AliNemati13@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/gtkhash/"
@@ -250,74 +250,75 @@ msgstr "_نمایش کلید HMAC"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "خطا در خواندن فایل \"%s\" اعتبارسنجی: %s"
 
-#: src/gui.c:285
+#: src/gui.c:281
 msgid "Not a regular file"
 msgstr "فایل معتبر نیست"
 
-#: src/gui.c:308
+#: src/gui.c:304
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "افزودن فایل \"%s\" ناموفق بود: %s"
 
-#: src/hash.c:188 src/prefs.c:109
+#: src/hash.c:195 src/prefs.c:86
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "تابع هش ناشناخته \"%s\""
 
-#: src/opts.c:97
+#: src/opts.c:96
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Check against the specified digest or checksum"
 
-#: src/opts.c:98
+#: src/opts.c:97
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "DIGEST"
 
-#: src/opts.c:103
+#: src/opts.c:101
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Check digests or checksums from the specified file"
 
-#: src/opts.c:104
+#: src/opts.c:102
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "FILE|URI"
 
-#: src/opts.c:109
+#: src/opts.c:106
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
-msgid "Enable the specified Hash Function (e.g. MD5)"
+msgid "Enable or disable the specified hash function"
 msgstr "Enable the specified Hash Function (e.g. MD5)"
 
-#: src/opts.c:110
+#: src/opts.c:107
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "FUNCTION"
 msgctxt " --help"
-msgid "FUNCTION"
+msgid "[+-]FUNCTION"
 msgstr "FUNCTION"
 
-#: src/opts.c:114
+#: src/opts.c:111
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Hash the specified text"
 
-#: src/opts.c:115
+#: src/opts.c:112
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEXT"
 
-#: src/opts.c:119
+#: src/opts.c:116
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Show version information"
 
-#. Translators: Unicode ellipsis(…) can be used here
-#: src/opts.c:124
+#: src/opts.c:120
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
-
-#: src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "خطا در فعال سازی تمام توابع هش پشتیبانی شده."
 
 #: src/util/util.c:35
 #, c-format
@@ -337,6 +338,9 @@ msgstr[1] "%u ثانیه مانده"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s از %s - زمان تقریبی %s (%s/ثانیه)"
+
+#~ msgid "Failed to enable any supported hash functions."
+#~ msgstr "خطا در فعال سازی تمام توابع هش پشتیبانی شده."
 
 #~ msgid "Show _Toolbar"
 #~ msgstr "نمایش _نوار ابزار"

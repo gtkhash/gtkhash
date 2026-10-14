@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-04 00:31+0000\n"
+"POT-Creation-Date: 2026-10-15 01:32+0200\n"
 "PO-Revision-Date: 2026-05-31 15:01+0000\n"
 "Last-Translator: Andrea Andrei <andrea.tsg19@slmail.me>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/gtkhash/"
@@ -254,78 +254,79 @@ msgstr "_Afișează cheia HMAC"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Nu s-a putut citi fișierul de verificare \"%s\": %s"
 
-#: src/gui.c:285
+#: src/gui.c:281
 msgid "Not a regular file"
 msgstr "Nu este un fișier obișnuit"
 
-#: src/gui.c:308
+#: src/gui.c:304
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Nu s-a putut adăuga fișierul „%s”: %s"
 
-#: src/hash.c:188 src/prefs.c:109
+#: src/hash.c:195 src/prefs.c:86
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Nume necunoscut al funcției Hash „%s”"
 
-#: src/opts.c:97
+#: src/opts.c:96
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr ""
 "Verifică comparând cu codurile hash criptografice sau suma de control "
 "specificată"
 
-#: src/opts.c:98
+#: src/opts.c:97
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "DIGEST"
 
-#: src/opts.c:103
+#: src/opts.c:101
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr ""
 "Verifică codurile hash criptografice sau sumele de control din fișierul "
 "specificat"
 
-#: src/opts.c:104
+#: src/opts.c:102
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "FIȘIER|URI"
 
-#: src/opts.c:109
+#: src/opts.c:106
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
-msgid "Enable the specified Hash Function (e.g. MD5)"
+msgid "Enable or disable the specified hash function"
 msgstr "Activează funcția Hash specificată (e.g. MD5)"
 
-#: src/opts.c:110
+#: src/opts.c:107
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "FUNCTION"
 msgctxt " --help"
-msgid "FUNCTION"
+msgid "[+-]FUNCTION"
 msgstr "FUNCȚIE"
 
-#: src/opts.c:114
+#: src/opts.c:111
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Calculează codul hash criptografic pentru textul specificat"
 
-#: src/opts.c:115
+#: src/opts.c:112
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEXT"
 
-#: src/opts.c:119
+#: src/opts.c:116
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Afișează informațiile despre versiune"
 
-#. Translators: Unicode ellipsis(…) can be used here
-#: src/opts.c:124
+#: src/opts.c:120
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FIȘIER|URI...]"
-
-#: src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Nu s-a putut activa nicio funcție hash."
 
 #: src/util/util.c:35
 #, c-format
@@ -347,6 +348,9 @@ msgstr[2] "%u de secunde rămase"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s din %s - %s (%s/sec)"
+
+#~ msgid "Failed to enable any supported hash functions."
+#~ msgstr "Nu s-a putut activa nicio funcție hash."
 
 #~ msgid "Show _Toolbar"
 #~ msgstr "Afișează _Bara de instrumente"

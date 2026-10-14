@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-04 00:31+0000\n"
+"POT-Creation-Date: 2026-10-15 01:32+0200\n"
 "PO-Revision-Date: 2021-03-20 03:18+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/gtkhash/"
@@ -252,74 +252,75 @@ msgstr "_Montri HMAK-Ŝlosilon"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Malsukcesis legi kontrolsuman dosieron \"%s\": %s"
 
-#: src/gui.c:285
+#: src/gui.c:281
 msgid "Not a regular file"
 msgstr "Ne estas regula dosiero"
 
-#: src/gui.c:308
+#: src/gui.c:304
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Malsukcesis aldoni dosieron \"%s\": %s"
 
-#: src/hash.c:188 src/prefs.c:109
+#: src/hash.c:195 src/prefs.c:86
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Nekonata haketa funkcio \"%s\""
 
-#: src/opts.c:97
+#: src/opts.c:96
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Kompari kun specifita haketaĵo aŭ kontrosumo"
 
-#: src/opts.c:98
+#: src/opts.c:97
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "HAKETAĴO"
 
-#: src/opts.c:103
+#: src/opts.c:101
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Kontroli haketaĵojn aŭ kontrolsumojn el specifita dosiero"
 
-#: src/opts.c:104
+#: src/opts.c:102
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "DOSIERO|RETADRESO"
 
-#: src/opts.c:109
+#: src/opts.c:106
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
-msgid "Enable the specified Hash Function (e.g. MD5)"
+msgid "Enable or disable the specified hash function"
 msgstr "Ŝalti la specifitan haketan dosieron (ekz. MD5)"
 
-#: src/opts.c:110
+#: src/opts.c:107
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "FUNCTION"
 msgctxt " --help"
-msgid "FUNCTION"
+msgid "[+-]FUNCTION"
 msgstr "FUNKCIO"
 
-#: src/opts.c:114
+#: src/opts.c:111
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Haketi la specifitan tekston"
 
-#: src/opts.c:115
+#: src/opts.c:112
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEKSTO"
 
-#: src/opts.c:119
+#: src/opts.c:116
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Montri versiajn informojn"
 
-#. Translators: Unicode ellipsis(…) can be used here
-#: src/opts.c:124
+#: src/opts.c:120
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[DOSIERO|RETADRESO...]"
-
-#: src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Malsukcesis ŝalti iujn ajn subtenatajn haketajn funkciojn."
 
 #: src/util/util.c:35
 #, c-format
@@ -339,6 +340,9 @@ msgstr[1] "%u sekundoj restas"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s el %s - %s (%s/sekundo)"
+
+#~ msgid "Failed to enable any supported hash functions."
+#~ msgstr "Malsukcesis ŝalti iujn ajn subtenatajn haketajn funkciojn."
 
 #~ msgid "Show _Toolbar"
 #~ msgstr "Montri _Ilobreton"

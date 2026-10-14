@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-04 00:31+0000\n"
+"POT-Creation-Date: 2026-10-15 01:32+0200\n"
 "PO-Revision-Date: 2026-02-17 16:09+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/gtkhash/"
@@ -255,75 +255,75 @@ msgstr "_Zobrazit HMAC klíč"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Nepodařilo se číst soubor s kontrolou „%s“: %s"
 
-#: src/gui.c:285
+#: src/gui.c:281
 msgid "Not a regular file"
 msgstr "Není běžný soubor"
 
-#: src/gui.c:308
+#: src/gui.c:304
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Nepodařilo se přidat soubor „%s“:%s"
 
-#: src/hash.c:188 src/prefs.c:109
+#: src/hash.c:195 src/prefs.c:86
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Neznámá funkce pro vytváření otisku „%s“"
 
-#: src/opts.c:97
+#: src/opts.c:96
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Zkontrolovat vůči zadanému digestu či kontrolnímu součtu"
 
-#: src/opts.c:98
+#: src/opts.c:97
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "DIGEST"
 
-#: src/opts.c:103
+#: src/opts.c:101
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Zkontrolovat digesty nebo kontrolní součty ze zadaného souboru"
 
-#: src/opts.c:104
+#: src/opts.c:102
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "FILE|URI"
 
-#: src/opts.c:109
+#: src/opts.c:106
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
-msgid "Enable the specified Hash Function (e.g. MD5)"
+msgid "Enable or disable the specified hash function"
 msgstr "Zapnout danou funkci pro vytváření otisku (např. MD5)"
 
-#: src/opts.c:110
+#: src/opts.c:107
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "FUNCTION"
 msgctxt " --help"
-msgid "FUNCTION"
+msgid "[+-]FUNCTION"
 msgstr "FUNKCE"
 
-#: src/opts.c:114
+#: src/opts.c:111
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Vytvořit otisk pro zadaný text"
 
-#: src/opts.c:115
+#: src/opts.c:112
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEXT"
 
-#: src/opts.c:119
+#: src/opts.c:116
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Zobrazit informace o verzi"
 
-#. Translators: Unicode ellipsis(…) can be used here
-#: src/opts.c:124
+#: src/opts.c:120
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI…]"
-
-#: src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr ""
-"Nepodařilo se zapnout žádnou z podporovaných funkcí pro vytváření otisku."
 
 #: src/util/util.c:35
 #, c-format
@@ -345,6 +345,10 @@ msgstr[2] "zbývá %u sekund"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s z %s – %s (%s/sek)"
+
+#~ msgid "Failed to enable any supported hash functions."
+#~ msgstr ""
+#~ "Nepodařilo se zapnout žádnou z podporovaných funkcí pro vytváření otisku."
 
 #~ msgid "Show _Toolbar"
 #~ msgstr "Zobrazi_t lištu nástrojů"
