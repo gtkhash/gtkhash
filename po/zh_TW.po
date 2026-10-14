@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-04 00:31+0000\n"
+"POT-Creation-Date: 2026-10-15 01:32+0200\n"
 "PO-Revision-Date: 2022-01-20 14:52+0000\n"
 "Last-Translator: 王家泽 <wshqwe123456@163.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -261,84 +261,81 @@ msgstr ""
 "無法讀取「%s」：\n"
 "%s"
 
-#: src/gui.c:285
+#: src/gui.c:281
 msgid "Not a regular file"
 msgstr "不是一般檔案(regular file)"
 
-#: src/gui.c:308
+#: src/gui.c:304
 #, fuzzy, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
 "無法加入「%s」：\n"
 "%s"
 
-#: src/hash.c:188 src/prefs.c:109
+#: src/hash.c:195 src/prefs.c:86
 #, fuzzy, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "雜湊函式："
 
-#: src/opts.c:97
+#: src/opts.c:96
 #, fuzzy
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "檢查指定的訊息摘要或校驗碼"
 
-#: src/opts.c:98
+#: src/opts.c:97
 #, fuzzy
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "訊息摘要"
 
-#: src/opts.c:103
+#: src/opts.c:101
 #, fuzzy
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "一個基於 GTK+ 用於計算訊息摘要與校驗值的工具"
 
-#: src/opts.c:104
+#: src/opts.c:102
 #, fuzzy
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "[檔案|網址...]"
 
-#: src/opts.c:109
+#: src/opts.c:106
+#, fuzzy
+#| msgid "Failed to enable any supported hash functions."
 msgctxt " --help"
-msgid "Enable the specified Hash Function (e.g. MD5)"
+msgid "Enable or disable the specified hash function"
+msgstr "無法啟用任何支援的雜湊函式"
+
+#: src/opts.c:107
+msgctxt " --help"
+msgid "[+-]FUNCTION"
 msgstr ""
 
-#: src/opts.c:110
-msgctxt " --help"
-msgid "FUNCTION"
-msgstr ""
-
-#: src/opts.c:114
+#: src/opts.c:111
 #, fuzzy
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "算出指定的文字的雜湊值"
 
-#: src/opts.c:115
+#: src/opts.c:112
 #, fuzzy
 msgctxt " --help"
 msgid "TEXT"
 msgstr "文字"
 
-#: src/opts.c:119
+#: src/opts.c:116
 #, fuzzy
 msgctxt " --help"
 msgid "Show version information"
 msgstr "顯示版本資訊"
 
-#. Translators: Unicode ellipsis(…) can be used here
-#: src/opts.c:124
+#: src/opts.c:120
 #, fuzzy
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[檔案|網址...]"
-
-#: src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "無法啟用任何支援的雜湊函式"
 
 #: src/util/util.c:35
 #, c-format

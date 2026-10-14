@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-04 00:31+0000\n"
+"POT-Creation-Date: 2026-10-15 01:32+0200\n"
 "PO-Revision-Date: 2023-04-14 14:47+0000\n"
 "Last-Translator: Ram <airavatam@tutanota.com>\n"
 "Language-Team: Malayalam <https://hosted.weblate.org/projects/gtkhash/"
@@ -244,73 +244,68 @@ msgstr ""
 msgid "Failed to read check file \"%s\": %s"
 msgstr ""
 
-#: src/gui.c:285
+#: src/gui.c:281
 msgid "Not a regular file"
 msgstr ""
 
-#: src/gui.c:308
+#: src/gui.c:304
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
 
-#: src/hash.c:188 src/prefs.c:109
+#: src/hash.c:195 src/prefs.c:86
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr ""
 
-#: src/opts.c:97
+#: src/opts.c:96
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr ""
 
-#: src/opts.c:98
+#: src/opts.c:97
 msgctxt " --help"
 msgid "DIGEST"
 msgstr ""
 
-#: src/opts.c:103
+#: src/opts.c:101
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr ""
 
-#: src/opts.c:104
+#: src/opts.c:102
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr ""
 
-#: src/opts.c:109
+#: src/opts.c:106
 msgctxt " --help"
-msgid "Enable the specified Hash Function (e.g. MD5)"
+msgid "Enable or disable the specified hash function"
 msgstr ""
 
-#: src/opts.c:110
+#: src/opts.c:107
 msgctxt " --help"
-msgid "FUNCTION"
+msgid "[+-]FUNCTION"
 msgstr ""
 
-#: src/opts.c:114
+#: src/opts.c:111
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr ""
 
-#: src/opts.c:115
+#: src/opts.c:112
 msgctxt " --help"
 msgid "TEXT"
 msgstr "വാചകം"
 
-#: src/opts.c:119
+#: src/opts.c:116
 msgctxt " --help"
 msgid "Show version information"
 msgstr "പതിപ്പ് വിവരങ്ങൾ കാണിക്കുക"
 
-#. Translators: Unicode ellipsis(…) can be used here
-#: src/opts.c:124
+#: src/opts.c:120
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr ""
-
-#: src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
 msgstr ""
 
 #: src/util/util.c:35

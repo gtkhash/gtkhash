@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-04 00:31+0000\n"
+"POT-Creation-Date: 2026-10-15 01:32+0200\n"
 "PO-Revision-Date: 2020-07-31 09:41+0000\n"
 "Last-Translator: Oymate <dhruboadittya96@gmail.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/gtkhash/"
@@ -246,74 +246,75 @@ msgstr "_এইচএমএসি(HMAC) কী দেখান"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "\"%s\" ফাইলটি পরীক্ষা করতে ব্যর্থ : %s"
 
-#: src/gui.c:285
+#: src/gui.c:281
 msgid "Not a regular file"
 msgstr "একটি সাধারণ ফাইল না"
 
-#: src/gui.c:308
+#: src/gui.c:304
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "\"%s\" ফাইলটি যুক্ত করতে ব্যর্থ : %s"
 
-#: src/hash.c:188 src/prefs.c:109
+#: src/hash.c:195 src/prefs.c:86
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "অজানা হ্যাশ ফাংশনের নাম \"%s\""
 
-#: src/opts.c:97
+#: src/opts.c:96
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "নির্দিষ্ট হজম বা চেকসামের সাথে পরীক্ষা করুন"
 
-#: src/opts.c:98
+#: src/opts.c:97
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "ডাইজেস্ট"
 
-#: src/opts.c:103
+#: src/opts.c:101
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "নির্দিষ্ট ফাইল থেকে ডাইজেস্ট বা চেকসাম পরীক্ষা করুন"
 
-#: src/opts.c:104
+#: src/opts.c:102
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "ফাইল|URI"
 
-#: src/opts.c:109
+#: src/opts.c:106
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
-msgid "Enable the specified Hash Function (e.g. MD5)"
+msgid "Enable or disable the specified hash function"
 msgstr "নির্দিষ্ট হ্যাশ ফাংশন সক্ষম করুন (উদাঃ এমডি৫)"
 
-#: src/opts.c:110
+#: src/opts.c:107
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "FUNCTION"
 msgctxt " --help"
-msgid "FUNCTION"
+msgid "[+-]FUNCTION"
 msgstr "ফাংশন"
 
-#: src/opts.c:114
+#: src/opts.c:111
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "নির্দিষ্ট লেখা হ্যাশ করুন"
 
-#: src/opts.c:115
+#: src/opts.c:112
 msgctxt " --help"
 msgid "TEXT"
 msgstr "টেক্সট"
 
-#: src/opts.c:119
+#: src/opts.c:116
 msgctxt " --help"
 msgid "Show version information"
 msgstr "সংস্করণ তথ্য প্রদর্শন করুন"
 
-#. Translators: Unicode ellipsis(…) can be used here
-#: src/opts.c:124
+#: src/opts.c:120
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ফাইল|URI...]"
-
-#: src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "কোনও সমর্থিত হ্যাশ ফাংশন সক্ষম করতে ব্যর্থ।"
 
 #: src/util/util.c:35
 #, c-format
@@ -333,6 +334,9 @@ msgstr[1] "%u মিনিট বাকি"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s of %s - %s (%s/sec)"
+
+#~ msgid "Failed to enable any supported hash functions."
+#~ msgstr "কোনও সমর্থিত হ্যাশ ফাংশন সক্ষম করতে ব্যর্থ।"
 
 #~ msgid "Show _Toolbar"
 #~ msgstr "টুলবার _দেখান"

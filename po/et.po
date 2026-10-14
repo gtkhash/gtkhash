@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-04 00:31+0000\n"
+"POT-Creation-Date: 2026-10-15 01:32+0200\n"
 "PO-Revision-Date: 2023-04-03 11:38+0000\n"
 "Last-Translator: vaba <vaba@riseup.net>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/gtkhash/"
@@ -247,74 +247,75 @@ msgstr "_Näita HMAC võtit"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Kontrollfaili \"%s\" lugemine nurjus: %s"
 
-#: src/gui.c:285
+#: src/gui.c:281
 msgid "Not a regular file"
 msgstr "Pole tavaline fail"
 
-#: src/gui.c:308
+#: src/gui.c:304
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Faili \"%s\" lisamine nurjus: %s"
 
-#: src/hash.c:188 src/prefs.c:109
+#: src/hash.c:195 src/prefs.c:86
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Tundmatu räsifunktsiooni nimi \"%s\""
 
-#: src/opts.c:97
+#: src/opts.c:96
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "Kontrollige määratud kokkuvõtte või kontrollsummaga"
 
-#: src/opts.c:98
+#: src/opts.c:97
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "KOKKUVÕTE"
 
-#: src/opts.c:103
+#: src/opts.c:101
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "Kontrollige määratud faili kokkuvõtteid või kontrollsummasid"
 
-#: src/opts.c:104
+#: src/opts.c:102
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "FILE|URI"
 
-#: src/opts.c:109
+#: src/opts.c:106
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
-msgid "Enable the specified Hash Function (e.g. MD5)"
+msgid "Enable or disable the specified hash function"
 msgstr "Lubage määratud räsifunktsioon (nt MD5)"
 
-#: src/opts.c:110
+#: src/opts.c:107
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "FUNCTION"
 msgctxt " --help"
-msgid "FUNCTION"
+msgid "[+-]FUNCTION"
 msgstr "FUNKTSIOON"
 
-#: src/opts.c:114
+#: src/opts.c:111
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "Määratud teksti räsi"
 
-#: src/opts.c:115
+#: src/opts.c:112
 msgctxt " --help"
 msgid "TEXT"
 msgstr "TEKST"
 
-#: src/opts.c:119
+#: src/opts.c:116
 msgctxt " --help"
 msgid "Show version information"
 msgstr "Kuva versiooniteave"
 
-#. Translators: Unicode ellipsis(…) can be used here
-#: src/opts.c:124
+#: src/opts.c:120
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
-
-#: src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "Toetatud räsifunktsioonide lubamine ebaõnnestus."
 
 #: src/util/util.c:35
 #, c-format
@@ -334,6 +335,9 @@ msgstr[1] "%u sekundit jäänud"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s/%s – %s (%s/s)"
+
+#~ msgid "Failed to enable any supported hash functions."
+#~ msgstr "Toetatud räsifunktsioonide lubamine ebaõnnestus."
 
 #~ msgid "Show _Toolbar"
 #~ msgstr "Näita _tööriistariba"

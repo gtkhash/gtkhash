@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-04 00:31+0000\n"
+"POT-Creation-Date: 2026-10-15 01:32+0200\n"
 "PO-Revision-Date: 2023-09-11 10:49+0000\n"
 "Last-Translator: sarami <ppp821203@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtkhash/"
@@ -248,74 +248,75 @@ msgstr "HMAC 키 표시(_S)"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "\"%s\" 체크 파일을 읽지 못했습니다 : %s"
 
-#: src/gui.c:285
+#: src/gui.c:281
 msgid "Not a regular file"
 msgstr "일반 파일이 아님"
 
-#: src/gui.c:308
+#: src/gui.c:304
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "%s 파일을 추가 실패 : %s"
 
-#: src/hash.c:188 src/prefs.c:109
+#: src/hash.c:195 src/prefs.c:86
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "알 수 없는 Hah 함수 이름 \"%s\""
 
-#: src/opts.c:97
+#: src/opts.c:96
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
 msgstr "지정된 digests 또는 체크섬과 비교하여 확인합니다"
 
-#: src/opts.c:98
+#: src/opts.c:97
 msgctxt " --help"
 msgid "DIGEST"
 msgstr "DIGEST"
 
-#: src/opts.c:103
+#: src/opts.c:101
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
 msgstr "지정된 파일에서 digests 또는 체크섬 확인"
 
-#: src/opts.c:104
+#: src/opts.c:102
 msgctxt " --help"
 msgid "FILE|URI"
 msgstr "파일|URI"
 
-#: src/opts.c:109
+#: src/opts.c:106
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
-msgid "Enable the specified Hash Function (e.g. MD5)"
+msgid "Enable or disable the specified hash function"
 msgstr "지정된 해시 함수(예: MD5)를 활성화합니다"
 
-#: src/opts.c:110
+#: src/opts.c:107
+#, fuzzy
+#| msgctxt " --help"
+#| msgid "FUNCTION"
 msgctxt " --help"
-msgid "FUNCTION"
+msgid "[+-]FUNCTION"
 msgstr "함수"
 
-#: src/opts.c:114
+#: src/opts.c:111
 msgctxt " --help"
 msgid "Hash the specified text"
 msgstr "지정한 텍스트를 Hash합니다"
 
-#: src/opts.c:115
+#: src/opts.c:112
 msgctxt " --help"
 msgid "TEXT"
 msgstr "텍스트"
 
-#: src/opts.c:119
+#: src/opts.c:116
 msgctxt " --help"
 msgid "Show version information"
 msgstr "버전 정보 표시"
 
-#. Translators: Unicode ellipsis(…) can be used here
-#: src/opts.c:124
+#: src/opts.c:120
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
-
-#: src/prefs.c:81
-msgid "Failed to enable any supported hash functions."
-msgstr "지원되는 Hash 함수를 사용하는데 실패했습니다."
 
 #: src/util/util.c:35
 #, c-format
@@ -333,6 +334,9 @@ msgstr[0] "%u 초 남음"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s / %s - %s (%s/sec)"
+
+#~ msgid "Failed to enable any supported hash functions."
+#~ msgstr "지원되는 Hash 함수를 사용하는데 실패했습니다."
 
 #~ msgid "Show _Toolbar"
 #~ msgstr "툴바 표시(_T)"
