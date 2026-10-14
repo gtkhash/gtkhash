@@ -460,7 +460,7 @@ static void test_opt_check_file(void)
 	g_test_trap_assert_stderr("*notfound.bytes*");
 }
 
-static void test_opt_function(void)
+static void test_opt_function_enable(void)
 {
 	if (g_test_subprocess()) {
 		enum hash_func_e id = HASH_FUNC_INVALID;
@@ -490,6 +490,8 @@ static void test_opt_function(void)
 		g_shell_parse_argv(str, &argc, &argv, NULL);
 
 		opts_preinit(&argc, &argv);
+		opts_postinit();
+		delay();
 
 		if (hash.funcs[id].enabled)
 			exit(EXIT_SUCCESS);
@@ -500,6 +502,46 @@ static void test_opt_function(void)
 	g_test_trap_subprocess(NULL, 0, 0);
 	g_test_trap_assert_passed();
 	g_test_trap_assert_stderr("*Unknown*XX*");
+}
+
+static void test_opt_function_disable(void)
+{
+	if (g_test_subprocess()) {
+		GString *args = g_string_new("t");
+
+		// Enable all functions
+		for (int i = 0; i < HASH_FUNCS_N; i++) {
+			if (hash.funcs[i].supported) {
+				gtk_toggle_button_set_active(gui.hash_widgets[i].button, true);
+				delay();
+				// Append cmdline arg to disable the function
+				g_string_append_printf(args, " -f +%s -f -%s",
+					hash.funcs[i].name, hash.funcs[i].name);
+			}
+		}
+
+		if (hash_funcs_count_enabled() < 1)
+			exit(EXIT_FAILURE);
+
+		g_string_append_printf(args, " -- '%s'",
+			g_test_get_filename(G_TEST_BUILT, "10M.bytes", NULL));
+		gint argc;
+		char **argv;
+		g_shell_parse_argv(args->str, &argc, &argv, NULL);
+		g_string_free(args, true);
+
+		opts_preinit(&argc, &argv);
+		opts_postinit();
+		delay();
+
+		if (hash_funcs_count_enabled() == 0)
+			exit(EXIT_SUCCESS);
+		else
+			exit(EXIT_FAILURE);
+	}
+
+	g_test_trap_subprocess(NULL, 0, 0);
+	g_test_trap_assert_passed();
 }
 
 static void test_opt_file(void)
@@ -681,7 +723,8 @@ static void test_init(void)
 	g_test_add_func("/opt/version", test_opt_version);
 	g_test_add_func("/opt/check/text", test_opt_check_text);
 	g_test_add_func("/opt/check/file", test_opt_check_file);
-	g_test_add_func("/opt/function", test_opt_function);
+	g_test_add_func("/opt/function/enable", test_opt_function_enable);
+	g_test_add_func("/opt/function/disable", test_opt_function_disable);
 	g_test_add_func("/opt/file", test_opt_file);
 	g_test_add_func("/opt/file-list", test_opt_file_list);
 
