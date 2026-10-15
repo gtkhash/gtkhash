@@ -95,9 +95,12 @@
           packages = with pkgs; [
             appstream
             caja
+            cdrkit # genisoimage
             desktop-file-utils
             gettext
+            grim
             gtk3
+            imagemagick # magick
             libb2
             libblake3
             libgcrypt
@@ -111,6 +114,7 @@
             ninja
             openssl
             pkg-config
+            sway
             thunar
             xvfb-run
             xxhash

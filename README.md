@@ -1,12 +1,16 @@
 [![Build Status](https://github.com/gtkhash/gtkhash/actions/workflows/build.yml/badge.svg)](https://github.com/gtkhash/gtkhash/actions/workflows/build.yml)
-[![Windows Build Status](https://github.com/gtkhash/gtkhash/actions/workflows/msys2.yml/badge.svg)](https://github.com/gtkhash/gtkhash/actions/workflows/msys2.yml)
+[![Flake Status](https://github.com/gtkhash/gtkhash/actions/workflows/flake.yml/badge.svg)](https://github.com/gtkhash/gtkhash/actions/workflows/flake.yml)
+[![MSYS2 Status](https://github.com/gtkhash/gtkhash/actions/workflows/msys2.yml/badge.svg)](https://github.com/gtkhash/gtkhash/actions/workflows/msys2.yml)
 [![Test Coverage](https://codecov.io/gh/gtkhash/gtkhash/branch/master/graph/badge.svg)](https://app.codecov.io/gh/gtkhash/gtkhash)
 [![Translations](https://hosted.weblate.org/widgets/gtkhash/-/svg-badge.svg)](https://hosted.weblate.org/engage/gtkhash/)
 [![Snap Status](https://snapcraft.io/gtkhash/badge.svg)](https://snapcraft.io/gtkhash/builds)
 
 GtkHash
 =======
-![Screenshot](screenshots/readme.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="screenshots/gtkhash-screenshot-dark.png">
+  <img src="screenshots/gtkhash-screenshot-light.png" alt="GtkHash main window">
+</picture>
 
 GtkHash is a desktop utility for computing message digests or checksums.
 Most well-known hash functions are supported, including MD5, SHA1,
@@ -57,8 +61,6 @@ See `meson configure _build` for the full list of build options.
 
 File Manager Extension
 ----------------------
-![Screenshot](screenshots/gtkhash-nemo-properties.png)
-
 Adds a Hash feature to File Properties in:
 * Caja (MATE)
 * Nautilus (GNOME)
