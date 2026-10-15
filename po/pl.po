@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 23:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:05+0000\n"
 "PO-Revision-Date: 2026-10-15 22:45+0000\n"
 "Last-Translator: Matthaiks <kityn@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/"
@@ -33,14 +33,6 @@ msgstr "GtkHash dla Caja"
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
 msgid "Show checksums in file properties"
 msgstr "Wyświetl sumy kontrolne we właściwościach pliku"
-
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:13
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:38
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:13
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:14
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:13
-msgid "Tristan Heaven"
-msgstr "Tristan Heaven"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
