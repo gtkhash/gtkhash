@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:05+0000\n"
 "PO-Revision-Date: 2026-10-15 00:15+0000\n"
 "Last-Translator: Roi Klevansky "
 "<roi_klevansky@users.noreply.hosted.weblate.org>\n"
@@ -26,21 +26,15 @@ msgstr ""
 "X-Launchpad-Export-Date: 2016-01-29 05:16+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "סיכומי ביקורות"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "הוספת הודעה עם קודי גבוב או סיכומי ביקורות למאפייני קובץ"
+msgid "Show checksums in file properties"
+msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -64,6 +58,24 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "פונקציות הגיבוב הנתמכות כוללות את MD5,‏ SHA1,‏ SHA256,‏ SHA512 ו־CRC32."
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "סיכומי ביקורות"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -101,7 +113,6 @@ msgstr "_שמירת קוד גיבוב לקובץ…"
 
 #: data/gtkhash-gtk3.ui:181
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
 msgstr "העדפות GtkHash"
 
@@ -115,13 +126,11 @@ msgstr "קובץ"
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "רשימת_קבצים"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "_טקסט"
 
@@ -157,7 +166,6 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
 msgstr "העדפות GtkHash"
 
@@ -291,16 +299,12 @@ msgstr "FILE|URI"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "הפעלת פונקציית הגיבוב שצוינה (לדוגמה: MD5)"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "FUNCTION"
@@ -326,7 +330,7 @@ msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
 
 #: src/util/util.c:35
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
 msgstr[0] "נשארה דקה אחת"
@@ -335,7 +339,7 @@ msgstr[2] "נשארו %u דקות"
 msgstr[3] "נשארו %u דקות"
 
 #: src/util/util.c:39
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
 msgstr[0] "נשארה שנייה אחת"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:05+0000\n"
 "PO-Revision-Date: 2024-06-01 17:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/gtkhash/"
@@ -20,21 +20,15 @@ msgstr ""
 "X-Generator: Weblate 5.6-dev\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "चेकसम"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "फाइल प्रॉपर्टी में मैसेज डाइजेस्ट या चेकसम जोड़ता है"
+msgid "Show checksums in file properties"
+msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -59,6 +53,24 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "समर्थित हैश प्रकार्य में MD5, SHA1, SHA256, SHA512 और CRC32 शामिल हैं।"
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "चेकसम"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -96,7 +108,6 @@ msgstr "डाइजेस्ट फाइल सहेजें (_S)…"
 
 #: data/gtkhash-gtk3.ui:181
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
 msgstr "GtkHash प्राथमिकताएं"
 
@@ -110,13 +121,11 @@ msgstr "फाइल"
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "फाइल सूची (_L)"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "पाठ (_T)"
 
@@ -152,7 +161,6 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
 msgstr "GtkHash प्राथमिकताएं"
 
@@ -283,16 +291,12 @@ msgstr "फाइल|URI"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "निर्दिष्ट हैश प्रकार्य सक्षम करें (उदा. MD5)"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "प्रकार्य"
@@ -335,27 +339,3 @@ msgstr[1] "%u सेकंड बचे हैं"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s का %s - %s (%s/sec)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "किसी भी समर्थित हैश प्रकार्य को सक्षम करने में विफल।"
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "टूलबार दिखाएं (_T)"
-
-#~ msgid "_File"
-#~ msgstr "फाइल (_F)"
-
-#~ msgid "_Edit"
-#~ msgstr "संपादित करें (_E)"
-
-#~ msgid "_View"
-#~ msgstr "देखें (_V)"
-
-#~ msgid "_Help"
-#~ msgstr "सहायता (_H)"
-
-#~ msgid "Ha_sh"
-#~ msgstr "हैश (_s)"
-
-#~ msgid "H_ash"
-#~ msgstr "हैश (_a)"

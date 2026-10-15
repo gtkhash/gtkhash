@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:05+0000\n"
 "PO-Revision-Date: 2025-04-10 19:06+0000\n"
 "Last-Translator: Elena Mishina <lepata@basealt.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtkhash/"
@@ -25,21 +25,15 @@ msgstr ""
 "X-Launchpad-Export-Date: 2016-03-16 05:31+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "Контрольные суммы"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "Добавляет дайджесты или контрольные суммы в свойства файлов"
+msgid "Show checksums in file properties"
+msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -64,6 +58,24 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "Поддерживаются хеш-функции MD5, SHA1, SHA256, SHA512 и CRC32."
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "Контрольные суммы"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -101,7 +113,6 @@ msgstr "Сохранить файл дайджеста…"
 
 #: data/gtkhash-gtk3.ui:181
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
 msgstr "Настройки GtkHash"
 
@@ -115,13 +126,11 @@ msgstr "Файл"
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "Список ф_айлов"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "_Текст"
 
@@ -157,7 +166,6 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
 msgstr "Настройки GtkHash"
 
@@ -291,16 +299,12 @@ msgstr "ФАЙЛ|URI"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "Включить указанную хеш функцию (например, MD5)"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "ФУНКЦИЯ"
@@ -345,75 +349,3 @@ msgstr[2] "%u секунд осталось"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s из %s - %s (%s/с)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "Не удалось активировать поддерживаемые хеш-функции."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "П_оказать панель инструментов"
-
-#~ msgid "_File"
-#~ msgstr "_Файл"
-
-#~ msgid "_Edit"
-#~ msgstr "_Правка"
-
-#~ msgid "_View"
-#~ msgstr "_Вид"
-
-#~ msgid "_Help"
-#~ msgstr "_Справка"
-
-#~ msgid "Ha_sh"
-#~ msgstr "_Хеш"
-
-#~ msgid "H_ash"
-#~ msgstr "Х_еш"
-
-#~ msgid "Digests"
-#~ msgstr "Дайджесты"
-
-#~ msgctxt "menu"
-#~ msgid "_Open Digest File..."
-#~ msgstr "_Открыть файл дайджеста..."
-
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "_Сохранить файл дайджеста..."
-
-#~ msgid "Check Digests"
-#~ msgstr "Проверить дайджесты"
-
-#~ msgid "Unknown error"
-#~ msgstr "Неизвестная ошибка"
-
-#~ msgid "%s of %s - 1 minute left (%s/sec)"
-#~ msgstr "%s из %s - осталась 1 минута (%s/сек)"
-
-#~ msgid "%s of %s - 1 second left (%s/sec)"
-#~ msgstr "%s из %s - осталась 1 секунда (%s/сек)"
-
-#~ msgid "%s of %s - %u seconds left (%s/sec)"
-#~ msgstr "%s из %s - осталось %u секунд (%s/сек)"
-
-#, fuzzy
-#~ msgid ""
-#~ "Failed to load \"%s\":\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Не удалось добавить \"%s\":\n"
-#~ "%s"
-
-#~ msgid "Failed to read \"%s\""
-#~ msgstr "Не удалось прочитать \"%s\""
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "Read program data from the specified directory"
-#~ msgstr "Прочитать данные программы из определенного каталога"
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "DIRECTORY"
-#~ msgstr "КАТАЛОГ"

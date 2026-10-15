@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:05+0000\n"
 "PO-Revision-Date: 2023-09-11 10:49+0000\n"
 "Last-Translator: sarami <ppp821203@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtkhash/"
@@ -21,21 +21,15 @@ msgstr ""
 "X-Generator: Weblate 5.0.1-dev\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "체크섬"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "파일 속성에 메시지 digests 또는 체크섬 추가"
+msgid "Show checksums in file properties"
+msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -60,6 +54,24 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "지원되는 Hash 함수에는 MD5, SHA1, SHA256, SHA512 및 CRC32가 포함된다."
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "체크섬"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -97,7 +109,6 @@ msgstr "Digest 파일 저장(_S)"
 
 #: data/gtkhash-gtk3.ui:181
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
 msgstr "GtkHash 설정"
 
@@ -111,13 +122,11 @@ msgstr "파일"
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "파일 목록(_L)"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "텍스트(_T)"
 
@@ -153,7 +162,6 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
 msgstr "GtkHash 설정"
 
@@ -284,16 +292,12 @@ msgstr "파일|URI"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "지정된 해시 함수(예: MD5)를 활성화합니다"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "함수"
@@ -334,27 +338,3 @@ msgstr[0] "%u 초 남음"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s / %s - %s (%s/sec)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "지원되는 Hash 함수를 사용하는데 실패했습니다."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "툴바 표시(_T)"
-
-#~ msgid "_File"
-#~ msgstr "파일(_F)"
-
-#~ msgid "_Edit"
-#~ msgstr "편집(_E)"
-
-#~ msgid "_View"
-#~ msgstr "보기(_V)"
-
-#~ msgid "_Help"
-#~ msgstr "도움말(_H)"
-
-#~ msgid "Ha_sh"
-#~ msgstr "Hash(_s)"
-
-#~ msgid "H_ash"
-#~ msgstr "Hash(_a)"

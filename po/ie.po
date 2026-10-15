@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:05+0000\n"
 "PO-Revision-Date: 2019-06-18 19:03+0000\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Occidental <https://hosted.weblate.org/projects/gtkhash/"
@@ -20,23 +20,15 @@ msgstr ""
 "X-Generator: Weblate 3.7\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-#, fuzzy
-#| msgid "Check:"
-msgid "Checksums"
-msgstr "Controlar:"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "Adjunter digestes o summas de control al proprietás de un file"
+msgid "Show checksums in file properties"
+msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -61,6 +53,25 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "Supportat hash-functiones include MD5, SHA1, SHA256, SHA512 e CRC32."
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+#, fuzzy
+msgid "Checksums"
+msgstr "Controlar:"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -88,21 +99,18 @@ msgstr "Copiar  _digeste"
 
 #: data/gtkhash-gtk3.ui:169
 #, fuzzy
-#| msgid "Open Digest File"
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "Aperter un file de digeste"
 
 #: data/gtkhash-gtk3.ui:174
 #, fuzzy
-#| msgid "Save Digest File"
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "Gardar li digeste"
 
 #: data/gtkhash-gtk3.ui:181
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
 msgstr "Preferenties de GtkHash"
 
@@ -116,13 +124,11 @@ msgstr "File"
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "_Liste de files"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "_Textu"
 
@@ -158,7 +164,6 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
 msgstr "Preferenties de GtkHash"
 
@@ -168,13 +173,11 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:989
 #, fuzzy
-#| msgid "Hash Functions:"
 msgid "Hash Functions"
 msgstr "Hash-fuctiones:"
 
 #: data/gtkhash-gtk3.ui:1020
 #, fuzzy
-#| msgid "Hash Functions:"
 msgid "MAC Functions"
 msgstr "Hash-fuctiones:"
 
@@ -222,7 +225,6 @@ msgstr "_Anullar"
 
 #: src/callbacks.c:73
 #, fuzzy
-#| msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, ...)"
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Files de digestes  e summas (*.sha1, *.md5, *.sfv, ...)"
 
@@ -295,16 +297,12 @@ msgstr "FILE|URI"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "Activar li providet function hash (p.ex. MD5)"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "FUNCTION"
@@ -347,38 +345,3 @@ msgstr[1] "%u secondes resta"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s ex %s - %s (%s/sec)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "Ne successat activar alquel supportat function hash."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "Monstrar _instrumentarium"
-
-#~ msgid "_File"
-#~ msgstr "_File"
-
-#~ msgid "_Edit"
-#~ msgstr "_Redacter"
-
-#~ msgid "_View"
-#~ msgstr "_Vise"
-
-#~ msgid "_Help"
-#~ msgstr "Au_xilie"
-
-#~ msgid "Ha_sh"
-#~ msgstr "Ha_sh"
-
-#~ msgid "H_ash"
-#~ msgstr "H_ashar"
-
-#~ msgid "Digests"
-#~ msgstr "Digestes"
-
-#~ msgctxt "menu"
-#~ msgid "_Open Digest File..."
-#~ msgstr "_Aperter un file de digeste..."
-
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "_Gardar li digeste..."

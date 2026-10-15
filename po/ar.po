@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:05+0000\n"
 "PO-Revision-Date: 2021-04-05 17:26+0000\n"
 "Last-Translator: Ahmed Eldemery <aeldemery.de@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/gtkhash/"
@@ -24,21 +24,15 @@ msgstr ""
 "X-Launchpad-Export-Date: 2015-08-04 05:18+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "أرقام التحقق"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "أضِفْ رقم التحقق من الموثوقية إلى خصائص الملفّ"
+msgid "Show checksums in file properties"
+msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -64,6 +58,24 @@ msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 "الخوارزميات وطرق الحساب المعتمدة في البرنامج تشمل الآتي MD5، SHA1، SHA256، "
 "SHA512، CRC32."
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "أرقام التحقق"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -101,7 +113,6 @@ msgstr "اح_فظ ملف حساب الخوارزمية…"
 
 #: data/gtkhash-gtk3.ui:181
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
 msgstr "تفضيلات GtkHash"
 
@@ -115,13 +126,11 @@ msgstr "ملفّ"
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "_قائمة الملف"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "_نص"
 
@@ -157,7 +166,6 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
 msgstr "تفضيلات GtkHash"
 
@@ -288,16 +296,12 @@ msgstr "ملف|عنوان الملف"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "تنشيط دالة حساب التحقق المعيّنة (مثلاً بنظام MD5)"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "الدوال والخوارزميات"
@@ -348,73 +352,3 @@ msgstr[5] "تبقت %u ثانية"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "تبقى %s من %s - %s (%s/الثوان)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "فشل تمكين أي من وظائف التحقق."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "أظهر _شريط الأدوات"
-
-#~ msgid "_File"
-#~ msgstr "_ملف"
-
-#~ msgid "_Edit"
-#~ msgstr "_حرّر"
-
-#~ msgid "_View"
-#~ msgstr "_اعرض"
-
-#~ msgid "_Help"
-#~ msgstr "_مساعدة"
-
-#~ msgid "Ha_sh"
-#~ msgstr "ها_ش"
-
-#~ msgid "H_ash"
-#~ msgstr "_هاش"
-
-#~ msgid "Digests"
-#~ msgstr "ملخصات"
-
-#, fuzzy
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "احفظ الخلاصة"
-
-#, fuzzy
-#~ msgid "Check Digests"
-#~ msgstr "احفظ الخلاصة"
-
-#~ msgid "Unknown error"
-#~ msgstr "خطأ مجهول"
-
-#~ msgid "%s of %s - 1 minute left (%s/sec)"
-#~ msgstr "%s من %s - تبقى دقيقة واحدة (%s/ثانية)"
-
-#~ msgid "%s of %s - 1 second left (%s/sec)"
-#~ msgstr "%s من %s - تبقى ثانية واحدة (%s/ثانية)"
-
-#~ msgid "%s of %s - %u seconds left (%s/sec)"
-#~ msgstr "%s من %s - %u دقيقة متبقية  (%s/ثانية)"
-
-#, fuzzy
-#~ msgid ""
-#~ "Failed to load \"%s\":\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "فشل في إضافة \"%s\":\n"
-#~ "%s"
-
-#~ msgid "Failed to read \"%s\""
-#~ msgstr "فشل في قراءة \"%s\""
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "Read program data from the specified directory"
-#~ msgstr "اقرأ بيانات البرنامج من الدليل المحدد"
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "DIRECTORY"
-#~ msgstr "دليل"

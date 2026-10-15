@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:05+0000\n"
 "PO-Revision-Date: 2020-07-03 16:41+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/gtkhash/"
@@ -21,21 +21,15 @@ msgstr ""
 "X-Generator: Weblate 4.2-dev\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "Kontrolinės sumos"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "Prideda žinutės maišos reikšmes ar kontrolines sumas į failo savybes"
+msgid "Show checksums in file properties"
+msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -61,6 +55,24 @@ msgstr ""
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 "Palaikomos maišos funkcijos, įskaitant MD5, SHA1, SHA256, SHA512 ir CRC32."
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "Kontrolinės sumos"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -98,7 +110,6 @@ msgstr "Į_rašyti maišos reikšmių failą…"
 
 #: data/gtkhash-gtk3.ui:181
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
 msgstr "GtkHash nuostatos"
 
@@ -112,13 +123,11 @@ msgstr "Failas"
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "Failų _sąrašas"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "_Tekstas"
 
@@ -154,7 +163,6 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
 msgstr "GtkHash nuostatos"
 
@@ -287,16 +295,12 @@ msgstr "FAILAS|URI"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "Įjungti nurodytą maišos funkciją (pvz., MD5)"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "FUNKCIJA"
@@ -341,44 +345,3 @@ msgstr[2] "liko %u sekundžių"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s iš %s - %s (%s/sek.)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "Nepavyko įjungti jokių palaikomų maišos funkcijų."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "Rodyti į_rankių juostą"
-
-#~ msgid "_File"
-#~ msgstr "_Failas"
-
-#~ msgid "_Edit"
-#~ msgstr "_Taisa"
-
-#~ msgid "_View"
-#~ msgstr "R_odinys"
-
-#~ msgid "_Help"
-#~ msgstr "Ž_inynas"
-
-#~ msgid "Ha_sh"
-#~ msgstr "Ma_iša"
-
-#~ msgid "H_ash"
-#~ msgstr "M_aiša"
-
-#~ msgid "Digests"
-#~ msgstr "Maišos reikšmės"
-
-#~ msgctxt "menu"
-#~ msgid "_Open Digest File..."
-#~ msgstr "_Atverti maišos reikšmių failą..."
-
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "Į_rašyti maišos reikšmių failą..."
-
-#~ msgid "Check Digests"
-#~ msgstr "Tikrinti maišos reikšmes"
-
-#~ msgid "Unknown error"
-#~ msgstr "Nežinoma klaida"

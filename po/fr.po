@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:05+0000\n"
 "PO-Revision-Date: 2021-12-02 01:50+0000\n"
 "Last-Translator: aezjrareareare <jeromechaland@riseup.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gtkhash/"
@@ -25,22 +25,15 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-09-16 04:40+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "Sommes de contrôle"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
+msgid "Show checksums in file properties"
 msgstr ""
-"Ajoute les condensats ou les sommes de contrôle aux propriétés du fichier"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -68,6 +61,24 @@ msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 "Les fonctions de hachage prises en charge sont MD5, SHA-1, SHA-256, SHA-512 "
 "et le code cyclique CRC32."
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "Sommes de contrôle"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -105,7 +116,6 @@ msgstr "_Enregistrer le condensat"
 
 #: data/gtkhash-gtk3.ui:181
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
 msgstr "Préférences GtkHash"
 
@@ -119,13 +129,11 @@ msgstr "Fichier"
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "_Liste de fichiers"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "_Texte"
 
@@ -161,7 +169,6 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
 msgstr "Préférences GtkHash"
 
@@ -297,16 +304,12 @@ msgstr "FICHIER|URI"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "Active la fonction de hachage spécifiée (p. ex. SHA-256)"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "FONCTION"
@@ -349,75 +352,3 @@ msgstr[1] "%u secondes restantes"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s de %s – %s (%s/s)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "Échec de l’activation des fonctions de hachage prises en charge."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "Afficher la barre d’ou_tils"
-
-#~ msgid "_File"
-#~ msgstr "_Fichier"
-
-#~ msgid "_Edit"
-#~ msgstr "Édition"
-
-#~ msgid "_View"
-#~ msgstr "_Vue"
-
-#~ msgid "_Help"
-#~ msgstr "Aide"
-
-#~ msgid "Ha_sh"
-#~ msgstr "Hacher"
-
-#~ msgid "H_ash"
-#~ msgstr "H_achage"
-
-#~ msgid "Digests"
-#~ msgstr "Condensats"
-
-#~ msgctxt "menu"
-#~ msgid "_Open Digest File..."
-#~ msgstr "_Ouvrir un condensat"
-
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "Enregi_strer le condensat"
-
-#~ msgid "Check Digests"
-#~ msgstr "Vérifier empreintes"
-
-#~ msgid "Unknown error"
-#~ msgstr "Erreur inconnue"
-
-#~ msgid "%s of %s - 1 minute left (%s/sec)"
-#~ msgstr "%s de %s - 1 minute restant (%s/s)"
-
-#~ msgid "%s of %s - 1 second left (%s/sec)"
-#~ msgstr "%s de %s - 1 seconde restant (%s/s)"
-
-#~ msgid "%s of %s - %u seconds left (%s/sec)"
-#~ msgstr "%s de %s - %u secondes restant (%s/s)"
-
-#, fuzzy
-#~ msgid ""
-#~ "Failed to load \"%s\":\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Impossible d'ajouter « %s »\n"
-#~ "%s"
-
-#~ msgid "Failed to read \"%s\""
-#~ msgstr "Échec de lecture « %s »"
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "Read program data from the specified directory"
-#~ msgstr "Lire les données du programme à partir du répertoire spécifié"
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "DIRECTORY"
-#~ msgstr "RÉPERTOIRE"

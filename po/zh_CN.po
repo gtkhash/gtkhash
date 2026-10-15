@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:05+0000\n"
 "PO-Revision-Date: 2021-09-24 10:38+0000\n"
 "Last-Translator: Liu Tao <lyuutau@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -23,21 +23,15 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-07-10 05:35+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "校验"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "将消息摘要或校验和添加到文件属性"
+msgid "Show checksums in file properties"
+msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -61,6 +55,24 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "支持的哈希函数包含MD5、SHA1、SHA256、SHA512和CRC32。"
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "校验"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -98,7 +110,6 @@ msgstr "保存摘要文件(_S)…"
 
 #: data/gtkhash-gtk3.ui:181
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
 msgstr "GtkHash 首选项"
 
@@ -112,13 +123,11 @@ msgstr "文件"
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "文件列表(_L)"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "文本(_T)"
 
@@ -154,7 +163,6 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
 msgstr "GtkHash 首选项"
 
@@ -288,16 +296,12 @@ msgstr "文件|URI"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "启用指定的哈希函数 (e.g. MD5)"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "函数"
@@ -338,73 +342,3 @@ msgstr[0] "剩余%u秒"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s / %s - %s (%s/秒)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "无法启用任何支持的哈希函数。"
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "显示工具栏(_T)"
-
-#~ msgid "_File"
-#~ msgstr "文件(_F)"
-
-#~ msgid "_Edit"
-#~ msgstr "编辑(_E)"
-
-#~ msgid "_View"
-#~ msgstr "视图(_V)"
-
-#~ msgid "_Help"
-#~ msgstr "帮助(_H)"
-
-#~ msgid "Ha_sh"
-#~ msgstr "哈希(_S)"
-
-#~ msgid "H_ash"
-#~ msgstr "哈希(_A)"
-
-#~ msgid "Digests"
-#~ msgstr "摘要"
-
-#, fuzzy
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "保存摘要"
-
-#, fuzzy
-#~ msgid "Check Digests"
-#~ msgstr "保存摘要"
-
-#~ msgid "Unknown error"
-#~ msgstr "未知错误"
-
-#~ msgid "%s of %s - 1 minute left (%s/sec)"
-#~ msgstr "进度 %s/ %s - 还剩 1 分钟(%s/秒)"
-
-#~ msgid "%s of %s - 1 second left (%s/sec)"
-#~ msgstr "进度 %s/%s - 还剩 1 秒钟(%s/秒)"
-
-#~ msgid "%s of %s - %u seconds left (%s/sec)"
-#~ msgstr "进度 %s/%s - 还剩 %u 秒(%s/秒)"
-
-#, fuzzy
-#~ msgid ""
-#~ "Failed to load \"%s\":\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "无法添加 “%s”：\n"
-#~ "%s"
-
-#~ msgid "Failed to read \"%s\""
-#~ msgstr "无法读取 “%s”"
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "Read program data from the specified directory"
-#~ msgstr "从指定目录读取程序数据"
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "DIRECTORY"
-#~ msgstr "目录"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:05+0000\n"
 "PO-Revision-Date: 2021-03-20 03:18+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/gtkhash/"
@@ -22,21 +22,15 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "Kontrolsumoj"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "Aldonas haketaĵojn aŭ kontrolsumojn al dosieraj atributoj"
+msgid "Show checksums in file properties"
+msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -62,6 +56,24 @@ msgstr ""
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 "Jen kelkaj subtenataj haketaj funkcioj: MD5, SHA1, SHA256, SHA512, CRC32."
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "Kontrolsumoj"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -99,7 +111,6 @@ msgstr "_Konservi Dosieron de Haketaĵo…"
 
 #: data/gtkhash-gtk3.ui:181
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
 msgstr "Preferoj pri GtkHash"
 
@@ -113,13 +124,11 @@ msgstr "Dosiero"
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "_Listo de Dosieroj"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "_Teksto"
 
@@ -155,7 +164,6 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
 msgstr "Preferoj pri GtkHash"
 
@@ -288,16 +296,12 @@ msgstr "DOSIERO|RETADRESO"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "Ŝalti la specifitan haketan dosieron (ekz. MD5)"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "FUNKCIO"
@@ -340,27 +344,3 @@ msgstr[1] "%u sekundoj restas"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s el %s - %s (%s/sekundo)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "Malsukcesis ŝalti iujn ajn subtenatajn haketajn funkciojn."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "Montri _Ilobreton"
-
-#~ msgid "_File"
-#~ msgstr "_Dosiero"
-
-#~ msgid "_Edit"
-#~ msgstr "_Redakti"
-
-#~ msgid "_View"
-#~ msgstr "_Vidi"
-
-#~ msgid "_Help"
-#~ msgstr "_Helpo"
-
-#~ msgid "Ha_sh"
-#~ msgstr "Ha_ketaĵo"
-
-#~ msgid "H_ash"
-#~ msgstr "Ha_ketaĵo"

@@ -10,10 +10,9 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
-"PO-Revision-Date: 2026-10-15 00:14+0000\n"
-"Last-Translator: Tristan Heaven "
-"<tristanheaven@users.noreply.hosted.weblate.org>\n"
+"POT-Creation-Date: 2026-10-15 23:05+0000\n"
+"PO-Revision-Date: 2026-10-15 23:15+0000\n"
+"Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/en_GB/>\n"
 "Language: en_GB\n"
@@ -25,21 +24,15 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-12-11 04:50+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "Checksums"
+msgid "GtkHash for Caja"
+msgstr "GtkHash for Caja"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "Adds message digests or checksums to file properties"
+msgid "Show checksums in file properties"
+msgstr "Show checksums in file properties"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -64,6 +57,24 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr "GtkHash for Nautilus"
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr "GtkHash for Nemo"
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr "GtkHash for Thunar"
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "Checksums"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -330,75 +341,3 @@ msgstr[1] "%u seconds left"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s of %s - %s (%s/sec)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "Failed to enable any supported hash functions."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "Show _Toolbar"
-
-#~ msgid "_File"
-#~ msgstr "_File"
-
-#~ msgid "_Edit"
-#~ msgstr "_Edit"
-
-#~ msgid "_View"
-#~ msgstr "_View"
-
-#~ msgid "_Help"
-#~ msgstr "_Help"
-
-#~ msgid "Ha_sh"
-#~ msgstr "Ha_sh"
-
-#~ msgid "H_ash"
-#~ msgstr "H_ash"
-
-#~ msgid "Digests"
-#~ msgstr "Digests"
-
-#~ msgctxt "menu"
-#~ msgid "_Open Digest File..."
-#~ msgstr "_Open Digest File..."
-
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "_Save Digest File..."
-
-#~ msgid "Check Digests"
-#~ msgstr "Check Digests"
-
-#~ msgid "Unknown error"
-#~ msgstr "Unknown error"
-
-#~ msgid "%s of %s - 1 minute left (%s/sec)"
-#~ msgstr "%s of %s - 1 minute left (%s/sec)"
-
-#~ msgid "%s of %s - 1 second left (%s/sec)"
-#~ msgstr "%s of %s - 1 second left (%s/sec)"
-
-#~ msgid "%s of %s - %u seconds left (%s/sec)"
-#~ msgstr "%s of %s - %u seconds left (%s/sec)"
-
-#, fuzzy
-#~ msgid ""
-#~ "Failed to load \"%s\":\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Failed to add \"%s\":\n"
-#~ "%s"
-
-#~ msgid "Failed to read \"%s\""
-#~ msgstr "Failed to read \"%s\""
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "Read program data from the specified directory"
-#~ msgstr "Read program data from the specified directory"
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "DIRECTORY"
-#~ msgstr "DIRECTORY"
