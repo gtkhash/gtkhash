@@ -21,6 +21,10 @@ if build_thunar
 endif
 
 appstreamcli = find_program('appstreamcli')
+override_args = []
+if find_program('appstreamcli', version: '>=0.15.4', required: false).found()
+    override_args += ['--override', 'developer-id-missing=info']
+endif
 
 foreach metainfo_name : metainfos
     metainfo_config = configure_file(
@@ -57,7 +61,7 @@ foreach metainfo_name : metainfos
     test(
         'appstreamcli validate ' + metainfo_name,
         appstreamcli,
-        args: ['validate', '--pedantic', '--explain', '--no-net', metainfo_file],
+        args: ['validate', '--pedantic', '--explain', '--no-net'] + override_args + [metainfo_file],
         suite: 'data',
     )
 endforeach
