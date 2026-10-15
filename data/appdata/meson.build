@@ -20,18 +20,44 @@ if build_thunar
     metainfos += 'org.gtkhash.thunar.metainfo.xml'
 endif
 
-foreach metainfo : metainfos
-    metainfo_in = configure_file(
-        input: metainfo + '.in.in',
-        output: metainfo + '.in',
+appstreamcli = find_program('appstreamcli')
+
+foreach metainfo_name : metainfos
+    metainfo_config = configure_file(
+        input: metainfo_name + '.in.in',
+        output: metainfo_name + '.in-config',
         configuration: data_config,
     )
-    i18n.merge_file(
+
+    metainfo_in = custom_target(
+        metainfo_name + '.in',
+        input: metainfo_config,
+        output: metainfo_name + '.in',
+        command: [
+            appstreamcli,
+            'news-to-metainfo',
+            '--format=text',
+            '--limit=5',
+            '--translatable-count=0',
+            news_file,
+            '@INPUT@',
+            '@OUTPUT@',
+        ],
+    )
+
+    metainfo_file = i18n.merge_file(
         input: metainfo_in,
-        output: metainfo,
+        output: metainfo_name,
         install: true,
         install_dir: get_option('datadir') / 'metainfo',
         po_dir: po_dir,
         type: 'xml',
+    )
+
+    test(
+        'appstreamcli validate ' + metainfo_name,
+        appstreamcli,
+        args: ['validate', '--pedantic', '--explain', '--no-net', metainfo_file],
+        suite: 'data',
     )
 endforeach

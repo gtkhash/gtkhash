@@ -1,92 +1,182 @@
-Summary of changes for each GtkHash release:
+Version 1.5
+-----------
+Released: 2022-09-21
 
-1.5 (2022-09-21)
-	* Added xxHash XXH64
-	* Added HMAC-BLAKE2s and HMAC-BLAKE2b (#86)
-	* Made hashing start automatically in file manager extensions (#103)
-	* Added Meson build system (#116, #140)
-	* Removed dependency on intltool
-	* Removed Peony extension as Peony 2+ is incompatible
+Features:
+  * Added xxHash XXH64
+  * Added HMAC-BLAKE2s and HMAC-BLAKE2b (#86)
 
-1.4 (2020-07-11)
-	* Added CRC32C
-	* Replaced the word "Digest" with "Checksum" in some places (#40)
-	* Added a separate hash button for each function (#50)
-	* Added preference to show/hide HMAC feature
-	* Fixed translations not showing on Windows and Snap package
-	* Reduced Windows install size
+Misc:
+  * Made hashing start automatically in file manager extensions (#103)
+  * Added Meson build system (#116, #140)
+  * Removed dependency on intltool
+  * Removed Peony extension as Peony 2+ is incompatible
 
-1.3 (2020-05-25)
-	* Fixed crash when program is closed (#47)
-	* Added vertical scrolling to File/Text view (#35)
-	* Added clipboard paste button to Check input
-	* Added Windows compatibility
-	* Removed support for GTK 2
+Version 1.4
+-----------
+Released: 2020-07-11
 
-1.2 (2018-11-27)
-	* Added compatibility for Thunar 1.7
-	* Added optional Peony (UKUI file manager) extension
+Features:
+  * Added CRC32C
+  * Added a separate hash button for each function (#50)
+  * Added preference to show/hide HMAC feature
 
-1.1.1 (2017-11-01)
-	* Fixed bug in loading user preferences
+Bug fixes:
+  * Fixed translations not showing on Windows and Snap package
 
-1.1 (2017-03-12)
-	* Removed internal BLAKE2 code and added option to use libb2 instead
-	* Added OpenSSL-1.1 as a BLAKE2b/BLAKE2s provider
-	* Removed PolarSSL support (replaced by mbed TLS)
+Misc:
+  * Replaced the word "Digest" with "Checksum" in some places (#40)
+  * Reduced Windows install size
 
-1.0.1 (2017-03-02)
-	* Fixed crash when certain Linux kernel crypto modules aren't loaded
-	* Fixed plugin crash when viewing file properties in Thunar
-	* Other bug fixes
+Version 1.3
+-----------
+Released: 2020-05-25
 
-1.0 (2016-11-16)
-	* Added feature for checking digests from files (md5sum, sfv, etc.)
-	* Added commandline option for enabling hash functions by name
-	* Added Caja (MATE file manager) extension
-	* Added BLAKE2 hash functions
-	* Added support for mbed TLS
-	* Switched to use GTK 3 by default
-	* Added desktop menu entry and icon
+Features:
+  * Added vertical scrolling to File/Text view (#35)
+  * Added clipboard paste button to Check input
+  * Added Windows compatibility
 
-0.7.0 (2013-10-30)
-	* Added optional Nemo (Cinnamon file manager) extension
-	* Added more commandline options
-	* Added support for PolarSSL
-	* Added support for Nettle
-	* UI bug fixes
+Bug fixes:
+  * Fixed crash when program is closed (#47)
 
-0.6.0 (2011-12-14)
-	* Added "Check" feature for comparing digests
-	* Added HMAC support
-	* Added MD6 hash function
-	* Switched from GConf to GSettings
+Misc:
+  * Removed support for GTK 2
 
-0.5.0 (2011-10-31)
-	* Improved hashing speed on SMP systems
-	* Added support for libcrypto
+Version 1.2
+-----------
+Released: 2018-11-27
 
-0.4.0 (2011-10-26)
-	* Added support for hashing non-local files using GIO
-	* Made mhash an optional dependency
-	* Added optional support for other hash libraries/interfaces
-	* Added Digest Format option
-	* Added optional Thunar (Xfce file manager) plugin
-	* Added support for GTK 3
-	* General usability improvements
+Features:
+  * Added compatibility for Thunar 1.7
+  * Added optional Peony (UKUI file manager) extension
 
-0.3.0 (2009-11-22)
-	* Added optional Nautilus (GNOME file manager) extension
+Version 1.1.1
+-------------
+Released: 2017-11-01
 
-0.2.1 (2008-12-31)
-	* Fixed progress bar display for large files
-	* Removed dependency on libglade
+Bug fixes:
+  * Fixed bug in loading user preferences
 
-0.2.0 (2007-08-14)
-	* Added file list mode for hashing multiple files
+Version 1.1
+-----------
+Released: 2017-03-12
 
-0.1.1 (2007-07-21)
-	* Added gettext support
+Features:
+  * Added OpenSSL-1.1 as a BLAKE2b/BLAKE2s provider
 
-0.1.0 (2007-06-29)
-	* Initial release
+Misc:
+  * Removed internal BLAKE2 code and added option to use libb2 instead
+  * Removed PolarSSL support (replaced by mbed TLS)
+
+Version 1.0.1
+-------------
+Released: 2017-03-02
+
+Bug fixes:
+  * Fixed crash when certain Linux kernel crypto modules aren't loaded
+  * Fixed plugin crash when viewing file properties in Thunar
+  * Other bug fixes
+
+Version 1.0
+-----------
+Released: 2016-11-16
+
+Features:
+  * Added feature for checking digests from files (md5sum, sfv, etc.)
+  * Added commandline option for enabling hash functions by name
+  * Added Caja (MATE file manager) extension
+  * Added BLAKE2 hash functions
+  * Added support for mbed TLS
+  * Added desktop menu entry and icon
+
+Misc:
+  * Switched to use GTK 3 by default
+
+Version 0.7.0
+-------------
+Released: 2013-10-30
+
+Features:
+  * Added optional Nemo (Cinnamon file manager) extension
+  * Added more commandline options
+  * Added support for PolarSSL
+  * Added support for Nettle
+
+Bug fixes:
+  * UI bug fixes
+
+Version 0.6.0
+-------------
+Released: 2011-12-14
+
+Features:
+  * Added "Check" feature for comparing digests
+  * Added HMAC support
+  * Added MD6 hash function
+
+Misc:
+  * Switched from GConf to GSettings
+
+Version 0.5.0
+-------------
+Released: 2011-10-31
+
+Features:
+  * Added support for libcrypto
+
+Misc:
+  * Improved hashing speed on SMP systems
+
+Version 0.4.0
+-------------
+Released: 2011-10-26
+
+Features:
+  * Added support for hashing non-local files using GIO
+  * Added optional support for other hash libraries/interfaces
+  * Added Digest Format option
+  * Added optional Thunar (Xfce file manager) plugin
+  * Added support for GTK 3
+
+Misc:
+  * Made mhash an optional dependency
+  * General usability improvements
+
+Version 0.3.0
+-------------
+Released: 2009-11-22
+
+Features:
+  * Added optional Nautilus (GNOME file manager) extension
+
+Version 0.2.1
+-------------
+Released: 2008-12-31
+
+Bug fixes:
+  * Fixed progress bar display for large files
+
+Misc:
+  * Removed dependency on libglade
+
+Version 0.2.0
+-------------
+Released: 2007-08-14
+
+Features:
+  * Added file list mode for hashing multiple files
+
+Version 0.1.1
+-------------
+Released: 2007-07-21
+
+Misc:
+  * Added gettext support
+
+Version 0.1.0
+-------------
+Released: 2007-06-29
+
+Features:
+  * Initial release
