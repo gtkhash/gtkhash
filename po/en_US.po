@@ -2,14 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Tristan Heaven <tristan@tristanheaven.net>, 2020, 2026.
+# Tristan Heaven <tristanheaven@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-15 01:32+0200\n"
-"PO-Revision-Date: 2026-10-04 01:51+0000\n"
-"Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
+"PO-Revision-Date: 2026-10-15 00:14+0000\n"
+"Last-Translator: Tristan Heaven "
+"<tristanheaven@users.noreply.hosted.weblate.org>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/en_US/>\n"
 "Language: en_US\n"
@@ -17,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.1.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
@@ -274,20 +276,14 @@ msgid "FILE|URI"
 msgstr "FILE|URI"
 
 #: src/opts.c:106
-#, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
-msgstr "Enable the specified Hash Function (e.g. MD5)"
+msgstr "Enable or disable the specified hash function"
 
 #: src/opts.c:107
-#, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
-msgstr "FUNCTION"
+msgstr "[+-]FUNCTION"
 
 #: src/opts.c:111
 msgctxt " --help"
