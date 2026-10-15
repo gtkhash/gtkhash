@@ -4,14 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 # Roi Klevansky <roiklevansky@gmail.com>, 2020.
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2020.
+# Roi Klevansky <roi_klevansky@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-15 01:32+0200\n"
-"PO-Revision-Date: 2020-07-21 11:41+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2026-10-15 00:15+0000\n"
+"Last-Translator: Roi Klevansky "
+"<roi_klevansky@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/gtkhash/"
 "translations/he/>\n"
 "Language: he\n"
@@ -20,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 "X-Launchpad-Export-Date: 2016-01-29 05:16+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
@@ -324,7 +326,7 @@ msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
 
 #: src/util/util.c:35
-#, c-format
+#, c-format, fuzzy
 msgid "%u minute left"
 msgid_plural "%u minutes left"
 msgstr[0] "נשארה דקה אחת"
@@ -333,7 +335,7 @@ msgstr[2] "נשארו %u דקות"
 msgstr[3] "נשארו %u דקות"
 
 #: src/util/util.c:39
-#, c-format
+#, c-format, fuzzy
 msgid "%u second left"
 msgid_plural "%u seconds left"
 msgstr[0] "נשארה שנייה אחת"
@@ -345,38 +347,3 @@ msgstr[3] "נשארו %u שניות"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s מתוך %s‏ - %s (%s לשנייה)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "הפעלת פונקציות הגיבוב הנתמכות נכשלה."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "הצגת _סרגל כלים"
-
-#~ msgid "_File"
-#~ msgstr "_קובץ"
-
-#~ msgid "_Edit"
-#~ msgstr "_עריכה"
-
-#~ msgid "_View"
-#~ msgstr "_תצוגה"
-
-#~ msgid "_Help"
-#~ msgstr "ע_זרה"
-
-#~ msgid "Ha_sh"
-#~ msgstr "חי_שוב"
-
-#~ msgid "H_ash"
-#~ msgstr "_חישוב"
-
-#~ msgid "Digests"
-#~ msgstr "קודי גבוב"
-
-#~ msgctxt "menu"
-#~ msgid "_Open Digest File..."
-#~ msgstr "_פתח קובץ קוד גיבוב..."
-
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "_שמור לקובץ קוד גיבוב..."
