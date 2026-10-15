@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:32+0200\n"
 "PO-Revision-Date: 2024-02-04 20:01+0000\n"
 "Last-Translator: Ali Nemati <AliNemati13@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/gtkhash/"
@@ -23,21 +23,23 @@ msgstr ""
 "X-Generator: Weblate 5.4-dev\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "چک سام ها"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "خلاصه پیام ها یا چک سام ها را به ویژگی های فایل اضافه می کند"
+msgid "Show checksums in file properties"
+msgstr ""
+
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:13
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:38
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:13
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:14
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:13
+msgid "Tristan Heaven"
+msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -62,6 +64,24 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "توابع هش پشتیبان شده شامل MD5, SHA1, SHA256, SHA512 و CRC32."
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "چک سام ها"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -99,7 +119,6 @@ msgstr "_ذخیره فایل خلاصه…"
 
 #: data/gtkhash-gtk3.ui:181
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
 msgstr "ترجیحات GtkHash"
 
@@ -113,13 +132,11 @@ msgstr "پرونده"
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "_لیست فایل"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "_متن"
 
@@ -155,7 +172,6 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
 msgstr "ترجیحات GtkHash"
 
@@ -286,16 +302,12 @@ msgstr "FILE|URI"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "Enable the specified Hash Function (e.g. MD5)"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "FUNCTION"
@@ -338,27 +350,3 @@ msgstr[1] "%u ثانیه مانده"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s از %s - زمان تقریبی %s (%s/ثانیه)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "خطا در فعال سازی تمام توابع هش پشتیبانی شده."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "نمایش _نوار ابزار"
-
-#~ msgid "_File"
-#~ msgstr "_پرونده"
-
-#~ msgid "_Edit"
-#~ msgstr "_ویرایش"
-
-#~ msgid "_View"
-#~ msgstr "_نمایش"
-
-#~ msgid "_Help"
-#~ msgstr "_راهنما"
-
-#~ msgid "Ha_sh"
-#~ msgstr "ه_ش"
-
-#~ msgid "H_ash"
-#~ msgstr "_هش"

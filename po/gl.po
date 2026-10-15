@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:32+0200\n"
 "PO-Revision-Date: 2011-04-25 21:04+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <gl@li.org>\n"
@@ -20,21 +20,22 @@ msgstr ""
 "X-Generator: Launchpad (build 15520)\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-#, fuzzy
-msgid "Checksums"
-msgstr "Gardar o valor hash"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
+msgid "Show checksums in file properties"
+msgstr ""
+
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:13
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:38
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:13
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:14
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:13
+msgid "Tristan Heaven"
 msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
@@ -57,6 +58,25 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+#, fuzzy
+msgid "Checksums"
+msgstr "Gardar o valor hash"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -108,13 +128,11 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "_Lista de ficheiros"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "_Texto"
 
@@ -158,13 +176,11 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:989
 #, fuzzy
-#| msgid "Hash Function"
 msgid "Hash Functions"
 msgstr "Función de hash"
 
 #: data/gtkhash-gtk3.ui:1020
 #, fuzzy
-#| msgid "Hash Function"
 msgid "MAC Functions"
 msgstr "Función de hash"
 
@@ -289,7 +305,6 @@ msgstr "[FICHEIRO|URI...]"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgid "Failed to enable any supported hash functions."
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "Produciuse un fallo ao activar todas as funcións hash admitidas."
@@ -338,38 +353,3 @@ msgstr[1] ""
 #, fuzzy, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s de %s - restan %u minutos (%s/seg)"
-
-#~ msgid "_File"
-#~ msgstr "_Ficheiro"
-
-#~ msgid "_Edit"
-#~ msgstr "_Editar"
-
-#~ msgid "_View"
-#~ msgstr "_Ver"
-
-#~ msgid "_Help"
-#~ msgstr "_Axuda"
-
-#~ msgid "Ha_sh"
-#~ msgstr "Ha_sh"
-
-#~ msgid "H_ash"
-#~ msgstr "H_ash"
-
-#~ msgid "Digests"
-#~ msgstr "Valores hash"
-
-#, fuzzy
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "Gardar o valor hash"
-
-#~ msgid "%s of %s - 1 minute left (%s/sec)"
-#~ msgstr "%s de %s - resta 1 minuto (%s/seg)"
-
-#~ msgid "%s of %s - 1 second left (%s/sec)"
-#~ msgstr "%s de %s - resta 1 segundo (%s/seg)"
-
-#~ msgid "%s of %s - %u seconds left (%s/sec)"
-#~ msgstr "%s de %s - restan %u segundos (%s/seg)"

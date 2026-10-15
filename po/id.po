@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:32+0200\n"
 "PO-Revision-Date: 2021-11-09 16:49+0000\n"
 "Last-Translator: I. Musthafa <i.musthafa66@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtkhash/"
@@ -22,21 +22,23 @@ msgstr ""
 "X-Generator: Weblate 4.9-dev\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "Ceksum"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
-msgstr "Tambahkan inti pesan atau ceksum ke properti berkas"
+msgid "Show checksums in file properties"
+msgstr ""
+
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:13
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:38
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:13
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:14
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:13
+msgid "Tristan Heaven"
+msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -61,6 +63,24 @@ msgstr ""
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr "Fungsi Hash yang didukung: MD5,SHA1, SHA256, SHA512, dan CRC32."
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "Ceksum"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -98,7 +118,6 @@ msgstr "_Simpan Berkas Inti…"
 
 #: data/gtkhash-gtk3.ui:181
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "_Preferences"
 msgstr "Pengaturan GtkHash"
 
@@ -112,13 +131,11 @@ msgstr "Berkas"
 
 #: data/gtkhash-gtk3.ui:317
 #, fuzzy
-#| msgid "File _List"
 msgid "File List"
 msgstr "Daftar_Berkas"
 
 #: data/gtkhash-gtk3.ui:331
 #, fuzzy
-#| msgid "_Text"
 msgid "Text"
 msgstr "_Teks"
 
@@ -154,7 +171,6 @@ msgstr ""
 
 #: data/gtkhash-gtk3.ui:936
 #, fuzzy
-#| msgid "GtkHash Preferences"
 msgid "Preferences"
 msgstr "Pengaturan GtkHash"
 
@@ -287,16 +303,12 @@ msgstr "BERKAS|URI"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "Aktifkan Fungsi Hash yang diberikan (cth. MD5)"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "FUNGSI"
@@ -337,27 +349,3 @@ msgstr[0] "%u detik tersisa"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s dari %s - %s (%s/dtk)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "Gagal untuk mengaktifkan fungsi hash yang didukung mana pun."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "Tampilkan_Bilah Alat"
-
-#~ msgid "_File"
-#~ msgstr "_Berkas"
-
-#~ msgid "_Edit"
-#~ msgstr "__Ubah"
-
-#~ msgid "_View"
-#~ msgstr "_Lihat"
-
-#~ msgid "_Help"
-#~ msgstr "_Bantuan"
-
-#~ msgid "Ha_sh"
-#~ msgstr "Ha_sh"
-
-#~ msgid "H_ash"
-#~ msgstr "H_ash"

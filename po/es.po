@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 01:32+0200\n"
+"POT-Creation-Date: 2026-10-15 23:32+0200\n"
 "PO-Revision-Date: 2026-10-08 21:51+0000\n"
 "Last-Translator: El Pirujo <boina@disroot.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
@@ -26,23 +26,23 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
-msgid "Checksums"
-msgstr "Sumas de verificación"
+msgid "GtkHash for Caja"
+msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Adds message digests or checksums to file properties"
+msgid "Show checksums in file properties"
 msgstr ""
-"Añade resúmenes de mensajes o sumas de comprobación a las propiedades de un "
-"archivo"
+
+#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:13
+#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:38
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:13
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:14
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:13
+msgid "Tristan Heaven"
+msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -68,6 +68,24 @@ msgstr ""
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
 msgstr ""
 "Las funciones resumen compatibles incluyen MD5, SHA1, SHA256, SHA512 y CRC32."
+
+#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
+
+#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
+#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
+#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+msgid "Checksums"
+msgstr "Sumas de verificación"
 
 #: data/gtkhash-gtk3.ui:14
 msgid "Lowercase Hexadecimal"
@@ -287,16 +305,12 @@ msgstr "ARCHIVO|URI"
 
 #: src/opts.c:106
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
 msgstr "Activar la función resumen especificada (p. ej. MD5)"
 
 #: src/opts.c:107
 #, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
 msgstr "FUNCIÓN"
@@ -339,72 +353,3 @@ msgstr[1] "faltan %u segundos"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s de %s - %s (%s/s)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr ""
-#~ "Se ha producido un error al activar las funciones resumen compatibles."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "Mostrar la barra de _herramientas"
-
-#~ msgid "_File"
-#~ msgstr "_Archivo"
-
-#~ msgid "_Edit"
-#~ msgstr "_Editar"
-
-#~ msgid "_View"
-#~ msgstr "_Ver"
-
-#~ msgid "_Help"
-#~ msgstr "Ay_uda"
-
-#~ msgid "Ha_sh"
-#~ msgstr "Re_sumen"
-
-#~ msgid "H_ash"
-#~ msgstr "Resumen"
-
-#~ msgid "Digests"
-#~ msgstr "Resúmenes"
-
-#~ msgctxt "menu"
-#~ msgid "_Open Digest File..."
-#~ msgstr "_Abrir un archivo de resúmenes..."
-
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "_Guardar los resúmenes en un archivo..."
-
-#, fuzzy
-#~ msgid "Check Digests"
-#~ msgstr "Revisar resúmenes"
-
-#~ msgid "Unknown error"
-#~ msgstr "Se ha producido un error desconocido"
-
-#~ msgid "%s of %s - 1 minute left (%s/sec)"
-#~ msgstr "%s de %s - queda 1 minuto (%s/seg)"
-
-#~ msgid "%s of %s - 1 second left (%s/sec)"
-#~ msgstr "%s de %s - queda 1 segundo (%s/seg)"
-
-#~ msgid "%s of %s - %u seconds left (%s/sec)"
-#~ msgstr "%s de %s - quedan %u segundos (%s/seg)"
-
-#, fuzzy
-#~ msgid ""
-#~ "Failed to load \"%s\":\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Error al añadir \"%s\":\n"
-#~ "%s"
-
-#~ msgid "Failed to read \"%s\""
-#~ msgstr "Error en la lectura \"%s\""
-
-#, fuzzy
-#~ msgctxt "gtkhash --help"
-#~ msgid "DIRECTORY"
-#~ msgstr "DIRECTORIO"
