@@ -4,14 +4,15 @@
 # Łukasz Szeremeta <https://launchpad.net/~l-szeremeta>, 2011.
 # Piotr Drąg <piotrdrag@gmail.com>, 2017, 2018, 2019, 2020.
 # Matthaiks <kitynska@gmail.com>, 2026.
+# Matthaiks <kityn@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-15 01:32+0200\n"
-"PO-Revision-Date: 2026-10-04 01:51+0000\n"
-"Last-Translator: Matthaiks <kitynska@gmail.com>\n"
+"PO-Revision-Date: 2026-10-15 05:56+0000\n"
+"Last-Translator: Matthaiks <kityn@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/pl/>\n"
 "Language: pl\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.10.1.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
@@ -280,20 +281,14 @@ msgid "FILE|URI"
 msgstr "PLIK|URI"
 
 #: src/opts.c:106
-#, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
-msgstr "Włącza podaną funkcję sum kontrolnych (np. MD5)"
+msgstr "Włącza lub wyłącza określoną funkcję skrótu"
 
 #: src/opts.c:107
-#, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
-msgstr "FUNKCJA"
+msgstr "[+-]FUNKCJA"
 
 #: src/opts.c:111
 msgctxt " --help"
@@ -335,44 +330,3 @@ msgstr[2] "Pozostało %u sekund"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s z %s — %s (%s/s)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "Włączenie obsługiwanej funkcji sum kontrolnych się nie powiodło."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "Pasek _narzędziowy"
-
-#~ msgid "_File"
-#~ msgstr "_Plik"
-
-#~ msgid "_Edit"
-#~ msgstr "_Edycja"
-
-#~ msgid "_View"
-#~ msgstr "_Widok"
-
-#~ msgid "_Help"
-#~ msgstr "Pomo_c"
-
-#~ msgid "Ha_sh"
-#~ msgstr "_Oblicz"
-
-#~ msgid "H_ash"
-#~ msgstr "_Oblicz"
-
-#~ msgid "Digests"
-#~ msgstr "Skróty"
-
-#~ msgctxt "menu"
-#~ msgid "_Open Digest File..."
-#~ msgstr "_Otwórz plik skrótu…"
-
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "_Zapisz plik skrótu…"
-
-#~ msgid "Check Digests"
-#~ msgstr "Sprawdzenie skrótów"
-
-#~ msgid "Unknown error"
-#~ msgstr "Nieznany błąd"
