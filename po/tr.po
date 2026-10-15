@@ -8,14 +8,15 @@
 # Oğuz Ersen <oguzersen@protonmail.com>, 2020.
 # Oğuz Ersen <oguz@ersen.moe>, 2022, 2026.
 # Sabri Ünal <libreajans@gmail.com>, 2023.
+# Oğuz Ersen <ersen@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-15 01:32+0200\n"
-"PO-Revision-Date: 2026-10-04 08:51+0000\n"
-"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
+"PO-Revision-Date: 2026-10-15 05:56+0000\n"
+"Last-Translator: Oğuz Ersen <ersen@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/tr/>\n"
 "Language: tr\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.1.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
@@ -285,20 +286,14 @@ msgid "FILE|URI"
 msgstr "DOSYA|URI"
 
 #: src/opts.c:106
-#, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
-msgstr "Belirtilen Hash İşlevini etkinleştirin (örneğin, MD5)"
+msgstr "Belirtilen hash işlevini etkinleştirin veya devre dışı bırakın"
 
 #: src/opts.c:107
-#, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
-msgstr "İŞLEV"
+msgstr "[+-]İŞLEV"
 
 #: src/opts.c:111
 msgctxt " --help"
@@ -338,41 +333,3 @@ msgstr[1] "%u saniye daha kaldı"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s için %s - %s (%s/san)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "Desteklenen hiçbir bir hash işlevi etkinleştirilemedi."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "_Araç Çubuğunu Göster"
-
-#~ msgid "_File"
-#~ msgstr "_Dosya"
-
-#~ msgid "_Edit"
-#~ msgstr "_Düzenle"
-
-#~ msgid "_View"
-#~ msgstr "_Görünüm"
-
-#~ msgid "_Help"
-#~ msgstr "_Yardım"
-
-#~ msgid "Ha_sh"
-#~ msgstr "Ha_sh"
-
-#~ msgid "H_ash"
-#~ msgstr "H_ash"
-
-#~ msgid "Digests"
-#~ msgstr "Özet"
-
-#~ msgctxt "menu"
-#~ msgid "_Open Digest File..."
-#~ msgstr "Özet Dosyasını _Aç..."
-
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "Özet Dosyasını _Kaydet..."
-
-#~ msgid "Check Digests"
-#~ msgstr "Özetleri Kontrol Et"
