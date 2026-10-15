@@ -4,14 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # Mattias Münster <mattiasmun@gmail.com>, 2020.
 # bittin1ddc447d824349b2 <bittin@reimu.nl>, 2026.
+# bittin1ddc447d824349b2 <bittin1ddc447d824349b2@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-15 01:32+0200\n"
-"PO-Revision-Date: 2026-10-06 09:51+0000\n"
-"Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
+"PO-Revision-Date: 2026-10-15 05:56+0000\n"
+"Last-Translator: bittin1ddc447d824349b2 "
+"<bittin1ddc447d824349b2@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/sv/>\n"
 "Language: sv\n"
@@ -19,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.1.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
@@ -281,20 +283,14 @@ msgid "FILE|URI"
 msgstr "FIL|URI"
 
 #: src/opts.c:106
-#, fuzzy
-#| msgctxt " --help"
-#| msgid "Enable the specified Hash Function (e.g. MD5)"
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
-msgstr "Aktivera den angivna Hash-funktionen (t.ex. MD5)"
+msgstr "Aktivera eller inaktivera den specificerade hashfunktionen"
 
 #: src/opts.c:107
-#, fuzzy
-#| msgctxt " --help"
-#| msgid "FUNCTION"
 msgctxt " --help"
 msgid "[+-]FUNCTION"
-msgstr "FUNKTION"
+msgstr "[+-]FUNKTION"
 
 #: src/opts.c:111
 msgctxt " --help"
@@ -334,42 +330,3 @@ msgstr[1] "%u sekunder kvar"
 #, c-format
 msgid "%s of %s - %s (%s/sec)"
 msgstr "%s av %s - %s (%s/sek)"
-
-#~ msgid "Failed to enable any supported hash functions."
-#~ msgstr "Lyckades inte aktivera någon hashfunktion som stöds."
-
-#~ msgid "Show _Toolbar"
-#~ msgstr "Visa _verktygsfält"
-
-#~ msgid "_File"
-#~ msgstr "_Arkiv"
-
-#~ msgid "_Edit"
-#~ msgstr "_Redigera"
-
-#~ msgid "_View"
-#~ msgstr "_Visa"
-
-#~ msgid "_Help"
-#~ msgstr "_Hjälp"
-
-#~ msgid "Ha_sh"
-#~ msgstr "Ha_sh"
-
-#~ msgid "H_ash"
-#~ msgstr "H_ash"
-
-#~ msgid "Digests"
-#~ msgstr "Sammandrag"
-
-#, fuzzy
-#~ msgctxt "menu"
-#~ msgid "_Save Digest File..."
-#~ msgstr "Spara sammandrag"
-
-#, fuzzy
-#~ msgid "Check Digests"
-#~ msgstr "Spara sammandrag"
-
-#~ msgid "Unknown error"
-#~ msgstr "Okänt fel"
