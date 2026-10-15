@@ -34,11 +34,6 @@
   <url type="bugtracker">https://github.com/gtkhash/gtkhash/issues</url>
   <url type="translate">https://hosted.weblate.org/engage/gtkhash/</url>
   <url type="vcs-browser">https://github.com/gtkhash/gtkhash</url>
-<!-- Use <developer_name translate="no"> until <name translate="no"> works in Weblate
-  <developer id="org.gtkhash">
-    <name translate="no">Tristan Heaven</name>
-  </developer>
--->
   <developer_name translate="no">Tristan Heaven</developer_name>
   <update_contact>tristan@tristanheaven.net</update_contact>
   <translation type="gettext">gtkhash</translation>
