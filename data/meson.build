@@ -15,9 +15,11 @@ if enable_nautilus_data
 endif
 
 if build_gtkhash
+    desktop_name = application_id + '.desktop'
+
     desktop_file = i18n.merge_file(
-        input: 'org.gtkhash.gtkhash.desktop.in',
-        output: 'org.gtkhash.gtkhash.desktop',
+        input: desktop_name + '.in',
+        output: desktop_name,
         install: true,
         install_dir: get_option('datadir') / 'applications',
         po_dir: po_dir,
@@ -26,7 +28,12 @@ if build_gtkhash
 
     desktop_file_validate = find_program('desktop-file-validate', required: false)
     if desktop_file_validate.found()
-        test('desktop-file-validate', desktop_file_validate, args: [desktop_file])
+        test(
+            'desktop-file-validate ' + desktop_name,
+            desktop_file_validate,
+            args: [desktop_file],
+            suite: 'data',
+        )
     endif
 
     install_data(

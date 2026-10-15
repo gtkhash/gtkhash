@@ -11,6 +11,7 @@
           doCheck = true;
           mesonBuildType = "debugoptimized";
           nativeBuildInputs = with pkgs; [
+            appstream
             desktop-file-utils
             gtk3
             librsvg
@@ -92,6 +93,7 @@
       in {
         default = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
           packages = with pkgs; [
+            appstream
             caja
             desktop-file-utils
             gettext

@@ -49,6 +49,7 @@ jobs:
           apt-get install -y \
             ${{ matrix.compiler }} \
             $(opt_pkg libblake3-dev) \
+            appstream \
             curl \
             desktop-file-utils \
             gcovr \

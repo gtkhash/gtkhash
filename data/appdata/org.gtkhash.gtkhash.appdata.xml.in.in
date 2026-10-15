@@ -17,14 +17,15 @@
     </p>
   </description>
   <screenshots>
-    <screenshot type="default">
-      <image>https://raw.githubusercontent.com/gtkhash/gtkhash/master/screenshots/gtkhash-screenshot-light.png</image>
+    <screenshot type="default" environment="gnome">
+      <image>https://raw.githubusercontent.com/gtkhash/gtkhash/v@VERSION@/screenshots/gtkhash-screenshot-light.png</image>
     </screenshot>
-<!--
-    <screenshot type="default">
-      <image>https://raw.githubusercontent.com/gtkhash/gtkhash/master/screenshots/gtkhash-screenshot-dark.png</image>
+    <screenshot environment="gnome:dark">
+      <image>https://raw.githubusercontent.com/gtkhash/gtkhash/v@VERSION@/screenshots/gtkhash-screenshot-dark.png</image>
     </screenshot>
--->
+    <screenshot environment="gnome">
+      <image>https://raw.githubusercontent.com/gtkhash/gtkhash/v@VERSION@/screenshots/file-list.png</image>
+    </screenshot>
   </screenshots>
   <provides>
     <binary>gtkhash</binary>
@@ -33,11 +34,10 @@
   <url type="bugtracker">https://github.com/gtkhash/gtkhash/issues</url>
   <url type="translate">https://hosted.weblate.org/engage/gtkhash/</url>
   <url type="vcs-browser">https://github.com/gtkhash/gtkhash</url>
-  <developer_name translate="no">Tristan Heaven</developer_name>
+  <developer translate="no" id="org.gtkhash">
+    <name>Tristan Heaven</name>
+  </developer>
   <update_contact>tristan@tristanheaven.net</update_contact>
   <translation type="gettext">gtkhash</translation>
   <content_rating type="oars-1.1"/>
-  <releases>
-    <release version="@VERSION@" date="@RELEASE_DATE@"/>
-  </releases>
 </component>

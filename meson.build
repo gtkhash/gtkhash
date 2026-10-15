@@ -42,7 +42,8 @@ config.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 
 data_config = configuration_data()
 data_config.set('VERSION', meson.project_version())
-data_config.set('RELEASE_DATE', '2022-09-21')
+
+news_file = files('NEWS')
 
 meson.add_devenv({'G_ENABLE_DIAGNOSTIC': '1', 'G_MESSAGES_DEBUG': package_name})
 
