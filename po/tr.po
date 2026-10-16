@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-15 23:05+0000\n"
-"PO-Revision-Date: 2026-10-15 05:56+0000\n"
+"PO-Revision-Date: 2026-10-16 05:55+0000\n"
 "Last-Translator: Oğuz Ersen <ersen@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/tr/>\n"
@@ -29,14 +29,14 @@ msgstr ""
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
-msgstr ""
+msgstr "Caja için GtkHash"
 
 #: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
 msgid "Show checksums in file properties"
-msgstr ""
+msgstr "Dosya özelliklerinde sağlama toplamlarını göster"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -64,15 +64,15 @@ msgstr "Desteklenen hash işlevleri MD5, SHA1, SHA256, SHA512 ve CRC32."
 
 #: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
 msgid "GtkHash for Nautilus"
-msgstr ""
+msgstr "Nautilus için GtkHash"
 
 #: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
 msgid "GtkHash for Nemo"
-msgstr ""
+msgstr "Nemo için GtkHash"
 
 #: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
 msgid "GtkHash for Thunar"
-msgstr ""
+msgstr "Thunar için GtkHash"
 
 #: data/caja/libgtkhash-properties-caja.desktop.in.in:3
 #: src/nautilus/properties.c:463 src/nautilus/properties.c:466
