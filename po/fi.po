@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 23:05+0000\n"
+"POT-Creation-Date: 2026-10-18 01:39+0200\n"
 "PO-Revision-Date: 2025-02-03 14:02+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/gtkhash/"
@@ -256,11 +256,11 @@ msgstr "_Näytä HMAC-avain"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Tarkistustiedoston \"%s\" lukeminen epäonnistui: %s"
 
-#: src/gui.c:281
+#: src/gui.c:279
 msgid "Not a regular file"
 msgstr "Ei tavallinen tiedosto"
 
-#: src/gui.c:304
+#: src/gui.c:302
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Tiedoston \"%s\" lisääminen epäonnistui: %s"
