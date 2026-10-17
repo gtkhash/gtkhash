@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-15 23:05+0000\n"
+"POT-Creation-Date: 2026-10-18 01:39+0200\n"
 "PO-Revision-Date: 2026-10-15 22:45+0000\n"
 "Last-Translator: Matthaiks <kityn@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/"
@@ -258,11 +258,11 @@ msgstr "_Klucz HMAC"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Odczytanie pliku sprawdzenia „%s” się nie powiodło: %s"
 
-#: src/gui.c:281
+#: src/gui.c:279
 msgid "Not a regular file"
 msgstr "Nie jest zwykłym plikiem"
 
-#: src/gui.c:304
+#: src/gui.c:302
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Dodanie pliku „%s” się nie powiodło: %s"
