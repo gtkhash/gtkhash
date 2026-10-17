@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -33,7 +33,7 @@
 struct page_s {
 	GSettings *settings;
 	char *uri;
-	GtkWidget *box, *hbox_inputs;
+	GtkWidget *box, *hbox_hmac;
 	GtkProgressBar *progressbar;
 	GtkTreeView *treeview;
 	GtkTreeSelection *treeselection;

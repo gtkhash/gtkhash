@@ -89,8 +89,6 @@ static void gui_init_objects(GtkBuilder *builder)
 		"vbox_single"));
 	gui.vbox_list = GTK_BOX(gui_get_object(builder,
 		"vbox_list"));
-	gui.hbox_input = GTK_BOX(gui_get_object(builder,
-		"hbox_input"));
 	gui.hbox_output = GTK_BOX(gui_get_object(builder,
 		"hbox_output"));
 	gui.vbox_outputlabels = GTK_BOX(gui_get_object(builder,
@@ -802,7 +800,11 @@ void gui_set_state(const enum gui_state_e state)
 	gtk_progress_bar_set_text(gui.progressbar, " ");
 	gtk_widget_set_visible(GTK_WIDGET(gui.progressbar), busy);
 
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.hbox_input), !busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.label_file), !busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.filechooserbutton), !busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.togglebutton_hmac_file), !busy);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.entry_hmac_file), !busy &&
+		gtk_toggle_button_get_active(gui.togglebutton_hmac_file));
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.hbox_output), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.box_buttons), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.treeview), !busy);

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -71,7 +71,7 @@ static void gtkhash_properties_busy(struct page_s *page)
 	page->busy = true;
 
 	gtk_widget_set_sensitive(GTK_WIDGET(page->treeview), false);
-	gtk_widget_set_sensitive(GTK_WIDGET(page->hbox_inputs), false);
+	gtk_widget_set_sensitive(GTK_WIDGET(page->hbox_hmac), false);
 
 	// Reset progress bar
 	gtk_progress_bar_set_fraction(page->progressbar, 0.0);
@@ -123,7 +123,7 @@ void gtkhash_properties_idle(struct page_s *page)
 	gtk_widget_show(GTK_WIDGET(page->button_hash));
 
 	gtk_widget_set_sensitive(GTK_WIDGET(page->treeview), true);
-	gtk_widget_set_sensitive(GTK_WIDGET(page->hbox_inputs), true);
+	gtk_widget_set_sensitive(GTK_WIDGET(page->hbox_hmac), true);
 	gtkhash_properties_entry_hmac_set_sensitive(page);
 
 	gtkhash_properties_list_check_digests(page);
@@ -323,8 +323,8 @@ static void gtkhash_properties_init_objects(struct page_s *page,
 		"checkmenuitem_show_funcs"));
 
 	// Check/MAC inputs
-	page->hbox_inputs = GTK_WIDGET(gtkhash_properties_get_object(builder,
-		"hbox_inputs"));
+	page->hbox_hmac = GTK_WIDGET(gtkhash_properties_get_object(builder,
+		"hbox_hmac"));
 	page->entry_check = GTK_ENTRY(gtkhash_properties_get_object(builder,
 		"entry_check"));
 	page->togglebutton_hmac = GTK_TOGGLE_BUTTON(gtkhash_properties_get_object(builder,
