@@ -50,8 +50,7 @@ extern struct gui_s {
 	GSimpleAction *action_open, *action_save_as, *action_prefs, *action_about;
 	GtkToggleButton *togglebutton_view_file, *togglebutton_view_file_list, *togglebutton_view_text;
 	GtkBox *vbox_single, *vbox_list;
-	GtkBox *hbox_input, *hbox_output;
-	GtkBox *vbox_outputlabels, *vbox_digests_file, *vbox_digests_text;
+	GtkBox *hbox_output, *vbox_outputlabels, *vbox_digests_file, *vbox_digests_text;
 	GtkEntry *entry_text, *entry_check_file, *entry_check_text;
 	GtkEntry *entry_hmac_file, *entry_hmac_text;
 	GtkFileChooserButton *filechooserbutton;
