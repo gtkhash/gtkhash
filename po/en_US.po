@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-18 19:44+0200\n"
-"PO-Revision-Date: 2026-10-15 23:16+0000\n"
+"PO-Revision-Date: 2026-10-18 17:46+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/en_US/>\n"
@@ -263,7 +263,7 @@ msgstr "Failed to add file \"%s\": %s"
 
 #: src/gui.c:348
 msgid "Discarding invalid characters from digest"
-msgstr ""
+msgstr "Discarding invalid characters from digest"
 
 #: src/hash.c:195 src/prefs.c:86
 #, c-format
