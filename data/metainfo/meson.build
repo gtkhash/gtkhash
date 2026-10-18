@@ -1,7 +1,7 @@
 metainfos = []
 
 if build_gtkhash
-    metainfos += 'org.gtkhash.gtkhash.appdata.xml'
+    metainfos += 'org.gtkhash.gtkhash.metainfo.xml'
 endif
 
 if build_caja

@@ -42,4 +42,4 @@ parts:
       mkdir -vp -- "${CRAFT_PART_INSTALL}"/meta/gui
       cp -vf -- "${CRAFT_PART_SRC}"/data/icons/scalable/org.gtkhash.gtkhash.svg "${CRAFT_PART_INSTALL}"/meta/gui/gtkhash.svg
     parse-info:
-      - usr/share/metainfo/org.gtkhash.gtkhash.appdata.xml
+      - usr/share/metainfo/org.gtkhash.gtkhash.metainfo.xml
