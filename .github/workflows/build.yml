@@ -69,7 +69,6 @@ jobs:
             libthunarx-3-dev \
             libxml2-utils \
             libxxhash-dev \
-            linux-libc-dev \
             meson \
             nettle-dev \
             ninja-build \
@@ -89,7 +88,6 @@ jobs:
             -Dglib-checksums=true \
             -Dinternal-md6=true \
             -Dlibcrypto=true \
-            -Dlinux-crypto=true \
             -Dmbedtls=true \
             -Dnettle=true \
             -Dxxhash=true \

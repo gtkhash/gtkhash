@@ -127,12 +127,6 @@ config.set10('ENABLE_INTERNAL_MD6', get_option('internal-md6'))
 libcrypto = get_option('libcrypto') ? dependency('libcrypto', version: '>=1.1') : no_dep
 config.set10('ENABLE_LIBCRYPTO', get_option('libcrypto'))
 
-##### Linux crypto
-if get_option('linux-crypto')
-    cc.has_header('linux/if_alg.h') or error('Header if_alg.h not found !')
-endif
-config.set10('ENABLE_LINUX_CRYPTO', get_option('linux-crypto'))
-
 ##### MbedTLS
 mbedtls = get_option('mbedtls') ? cc.find_library('mbedcrypto', has_headers: 'mbedtls/md.h') : no_dep
 config.set10('ENABLE_MBEDTLS', get_option('mbedtls'))
@@ -225,7 +219,6 @@ hash_functions = [
     'BLAKE2sp',
     'BLAKE3',
     'CRC32',
-    'CRC32C',
     'GOST',
     'MD2',
     'MD4',
@@ -235,10 +228,7 @@ hash_functions = [
     'MD6-384',
     'MD6-512',
     'MDC2',
-    'RIPEMD128',
     'RIPEMD160',
-    'RIPEMD256',
-    'RIPEMD320',
     'SHA1',
     'SHA224',
     'SHA256',
@@ -295,30 +285,6 @@ libcrypto_funcs = [
     'WHIRLPOOL',
 ]
 
-linux_crypto_funcs = [
-    'BLAKE2b',
-    'BLAKE2s',
-    'CRC32C',
-    'MD4',
-    'MD5',
-    'RIPEMD128',
-    'RIPEMD160',
-    'RIPEMD256',
-    'RIPEMD320',
-    'SHA1',
-    'SHA224',
-    'SHA256',
-    'SHA384',
-    'SHA512',
-    'SHA3-224',
-    'SHA3-256',
-    'SHA3-384',
-    'SHA3-512',
-    'TIGER192',
-    'WHIRLPOOL',
-    'XXH64',
-]
-
 mbedtls_funcs = detected_mbedtls_functions + [
     'MD5',
     'RIPEMD160',
@@ -355,7 +321,6 @@ hash_libs = {
     'libcrypto': libcrypto_funcs,
     'mbedtls': mbedtls_funcs,
     'nettle': nettle_funcs,
-    'linux_crypto': linux_crypto_funcs,
     'zlib': ['ADLER32', 'CRC32'],
     'glib_checksums': ['MD5', 'SHA1', 'SHA256', 'SHA384', 'SHA512'],
     'internal_md6': ['MD6-224', 'MD6-256', 'MD6-384', 'MD6-512'],
@@ -374,10 +339,6 @@ foreach function : hash_functions
 endforeach
 
 summary(functions_provided, section: 'Libraries')
-
-if get_option('linux-crypto')
-    summary({'linux-crypto': 'support depends on kernel module availability - check /proc/crypto'})
-endif
 
 ###############################################################################
 

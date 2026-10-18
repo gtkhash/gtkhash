@@ -114,7 +114,6 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(BLAKE2SP,    "", "dd0e891776933f43c7d032b08a917e25741f8aa9a12c12e1cac8801500f2ca4f");
 	t(BLAKE3,      "", "af1349b9f5f9a1a6a0404dea36dcc9499bcb25c9adc112b7cc9a93cae41f3262");
 	t(CRC32,       "", "00000000");
-	t(CRC32C,      "", "00000000");
 	t(GOST,        "", "ce85b99cc46752fffee35cab9a7b0278abb4c2d2055cff685af4912c49490f8d");
 	t(MD2,         "", "8350e5a3e24c153df2275c9f80692773");
 	t(MD4,         "", "31d6cfe0d16ae931b73c59d7e0c089c0");
@@ -123,10 +122,7 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(MD6_256,     "", "bca38b24a804aa37d821d31af00f5598230122c5bbfc4c4ad5ed40e4258f04ca");
 	t(MD6_384,     "", "b0bafffceebe856c1eff7e1ba2f539693f828b532ebf60ae9c16cbc3499020401b942ac25b310b2227b2954ccacc2f1f");
 	t(MD6_512,     "", "6b7f33821a2c060ecdd81aefddea2fd3c4720270e18654f4cb08ece49ccb469f8beeee7c831206bd577f9f2630d9177979203a9489e47e04df4e6deaa0f8e0c0");
-	t(RIPEMD128,   "", "cdf26213a150dc3ecb610f18f6b38b46");
 	t(RIPEMD160,   "", "9c1185a5c5e9fc54612808977ee8f548b2258d31");
-	t(RIPEMD256,   "", "02ba4c4e5f8ecd1877fc52d64d30e37a2d9774fb1e5d026380ae0168e3c5522d");
-	t(RIPEMD320,   "", "22d65d5661536cdc75c1fdf5c6de7b41b9f27325ebc61e8557177d705a0ec880151c3a32a00899b8");
 	t(SHA1,        "", "da39a3ee5e6b4b0d3255bfef95601890afd80709");
 	t(SHA224,      "", "d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f");
 	t(SHA256,      "", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
@@ -147,7 +143,6 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(XXH128,      "", "99aa06d3014798d86001c324468d497f");
 
 	t(CRC32,       "The quick brown fox jumps over the lazy dog", "414fa339");
-	t(CRC32C,      "The quick brown fox jumps over the lazy dog", "22620404");
 	t(BLAKE2B,     "The quick brown fox jumps over the lazy dog", "a8add4bdddfd93e4877d2746e62817b116364a1fa7bc148d95090bc7333b3673f82401cf7aa2e4cb1ecd90296e3f14cb5413f8ed77be73045b13914cdcd6a918");
 	t(GOST,        "The quick brown fox jumps over the lazy dog", "77b7fa410c9ac58a25f49bca7d0468c9296529315eaca76bd1a10f376d1f4294");
 	t(MD2,         "The quick brown fox jumps over the lazy dog", "03d85a0d629d2c442e987525319fc471");
@@ -171,10 +166,7 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(XXH3,        "The quick brown fox jumps over the lazy dog", "ce7d19a5418fb365");
 	t(XXH128,      "The quick brown fox jumps over the lazy dog", "ddd650205ca3e7fa24a1cc2e3a8a7651");
 
-	t(RIPEMD128, "message digest", "9e327b3d6e523062afc1132d7df9d1b8");
 	t(RIPEMD160, "message digest", "5d0689ef49d2fae572b881b123a85ffa21595f36");
-	t(RIPEMD256, "message digest", "87e971759a1ce47a514d5c914c392c9018c7c46bc14465554afcdf54a5070c0e");
-	t(RIPEMD320, "message digest", "3a8e28502ed45d422f68844f9dd316e7b98533fa3f2a91d29f84d425c88d6b4eff727df66a7c0197");
 	t(WHIRLPOOL, "message digest", "378c84a4126e2dc6e56dcc7458377aac838d00032230f53ce1f5700c0ffb4d3b8421557659ef55c106b4b52ac5a4aaa692ed920052838f3362e86dbd37a8903e");
 
 	t(ADLER32,  "abc", "024d0127");
@@ -188,7 +180,6 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(XXH128,   "abc", "06b05ab6733a618578af5f94892f3950");
 
 	t(CRC32,  "123456789", "cbf43926");
-	t(CRC32C, "123456789", "e3069283");
 	t(XXH32,  "123456789", "937bad67");
 	t(XXH64,  "123456789", "8cb841db40e6ae83");
 	t(XXH3,   "123456789", "72dcb18b67a17dff");
@@ -239,14 +230,6 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 		"effcdf6ae5eb2fa2d27416d5f184df9c259a7c79");
 
 	// RFC 2286
-	t(RIPEMD128,
-		"Hi There",
-		"\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b",
-		"fbf61f9492aa4bbf81c172e84e0734db");
-	t(RIPEMD128,
-		"what do ya want for nothing?",
-		"Jefe",
-		"875f828862b6b334b427c55f9f7ff09b");
 	t(RIPEMD160,
 		"Hi There",
 		"\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b",
