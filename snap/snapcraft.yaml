@@ -34,7 +34,6 @@ parts:
       - libxxhash0
     meson-parameters:
       - -Dblake3=false
-      - -Dlinux-crypto=true
       - -Dprefix=/usr
       - -Dstrip=true
     override-build: |

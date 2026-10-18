@@ -47,7 +47,6 @@ Optional:
 * Nettle
 * OpenSSL
 * Mbed TLS
-* Linux kernel AF_ALG
 
 Building from Source
 --------------------

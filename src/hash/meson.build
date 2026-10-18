@@ -23,9 +23,6 @@ endif
 if get_option('libcrypto')
     libhash_sources += 'hash-lib-crypto.c'
 endif
-if get_option('linux-crypto')
-    libhash_sources += 'hash-lib-linux.c'
-endif
 if get_option('mbedtls')
     libhash_sources += 'hash-lib-mbedtls.c'
 endif
