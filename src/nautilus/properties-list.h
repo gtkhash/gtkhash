@@ -22,7 +22,7 @@
 
 #include "properties.h"
 
-void gtkhash_properties_list_update_enabled(struct page_s *page,
+bool gtkhash_properties_list_update_enabled(struct page_s *page,
 	char *path_str);
 void gtkhash_properties_list_reset_enabled(struct page_s *page);
 void gtkhash_properties_list_update_hash_func_names(struct page_s *page);
@@ -36,3 +36,4 @@ void gtkhash_properties_list_refilter(struct page_s *page);
 void gtkhash_properties_list_init(struct page_s *page);
 
 #endif
+
