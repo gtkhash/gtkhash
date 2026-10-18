@@ -38,4 +38,10 @@
   <update_contact>tristan@tristanheaven.net</update_contact>
   <translation type="gettext">gtkhash</translation>
   <content_rating type="oars-1.1"/>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+    <internet>offline-only</internet>
+  </supports>
 </component>
