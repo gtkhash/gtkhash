@@ -3,7 +3,7 @@ if enable_icons
 endif
 
 if enable_appstream
-    subdir('appdata')
+    subdir('metainfo')
 endif
 
 if build_caja

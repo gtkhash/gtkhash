@@ -1,10 +1,10 @@
-data/appdata/org.gtkhash.caja.metainfo.xml.in.in
-data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in
-data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in
-data/appdata/org.gtkhash.nemo.metainfo.xml.in.in
-data/appdata/org.gtkhash.thunar.metainfo.xml.in.in
 data/caja/libgtkhash-properties-caja.desktop.in.in
 data/gtkhash-gtk3.ui
+data/metainfo/org.gtkhash.caja.metainfo.xml.in.in
+data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in
+data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in
+data/metainfo/org.gtkhash.nemo.metainfo.xml.in.in
+data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in
 data/nautilus/gtkhash-properties.ui
 data/org.gtkhash.gtkhash.desktop.in
 src/callbacks.c
