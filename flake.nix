@@ -14,7 +14,6 @@
             appstream
             desktop-file-utils
             gtk3
-            librsvg
             meson
             ninja
             pkg-config
@@ -25,6 +24,7 @@
             libb2
             libblake3
             libgcrypt
+            librsvg
             xxhash
           ];
           nativeCheckInputs = with pkgs; [
@@ -104,7 +104,7 @@
             libb2
             libblake3
             libgcrypt
-            librsvg # rsvg-convert
+            librsvg
             libxml2 # xmllint
             mbedtls
             meson

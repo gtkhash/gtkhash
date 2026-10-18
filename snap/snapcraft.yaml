@@ -25,7 +25,6 @@ parts:
       - libb2-dev
       - libgcrypt20-dev
       - libgtk-3-dev
-      - librsvg2-bin
       - libxxhash-dev
     stage-packages:
       - libb2-1
@@ -40,6 +39,6 @@ parts:
       sed -i '/^Icon=/s:=.*:=${SNAP}/meta/gui/gtkhash.svg:' "${CRAFT_PART_SRC}"/data/org.gtkhash.gtkhash.desktop.in
       craftctl default
       mkdir -vp -- "${CRAFT_PART_INSTALL}"/meta/gui
-      cp -vf -- "${CRAFT_PART_SRC}"/data/icons/scalable/org.gtkhash.gtkhash.svg "${CRAFT_PART_INSTALL}"/meta/gui/gtkhash.svg
+      cp -vf -- "${CRAFT_PART_SRC}"/data/icons/org.gtkhash.gtkhash.svg "${CRAFT_PART_INSTALL}"/meta/gui/gtkhash.svg
     parse-info:
       - usr/share/metainfo/org.gtkhash.gtkhash.metainfo.xml
