@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -22,7 +22,7 @@
 
 #include <glib.h>
 
-char *gtkhash_format_progress(goffset file_size, goffset total_read,
-	double elapsed);
+char *gtkhash_format_progress(goffset file_size, goffset total_read, double elapsed);
+char *gtkhash_filter_digest_chars(const char *text, const size_t len);
 
 #endif

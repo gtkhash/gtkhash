@@ -38,6 +38,7 @@
 #include "uri-digest.h"
 #include "hash/digest-format.h"
 #include "hash/hash-func.h"
+#include "util/util.h"
 
 #define GUI_XML_RESOURCE "/org/gtkhash/gtkhash-gtk3.ui"
 
@@ -341,8 +342,15 @@ void gui_add_check(const char *check)
 {
 	g_assert(check && *check);
 
-	gtk_entry_set_text(gui.entry_check_file, check);
-	gtk_entry_set_text(gui.entry_check_text, check);
+	char *filtered = gtkhash_filter_digest_chars(check, strlen(check));
+
+	if (strlen(filtered) != strlen(check))
+		g_message(_("Discarding invalid characters from digest"));
+
+	gtk_entry_set_text(gui.entry_check_file, filtered);
+	gtk_entry_set_text(gui.entry_check_text, filtered);
+
+	g_free(filtered);
 }
 
 void gui_add_text(const char *text)

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -64,4 +64,32 @@ char *gtkhash_format_progress(const goffset file_size,
 	g_free(time_left_str);
 
 	return text;
+}
+
+char *gtkhash_filter_digest_chars(const char *text, const size_t len)
+{
+	if (!text)
+		return NULL;
+
+	char *filtered = g_malloc(len + 1);
+	size_t filtered_len = 0;
+
+	for (size_t i = 0; i < len; i++) {
+		switch (text[i]) {
+			// Allow base64 chars
+			case '+':
+			case '/':
+			case '=':
+				break;
+			default:
+				if (!g_ascii_isalnum(text[i]))
+					continue;
+				break;
+		}
+		filtered[filtered_len] = text[i];
+		filtered_len++;
+	}
+	filtered[filtered_len] = '\0';
+
+	return filtered;
 }

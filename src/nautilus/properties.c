@@ -42,6 +42,7 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 
@@ -51,6 +52,7 @@
 #include "properties-prefs.h"
 #include "../hash/hash-func.h"
 #include "../hash/hash-file.h"
+#include "../util/util.h"
 
 #define PROPERTIES_XML_RESOURCE "/org/gtkhash/plugin/gtkhash-properties.ui"
 
@@ -195,6 +197,24 @@ static void gtkhash_properties_on_menuitem_show_funcs_toggled(
 	struct page_s *page)
 {
 	gtkhash_properties_list_refilter(page);
+}
+
+static void gtkhash_properties_on_entry_check_insert_text(GtkEditable *editable, char *new_text,
+	G_GNUC_UNUSED int new_text_length, int *position, G_GNUC_UNUSED void *data)
+{
+	const size_t len = strlen(new_text);
+	char *filtered = gtkhash_filter_digest_chars(new_text, len);
+
+	if (strlen(filtered) == len) {
+		g_free(filtered);
+		return;
+	}
+
+	gtk_editable_insert_text(editable, filtered, -1, position);
+
+	g_free(filtered);
+
+	g_signal_stop_emission_by_name(editable, "insert-text");
 }
 
 static void gtkhash_properties_on_entry_check_changed(struct page_s *page)
@@ -366,6 +386,8 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 		G_CALLBACK(gtkhash_properties_on_menuitem_show_funcs_toggled), page);
 
 	// Check
+	g_signal_connect(page->entry_check, "insert-text",
+		G_CALLBACK(gtkhash_properties_on_entry_check_insert_text), NULL);
 	g_signal_connect_swapped(page->entry_check, "changed",
 		G_CALLBACK(gtkhash_properties_on_entry_check_changed), page);
 	g_signal_connect(page->entry_check, "icon-press",
