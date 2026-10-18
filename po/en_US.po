@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-18 01:39+0200\n"
-"PO-Revision-Date: 2026-10-15 23:16+0000\n"
+"POT-Creation-Date: 2026-10-18 19:44+0200\n"
+"PO-Revision-Date: 2026-10-18 17:46+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/"
 "gtkhash/translations/en_US/>\n"
@@ -37,7 +37,7 @@ msgid "GtkHash"
 msgstr "GtkHash"
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:585
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:607
 msgid "Calculate message digests or checksums"
 msgstr "Calculate message digests or checksums"
 
@@ -68,8 +68,8 @@ msgid "GtkHash for Thunar"
 msgstr "GtkHash for Thunar"
 
 #: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+#: src/nautilus/properties.c:485 src/nautilus/properties.c:488
+#: src/nautilus/properties.c:491 src/nautilus/properties.c:493
 msgid "Checksums"
 msgstr "Checksums"
 
@@ -115,7 +115,7 @@ msgstr "_Preferences"
 msgid "_About"
 msgstr "_About"
 
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:725
+#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:729
 msgid "File"
 msgstr "File"
 
@@ -139,41 +139,41 @@ msgstr "Text:"
 msgid "Check:"
 msgstr "Check:"
 
-#: data/gtkhash-gtk3.ui:456 data/gtkhash-gtk3.ui:474
-#: data/nautilus/gtkhash-properties.ui:146
+#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
+#: data/nautilus/gtkhash-properties.ui:148
 msgid "Paste digest from clipboard"
 msgstr "Paste digest from clipboard"
 
-#: data/gtkhash-gtk3.ui:492 data/gtkhash-gtk3.ui:519
-#: data/nautilus/gtkhash-properties.ui:172
+#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
+#: data/nautilus/gtkhash-properties.ui:174
 msgid "HMAC Key:"
 msgstr "HMAC Key:"
 
-#: data/gtkhash-gtk3.ui:852 data/nautilus/gtkhash-properties.ui:306
+#: data/gtkhash-gtk3.ui:856 data/nautilus/gtkhash-properties.ui:308
 msgid "_Hash"
 msgstr "_Hash"
 
-#: data/gtkhash-gtk3.ui:891 data/nautilus/gtkhash-properties.ui:267
+#: data/gtkhash-gtk3.ui:895 data/nautilus/gtkhash-properties.ui:269
 msgid "_Stop"
 msgstr "_Stop"
 
-#: data/gtkhash-gtk3.ui:936
+#: data/gtkhash-gtk3.ui:940
 msgid "Preferences"
 msgstr "Preferences"
 
-#: data/gtkhash-gtk3.ui:954
+#: data/gtkhash-gtk3.ui:958
 msgid "_Close"
 msgstr "_Close"
 
-#: data/gtkhash-gtk3.ui:989
+#: data/gtkhash-gtk3.ui:993
 msgid "Hash Functions"
 msgstr "Hash Functions"
 
-#: data/gtkhash-gtk3.ui:1020
+#: data/gtkhash-gtk3.ui:1024
 msgid "MAC Functions"
 msgstr "MAC Functions"
 
-#: data/gtkhash-gtk3.ui:1042
+#: data/gtkhash-gtk3.ui:1046
 msgid "Digest Format:"
 msgstr "Digest Format:"
 
@@ -201,49 +201,49 @@ msgstr "Checksum Calculator"
 msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
 msgstr "hash;checksum;digest;md5;sha1;sha256;crc32;"
 
-#: src/callbacks.c:51 src/callbacks.c:55
+#: src/callbacks.c:53 src/callbacks.c:57
 msgid "Open Digest File"
 msgstr "Open Digest File"
 
-#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:240
-#: src/callbacks.c:246
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:242
+#: src/callbacks.c:248
 msgid "_Open"
 msgstr "_Open"
 
-#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:123
-#: src/callbacks.c:128 src/callbacks.c:240 src/callbacks.c:245
+#: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:125
+#: src/callbacks.c:130 src/callbacks.c:242 src/callbacks.c:247
 msgid "_Cancel"
 msgstr "_Cancel"
 
-#: src/callbacks.c:73
+#: src/callbacks.c:75
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 
-#: src/callbacks.c:78
+#: src/callbacks.c:80
 msgid "All Files"
 msgstr "All Files"
 
-#: src/callbacks.c:122 src/callbacks.c:126
+#: src/callbacks.c:124 src/callbacks.c:128
 msgid "Save Digest File"
 msgstr "Save Digest File"
 
-#: src/callbacks.c:123 src/callbacks.c:129
+#: src/callbacks.c:125 src/callbacks.c:131
 msgid "_Save"
 msgstr "_Save"
 
-#: src/callbacks.c:198
+#: src/callbacks.c:200
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "A desktop utility for computing message digests or checksums"
 
-#: src/callbacks.c:203
+#: src/callbacks.c:205
 msgid "translator-credits"
 msgstr "Tristan Heaven"
 
-#: src/callbacks.c:233
+#: src/callbacks.c:235
 msgid "Select Files"
 msgstr "Select Files"
 
-#: src/callbacks.c:453 src/nautilus/properties.c:243
+#: src/callbacks.c:473 src/nautilus/properties.c:263
 msgid "_Show HMAC Key"
 msgstr "_Show HMAC Key"
 
@@ -252,14 +252,18 @@ msgstr "_Show HMAC Key"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Failed to read check file \"%s\": %s"
 
-#: src/gui.c:279
+#: src/gui.c:280
 msgid "Not a regular file"
 msgstr "Not a regular file"
 
-#: src/gui.c:302
+#: src/gui.c:303
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Failed to add file \"%s\": %s"
+
+#: src/gui.c:348
+msgid "Discarding invalid characters from digest"
+msgstr "Discarding invalid characters from digest"
 
 #: src/hash.c:195 src/prefs.c:86
 #, c-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-18 01:39+0200\n"
+"POT-Creation-Date: 2026-10-18 19:44+0200\n"
 "PO-Revision-Date: 2020-07-31 08:27+0000\n"
 "Last-Translator: Oymate <dhruboadittya96@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) <https://hosted.weblate.org/projects/"
@@ -36,7 +36,7 @@ msgid "GtkHash"
 msgstr ""
 
 #: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:585
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:607
 msgid "Calculate message digests or checksums"
 msgstr "ডাইজেস্ট বা চেকসাম বার্তা গণনা করুন"
 
@@ -66,8 +66,8 @@ msgid "GtkHash for Thunar"
 msgstr ""
 
 #: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:463 src/nautilus/properties.c:466
-#: src/nautilus/properties.c:469 src/nautilus/properties.c:471
+#: src/nautilus/properties.c:485 src/nautilus/properties.c:488
+#: src/nautilus/properties.c:491 src/nautilus/properties.c:493
 msgid "Checksums"
 msgstr "পরীক্ষার ফল"
 
@@ -114,7 +114,7 @@ msgstr "জিটিকেহ্যাশ পছন্দসমূহ"
 msgid "_About"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:725
+#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:729
 msgid "File"
 msgstr "ফাইল"
 
@@ -140,42 +140,42 @@ msgstr "লেখা:"
 msgid "Check:"
 msgstr "পরীক্ষা করুন:"
 
-#: data/gtkhash-gtk3.ui:456 data/gtkhash-gtk3.ui:474
-#: data/nautilus/gtkhash-properties.ui:146
+#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
+#: data/nautilus/gtkhash-properties.ui:148
 msgid "Paste digest from clipboard"
 msgstr "ক্লিপবোর্ড থেকে ডাইজেস্ট পেস্ট করুন"
 
-#: data/gtkhash-gtk3.ui:492 data/gtkhash-gtk3.ui:519
-#: data/nautilus/gtkhash-properties.ui:172
+#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
+#: data/nautilus/gtkhash-properties.ui:174
 msgid "HMAC Key:"
 msgstr "এইচএমএসি কী:"
 
-#: data/gtkhash-gtk3.ui:852 data/nautilus/gtkhash-properties.ui:306
+#: data/gtkhash-gtk3.ui:856 data/nautilus/gtkhash-properties.ui:308
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:891 data/nautilus/gtkhash-properties.ui:267
+#: data/gtkhash-gtk3.ui:895 data/nautilus/gtkhash-properties.ui:269
 msgid "_Stop"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:936
+#: data/gtkhash-gtk3.ui:940
 #, fuzzy
 msgid "Preferences"
 msgstr "জিটিকেহ্যাশ পছন্দসমূহ"
 
-#: data/gtkhash-gtk3.ui:954
+#: data/gtkhash-gtk3.ui:958
 msgid "_Close"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:989
+#: data/gtkhash-gtk3.ui:993
 msgid "Hash Functions"
 msgstr "হ্যাশ ক্রিয়া"
 
-#: data/gtkhash-gtk3.ui:1020
+#: data/gtkhash-gtk3.ui:1024
 msgid "MAC Functions"
 msgstr "ম্যাক ক্রিয়া"
 
-#: data/gtkhash-gtk3.ui:1042
+#: data/gtkhash-gtk3.ui:1046
 msgid "Digest Format:"
 msgstr "ডাইজেস্ট সজ্জা:"
 
@@ -203,49 +203,49 @@ msgstr "চেকসাম ক্যালকুলেটর"
 msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
 msgstr ""
 
-#: src/callbacks.c:51 src/callbacks.c:55
+#: src/callbacks.c:53 src/callbacks.c:57
 msgid "Open Digest File"
 msgstr "ডাইজেস্ট ফাইল খুলুন"
 
-#: src/callbacks.c:52 src/callbacks.c:58 src/callbacks.c:240
-#: src/callbacks.c:246
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:242
+#: src/callbacks.c:248
 msgid "_Open"
 msgstr "_খুলুন"
 
-#: src/callbacks.c:52 src/callbacks.c:57 src/callbacks.c:123
-#: src/callbacks.c:128 src/callbacks.c:240 src/callbacks.c:245
+#: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:125
+#: src/callbacks.c:130 src/callbacks.c:242 src/callbacks.c:247
 msgid "_Cancel"
 msgstr "_বাতিল"
 
-#: src/callbacks.c:73
+#: src/callbacks.c:75
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "ডাইজেস্ট /চেকসাম ফাইলগুলি (*.sha1, *.md5, *.sfv, …)”"
 
-#: src/callbacks.c:78
+#: src/callbacks.c:80
 msgid "All Files"
 msgstr "সব ফাইল"
 
-#: src/callbacks.c:122 src/callbacks.c:126
+#: src/callbacks.c:124 src/callbacks.c:128
 msgid "Save Digest File"
 msgstr "ডাইজেস্ট ফাইল সংরক্ষণ করুন"
 
-#: src/callbacks.c:123 src/callbacks.c:129
+#: src/callbacks.c:125 src/callbacks.c:131
 msgid "_Save"
 msgstr "_সংরক্ষণ"
 
-#: src/callbacks.c:198
+#: src/callbacks.c:200
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "ডাইজেস্ট বা চেকসামের গণনা বার্তার জন্য একটি ডেস্কটপ যন্ত্র"
 
-#: src/callbacks.c:203
+#: src/callbacks.c:205
 msgid "translator-credits"
 msgstr "অনুবাদকারি-কৃতিত্ব"
 
-#: src/callbacks.c:233
+#: src/callbacks.c:235
 msgid "Select Files"
 msgstr "ফাইল নির্বাচন করুন"
 
-#: src/callbacks.c:453 src/nautilus/properties.c:243
+#: src/callbacks.c:473 src/nautilus/properties.c:263
 msgid "_Show HMAC Key"
 msgstr "_এইচএমএসি(HMAC) কী দেখান"
 
@@ -254,14 +254,18 @@ msgstr "_এইচএমএসি(HMAC) কী দেখান"
 msgid "Failed to read check file \"%s\": %s"
 msgstr "\"%s\" ফাইলটি পরীক্ষা করতে ব্যর্থ : %s"
 
-#: src/gui.c:279
+#: src/gui.c:280
 msgid "Not a regular file"
 msgstr "একটি সাধারণ ফাইল না"
 
-#: src/gui.c:302
+#: src/gui.c:303
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "\"%s\" ফাইলটি যুক্ত করতে ব্যর্থ : %s"
+
+#: src/gui.c:348
+msgid "Discarding invalid characters from digest"
+msgstr ""
 
 #: src/hash.c:195 src/prefs.c:86
 #, c-format
