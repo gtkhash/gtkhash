@@ -64,7 +64,7 @@ jobs:
             libmbedtls-dev \
             libnautilus-extension-dev \
             libnemo-extension-dev \
-            librsvg2-bin \
+            librsvg2-common \
             libssl-dev \
             libthunarx-3-dev \
             libxml2-utils \
