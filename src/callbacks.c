@@ -22,6 +22,7 @@
 #endif
 
 #include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
@@ -35,6 +36,7 @@
 #include "check.h"
 #include "uri-digest.h"
 #include "hash/hash-string.h"
+#include "util/util.h"
 
 static bool on_window_delete_event(void)
 {
@@ -395,6 +397,24 @@ static void on_button_hash_clicked(G_GNUC_UNUSED GtkButton *button,
 	gui_start_hash();
 }
 
+static void on_entry_check_insert_text(GtkEditable *editable, char *new_text,
+	G_GNUC_UNUSED int new_text_length, int *position, G_GNUC_UNUSED void *data)
+{
+	const size_t len = strlen(new_text);
+	char *filtered = gtkhash_filter_digest_chars(new_text, len);
+
+	if (strlen(filtered) == len) {
+		g_free(filtered);
+		return;
+	}
+
+	gtk_editable_insert_text(editable, filtered, -1, position);
+
+	g_free(filtered);
+
+	g_signal_stop_emission_by_name(editable, "insert-text");
+}
+
 static void on_entry_check_icon_press(GtkEntry *entry,
 	GtkEntryIconPosition pos, GdkEventButton *event)
 {
@@ -530,8 +550,10 @@ void callbacks_init(void)
 	CON(gui.entry_hmac_text,                "populate-popup",      on_entry_hmac_populate_popup);
 	CON(gui.entry_hmac_file,                "changed",             gui_clear_digests);
 	CON(gui.entry_hmac_text,                "changed",             hash_string);
+	CON(gui.entry_check_file,               "insert-text",         on_entry_check_insert_text);
 	CON(gui.entry_check_file,               "changed",             gui_check_digests);
 	CON(gui.entry_check_file,               "icon-press",          on_entry_check_icon_press);
+	CON(gui.entry_check_text,               "insert-text",         on_entry_check_insert_text);
 	CON(gui.entry_check_text,               "changed",             gui_check_digests);
 	CON(gui.entry_check_text,               "icon-press",          on_entry_check_icon_press);
 	CON(gui.button_add,                     "clicked",             on_button_add_clicked);
