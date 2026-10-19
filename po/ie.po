@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-18 19:44+0200\n"
+"POT-Creation-Date: 2026-10-19 13:55+0200\n"
 "PO-Revision-Date: 2019-06-18 19:03+0000\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Occidental <https://hosted.weblate.org/projects/gtkhash/"
@@ -18,53 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.7\n"
-
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-msgid "GtkHash for Caja"
-msgstr ""
-
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Show checksums in file properties"
-msgstr ""
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
-#: data/org.gtkhash.gtkhash.desktop.in:2
-msgid "GtkHash"
-msgstr ""
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:607
-msgid "Calculate message digests or checksums"
-msgstr "Calcular digestes o summas de control de missages"
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash es un application por computar summas de control de files, o "
-"digestes de missages. It esset dessinat quam un facil grafic alternative por "
-"comandes de terminal tal quam md5sum."
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
-msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr "Supportat hash-functiones include MD5, SHA1, SHA256, SHA512 e CRC32."
-
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-msgid "GtkHash for Nautilus"
-msgstr ""
-
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-msgid "GtkHash for Nemo"
-msgstr ""
-
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-msgid "GtkHash for Thunar"
-msgstr ""
 
 #: data/caja/libgtkhash-properties-caja.desktop.in.in:3
 #: src/nautilus/properties.c:485 src/nautilus/properties.c:488
@@ -184,6 +137,53 @@ msgstr "Hash-fuctiones:"
 #: data/gtkhash-gtk3.ui:1046
 msgid "Digest Format:"
 msgstr "Formate de digeste:"
+
+#: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
+msgid "GtkHash for Caja"
+msgstr ""
+
+#: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:8
+#: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:8
+#: data/metainfo/org.gtkhash.nemo.metainfo.xml.in.in:9
+#: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:8
+msgid "Show checksums in file properties"
+msgstr ""
+
+#: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:7
+#: data/org.gtkhash.gtkhash.desktop.in:2
+msgid "GtkHash"
+msgstr ""
+
+#: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:607
+msgid "Calculate message digests or checksums"
+msgstr "Calcular digestes o summas de control de missages"
+
+#: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
+msgid ""
+"GtkHash is an application for computing file checksums, or message digests. "
+"It's designed to be an easy to use, graphical alternative to command-line "
+"programs such as md5sum."
+msgstr ""
+"GtkHash es un application por computar summas de control de files, o "
+"digestes de missages. It esset dessinat quam un facil grafic alternative por "
+"comandes de terminal tal quam md5sum."
+
+#: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
+msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
+msgstr "Supportat hash-functiones include MD5, SHA1, SHA256, SHA512 e CRC32."
+
+#: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/metainfo/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
 
 #: data/nautilus/gtkhash-properties.ui:12
 msgid "_Copy Digest"
