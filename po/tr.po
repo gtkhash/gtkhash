@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-18 19:44+0200\n"
-"PO-Revision-Date: 2026-10-16 05:55+0000\n"
+"PO-Revision-Date: 2026-10-19 08:05+0000\n"
 "Last-Translator: Oğuz Ersen <ersen@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/tr/>\n"
@@ -274,7 +274,7 @@ msgstr "Dosya eklenemedi \"%s\": %s"
 
 #: src/gui.c:348
 msgid "Discarding invalid characters from digest"
-msgstr ""
+msgstr "Özet içinden geçersiz karakterler ayıklanıyor"
 
 #: src/hash.c:195 src/prefs.c:86
 #, c-format
