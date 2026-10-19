@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-18 19:44+0200\n"
+"POT-Creation-Date: 2026-10-19 14:11+0200\n"
 "PO-Revision-Date: 2026-10-15 23:15+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
@@ -21,50 +21,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2026.11.dev0\n"
 "X-Launchpad-Export-Date: 2013-04-26 05:41+0000\n"
-
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:7
-msgid "GtkHash for Caja"
-msgstr ""
-
-#: data/appdata/org.gtkhash.caja.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:8
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:9
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:8
-msgid "Show checksums in file properties"
-msgstr ""
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:7
-#: data/org.gtkhash.gtkhash.desktop.in:2
-msgid "GtkHash"
-msgstr ""
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:607
-msgid "Calculate message digests or checksums"
-msgstr "計算訊息摘要或資料校驗值"
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-
-#: data/appdata/org.gtkhash.gtkhash.appdata.xml.in.in:15
-msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
-
-#: data/appdata/org.gtkhash.nautilus.metainfo.xml.in.in:7
-msgid "GtkHash for Nautilus"
-msgstr ""
-
-#: data/appdata/org.gtkhash.nemo.metainfo.xml.in.in:8
-msgid "GtkHash for Nemo"
-msgstr ""
-
-#: data/appdata/org.gtkhash.thunar.metainfo.xml.in.in:7
-msgid "GtkHash for Thunar"
-msgstr ""
 
 #: data/caja/libgtkhash-properties-caja.desktop.in.in:3
 #: src/nautilus/properties.c:485 src/nautilus/properties.c:488
@@ -185,6 +141,50 @@ msgstr "雜湊函式："
 #: data/gtkhash-gtk3.ui:1046
 msgid "Digest Format:"
 msgstr "訊息摘要(message digest)格式："
+
+#: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
+msgid "GtkHash for Caja"
+msgstr ""
+
+#: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:8
+#: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:8
+#: data/metainfo/org.gtkhash.nemo.metainfo.xml.in.in:9
+#: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:8
+msgid "Show checksums in file properties"
+msgstr ""
+
+#: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:7
+#: data/org.gtkhash.gtkhash.desktop.in:2
+msgid "GtkHash"
+msgstr ""
+
+#: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:607
+msgid "Calculate message digests or checksums"
+msgstr "計算訊息摘要或資料校驗值"
+
+#: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
+msgid ""
+"GtkHash is an application for computing file checksums, or message digests. "
+"It's designed to be an easy to use, graphical alternative to command-line "
+"programs such as md5sum."
+msgstr ""
+
+#: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
+msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
+msgstr ""
+
+#: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:7
+msgid "GtkHash for Nautilus"
+msgstr ""
+
+#: data/metainfo/org.gtkhash.nemo.metainfo.xml.in.in:8
+msgid "GtkHash for Nemo"
+msgstr ""
+
+#: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:7
+msgid "GtkHash for Thunar"
+msgstr ""
 
 #: data/nautilus/gtkhash-properties.ui:12
 msgid "_Copy Digest"
