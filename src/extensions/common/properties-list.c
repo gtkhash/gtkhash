@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -21,15 +21,14 @@
 	#include "config.h"
 #endif
 
-#include <stdlib.h>
 #include <stdbool.h>
 #include <gtk/gtk.h>
 
 #include "properties.h"
 #include "properties-list.h"
 #include "properties-hash.h"
-#include "../hash/hash-func.h"
-#include "../hash/digest-format.h"
+#include "../../hash/hash-func.h"
+#include "../../hash/digest-format.h"
 
 enum {
 	COL_ID,
@@ -160,7 +159,7 @@ void gtkhash_properties_list_check_digests(struct page_s *page)
 
 	if (*check && gtk_tree_model_get_iter_first(model, &iter)) {
 		do {
-			char *digest = NULL;;
+			char *digest = NULL;
 			gtk_tree_model_get(model, &iter, COL_DIGEST, &digest, -1);
 
 			if (gtkhash_digest_format_compare(check, digest, DIGEST_FORMAT_HEX_LOWER))
@@ -204,7 +203,7 @@ char *gtkhash_properties_list_get_selected_digest(struct page_s *page)
 	if (!gtk_tree_selection_get_selected(page->treeselection, &model, &iter))
 		return NULL;
 
-	char *digest = NULL;;
+	char *digest = NULL;
 	gtk_tree_model_get(model, &iter, COL_DIGEST, &digest, -1);
 
 	if (digest && *digest)

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -21,14 +21,12 @@
 	#include "config.h"
 #endif
 
-#include <stdlib.h>
 #include <stdbool.h>
-#include <gtk/gtk.h>
+#include <gio/gio.h>
 
 #include "properties.h"
 #include "properties-prefs.h"
-#include "properties-hash.h"
-#include "../hash/hash-func.h"
+#include "../../hash/hash-func.h"
 
 #define PREFS_SCHEMA "org.gtkhash.plugin"
 #define PREFS_KEY_HASH_FUNCS "hash-functions"

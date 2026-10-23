@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -17,8 +17,10 @@
  *   along with GtkHash. If not, see <https://gnu.org/licenses/gpl-2.0.txt>.
  */
 
-#ifndef GTKHASH_NAUTILUS_PROPERTIES_LIST_H
-#define GTKHASH_NAUTILUS_PROPERTIES_LIST_H
+#ifndef GTKHASH_EXTENSIONS_COMMON_PROPERTIES_LIST_H
+#define GTKHASH_EXTENSIONS_COMMON_PROPERTIES_LIST_H
+
+#include <stdbool.h>
 
 #include "properties.h"
 

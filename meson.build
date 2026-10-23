@@ -180,15 +180,14 @@ if build_nemo
 endif
 
 build_thunar = get_option('build-thunar')
-thunarx = get_option('thunarx')
 if build_thunar
-    thunar = dependency('thunarx-' + thunarx, version: '>=1.7.0')
+    thunar = dependency('thunarx-3')
     thunar_extension_dir = thunar.get_variable('extensionsdir')
 endif
 
 enable_icons = build_gtkhash or build_caja
-enable_nautilus_data = build_caja or build_nautilus or build_nemo or build_thunar
-enable_schemas = build_gtkhash or enable_nautilus_data
+enable_extensions = build_caja or build_nautilus or build_nemo or build_thunar
+enable_schemas = build_gtkhash or enable_extensions
 
 add_project_arguments('-DHAVE_CONFIG_H', language: 'c')
 root_include = include_directories('.')
@@ -199,11 +198,11 @@ configure_file(
 
 summary(
     {
-        'gtkhash': '@0@ (@1@)'.format(build_gtkhash, gtk.name()),
+        'gtkhash': '@0@'.format(build_gtkhash),
         'gtkhash-caja': '@0@'.format(build_caja),
         'gtkhash-nautilus': '@0@'.format(build_nautilus),
         'gtkhash-nemo': '@0@'.format(build_nemo),
-        'gtkhash-thunar': '@0@ (thunarx-@1@)'.format(build_thunar, thunarx),
+        'gtkhash-thunar': '@0@'.format(build_thunar),
     },
     section: 'Interfaces',
 )

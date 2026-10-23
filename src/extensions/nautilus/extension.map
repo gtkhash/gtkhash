@@ -1,0 +1,6 @@
+{
+global:
+    nautilus_module_*;
+local:
+    *;
+};

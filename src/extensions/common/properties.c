@@ -21,42 +21,19 @@
 	#include "config.h"
 #endif
 
-#if defined(IN_NAUTILUS_EXTENSION)
-	#if HAVE_NAUTILUS_EXTENSION_H
-		#include <nautilus-extension.h>
-	#else
-		#include <libnautilus-extension/nautilus-property-page.h>
-		#include <libnautilus-extension/nautilus-property-page-provider.h>
-	#endif
-#elif defined(IN_CAJA_EXTENSION)
-	#include <libcaja-extension/caja-property-page.h>
-	#include <libcaja-extension/caja-property-page-provider.h>
-#elif defined(IN_NEMO_EXTENSION)
-	#include <libnemo-extension/nemo-property-page.h>
-	#include <libnemo-extension/nemo-property-page-provider.h>
-	#include <libnemo-extension/nemo-name-and-desc-provider.h>
-#elif defined(IN_THUNAR_EXTENSION)
-	#undef GTK_DISABLE_DEPRECATED // thunarx-3 doesn't build with this
-	#include <thunarx/thunarx.h>
-#endif
-
-#include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <gio/gio.h>
 #include <gtk/gtk.h>
 
 #include "properties.h"
 #include "properties-list.h"
 #include "properties-hash.h"
 #include "properties-prefs.h"
-#include "../hash/hash-func.h"
-#include "../hash/hash-file.h"
-#include "../util/util.h"
+#include "../../hash/hash-func.h"
+#include "../../hash/hash-file.h"
+#include "../../util/util.h"
 
-#define PROPERTIES_XML_RESOURCE "/org/gtkhash/plugin/gtkhash-properties.ui"
-
-static GType page_type;
+#define PROPERTIES_XML_RESOURCE "/org/gtkhash/plugin/properties.ui"
 
 static GObject *gtkhash_properties_get_object(GtkBuilder *builder,
 	const char *name)
@@ -408,11 +385,18 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 		G_CALLBACK(gtkhash_properties_on_button_stop_clicked), page);
 }
 
-static struct page_s *gtkhash_properties_new_page(char *uri)
+struct page_s *gtkhash_properties_new_page(char *uri)
 {
-	GtkBuilder *builder = gtk_builder_new_from_resource(PROPERTIES_XML_RESOURCE);
-	if (!builder)
+	GtkBuilder *builder = gtk_builder_new();
+	GError *error = NULL;
+	if (gtk_builder_add_from_resource(builder, PROPERTIES_XML_RESOURCE, &error) == 0) {
+		g_warning("failed to load resource: %s", error->message);
+		g_error_free(error);
+		g_object_unref(builder);
+		g_free(uri);
+
 		return NULL;
+	}
 
 	struct page_s *page = g_new(struct page_s, 1);
 	page->uri = uri;
@@ -422,7 +406,9 @@ static struct page_s *gtkhash_properties_new_page(char *uri)
 	if (gtkhash_properties_hash_funcs_supported(page) == 0) {
 		g_warning("no hash functions available");
 		gtkhash_properties_hash_deinit(page);
+		g_free(page->uri);
 		g_free(page);
+		g_object_unref(builder);
 
 		return NULL;
 	}
@@ -439,98 +425,11 @@ static struct page_s *gtkhash_properties_new_page(char *uri)
 	return page;
 }
 
-static GList *gtkhash_properties_get_pages(
-#if defined(IN_NAUTILUS_EXTENSION)
-	G_GNUC_UNUSED NautilusPropertyPageProvider *provider,
-#elif defined(IN_CAJA_EXTENSION)
-	G_GNUC_UNUSED CajaPropertyPageProvider *provider,
-#elif defined(IN_NEMO_EXTENSION)
-	G_GNUC_UNUSED NemoPropertyPageProvider *provider,
-#elif defined(IN_THUNAR_EXTENSION)
-	G_GNUC_UNUSED ThunarxPropertyPageProvider *provider,
-#endif
-	GList *files)
-{
-	// Only display page for a single file
-	if (!files || files->next)
-		return NULL;
 
-#if defined(IN_NAUTILUS_EXTENSION)
-	GFileType type = nautilus_file_info_get_file_type(files->data);
-	char *uri = nautilus_file_info_get_uri(files->data);
-#elif defined(IN_CAJA_EXTENSION)
-	GFileType type = caja_file_info_get_file_type(files->data);
-	char *uri = caja_file_info_get_uri(files->data);
-#elif defined(IN_NEMO_EXTENSION)
-	GFileType type = nemo_file_info_get_file_type(files->data);
-	char *uri = nemo_file_info_get_uri(files->data);
-#elif defined(IN_THUNAR_EXTENSION)
-	GFileInfo *info = thunarx_file_info_get_file_info(files->data);
-	GFileType type = g_file_info_get_file_type(info);
-	g_object_unref(info);
+static GType gtkhash_properties_type;
 
-	char *uri = thunarx_file_info_get_uri(files->data);
-#endif
-
-	// Only display page for regular files
-	if (type != G_FILE_TYPE_REGULAR)
-		return NULL;
-
-	struct page_s *page = gtkhash_properties_new_page(uri);
-	if (!page)
-		return NULL;
-
-#if defined(IN_NAUTILUS_EXTENSION)
-	NautilusPropertyPage *ppage = nautilus_property_page_new(
-		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
-#elif defined(IN_CAJA_EXTENSION)
-	CajaPropertyPage *ppage = caja_property_page_new(
-		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
-#elif defined(IN_NEMO_EXTENSION)
-	NemoPropertyPage *ppage = nemo_property_page_new(
-		"GtkHash::properties", gtk_label_new(_("Checksums")), page->box);
-#elif defined(IN_THUNAR_EXTENSION)
-	GtkWidget *ppage = thunarx_property_page_new(_("Checksums"));
-	gtk_container_add(GTK_CONTAINER(ppage), page->box);
-#endif
-
-	GList *pages = g_list_append(NULL, ppage);
-
-	return pages;
-}
-
-static void gtkhash_properties_pp_iface_init(
-#if defined(IN_NAUTILUS_EXTENSION)
-	NautilusPropertyPageProviderIface *iface,
-#elif defined(IN_CAJA_EXTENSION)
-	CajaPropertyPageProviderIface *iface,
-#elif defined(IN_NEMO_EXTENSION)
-	NemoPropertyPageProviderIface *iface,
-#elif defined(IN_THUNAR_EXTENSION)
-	ThunarxPropertyPageProviderIface *iface,
-#endif
-	G_GNUC_UNUSED void *data)
-{
-	iface->get_pages = gtkhash_properties_get_pages;
-}
-
-#ifdef IN_NEMO_EXTENSION
-static char *gtkhash_properties_nd_string = NULL;
-
-static GList *gtkhash_properties_get_name_desc(
-	G_GNUC_UNUSED NemoNameAndDescProvider *provider)
-{
-	return g_list_append(NULL, gtkhash_properties_nd_string);
-}
-
-static void gtkhash_properties_nd_iface_init(NemoNameAndDescProviderIface *iface,
-	G_GNUC_UNUSED void *data)
-{
-	iface->get_name_and_desc = gtkhash_properties_get_name_desc;
-}
-#endif
-
-static void gtkhash_properties_register_type(GTypeModule *module)
+GType gtkhash_properties_register_type(GTypeModule *module, GType provider_type,
+	GInterfaceInitFunc pp_iface_init)
 {
 	const GTypeInfo info = {
 		sizeof(GObjectClass),
@@ -545,100 +444,30 @@ static void gtkhash_properties_register_type(GTypeModule *module)
 		(GTypeValueTable *)NULL
 	};
 
-	page_type = g_type_module_register_type(module, G_TYPE_OBJECT,
+	gtkhash_properties_type = g_type_module_register_type(module, G_TYPE_OBJECT,
 		"GtkHash", &info, 0);
 
 	const GInterfaceInfo pp_iface_info = {
-		(GInterfaceInitFunc)gtkhash_properties_pp_iface_init,
+		pp_iface_init,
 		(GInterfaceFinalizeFunc)NULL,
 		NULL
 	};
 
-	g_type_module_add_interface(module, page_type,
-#if defined(IN_NAUTILUS_EXTENSION)
-		NAUTILUS_TYPE_PROPERTY_PAGE_PROVIDER,
-#elif defined(IN_CAJA_EXTENSION)
-		CAJA_TYPE_PROPERTY_PAGE_PROVIDER,
-#elif defined(IN_NEMO_EXTENSION)
-		NEMO_TYPE_PROPERTY_PAGE_PROVIDER,
-#elif defined(IN_THUNAR_EXTENSION)
-		THUNARX_TYPE_PROPERTY_PAGE_PROVIDER,
-#endif
-		&pp_iface_info);
-
-#ifdef IN_NEMO_EXTENSION
-	const GInterfaceInfo nd_iface_info = {
-		(GInterfaceInitFunc)gtkhash_properties_nd_iface_init,
-		(GInterfaceFinalizeFunc)NULL,
-		NULL
-	};
-
-	g_type_module_add_interface(module, page_type,
-		NEMO_TYPE_NAME_AND_DESC_PROVIDER, &nd_iface_info);
-#endif
-}
-
-#if __GNUC__
-	#define PUBLIC __attribute__((visibility("default")))
-#else
-	#define PUBLIC G_MODULE_EXPORT
-#endif
-
-#if defined(IN_NAUTILUS_EXTENSION)
-PUBLIC void nautilus_module_initialize(GTypeModule *module)
-#elif defined(IN_CAJA_EXTENSION)
-PUBLIC void caja_module_initialize(GTypeModule *module)
-#elif defined(IN_NEMO_EXTENSION)
-PUBLIC void nemo_module_initialize(GTypeModule *module)
-#elif defined(IN_THUNAR_EXTENSION)
-PUBLIC void thunar_extension_initialize(GTypeModule *module);
-PUBLIC void thunar_extension_initialize(GTypeModule *module)
-#endif
-{
-	gtkhash_properties_register_type(module);
+	g_type_module_add_interface(module, gtkhash_properties_type, provider_type, &pp_iface_info);
 
 #if ENABLE_NLS
 	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
 #endif
 
-#ifdef IN_NEMO_EXTENSION
-	gtkhash_properties_nd_string = g_strdup_printf("GtkHash:::%s",
-		_("Calculate message digests or checksums"));
-#endif
+	return gtkhash_properties_type;
 }
 
-#if defined(IN_NAUTILUS_EXTENSION)
-PUBLIC void nautilus_module_shutdown(void)
-#elif defined(IN_CAJA_EXTENSION)
-PUBLIC void caja_module_shutdown(void)
-#elif defined(IN_NEMO_EXTENSION)
-PUBLIC void nemo_module_shutdown(void)
-#elif defined(IN_THUNAR_EXTENSION)
-PUBLIC void thunar_extension_shutdown(void);
-PUBLIC void thunar_extension_shutdown(void)
-#endif
+void gtkhash_properties_module_list_types(const GType **types, int *num_types)
 {
-#ifdef IN_NEMO_EXTENSION
-	g_free(gtkhash_properties_nd_string);
-	gtkhash_properties_nd_string = NULL;
-#endif
-}
+	static GType gtkhash_properties_type_list[1];
 
-#if defined(IN_NAUTILUS_EXTENSION)
-PUBLIC void nautilus_module_list_types(const GType **types, int *num_types)
-#elif defined(IN_CAJA_EXTENSION)
-PUBLIC void caja_module_list_types(const GType **types, int *num_types)
-#elif defined(IN_NEMO_EXTENSION)
-PUBLIC void nemo_module_list_types(const GType **types, int *num_types)
-#elif defined(IN_THUNAR_EXTENSION)
-PUBLIC void thunar_extension_list_types(const GType **types, int *num_types);
-PUBLIC void thunar_extension_list_types(const GType **types, int *num_types)
-#endif
-{
-	static GType type_list[1];
-
-	type_list[0] = page_type;
-	*types = type_list;
-	*num_types = G_N_ELEMENTS(type_list);
+	gtkhash_properties_type_list[0] = gtkhash_properties_type;
+	*types = gtkhash_properties_type_list;
+	*num_types = G_N_ELEMENTS(gtkhash_properties_type_list);
 }
