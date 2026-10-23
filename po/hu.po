@@ -5,14 +5,15 @@
 # notramo <notramo@protonmail.com>, 2019, 2020.
 # Noway Imtellingyouidiot <johns.videos+weblate@mailbox.org>, 2021.
 # Szia Tomi <sziatomi01@gmail.com>, 2024, 2025, 2026.
+# Szia Tomi <sziatomi@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-19 14:11+0200\n"
-"PO-Revision-Date: 2026-10-04 20:51+0000\n"
-"Last-Translator: Szia Tomi <sziatomi01@gmail.com>\n"
+"PO-Revision-Date: 2026-10-23 16:51+0000\n"
+"Last-Translator: Szia Tomi <sziatomi@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/"
 "translations/hu/>\n"
 "Language: hu\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.1.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/caja/libgtkhash-properties-caja.desktop.in.in:3
 #: src/nautilus/properties.c:485 src/nautilus/properties.c:488
@@ -134,7 +135,7 @@ msgstr "Kivonat formátuma:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
-msgstr ""
+msgstr "GtkHash a Cajahoz"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:8
@@ -142,6 +143,7 @@ msgstr ""
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:8
 msgid "Show checksums in file properties"
 msgstr ""
+"Ellenőrző összegek megjelenítése a fájl tulajdonságainak megjelenítésénél"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
@@ -172,15 +174,15 @@ msgstr ""
 
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:7
 msgid "GtkHash for Nautilus"
-msgstr ""
+msgstr "GtkHash a Nautilushoz"
 
 #: data/metainfo/org.gtkhash.nemo.metainfo.xml.in.in:8
 msgid "GtkHash for Nemo"
-msgstr ""
+msgstr "GtkHash a Nemohoz"
 
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:7
 msgid "GtkHash for Thunar"
-msgstr ""
+msgstr "GtkHash a Thunarhoz"
 
 #: data/nautilus/gtkhash-properties.ui:12
 msgid "_Copy Digest"
@@ -269,7 +271,7 @@ msgstr "%s fájlt nem sikerült hozzáadni: %s"
 
 #: src/gui.c:348
 msgid "Discarding invalid characters from digest"
-msgstr ""
+msgstr "Érvénytelen karakterek eltávolítása a kivonatból"
 
 #: src/hash.c:195 src/prefs.c:86
 #, c-format
@@ -297,16 +299,14 @@ msgid "FILE|URI"
 msgstr "FÁJL|URI"
 
 #: src/opts.c:106
-#, fuzzy
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
-msgstr "Engedélyezi a megadott hash-függvényt (pl. MD5)"
+msgstr "Engedélyezi vagy tiltja a megadott hash-függvényt"
 
 #: src/opts.c:107
-#, fuzzy
 msgctxt " --help"
 msgid "[+-]FUNCTION"
-msgstr "FÜGGVÉNY"
+msgstr "FÜGGVÉNY [+-]"
 
 #: src/opts.c:111
 msgctxt " --help"
@@ -333,14 +333,14 @@ msgstr "[FÁJL|URI...]"
 msgid "%u minute left"
 msgid_plural "%u minutes left"
 msgstr[0] "%u perc van hátra"
-msgstr[1] "%u perc van hátra"
+msgstr[1] "Még %u perc van hátra"
 
 #: src/util/util.c:39
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
 msgstr[0] "%u másodperc van hátra"
-msgstr[1] "%u másodperc van hátra"
+msgstr[1] "Még %u másodperc van hátra"
 
 #: src/util/util.c:58
 #, c-format
