@@ -1,3 +1,7 @@
+if enable_extensions
+    subdir('extensions')
+endif
+
 if enable_icons
     subdir('icons')
 endif
@@ -6,12 +10,8 @@ if enable_appstream
     subdir('metainfo')
 endif
 
-if build_caja
-    subdir('caja')
-endif
-
-if enable_nautilus_data
-    subdir('nautilus')
+if enable_schemas
+    subdir('schemas')
 endif
 
 if build_gtkhash
@@ -35,13 +35,6 @@ if build_gtkhash
             suite: 'data',
         )
     endif
-
-    install_data(
-        'org.gtkhash.gschema.xml',
-        install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',
-    )
-
-    gnome.compile_schemas(depend_files: 'org.gtkhash.gschema.xml')
 endif
 
 gtkhash_gtk3_gresource = files('gtkhash-gtk3.gresource.xml')

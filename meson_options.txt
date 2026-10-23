@@ -17,4 +17,3 @@ option('build-caja',     type: 'boolean', value: false, description: 'Build the 
 option('build-nautilus', type: 'boolean', value: false, description: 'Build the Nautilus extension')
 option('build-nemo',     type: 'boolean', value: false, description: 'Build the Nemo extension')
 option('build-thunar',   type: 'boolean', value: false, description: 'Build the Thunar extension')
-option('thunarx',        type: 'string',  value: '3',     description: 'Thunarx version to use')

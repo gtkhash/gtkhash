@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -21,26 +21,15 @@
 	#include "config.h"
 #endif
 
-#include <stdlib.h>
 #include <stdbool.h>
 #include <gtk/gtk.h>
 
 #include "properties.h"
 #include "properties-hash.h"
 #include "properties-list.h"
-#include "../hash/hash-string.h"
-#include "../hash/hash-file.h"
-#include "../hash/digest-format.h"
-#include "../util/util.h"
-
-void gtkhash_hash_string_digest_cb(G_GNUC_UNUSED enum hash_func_e id,
-	G_GNUC_UNUSED const char *digest)
-{
-}
-
-void gtkhash_hash_string_finish_cb(void)
-{
-}
+#include "../../hash/hash-file.h"
+#include "../../hash/digest-format.h"
+#include "../../util/util.h"
 
 void gtkhash_hash_file_report_cb(void *data, const goffset file_size,
 	const goffset total_read, GTimer *timer)

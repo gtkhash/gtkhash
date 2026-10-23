@@ -1,8 +1,8 @@
 subdir('hash')
 subdir('util')
 
-if enable_nautilus_data
-    subdir('nautilus')
+if enable_extensions
+    subdir('extensions')
 endif
 
 if build_gtkhash

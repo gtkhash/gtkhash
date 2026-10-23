@@ -1,0 +1,6 @@
+{
+global:
+    nemo_module_*;
+local:
+    *;
+};

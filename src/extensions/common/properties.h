@@ -17,12 +17,13 @@
  *   along with GtkHash. If not, see <https://gnu.org/licenses/gpl-2.0.txt>.
  */
 
-#ifndef GTKHASH_NAUTILUS_PROPERTIES_H
-#define GTKHASH_NAUTILUS_PROPERTIES_H
+#ifndef GTKHASH_EXTENSIONS_COMMON_PROPERTIES_H
+#define GTKHASH_EXTENSIONS_COMMON_PROPERTIES_H
 
+#include <stdbool.h>
 #include <gtk/gtk.h>
 
-#include "../hash/hash-file.h"
+#include "../../hash/hash-file.h"
 
 #if ENABLE_NLS
 	#include <glib/gi18n-lib.h>
@@ -49,6 +50,10 @@ struct page_s {
 	bool busy;
 };
 
+struct page_s *gtkhash_properties_new_page(char *uri);
 void gtkhash_properties_idle(struct page_s *page);
+GType gtkhash_properties_register_type(GTypeModule *module, GType provider_type,
+	GInterfaceInitFunc pp_iface_init);
+void gtkhash_properties_module_list_types(const GType **types, int *num_types);
 
 #endif
