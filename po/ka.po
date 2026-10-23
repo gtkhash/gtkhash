@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-19 14:11+0200\n"
+"POT-Creation-Date: 2026-10-23 23:56+0000\n"
 "PO-Revision-Date: 2026-10-20 06:51+0000\n"
 "Last-Translator: Temuri Doghonadze "
 "<norwayfun@users.noreply.hosted.weblate.org>\n"
@@ -22,9 +22,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2026.11.dev0\n"
 
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:485 src/nautilus/properties.c:488
-#: src/nautilus/properties.c:491 src/nautilus/properties.c:493
+#: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
+#: src/extensions/caja/module.c:50 src/extensions/nautilus/module.c:55
+#: src/extensions/nemo/module.c:51 src/extensions/thunar/module.c:54
 msgid "Checksums"
 msgstr "საკონტროლო ჯამები"
 
@@ -90,25 +90,25 @@ msgstr "ფაილი:"
 msgid "Text:"
 msgstr "ტექსტი:"
 
-#: data/gtkhash-gtk3.ui:400 data/nautilus/gtkhash-properties.ui:133
+#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:133
 msgid "Check:"
 msgstr "ჩართვა:"
 
 #: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: data/nautilus/gtkhash-properties.ui:148
+#: src/extensions/common/properties.ui:148
 msgid "Paste digest from clipboard"
 msgstr "დაიჯესტის ჩასმა ბუფერიდან"
 
 #: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: data/nautilus/gtkhash-properties.ui:174
+#: src/extensions/common/properties.ui:174
 msgid "HMAC Key:"
 msgstr "HMAC გასაღები:"
 
-#: data/gtkhash-gtk3.ui:856 data/nautilus/gtkhash-properties.ui:308
+#: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
 msgid "_Hash"
 msgstr "_ჰეში"
 
-#: data/gtkhash-gtk3.ui:895 data/nautilus/gtkhash-properties.ui:269
+#: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
 msgid "_Stop"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgid "GtkHash"
 msgstr "GtkHash"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:607
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:67
 msgid "Calculate message digests or checksums"
 msgstr "გამთოვალეთ შეტყობინების დაიჯესტები, ან საკონტროლო ჯამები"
 
@@ -179,22 +179,6 @@ msgstr ""
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:7
 msgid "GtkHash for Thunar"
 msgstr ""
-
-#: data/nautilus/gtkhash-properties.ui:12
-msgid "_Copy Digest"
-msgstr "დაიჯესტის _კოპირება"
-
-#: data/nautilus/gtkhash-properties.ui:27
-msgid "Show _Disabled Hash Functions"
-msgstr "გათიშული ჰეშის ფუნქციების _ჩვენება"
-
-#: data/nautilus/gtkhash-properties.ui:83
-msgid "Hash Function"
-msgstr "ჰეშის ფუნქცია"
-
-#: data/nautilus/gtkhash-properties.ui:95
-msgid "Digest"
-msgstr "დაიჯესტი"
 
 #: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
@@ -248,7 +232,7 @@ msgstr "ეკატერინე პაპავა"
 msgid "Select Files"
 msgstr "მონიშნეთ ფაილები"
 
-#: src/callbacks.c:473 src/nautilus/properties.c:263
+#: src/callbacks.c:473 src/extensions/common/properties.c:240
 msgid "_Show HMAC Key"
 msgstr "HMAC გასაღები_ს ჩვენება"
 
@@ -256,6 +240,22 @@ msgstr "HMAC გასაღები_ს ჩვენება"
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr "შემოწმების ფაილის \"%s\" წაკითხვა ჩავარდა: %s"
+
+#: src/extensions/common/properties.ui:12
+msgid "_Copy Digest"
+msgstr "დაიჯესტის _კოპირება"
+
+#: src/extensions/common/properties.ui:27
+msgid "Show _Disabled Hash Functions"
+msgstr "გათიშული ჰეშის ფუნქციების _ჩვენება"
+
+#: src/extensions/common/properties.ui:83
+msgid "Hash Function"
+msgstr "ჰეშის ფუნქცია"
+
+#: src/extensions/common/properties.ui:95
+msgid "Digest"
+msgstr "დაიჯესტი"
 
 #: src/gui.c:280
 msgid "Not a regular file"

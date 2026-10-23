@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-19 14:11+0200\n"
+"POT-Creation-Date: 2026-10-23 23:56+0000\n"
 "PO-Revision-Date: 2026-10-15 23:15+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
@@ -22,9 +22,9 @@ msgstr ""
 "X-Generator: Weblate 2026.11.dev0\n"
 "X-Launchpad-Export-Date: 2013-04-26 05:41+0000\n"
 
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:485 src/nautilus/properties.c:488
-#: src/nautilus/properties.c:491 src/nautilus/properties.c:493
+#: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
+#: src/extensions/caja/module.c:50 src/extensions/nautilus/module.c:55
+#: src/extensions/nemo/module.c:51 src/extensions/thunar/module.c:54
 #, fuzzy
 msgid "Checksums"
 msgstr "比對："
@@ -96,26 +96,26 @@ msgstr "檔案："
 msgid "Text:"
 msgstr "純文字:"
 
-#: data/gtkhash-gtk3.ui:400 data/nautilus/gtkhash-properties.ui:133
+#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:133
 msgid "Check:"
 msgstr "比對："
 
 #: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: data/nautilus/gtkhash-properties.ui:148
+#: src/extensions/common/properties.ui:148
 msgid "Paste digest from clipboard"
 msgstr "從剪貼板粘貼摘要"
 
 #: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: data/nautilus/gtkhash-properties.ui:174
+#: src/extensions/common/properties.ui:174
 #, fuzzy
 msgid "HMAC Key:"
 msgstr "HMAC 鍵："
 
-#: data/gtkhash-gtk3.ui:856 data/nautilus/gtkhash-properties.ui:308
+#: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:895 data/nautilus/gtkhash-properties.ui:269
+#: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
 msgid "_Stop"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgid "GtkHash"
 msgstr ""
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:607
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:67
 msgid "Calculate message digests or checksums"
 msgstr "計算訊息摘要或資料校驗值"
 
@@ -185,22 +185,6 @@ msgstr ""
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:7
 msgid "GtkHash for Thunar"
 msgstr ""
-
-#: data/nautilus/gtkhash-properties.ui:12
-msgid "_Copy Digest"
-msgstr "複製訊息摘要(_C)"
-
-#: data/nautilus/gtkhash-properties.ui:27
-msgid "Show _Disabled Hash Functions"
-msgstr "顯示已停用的雜湊函式"
-
-#: data/nautilus/gtkhash-properties.ui:83
-msgid "Hash Function"
-msgstr "雜湊函式"
-
-#: data/nautilus/gtkhash-properties.ui:95
-msgid "Digest"
-msgstr "訊息摘要"
 
 #: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
@@ -255,7 +239,7 @@ msgstr "Ｖ字龍(Vdragon) https://launchpad.net/~vdragon"
 msgid "Select Files"
 msgstr "選擇檔案"
 
-#: src/callbacks.c:473 src/nautilus/properties.c:263
+#: src/callbacks.c:473 src/extensions/common/properties.c:240
 msgid "_Show HMAC Key"
 msgstr "顯示 HMAC 鍵(_S)"
 
@@ -265,6 +249,22 @@ msgid "Failed to read check file \"%s\": %s"
 msgstr ""
 "無法讀取「%s」：\n"
 "%s"
+
+#: src/extensions/common/properties.ui:12
+msgid "_Copy Digest"
+msgstr "複製訊息摘要(_C)"
+
+#: src/extensions/common/properties.ui:27
+msgid "Show _Disabled Hash Functions"
+msgstr "顯示已停用的雜湊函式"
+
+#: src/extensions/common/properties.ui:83
+msgid "Hash Function"
+msgstr "雜湊函式"
+
+#: src/extensions/common/properties.ui:95
+msgid "Digest"
+msgstr "訊息摘要"
 
 #: src/gui.c:280
 msgid "Not a regular file"

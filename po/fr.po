@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-19 14:11+0200\n"
+"POT-Creation-Date: 2026-10-23 23:56+0000\n"
 "PO-Revision-Date: 2021-12-02 01:50+0000\n"
 "Last-Translator: aezjrareareare <jeromechaland@riseup.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gtkhash/"
@@ -24,9 +24,9 @@ msgstr ""
 "X-Generator: Weblate 4.10-dev\n"
 "X-Launchpad-Export-Date: 2012-09-16 04:40+0000\n"
 
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:485 src/nautilus/properties.c:488
-#: src/nautilus/properties.c:491 src/nautilus/properties.c:493
+#: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
+#: src/extensions/caja/module.c:50 src/extensions/nautilus/module.c:55
+#: src/extensions/nemo/module.c:51 src/extensions/thunar/module.c:54
 msgid "Checksums"
 msgstr "Sommes de contrôle"
 
@@ -95,25 +95,25 @@ msgstr "Fichier :"
 msgid "Text:"
 msgstr "Texte :"
 
-#: data/gtkhash-gtk3.ui:400 data/nautilus/gtkhash-properties.ui:133
+#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:133
 msgid "Check:"
 msgstr "Vérifier :"
 
 #: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: data/nautilus/gtkhash-properties.ui:148
+#: src/extensions/common/properties.ui:148
 msgid "Paste digest from clipboard"
 msgstr "Coller le condensat depuis le presse-papier"
 
 #: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: data/nautilus/gtkhash-properties.ui:174
+#: src/extensions/common/properties.ui:174
 msgid "HMAC Key:"
 msgstr "Clé HMAC :"
 
-#: data/gtkhash-gtk3.ui:856 data/nautilus/gtkhash-properties.ui:308
+#: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:895 data/nautilus/gtkhash-properties.ui:269
+#: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
 msgid "_Stop"
 msgstr ""
 
@@ -155,7 +155,7 @@ msgid "GtkHash"
 msgstr ""
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:607
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:67
 msgid "Calculate message digests or checksums"
 msgstr "Calcule des condensats ou des sommes de contrôle"
 
@@ -187,22 +187,6 @@ msgstr ""
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:7
 msgid "GtkHash for Thunar"
 msgstr ""
-
-#: data/nautilus/gtkhash-properties.ui:12
-msgid "_Copy Digest"
-msgstr "_Copier le condensat"
-
-#: data/nautilus/gtkhash-properties.ui:27
-msgid "Show _Disabled Hash Functions"
-msgstr "Afficher les fonctions de hachage _désactivées"
-
-#: data/nautilus/gtkhash-properties.ui:83
-msgid "Hash Function"
-msgstr "Fonction de hachage"
-
-#: data/nautilus/gtkhash-properties.ui:95
-msgid "Digest"
-msgstr "Condensat"
 
 #: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
@@ -259,7 +243,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "Sélectionner les fichiers"
 
-#: src/callbacks.c:473 src/nautilus/properties.c:263
+#: src/callbacks.c:473 src/extensions/common/properties.c:240
 msgid "_Show HMAC Key"
 msgstr "Afficher la clé HMAC"
 
@@ -267,6 +251,22 @@ msgstr "Afficher la clé HMAC"
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Échec de la lecture du fichier de vérification « %s » : %s"
+
+#: src/extensions/common/properties.ui:12
+msgid "_Copy Digest"
+msgstr "_Copier le condensat"
+
+#: src/extensions/common/properties.ui:27
+msgid "Show _Disabled Hash Functions"
+msgstr "Afficher les fonctions de hachage _désactivées"
+
+#: src/extensions/common/properties.ui:83
+msgid "Hash Function"
+msgstr "Fonction de hachage"
+
+#: src/extensions/common/properties.ui:95
+msgid "Digest"
+msgstr "Condensat"
 
 #: src/gui.c:280
 msgid "Not a regular file"
