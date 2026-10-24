@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-19 14:11+0200\n"
+"POT-Creation-Date: 2026-10-23 23:56+0000\n"
 "PO-Revision-Date: 2020-05-11 14:41+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtkhash/"
@@ -19,9 +19,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.1-dev\n"
 
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:485 src/nautilus/properties.c:488
-#: src/nautilus/properties.c:491 src/nautilus/properties.c:493
+#: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
+#: src/extensions/caja/module.c:50 src/extensions/nautilus/module.c:55
+#: src/extensions/nemo/module.c:51 src/extensions/thunar/module.c:54
 #, fuzzy
 msgid "Checksums"
 msgstr "Kontroll:"
@@ -93,25 +93,25 @@ msgstr "Fil:"
 msgid "Text:"
 msgstr "Tekst:"
 
-#: data/gtkhash-gtk3.ui:400 data/nautilus/gtkhash-properties.ui:133
+#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:133
 msgid "Check:"
 msgstr "Kontroll:"
 
 #: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: data/nautilus/gtkhash-properties.ui:148
+#: src/extensions/common/properties.ui:148
 msgid "Paste digest from clipboard"
 msgstr "Lim inn føljetong fra utklippstavle"
 
 #: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: data/nautilus/gtkhash-properties.ui:174
+#: src/extensions/common/properties.ui:174
 msgid "HMAC Key:"
 msgstr "HMAC-nøkkel:"
 
-#: data/gtkhash-gtk3.ui:856 data/nautilus/gtkhash-properties.ui:308
+#: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:895 data/nautilus/gtkhash-properties.ui:269
+#: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
 msgid "_Stop"
 msgstr ""
 
@@ -155,7 +155,7 @@ msgid "GtkHash"
 msgstr ""
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:607
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:67
 msgid "Calculate message digests or checksums"
 msgstr "Kalkuler meldingsføljetonger eller sjekksummer"
 
@@ -186,22 +186,6 @@ msgstr ""
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:7
 msgid "GtkHash for Thunar"
 msgstr ""
-
-#: data/nautilus/gtkhash-properties.ui:12
-msgid "_Copy Digest"
-msgstr "_Kopier føljetong"
-
-#: data/nautilus/gtkhash-properties.ui:27
-msgid "Show _Disabled Hash Functions"
-msgstr "Vis _avskrudde sjekksummeringsfunksjoner"
-
-#: data/nautilus/gtkhash-properties.ui:83
-msgid "Hash Function"
-msgstr "Sjekksummeringsfunksjon"
-
-#: data/nautilus/gtkhash-properties.ui:95
-msgid "Digest"
-msgstr "Føljetong"
 
 #: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
@@ -255,7 +239,7 @@ msgstr "Allan Nordhøy <epost@anotheragency.no>"
 msgid "Select Files"
 msgstr "Velg filer"
 
-#: src/callbacks.c:473 src/nautilus/properties.c:263
+#: src/callbacks.c:473 src/extensions/common/properties.c:240
 msgid "_Show HMAC Key"
 msgstr "_Vis HMAC-nøkkel"
 
@@ -263,6 +247,22 @@ msgstr "_Vis HMAC-nøkkel"
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Klarte ikke å lese sjekkfil \"%s\": %s"
+
+#: src/extensions/common/properties.ui:12
+msgid "_Copy Digest"
+msgstr "_Kopier føljetong"
+
+#: src/extensions/common/properties.ui:27
+msgid "Show _Disabled Hash Functions"
+msgstr "Vis _avskrudde sjekksummeringsfunksjoner"
+
+#: src/extensions/common/properties.ui:83
+msgid "Hash Function"
+msgstr "Sjekksummeringsfunksjon"
+
+#: src/extensions/common/properties.ui:95
+msgid "Digest"
+msgstr "Føljetong"
 
 #: src/gui.c:280
 msgid "Not a regular file"

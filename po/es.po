@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-19 14:11+0200\n"
+"POT-Creation-Date: 2026-10-23 23:56+0000\n"
 "PO-Revision-Date: 2026-10-08 21:51+0000\n"
 "Last-Translator: El Pirujo <boina@disroot.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
@@ -25,9 +25,9 @@ msgstr ""
 "X-Generator: Weblate 2026.10.1.dev0\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:485 src/nautilus/properties.c:488
-#: src/nautilus/properties.c:491 src/nautilus/properties.c:493
+#: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
+#: src/extensions/caja/module.c:50 src/extensions/nautilus/module.c:55
+#: src/extensions/nemo/module.c:51 src/extensions/thunar/module.c:54
 msgid "Checksums"
 msgstr "Sumas de verificación"
 
@@ -93,25 +93,25 @@ msgstr "Archivo:"
 msgid "Text:"
 msgstr "Texto:"
 
-#: data/gtkhash-gtk3.ui:400 data/nautilus/gtkhash-properties.ui:133
+#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:133
 msgid "Check:"
 msgstr "Comprobar:"
 
 #: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: data/nautilus/gtkhash-properties.ui:148
+#: src/extensions/common/properties.ui:148
 msgid "Paste digest from clipboard"
 msgstr "Pegar el resumen del portapapeles"
 
 #: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: data/nautilus/gtkhash-properties.ui:174
+#: src/extensions/common/properties.ui:174
 msgid "HMAC Key:"
 msgstr "Clave HMAC:"
 
-#: data/gtkhash-gtk3.ui:856 data/nautilus/gtkhash-properties.ui:308
+#: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:895 data/nautilus/gtkhash-properties.ui:269
+#: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
 msgid "_Stop"
 msgstr ""
 
@@ -152,7 +152,7 @@ msgid "GtkHash"
 msgstr ""
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:607
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:67
 msgid "Calculate message digests or checksums"
 msgstr "Calcular resúmenes de mensajes o sumas de comprobación"
 
@@ -182,22 +182,6 @@ msgstr ""
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:7
 msgid "GtkHash for Thunar"
 msgstr ""
-
-#: data/nautilus/gtkhash-properties.ui:12
-msgid "_Copy Digest"
-msgstr "_Copiar el resumen"
-
-#: data/nautilus/gtkhash-properties.ui:27
-msgid "Show _Disabled Hash Functions"
-msgstr "Mostrar las funciones resumen _desactivadas"
-
-#: data/nautilus/gtkhash-properties.ui:83
-msgid "Hash Function"
-msgstr "Función resumen"
-
-#: data/nautilus/gtkhash-properties.ui:95
-msgid "Digest"
-msgstr "Digitación"
 
 #: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
@@ -251,7 +235,7 @@ msgstr "Toni Estevez <toni.estevez@gmail.com>"
 msgid "Select Files"
 msgstr "Seleccionar archivos"
 
-#: src/callbacks.c:473 src/nautilus/properties.c:263
+#: src/callbacks.c:473 src/extensions/common/properties.c:240
 msgid "_Show HMAC Key"
 msgstr "_Mostrar la clave HMAC"
 
@@ -259,6 +243,22 @@ msgstr "_Mostrar la clave HMAC"
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr "Se ha producido un error al leer el archivo de comprobación «%s»: %s"
+
+#: src/extensions/common/properties.ui:12
+msgid "_Copy Digest"
+msgstr "_Copiar el resumen"
+
+#: src/extensions/common/properties.ui:27
+msgid "Show _Disabled Hash Functions"
+msgstr "Mostrar las funciones resumen _desactivadas"
+
+#: src/extensions/common/properties.ui:83
+msgid "Hash Function"
+msgstr "Función resumen"
+
+#: src/extensions/common/properties.ui:95
+msgid "Digest"
+msgstr "Digitación"
 
 #: src/gui.c:280
 msgid "Not a regular file"

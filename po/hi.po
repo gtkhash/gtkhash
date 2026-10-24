@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-19 14:11+0200\n"
+"POT-Creation-Date: 2026-10-23 23:56+0000\n"
 "PO-Revision-Date: 2024-06-01 17:09+0000\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/gtkhash/"
@@ -19,9 +19,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.6-dev\n"
 
-#: data/caja/libgtkhash-properties-caja.desktop.in.in:3
-#: src/nautilus/properties.c:485 src/nautilus/properties.c:488
-#: src/nautilus/properties.c:491 src/nautilus/properties.c:493
+#: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
+#: src/extensions/caja/module.c:50 src/extensions/nautilus/module.c:55
+#: src/extensions/nemo/module.c:51 src/extensions/thunar/module.c:54
 msgid "Checksums"
 msgstr "चेकसम"
 
@@ -90,25 +90,25 @@ msgstr "फाइल:"
 msgid "Text:"
 msgstr "पाठ:"
 
-#: data/gtkhash-gtk3.ui:400 data/nautilus/gtkhash-properties.ui:133
+#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:133
 msgid "Check:"
 msgstr "जांच:"
 
 #: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: data/nautilus/gtkhash-properties.ui:148
+#: src/extensions/common/properties.ui:148
 msgid "Paste digest from clipboard"
 msgstr "क्लिपबोर्ड से डाइजेस्ट पेस्ट करें"
 
 #: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: data/nautilus/gtkhash-properties.ui:174
+#: src/extensions/common/properties.ui:174
 msgid "HMAC Key:"
 msgstr "HMAC कुंजी:"
 
-#: data/gtkhash-gtk3.ui:856 data/nautilus/gtkhash-properties.ui:308
+#: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:895 data/nautilus/gtkhash-properties.ui:269
+#: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
 msgid "_Stop"
 msgstr ""
 
@@ -150,7 +150,7 @@ msgid "GtkHash"
 msgstr ""
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/nautilus/properties.c:607
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:67
 msgid "Calculate message digests or checksums"
 msgstr "संदेश डाइजेस्ट या चेकसम की गणना करें"
 
@@ -179,22 +179,6 @@ msgstr ""
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:7
 msgid "GtkHash for Thunar"
 msgstr ""
-
-#: data/nautilus/gtkhash-properties.ui:12
-msgid "_Copy Digest"
-msgstr "डाइजेस्ट कॉपी करें (_C)"
-
-#: data/nautilus/gtkhash-properties.ui:27
-msgid "Show _Disabled Hash Functions"
-msgstr "अक्षम हैश प्रकार्य दिखाएं (_D)"
-
-#: data/nautilus/gtkhash-properties.ui:83
-msgid "Hash Function"
-msgstr "हैश प्रकार्य"
-
-#: data/nautilus/gtkhash-properties.ui:95
-msgid "Digest"
-msgstr "डाइजेस्ट"
 
 #: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
@@ -246,7 +230,7 @@ msgstr "Scrambled777 <weblate.scrambled777@simplelogin.com>"
 msgid "Select Files"
 msgstr "फाइलें चुनें"
 
-#: src/callbacks.c:473 src/nautilus/properties.c:263
+#: src/callbacks.c:473 src/extensions/common/properties.c:240
 msgid "_Show HMAC Key"
 msgstr "HMAC कुंजी दिखाएं (_S)"
 
@@ -254,6 +238,22 @@ msgstr "HMAC कुंजी दिखाएं (_S)"
 #, c-format
 msgid "Failed to read check file \"%s\": %s"
 msgstr "चेक फाइल \"%s\" को पढ़ने में विफल: %s"
+
+#: src/extensions/common/properties.ui:12
+msgid "_Copy Digest"
+msgstr "डाइजेस्ट कॉपी करें (_C)"
+
+#: src/extensions/common/properties.ui:27
+msgid "Show _Disabled Hash Functions"
+msgstr "अक्षम हैश प्रकार्य दिखाएं (_D)"
+
+#: src/extensions/common/properties.ui:83
+msgid "Hash Function"
+msgstr "हैश प्रकार्य"
+
+#: src/extensions/common/properties.ui:95
+msgid "Digest"
+msgstr "डाइजेस्ट"
 
 #: src/gui.c:280
 msgid "Not a regular file"
