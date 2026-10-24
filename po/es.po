@@ -7,14 +7,15 @@
 # Sebastian Duque <sebastiandg7@gmail.com>, 2019.
 # El Pirujo <boina@disroot.org>, 2022, 2023, 2026.
 # Francisco Serrador <fserrador@gmail.com>, 2025.
+# El Pirujo <pirujo@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-10-23 23:56+0000\n"
-"PO-Revision-Date: 2026-10-08 21:51+0000\n"
-"Last-Translator: El Pirujo <boina@disroot.org>\n"
+"PO-Revision-Date: 2026-10-24 12:51+0000\n"
+"Last-Translator: El Pirujo <pirujo@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
 "translations/es/>\n"
 "Language: es\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.10.1.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
@@ -41,15 +42,15 @@ msgstr "Hexadecimal en mayúsculas"
 
 #: data/gtkhash-gtk3.ui:48
 msgid "_Add"
-msgstr ""
+msgstr "_Añadir"
 
 #: data/gtkhash-gtk3.ui:79
 msgid "_Remove"
-msgstr ""
+msgstr "Eliminar"
 
 #: data/gtkhash-gtk3.ui:110
 msgid "_Clear"
-msgstr ""
+msgstr "Limpiar"
 
 #: data/gtkhash-gtk3.ui:147
 msgid "Copy _Digest"
@@ -71,7 +72,7 @@ msgstr "_Preferencias"
 
 #: data/gtkhash-gtk3.ui:186
 msgid "_About"
-msgstr ""
+msgstr "_Acerca"
 
 #: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:729
 msgid "File"
@@ -109,11 +110,11 @@ msgstr "Clave HMAC:"
 
 #: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
 msgid "_Hash"
-msgstr ""
+msgstr "Resumen"
 
 #: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
 msgid "_Stop"
-msgstr ""
+msgstr "Detener"
 
 #: data/gtkhash-gtk3.ui:940
 msgid "Preferences"
@@ -121,7 +122,7 @@ msgstr "Preferencias"
 
 #: data/gtkhash-gtk3.ui:958
 msgid "_Close"
-msgstr ""
+msgstr "_Cerrar"
 
 #: data/gtkhash-gtk3.ui:993
 msgid "Hash Functions"
@@ -137,19 +138,19 @@ msgstr "Formato del resumen:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
-msgstr ""
+msgstr "GtkHash para Caja"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/metainfo/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:8
 msgid "Show checksums in file properties"
-msgstr ""
+msgstr "Mostrar sumas de comprobación en las propiedades del archivo"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
 msgid "GtkHash"
-msgstr ""
+msgstr "GtkHash"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
 #: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:67
@@ -173,23 +174,24 @@ msgstr ""
 
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:7
 msgid "GtkHash for Nautilus"
-msgstr ""
+msgstr "GtkHash para Nautilus"
 
 #: data/metainfo/org.gtkhash.nemo.metainfo.xml.in.in:8
 msgid "GtkHash for Nemo"
-msgstr ""
+msgstr "GtkHash para Nemo"
 
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:7
 msgid "GtkHash for Thunar"
-msgstr ""
+msgstr "GtkHash para Thunar"
 
 #: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
 msgstr "Calculadora de la suma de comprobación"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5
+#, fuzzy
 msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
-msgstr ""
+msgstr "hash;checksum;digest;md5;sha1;sha256;crc32;"
 
 #: src/callbacks.c:53 src/callbacks.c:57
 msgid "Open Digest File"
@@ -271,7 +273,7 @@ msgstr "No se ha podido añadir el archivo «%s»: %s"
 
 #: src/gui.c:348
 msgid "Discarding invalid characters from digest"
-msgstr ""
+msgstr "Descartando caracteres no válidos del resumen"
 
 #: src/hash.c:195 src/prefs.c:86
 #, c-format
@@ -300,16 +302,15 @@ msgid "FILE|URI"
 msgstr "ARCHIVO|URI"
 
 #: src/opts.c:106
-#, fuzzy
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
-msgstr "Activar la función resumen especificada (p. ej. MD5)"
+msgstr "Activar o desactivar la función resumen especificada"
 
 #: src/opts.c:107
 #, fuzzy
 msgctxt " --help"
 msgid "[+-]FUNCTION"
-msgstr "FUNCIÓN"
+msgstr "[+-]FUNCTION"
 
 #: src/opts.c:111
 msgctxt " --help"
