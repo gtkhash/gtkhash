@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-23 23:56+0000\n"
+"POT-Creation-Date: 2026-10-29 01:20+0000\n"
 "PO-Revision-Date: 2023-04-14 14:47+0000\n"
 "Last-Translator: Ram <airavatam@tutanota.com>\n"
 "Language-Team: Malayalam <https://hosted.weblate.org/projects/gtkhash/"
@@ -21,8 +21,8 @@ msgstr ""
 "X-Generator: Weblate 4.17-dev\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
-#: src/extensions/caja/module.c:50 src/extensions/nautilus/module.c:55
-#: src/extensions/nemo/module.c:51 src/extensions/thunar/module.c:54
+#: src/extensions/caja/module.c:51 src/extensions/nautilus/properties.c:154
+#: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr ""
 
@@ -150,7 +150,7 @@ msgid "GtkHash"
 msgstr ""
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:67
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:65
 msgid "Calculate message digests or checksums"
 msgstr ""
 
