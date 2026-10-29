@@ -58,7 +58,6 @@ compiler_options = [
     '-fno-common',
     '-fvisibility=hidden',
     '-pedantic',
-    '-Waggregate-return',
     '-Wbad-function-cast',
     '-Wcast-align',
     '-Werror=implicit-function-declaration',
@@ -77,7 +76,9 @@ compiler_options = [
     '-Wundef',
     '-Wwrite-strings',
 ]
-add_project_arguments(cc.get_supported_arguments(compiler_options), language: 'c')
+compiler_options = cc.get_supported_arguments(compiler_options)
+add_project_arguments(compiler_options, language: 'c')
+add_project_link_arguments(compiler_options, language: 'c')
 
 ################################################################################
 # Dependencies
