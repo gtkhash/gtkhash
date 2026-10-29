@@ -72,16 +72,11 @@ static void gtkhash_properties_prefs_load(struct page_s *page)
 static void gtkhash_properties_prefs_save_hash_funcs(struct page_s *page)
 {
 	const char **strv = NULL;
-	int enabled = 0;
-
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (page->funcs[i].enabled)
-			enabled++;
-	}
+	const unsigned int enabled = gtkhash_hash_func_count_enabled(page->funcs);
 
 	if (enabled > 0) {
 		strv = g_new0(const char *, enabled + 1);
-		for (int i = 0, j = 0; (i < HASH_FUNCS_N) && (j < enabled); i++) {
+		for (unsigned int i = 0, j = 0; (i < HASH_FUNCS_N) && (j < enabled); i++) {
 			if (page->funcs[i].enabled) {
 				strv[j] = page->funcs[i].name;
 				j++;

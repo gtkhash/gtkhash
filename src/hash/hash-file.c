@@ -128,8 +128,7 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (data->funcs[i].enabled) {
-			gtkhash_hash_lib_start(&data->funcs[i], data->hmac_key,
-				data->key_size);
+			gtkhash_hash_lib_start(&data->funcs[i], data->hmac_key, data->key_size);
 			funcs_enabled++;
 		}
 	}

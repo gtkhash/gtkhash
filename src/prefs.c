@@ -164,11 +164,11 @@ static void prefs_load(void)
 static void save_hash_funcs(void)
 {
 	const char **strv = NULL;
-	int enabled = hash_funcs_count_enabled();
+	const unsigned int enabled = gtkhash_hash_func_count_enabled(hash.funcs);
 
 	if (enabled > 0) {
 		strv = g_new0(const char *, enabled + 1);
-		for (int i = 0, j = 0; (i < HASH_FUNCS_N) && (j < enabled); i++) {
+		for (unsigned int i = 0, j = 0; (i < HASH_FUNCS_N) && (j < enabled); i++) {
 			if (hash.funcs[i].enabled) {
 				strv[j] = hash.funcs[i].name;
 				j++;

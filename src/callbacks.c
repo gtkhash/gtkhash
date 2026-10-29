@@ -213,7 +213,7 @@ static void on_action_about(void)
 
 static void on_filechooserbutton_selection_changed(void)
 {
-	bool enabled = hash_funcs_count_enabled();
+	bool enabled = gtkhash_hash_func_count_enabled(hash.funcs);
 	char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
 		gui.filechooserbutton));
 

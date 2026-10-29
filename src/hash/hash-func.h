@@ -89,13 +89,12 @@ struct hash_func_s {
 };
 
 enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name);
-void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest,
-	size_t size);
-char *gtkhash_hash_func_get_digest(struct hash_func_s *func,
-	enum digest_format_e format);
+unsigned int gtkhash_hash_func_count_supported(const struct hash_func_s *funcs);
+unsigned int gtkhash_hash_func_count_enabled(const struct hash_func_s *funcs);
+void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest, size_t size);
+char *gtkhash_hash_func_get_digest(struct hash_func_s *func, enum digest_format_e format);
 void gtkhash_hash_func_clear_digest(struct hash_func_s *func);
-void gtkhash_hash_func_init(struct hash_func_s *func,
-	enum hash_func_e id);
+void gtkhash_hash_func_init(struct hash_func_s *func, enum hash_func_e id);
 void gtkhash_hash_func_init_all(struct hash_func_s *funcs);
 void gtkhash_hash_func_deinit(struct hash_func_s *func);
 void gtkhash_hash_func_deinit_all(struct hash_func_s *funcs);
