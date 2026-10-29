@@ -31,7 +31,7 @@
           ];
           preConfigure = ''
             # Required for LTO
-            export AR="${pkgs.llvm}/bin/llvm-ar"
+            export AR="gcc-ar"
           '';
           checkPhase = ''
             runHook preCheck
@@ -45,7 +45,7 @@
           };
         };
       in rec {
-        gtkhash = pkgs.clangStdenv.mkDerivation (common // {
+        gtkhash = pkgs.stdenv.mkDerivation (common // {
           name = "gtkhash";
           nativeBuildInputs = common.nativeBuildInputs ++ (with pkgs; [
             desktop-file-utils
@@ -61,7 +61,7 @@
           };
         });
 
-        gtkhash-caja = pkgs.clangStdenv.mkDerivation (common // {
+        gtkhash-caja = pkgs.stdenv.mkDerivation (common // {
           name = "gtkhash-caja";
           mesonFlags = [
             "-Dbuild-gtkhash=false"
@@ -78,7 +78,7 @@
             "${placeholder "out"}/lib/caja/extensions-2.0";
         });
 
-        gtkhash-nautilus = pkgs.clangStdenv.mkDerivation (common // {
+        gtkhash-nautilus = pkgs.stdenv.mkDerivation (common // {
           name = "gtkhash-nautilus";
           mesonFlags = [
             "-Dbuild-gtkhash=false"
@@ -91,7 +91,7 @@
             "${placeholder "out"}/lib/nautilus/extensions-4";
         });
 
-        gtkhash-nemo = pkgs.clangStdenv.mkDerivation (common // {
+        gtkhash-nemo = pkgs.stdenv.mkDerivation (common // {
           name = "gtkhash-nemo";
           mesonFlags = [
             "-Dbuild-gtkhash=false"
@@ -105,7 +105,7 @@
             "${placeholder "out"}/${pkgs.nemo.extensiondir}";
         });
 
-        gtkhash-thunar = pkgs.clangStdenv.mkDerivation (common // {
+        gtkhash-thunar = pkgs.stdenv.mkDerivation (common // {
           name = "gtkhash-thunar";
           mesonFlags = [
             "-Dbuild-gtkhash=false"
@@ -127,7 +127,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
       in {
-        default = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
+        default = pkgs.mkShell {
           packages = with pkgs; [
             appstream
             caja
@@ -157,7 +157,7 @@
             zlib
           ];
           shellHook = ''
-            export AR="${pkgs.llvm}/bin/llvm-ar"
+            export AR="gcc-ar"
             export XDG_DATA_DIRS+=":${pkgs.glib.getSchemaDataDirPath pkgs.gtk3}"
           '';
         };
