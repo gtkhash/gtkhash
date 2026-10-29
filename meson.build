@@ -86,7 +86,6 @@ no_dep = dependency('', required: false)
 
 gio = dependency('gio-2.0', version: '>=2.68')
 glib = dependency('glib-2.0', version: '>=2.68')
-gtk = dependency('gtk+-3.0', version: '>=3.24')
 
 #######################################
 # Hash libraries
@@ -167,11 +166,9 @@ endif
 
 build_nautilus = get_option('build-nautilus')
 if build_nautilus
-    nautilus = dependency('libnautilus-extension')
+    nautilus = dependency('libnautilus-extension-4')
     nautilus_extension_dir = nautilus.get_variable('extensiondir')
-    have_nautilus_header = cc.has_header('nautilus/nautilus-extension.h')
 endif
-config.set10('HAVE_NAUTILUS_EXTENSION_H', build_nautilus and have_nautilus_header)
 
 build_nemo = get_option('build-nemo')
 if build_nemo
@@ -183,6 +180,10 @@ build_thunar = get_option('build-thunar')
 if build_thunar
     thunar = dependency('thunarx-3')
     thunar_extension_dir = thunar.get_variable('extensionsdir')
+endif
+
+if build_gtkhash or build_caja or build_nemo or build_thunar
+    gtk = dependency('gtk+-3.0', version: '>=3.24')
 endif
 
 enable_icons = build_gtkhash or build_caja

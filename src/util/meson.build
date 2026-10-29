@@ -2,8 +2,5 @@ libutil = static_library(
     'util',
     'util.c',
     include_directories: root_include,
-    dependencies: [
-        glib,
-        gio,
-    ],
+    dependencies: glib,
 )

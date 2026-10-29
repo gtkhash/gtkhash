@@ -28,6 +28,7 @@
 #include <libnemo-extension/nemo-property-page-provider.h>
 #include <libnemo-extension/nemo-name-and-desc-provider.h>
 
+#include "../common/module.h"
 #include "../common/properties.h"
 
 static GList *gtkhash_properties_get_pages(G_GNUC_UNUSED NemoPropertyPageProvider *provider,
@@ -50,9 +51,7 @@ static GList *gtkhash_properties_get_pages(G_GNUC_UNUSED NemoPropertyPageProvide
 	NemoPropertyPage *ppage = nemo_property_page_new("GtkHash::properties",
 		gtk_label_new(_("Checksums")), page->box);
 
-	GList *pages = g_list_append(NULL, ppage);
-
-	return pages;
+	return g_list_append(NULL, ppage);
 }
 
 static void gtkhash_properties_pp_iface_init(NemoPropertyPageProviderIface *iface,
@@ -61,8 +60,7 @@ static void gtkhash_properties_pp_iface_init(NemoPropertyPageProviderIface *ifac
 	iface->get_pages = gtkhash_properties_get_pages;
 }
 
-static GList *gtkhash_properties_get_name_desc(
-	G_GNUC_UNUSED NemoNameAndDescProvider *provider)
+static GList *gtkhash_properties_get_name_desc(G_GNUC_UNUSED NemoNameAndDescProvider *provider)
 {
 	char *nd = g_strdup_printf("GtkHash:::%s", _("Calculate message digests or checksums"));
 	return g_list_append(NULL, nd);
@@ -76,9 +74,8 @@ static void gtkhash_properties_nd_iface_init(NemoNameAndDescProviderIface *iface
 
 G_MODULE_EXPORT void nemo_module_initialize(GTypeModule *module)
 {
-	const GType page_type = gtkhash_properties_register_type(module,
-		NEMO_TYPE_PROPERTY_PAGE_PROVIDER,
-		(GInterfaceInitFunc)gtkhash_properties_pp_iface_init);
+	const GType type = gtkhash_module_register_type(module, NEMO_TYPE_PROPERTY_PAGE_PROVIDER,
+		(GInterfaceInitFunc)gtkhash_properties_pp_iface_init, sizeof(GObject));
 
 	const GInterfaceInfo nd_iface_info = {
 		(GInterfaceInitFunc)gtkhash_properties_nd_iface_init,
@@ -86,8 +83,7 @@ G_MODULE_EXPORT void nemo_module_initialize(GTypeModule *module)
 		NULL
 	};
 
-	g_type_module_add_interface(module, page_type, NEMO_TYPE_NAME_AND_DESC_PROVIDER,
-		&nd_iface_info);
+	g_type_module_add_interface(module, type, NEMO_TYPE_NAME_AND_DESC_PROVIDER, &nd_iface_info);
 }
 
 G_MODULE_EXPORT void nemo_module_shutdown(void)
@@ -96,5 +92,5 @@ G_MODULE_EXPORT void nemo_module_shutdown(void)
 
 G_MODULE_EXPORT void nemo_module_list_types(const GType **types, int *num_types)
 {
-	gtkhash_properties_module_list_types(types, num_types);
+	gtkhash_module_list_types(types, num_types);
 }

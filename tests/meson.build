@@ -13,14 +13,11 @@ if build_gtkhash
             root_include,
             include_directories('../src'),
         ],
-        dependencies: [
-            glib,
-            gtk,
-        ],
         link_with: [
             libhash,
             libutil,
         ],
+        dependencies: gtk,
     )
 
     test_files = []

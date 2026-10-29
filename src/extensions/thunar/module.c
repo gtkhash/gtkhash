@@ -28,6 +28,7 @@
 #undef GTK_DISABLE_DEPRECATED // thunarx-3 doesn't build with this
 #include <thunarx/thunarx.h>
 
+#include "../common/module.h"
 #include "../common/properties.h"
 
 static GList *gtkhash_properties_get_pages(G_GNUC_UNUSED ThunarxPropertyPageProvider *provider,
@@ -54,9 +55,7 @@ static GList *gtkhash_properties_get_pages(G_GNUC_UNUSED ThunarxPropertyPageProv
 	GtkWidget *ppage = thunarx_property_page_new(_("Checksums"));
 	gtk_container_add(GTK_CONTAINER(ppage), page->box);
 
-	GList *pages = g_list_append(NULL, ppage);
-
-	return pages;
+	return g_list_append(NULL, ppage);
 }
 
 static void gtkhash_properties_pp_iface_init(ThunarxPropertyPageProviderIface *iface,
@@ -68,8 +67,8 @@ static void gtkhash_properties_pp_iface_init(ThunarxPropertyPageProviderIface *i
 G_MODULE_EXPORT void thunar_extension_initialize(GTypeModule *module);
 G_MODULE_EXPORT void thunar_extension_initialize(GTypeModule *module)
 {
-	gtkhash_properties_register_type(module, THUNARX_TYPE_PROPERTY_PAGE_PROVIDER,
-		(GInterfaceInitFunc)gtkhash_properties_pp_iface_init);
+	gtkhash_module_register_type(module, THUNARX_TYPE_PROPERTY_PAGE_PROVIDER,
+		(GInterfaceInitFunc)gtkhash_properties_pp_iface_init, sizeof(GObject));
 }
 
 G_MODULE_EXPORT void thunar_extension_shutdown(void);
@@ -80,5 +79,5 @@ G_MODULE_EXPORT void thunar_extension_shutdown(void)
 G_MODULE_EXPORT void thunar_extension_list_types(const GType **types, int *num_types);
 G_MODULE_EXPORT void thunar_extension_list_types(const GType **types, int *num_types)
 {
-	gtkhash_properties_module_list_types(types, num_types);
+	gtkhash_module_list_types(types, num_types);
 }
