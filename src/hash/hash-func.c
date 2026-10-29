@@ -82,6 +82,34 @@ enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name)
 	return HASH_FUNC_INVALID;
 }
 
+unsigned int gtkhash_hash_func_count_supported(const struct hash_func_s *funcs)
+{
+	g_assert(funcs);
+
+	unsigned int supported = 0;
+
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		if (funcs[i].supported)
+			supported++;
+
+	return supported;
+}
+
+unsigned int gtkhash_hash_func_count_enabled(const struct hash_func_s *funcs)
+{
+	g_assert(funcs);
+
+	unsigned int enabled = 0;
+
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		if (funcs[i].enabled) {
+			g_assert(funcs[i].supported);
+			enabled++;
+		}
+
+	return enabled;
+}
+
 void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest,
 	size_t size)
 {

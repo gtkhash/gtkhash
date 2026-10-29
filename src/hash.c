@@ -128,7 +128,7 @@ void gtkhash_hash_file_stop_cb(void *uri)
 
 void hash_file_start(const char *uri)
 {
-	g_assert(hash_funcs_count_enabled());
+	g_assert(gtkhash_hash_func_count_enabled(hash.funcs));
 
 	const enum digest_format_e format = gui_get_digest_format();
 
@@ -140,7 +140,7 @@ void hash_file_start(const char *uri)
 
 void hash_file_list_start(void)
 {
-	g_assert(hash_funcs_count_enabled());
+	g_assert(gtkhash_hash_func_count_enabled(hash.funcs));
 	g_assert(!hash_priv.list_row);
 
 	char *uri = list_get_uri(hash_priv.list_row);
@@ -154,7 +154,7 @@ void hash_file_stop(void)
 
 void hash_string(void)
 {
-	if (!hash_funcs_count_enabled())
+	if (!gtkhash_hash_func_count_enabled(hash.funcs))
 		return;
 
 	const char *str = gtk_entry_get_text(gui.entry_text);
@@ -164,18 +164,6 @@ void hash_string(void)
 	const uint8_t *hmac_key = gui_get_hmac_key(&key_size);
 
 	gtkhash_hash_string(hash.funcs, str, format, hmac_key, key_size);
-}
-
-unsigned int hash_funcs_count_enabled(void)
-{
-	unsigned int ret = 0;
-
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (hash.funcs[i].enabled)
-			ret++;
-	}
-
-	return ret;
 }
 
 void hash_funcs_enable_strv(const char **funcs)

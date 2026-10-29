@@ -95,13 +95,11 @@ void list_init(void)
 
 void list_update(void)
 {
-	bool enabled = false;
+	const bool enabled = gtkhash_hash_func_count_enabled(hash.funcs);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!hash.funcs[i].supported)
 			continue;
-		if (hash.funcs[i].enabled)
-			enabled = true;
 
 		GtkTreeViewColumn *col = gtk_tree_view_get_column(gui.treeview,
 			list_priv.hash_cols[i]);
@@ -327,16 +325,12 @@ void list_clear_digests(void)
 	if (!gtk_tree_model_get_iter_first(gui.treemodel, &iter))
 		return;
 
-	int cols_n = 0;
-
-	for (int i = 0; i < HASH_FUNCS_N; i++)
-		if (hash.funcs[i].supported)
-			cols_n++;
+	const unsigned int cols_n = gtkhash_hash_func_count_supported(hash.funcs);
 
 	gint cols[cols_n];
 	GValue vals[HASH_FUNCS_N] = { G_VALUE_INIT };
 
-	for (int i = 0; i < cols_n; i++) {
+	for (unsigned int i = 0; i < cols_n; i++) {
 		cols[i] = COL_DIGESTS + i;
 		g_value_init(&vals[i], G_TYPE_STRING);
 	}

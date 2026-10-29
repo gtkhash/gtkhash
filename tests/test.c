@@ -503,7 +503,7 @@ static void test_opt_function_disable(void)
 			}
 		}
 
-		if (hash_funcs_count_enabled() < 1)
+		if (!gtkhash_hash_func_count_enabled(hash.funcs))
 			exit(EXIT_FAILURE);
 
 		g_string_append_printf(args, " -- '%s'",
@@ -517,7 +517,7 @@ static void test_opt_function_disable(void)
 		opts_postinit();
 		delay();
 
-		if (hash_funcs_count_enabled() == 0)
+		if (!gtkhash_hash_func_count_enabled(hash.funcs))
 			exit(EXIT_SUCCESS);
 		else
 			exit(EXIT_FAILURE);

@@ -35,8 +35,7 @@
 
 #define PROPERTIES_XML_RESOURCE "/org/gtkhash/plugin/properties.ui"
 
-static GObject *gtkhash_properties_get_object(GtkBuilder *builder,
-	const char *name)
+static GObject *gtkhash_properties_get_object(GtkBuilder *builder, const char *name)
 {
 	GObject *obj = gtk_builder_get_object(builder, name);
 	if (!obj)
@@ -68,21 +67,14 @@ static void gtkhash_properties_busy(struct page_s *page)
 
 static void gtkhash_properties_button_hash_set_sensitive(struct page_s *page)
 {
-	bool has_enabled = false;
+	const bool enabled = gtkhash_hash_func_count_enabled(page->funcs);
 
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (page->funcs[i].enabled) {
-			has_enabled = true;
-			break;
-		}
-	}
-
-	gtk_widget_set_sensitive(GTK_WIDGET(page->button_hash), has_enabled);
+	gtk_widget_set_sensitive(GTK_WIDGET(page->button_hash), enabled);
 }
 
 static void gtkhash_properties_entry_hmac_set_sensitive(struct page_s *page)
 {
-	bool active = gtk_toggle_button_get_active(page->togglebutton_hmac);
+	const bool active = gtk_toggle_button_get_active(page->togglebutton_hmac);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(page->entry_hmac), active);
 }
@@ -170,8 +162,7 @@ static void gtkhash_properties_on_menuitem_copy_activate(struct page_s *page)
 	g_free(digest);
 }
 
-static void gtkhash_properties_on_menuitem_show_funcs_toggled(
-	struct page_s *page)
+static void gtkhash_properties_on_menuitem_show_funcs_toggled(struct page_s *page)
 {
 	gtkhash_properties_list_refilter(page);
 }
@@ -403,7 +394,7 @@ struct page_s *gtkhash_properties_new_page(char *uri)
 
 	gtkhash_properties_hash_init(page);
 
-	if (gtkhash_properties_hash_funcs_supported(page) == 0) {
+	if (!gtkhash_hash_func_count_supported(page->funcs)) {
 		g_warning("no hash functions available");
 		gtkhash_properties_hash_deinit(page);
 		g_free(page->uri);

@@ -489,12 +489,7 @@ static void gui_action_save_as_set_enabled(void)
 			}
 			break;
 		case GUI_VIEW_TEXT:
-			for (int i = 0; i < HASH_FUNCS_N; i++) {
-				if (hash.funcs[i].enabled) {
-					sensitive = true;
-					break;
-				}
-			}
+			sensitive = gtkhash_hash_func_count_enabled(hash.funcs);
 			break;
 		case GUI_VIEW_FILE_LIST:
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
@@ -626,7 +621,7 @@ void gui_update(void)
 	g_assert(gui_priv.state == GUI_STATE_IDLE);
 
 	gui_update_hash_funcs();
-	const unsigned int funcs_enabled = hash_funcs_count_enabled();
+	const bool funcs_enabled = gtkhash_hash_func_count_enabled(hash.funcs);
 
 	if ((gui.view == GUI_VIEW_FILE) || (gui.view == GUI_VIEW_TEXT)) {
 		gui_update_hmac();
@@ -660,8 +655,7 @@ void gui_update(void)
 			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
 				gui.filechooserbutton));
 			if (uri) {
-				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash),
-					funcs_enabled);
+				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), funcs_enabled);
 				g_free(uri);
 			} else
 				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
@@ -848,7 +842,7 @@ bool gui_is_maximised(void)
 
 void gui_start_hash(void)
 {
-	if (!hash_funcs_count_enabled())
+	if (!gtkhash_hash_func_count_enabled(hash.funcs))
 		return;
 
 	switch (gui.view) {
