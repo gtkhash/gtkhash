@@ -9,12 +9,16 @@ data/org.gtkhash.gtkhash.desktop.in
 src/callbacks.c
 src/check.c
 src/extensions/caja/module.c
+src/extensions/common/module.c
 src/extensions/common/properties-hash.c
 src/extensions/common/properties-list.c
 src/extensions/common/properties-prefs.c
 src/extensions/common/properties.c
 src/extensions/common/properties.ui
 src/extensions/nautilus/module.c
+src/extensions/nautilus/properties-hash.c
+src/extensions/nautilus/properties-prefs.c
+src/extensions/nautilus/properties.c
 src/extensions/nemo/module.c
 src/extensions/thunar/module.c
 src/gui.c
@@ -23,4 +27,5 @@ src/list.c
 src/main.c
 src/opts.c
 src/prefs.c
+src/uri-digest.c
 src/util/util.c
