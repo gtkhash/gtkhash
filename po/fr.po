@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-29 01:03+0000\n"
+"POT-Creation-Date: 2026-10-29 01:20+0000\n"
 "PO-Revision-Date: 2021-12-02 01:50+0000\n"
 "Last-Translator: aezjrareareare <jeromechaland@riseup.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/gtkhash/"
@@ -25,8 +25,8 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-09-16 04:40+0000\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
-#: src/extensions/caja/module.c:51 src/extensions/nemo/module.c:52
-#: src/extensions/thunar/module.c:55
+#: src/extensions/caja/module.c:51 src/extensions/nautilus/properties.c:154
+#: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Sommes de contrôle"
 

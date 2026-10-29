@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-29 01:03+0000\n"
+"POT-Creation-Date: 2026-10-29 01:20+0000\n"
 "PO-Revision-Date: 2020-07-04 23:41+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtkhash/"
@@ -22,8 +22,8 @@ msgstr ""
 "X-Launchpad-Export-Date: 2016-01-29 05:16+0000\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
-#: src/extensions/caja/module.c:51 src/extensions/nemo/module.c:52
-#: src/extensions/thunar/module.c:55
+#: src/extensions/caja/module.c:51 src/extensions/nautilus/properties.c:154
+#: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Sumes de verificació"
 

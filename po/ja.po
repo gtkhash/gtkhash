@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-29 01:03+0000\n"
+"POT-Creation-Date: 2026-10-29 01:20+0000\n"
 "PO-Revision-Date: 2020-07-03 21:08+0000\n"
 "Last-Translator: YAMADA Shinichirou "
 "<yamada_strong_yamada_nice_64bit@yahoo.co.jp>\n"
@@ -24,8 +24,8 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
-#: src/extensions/caja/module.c:51 src/extensions/nemo/module.c:52
-#: src/extensions/thunar/module.c:55
+#: src/extensions/caja/module.c:51 src/extensions/nautilus/properties.c:154
+#: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "チェックサム"
 

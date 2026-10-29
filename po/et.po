@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-29 01:03+0000\n"
+"POT-Creation-Date: 2026-10-29 01:20+0000\n"
 "PO-Revision-Date: 2023-04-03 11:38+0000\n"
 "Last-Translator: vaba <vaba@riseup.net>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/gtkhash/"
@@ -20,8 +20,8 @@ msgstr ""
 "X-Generator: Weblate 4.17-dev\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
-#: src/extensions/caja/module.c:51 src/extensions/nemo/module.c:52
-#: src/extensions/thunar/module.c:55
+#: src/extensions/caja/module.c:51 src/extensions/nautilus/properties.c:154
+#: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Kontrollsummad"
 
