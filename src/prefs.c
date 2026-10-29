@@ -54,8 +54,10 @@ static struct {
 static void default_hash_funcs(void)
 {
 	// Try to enable default functions
+	gtkhash_hash_func_enable_defaults(hash.funcs);
+
 	for (int i = 0; i < HASH_FUNCS_N; i++)
-		if (HASH_FUNC_IS_DEFAULT(i) && hash.funcs[i].supported)
+		if (hash.funcs[i].enabled)
 			gui_enable_hash_func(i);
 }
 

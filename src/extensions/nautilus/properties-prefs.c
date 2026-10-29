@@ -33,9 +33,7 @@
 
 static void gtkhash_properties_prefs_default(struct model_s *model)
 {
-	for (int i = 0; i < HASH_FUNCS_N; i++)
-		if (HASH_FUNC_IS_DEFAULT(i) && model->funcs[i].supported)
-			model->funcs[i].enabled = true;
+	gtkhash_hash_func_enable_defaults(model->funcs);
 }
 
 void gtkhash_properties_prefs_load(struct model_s *model)
@@ -44,7 +42,6 @@ void gtkhash_properties_prefs_load(struct model_s *model)
 		g_settings_schema_source_get_default(), PREFS_SCHEMA, true);
 	if (!schema) {
 		g_warning("GSettings schema \"" PREFS_SCHEMA "\" not found");
-
 		gtkhash_properties_prefs_default(model);
 		return;
 	}
