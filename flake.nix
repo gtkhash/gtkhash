@@ -12,20 +12,18 @@
           mesonBuildType = "debugoptimized";
           nativeBuildInputs = with pkgs; [
             appstream
-            desktop-file-utils
-            gtk3
+            gettext
+            libxml2 # xmllint
             meson
             ninja
             pkg-config
-            wrapGAppsHook3
           ];
           buildInputs = with pkgs; [
-            gtk3
             libb2
             libblake3
             libgcrypt
-            librsvg
             xxhash
+            zlib
           ];
           nativeCheckInputs = with pkgs; [
             hicolor-icon-theme
@@ -49,40 +47,78 @@
       in rec {
         gtkhash = pkgs.clangStdenv.mkDerivation (common // {
           name = "gtkhash";
+          nativeBuildInputs = common.nativeBuildInputs ++ (with pkgs; [
+            desktop-file-utils
+            gtk3 # gtk-update-icon-cache
+            wrapGAppsHook3
+          ]);
+          buildInputs = common.buildInputs ++ (with pkgs; [
+            gtk3
+            librsvg # libpixbufloader_svg
+          ]);
           meta = common.meta // {
             mainProgram = "gtkhash";
           };
         });
+
         gtkhash-caja = pkgs.clangStdenv.mkDerivation (common // {
           name = "gtkhash-caja";
           mesonFlags = [
             "-Dbuild-gtkhash=false"
             "-Dbuild-caja=true"
           ];
-          buildInputs = common.buildInputs ++ [ pkgs.caja ];
+          nativeBuildInputs = common.nativeBuildInputs ++ (with pkgs; [
+            gtk3 # gtk-update-icon-cache
+          ]);
+          buildInputs = common.buildInputs ++ (with pkgs; [
+            caja
+            gtk3
+          ]);
           env.PKG_CONFIG_LIBCAJA_EXTENSION_EXTENSIONDIR =
             "${placeholder "out"}/lib/caja/extensions-2.0";
         });
+
+        gtkhash-nautilus = pkgs.clangStdenv.mkDerivation (common // {
+          name = "gtkhash-nautilus";
+          mesonFlags = [
+            "-Dbuild-gtkhash=false"
+            "-Dbuild-nautilus=true"
+          ];
+          buildInputs = common.buildInputs ++ (with pkgs; [
+            nautilus
+          ]);
+          env.PKG_CONFIG_LIBNAUTILUS_EXTENSION_4_EXTENSIONDIR =
+            "${placeholder "out"}/lib/nautilus/extensions-4";
+        });
+
         gtkhash-nemo = pkgs.clangStdenv.mkDerivation (common // {
           name = "gtkhash-nemo";
           mesonFlags = [
             "-Dbuild-gtkhash=false"
             "-Dbuild-nemo=true"
           ];
-          buildInputs = common.buildInputs ++ [ pkgs.nemo ];
+          buildInputs = common.buildInputs ++ (with pkgs; [
+            gtk3
+            nemo
+          ]);
           env.PKG_CONFIG_LIBNEMO_EXTENSION_EXTENSIONDIR =
             "${placeholder "out"}/${pkgs.nemo.extensiondir}";
         });
+
         gtkhash-thunar = pkgs.clangStdenv.mkDerivation (common // {
           name = "gtkhash-thunar";
           mesonFlags = [
             "-Dbuild-gtkhash=false"
             "-Dbuild-thunar=true"
           ];
-          buildInputs = common.buildInputs ++ [ pkgs.thunar ];
+          buildInputs = common.buildInputs ++ (with pkgs; [
+            gtk3
+            thunar
+          ]);
           env.PKG_CONFIG_THUNARX_3_EXTENSIONSDIR =
             "${placeholder "out"}/lib/thunarx-3";
         });
+
         default = gtkhash;
       }
     );
@@ -104,7 +140,7 @@
             libb2
             libblake3
             libgcrypt
-            librsvg
+            librsvg # libpixbufloader_svg
             libxml2 # xmllint
             mbedtls
             meson
@@ -118,6 +154,7 @@
             thunar
             xvfb-run
             xxhash
+            zlib
           ];
           shellHook = ''
             export AR="${pkgs.llvm}/bin/llvm-ar"

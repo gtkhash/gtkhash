@@ -58,13 +58,15 @@ meson devenv -C _build src/gtkhash
 ```
 See `meson configure _build` for the full list of build options.
 
-File Manager Extension
-----------------------
-Adds a Hash feature to File Properties in:
+File Manager Extensions
+-----------------------
+The file manager extensions add Checksums to file properties in:
 * Caja (MATE)
-* Nautilus (GNOME)
+* Nautilus/Files (GNOME)
 * Nemo (Cinnamon)
 * Thunar (Xfce)
+
+Note: The Nautilus/Files extension only has basic features due to API limitations.
 
 Translations
 ------------

@@ -96,7 +96,7 @@ jobs:
             -Dappstream=true \
             -Dbuild-gtkhash=true \
             -Dbuild-caja=true \
-            -Dbuild-nautilus=false \
+            -Dbuild-nautilus=$(has_pkg libnautilus-extension4) \
             -Dbuild-nemo=true \
             -Dbuild-thunar=true
 

@@ -15,6 +15,7 @@ if build_gtkhash
         'opts.c',
         'uri-digest.c',
     ]
+
     gtkhash_resources = gnome.compile_resources(
         'resources',
         gtkhash_gtk3_gresource,
@@ -33,15 +34,11 @@ if build_gtkhash
         'main.c',
         'prefs.c',
         include_directories: root_include,
-        dependencies: [
-            glib,
-            gtk,
-        ],
         link_with: [
             libhash,
             libutil,
         ],
+        dependencies: gtk,
         install: true,
     )
-
 endif

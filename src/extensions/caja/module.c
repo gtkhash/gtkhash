@@ -27,6 +27,7 @@
 #include <libcaja-extension/caja-property-page.h>
 #include <libcaja-extension/caja-property-page-provider.h>
 
+#include "../common/module.h"
 #include "../common/properties.h"
 
 static GList *gtkhash_properties_get_pages(G_GNUC_UNUSED CajaPropertyPageProvider *provider,
@@ -49,9 +50,7 @@ static GList *gtkhash_properties_get_pages(G_GNUC_UNUSED CajaPropertyPageProvide
 	CajaPropertyPage *ppage = caja_property_page_new("GtkHash::properties",
 		gtk_label_new(_("Checksums")), page->box);
 
-	GList *pages = g_list_append(NULL, ppage);
-
-	return pages;
+	return g_list_append(NULL, ppage);
 }
 
 static void gtkhash_properties_pp_iface_init(CajaPropertyPageProviderIface *iface,
@@ -62,8 +61,8 @@ static void gtkhash_properties_pp_iface_init(CajaPropertyPageProviderIface *ifac
 
 G_MODULE_EXPORT void caja_module_initialize(GTypeModule *module)
 {
-	gtkhash_properties_register_type(module, CAJA_TYPE_PROPERTY_PAGE_PROVIDER,
-		(GInterfaceInitFunc)gtkhash_properties_pp_iface_init);
+	gtkhash_module_register_type(module, CAJA_TYPE_PROPERTY_PAGE_PROVIDER,
+		(GInterfaceInitFunc)gtkhash_properties_pp_iface_init, sizeof(GObject));
 }
 
 G_MODULE_EXPORT void caja_module_shutdown(void)
@@ -72,5 +71,5 @@ G_MODULE_EXPORT void caja_module_shutdown(void)
 
 G_MODULE_EXPORT void caja_module_list_types(const GType **types, int *num_types)
 {
-	gtkhash_properties_module_list_types(types, num_types);
+	gtkhash_module_list_types(types, num_types);
 }

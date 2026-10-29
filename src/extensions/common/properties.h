@@ -23,13 +23,8 @@
 #include <stdbool.h>
 #include <gtk/gtk.h>
 
+#include "module.h"
 #include "../../hash/hash-file.h"
-
-#if ENABLE_NLS
-	#include <glib/gi18n-lib.h>
-#else
-	#define _(STR) (STR)
-#endif
 
 struct page_s {
 	GSettings *settings;
@@ -52,8 +47,5 @@ struct page_s {
 
 struct page_s *gtkhash_properties_new_page(char *uri);
 void gtkhash_properties_idle(struct page_s *page);
-GType gtkhash_properties_register_type(GTypeModule *module, GType provider_type,
-	GInterfaceInitFunc pp_iface_init);
-void gtkhash_properties_module_list_types(const GType **types, int *num_types);
 
 #endif
