@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-23 23:56+0000\n"
+"POT-Creation-Date: 2026-10-29 01:03+0000\n"
 "PO-Revision-Date: 2019-06-18 19:03+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Flemish <https://hosted.weblate.org/projects/gtkhash/"
@@ -20,8 +20,8 @@ msgstr ""
 "X-Generator: Weblate 3.7\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
-#: src/extensions/caja/module.c:50 src/extensions/nautilus/module.c:55
-#: src/extensions/nemo/module.c:51 src/extensions/thunar/module.c:54
+#: src/extensions/caja/module.c:51 src/extensions/nemo/module.c:52
+#: src/extensions/thunar/module.c:55
 #, fuzzy
 msgid "Checksums"
 msgstr "Controle:"
@@ -155,7 +155,7 @@ msgid "GtkHash"
 msgstr ""
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:67
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:65
 msgid "Calculate message digests or checksums"
 msgstr "Berichtdigests of controlesommen berekenen"
 

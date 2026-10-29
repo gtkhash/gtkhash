@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-23 23:56+0000\n"
+"POT-Creation-Date: 2026-10-29 01:03+0000\n"
 "PO-Revision-Date: 2026-10-24 12:51+0000\n"
 "Last-Translator: El Pirujo <pirujo@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
@@ -27,8 +27,8 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
-#: src/extensions/caja/module.c:50 src/extensions/nautilus/module.c:55
-#: src/extensions/nemo/module.c:51 src/extensions/thunar/module.c:54
+#: src/extensions/caja/module.c:51 src/extensions/nemo/module.c:52
+#: src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Sumas de verificación"
 
@@ -153,7 +153,7 @@ msgid "GtkHash"
 msgstr "GtkHash"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:67
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:65
 msgid "Calculate message digests or checksums"
 msgstr "Calcular resúmenes de mensajes o sumas de comprobación"
 

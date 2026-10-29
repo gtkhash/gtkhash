@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-23 23:56+0000\n"
+"POT-Creation-Date: 2026-10-29 01:03+0000\n"
 "PO-Revision-Date: 2026-10-18 17:46+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
@@ -24,8 +24,8 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-12-11 04:50+0000\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
-#: src/extensions/caja/module.c:50 src/extensions/nautilus/module.c:55
-#: src/extensions/nemo/module.c:51 src/extensions/thunar/module.c:54
+#: src/extensions/caja/module.c:51 src/extensions/nemo/module.c:52
+#: src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Checksums"
 
@@ -150,7 +150,7 @@ msgid "GtkHash"
 msgstr "GtkHash"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
-#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:67
+#: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:65
 msgid "Calculate message digests or checksums"
 msgstr "Calculate message digests or checksums"
 
