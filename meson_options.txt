@@ -1,15 +1,14 @@
 option('blake2',         type: 'boolean', value: true,  description: 'Use libb2')
 option('blake3',         type: 'boolean', value: true,  description: 'Use libblake3')
 option('gcrypt',         type: 'boolean', value: true,  description: 'Use Libgcrypt')
-option('glib-checksums', type: 'boolean', value: false, description: 'Use the Glib Data Checksums API')
 option('libcrypto',      type: 'boolean', value: false, description: 'Use OpenSSL libcrypto')
 option('mbedtls',        type: 'boolean', value: false, description: 'Use Mbed TLS')
 option('nettle',         type: 'boolean', value: false, description: 'Use Nettle')
 option('xxhash',         type: 'boolean', value: true,  description: 'Use libxxhash')
 option('zlib',           type: 'boolean', value: true,  description: 'Use zlib')
 
-option('native-file-chooser', type: 'boolean', value: true, description: 'Use native file chooser dialogs')
 option('appstream',           type: 'boolean', value: true, description: 'Install AppStream metadata files')
+option('native-file-chooser', type: 'boolean', value: true, description: 'Use native file chooser dialogs')
 
 option('build-gtkhash',  type: 'boolean', value: true,  description: 'Build gtkhash binary')
 option('build-caja',     type: 'boolean', value: false, description: 'Build the Caja extension')

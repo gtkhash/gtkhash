@@ -3,6 +3,7 @@ libhash_sources = [
     'digest.c',
     'hash-file.c',
     'hash-func.c',
+    'hash-lib-glib.c',
     'hash-lib.c',
     'hash-string.c',
     'hmac.c',
@@ -17,11 +18,8 @@ endif
 if get_option('gcrypt')
     libhash_sources += 'hash-lib-gcrypt.c'
 endif
-if get_option('glib-checksums')
-    libhash_sources += 'hash-lib-glib.c'
-endif
 if get_option('libcrypto')
-    libhash_sources += 'hash-lib-crypto.c'
+    libhash_sources += 'hash-lib-libcrypto.c'
 endif
 if get_option('mbedtls')
     libhash_sources += 'hash-lib-mbedtls.c'

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2022 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -39,16 +39,16 @@
 #include "hash-lib.h"
 #include "hash-func.h"
 
-HASH_LIB_DECL(crypto)
+HASH_LIB_DECL(libcrypto)
 
-#define LIB_DATA ((struct hash_lib_crypto_s *)func->lib_data)
+#define LIB_DATA ((struct hash_lib_libcrypto_s *)func->lib_data)
 
-struct hash_lib_crypto_s {
+struct hash_lib_libcrypto_s {
 	const EVP_MD *md;
 	EVP_MD_CTX *ctx;
 };
 
-static const EVP_MD *gtkhash_hash_lib_crypto_get_md(const enum hash_func_e id)
+static const EVP_MD *gtkhash_hash_lib_libcrypto_get_md(const enum hash_func_e id)
 {
 	switch (id) {
 
@@ -118,12 +118,12 @@ static const EVP_MD *gtkhash_hash_lib_crypto_get_md(const enum hash_func_e id)
 	g_assert_not_reached();
 }
 
-bool gtkhash_hash_lib_crypto_is_supported(const enum hash_func_e id)
+bool gtkhash_hash_lib_libcrypto_is_supported(const enum hash_func_e id)
 {
-	struct hash_lib_crypto_s data;
+	struct hash_lib_libcrypto_s data;
 	uint8_t digest[EVP_MAX_MD_SIZE];
 
-	if (!(data.md = gtkhash_hash_lib_crypto_get_md(id)))
+	if (!(data.md = gtkhash_hash_lib_libcrypto_get_md(id)))
 		return false;
 
 	if (EVP_MD_size(data.md) < 1)
@@ -142,11 +142,11 @@ bool gtkhash_hash_lib_crypto_is_supported(const enum hash_func_e id)
 	return true;
 }
 
-void gtkhash_hash_lib_crypto_start(struct hash_func_s *func)
+void gtkhash_hash_lib_libcrypto_start(struct hash_func_s *func)
 {
-	func->lib_data = g_new(struct hash_lib_crypto_s, 1);
+	func->lib_data = g_new(struct hash_lib_libcrypto_s, 1);
 
-	if (!(LIB_DATA->md = gtkhash_hash_lib_crypto_get_md(func->id)))
+	if (!(LIB_DATA->md = gtkhash_hash_lib_libcrypto_get_md(func->id)))
 		g_assert_not_reached();
 
 	if (!(LIB_DATA->ctx = EVP_MD_CTX_new()))
@@ -156,19 +156,19 @@ void gtkhash_hash_lib_crypto_start(struct hash_func_s *func)
 		g_assert_not_reached();
 }
 
-void gtkhash_hash_lib_crypto_update(struct hash_func_s *func,
+void gtkhash_hash_lib_libcrypto_update(struct hash_func_s *func,
 	const uint8_t *buffer, const size_t size)
 {
 	EVP_DigestUpdate(LIB_DATA->ctx, buffer, size);
 }
 
-void gtkhash_hash_lib_crypto_stop(struct hash_func_s *func)
+void gtkhash_hash_lib_libcrypto_stop(struct hash_func_s *func)
 {
 	EVP_MD_CTX_free(LIB_DATA->ctx);
 	g_free(LIB_DATA);
 }
 
-uint8_t *gtkhash_hash_lib_crypto_finish(struct hash_func_s *func, size_t *size)
+uint8_t *gtkhash_hash_lib_libcrypto_finish(struct hash_func_s *func, size_t *size)
 {
 	*size = EVP_MD_size(LIB_DATA->md);
 	g_assert(*size > 0);

@@ -117,9 +117,6 @@ if cc.has_header_symbol('gcrypt.h', 'GCRY_MD_STRIBOG512')
     detected_gcrypt_functions += ['STREEBOG256', 'STREEBOG512']
 endif
 
-##### Glib checksums
-config.set10('ENABLE_GLIB_CHECKSUMS', get_option('glib-checksums'))
-
 ##### Libcrypto (openssl)
 libcrypto = get_option('libcrypto') ? dependency('libcrypto', version: '>=1.1') : no_dep
 config.set10('ENABLE_LIBCRYPTO', get_option('libcrypto'))
@@ -316,14 +313,14 @@ hash_libs = {
     'mbedtls': mbedtls_funcs,
     'nettle': nettle_funcs,
     'zlib': ['ADLER32', 'CRC32'],
-    'glib_checksums': ['MD5', 'SHA1', 'SHA256', 'SHA384', 'SHA512'],
+    'glib': ['MD5', 'SHA1', 'SHA256', 'SHA384', 'SHA512'],
 }
 
 functions_provided = {'Hash Function': 'Preferred Implementation'}
 foreach function : hash_functions
     provide = []
     foreach lib, functions : hash_libs
-        lib_enabled = config.get('ENABLE_' + lib.to_upper()) == 1
+        lib_enabled = (lib == 'glib') or (config.get('ENABLE_' + lib.to_upper()) == 1)
         if lib_enabled and functions.contains(function)
             provide += lib
         endif
