@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -32,6 +32,8 @@ enum digest_format_e {
 	DIGEST_FORMAT_BASE64,
 };
 
+enum digest_format_e gtkhash_digest_format_get_id_from_name(const char *name);
+const char *gtkhash_digest_format_get_name(enum digest_format_e format);
 bool gtkhash_digest_format_compare(const char *str1, const char *str2,
 	enum digest_format_e format);
 

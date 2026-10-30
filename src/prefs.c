@@ -95,15 +95,7 @@ static void load_digest_format(void)
 	if (!str)
 		return;
 
-	enum digest_format_e format = DIGEST_FORMAT_INVALID;
-
-	if (strcmp(str, "hex-lower") == 0)
-		format = DIGEST_FORMAT_HEX_LOWER;
-	else if (strcmp(str, "hex-upper") == 0)
-		format = DIGEST_FORMAT_HEX_UPPER;
-	else if (strcmp(str, "base64") == 0)
-		format = DIGEST_FORMAT_BASE64;
-
+	const enum digest_format_e format = gtkhash_digest_format_get_id_from_name(str);
 	g_free(str);
 
 	if (DIGEST_FORMAT_IS_VALID(format))
@@ -166,22 +158,7 @@ static void save_hash_funcs(void)
 
 static void save_digest_format(void)
 {
-	const char *str = NULL;
-
-	switch (gui_get_digest_format()) {
-		case DIGEST_FORMAT_HEX_LOWER:
-			str = "hex-lower";
-			break;
-		case DIGEST_FORMAT_HEX_UPPER:
-			str = "hex-upper";
-			break;
-		case DIGEST_FORMAT_BASE64:
-			str = "base64";
-			break;
-		default:
-			g_assert_not_reached();
-	}
-
+	const char *str = gtkhash_digest_format_get_name(gui_get_digest_format());
 	g_settings_set_string(prefs_priv.settings, PREFS_KEY_DIGEST_FORMAT, str);
 }
 
