@@ -42,15 +42,9 @@ static void gtkhash_properties_prefs_default_hash_funcs(struct page_s *page)
 
 static void gtkhash_properties_prefs_load_hash_funcs(struct page_s *page)
 {
-	char **strv = g_settings_get_strv(page->settings, PREFS_KEY_HASH_FUNCS);
-
-	for (int i = 0; strv[i]; i++) {
-		enum hash_func_e id = gtkhash_hash_func_get_id_from_name(strv[i]);
-		if (id != HASH_FUNC_INVALID && page->funcs[id].supported)
-			page->funcs[id].enabled = true;
-	}
-
-	g_strfreev(strv);
+	char **names = g_settings_get_strv(page->settings, PREFS_KEY_HASH_FUNCS);
+	gtkhash_hash_func_set_enabled_names(page->funcs, (const char * const *)names);
+	g_strfreev(names);
 
 	if (!gtkhash_hash_func_count_enabled(page->funcs))
 		gtkhash_properties_prefs_default_hash_funcs(page);
@@ -72,23 +66,9 @@ static void gtkhash_properties_prefs_load(struct page_s *page)
 
 static void gtkhash_properties_prefs_save_hash_funcs(struct page_s *page)
 {
-	const char **strv = NULL;
-	const unsigned int enabled = gtkhash_hash_func_count_enabled(page->funcs);
-
-	if (enabled > 0) {
-		strv = g_new0(const char *, enabled + 1);
-		for (unsigned int i = 0, j = 0; (i < HASH_FUNCS_N) && (j < enabled); i++) {
-			if (page->funcs[i].enabled) {
-				strv[j] = page->funcs[i].name;
-				j++;
-			}
-		}
-	}
-
-	g_settings_set_strv(page->settings, PREFS_KEY_HASH_FUNCS, strv);
-
-	if (strv)
-		g_free(strv);
+	char **names = gtkhash_hash_func_get_enabled_names(page->funcs);
+	g_settings_set_strv(page->settings, PREFS_KEY_HASH_FUNCS, (const char * const *)names);
+	g_strfreev(names);
 }
 
 static void gtkhash_properties_prefs_save(struct page_s *page)

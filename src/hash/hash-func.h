@@ -87,6 +87,8 @@ enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name);
 unsigned int gtkhash_hash_func_count_supported(const struct hash_func_s *funcs);
 unsigned int gtkhash_hash_func_count_enabled(const struct hash_func_s *funcs);
 void gtkhash_hash_func_enable_defaults(struct hash_func_s *funcs);
+void gtkhash_hash_func_set_enabled_names(struct hash_func_s *funcs, const char * const *names);
+char **gtkhash_hash_func_get_enabled_names(const struct hash_func_s *funcs);
 void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest, size_t size);
 char *gtkhash_hash_func_get_digest(struct hash_func_s *func, enum digest_format_e format);
 void gtkhash_hash_func_clear_digest(struct hash_func_s *func);

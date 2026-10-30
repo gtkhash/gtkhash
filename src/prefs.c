@@ -75,29 +75,23 @@ static void prefs_default(void)
 
 static void load_hash_funcs(void)
 {
-	char **strv = g_settings_get_strv(prefs_priv.settings,
-		PREFS_KEY_HASH_FUNCS);
-	bool enabled = false;
+	char **names = g_settings_get_strv(prefs_priv.settings, PREFS_KEY_HASH_FUNCS);
+	gtkhash_hash_func_set_enabled_names(hash.funcs, (const char * const *)names);
+	g_strfreev(names);
 
-	for (int i = 0; strv[i]; i++) {
-		enum hash_func_e id = gtkhash_hash_func_get_id_from_name(strv[i]);
-		if (HASH_FUNC_IS_VALID(id) && hash.funcs[id].supported) {
-			gui_enable_hash_func(id);
-			enabled = true;
-		} else
-			g_message(_("Unknown Hash Function name \"%s\""), strv[i]);
+	if (!gtkhash_hash_func_count_enabled(hash.funcs)) {
+		default_hash_funcs();
+		return;
 	}
 
-	g_strfreev(strv);
-
-	if (!enabled)
-		default_hash_funcs();
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		if (hash.funcs[i].enabled)
+			gui_enable_hash_func(i);
 }
 
 static void load_digest_format(void)
 {
-	char *str = g_settings_get_string(prefs_priv.settings,
-		PREFS_KEY_DIGEST_FORMAT);
+	char *str = g_settings_get_string(prefs_priv.settings, PREFS_KEY_DIGEST_FORMAT);
 	if (!str)
 		return;
 
@@ -165,23 +159,9 @@ static void prefs_load(void)
 
 static void save_hash_funcs(void)
 {
-	const char **strv = NULL;
-	const unsigned int enabled = gtkhash_hash_func_count_enabled(hash.funcs);
-
-	if (enabled > 0) {
-		strv = g_new0(const char *, enabled + 1);
-		for (unsigned int i = 0, j = 0; (i < HASH_FUNCS_N) && (j < enabled); i++) {
-			if (hash.funcs[i].enabled) {
-				strv[j] = hash.funcs[i].name;
-				j++;
-			}
-		}
-	}
-
-	g_settings_set_strv(prefs_priv.settings, PREFS_KEY_HASH_FUNCS, strv);
-
-	if (strv)
-		g_free(strv);
+	char **names = gtkhash_hash_func_get_enabled_names(hash.funcs);
+	g_settings_set_strv(prefs_priv.settings, PREFS_KEY_HASH_FUNCS, (const char * const *)names);
+	g_strfreev(names);
 }
 
 static void save_digest_format(void)
