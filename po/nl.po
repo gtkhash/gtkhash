@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-29 01:20+0000\n"
+"POT-Creation-Date: 2026-10-30 00:00+0000\n"
 "PO-Revision-Date: 2024-03-16 16:01+0000\n"
 "Last-Translator: Mikachu <micah.sh@proton.me>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtkhash/"
@@ -237,7 +237,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "Bestanden selecteren"
 
-#: src/callbacks.c:473 src/extensions/common/properties.c:240
+#: src/callbacks.c:473 src/extensions/common/properties.c:231
 msgid "_Show HMAC Key"
 msgstr "HMAC-_sleutel tonen"
 
@@ -275,7 +275,7 @@ msgstr "Toevoegen van bestand ‘%s’ mislukt: %s"
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
-#: src/hash.c:195 src/prefs.c:86
+#: src/hash.c:183 src/prefs.c:88
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Onbekende hashfunctienaam ‘%s’"

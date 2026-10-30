@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-29 01:20+0000\n"
+"POT-Creation-Date: 2026-10-30 00:00+0000\n"
 "PO-Revision-Date: 2026-10-24 12:51+0000\n"
 "Last-Translator: El Pirujo <pirujo@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
@@ -237,7 +237,7 @@ msgstr "Toni Estevez <toni.estevez@gmail.com>"
 msgid "Select Files"
 msgstr "Seleccionar archivos"
 
-#: src/callbacks.c:473 src/extensions/common/properties.c:240
+#: src/callbacks.c:473 src/extensions/common/properties.c:231
 msgid "_Show HMAC Key"
 msgstr "_Mostrar la clave HMAC"
 
@@ -275,7 +275,7 @@ msgstr "No se ha podido añadir el archivo «%s»: %s"
 msgid "Discarding invalid characters from digest"
 msgstr "Descartando caracteres no válidos del resumen"
 
-#: src/hash.c:195 src/prefs.c:86
+#: src/hash.c:183 src/prefs.c:88
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "El nombre de la función resumen «%s» es desconocido"

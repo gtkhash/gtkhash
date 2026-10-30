@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-29 01:20+0000\n"
+"POT-Creation-Date: 2026-10-30 00:00+0000\n"
 "PO-Revision-Date: 2023-09-11 10:49+0000\n"
 "Last-Translator: sarami <ppp821203@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtkhash/"
@@ -231,7 +231,7 @@ msgstr "번역기-크레딧"
 msgid "Select Files"
 msgstr "파일 선택"
 
-#: src/callbacks.c:473 src/extensions/common/properties.c:240
+#: src/callbacks.c:473 src/extensions/common/properties.c:231
 msgid "_Show HMAC Key"
 msgstr "HMAC 키 표시(_S)"
 
@@ -269,7 +269,7 @@ msgstr "%s 파일을 추가 실패 : %s"
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
-#: src/hash.c:195 src/prefs.c:86
+#: src/hash.c:183 src/prefs.c:88
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "알 수 없는 Hah 함수 이름 \"%s\""
