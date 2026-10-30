@@ -48,15 +48,9 @@ void gtkhash_properties_prefs_load(struct model_s *model)
 	g_settings_schema_unref(schema);
 
 	GSettings *settings = g_settings_new(PREFS_SCHEMA);
-	char **strv = g_settings_get_strv(settings, PREFS_KEY_HASH_FUNCS);
-
-	for (int i = 0; strv[i]; i++) {
-		const enum hash_func_e id = gtkhash_hash_func_get_id_from_name(strv[i]);
-		if (id != HASH_FUNC_INVALID && model->funcs[id].supported)
-			model->funcs[id].enabled = true;
-	}
-
-	g_strfreev(strv);
+	char **names = g_settings_get_strv(settings, PREFS_KEY_HASH_FUNCS);
+	gtkhash_hash_func_set_enabled_names(model->funcs, (const char * const *)names);
+	g_strfreev(names);
 	g_object_unref(settings);
 
 	if (!gtkhash_hash_func_count_enabled(model->funcs))

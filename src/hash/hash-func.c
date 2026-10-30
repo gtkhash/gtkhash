@@ -132,6 +132,40 @@ void gtkhash_hash_func_enable_defaults(struct hash_func_s *funcs)
 			funcs[i].enabled = true;
 }
 
+void gtkhash_hash_func_set_enabled_names(struct hash_func_s *funcs, const char * const *names)
+{
+	g_assert(funcs);
+
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		funcs[i].enabled = false;
+
+	if (!names)
+		return;
+
+	for (int i = 0; names[i]; i++) {
+		const enum hash_func_e id = gtkhash_hash_func_get_id_from_name(names[i]);
+		if (HASH_FUNC_IS_VALID(id) && funcs[id].supported)
+			funcs[id].enabled = true;
+	}
+}
+
+char **gtkhash_hash_func_get_enabled_names(const struct hash_func_s *funcs)
+{
+	g_assert(funcs);
+
+	const unsigned int enabled = gtkhash_hash_func_count_enabled(funcs);
+	if (!enabled)
+		return NULL;
+
+	char **names = g_new0(char *, enabled + 1);
+
+	for (int i = 0, j = 0; i < HASH_FUNCS_N; i++)
+		if (funcs[i].enabled)
+			names[j++] = g_strdup(funcs[i].name);
+
+	return names;
+}
+
 void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest, size_t size)
 {
 	g_assert(func);
