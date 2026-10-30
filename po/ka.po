@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-29 01:20+0000\n"
+"POT-Creation-Date: 2026-10-30 00:00+0000\n"
 "PO-Revision-Date: 2026-10-20 06:51+0000\n"
 "Last-Translator: Temuri Doghonadze "
 "<norwayfun@users.noreply.hosted.weblate.org>\n"
@@ -232,7 +232,7 @@ msgstr "ეკატერინე პაპავა"
 msgid "Select Files"
 msgstr "მონიშნეთ ფაილები"
 
-#: src/callbacks.c:473 src/extensions/common/properties.c:240
+#: src/callbacks.c:473 src/extensions/common/properties.c:231
 msgid "_Show HMAC Key"
 msgstr "HMAC გასაღები_ს ჩვენება"
 
@@ -270,7 +270,7 @@ msgstr "ფაილის \"%s\" შემოწმება ჩავარდ
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
-#: src/hash.c:195 src/prefs.c:86
+#: src/hash.c:183 src/prefs.c:88
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "უცნობი ჰეშის ფუნქციის სახელი \"%s\""
