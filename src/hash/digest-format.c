@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -28,9 +28,33 @@
 
 #include "digest-format.h"
 
+static const char * const digest_format_names[DIGEST_FORMATS_N] = {
+	[DIGEST_FORMAT_HEX_LOWER] = "hex-lower",
+	[DIGEST_FORMAT_HEX_UPPER] = "hex-upper",
+	[DIGEST_FORMAT_BASE64]    = "base64",
+};
+
+enum digest_format_e gtkhash_digest_format_get_id_from_name(const char *name)
+{
+	g_assert(name);
+
+	for (int i = 0; i < DIGEST_FORMATS_N; i++)
+		if (strcmp(name, digest_format_names[i]) == 0)
+			return i;
+
+	return DIGEST_FORMAT_INVALID;
+}
+
+const char *gtkhash_digest_format_get_name(const enum digest_format_e format)
+{
+	g_assert(DIGEST_FORMAT_IS_VALID(format));
+
+	return digest_format_names[format];
+}
+
 // Returns true if the two digests are equivalent in the specified format
 bool gtkhash_digest_format_compare(char const *digest1, const char *digest2,
-	enum digest_format_e format)
+	const enum digest_format_e format)
 {
 	g_assert(DIGEST_FORMAT_IS_VALID(format));
 
