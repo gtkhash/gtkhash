@@ -37,9 +37,7 @@
 
 static void gtkhash_properties_prefs_default_hash_funcs(struct page_s *page)
 {
-	for (int i = 0; i < HASH_FUNCS_N; i++)
-		if (HASH_FUNC_IS_DEFAULT(i) && page->funcs[i].supported)
-			page->funcs[i].enabled = true;
+	gtkhash_hash_func_enable_defaults(page->funcs);
 }
 
 static void gtkhash_properties_prefs_load_hash_funcs(struct page_s *page)
@@ -53,6 +51,9 @@ static void gtkhash_properties_prefs_load_hash_funcs(struct page_s *page)
 	}
 
 	g_strfreev(strv);
+
+	if (!gtkhash_hash_func_count_enabled(page->funcs))
+		gtkhash_properties_prefs_default_hash_funcs(page);
 }
 
 static void gtkhash_properties_prefs_load_show_disabled_funcs(struct page_s *page)
@@ -110,7 +111,6 @@ void gtkhash_properties_prefs_init(struct page_s *page)
 		gtkhash_properties_prefs_load(page);
 	} else {
 		g_warning("GSettings schema \"" PREFS_SCHEMA "\" not found");
-
 		gtkhash_properties_prefs_default_hash_funcs(page);
 	}
 }

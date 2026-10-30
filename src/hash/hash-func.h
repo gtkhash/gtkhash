@@ -28,11 +28,6 @@
 
 #define HASH_FUNCS_N (HASH_FUNC_XXH128 + 1)
 #define HASH_FUNC_IS_VALID(X) (((X) >= 0) && ((X) < HASH_FUNCS_N))
-#define HASH_FUNC_IS_DEFAULT(X) ( \
-	(X) == HASH_FUNC_MD5 || \
-	(X) == HASH_FUNC_SHA1 || \
-	(X) == HASH_FUNC_SHA256 || \
-	(X) == HASH_FUNC_CRC32)
 
 // All supported hash functions
 // Note: Default ordering is defined here
@@ -91,6 +86,7 @@ struct hash_func_s {
 enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name);
 unsigned int gtkhash_hash_func_count_supported(const struct hash_func_s *funcs);
 unsigned int gtkhash_hash_func_count_enabled(const struct hash_func_s *funcs);
+void gtkhash_hash_func_enable_defaults(struct hash_func_s *funcs);
 void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest, size_t size);
 char *gtkhash_hash_func_get_digest(struct hash_func_s *func, enum digest_format_e format);
 void gtkhash_hash_func_clear_digest(struct hash_func_s *func);

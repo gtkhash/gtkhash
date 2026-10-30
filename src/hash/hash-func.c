@@ -110,8 +110,29 @@ unsigned int gtkhash_hash_func_count_enabled(const struct hash_func_s *funcs)
 	return enabled;
 }
 
-void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest,
-	size_t size)
+static bool gtkhash_hash_func_is_default(const enum hash_func_e id)
+{
+	switch (id) {
+		case HASH_FUNC_CRC32:
+		case HASH_FUNC_MD5:
+		case HASH_FUNC_SHA1:
+		case HASH_FUNC_SHA256:
+			return true;
+		default:
+			return false;
+	}
+}
+
+void gtkhash_hash_func_enable_defaults(struct hash_func_s *funcs)
+{
+	g_assert(funcs);
+
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		if (funcs[i].supported && gtkhash_hash_func_is_default(i))
+			funcs[i].enabled = true;
+}
+
+void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest, size_t size)
 {
 	g_assert(func);
 	g_assert(digest);
@@ -120,8 +141,7 @@ void gtkhash_hash_func_set_digest(struct hash_func_s *func, uint8_t *digest,
 	gtkhash_digest_set_data(func->digest, digest, size);
 }
 
-char *gtkhash_hash_func_get_digest(struct hash_func_s *func,
-	const enum digest_format_e format)
+char *gtkhash_hash_func_get_digest(struct hash_func_s *func, const enum digest_format_e format)
 {
 	g_assert(func);
 	g_assert(DIGEST_FORMAT_IS_VALID(format));
@@ -139,8 +159,7 @@ void gtkhash_hash_func_clear_digest(struct hash_func_s *func)
 	gtkhash_digest_free_data(func->digest);
 }
 
-void gtkhash_hash_func_init(struct hash_func_s *func,
-	const enum hash_func_e id)
+void gtkhash_hash_func_init(struct hash_func_s *func, const enum hash_func_e id)
 {
 	g_assert(func);
 	g_assert(HASH_FUNC_IS_VALID(id));
