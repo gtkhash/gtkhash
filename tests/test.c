@@ -118,10 +118,6 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(MD2,         "", "8350e5a3e24c153df2275c9f80692773");
 	t(MD4,         "", "31d6cfe0d16ae931b73c59d7e0c089c0");
 	t(MD5,         "", "d41d8cd98f00b204e9800998ecf8427e");
-	t(MD6_224,     "", "d2091aa2ad17f38c51ade2697f24cafc3894c617c77ffe10fdc7abcb");
-	t(MD6_256,     "", "bca38b24a804aa37d821d31af00f5598230122c5bbfc4c4ad5ed40e4258f04ca");
-	t(MD6_384,     "", "b0bafffceebe856c1eff7e1ba2f539693f828b532ebf60ae9c16cbc3499020401b942ac25b310b2227b2954ccacc2f1f");
-	t(MD6_512,     "", "6b7f33821a2c060ecdd81aefddea2fd3c4720270e18654f4cb08ece49ccb469f8beeee7c831206bd577f9f2630d9177979203a9489e47e04df4e6deaa0f8e0c0");
 	t(RIPEMD160,   "", "9c1185a5c5e9fc54612808977ee8f548b2258d31");
 	t(SHA1,        "", "da39a3ee5e6b4b0d3255bfef95601890afd80709");
 	t(SHA224,      "", "d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f");

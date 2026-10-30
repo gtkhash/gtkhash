@@ -49,9 +49,6 @@
 #if ENABLE_MBEDTLS
 	HASH_LIB_DECL(mbedtls)
 #endif
-#if ENABLE_INTERNAL_MD6
-	HASH_LIB_DECL(md6)
-#endif
 #if ENABLE_NETTLE
 	HASH_LIB_DECL(nettle)
 #endif
@@ -81,9 +78,6 @@ enum hash_lib_e {
 #endif
 #if ENABLE_MBEDTLS
 	HASH_LIB_MBEDTLS,
-#endif
-#if ENABLE_INTERNAL_MD6
-	HASH_LIB_MD6,
 #endif
 #if ENABLE_NETTLE
 	HASH_LIB_NETTLE,
@@ -181,14 +175,6 @@ static void gtkhash_hash_lib_init_once(void)
 			}
 		}
 #endif
-#if ENABLE_INTERNAL_MD6
-		if (!test_lib || (test_lib && strcmp(test_lib, "internal_md6") == 0)) {
-			if (gtkhash_hash_lib_md6_is_supported(i)) {
-				hash_libs[i] = HASH_LIB_MD6;
-				continue;
-			}
-		}
-#endif
 	}
 }
 
@@ -227,9 +213,6 @@ void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
 #endif
 #if ENABLE_MBEDTLS
 		[HASH_LIB_MBEDTLS] = gtkhash_hash_lib_mbedtls_start,
-#endif
-#if ENABLE_INTERNAL_MD6
-		[HASH_LIB_MD6] = gtkhash_hash_lib_md6_start,
 #endif
 #if ENABLE_NETTLE
 		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_start,
@@ -279,9 +262,6 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 #if ENABLE_MBEDTLS
 		[HASH_LIB_MBEDTLS] = gtkhash_hash_lib_mbedtls_update,
 #endif
-#if ENABLE_INTERNAL_MD6
-		[HASH_LIB_MD6] = gtkhash_hash_lib_md6_update,
-#endif
 #if ENABLE_NETTLE
 		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_update,
 #endif
@@ -322,9 +302,6 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 #endif
 #if ENABLE_MBEDTLS
 		[HASH_LIB_MBEDTLS] = gtkhash_hash_lib_mbedtls_stop,
-#endif
-#if ENABLE_INTERNAL_MD6
-		[HASH_LIB_MD6] = gtkhash_hash_lib_md6_stop,
 #endif
 #if ENABLE_NETTLE
 		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_stop,
@@ -370,9 +347,6 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 #endif
 #if ENABLE_MBEDTLS
 		[HASH_LIB_MBEDTLS] = gtkhash_hash_lib_mbedtls_finish,
-#endif
-#if ENABLE_INTERNAL_MD6
-		[HASH_LIB_MD6] = gtkhash_hash_lib_md6_finish,
 #endif
 #if ENABLE_NETTLE
 		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_finish,

@@ -26,9 +26,6 @@ endif
 if get_option('mbedtls')
     libhash_sources += 'hash-lib-mbedtls.c'
 endif
-if get_option('internal-md6')
-    libhash_sources += 'hash-lib-md6.c'
-endif
 if get_option('nettle')
     libhash_sources += 'hash-lib-nettle.c'
 endif
