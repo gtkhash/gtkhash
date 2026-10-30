@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -31,20 +31,17 @@
 #include "hash-func.h"
 
 bool gtkhash_hash_lib_is_supported(enum hash_func_e id);
-void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
-	size_t key_size);
-void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
-	size_t size);
+void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key, size_t key_size);
+void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer, size_t size);
 void gtkhash_hash_lib_stop(struct hash_func_s *func);
 void gtkhash_hash_lib_finish(struct hash_func_s *func);
 
 #define HASH_LIB_DECL(LIB) \
 	bool gtkhash_hash_lib_ ## LIB ## _is_supported(enum hash_func_e id); \
 	void gtkhash_hash_lib_ ## LIB ## _start(struct hash_func_s *func); \
-	void gtkhash_hash_lib_ ## LIB ## _update(struct hash_func_s *func, \
-		const uint8_t *buffer, size_t size); \
+	void gtkhash_hash_lib_ ## LIB ## _update(struct hash_func_s *func, const uint8_t *buffer, \
+		size_t size); \
 	void gtkhash_hash_lib_ ## LIB ## _stop(struct hash_func_s *func); \
-	uint8_t *gtkhash_hash_lib_ ## LIB ## _finish(struct hash_func_s *func, \
-		size_t *size);
+	uint8_t *gtkhash_hash_lib_ ## LIB ## _finish(struct hash_func_s *func, size_t *size);
 
 #endif

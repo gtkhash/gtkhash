@@ -40,11 +40,9 @@
 #if ENABLE_GCRYPT
 	HASH_LIB_DECL(gcrypt)
 #endif
-#if ENABLE_GLIB_CHECKSUMS
 	HASH_LIB_DECL(glib)
-#endif
 #if ENABLE_LIBCRYPTO
-	HASH_LIB_DECL(crypto)
+	HASH_LIB_DECL(libcrypto)
 #endif
 #if ENABLE_MBEDTLS
 	HASH_LIB_DECL(mbedtls)
@@ -59,122 +57,72 @@
 	HASH_LIB_DECL(zlib)
 #endif
 
-enum hash_lib_e {
-	HASH_LIB_INVALID = -1,
+#define HASH_LIB_DATA(LIB) \
+	{ \
+		.name = G_STRINGIFY(LIB), \
+		.is_supported = gtkhash_hash_lib_ ## LIB ## _is_supported, \
+		.start = gtkhash_hash_lib_ ## LIB ## _start, \
+		.update = gtkhash_hash_lib_ ## LIB ## _update, \
+		.stop = gtkhash_hash_lib_ ## LIB ## _stop, \
+		.finish = gtkhash_hash_lib_ ## LIB ## _finish, \
+	},
+static const struct {
+	const char * const name;
+	bool (* const is_supported)(enum hash_func_e id);
+	void (* const start)(struct hash_func_s *func);
+	void (* const update)(struct hash_func_s *func, const uint8_t *buffer, size_t size);
+	void (* const stop)(struct hash_func_s *func);
+	uint8_t *(* const finish)(struct hash_func_s *func, size_t *size);
+} hash_lib_data[] = {
+	// Ordered by preference (matches meson.build)
 #if ENABLE_BLAKE2
-	HASH_LIB_BLAKE2,
+	HASH_LIB_DATA(blake2)
 #endif
 #if ENABLE_BLAKE3
-	HASH_LIB_BLAKE3,
-#endif
-#if ENABLE_GCRYPT
-	HASH_LIB_GCRYPT,
-#endif
-#if ENABLE_GLIB_CHECKSUMS
-	HASH_LIB_GLIB,
-#endif
-#if ENABLE_LIBCRYPTO
-	HASH_LIB_CRYPTO,
-#endif
-#if ENABLE_MBEDTLS
-	HASH_LIB_MBEDTLS,
-#endif
-#if ENABLE_NETTLE
-	HASH_LIB_NETTLE,
+	HASH_LIB_DATA(blake3)
 #endif
 #if ENABLE_XXHASH
-	HASH_LIB_XXHASH,
+	HASH_LIB_DATA(xxhash)
+#endif
+#if ENABLE_GCRYPT
+	HASH_LIB_DATA(gcrypt)
+#endif
+#if ENABLE_LIBCRYPTO
+	HASH_LIB_DATA(libcrypto)
+#endif
+#if ENABLE_MBEDTLS
+	HASH_LIB_DATA(mbedtls)
+#endif
+#if ENABLE_NETTLE
+	HASH_LIB_DATA(nettle)
 #endif
 #if ENABLE_ZLIB
-	HASH_LIB_ZLIB,
+	HASH_LIB_DATA(zlib)
 #endif
+	HASH_LIB_DATA(glib)
 };
 
 // Currently selected lib for each hash func
-static enum hash_lib_e hash_libs[HASH_FUNCS_N];
+#define HASH_LIB_INVALID (-1)
+static int hash_libs[HASH_FUNCS_N];
 
 static void gtkhash_hash_lib_init_once(void)
 {
 	// Init all lib selections to be invalid
-	for (enum hash_func_e i = 0; i < HASH_FUNCS_N; i++)
-		hash_libs[i] = HASH_LIB_INVALID;
+	for (enum hash_func_e id = 0; id < HASH_FUNCS_N; id++)
+		hash_libs[id] = HASH_LIB_INVALID;
 
 	const char * const test_lib = g_getenv("GTKHASH_TEST_LIB");
 
-	// Note: Preferred lib selections are defined by the order used here
-	for (enum hash_func_e i = 0; i < HASH_FUNCS_N; i++) {
-#if ENABLE_BLAKE2
-		if (!test_lib || (test_lib && strcmp(test_lib, "blake2") == 0)) {
-			if (gtkhash_hash_lib_blake2_is_supported(i)) {
-				hash_libs[i] = HASH_LIB_BLAKE2;
+	for (enum hash_func_e id = 0; id < HASH_FUNCS_N; id++) {
+		for (size_t lib = 0; lib < G_N_ELEMENTS(hash_lib_data); lib++) {
+			if (test_lib && strcmp(hash_lib_data[lib].name, test_lib) != 0)
 				continue;
+			if (hash_lib_data[lib].is_supported(id)) {
+				hash_libs[id] = lib;
+				break;
 			}
 		}
-#endif
-#if ENABLE_BLAKE3
-		if (!test_lib || (test_lib && strcmp(test_lib, "blake3") == 0)) {
-			if (gtkhash_hash_lib_blake3_is_supported(i)) {
-				hash_libs[i] = HASH_LIB_BLAKE3;
-				continue;
-			}
-		}
-#endif
-#if ENABLE_XXHASH
-		if (!test_lib || (test_lib && strcmp(test_lib, "xxhash") == 0)) {
-			if (gtkhash_hash_lib_xxhash_is_supported(i)) {
-				hash_libs[i] = HASH_LIB_XXHASH;
-				continue;
-			}
-		}
-#endif
-#if ENABLE_GCRYPT
-		if (!test_lib || (test_lib && strcmp(test_lib, "gcrypt") == 0)) {
-			if (gtkhash_hash_lib_gcrypt_is_supported(i)) {
-				hash_libs[i] = HASH_LIB_GCRYPT;
-				continue;
-			}
-		}
-#endif
-#if ENABLE_LIBCRYPTO
-		if (!test_lib || (test_lib && strcmp(test_lib, "libcrypto") == 0)) {
-			if (gtkhash_hash_lib_crypto_is_supported(i)) {
-				hash_libs[i] = HASH_LIB_CRYPTO;
-				continue;
-			}
-		}
-#endif
-#if ENABLE_MBEDTLS
-		if (!test_lib || (test_lib && strcmp(test_lib, "mbedtls") == 0)) {
-			if (gtkhash_hash_lib_mbedtls_is_supported(i)) {
-				hash_libs[i] = HASH_LIB_MBEDTLS;
-				continue;
-			}
-		}
-#endif
-#if ENABLE_NETTLE
-		if (!test_lib || (test_lib && strcmp(test_lib, "nettle") == 0)) {
-			if (gtkhash_hash_lib_nettle_is_supported(i)) {
-				hash_libs[i] = HASH_LIB_NETTLE;
-				continue;
-			}
-		}
-#endif
-#if ENABLE_ZLIB
-		if (!test_lib || (test_lib && strcmp(test_lib, "zlib") == 0)) {
-			if (gtkhash_hash_lib_zlib_is_supported(i)) {
-				hash_libs[i] = HASH_LIB_ZLIB;
-				continue;
-			}
-		}
-#endif
-#if ENABLE_GLIB_CHECKSUMS
-		if (!test_lib || (test_lib && strcmp(test_lib, "glib_checksums") == 0)) {
-			if (gtkhash_hash_lib_glib_is_supported(i)) {
-				hash_libs[i] = HASH_LIB_GLIB;
-				continue;
-			}
-		}
-#endif
 	}
 }
 
@@ -195,37 +143,7 @@ void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
 	g_assert(!func->lib_data);
 	g_assert(hash_libs[func->id] != HASH_LIB_INVALID);
 
-	static void (* const start_funcs[])(struct hash_func_s *) = {
-#if ENABLE_BLAKE2
-		[HASH_LIB_BLAKE2] = gtkhash_hash_lib_blake2_start,
-#endif
-#if ENABLE_BLAKE3
-		[HASH_LIB_BLAKE3] = gtkhash_hash_lib_blake3_start,
-#endif
-#if ENABLE_GCRYPT
-		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_start,
-#endif
-#if ENABLE_GLIB_CHECKSUMS
-		[HASH_LIB_GLIB] = gtkhash_hash_lib_glib_start,
-#endif
-#if ENABLE_LIBCRYPTO
-		[HASH_LIB_CRYPTO] = gtkhash_hash_lib_crypto_start,
-#endif
-#if ENABLE_MBEDTLS
-		[HASH_LIB_MBEDTLS] = gtkhash_hash_lib_mbedtls_start,
-#endif
-#if ENABLE_NETTLE
-		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_start,
-#endif
-#if ENABLE_XXHASH
-		[HASH_LIB_XXHASH] = gtkhash_hash_lib_xxhash_start,
-#endif
-#if ENABLE_ZLIB
-		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_start,
-#endif
-	};
-
-	start_funcs[hash_libs[func->id]](func);
+	hash_lib_data[hash_libs[func->id]].start(func);
 
 	if (hmac_key && func->hmac_supported)
 		gtkhash_hmac_start(func, hmac_key, key_size);
@@ -241,39 +159,7 @@ void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
 	g_assert(buffer);
 	g_assert(hash_libs[func->id] != HASH_LIB_INVALID);
 
-	static void (* const update_funcs[])(struct hash_func_s *,
-		const uint8_t *, const size_t) =
-	{
-#if ENABLE_BLAKE2
-		[HASH_LIB_BLAKE2] = gtkhash_hash_lib_blake2_update,
-#endif
-#if ENABLE_BLAKE3
-		[HASH_LIB_BLAKE3] = gtkhash_hash_lib_blake3_update,
-#endif
-#if ENABLE_GCRYPT
-		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_update,
-#endif
-#if ENABLE_GLIB_CHECKSUMS
-		[HASH_LIB_GLIB] = gtkhash_hash_lib_glib_update,
-#endif
-#if ENABLE_LIBCRYPTO
-		[HASH_LIB_CRYPTO] = gtkhash_hash_lib_crypto_update,
-#endif
-#if ENABLE_MBEDTLS
-		[HASH_LIB_MBEDTLS] = gtkhash_hash_lib_mbedtls_update,
-#endif
-#if ENABLE_NETTLE
-		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_update,
-#endif
-#if ENABLE_XXHASH
-		[HASH_LIB_XXHASH] = gtkhash_hash_lib_xxhash_update,
-#endif
-#if ENABLE_ZLIB
-		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_update,
-#endif
-	};
-
-	update_funcs[hash_libs[func->id]](func, buffer, size);
+	hash_lib_data[hash_libs[func->id]].update(func, buffer, size);
 }
 
 void gtkhash_hash_lib_stop(struct hash_func_s *func)
@@ -284,37 +170,7 @@ void gtkhash_hash_lib_stop(struct hash_func_s *func)
 	g_assert(func->lib_data);
 	g_assert(hash_libs[func->id] != HASH_LIB_INVALID);
 
-	static void (* const stop_funcs[])(struct hash_func_s *) = {
-#if ENABLE_BLAKE2
-		[HASH_LIB_BLAKE2] = gtkhash_hash_lib_blake2_stop,
-#endif
-#if ENABLE_BLAKE3
-		[HASH_LIB_BLAKE3] = gtkhash_hash_lib_blake3_stop,
-#endif
-#if ENABLE_GCRYPT
-		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_stop,
-#endif
-#if ENABLE_GLIB_CHECKSUMS
-		[HASH_LIB_GLIB] = gtkhash_hash_lib_glib_stop,
-#endif
-#if ENABLE_LIBCRYPTO
-		[HASH_LIB_CRYPTO] = gtkhash_hash_lib_crypto_stop,
-#endif
-#if ENABLE_MBEDTLS
-		[HASH_LIB_MBEDTLS] = gtkhash_hash_lib_mbedtls_stop,
-#endif
-#if ENABLE_NETTLE
-		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_stop,
-#endif
-#if ENABLE_XXHASH
-		[HASH_LIB_XXHASH] = gtkhash_hash_lib_xxhash_stop,
-#endif
-#if ENABLE_ZLIB
-		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_stop,
-#endif
-	};
-
-	stop_funcs[hash_libs[func->id]](func);
+	hash_lib_data[hash_libs[func->id]].stop(func);
 	func->lib_data = NULL;
 
 	if (func->hmac_data)
@@ -329,38 +185,8 @@ void gtkhash_hash_lib_finish(struct hash_func_s *func)
 	g_assert(func->lib_data);
 	g_assert(hash_libs[func->id] != HASH_LIB_INVALID);
 
-	static uint8_t *(* const finish_libs[])(struct hash_func_s *, size_t *) = {
-#if ENABLE_BLAKE2
-		[HASH_LIB_BLAKE2] = gtkhash_hash_lib_blake2_finish,
-#endif
-#if ENABLE_BLAKE3
-		[HASH_LIB_BLAKE3] = gtkhash_hash_lib_blake3_finish,
-#endif
-#if ENABLE_GCRYPT
-		[HASH_LIB_GCRYPT] = gtkhash_hash_lib_gcrypt_finish,
-#endif
-#if ENABLE_GLIB_CHECKSUMS
-		[HASH_LIB_GLIB] = gtkhash_hash_lib_glib_finish,
-#endif
-#if ENABLE_LIBCRYPTO
-		[HASH_LIB_CRYPTO] = gtkhash_hash_lib_crypto_finish,
-#endif
-#if ENABLE_MBEDTLS
-		[HASH_LIB_MBEDTLS] = gtkhash_hash_lib_mbedtls_finish,
-#endif
-#if ENABLE_NETTLE
-		[HASH_LIB_NETTLE] = gtkhash_hash_lib_nettle_finish,
-#endif
-#if ENABLE_XXHASH
-		[HASH_LIB_XXHASH] = gtkhash_hash_lib_xxhash_finish,
-#endif
-#if ENABLE_ZLIB
-		[HASH_LIB_ZLIB] = gtkhash_hash_lib_zlib_finish,
-#endif
-	};
-
 	size_t size = 0;
-	uint8_t *digest = finish_libs[hash_libs[func->id]](func, &size);
+	uint8_t *digest = hash_lib_data[hash_libs[func->id]].finish(func, &size);
 
 	gtkhash_hash_func_set_digest(func, digest, size);
 
