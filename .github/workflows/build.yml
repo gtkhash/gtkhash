@@ -86,7 +86,6 @@ jobs:
             -Dblake3=$(has_pkg libblake3-dev) \
             -Dgcrypt=true \
             -Dglib-checksums=true \
-            -Dinternal-md6=true \
             -Dlibcrypto=true \
             -Dmbedtls=true \
             -Dnettle=true \

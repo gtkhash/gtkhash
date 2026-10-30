@@ -120,9 +120,6 @@ endif
 ##### Glib checksums
 config.set10('ENABLE_GLIB_CHECKSUMS', get_option('glib-checksums'))
 
-##### Internal MD6
-config.set10('ENABLE_INTERNAL_MD6', get_option('internal-md6'))
-
 ##### Libcrypto (openssl)
 libcrypto = get_option('libcrypto') ? dependency('libcrypto', version: '>=1.1') : no_dep
 config.set10('ENABLE_LIBCRYPTO', get_option('libcrypto'))
@@ -224,10 +221,6 @@ hash_functions = [
     'MD2',
     'MD4',
     'MD5',
-    'MD6-224',
-    'MD6-256',
-    'MD6-384',
-    'MD6-512',
     'MDC2',
     'RIPEMD160',
     'SHA1',
@@ -324,7 +317,6 @@ hash_libs = {
     'nettle': nettle_funcs,
     'zlib': ['ADLER32', 'CRC32'],
     'glib_checksums': ['MD5', 'SHA1', 'SHA256', 'SHA384', 'SHA512'],
-    'internal_md6': ['MD6-224', 'MD6-256', 'MD6-384', 'MD6-512'],
 }
 
 functions_provided = {'Hash Function': 'Preferred Implementation'}
