@@ -34,17 +34,17 @@
 #include "hash/digest-format.h"
 
 enum {
-	COL_STATUS,    // 0
-	COL_ICON_NAME, // 1
-	COL_PNAME,     // 2
-	COL_TOOLTIP,   // 3
-	COL_CHECK,     // 4
-	COL_DIGESTS,   // 5+
+	COL_ICON_NAME, // 0
+	COL_PNAME,     // 1
+	COL_TOOLTIP,   // 2
+	COL_CHECK,     // 3
+	COL_DIGESTS,   // 4+
 };
 
 struct list_s list;
 
 struct {
+	GtkTreeViewColumn *view_cols[HASH_FUNCS_N];
 	int hash_cols[HASH_FUNCS_N];
 	bool show_status;
 } list_priv = {
@@ -62,21 +62,25 @@ void list_init(void)
 			continue;
 
 		list_priv.hash_cols[i] = cols;
-		cols = gtk_tree_view_insert_column_with_attributes(gui.treeview, -1,
-			hash.funcs[i].name, gtk_cell_renderer_text_new(),
-			"text", cols, NULL);
+		list_priv.view_cols[i] = gtk_tree_view_column_new_with_attributes(
+			hash.funcs[i].name, gtk_cell_renderer_text_new(), "text", cols, NULL);
+		gtk_tree_view_append_column(gui.treeview, list_priv.view_cols[i]);
+		cols++;
 	}
 
 	GType types[cols];
-	types[COL_STATUS]    = G_TYPE_CHAR;
 	types[COL_ICON_NAME] = G_TYPE_STRING;
 	types[COL_PNAME]     = G_TYPE_STRING;
 	types[COL_TOOLTIP]   = G_TYPE_STRING;
 	types[COL_CHECK]     = G_TYPE_STRING;
 
-	for (int i = COL_DIGESTS; i < cols; i++) {
-		types[i] = G_TYPE_STRING;
-		GtkTreeViewColumn *col = gtk_tree_view_get_column(gui.treeview, i);
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!hash.funcs[i].supported)
+			continue;
+
+		types[list_priv.hash_cols[i]] = G_TYPE_STRING;
+
+		GtkTreeViewColumn *col = list_priv.view_cols[i];
 		gtk_tree_view_column_set_resizable(col, true);
 		gtk_tree_view_column_set_min_width(col, 10);
 	}
@@ -101,13 +105,11 @@ void list_update(void)
 		if (!hash.funcs[i].supported)
 			continue;
 
-		GtkTreeViewColumn *col = gtk_tree_view_get_column(gui.treeview,
-			list_priv.hash_cols[i]);
+		GtkTreeViewColumn *col = list_priv.view_cols[i];
 		gtk_tree_view_column_set_visible(col, hash.funcs[i].enabled);
 	}
 
-	GtkTreeViewColumn *col = gtk_tree_view_get_column(gui.treeview, COL_STATUS);
-	gtk_tree_view_column_set_visible(col, list_priv.show_status);
+	gtk_tree_view_column_set_visible(gui.treeviewcolumn_status, list_priv.show_status);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_clear), list.rows);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_clear), list.rows);
@@ -124,6 +126,7 @@ void list_append_row(const char * const uri, const char * const check)
 	char *tooltip = g_markup_escape_text(basename, -1);
 
 	gtk_list_store_insert_with_values(gui.liststore, NULL, list.rows,
+		COL_ICON_NAME, "",
 		COL_PNAME, pname,
 		COL_TOOLTIP, tooltip,
 		COL_CHECK, check ? check : "",
@@ -235,9 +238,7 @@ void list_set_digest(const unsigned int row, const enum hash_func_e id,
 
 	list_scroll_to_next_row(iter);
 
-	gtk_list_store_set(gui.liststore, &iter,
-		list_priv.hash_cols[id], digest,
-		-1);
+	gtk_list_store_set(gui.liststore, &iter, list_priv.hash_cols[id], digest, -1);
 }
 
 char *list_get_digest(const unsigned int row, const enum hash_func_e id)
@@ -253,8 +254,7 @@ char *list_get_digest(const unsigned int row, const enum hash_func_e id)
 	char *digest;
 	GValue value = G_VALUE_INIT;
 
-	gtk_tree_model_get_value(gui.treemodel, &iter, list_priv.hash_cols[id],
-		&value);
+	gtk_tree_model_get_value(gui.treemodel, &iter, list_priv.hash_cols[id], &value);
 	digest = g_value_dup_string(&value);
 	g_value_unset(&value);
 
@@ -323,8 +323,7 @@ void list_check_digests(const unsigned int row)
 			continue;
 
 		GValue digest = G_VALUE_INIT;
-		gtk_tree_model_get_value(gui.treemodel, &iter, list_priv.hash_cols[i],
-			&digest);
+		gtk_tree_model_get_value(gui.treemodel, &iter, list_priv.hash_cols[i], &digest);
 
 		const char *digest_str = g_value_get_string(&digest);
 		if (digest_str && *digest_str)
@@ -350,6 +349,20 @@ void list_check_all_digests(void)
 		list_check_digests(row);
 }
 
+static void list_disable_status_sort(void)
+{
+	int col;
+	GtkSortType order;
+
+	if (!gtk_tree_sortable_get_sort_column_id(GTK_TREE_SORTABLE(gui.liststore), &col, &order))
+		return;
+	if (col != COL_ICON_NAME)
+		return;
+
+	gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(gui.liststore),
+		GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID, GTK_SORT_ASCENDING);
+}
+
 void list_clear_digests(void)
 {
 	GtkTreeIter iter;
@@ -357,19 +370,32 @@ void list_clear_digests(void)
 	if (!gtk_tree_model_get_iter_first(gui.treemodel, &iter))
 		return;
 
-	const unsigned int cols_n = gtkhash_hash_func_count_supported(hash.funcs);
+	list_disable_status_sort();
 
-	gint cols[cols_n];
-	GValue vals[HASH_FUNCS_N] = { G_VALUE_INIT };
+	gint cols[HASH_FUNCS_N + 1];
+	GValue vals[HASH_FUNCS_N + 1] = { G_VALUE_INIT };
+	unsigned int cols_n = 0;
 
-	for (unsigned int i = 0; i < cols_n; i++) {
-		cols[i] = COL_DIGESTS + i;
-		g_value_init(&vals[i], G_TYPE_STRING);
+	cols[cols_n] = COL_ICON_NAME;
+	g_value_init(&vals[cols_n], G_TYPE_STRING);
+	g_value_set_string(&vals[cols_n], "");
+	cols_n++;
+
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!hash.funcs[i].supported)
+			continue;
+
+		cols[cols_n] = list_priv.hash_cols[i];
+		g_value_init(&vals[cols_n], G_TYPE_STRING);
+		cols_n++;
 	}
 
 	do {
 		gtk_list_store_set_valuesv(gui.liststore, &iter, cols, vals, cols_n);
 	} while (gtk_tree_model_iter_next(gui.treemodel, &iter));
+
+	for (unsigned int i = 0; i < cols_n; i++)
+		g_value_unset(&vals[i]);
 }
 
 void list_clear(void)

@@ -683,9 +683,9 @@
                         <property name="can-focus">True</property>
                         <property name="rubber-banding">True</property>
                         <property name="rules-hint">True</property>
-                        <property name="search-column">2</property>
+                        <property name="search-column">1</property>
                         <property name="show-expanders">False</property>
-                        <property name="tooltip-column">3</property>
+                        <property name="tooltip-column">2</property>
                         <property name="visible">True</property>
                         <child internal-child="selection">
                           <object class="GtkTreeSelection" id="treeselection">
@@ -695,26 +695,14 @@
                         <child>
                           <object class="GtkTreeViewColumn" id="treeviewcolumn_status">
                             <property name="clickable">True</property>
-                            <property name="sort-column-id">1</property>
+                            <property name="sort-column-id">0</property>
                             <property name="sort-indicator">True</property>
                             <property name="visible">False</property>
                             <child>
                               <object class="GtkCellRendererPixbuf" id="cellrenderer_status"/>
                               <!-- Custom child fragments -->
                               <attributes>
-                                <attribute name="icon-name">1</attribute>
-                              </attributes>
-                            </child>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkTreeViewColumn" id="treeviewcolumn_icon_name">
-                            <property name="visible">False</property>
-                            <child>
-                              <object class="GtkCellRendererText" id="cellrenderer_icon_name"/>
-                              <!-- Custom child fragments -->
-                              <attributes>
-                                <attribute name="text">1</attribute>
+                                <attribute name="icon-name">0</attribute>
                               </attributes>
                             </child>
                           </object>
@@ -724,38 +712,14 @@
                             <property name="clickable">True</property>
                             <property name="min-width">100</property>
                             <property name="resizable">True</property>
-                            <property name="sort-column-id">2</property>
+                            <property name="sort-column-id">1</property>
                             <property name="sort-indicator">True</property>
                             <property name="title" translatable="yes">File</property>
                             <child>
                               <object class="GtkCellRendererText" id="cellrenderer_file"/>
                               <!-- Custom child fragments -->
                               <attributes>
-                                <attribute name="text">2</attribute>
-                              </attributes>
-                            </child>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkTreeViewColumn" id="treeviewcolumn_basename">
-                            <property name="visible">False</property>
-                            <child>
-                              <object class="GtkCellRendererText" id="cellrenderer_basename"/>
-                              <!-- Custom child fragments -->
-                              <attributes>
-                                <attribute name="text">3</attribute>
-                              </attributes>
-                            </child>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkTreeViewColumn" id="treeviewcolumn_check">
-                            <property name="visible">False</property>
-                            <child>
-                              <object class="GtkCellRendererText" id="cellrenderer_check"/>
-                              <!-- Custom child fragments -->
-                              <attributes>
-                                <attribute name="text">4</attribute>
+                                <attribute name="text">1</attribute>
                               </attributes>
                             </child>
                           </object>
