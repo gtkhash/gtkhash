@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-30 00:00+0000\n"
+"POT-Creation-Date: 2026-10-31 14:20+0100\n"
 "PO-Revision-Date: 2026-10-18 17:46+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
@@ -272,7 +272,7 @@ msgstr "Failed to add file \"%s\": %s"
 msgid "Discarding invalid characters from digest"
 msgstr "Discarding invalid characters from digest"
 
-#: src/hash.c:183 src/prefs.c:88
+#: src/hash.c:183
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Unknown Hash Function name \"%s\""
