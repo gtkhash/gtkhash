@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-30 00:00+0000\n"
+"POT-Creation-Date: 2026-10-31 14:20+0100\n"
 "PO-Revision-Date: 2024-02-04 20:01+0000\n"
 "Last-Translator: Ali Nemati <AliNemati13@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/gtkhash/"
@@ -271,7 +271,7 @@ msgstr "افزودن فایل \"%s\" ناموفق بود: %s"
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
-#: src/hash.c:183 src/prefs.c:88
+#: src/hash.c:183
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "تابع هش ناشناخته \"%s\""

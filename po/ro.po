@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-30 00:00+0000\n"
+"POT-Creation-Date: 2026-10-31 14:20+0100\n"
 "PO-Revision-Date: 2026-05-31 15:01+0000\n"
 "Last-Translator: Andrea Andrei <andrea.tsg19@slmail.me>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/gtkhash/"
@@ -273,7 +273,7 @@ msgstr "Nu s-a putut adăuga fișierul „%s”: %s"
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
-#: src/hash.c:183 src/prefs.c:88
+#: src/hash.c:183
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Nume necunoscut al funcției Hash „%s”"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-30 00:00+0000\n"
+"POT-Creation-Date: 2026-10-31 14:20+0100\n"
 "PO-Revision-Date: 2020-07-31 09:41+0000\n"
 "Last-Translator: Oymate <dhruboadittya96@gmail.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/gtkhash/"
@@ -267,7 +267,7 @@ msgstr "\"%s\" ফাইলটি যুক্ত করতে ব্যর্�
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
-#: src/hash.c:183 src/prefs.c:88
+#: src/hash.c:183
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "অজানা হ্যাশ ফাংশনের নাম \"%s\""

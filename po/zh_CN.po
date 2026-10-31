@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-30 00:00+0000\n"
+"POT-Creation-Date: 2026-10-31 14:20+0100\n"
 "PO-Revision-Date: 2021-09-24 10:38+0000\n"
 "Last-Translator: Liu Tao <lyuutau@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -273,7 +273,7 @@ msgstr "无法添加 “%s”：%s"
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
-#: src/hash.c:183 src/prefs.c:88
+#: src/hash.c:183
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "未知哈希函数 “%s”"
