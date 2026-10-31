@@ -57,6 +57,7 @@ extern struct gui_s {
 	GtkToggleButton *togglebutton_hmac_file, *togglebutton_hmac_text;
 	GtkLabel *label_file, *label_text;
 	GtkTreeView *treeview;
+	GtkTreeViewColumn *treeviewcolumn_status;
 	GtkTreeSelection *treeselection;
 	GtkTreeModel *treemodel;
 	GtkListStore *liststore;

@@ -126,6 +126,8 @@ static void gui_init_objects(GtkBuilder *builder)
 	// Tree View
 	gui.treeview = GTK_TREE_VIEW(gui_get_object(builder,
 		"treeview"));
+	gui.treeviewcolumn_status = GTK_TREE_VIEW_COLUMN(gui_get_object(builder,
+		"treeviewcolumn_status"));
 	gui.treeselection = GTK_TREE_SELECTION(gui_get_object(builder,
 		"treeselection"));
 	gui.menu_treeview = GTK_MENU(gui_get_object(builder,
