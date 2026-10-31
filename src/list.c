@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -123,7 +123,7 @@ void list_append_row(const char * const uri, const char * const check)
 	char *basename = g_filename_display_basename(pname);
 	char *tooltip = g_markup_escape_text(basename, -1);
 
-	gtk_list_store_insert_with_values(gui.liststore, NULL, list.rows + 1,
+	gtk_list_store_insert_with_values(gui.liststore, NULL, list.rows,
 		COL_PNAME, pname,
 		COL_TOOLTIP, tooltip,
 		COL_CHECK, check ? check : "",
@@ -180,7 +180,7 @@ void list_remove_selection(void)
 
 static GFile *list_get_file(const unsigned int row)
 {
-	g_assert(row <= list.rows);
+	g_assert(row < list.rows);
 
 	GtkTreeIter iter;
 
@@ -226,7 +226,7 @@ static void list_scroll_to_next_row(GtkTreeIter iter)
 void list_set_digest(const unsigned int row, const enum hash_func_e id,
 	const char * const digest)
 {
-	g_assert(row <= list.rows);
+	g_assert(row < list.rows);
 	g_assert(HASH_FUNC_IS_VALID(id));
 
 	GtkTreeIter iter;
@@ -242,7 +242,7 @@ void list_set_digest(const unsigned int row, const enum hash_func_e id,
 
 char *list_get_digest(const unsigned int row, const enum hash_func_e id)
 {
-	g_assert(row <= list.rows);
+	g_assert(row < list.rows);
 	g_assert(HASH_FUNC_IS_VALID(id));
 
 	GtkTreeIter iter;
@@ -279,6 +279,25 @@ char *list_get_selected_digest(const enum hash_func_e id)
 	return list_get_digest(row, id);
 }
 
+bool list_has_digests(void)
+{
+	for (unsigned int row = 0; row < list.rows; row++) {
+		for (int i = 0; i < HASH_FUNCS_N; i++) {
+			if (!hash.funcs[i].enabled)
+				continue;
+
+			char *digest = list_get_digest(row, i);
+			const bool has_digest = (digest && *digest);
+			g_free(digest);
+
+			if (has_digest)
+				return true;
+		}
+	}
+
+	return false;
+}
+
 void list_check_digests(const unsigned int row)
 {
 	GtkTreeIter iter;
@@ -289,13 +308,14 @@ void list_check_digests(const unsigned int row)
 	gtk_tree_model_get_value(gui.treemodel, &iter, COL_CHECK, &value);
 	const char *check = g_value_get_string(&value);
 
-	if (!*check) {
+	if (!check || !*check) {
 		g_value_unset(&value);
 		gtk_list_store_set(gui.liststore, &iter, COL_ICON_NAME, "", -1);
 		return;
 	}
 
 	const enum digest_format_e format = gui_get_digest_format();
+	bool has_digest = false;
 	bool match = false;
 
 	for (int i = 0; (i < HASH_FUNCS_N) && !match; i++) {
@@ -307,6 +327,9 @@ void list_check_digests(const unsigned int row)
 			&digest);
 
 		const char *digest_str = g_value_get_string(&digest);
+		if (digest_str && *digest_str)
+			has_digest = true;
+
 		match = gtkhash_digest_format_compare(digest_str, check, format);
 
 		g_value_unset(&digest);
@@ -314,8 +337,17 @@ void list_check_digests(const unsigned int row)
 
 	g_value_unset(&value);
 
-	gtk_list_store_set(gui.liststore, &iter, COL_ICON_NAME,
-		match ? "object-select-symbolic" : "window-close-symbolic", -1);
+	const char *icon_name = "";
+	if (has_digest)
+		icon_name = match ? "object-select-symbolic" : "window-close-symbolic";
+
+	gtk_list_store_set(gui.liststore, &iter, COL_ICON_NAME, icon_name, -1);
+}
+
+void list_check_all_digests(void)
+{
+	for (unsigned int row = 0; row < list.rows; row++)
+		list_check_digests(row);
 }
 
 void list_clear_digests(void)

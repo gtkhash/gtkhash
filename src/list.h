@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2018 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -35,7 +35,9 @@ char *list_get_basename(unsigned int row);
 void list_set_digest(unsigned int row, enum hash_func_e id, const char *digest);
 char *list_get_digest(unsigned int row, enum hash_func_e id);
 char *list_get_selected_digest(enum hash_func_e id);
+bool list_has_digests(void);
 void list_check_digests(unsigned int row);
+void list_check_all_digests(void);
 void list_clear_digests(void);
 void list_clear(void);
 

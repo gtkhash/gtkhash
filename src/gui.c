@@ -492,16 +492,7 @@ static void gui_action_save_as_set_enabled(void)
 			sensitive = gtkhash_hash_func_count_enabled(hash.funcs);
 			break;
 		case GUI_VIEW_FILE_LIST:
-			for (int i = 0; i < HASH_FUNCS_N; i++) {
-				if (hash.funcs[i].enabled) {
-					char *digest = list_get_digest(0, i);
-					if (digest != NULL && *digest) {
-						g_free(digest);
-						sensitive = true;
-						break;
-					}
-				}
-			}
+			sensitive = list_has_digests();
 			break;
 		default:
 			sensitive = false;
@@ -728,6 +719,21 @@ void gui_clear_digests(void)
 	gui_action_save_as_set_enabled();
 }
 
+void gui_clear_all_digests(void)
+{
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!hash.funcs[i].supported)
+			continue;
+
+		gtk_entry_set_text(gui.hash_widgets[i].entry_file, "");
+		gtk_entry_set_text(gui.hash_widgets[i].entry_text, "");
+	}
+
+	list_clear_digests();
+
+	gui_action_save_as_set_enabled();
+}
+
 void gui_check_digests(void)
 {
 	const char *icon_in = NULL;
@@ -740,7 +746,8 @@ void gui_check_digests(void)
 		case GUI_VIEW_FILE:
 			entry_check = gui.entry_check_file;
 			break;
-		case GUI_VIEW_FILE_LIST: // TODO
+		case GUI_VIEW_FILE_LIST:
+			list_check_all_digests();
 			return;
 		default:
 			g_assert_not_reached();
