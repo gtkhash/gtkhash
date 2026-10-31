@@ -488,15 +488,7 @@ static bool on_dialog_delete_event(void)
 
 static void on_dialog_combobox_changed(void)
 {
-	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (!hash.funcs[i].supported)
-			continue;
-
-		gtk_entry_set_text(gui.hash_widgets[i].entry_file, "");
-		gtk_entry_set_text(gui.hash_widgets[i].entry_text, "");
-	}
-
-	list_clear_digests();
+	gui_clear_all_digests();
 
 	if (gui.view == GUI_VIEW_TEXT)
 		hash_string();

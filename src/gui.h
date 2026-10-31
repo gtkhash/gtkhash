@@ -99,6 +99,7 @@ void gui_update_hash_func_labels(bool hmac_enabled);
 void gui_update_hash_funcs(void);
 void gui_update(void);
 void gui_clear_digests(void);
+void gui_clear_all_digests(void);
 void gui_check_digests(void);
 void gui_set_state(enum gui_state_e state);
 bool gui_is_maximised(void);
