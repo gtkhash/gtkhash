@@ -96,15 +96,12 @@ void gtkhash_properties_idle(struct page_s *page)
 	gtk_widget_set_sensitive(GTK_WIDGET(page->treeview), true);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->hbox_hmac), true);
 	gtkhash_properties_entry_hmac_set_sensitive(page);
-
-	gtkhash_properties_list_check_digests(page);
 }
 
 static void gtkhash_properties_on_cell_toggled(struct page_s *page,
 	char *path_str)
 {
 	gtkhash_properties_list_update_enabled(page, path_str);
-	gtkhash_properties_list_check_digests(page);
 	gtkhash_properties_button_hash_set_sensitive(page);
 }
 
@@ -141,6 +138,11 @@ static void gtkhash_properties_on_treeview_row_activated(
 
 	if (gtkhash_properties_list_hash_selected(page))
 		gtkhash_properties_busy(page);
+}
+
+static void gtkhash_properties_on_liststore_row_changed(struct page_s *page)
+{
+	gtkhash_properties_list_check_digests(page);
 }
 
 static gboolean gtkhash_properties_on_menu_map_event(struct page_s *page)
@@ -212,7 +214,6 @@ static void gtkhash_properties_on_entry_check_icon_press(GtkEntry *entry,
 static void gtkhash_properties_on_entry_hmac_changed(struct page_s *page)
 {
 	gtkhash_properties_list_clear_digests(page);
-	gtkhash_properties_list_check_digests(page);
 }
 
 static void gtkhash_properties_on_menuitem_show_hmac_key_toggled(
@@ -247,7 +248,6 @@ static void gtkhash_properties_on_togglebutton_hmac_toggled(struct page_s *page)
 {
 	gtkhash_properties_entry_hmac_set_sensitive(page);
 	gtkhash_properties_list_update_hash_func_names(page);
-	gtkhash_properties_list_check_digests(page);
 }
 
 static void gtkhash_properties_on_button_hash_clicked(struct page_s *page)
@@ -305,6 +305,8 @@ static void gtkhash_properties_init_objects(struct page_s *page,
 		"treeselection"));
 	page->cellrendtoggle = GTK_CELL_RENDERER_TOGGLE(gtkhash_properties_get_object(builder,
 		"cellrenderertoggle"));
+	page->liststore = GTK_LIST_STORE(gtkhash_properties_get_object(builder,
+		"liststore"));
 
 	// Popup menu
 	page->menu = GTK_MENU(gtkhash_properties_get_object(builder,
@@ -349,6 +351,8 @@ static void gtkhash_properties_connect_signals(struct page_s *page)
 		G_CALLBACK(gtkhash_properties_on_treeview_button_press_event), page);
 	g_signal_connect_swapped(page->treeview, "row-activated",
 		G_CALLBACK(gtkhash_properties_on_treeview_row_activated), page);
+	g_signal_connect_swapped(page->liststore, "row-changed",
+		G_CALLBACK(gtkhash_properties_on_liststore_row_changed), page);
 
 	// Popup menu
 	g_signal_connect_swapped(page->menu, "map-event",

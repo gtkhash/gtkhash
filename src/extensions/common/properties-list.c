@@ -229,6 +229,8 @@ bool gtkhash_properties_list_hash_selected(struct page_s *page)
 	int id;
 	gtk_tree_model_get(model, &iter, COL_ID, &id, -1);
 
+	gtkhash_properties_list_set_digest(page, id, "");
+
 	if (gtk_toggle_button_get_active(page->togglebutton_hmac)) {
 		const uint8_t *hmac_key = (uint8_t *)gtk_entry_get_text(
 			page->entry_hmac);
