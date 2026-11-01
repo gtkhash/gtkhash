@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-31 14:20+0100\n"
+"POT-Creation-Date: 2026-11-01 01:28+0100\n"
 "PO-Revision-Date: 2026-10-24 12:51+0000\n"
 "Last-Translator: El Pirujo <pirujo@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
@@ -74,7 +74,7 @@ msgstr "_Preferencias"
 msgid "_About"
 msgstr "_Acerca"
 
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:729
+#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
 msgid "File"
 msgstr "Archivo"
 
@@ -108,31 +108,31 @@ msgstr "Pegar el resumen del portapapeles"
 msgid "HMAC Key:"
 msgstr "Clave HMAC:"
 
-#: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
+#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:308
 msgid "_Hash"
 msgstr "Resumen"
 
-#: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
+#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:269
 msgid "_Stop"
 msgstr "Detener"
 
-#: data/gtkhash-gtk3.ui:940
+#: data/gtkhash-gtk3.ui:904
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: data/gtkhash-gtk3.ui:958
+#: data/gtkhash-gtk3.ui:922
 msgid "_Close"
 msgstr "_Cerrar"
 
-#: data/gtkhash-gtk3.ui:993
+#: data/gtkhash-gtk3.ui:957
 msgid "Hash Functions"
 msgstr "Funciones resumen"
 
-#: data/gtkhash-gtk3.ui:1024
+#: data/gtkhash-gtk3.ui:988
 msgid "MAC Functions"
 msgstr "Funciones MAC"
 
-#: data/gtkhash-gtk3.ui:1046
+#: data/gtkhash-gtk3.ui:1010
 msgid "Digest Format:"
 msgstr "Formato del resumen:"
 
@@ -262,16 +262,16 @@ msgstr "Función resumen"
 msgid "Digest"
 msgstr "Digitación"
 
-#: src/gui.c:280
+#: src/gui.c:282
 msgid "Not a regular file"
 msgstr "No es un archivo válido"
 
-#: src/gui.c:303
+#: src/gui.c:305
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "No se ha podido añadir el archivo «%s»: %s"
 
-#: src/gui.c:348
+#: src/gui.c:350
 msgid "Discarding invalid characters from digest"
 msgstr "Descartando caracteres no válidos del resumen"
 

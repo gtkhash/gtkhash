@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-31 14:20+0100\n"
+"POT-Creation-Date: 2026-11-01 01:28+0100\n"
 "PO-Revision-Date: 2024-05-30 08:09+0000\n"
 "Last-Translator: Vangelis Skarmoutsos <skarmoutsosv@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/gtkhash/"
@@ -71,7 +71,7 @@ msgstr "Προτιμήσεις GtkHash"
 msgid "_About"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:729
+#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
 msgid "File"
 msgstr "Αρχείο"
 
@@ -107,32 +107,32 @@ msgstr "Επικόλληση σύνοψης από πρόχειρο"
 msgid "HMAC Key:"
 msgstr "Κλειδί HMAC:"
 
-#: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
+#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:308
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
+#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:269
 msgid "_Stop"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:940
+#: data/gtkhash-gtk3.ui:904
 #, fuzzy
 msgid "Preferences"
 msgstr "Προτιμήσεις GtkHash"
 
-#: data/gtkhash-gtk3.ui:958
+#: data/gtkhash-gtk3.ui:922
 msgid "_Close"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:993
+#: data/gtkhash-gtk3.ui:957
 msgid "Hash Functions"
 msgstr "Συναρτήσεις Hash"
 
-#: data/gtkhash-gtk3.ui:1024
+#: data/gtkhash-gtk3.ui:988
 msgid "MAC Functions"
 msgstr "Συναρτήσεις MAC"
 
-#: data/gtkhash-gtk3.ui:1046
+#: data/gtkhash-gtk3.ui:1010
 msgid "Digest Format:"
 msgstr "Μορφή σύνοψης:"
 
@@ -263,16 +263,16 @@ msgstr "Συνάρτηση Hash"
 msgid "Digest"
 msgstr "Σύνοψη"
 
-#: src/gui.c:280
+#: src/gui.c:282
 msgid "Not a regular file"
 msgstr "Μη κανονικό αρχείο"
 
-#: src/gui.c:303
+#: src/gui.c:305
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Αποτυχία προσθήκης αρχείου \"%s\":%s"
 
-#: src/gui.c:348
+#: src/gui.c:350
 msgid "Discarding invalid characters from digest"
 msgstr ""
 

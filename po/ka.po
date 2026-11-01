@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-31 14:20+0100\n"
+"POT-Creation-Date: 2026-11-01 01:28+0100\n"
 "PO-Revision-Date: 2026-10-20 06:51+0000\n"
 "Last-Translator: Temuri Doghonadze "
 "<norwayfun@users.noreply.hosted.weblate.org>\n"
@@ -70,7 +70,7 @@ msgstr "_მორგება"
 msgid "_About"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:729
+#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
 msgid "File"
 msgstr "ფაილი"
 
@@ -104,31 +104,31 @@ msgstr "დაიჯესტის ჩასმა ბუფერიდან"
 msgid "HMAC Key:"
 msgstr "HMAC გასაღები:"
 
-#: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
+#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:308
 msgid "_Hash"
 msgstr "_ჰეში"
 
-#: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
+#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:269
 msgid "_Stop"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:940
+#: data/gtkhash-gtk3.ui:904
 msgid "Preferences"
 msgstr "მორგება"
 
-#: data/gtkhash-gtk3.ui:958
+#: data/gtkhash-gtk3.ui:922
 msgid "_Close"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:993
+#: data/gtkhash-gtk3.ui:957
 msgid "Hash Functions"
 msgstr "ჰეშის ფუნქციები"
 
-#: data/gtkhash-gtk3.ui:1024
+#: data/gtkhash-gtk3.ui:988
 msgid "MAC Functions"
 msgstr "MAC-ის ფუნქციები"
 
-#: data/gtkhash-gtk3.ui:1046
+#: data/gtkhash-gtk3.ui:1010
 msgid "Digest Format:"
 msgstr "დაიჯესტის ფორმატი:"
 
@@ -257,16 +257,16 @@ msgstr "ჰეშის ფუნქცია"
 msgid "Digest"
 msgstr "დაიჯესტი"
 
-#: src/gui.c:280
+#: src/gui.c:282
 msgid "Not a regular file"
 msgstr "ფაილი ჩვეულებრივი არაა"
 
-#: src/gui.c:303
+#: src/gui.c:305
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "ფაილის \"%s\" შემოწმება ჩავარდა: %s"
 
-#: src/gui.c:348
+#: src/gui.c:350
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
