@@ -342,10 +342,9 @@ static bool on_treeview_button_press_event(G_GNUC_UNUSED GtkWidget *widget,
 	return false;
 }
 
-static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget,
-	GdkDragContext *context, G_GNUC_UNUSED gint x, G_GNUC_UNUSED gint y,
-	GtkSelectionData *selection, G_GNUC_UNUSED guint info, guint t,
-	G_GNUC_UNUSED void *data)
+static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget, GdkDragContext *context,
+	G_GNUC_UNUSED int x, G_GNUC_UNUSED int y, GtkSelectionData *selection,
+	G_GNUC_UNUSED unsigned int info, unsigned int t, G_GNUC_UNUSED void *data)
 {
 	char **uris = gtk_selection_data_get_uris(selection);
 	if (!uris) {

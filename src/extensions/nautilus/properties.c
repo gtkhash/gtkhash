@@ -40,7 +40,7 @@ static void gtkhash_properties_model_start(struct model_s *model)
 	gtkhash_properties_hash_start(model);
 }
 
-static gpointer gtkhash_properties_model_get_item(GListModel *list, guint position)
+static void *gtkhash_properties_model_get_item(GListModel *list, unsigned int position)
 {
 	struct model_s *model = (struct model_s *)list;
 
@@ -57,7 +57,7 @@ static GType gtkhash_properties_model_get_item_type(G_GNUC_UNUSED GListModel *li
 	return NAUTILUS_TYPE_PROPERTIES_ITEM;
 }
 
-static guint gtkhash_properties_model_get_n_items(GListModel *list)
+static unsigned int gtkhash_properties_model_get_n_items(GListModel *list)
 {
 	struct model_s *model = (struct model_s *)list;
 
@@ -79,7 +79,7 @@ static void gtkhash_properties_model_iface_init(GListModelInterface *iface,
 
 void gtkhash_properties_model_set_progress(struct model_s *model, const char *progress)
 {
-	const guint removed = model->items->len;
+	const unsigned int removed = model->items->len;
 
 	g_ptr_array_set_size(model->items, 0);
 	g_ptr_array_add(model->items, nautilus_properties_item_new(progress, ""));
@@ -93,7 +93,7 @@ void gtkhash_properties_model_add_digest(struct model_s *model, const char *name
 	if (model->state == MODEL_STATE_BUSY) {
 		model->state = MODEL_STATE_DONE;
 
-		const guint removed = model->items->len;
+		const unsigned int removed = model->items->len;
 		if (removed > 0) {
 			g_ptr_array_set_size(model->items, 0);
 			g_list_model_items_changed(G_LIST_MODEL(model), 0, removed, 0);

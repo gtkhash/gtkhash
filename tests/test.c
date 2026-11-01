@@ -352,7 +352,7 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 static void test_opt_help(void)
 {
 	if (g_test_subprocess()) {
-		gint argc;
+		int argc;
 		char **argv;
 		g_shell_parse_argv("t --help", &argc, &argv, NULL);
 
@@ -370,7 +370,7 @@ static void test_opt_help(void)
 static void test_opt_version(void)
 {
 	if (g_test_subprocess()) {
-		gint argc;
+		int argc;
 		char **argv;
 		g_shell_parse_argv("t --version", &argc, &argv, NULL);
 
@@ -387,7 +387,7 @@ static void test_opt_version(void)
 static void test_opt_check_text(void)
 {
 	if (g_test_subprocess()) {
-		gint argc;
+		int argc;
 		char **argv;
 		g_shell_parse_argv("t -c fail -t aa --check 0123abcdef", &argc, &argv, NULL);
 
@@ -412,7 +412,7 @@ G_NORETURN static gboolean test_exit_success(G_GNUC_UNUSED void *data)
 static void test_opt_check_file(void)
 {
 	if (g_test_subprocess()) {
-		gint argc;
+		int argc;
 		char **argv;
 		char *args = g_strdup_printf("t --check-file '%s'",
 			g_test_get_filename(G_TEST_BUILT, "test.md5sum", NULL));
@@ -469,7 +469,7 @@ static void test_opt_function_enable(void)
 
 		// Enable the function from cmdline
 		char *str = g_strdup_printf("%s %s", "t --function XX -f", hash.funcs[id].name);
-		gint argc;
+		int argc;
 		char **argv;
 		g_shell_parse_argv(str, &argc, &argv, NULL);
 
@@ -509,7 +509,7 @@ static void test_opt_function_disable(void)
 
 		g_string_append_printf(args, " -- '%s'",
 			g_test_get_filename(G_TEST_BUILT, "10M.bytes", NULL));
-		gint argc;
+		int argc;
 		char **argv;
 		g_shell_parse_argv(args->str, &argc, &argv, NULL);
 		g_string_free(args, true);
@@ -531,7 +531,7 @@ static void test_opt_function_disable(void)
 static void test_opt_file(void)
 {
 	if (g_test_subprocess()) {
-		gint argc;
+		int argc;
 		char **argv;
 		char *args = g_strdup_printf("t -- '%s'",
 			g_test_get_filename(G_TEST_BUILT, "10M.bytes", NULL));
@@ -580,7 +580,7 @@ static void test_opt_file(void)
 static void test_opt_file_list(void)
 {
 	if (g_test_subprocess()) {
-		gint argc;
+		int argc;
 		char **argv;
 		char *args = g_strdup_printf("t -- '%s' '%s'",
 			g_test_get_filename(G_TEST_BUILT, "0.bytes", NULL),
