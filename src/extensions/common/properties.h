@@ -34,6 +34,7 @@ struct page_s {
 	GtkTreeView *treeview;
 	GtkTreeSelection *treeselection;
 	GtkCellRendererToggle *cellrendtoggle;
+	GtkListStore *liststore;
 	GtkMenu *menu;
 	GtkMenuItem *menuitem_copy;
 	GtkCheckMenuItem *menuitem_show_funcs;
