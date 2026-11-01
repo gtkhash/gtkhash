@@ -38,12 +38,12 @@
 #include "hash/hash-string.h"
 #include "util/util.h"
 
-static bool on_window_delete_event(void)
+static gboolean on_window_delete_event(void)
 {
 	gtk_widget_hide(GTK_WIDGET(gui.window));
 	gtk_main_quit();
 
-	return true;
+	return GDK_EVENT_STOP;
 }
 
 static void on_action_open(void)
@@ -320,7 +320,7 @@ static void show_menu_treeview(GdkEventButton *event)
 	gtk_menu_popup_at_pointer(gui.menu_treeview, (GdkEvent *)event);
 }
 
-static bool on_treeview_popup_menu(void)
+static gboolean on_treeview_popup_menu(void)
 {
 	/* Note: Shift+F10 can trigger this, so it's possible for the pointer
 	   to be outside the window */
@@ -330,16 +330,16 @@ static bool on_treeview_popup_menu(void)
 	return true;
 }
 
-static bool on_treeview_button_press_event(G_GNUC_UNUSED GtkWidget *widget,
+static gboolean on_treeview_button_press_event(G_GNUC_UNUSED GtkWidget *widget,
 	GdkEventButton *event)
 {
 	if (gdk_event_triggers_context_menu((GdkEvent *)event)) {
 		show_menu_treeview(event);
 		// Stop processing the event now so the selection won't be changed
-		return true;
+		return GDK_EVENT_STOP;
 	}
 
-	return false;
+	return GDK_EVENT_PROPAGATE;
 }
 
 static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget, GdkDragContext *context,
@@ -479,10 +479,16 @@ static void on_entry_hmac_populate_popup(GtkEntry *entry, GtkMenu *menu)
 		G_CALLBACK(on_menuitem_show_hmac_key_toggled), entry);
 }
 
-static bool on_dialog_delete_event(void)
+static gboolean on_dialog_delete_event(void)
 {
 	gtk_widget_hide(GTK_WIDGET(gui.dialog));
-	return true;
+
+	return GDK_EVENT_STOP;
+}
+
+static void on_dialog_button_close_clicked(void)
+{
+	gtk_widget_hide(GTK_WIDGET(gui.dialog));
 }
 
 static void on_dialog_combobox_changed(void)
@@ -559,8 +565,8 @@ void callbacks_init(void)
 	CON(gui.menuitem_treeview_clear,        "activate",            list_clear);
 	CON(gui.button_hash,                    "clicked",             on_button_hash_clicked);
 	CON(gui.button_stop,                    "clicked",             gui_stop_hash);
-	CON(gui.dialog,                         "delete-event",        G_CALLBACK(on_dialog_delete_event));
-	CON(gui.dialog_button_close,            "clicked",             G_CALLBACK(on_dialog_delete_event));
+	CON(gui.dialog,                         "delete-event",        on_dialog_delete_event);
+	CON(gui.dialog_button_close,            "clicked",             on_dialog_button_close_clicked);
 	CON(gui.dialog_togglebutton_show_hmac,  "toggled",             gui_update);
 	CON(gui.dialog_combobox,                "changed",             on_dialog_combobox_changed);
 
