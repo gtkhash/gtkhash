@@ -108,21 +108,24 @@ static void gtkhash_properties_on_cell_toggled(struct page_s *page,
 	gtkhash_properties_button_hash_set_sensitive(page);
 }
 
-static void gtkhash_properties_on_treeview_popup_menu(struct page_s *page)
+static gboolean gtkhash_properties_on_treeview_popup_menu(struct page_s *page)
 {
 	/* Note: Shift+F10 can trigger this, so it's possible for the pointer
 	   to be outside the window */
 
 	gtk_menu_popup_at_pointer(page->menu, NULL);
+
+	return true;
 }
 
-static bool gtkhash_properties_on_treeview_button_press_event(
+static gboolean gtkhash_properties_on_treeview_button_press_event(
 	struct page_s *page, GdkEventButton *event)
 {
 	if (gdk_event_triggers_context_menu((GdkEvent *)event))
 		gtk_menu_popup_at_pointer(page->menu, (GdkEvent *)event);
 
-	return false;
+	// Allows the selection to be changed
+	return GDK_EVENT_PROPAGATE;
 }
 
 static void gtkhash_properties_on_treeview_row_activated(
@@ -140,7 +143,7 @@ static void gtkhash_properties_on_treeview_row_activated(
 		gtkhash_properties_busy(page);
 }
 
-static void gtkhash_properties_on_menu_map_event(struct page_s *page)
+static gboolean gtkhash_properties_on_menu_map_event(struct page_s *page)
 {
 	bool sensitive = false;
 	char *digest = gtkhash_properties_list_get_selected_digest(page);
@@ -150,6 +153,8 @@ static void gtkhash_properties_on_menu_map_event(struct page_s *page)
 	}
 
 	gtk_widget_set_sensitive(GTK_WIDGET(page->menuitem_copy), sensitive);
+
+	return GDK_EVENT_PROPAGATE;
 }
 
 static void gtkhash_properties_on_menuitem_copy_activate(struct page_s *page)

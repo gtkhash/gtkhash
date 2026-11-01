@@ -372,7 +372,7 @@ void list_clear_digests(void)
 
 	list_disable_status_sort();
 
-	gint cols[HASH_FUNCS_N + 1];
+	int cols[HASH_FUNCS_N + 1];
 	GValue vals[HASH_FUNCS_N + 1] = { G_VALUE_INIT };
 	unsigned int cols_n = 0;
 
