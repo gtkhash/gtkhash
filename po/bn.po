@@ -2,14 +2,15 @@
 # Copyright (C) YEAR GtkHash authors
 # This file is distributed under the same license as the gtkhash package.
 # Oymate <dhruboadittya96@gmail.com>, 2020.
+# Oymate <oymate@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
 "POT-Creation-Date: 2026-11-01 01:28+0100\n"
-"PO-Revision-Date: 2020-07-31 09:41+0000\n"
-"Last-Translator: Oymate <dhruboadittya96@gmail.com>\n"
+"PO-Revision-Date: 2026-11-01 12:51+0000\n"
+"Last-Translator: Oymate <oymate@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/gtkhash/"
 "translations/bn/>\n"
 "Language: bn\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
 #: src/extensions/caja/module.c:51 src/extensions/nautilus/properties.c:154
@@ -35,15 +36,15 @@ msgstr "বড়হাতের হেক্সাডেসিমেল"
 
 #: data/gtkhash-gtk3.ui:48
 msgid "_Add"
-msgstr ""
+msgstr "_যোগ করো"
 
 #: data/gtkhash-gtk3.ui:79
 msgid "_Remove"
-msgstr ""
+msgstr "_অপসারণ করো"
 
 #: data/gtkhash-gtk3.ui:110
 msgid "_Clear"
-msgstr ""
+msgstr "_পরিষ্কার"
 
 #: data/gtkhash-gtk3.ui:147
 msgid "Copy _Digest"
@@ -60,27 +61,24 @@ msgid "_Save Digest File…"
 msgstr "_ডাইজেস্ট ফাইল সংরক্ষণ করো…"
 
 #: data/gtkhash-gtk3.ui:181
-#, fuzzy
 msgid "_Preferences"
-msgstr "জিটিকেহ্যাশ পছন্দসমূহ"
+msgstr "_পছন্দসমূহ"
 
 #: data/gtkhash-gtk3.ui:186
 msgid "_About"
-msgstr ""
+msgstr "_সম্পর্কে"
 
 #: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
 msgid "File"
 msgstr "ফাইল"
 
 #: data/gtkhash-gtk3.ui:317
-#, fuzzy
 msgid "File List"
-msgstr "ফাইল_তালিকা"
+msgstr "ফাইল তালিকা"
 
 #: data/gtkhash-gtk3.ui:331
-#, fuzzy
 msgid "Text"
-msgstr "_লেখা"
+msgstr "লেখা"
 
 #: data/gtkhash-gtk3.ui:374
 msgid "File:"
@@ -106,20 +104,19 @@ msgstr "এইচএমএসি কী:"
 
 #: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:308
 msgid "_Hash"
-msgstr ""
+msgstr "_হ্যাশ"
 
 #: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:269
 msgid "_Stop"
-msgstr ""
+msgstr "_থামো"
 
 #: data/gtkhash-gtk3.ui:904
-#, fuzzy
 msgid "Preferences"
-msgstr "জিটিকেহ্যাশ পছন্দসমূহ"
+msgstr "পছন্দসমূহ"
 
 #: data/gtkhash-gtk3.ui:922
 msgid "_Close"
-msgstr ""
+msgstr "_বন্ধ"
 
 #: data/gtkhash-gtk3.ui:957
 msgid "Hash Functions"
@@ -135,19 +132,19 @@ msgstr "ডাইজেস্ট সজ্জা:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
-msgstr ""
+msgstr "কাজার জন্য জিটিকেহ্যাশ"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/metainfo/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:8
 msgid "Show checksums in file properties"
-msgstr ""
+msgstr "ফাইল প্রোপার্টিতে চেকসাম দেখাও"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:7
 #: data/org.gtkhash.gtkhash.desktop.in:2
 msgid "GtkHash"
-msgstr ""
+msgstr "জিটিকেহ্যাশ"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:8
 #: data/org.gtkhash.gtkhash.desktop.in:4 src/extensions/nemo/module.c:65
@@ -169,15 +166,15 @@ msgstr "সমর্থিত হ্যাশ ফাংশন অন্তর্
 
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:7
 msgid "GtkHash for Nautilus"
-msgstr ""
+msgstr "নটিলাসের জন্য জিটিকেহ্যাশ"
 
 #: data/metainfo/org.gtkhash.nemo.metainfo.xml.in.in:8
 msgid "GtkHash for Nemo"
-msgstr ""
+msgstr "নিমোর জন্য জিটিকেহ্যাশ"
 
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:7
 msgid "GtkHash for Thunar"
-msgstr ""
+msgstr "থুনারের জন্য জিটিকেহ্যাশ"
 
 #: data/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
@@ -185,7 +182,7 @@ msgstr "চেকসাম ক্যালকুলেটর"
 
 #: data/org.gtkhash.gtkhash.desktop.in:5
 msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
-msgstr ""
+msgstr "hash;checksum;digest;md5;sha1;sha256;crc32;"
 
 #: src/callbacks.c:53 src/callbacks.c:57
 msgid "Open Digest File"
@@ -265,7 +262,7 @@ msgstr "\"%s\" ফাইলটি যুক্ত করতে ব্যর্�
 
 #: src/gui.c:350
 msgid "Discarding invalid characters from digest"
-msgstr ""
+msgstr "অবৈধ অক্ষর ডাইজেস্ট থেকে বাদ দেওয়া হচ্ছে"
 
 #: src/hash.c:183
 #, c-format
@@ -293,16 +290,14 @@ msgid "FILE|URI"
 msgstr "ফাইল|URI"
 
 #: src/opts.c:106
-#, fuzzy
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
-msgstr "নির্দিষ্ট হ্যাশ ফাংশন সক্ষম করুন (উদাঃ এমডি৫)"
+msgstr "নির্দিষ্ট হ্যাশ ফাংশন সক্রিয় বা নিষ্ক্রিয় করুন"
 
 #: src/opts.c:107
-#, fuzzy
 msgctxt " --help"
 msgid "[+-]FUNCTION"
-msgstr "ফাংশন"
+msgstr "[+-]ফাংশন"
 
 #: src/opts.c:111
 msgctxt " --help"
