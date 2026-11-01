@@ -404,6 +404,11 @@ static void test_opt_check_text(void)
 	g_test_trap_assert_stdout("0123abcdef*");
 }
 
+G_NORETURN static gboolean test_exit_success(G_GNUC_UNUSED void *data)
+{
+	exit(EXIT_SUCCESS);
+}
+
 static void test_opt_check_file(void)
 {
 	if (g_test_subprocess()) {
@@ -426,7 +431,7 @@ static void test_opt_check_file(void)
 
 		// OK to exit before finish, with warnings
 		g_test_expect_message(G_LOG_DOMAIN, G_LOG_LEVEL_WARNING, "*");
-		gdk_threads_add_timeout_seconds(1, G_SOURCE_FUNC(exit), NULL);
+		g_timeout_add_seconds(1, test_exit_success, NULL);
 
 		for (;;)
 			gtk_main_iteration_do(false);
