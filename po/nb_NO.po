@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-31 14:20+0100\n"
+"POT-Creation-Date: 2026-11-01 01:28+0100\n"
 "PO-Revision-Date: 2020-05-11 14:41+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/gtkhash/"
@@ -71,7 +71,7 @@ msgstr "GtkHash-innstillinger"
 msgid "_About"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:729
+#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
 msgid "File"
 msgstr "Fil"
 
@@ -107,34 +107,34 @@ msgstr "Lim inn føljetong fra utklippstavle"
 msgid "HMAC Key:"
 msgstr "HMAC-nøkkel:"
 
-#: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
+#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:308
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
+#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:269
 msgid "_Stop"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:940
+#: data/gtkhash-gtk3.ui:904
 #, fuzzy
 msgid "Preferences"
 msgstr "GtkHash-innstillinger"
 
-#: data/gtkhash-gtk3.ui:958
+#: data/gtkhash-gtk3.ui:922
 msgid "_Close"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:993
+#: data/gtkhash-gtk3.ui:957
 #, fuzzy
 msgid "Hash Functions"
 msgstr "Sjekksummeringsfunksjoner:"
 
-#: data/gtkhash-gtk3.ui:1024
+#: data/gtkhash-gtk3.ui:988
 #, fuzzy
 msgid "MAC Functions"
 msgstr "Sjekksummeringsfunksjoner:"
 
-#: data/gtkhash-gtk3.ui:1046
+#: data/gtkhash-gtk3.ui:1010
 msgid "Digest Format:"
 msgstr "Føljetongsformat:"
 
@@ -264,18 +264,18 @@ msgstr "Sjekksummeringsfunksjon"
 msgid "Digest"
 msgstr "Føljetong"
 
-#: src/gui.c:280
+#: src/gui.c:282
 msgid "Not a regular file"
 msgstr "Ikke ei vanlig fil"
 
-#: src/gui.c:303
+#: src/gui.c:305
 #, fuzzy, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
 "Klarte ikke å legge til \"%s\":\n"
 "%s"
 
-#: src/gui.c:348
+#: src/gui.c:350
 msgid "Discarding invalid characters from digest"
 msgstr ""
 

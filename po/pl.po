@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-31 14:20+0100\n"
+"POT-Creation-Date: 2026-11-01 01:28+0100\n"
 "PO-Revision-Date: 2026-10-18 20:24+0000\n"
 "Last-Translator: Matthaiks <kityn@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/"
@@ -71,7 +71,7 @@ msgstr "_Preferencje"
 msgid "_About"
 msgstr "_Informacje"
 
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:729
+#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
 msgid "File"
 msgstr "Plik"
 
@@ -105,31 +105,31 @@ msgstr "Wkleja skrót ze schowka"
 msgid "HMAC Key:"
 msgstr "Klucz HMAC:"
 
-#: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
+#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:308
 msgid "_Hash"
 msgstr "_Suma kontrolna"
 
-#: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
+#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:269
 msgid "_Stop"
 msgstr "Za_trzymaj"
 
-#: data/gtkhash-gtk3.ui:940
+#: data/gtkhash-gtk3.ui:904
 msgid "Preferences"
 msgstr "Preferencje"
 
-#: data/gtkhash-gtk3.ui:958
+#: data/gtkhash-gtk3.ui:922
 msgid "_Close"
 msgstr "_Zamknij"
 
-#: data/gtkhash-gtk3.ui:993
+#: data/gtkhash-gtk3.ui:957
 msgid "Hash Functions"
 msgstr "Funkcje sum kontrolnych"
 
-#: data/gtkhash-gtk3.ui:1024
+#: data/gtkhash-gtk3.ui:988
 msgid "MAC Functions"
 msgstr "Funkcje MAC"
 
-#: data/gtkhash-gtk3.ui:1046
+#: data/gtkhash-gtk3.ui:1010
 msgid "Digest Format:"
 msgstr "Format skrótu:"
 
@@ -258,16 +258,16 @@ msgstr "Funkcja sum kontrolnych"
 msgid "Digest"
 msgstr "Skrót"
 
-#: src/gui.c:280
+#: src/gui.c:282
 msgid "Not a regular file"
 msgstr "Nie jest zwykłym plikiem"
 
-#: src/gui.c:303
+#: src/gui.c:305
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr "Dodanie pliku „%s” się nie powiodło: %s"
 
-#: src/gui.c:348
+#: src/gui.c:350
 msgid "Discarding invalid characters from digest"
 msgstr "Usuwanie nieprawidłowych znaków ze skrótów"
 

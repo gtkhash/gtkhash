@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-10-31 14:20+0100\n"
+"POT-Creation-Date: 2026-11-01 01:28+0100\n"
 "PO-Revision-Date: 2025-11-07 08:51+0000\n"
 "Last-Translator: Vlad Nenea <cybernenea11@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Moldavian <https://hosted.weblate.org/projects/gtkhash/"
@@ -70,7 +70,7 @@ msgstr "Параметре GtkHash"
 msgid "_About"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:729
+#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
 msgid "File"
 msgstr "Фишиер"
 
@@ -106,32 +106,32 @@ msgstr "Инсераря дайӂестулуй дин медиул де ски�
 msgid "HMAC Key:"
 msgstr "Кее HMAC:"
 
-#: data/gtkhash-gtk3.ui:856 src/extensions/common/properties.ui:308
+#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:308
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:895 src/extensions/common/properties.ui:269
+#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:269
 msgid "_Stop"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:940
+#: data/gtkhash-gtk3.ui:904
 #, fuzzy
 msgid "Preferences"
 msgstr "Параметре GtkHash"
 
-#: data/gtkhash-gtk3.ui:958
+#: data/gtkhash-gtk3.ui:922
 msgid "_Close"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:993
+#: data/gtkhash-gtk3.ui:957
 msgid "Hash Functions"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:1024
+#: data/gtkhash-gtk3.ui:988
 msgid "MAC Functions"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:1046
+#: data/gtkhash-gtk3.ui:1010
 msgid "Digest Format:"
 msgstr ""
 
@@ -254,16 +254,16 @@ msgstr ""
 msgid "Digest"
 msgstr ""
 
-#: src/gui.c:280
+#: src/gui.c:282
 msgid "Not a regular file"
 msgstr ""
 
-#: src/gui.c:303
+#: src/gui.c:305
 #, c-format
 msgid "Failed to add file \"%s\": %s"
 msgstr ""
 
-#: src/gui.c:348
+#: src/gui.c:350
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
