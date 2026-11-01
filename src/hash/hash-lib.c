@@ -106,7 +106,7 @@ static const struct {
 #define HASH_LIB_INVALID (-1)
 static int hash_libs[HASH_FUNCS_N];
 
-static void gtkhash_hash_lib_init_once(void)
+static void *gtkhash_hash_lib_init_once(G_GNUC_UNUSED void *data)
 {
 	// Init all lib selections to be invalid
 	for (enum hash_func_e id = 0; id < HASH_FUNCS_N; id++)
@@ -124,12 +124,14 @@ static void gtkhash_hash_lib_init_once(void)
 			}
 		}
 	}
+
+	return NULL;
 }
 
 bool gtkhash_hash_lib_is_supported(const enum hash_func_e id)
 {
 	static GOnce once = G_ONCE_INIT;
-	g_once(&once, (GThreadFunc)gtkhash_hash_lib_init_once, NULL);
+	g_once(&once, gtkhash_hash_lib_init_once, NULL);
 
 	return (hash_libs[id] != HASH_LIB_INVALID);
 }
