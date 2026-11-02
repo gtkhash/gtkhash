@@ -32,9 +32,11 @@ struct page_s {
 	GtkWidget *box, *hbox_hmac;
 	GtkProgressBar *progressbar;
 	GtkTreeView *treeview;
+	GtkTreeViewColumn *treeviewcolumn_enabled;
 	GtkTreeSelection *treeselection;
 	GtkCellRendererToggle *cellrendtoggle;
 	GtkListStore *liststore;
+	GtkTreeModelFilter *treemodelfilter;
 	GtkMenu *menu;
 	GtkMenuItem *menuitem_copy;
 	GtkCheckMenuItem *menuitem_show_funcs;
