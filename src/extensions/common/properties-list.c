@@ -91,7 +91,7 @@ void gtkhash_properties_list_update_hash_func_names(struct page_s *page)
 	if (!gtk_tree_model_get_iter_first(model, &iter))
 		return;
 
-	const bool hmac = gtk_toggle_button_get_active(page->togglebutton_hmac);
+	const bool hmac_enabled = gtk_toggle_button_get_active(page->togglebutton_hmac);
 
 	do {
 		int id;
@@ -100,19 +100,10 @@ void gtkhash_properties_list_update_hash_func_names(struct page_s *page)
 		if (!page->funcs[id].hmac_supported)
 			continue;
 
-		if (hmac) {
-			char *name = g_strdup_printf("HMAC-%s", page->funcs[id].name);
-			gtk_list_store_set(page->liststore, &iter,
-				COL_HASH_FUNC, name,
-				COL_DIGEST, "",
-				-1);
-			g_free(name);
-		} else {
-			gtk_list_store_set(page->liststore, &iter,
-				COL_HASH_FUNC, page->funcs[id].name,
-				COL_DIGEST, "",
-				-1);
-		}
+		gtk_list_store_set(page->liststore, &iter,
+			COL_HASH_FUNC, hmac_enabled ? page->funcs[id].hmac_name : page->funcs[id].name,
+			COL_DIGEST, "",
+			-1);
 	} while (gtk_tree_model_iter_next(model, &iter));
 }
 
