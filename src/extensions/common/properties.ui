@@ -80,6 +80,7 @@
             </child>
             <child>
               <object class="GtkTreeViewColumn" id="treeviewcolumn_hash_func">
+                <property name="sizing">autosize</property>
                 <property name="title" translatable="yes">Hash Function</property>
                 <child>
                   <object class="GtkCellRendererText" id="cellrenderertext_hash_func"/>
@@ -92,6 +93,7 @@
             </child>
             <child>
               <object class="GtkTreeViewColumn" id="treeviewcolumn_digest">
+                <property name="sizing">autosize</property>
                 <property name="title" translatable="yes">Digest</property>
                 <child>
                   <object class="GtkCellRendererText" id="cellrenderertext_digest"/>

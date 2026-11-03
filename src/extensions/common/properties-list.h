@@ -35,6 +35,7 @@ void gtkhash_properties_list_set_digest(struct page_s *page, enum hash_func_e id
 char *gtkhash_properties_list_get_selected_digest(struct page_s *page);
 bool gtkhash_properties_list_hash_selected(struct page_s *page);
 void gtkhash_properties_list_refilter(struct page_s *page);
+void gtkhash_properties_list_sort(struct page_s *page);
 void gtkhash_properties_list_init(struct page_s *page);
 
 #endif

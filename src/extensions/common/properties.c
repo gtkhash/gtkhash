@@ -48,6 +48,8 @@ static void gtkhash_properties_busy(struct page_s *page)
 {
 	page->busy = true;
 
+	gtkhash_properties_list_sort(page);
+
 	gtk_widget_set_sensitive(GTK_WIDGET(page->treeview), false);
 	gtk_widget_set_sensitive(GTK_WIDGET(page->hbox_hmac), false);
 
@@ -125,12 +127,11 @@ static gboolean gtkhash_properties_on_treeview_button_press_event(
 	return GDK_EVENT_PROPAGATE;
 }
 
-static void gtkhash_properties_on_treeview_row_activated(
-	struct page_s *page, GtkTreePath *path, GtkTreeViewColumn *column,
-	G_GNUC_UNUSED GtkTreeView *treeview)
+static void gtkhash_properties_on_treeview_row_activated(struct page_s *page, GtkTreePath *path,
+	GtkTreeViewColumn *column, G_GNUC_UNUSED GtkTreeView *treeview)
 {
 	// Ignore checkbutton column
-	if (!*gtk_tree_view_column_get_title(column))
+	if (column == page->treeviewcolumn_enabled)
 		return;
 
 	if (!gtk_tree_selection_path_is_selected(page->treeselection, path))
@@ -161,9 +162,11 @@ static gboolean gtkhash_properties_on_menu_map_event(struct page_s *page)
 
 static void gtkhash_properties_on_menuitem_copy_activate(struct page_s *page)
 {
-	GtkClipboard *clipboard = gtk_clipboard_get(GDK_NONE);
 	char *digest = gtkhash_properties_list_get_selected_digest(page);
+	if (!digest)
+		return;
 
+	GtkClipboard *clipboard = gtk_clipboard_get(GDK_NONE);
 	gtk_clipboard_set_text(clipboard, digest, -1);
 
 	g_free(digest);
@@ -197,14 +200,14 @@ static void gtkhash_properties_on_entry_check_changed(struct page_s *page)
 	gtkhash_properties_list_check_digests(page);
 }
 
-static void gtkhash_properties_on_entry_check_icon_press(GtkEntry *entry,
-	GtkEntryIconPosition pos, GdkEventButton *event)
+static void gtkhash_properties_on_entry_check_icon_press(GtkEntry *entry, GtkEntryIconPosition pos,
+	GdkEventButton *event)
 {
 	if (pos != GTK_ENTRY_ICON_PRIMARY)
 		return;
 	if (event->type != GDK_BUTTON_PRESS)
 		return;
-	if (event->button != 1)
+	if (event->button != GDK_BUTTON_PRIMARY)
 		return;
 
 	gtk_entry_set_text(entry, "");
@@ -216,16 +219,15 @@ static void gtkhash_properties_on_entry_hmac_changed(struct page_s *page)
 	gtkhash_properties_list_clear_digests(page);
 }
 
-static void gtkhash_properties_on_menuitem_show_hmac_key_toggled(
-	GtkCheckMenuItem *item, GtkEntry *entry)
+static void gtkhash_properties_on_menuitem_show_hmac_key_toggled(GtkCheckMenuItem *item,
+	GtkEntry *entry)
 {
 	const bool active = gtk_check_menu_item_get_active(item);
 
 	gtk_entry_set_visibility(entry, active);
 }
 
-static void gtkhash_properties_on_entry_hmac_populate_popup(GtkEntry *entry,
-	GtkMenu *menu)
+static void gtkhash_properties_on_entry_hmac_populate_popup(GtkEntry *entry, GtkMenu *menu)
 {
 	GtkWidget *item;
 
@@ -236,8 +238,7 @@ static void gtkhash_properties_on_entry_hmac_populate_popup(GtkEntry *entry,
 
 	item = gtk_check_menu_item_new_with_mnemonic(_("_Show HMAC Key"));
 	// Add checkbutton
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item),
-		gtk_entry_get_visibility(entry));
+	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), gtk_entry_get_visibility(entry));
 	gtk_widget_show(item);
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
 	g_signal_connect(item, "toggled", G_CALLBACK(
@@ -256,8 +257,7 @@ static void gtkhash_properties_on_button_hash_clicked(struct page_s *page)
 	gtkhash_properties_list_clear_digests(page);
 
 	if (gtk_toggle_button_get_active(page->togglebutton_hmac)) {
-		const uint8_t *hmac_key = (uint8_t *)gtk_entry_get_text(
-			page->entry_hmac);
+		const uint8_t *hmac_key = (uint8_t *)gtk_entry_get_text(page->entry_hmac);
 		GtkEntryBuffer *buffer = gtk_entry_get_buffer(page->entry_hmac);
 		const size_t key_size = gtk_entry_buffer_get_bytes(buffer);
 		gtkhash_properties_hash_start(page, NULL, hmac_key, key_size);
@@ -286,8 +286,7 @@ static void gtkhash_properties_free_page(struct page_s *page)
 	g_free(page);
 }
 
-static void gtkhash_properties_init_objects(struct page_s *page,
-	GtkBuilder *builder)
+static void gtkhash_properties_init_objects(struct page_s *page, GtkBuilder *builder)
 {
 	// Main container
 	page->box = GTK_WIDGET(gtkhash_properties_get_object(builder,
@@ -301,12 +300,16 @@ static void gtkhash_properties_init_objects(struct page_s *page,
 	// Treeview
 	page->treeview = GTK_TREE_VIEW(gtkhash_properties_get_object(builder,
 		"treeview"));
+	page->treeviewcolumn_enabled = GTK_TREE_VIEW_COLUMN(gtkhash_properties_get_object(builder,
+		"treeviewcolumn_enabled"));
 	page->treeselection = GTK_TREE_SELECTION(gtkhash_properties_get_object(builder,
 		"treeselection"));
 	page->cellrendtoggle = GTK_CELL_RENDERER_TOGGLE(gtkhash_properties_get_object(builder,
 		"cellrenderertoggle"));
 	page->liststore = GTK_LIST_STORE(gtkhash_properties_get_object(builder,
 		"liststore"));
+	page->treemodelfilter = GTK_TREE_MODEL_FILTER(gtkhash_properties_get_object(builder,
+		"treemodelfilter"));
 
 	// Popup menu
 	page->menu = GTK_MENU(gtkhash_properties_get_object(builder,
