@@ -301,12 +301,11 @@ void check_file_save(const char * const filename)
 				if (!(digest && *digest))
 					continue;
 
-				const bool hmac_active = gtk_toggle_button_get_active(
-					gui.togglebutton_hmac_file);
+				const bool hmac_enabled = gtk_toggle_button_get_active(gui.togglebutton_hmac_file);
 
-				g_string_append_printf(string,
-					(hmac_active && hash.funcs[i].hmac_supported) ?
-					"# HMAC-%s\n" : "# %s\n", hash.funcs[i].name);
+				g_string_append_printf(string, "# %s\n",
+					(hmac_enabled && hash.funcs[i].hmac_supported) ?
+					hash.funcs[i].hmac_name : hash.funcs[i].name);
 
 				GFile *file = gtk_file_chooser_get_file(
 					GTK_FILE_CHOOSER(gui.filechooserbutton));
@@ -322,12 +321,11 @@ void check_file_save(const char * const filename)
 				break;
 			}
 			case GUI_VIEW_TEXT: {
-				const bool hmac_active = gtk_toggle_button_get_active(
-					gui.togglebutton_hmac_text);
+				const bool hmac_enabled = gtk_toggle_button_get_active(gui.togglebutton_hmac_text);
 
-				g_string_append_printf(string,
-					(hmac_active && hash.funcs[i].hmac_supported) ?
-					"# HMAC-%s\n" : "# %s\n", hash.funcs[i].name);
+				g_string_append_printf(string, "# %s\n",
+					(hmac_enabled && hash.funcs[i].hmac_supported) ?
+					hash.funcs[i].hmac_name : hash.funcs[i].name);
 				g_string_append_printf(string, "%s  \"%s\"\n",
 					gtk_entry_get_text(gui.hash_widgets[i].entry_text),
 					gtk_entry_get_text(gui.entry_text));

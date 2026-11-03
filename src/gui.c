@@ -527,20 +527,16 @@ void gui_update_hash_func_labels(const bool hmac_enabled)
 		if (!hash.funcs[i].enabled)
 			continue;
 
-		char *str = NULL;
-
-		// FIXME: different labels for RTL?
-		if (hmac_enabled && hash.funcs[i].hmac_supported)
-			str = g_strdup_printf("HMAC-%s:", hash.funcs[i].name);
-		else
-			str = g_strdup_printf("%s:", hash.funcs[i].name);
+		char *label = g_strdup_printf("%s:",
+			(hmac_enabled && hash.funcs[i].hmac_supported) ?
+			hash.funcs[i].hmac_name : hash.funcs[i].name);
 
 		if (gui.view == GUI_VIEW_FILE)
-			gtk_button_set_label(GTK_BUTTON(gui.hash_widgets[i].label_file), str);
+			gtk_button_set_label(GTK_BUTTON(gui.hash_widgets[i].label_file), label);
 		else
-			gtk_label_set_text(gui.hash_widgets[i].label_text, str);
+			gtk_label_set_text(gui.hash_widgets[i].label_text, label);
 
-		g_free(str);
+		g_free(label);
 	}
 }
 

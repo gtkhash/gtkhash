@@ -31,40 +31,41 @@
 
 static const struct {
 	const char * const name;
+	const char * const hmac_name;
 	const uint8_t digest_size;
 	const uint8_t block_size; // for HMAC
 } hash_func_data[HASH_FUNCS_N] = {
-	[HASH_FUNC_ADLER32]     = { "ADLER32",       4,   0 },
-	[HASH_FUNC_BLAKE2B]     = { "BLAKE2b",      64, 128 },
-	[HASH_FUNC_BLAKE2BP]    = { "BLAKE2bp",     64,   0 },
-	[HASH_FUNC_BLAKE2S]     = { "BLAKE2s",      32,  64 },
-	[HASH_FUNC_BLAKE2SP]    = { "BLAKE2sp",     32,   0 },
-	[HASH_FUNC_BLAKE3]      = { "BLAKE3",       32,   0 },
-	[HASH_FUNC_CRC32]       = { "CRC32",         4,   0 },
-	[HASH_FUNC_GOST]        = { "GOST",         32,   0 },
-	[HASH_FUNC_MD2]         = { "MD2",          16,   0 },
-	[HASH_FUNC_MD4]         = { "MD4",          16,   0 },
-	[HASH_FUNC_MD5]         = { "MD5",          16,  64 },
-	[HASH_FUNC_MDC2]        = { "MDC2",         16,   0 },
-	[HASH_FUNC_RIPEMD160]   = { "RIPEMD160",    20,  64 },
-	[HASH_FUNC_SHA1]        = { "SHA1",         20,  64 },
-	[HASH_FUNC_SHA224]      = { "SHA224",       28,  64 },
-	[HASH_FUNC_SHA256]      = { "SHA256",       32,  64 },
-	[HASH_FUNC_SHA384]      = { "SHA384",       48, 128 },
-	[HASH_FUNC_SHA512]      = { "SHA512",       64, 128 },
-	[HASH_FUNC_SHA3_224]    = { "SHA3-224",     28, 144 },
-	[HASH_FUNC_SHA3_256]    = { "SHA3-256",     32, 136 },
-	[HASH_FUNC_SHA3_384]    = { "SHA3-384",     48, 104 },
-	[HASH_FUNC_SHA3_512]    = { "SHA3-512",     64,  72 },
-	[HASH_FUNC_SM3]         = { "SM3",          32,   0 },
-	[HASH_FUNC_STREEBOG256] = { "STREEBOG256",  32,   0 },
-	[HASH_FUNC_STREEBOG512] = { "STREEBOG512",  64,   0 },
-	[HASH_FUNC_TIGER192]    = { "TIGER192",     24,   0 },
-	[HASH_FUNC_WHIRLPOOL]   = { "WHIRLPOOL",    64,   0 },
-	[HASH_FUNC_XXH32]       = { "XXH32",         4,   0 },
-	[HASH_FUNC_XXH64]       = { "XXH64",         8,   0 },
-	[HASH_FUNC_XXH3]        = { "XXH3",          8,   0 },
-	[HASH_FUNC_XXH128]      = { "XXH128",       16,   0 },
+	[HASH_FUNC_ADLER32]     = { "ADLER32",     "",                4,   0 },
+	[HASH_FUNC_BLAKE2B]     = { "BLAKE2b",     "HMAC-BLAKE2b",   64, 128 },
+	[HASH_FUNC_BLAKE2BP]    = { "BLAKE2bp",    "",               64,   0 },
+	[HASH_FUNC_BLAKE2S]     = { "BLAKE2s",     "HMAC-BLAKE2s",   32,  64 },
+	[HASH_FUNC_BLAKE2SP]    = { "BLAKE2sp",    "",               32,   0 },
+	[HASH_FUNC_BLAKE3]      = { "BLAKE3",      "",               32,   0 },
+	[HASH_FUNC_CRC32]       = { "CRC32",       "",                4,   0 },
+	[HASH_FUNC_GOST]        = { "GOST",        "",               32,   0 },
+	[HASH_FUNC_MD2]         = { "MD2",         "",               16,   0 },
+	[HASH_FUNC_MD4]         = { "MD4",         "",               16,   0 },
+	[HASH_FUNC_MD5]         = { "MD5",         "HMAC-MD5",       16,  64 },
+	[HASH_FUNC_MDC2]        = { "MDC2",        "",               16,   0 },
+	[HASH_FUNC_RIPEMD160]   = { "RIPEMD160",   "HMAC-RIPEMD160", 20,  64 },
+	[HASH_FUNC_SHA1]        = { "SHA1",        "HMAC-SHA1",      20,  64 },
+	[HASH_FUNC_SHA224]      = { "SHA224",      "HMAC-SHA224",    28,  64 },
+	[HASH_FUNC_SHA256]      = { "SHA256",      "HMAC-SHA256",    32,  64 },
+	[HASH_FUNC_SHA384]      = { "SHA384",      "HMAC-SHA384",    48, 128 },
+	[HASH_FUNC_SHA512]      = { "SHA512",      "HMAC-SHA512",    64, 128 },
+	[HASH_FUNC_SHA3_224]    = { "SHA3-224",    "HMAC-SHA3-224",  28, 144 },
+	[HASH_FUNC_SHA3_256]    = { "SHA3-256",    "HMAC-SHA3-256",  32, 136 },
+	[HASH_FUNC_SHA3_384]    = { "SHA3-384",    "HMAC-SHA3-384",  48, 104 },
+	[HASH_FUNC_SHA3_512]    = { "SHA3-512",    "HMAC-SHA3-512",  64,  72 },
+	[HASH_FUNC_SM3]         = { "SM3",         "",               32,   0 },
+	[HASH_FUNC_STREEBOG256] = { "STREEBOG256", "",               32,   0 },
+	[HASH_FUNC_STREEBOG512] = { "STREEBOG512", "",               64,   0 },
+	[HASH_FUNC_TIGER192]    = { "TIGER192",    "",               24,   0 },
+	[HASH_FUNC_WHIRLPOOL]   = { "WHIRLPOOL",   "",               64,   0 },
+	[HASH_FUNC_XXH32]       = { "XXH32",       "",                4,   0 },
+	[HASH_FUNC_XXH64]       = { "XXH64",       "",                8,   0 },
+	[HASH_FUNC_XXH3]        = { "XXH3",        "",                8,   0 },
+	[HASH_FUNC_XXH128]      = { "XXH128",      "",               16,   0 },
 };
 
 enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name)
@@ -198,12 +199,13 @@ void gtkhash_hash_func_init(struct hash_func_s *func, const enum hash_func_e id)
 	func->supported = gtkhash_hash_lib_is_supported(id);
 	func->enabled = false;
 	func->name = hash_func_data[id].name;
+	func->hmac_name = hash_func_data[id].hmac_name;
 	func->digest = gtkhash_digest_new();
 	func->lib_data = NULL;
 	func->hmac_data = NULL;
 	func->digest_size = hash_func_data[id].digest_size;
 	func->block_size = hash_func_data[id].block_size;
-	func->hmac_supported = (hash_func_data[id].block_size > 0);
+	func->hmac_supported = (func->block_size > 0 && *func->hmac_name);
 }
 
 void gtkhash_hash_func_init_all(struct hash_func_s *funcs)

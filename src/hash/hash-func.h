@@ -68,6 +68,7 @@ enum hash_func_e {
 
 struct hash_func_s {
 	const char *name;
+	const char *hmac_name;
 	struct digest_s *digest;
 	void *lib_data;
 	struct hash_func_s *hmac_data;
