@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-11-01 01:28+0100\n"
+"POT-Creation-Date: 2026-11-03 00:31+0000\n"
 "PO-Revision-Date: 2021-04-05 17:26+0000\n"
 "Last-Translator: Ahmed Eldemery <aeldemery.de@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/gtkhash/"
@@ -94,25 +94,25 @@ msgstr "الملف:"
 msgid "Text:"
 msgstr "النص:"
 
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:133
+#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
 msgid "Check:"
 msgstr "فحص:"
 
 #: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:148
+#: src/extensions/common/properties.ui:150
 msgid "Paste digest from clipboard"
 msgstr "انسخ الخوارزمية المحسوبة من الحافظة"
 
 #: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:174
+#: src/extensions/common/properties.ui:176
 msgid "HMAC Key:"
 msgstr "مفتاح HMAC:"
 
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:308
+#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:269
+#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
 msgid "_Stop"
 msgstr ""
 
@@ -235,7 +235,7 @@ msgstr "Ahmed Eldemery, aeldemery.de at gmail"
 msgid "Select Files"
 msgstr "اختر الملفات"
 
-#: src/callbacks.c:473 src/extensions/common/properties.c:231
+#: src/callbacks.c:472 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "أ_ظهر مفتاح HMAC"
 
@@ -252,11 +252,11 @@ msgstr "ا_نسخ رقم التحقق"
 msgid "Show _Disabled Hash Functions"
 msgstr "أظهر دوال التجزئة الم_عطلة"
 
-#: src/extensions/common/properties.ui:83
+#: src/extensions/common/properties.ui:84
 msgid "Hash Function"
 msgstr "دالة الهاش"
 
-#: src/extensions/common/properties.ui:95
+#: src/extensions/common/properties.ui:97
 msgid "Digest"
 msgstr "ملخص"
 
