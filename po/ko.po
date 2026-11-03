@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-11-01 01:28+0100\n"
+"POT-Creation-Date: 2026-11-03 00:31+0000\n"
 "PO-Revision-Date: 2023-09-11 10:49+0000\n"
 "Last-Translator: sarami <ppp821203@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/gtkhash/"
@@ -91,25 +91,25 @@ msgstr "파일:"
 msgid "Text:"
 msgstr "텍스트:"
 
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:133
+#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
 msgid "Check:"
 msgstr "체크:"
 
 #: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:148
+#: src/extensions/common/properties.ui:150
 msgid "Paste digest from clipboard"
 msgstr "클립보드에서 Digest 값 붙여넣기"
 
 #: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:174
+#: src/extensions/common/properties.ui:176
 msgid "HMAC Key:"
 msgstr "HMAC 키:"
 
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:308
+#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:269
+#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
 msgid "_Stop"
 msgstr ""
 
@@ -231,7 +231,7 @@ msgstr "번역기-크레딧"
 msgid "Select Files"
 msgstr "파일 선택"
 
-#: src/callbacks.c:473 src/extensions/common/properties.c:231
+#: src/callbacks.c:472 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "HMAC 키 표시(_S)"
 
@@ -248,11 +248,11 @@ msgstr "Digest 값 복사(_C)"
 msgid "Show _Disabled Hash Functions"
 msgstr "비활성화된 Hash 함수 표시(_D)"
 
-#: src/extensions/common/properties.ui:83
+#: src/extensions/common/properties.ui:84
 msgid "Hash Function"
 msgstr "Hash 함수"
 
-#: src/extensions/common/properties.ui:95
+#: src/extensions/common/properties.ui:97
 msgid "Digest"
 msgstr "Digest"
 

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-11-01 01:28+0100\n"
+"POT-Creation-Date: 2026-11-03 00:31+0000\n"
 "PO-Revision-Date: 2025-02-03 14:02+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/gtkhash/"
@@ -90,25 +90,25 @@ msgstr "Tiedosto:"
 msgid "Text:"
 msgstr "Teksti:"
 
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:133
+#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
 msgid "Check:"
 msgstr "Tarkista:"
 
 #: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:148
+#: src/extensions/common/properties.ui:150
 msgid "Paste digest from clipboard"
 msgstr "Liitä hajautus leikepöydältä"
 
 #: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:174
+#: src/extensions/common/properties.ui:176
 msgid "HMAC Key:"
 msgstr "HMAC-avain:"
 
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:308
+#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:269
+#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
 msgid "_Stop"
 msgstr ""
 
@@ -231,7 +231,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "Valitse tiedostot"
 
-#: src/callbacks.c:473 src/extensions/common/properties.c:231
+#: src/callbacks.c:472 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Näytä HMAC-avain"
 
@@ -248,11 +248,11 @@ msgstr "_Kopioi hajautus"
 msgid "Show _Disabled Hash Functions"
 msgstr "Näytä käytöstä _poistetut hajautusfunktiot"
 
-#: src/extensions/common/properties.ui:83
+#: src/extensions/common/properties.ui:84
 msgid "Hash Function"
 msgstr "Hajautusfunktio"
 
-#: src/extensions/common/properties.ui:95
+#: src/extensions/common/properties.ui:97
 msgid "Digest"
 msgstr "Hajautus"
 

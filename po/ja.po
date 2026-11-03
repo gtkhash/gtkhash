@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-11-01 01:28+0100\n"
+"POT-Creation-Date: 2026-11-03 00:31+0000\n"
 "PO-Revision-Date: 2020-07-03 21:08+0000\n"
 "Last-Translator: YAMADA Shinichirou "
 "<yamada_strong_yamada_nice_64bit@yahoo.co.jp>\n"
@@ -94,25 +94,25 @@ msgstr "ファイル:"
 msgid "Text:"
 msgstr "テキスト:"
 
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:133
+#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
 msgid "Check:"
 msgstr "チェック:"
 
 #: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:148
+#: src/extensions/common/properties.ui:150
 msgid "Paste digest from clipboard"
 msgstr "クリップボードからダイジェスト値を貼り付け"
 
 #: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:174
+#: src/extensions/common/properties.ui:176
 msgid "HMAC Key:"
 msgstr "HMAC キー:"
 
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:308
+#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:269
+#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
 msgid "_Stop"
 msgstr ""
 
@@ -239,7 +239,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "ファイルの選択"
 
-#: src/callbacks.c:473 src/extensions/common/properties.c:231
+#: src/callbacks.c:472 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "HMAC キーの表示(_S)"
 
@@ -256,11 +256,11 @@ msgstr "ダイジェスト値のコピー(_C)"
 msgid "Show _Disabled Hash Functions"
 msgstr "無効化されたハッシュ関数の表示(_D)"
 
-#: src/extensions/common/properties.ui:83
+#: src/extensions/common/properties.ui:84
 msgid "Hash Function"
 msgstr "ハッシュ関数"
 
-#: src/extensions/common/properties.ui:95
+#: src/extensions/common/properties.ui:97
 msgid "Digest"
 msgstr "ダイジェスト"
 

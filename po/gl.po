@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-11-01 01:28+0100\n"
+"POT-Creation-Date: 2026-11-03 00:31+0000\n"
 "PO-Revision-Date: 2026-10-15 23:15+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/gtkhash/"
@@ -94,25 +94,25 @@ msgstr "Ficheiro:"
 msgid "Text:"
 msgstr "Texto:"
 
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:133
+#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
 msgid "Check:"
 msgstr ""
 
 #: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:148
+#: src/extensions/common/properties.ui:150
 msgid "Paste digest from clipboard"
 msgstr ""
 
 #: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:174
+#: src/extensions/common/properties.ui:176
 msgid "HMAC Key:"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:308
+#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
 msgid "_Hash"
 msgstr ""
 
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:269
+#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
 msgid "_Stop"
 msgstr ""
 
@@ -237,7 +237,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "Seleccionar os ficheiros"
 
-#: src/callbacks.c:473 src/extensions/common/properties.c:231
+#: src/callbacks.c:472 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr ""
 
@@ -254,11 +254,11 @@ msgstr "_Copiar o valor hash"
 msgid "Show _Disabled Hash Functions"
 msgstr "Mostrar as funcións de hash _desactivadas"
 
-#: src/extensions/common/properties.ui:83
+#: src/extensions/common/properties.ui:84
 msgid "Hash Function"
 msgstr "Función de hash"
 
-#: src/extensions/common/properties.ui:95
+#: src/extensions/common/properties.ui:97
 msgid "Digest"
 msgstr "Valor hash"
 
