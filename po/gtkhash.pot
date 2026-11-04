@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GtkHash / Translations\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-04 23:24+0100\n"
+"POT-Creation-Date: 2026-11-04 23:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -314,12 +314,12 @@ msgid_plural "%u seconds left"
 msgstr[0] ""
 msgstr[1] ""
 
-#. Translators: This string is displayed when processing data from a file
-#. %1$s is the amount of data processed so far (e.g. "41.9 MB")
-#. %2$s is the file size (e.g. "4.8 GB")
-#. %3$s is the estimated time remaining (e.g. "3 minutes left")
-#. %4$s is the amount of data processed per second (e.g. "19.9 MB")
-#. Full example: "41.9 MB of 4.8 GB - 3 minutes left (19.9 MB/sec)"
+#. Translators: This text is displayed while processing data from a file.
+#. %1$s is the amount of data processed so far (e.g. "41.9 MB"),
+#. %2$s is the file size (e.g. "4.8 GB"),
+#. %3$s is the estimated time remaining (e.g. "3 minutes left"), and
+#. %4$s is the amount of data processed per second (e.g. "19.9 MB").
+#. Full example: "41.9 MB of 4.8 GB - 3 minutes left (19.9 MB/sec)".
 #: src/util/util.c:65
 #, c-format
 msgid "%1$s of %2$s - %3$s (%4$s/sec)"
