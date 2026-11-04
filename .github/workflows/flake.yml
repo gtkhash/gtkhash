@@ -5,19 +5,28 @@ on:
   pull_request:
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref_name != github.event.repository.default_branch }}
+
 jobs:
   build:
-    name: ${{ matrix.name }}
-    runs-on: ubuntu-latest
+    name: ${{ matrix.channel.name }} (${{ matrix.arch.name }})
+    runs-on: ${{ matrix.arch.runner }}
     strategy:
       fail-fast: false
       matrix:
-        include:
+        channel:
           - name: nixos-unstable
             build: nix build --print-build-logs
           - name: nixos-26.05
             build: nix build --print-build-logs --override-input nixpkgs github:NixOS/nixpkgs/nixos-26.05
+        arch:
+          - name: x86_64
+            runner: ubuntu-26.04
+          - name: aarch64
+            runner: ubuntu-26.04-arm
     steps:
       - uses: actions/checkout@v7
       - uses: cachix/install-nix-action@v31
-      - run: ${{ matrix.build }}
+      - run: ${{ matrix.channel.build }}

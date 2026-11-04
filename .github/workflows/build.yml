@@ -5,10 +5,14 @@ on:
   pull_request:
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref_name != github.event.repository.default_branch }}
+
 jobs:
   build:
-    name: ${{ matrix.os.name }} (${{ matrix.compiler }})
-    runs-on: ubuntu-latest
+    name: ${{ matrix.os.name }} (${{ matrix.os.arch || 'x86_64' }}, ${{ matrix.compiler }})
+    runs-on: ${{ matrix.os.runner || 'ubuntu-26.04' }}
     container:
       image: ${{ matrix.os.image }}
     env:
@@ -25,12 +29,17 @@ jobs:
             image: mirror.gcr.io/library/debian:stable
           - name: debian-testing
             image: mirror.gcr.io/library/debian:testing
+            dist: true
           - name: ubuntu-22.04-lts
             image: mirror.gcr.io/library/ubuntu:22.04
           - name: ubuntu-24.04-lts
             image: mirror.gcr.io/library/ubuntu:24.04
           - name: ubuntu-26.04-lts
             image: mirror.gcr.io/library/ubuntu:26.04
+          - name: ubuntu-26.04-lts
+            image: mirror.gcr.io/library/ubuntu:26.04
+            arch: aarch64
+            runner: ubuntu-26.04-arm
           - name: ubuntu-26.10
             image: mirror.gcr.io/library/ubuntu:26.10
     steps:
@@ -108,22 +117,22 @@ jobs:
         run: meson install -C _build --destdir _install
 
       - name: Generate test coverage report
-        if: matrix.os.name == 'debian-testing' && matrix.compiler == 'gcc'
+        if: matrix.os.dist && matrix.compiler == 'gcc'
         run: ninja -C _build coverage-xml
 
       - name: Upload test coverage report to Codecov
-        if: matrix.os.name == 'debian-testing' && matrix.compiler == 'gcc'
+        if: matrix.os.dist && matrix.compiler == 'gcc'
         uses: codecov/codecov-action@v7
         with:
           files: _build/meson-logs/coverage.xml
           verbose: true
 
       - name: meson dist
-        if: matrix.os.name == 'debian-testing' && matrix.compiler == 'gcc'
+        if: matrix.os.dist && matrix.compiler == 'gcc'
         run: meson dist -C _build --no-tests
 
       - uses: actions/upload-artifact@v7
-        if: matrix.os.name == 'debian-testing' && matrix.compiler == 'gcc'
+        if: matrix.os.dist && matrix.compiler == 'gcc'
         with:
           name: gtkhash-${{ github.sha }}
           path: _build/meson-dist/*
