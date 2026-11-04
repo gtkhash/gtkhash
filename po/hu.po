@@ -6,20 +6,21 @@
 # Noway Imtellingyouidiot <johns.videos+weblate@mailbox.org>, 2021.
 # Szia Tomi <sziatomi01@gmail.com>, 2024, 2025, 2026.
 # Szia Tomi <sziatomi@users.noreply.hosted.weblate.org>, 2026.
+# Tristan Heaven <tristan@tristanheaven.net>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-04 02:32+0000\n"
-"PO-Revision-Date: 2026-10-23 16:51+0000\n"
-"Last-Translator: Szia Tomi <sziatomi@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2026-11-04 17:52+0000\n"
+"Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/translations/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.11.dev0\n"
+"X-Generator: Weblate 2026.11.1.dev0\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
 #: src/extensions/caja/module.c:51 src/extensions/nautilus/properties.c:154
@@ -112,7 +113,7 @@ msgstr "Asztali segédprogram üzenetkivonatok vagy ellenőrző összegek kiszá
 
 #: src/callbacks.c:205
 msgid "translator-credits"
-msgstr "sziatomi sziatomi01@gmail.com"
+msgstr "sziatomi <sziatomi01@gmail.com>"
 
 #: src/callbacks.c:235
 msgid "Select Files"
