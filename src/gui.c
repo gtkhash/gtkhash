@@ -40,7 +40,7 @@
 #include "hash/hash-func.h"
 #include "util/util.h"
 
-#define GUI_XML_RESOURCE "/org/gtkhash/gtkhash-gtk3.ui"
+#define GUI_XML_RESOURCE "/org/gtkhash/window.ui"
 
 struct gui_s gui = {
 	.view = GUI_VIEW_INVALID,

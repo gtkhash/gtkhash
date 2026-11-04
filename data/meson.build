@@ -36,5 +36,3 @@ if build_gtkhash
         )
     endif
 endif
-
-gtkhash_gtk3_gresource = files('gtkhash-gtk3.gresource.xml')

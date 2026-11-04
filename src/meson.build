@@ -6,6 +6,8 @@ if enable_extensions
 endif
 
 if build_gtkhash
+    subdir('ui')
+
     gtkhash_common_sources = [
         'callbacks.c',
         'check.c',
@@ -15,17 +17,6 @@ if build_gtkhash
         'opts.c',
         'uri-digest.c',
     ]
-
-    gtkhash_resources = gnome.compile_resources(
-        'resources',
-        gtkhash_gtk3_gresource,
-        c_name: 'resources',
-        source_dir: meson.current_source_dir() / '..' / 'data',
-        extra_args: [
-            '--internal',
-            '--manual-register',
-        ],
-    )
 
     gtkhash = executable(
         'gtkhash',
