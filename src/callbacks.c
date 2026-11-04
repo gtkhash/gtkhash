@@ -64,10 +64,6 @@ static void on_action_open(void)
 	gtk_file_chooser_set_select_multiple(chooser, true);
 	gtk_file_chooser_set_local_only(chooser, false);
 
-#ifndef G_OS_WIN32
-	/* Note: Adding filters causes GTK to fallback to GtkFileChooserDialog.
-	   On Windows, having a native file chooser is definitely preferable. */
-
 	GtkFileFilter *filter = NULL;
 
 	filter = gtk_file_filter_new();
@@ -80,7 +76,6 @@ static void on_action_open(void)
 	gtk_file_filter_set_name(filter, _("All Files"));
 	gtk_file_filter_add_pattern(filter, "*");
 	gtk_file_chooser_add_filter(chooser, filter);
-#endif
 
 #if ENABLE_NATIVE_FILE_CHOOSER
 	if (gtk_native_dialog_run(GTK_NATIVE_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
