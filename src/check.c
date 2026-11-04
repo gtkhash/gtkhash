@@ -33,6 +33,7 @@
 #include "list.h"
 #include "uri-digest.h"
 #include "hash/hash-func.h"
+#include "util/util.h"
 
 #define CHECK_FORMAT_N 3
 
@@ -222,16 +223,6 @@ static GSList *check_file_add_uri(GSList *ud_list, GFile *file,
 	return ud_list;
 }
 
-static void check_file_error(GFile *file, GError *error)
-{
-	g_assert(error);
-
-	char *uri = g_file_get_uri(file);
-	g_message(_("Failed to read check file \"%s\": %s"), uri,
-		error->message);
-	g_free(uri);
-}
-
 GSList *check_file_load(GSList *ud_list, GFile *file)
 {
 	g_assert(file);
@@ -241,7 +232,7 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 	GFileInputStream *fis = g_file_read(file, NULL, &error);
 
 	if (!fis) {
-		check_file_error(file, error);
+		gtkhash_file_error(file, error);
 		g_error_free(error);
 		return ud_list;
 	}
@@ -272,7 +263,9 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 	}
 
 	if (error) {
-		check_file_error(file, error);
+		char *uri = g_file_get_uri(file);
+		g_message("%s: %s", uri, error->message);
+		g_free(uri);
 		g_error_free(error);
 	} else
 		check_file_enable_hinted_hash_func(file);

@@ -23,6 +23,7 @@
 
 #include <stdlib.h>
 #include <glib.h>
+#include <gio/gio.h>
 
 #include "util.h"
 #include "../main.h"
@@ -55,7 +56,13 @@ char *gtkhash_format_progress(const goffset file_size,
 	char *speed_str = g_format_size(total_read / elapsed);
 	char *text;
 
-	text = g_strdup_printf(_("%s of %s - %s (%s/sec)"),
+	// Translators: This string is displayed when processing data from a file
+	// %1$s is the amount of data processed so far (e.g. "41.9 MB")
+	// %2$s is the file size (e.g. "4.8 GB")
+	// %3$s is the estimated time remaining (e.g. "3 minutes left")
+	// %4$s is the amount of data processed per second (e.g. "19.9 MB")
+	// Full example: "41.9 MB of 4.8 GB - 3 minutes left (19.9 MB/sec)"
+	text = g_strdup_printf(_("%1$s of %2$s - %3$s (%4$s/sec)"),
 		total_read_str, file_size_str, time_left_str, speed_str);
 
 	g_free(speed_str);
@@ -92,4 +99,19 @@ char *gtkhash_filter_digest_chars(const char *text, const size_t len)
 	filtered[filtered_len] = '\0';
 
 	return filtered;
+}
+
+void gtkhash_file_error(GFile *file, const GError *error)
+{
+	g_assert(file);
+	g_assert(error);
+
+	if (g_file_is_native(file)) {
+		// message contains the file path
+		g_message("%s", error->message);
+	} else {
+		char *uri = g_file_get_uri(file);
+		g_message("%s: %s", uri, error->message);
+		g_free(uri);
+	}
 }

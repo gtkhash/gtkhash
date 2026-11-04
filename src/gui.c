@@ -257,37 +257,43 @@ void gui_init(void)
 	gui_set_state(GUI_STATE_IDLE);
 }
 
-static char *gui_try_uri(const char *uri)
+static bool gui_try_uri(const char * const uri)
 {
 	g_assert(uri);
 
-	char *error_str = NULL;
-
+	bool readable = false;
 	GFile *file = g_file_new_for_uri(uri);
+
 	GError *error = NULL;
-	GFileInfo *info = g_file_query_info(file,
-		G_FILE_ATTRIBUTE_STANDARD_TYPE "," G_FILE_ATTRIBUTE_ACCESS_CAN_READ,
+	GFileInfo *info = g_file_query_info(file, G_FILE_ATTRIBUTE_STANDARD_TYPE,
 		G_FILE_QUERY_INFO_NONE, NULL, &error);
 
-	if (info) {
-		bool can_read = g_file_info_get_attribute_boolean(info,
-			G_FILE_ATTRIBUTE_ACCESS_CAN_READ);
-		GFileType type = g_file_info_get_file_type(info);
-		g_object_unref(info);
-		if (!can_read)
-			error_str = g_strdup(g_strerror(EACCES));
-		else if (type == G_FILE_TYPE_DIRECTORY) // TODO
-			error_str = g_strdup(g_strerror(EISDIR));
-		else if (type != G_FILE_TYPE_REGULAR)
-			error_str = g_strdup(_("Not a regular file"));
-	} else {
-		error_str = g_strdup(error->message);
+	if (!info) {
+		gtkhash_file_error(file, error);
 		g_error_free(error);
+	} else {
+		const GFileType type = g_file_info_get_file_type(info);
+		g_object_unref(info);
+
+		if (type == G_FILE_TYPE_DIRECTORY) // TODO
+			g_message("%s: %s", uri, g_strerror(EISDIR));
+		else if (type != G_FILE_TYPE_REGULAR)
+			g_message("%s: %s", uri, _("Not a regular file"));
+		else {
+			GFileInputStream *fis = g_file_read(file, NULL, &error);
+			if (fis) {
+				g_object_unref(fis);
+				readable = true;
+			} else {
+				gtkhash_file_error(file, error);
+				g_error_free(error);
+			}
+		}
 	}
 
 	g_object_unref(file);
 
-	return error_str;
+	return readable;
 }
 
 unsigned int gui_add_ud_list(GSList *ud_list, const enum gui_view_e view)
@@ -299,14 +305,9 @@ unsigned int gui_add_ud_list(GSList *ud_list, const enum gui_view_e view)
 	{
 		GSList *tmp = ud_list;
 		do {
-			char *error = NULL;
 			struct uri_digest_s *ud = tmp->data;
-			if ((error = gui_try_uri(ud->uri))) {
-				g_message(_("Failed to add file \"%s\": %s"),
-					ud->uri, error);
-				g_free(error);
+			if (!gui_try_uri(ud->uri))
 				continue;
-			}
 			readable = g_slist_prepend(readable, tmp->data);
 			readable_len++;
 		} while ((tmp = tmp->next));
