@@ -20,23 +20,23 @@
 #ifndef GTKHASH_LIST_H
 #define GTKHASH_LIST_H
 
+#include <gtk/gtk.h>
+
 #include "hash/hash-func.h"
 
-extern struct list_s {
-	unsigned int rows;
-} list;
-
 void list_init(void);
+int list_get_rows(void);
 void list_update(void);
 void list_append_row(const char *uri, const char *check);
 void list_remove_selection(void);
-char *list_get_uri(unsigned int row);
-char *list_get_basename(unsigned int row);
-void list_set_digest(unsigned int row, enum hash_func_e id, const char *digest);
-char *list_get_digest(unsigned int row, enum hash_func_e id);
+GPtrArray *list_get_iters(void);
+char *list_get_uri(GtkTreeIter *iter);
+char *list_get_basename(int row);
+void list_set_digest(GtkTreeIter *iter, enum hash_func_e id, const char *digest);
+char *list_get_digest(int row, enum hash_func_e id);
 char *list_get_selected_digest(enum hash_func_e id);
 bool list_has_digests(void);
-void list_check_digests(unsigned int row);
+void list_check_digests(GtkTreeIter *iter);
 void list_check_all_digests(void);
 void list_clear_digests(void);
 void list_clear(void);

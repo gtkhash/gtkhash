@@ -39,25 +39,55 @@ struct hash_s hash;
 
 static struct {
 	struct hash_file_s *hfile;
-	unsigned int list_row;
+	GPtrArray *iters;
 } hash_priv = {
 	.hfile = NULL,
-	.list_row = 0,
+	.iters = NULL,
 };
+
+static GtkTreeIter *hash_queue_peek(void)
+{
+	g_assert(hash_priv.iters);
+	g_assert(hash_priv.iters->len);
+
+	return g_ptr_array_index(hash_priv.iters, 0);
+}
+
+static void hash_queue_start(void)
+{
+	GtkTreeIter *iter = hash_queue_peek();
+
+	gtk_progress_bar_set_fraction(gui.progressbar, 0.0);
+	gtk_progress_bar_set_text(gui.progressbar, " ");
+
+	hash_file_start(list_get_uri(iter));
+}
+
+static bool hash_queue_next(void)
+{
+	g_ptr_array_remove_index(hash_priv.iters, 0);
+
+	if (hash_priv.iters->len) {
+		hash_queue_start();
+		return true;
+	}
+
+	g_clear_pointer(&hash_priv.iters, g_ptr_array_unref);
+	return false;
+}
 
 void gtkhash_hash_string_finish_cb(void)
 {
 	gui_check_digests();
 }
 
-void gtkhash_hash_string_digest_cb(const enum hash_func_e id,
-	const char *digest)
+void gtkhash_hash_string_digest_cb(const enum hash_func_e id, const char *digest)
 {
 	gtk_entry_set_text(gui.hash_widgets[id].entry_text, digest);
 }
 
-void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data,
-	const goffset file_size, const goffset total_read, GTimer *timer)
+void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data, const goffset file_size,
+	const goffset total_read, GTimer *timer)
 {
 	gtk_progress_bar_set_fraction(gui.progressbar,
 		(double)total_read /
@@ -72,15 +102,15 @@ void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data,
 	g_free(text);
 }
 
-void gtkhash_hash_file_digest_cb(const enum hash_func_e id,
-	const char *digest, G_GNUC_UNUSED void *data)
+void gtkhash_hash_file_digest_cb(const enum hash_func_e id, const char *digest,
+	G_GNUC_UNUSED void *data)
 {
 	switch (gui.view) {
 		case GUI_VIEW_FILE:
 			gtk_entry_set_text(gui.hash_widgets[id].entry_file, digest);
 			break;
 		case GUI_VIEW_FILE_LIST:
-			list_set_digest(hash_priv.list_row, id, digest);
+			list_set_digest(hash_queue_peek(), id, digest);
 			break;
 		default:
 			g_assert_not_reached();
@@ -92,17 +122,10 @@ void gtkhash_hash_file_finish_cb(void *uri)
 	g_free(uri);
 
 	if (gui.view == GUI_VIEW_FILE_LIST) {
-		list_check_digests(hash_priv.list_row);
+		list_check_digests(hash_queue_peek());
 
-		if (++hash_priv.list_row < list.rows) {
-			gtk_progress_bar_set_fraction(gui.progressbar, 0.0);
-			gtk_progress_bar_set_text(gui.progressbar, " ");
-
-			// Next file
-			hash_file_start(list_get_uri(hash_priv.list_row));
+		if (hash_queue_next())
 			return;
-		} else
-			hash_priv.list_row = 0;
 	} else {
 		// Reset enabled state following single-function hash
 		gui_update_hash_funcs();
@@ -115,10 +138,9 @@ void gtkhash_hash_file_finish_cb(void *uri)
 void gtkhash_hash_file_stop_cb(void *uri)
 {
 	g_free(uri);
+	g_clear_pointer(&hash_priv.iters, g_ptr_array_unref);
 
-	if (gui.view == GUI_VIEW_FILE_LIST)
-		hash_priv.list_row = 0;
-	else {
+	if (gui.view != GUI_VIEW_FILE_LIST) {
 		// Reset enabled state following single-function hash
 		gui_update_hash_funcs();
 	}
@@ -126,7 +148,7 @@ void gtkhash_hash_file_stop_cb(void *uri)
 	gui_set_state(GUI_STATE_IDLE);
 }
 
-void hash_file_start(const char *uri)
+void hash_file_start(char *uri)
 {
 	g_assert(gtkhash_hash_func_count_enabled(hash.funcs));
 
@@ -141,10 +163,11 @@ void hash_file_start(const char *uri)
 void hash_file_list_start(void)
 {
 	g_assert(gtkhash_hash_func_count_enabled(hash.funcs));
-	g_assert(!hash_priv.list_row);
+	g_assert(list_get_rows() > 0);
+	g_assert(!hash_priv.iters);
 
-	char *uri = list_get_uri(hash_priv.list_row);
-	hash_file_start(uri);
+	hash_priv.iters = list_get_iters();
+	hash_queue_start();
 }
 
 void hash_file_stop(void)

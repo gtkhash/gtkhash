@@ -27,7 +27,7 @@ extern struct hash_s {
 	struct hash_func_s funcs[HASH_FUNCS_N];
 } hash;
 
-void hash_file_start(const char *uri);
+void hash_file_start(char *uri);
 void hash_file_list_start(void);
 void hash_file_stop(void);
 void hash_string(void);

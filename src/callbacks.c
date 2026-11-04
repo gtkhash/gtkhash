@@ -366,7 +366,8 @@ static void on_menuitem_treeview_copy_activate(G_GNUC_UNUSED GtkMenuItem *menuit
 	struct hash_func_s *func)
 {
 	char *digest = list_get_selected_digest(func->id);
-	g_assert(digest);
+	if (!digest)
+		return;
 
 	gtk_clipboard_set_text(gtk_clipboard_get(GDK_NONE), digest, -1);
 
