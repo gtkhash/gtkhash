@@ -5,13 +5,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
-"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
-"translations/\n"
-"POT-Creation-Date: 2026-11-04 00:40+0000\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
+"POT-Creation-Date: 2026-11-04 02:32+0000\n"
 "PO-Revision-Date: 2025-02-03 14:02+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/gtkhash/"
-"translations/fi/>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/gtkhash/translations/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,114 +22,6 @@ msgstr ""
 #: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Tarkistussummat"
-
-#: data/gtkhash-gtk3.ui:14
-msgid "Lowercase Hexadecimal"
-msgstr "Heksadesimaali pieninä kirjaimina"
-
-#: data/gtkhash-gtk3.ui:17
-msgid "Uppercase Hexadecimal"
-msgstr "Heksadesimaali isoina kirjaimina"
-
-#: data/gtkhash-gtk3.ui:48
-msgid "_Add"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:79
-msgid "_Remove"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:110
-msgid "_Clear"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:147
-msgid "Copy _Digest"
-msgstr "Kopioi _hajautus"
-
-#: data/gtkhash-gtk3.ui:169
-msgctxt "menu"
-msgid "_Open Digest File…"
-msgstr "_Avaa hajautustiedosto…"
-
-#: data/gtkhash-gtk3.ui:174
-msgctxt "menu"
-msgid "_Save Digest File…"
-msgstr "_Tallenna hajautustiedosto…"
-
-#: data/gtkhash-gtk3.ui:181
-#, fuzzy
-msgid "_Preferences"
-msgstr "GtkHashin asetukset"
-
-#: data/gtkhash-gtk3.ui:186
-msgid "_About"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
-msgid "File"
-msgstr "Tiedosto"
-
-#: data/gtkhash-gtk3.ui:317
-#, fuzzy
-msgid "File List"
-msgstr "Tiedosto_luettelo"
-
-#: data/gtkhash-gtk3.ui:331
-#, fuzzy
-msgid "Text"
-msgstr "_Teksti"
-
-#: data/gtkhash-gtk3.ui:374
-msgid "File:"
-msgstr "Tiedosto:"
-
-#: data/gtkhash-gtk3.ui:387
-msgid "Text:"
-msgstr "Teksti:"
-
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
-msgid "Check:"
-msgstr "Tarkista:"
-
-#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:150
-msgid "Paste digest from clipboard"
-msgstr "Liitä hajautus leikepöydältä"
-
-#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:176
-msgid "HMAC Key:"
-msgstr "HMAC-avain:"
-
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
-msgid "_Hash"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
-msgid "_Stop"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:904
-#, fuzzy
-msgid "Preferences"
-msgstr "GtkHashin asetukset"
-
-#: data/gtkhash-gtk3.ui:922
-msgid "_Close"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:957
-msgid "Hash Functions"
-msgstr "Hajautusfunktiot"
-
-#: data/gtkhash-gtk3.ui:988
-msgid "MAC Functions"
-msgstr "MAC-funktiot"
-
-#: data/gtkhash-gtk3.ui:1010
-msgid "Digest Format:"
-msgstr "Hajautuksen muoto:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -155,14 +45,8 @@ msgid "Calculate message digests or checksums"
 msgstr "Laske viestien hajautukset tai tarkistussummat"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash on sovellus tiedostojen tarkistussummien tai viestien hajautusten "
-"laskemiseen. Se on suunniteltu helppokäyttöiseksi graafiseksi vaihtoehdoksi "
-"komentoriviohjelmille, kuten md5sum."
+msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
+msgstr "GtkHash on sovellus tiedostojen tarkistussummien tai viestien hajautusten laskemiseen. Se on suunniteltu helppokäyttöiseksi graafiseksi vaihtoehdoksi komentoriviohjelmille, kuten md5sum."
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
@@ -220,8 +104,7 @@ msgstr "_Tallenna"
 
 #: src/callbacks.c:200
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
-"Työpöytäapuohjelma viestien hajautusten tai tarkistussummien laskemiseen"
+msgstr "Työpöytäapuohjelma viestien hajautusten tai tarkistussummien laskemiseen"
 
 #: src/callbacks.c:205
 msgid "translator-credits"
@@ -255,6 +138,28 @@ msgstr "Hajautusfunktio"
 #: src/extensions/common/properties.ui:97
 msgid "Digest"
 msgstr "Hajautus"
+
+#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+msgid "Check:"
+msgstr "Tarkista:"
+
+#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/ui/window.ui:478
+msgid "Paste digest from clipboard"
+msgstr "Liitä hajautus leikepöydältä"
+
+#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/ui/window.ui:523
+msgid "HMAC Key:"
+msgstr "HMAC-avain:"
+
+#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+msgid "_Stop"
+msgstr ""
+
+#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+msgid "_Hash"
+msgstr ""
 
 #: src/gui.c:282
 msgid "Not a regular file"
@@ -325,6 +230,92 @@ msgstr "Näytä versiotiedot"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[TIEDOSTO|URI...]"
+
+#: src/ui/window.ui:14
+msgid "Lowercase Hexadecimal"
+msgstr "Heksadesimaali pieninä kirjaimina"
+
+#: src/ui/window.ui:17
+msgid "Uppercase Hexadecimal"
+msgstr "Heksadesimaali isoina kirjaimina"
+
+#: src/ui/window.ui:48
+msgid "_Add"
+msgstr ""
+
+#: src/ui/window.ui:79
+msgid "_Remove"
+msgstr ""
+
+#: src/ui/window.ui:110
+msgid "_Clear"
+msgstr ""
+
+#: src/ui/window.ui:147
+msgid "Copy _Digest"
+msgstr "Kopioi _hajautus"
+
+#: src/ui/window.ui:169
+msgctxt "menu"
+msgid "_Open Digest File…"
+msgstr "_Avaa hajautustiedosto…"
+
+#: src/ui/window.ui:174
+msgctxt "menu"
+msgid "_Save Digest File…"
+msgstr "_Tallenna hajautustiedosto…"
+
+#: src/ui/window.ui:181
+#, fuzzy
+msgid "_Preferences"
+msgstr "GtkHashin asetukset"
+
+#: src/ui/window.ui:186
+msgid "_About"
+msgstr ""
+
+#: src/ui/window.ui:303 src/ui/window.ui:717
+msgid "File"
+msgstr "Tiedosto"
+
+#: src/ui/window.ui:317
+#, fuzzy
+msgid "File List"
+msgstr "Tiedosto_luettelo"
+
+#: src/ui/window.ui:331
+#, fuzzy
+msgid "Text"
+msgstr "_Teksti"
+
+#: src/ui/window.ui:374
+msgid "File:"
+msgstr "Tiedosto:"
+
+#: src/ui/window.ui:387
+msgid "Text:"
+msgstr "Teksti:"
+
+#: src/ui/window.ui:904
+#, fuzzy
+msgid "Preferences"
+msgstr "GtkHashin asetukset"
+
+#: src/ui/window.ui:922
+msgid "_Close"
+msgstr ""
+
+#: src/ui/window.ui:957
+msgid "Hash Functions"
+msgstr "Hajautusfunktiot"
+
+#: src/ui/window.ui:988
+msgid "MAC Functions"
+msgstr "MAC-funktiot"
+
+#: src/ui/window.ui:1010
+msgid "Digest Format:"
+msgstr "Hajautuksen muoto:"
 
 #: src/util/util.c:35
 #, c-format

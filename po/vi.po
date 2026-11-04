@@ -5,13 +5,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
-"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
-"translations/\n"
-"POT-Creation-Date: 2026-11-04 00:40+0000\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
+"POT-Creation-Date: 2026-11-04 02:32+0000\n"
 "PO-Revision-Date: 2021-01-22 00:39+0000\n"
 "Last-Translator: Cao Nguyen <intansemc2@gmail.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/gtkhash/"
-"translations/vi/>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/gtkhash/translations/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,114 +22,6 @@ msgstr ""
 #: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Kiểm tra tổng"
-
-#: data/gtkhash-gtk3.ui:14
-msgid "Lowercase Hexadecimal"
-msgstr "Chữ số hệ 16 in thường"
-
-#: data/gtkhash-gtk3.ui:17
-msgid "Uppercase Hexadecimal"
-msgstr "Chữ số hệ 16 in hoa"
-
-#: data/gtkhash-gtk3.ui:48
-msgid "_Add"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:79
-msgid "_Remove"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:110
-msgid "_Clear"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:147
-msgid "Copy _Digest"
-msgstr "Sao chép _Chữ số"
-
-#: data/gtkhash-gtk3.ui:169
-msgctxt "menu"
-msgid "_Open Digest File…"
-msgstr "_Open Tập tin …"
-
-#: data/gtkhash-gtk3.ui:174
-msgctxt "menu"
-msgid "_Save Digest File…"
-msgstr "_Lưu ra tập tin …"
-
-#: data/gtkhash-gtk3.ui:181
-#, fuzzy
-msgid "_Preferences"
-msgstr "Tùy chỉnh GtkHash"
-
-#: data/gtkhash-gtk3.ui:186
-msgid "_About"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
-msgid "File"
-msgstr "Tập tin"
-
-#: data/gtkhash-gtk3.ui:317
-#, fuzzy
-msgid "File List"
-msgstr "_Danh sách Tập tin"
-
-#: data/gtkhash-gtk3.ui:331
-#, fuzzy
-msgid "Text"
-msgstr "_Văn bản"
-
-#: data/gtkhash-gtk3.ui:374
-msgid "File:"
-msgstr "Tập tin:"
-
-#: data/gtkhash-gtk3.ui:387
-msgid "Text:"
-msgstr "Văn bản:"
-
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
-msgid "Check:"
-msgstr "Kiểm tra:"
-
-#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:150
-msgid "Paste digest from clipboard"
-msgstr "Dán các chữ số từ vùng nhớ đệm"
-
-#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:176
-msgid "HMAC Key:"
-msgstr "Khóa HMAC:"
-
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
-msgid "_Hash"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
-msgid "_Stop"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:904
-#, fuzzy
-msgid "Preferences"
-msgstr "Tùy chỉnh GtkHash"
-
-#: data/gtkhash-gtk3.ui:922
-msgid "_Close"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:957
-msgid "Hash Functions"
-msgstr "Các hàm băm"
-
-#: data/gtkhash-gtk3.ui:988
-msgid "MAC Functions"
-msgstr "Các hàm MAC"
-
-#: data/gtkhash-gtk3.ui:1010
-msgid "Digest Format:"
-msgstr "Định dạng các chữ số:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -155,14 +45,8 @@ msgid "Calculate message digests or checksums"
 msgstr "Tính toán thông báo các chữ số hoặc kiểm tra tổng"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash là một ứng dụng dùng để tính toán kiểm tra tổng của tập tin hoặc của "
-"các kí tự trong văn bản. Nó được thiết kế để dễ sử dụng, giúp dử dụng giao "
-"diện đồ họa cho các chương trình dòng lệnh như md5sum."
+msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
+msgstr "GtkHash là một ứng dụng dùng để tính toán kiểm tra tổng của tập tin hoặc của các kí tự trong văn bản. Nó được thiết kế để dễ sử dụng, giúp dử dụng giao diện đồ họa cho các chương trình dòng lệnh như md5sum."
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
@@ -257,6 +141,28 @@ msgstr "Hàm băm"
 msgid "Digest"
 msgstr "Chữ số"
 
+#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+msgid "Check:"
+msgstr "Kiểm tra:"
+
+#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/ui/window.ui:478
+msgid "Paste digest from clipboard"
+msgstr "Dán các chữ số từ vùng nhớ đệm"
+
+#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/ui/window.ui:523
+msgid "HMAC Key:"
+msgstr "Khóa HMAC:"
+
+#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+msgid "_Stop"
+msgstr ""
+
+#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+msgid "_Hash"
+msgstr ""
+
 #: src/gui.c:282
 msgid "Not a regular file"
 msgstr "Không phải một tập tin thông thường"
@@ -326,6 +232,92 @@ msgstr "Hiện thông tin phiên bản"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[TẬP TIN|URI ...]"
+
+#: src/ui/window.ui:14
+msgid "Lowercase Hexadecimal"
+msgstr "Chữ số hệ 16 in thường"
+
+#: src/ui/window.ui:17
+msgid "Uppercase Hexadecimal"
+msgstr "Chữ số hệ 16 in hoa"
+
+#: src/ui/window.ui:48
+msgid "_Add"
+msgstr ""
+
+#: src/ui/window.ui:79
+msgid "_Remove"
+msgstr ""
+
+#: src/ui/window.ui:110
+msgid "_Clear"
+msgstr ""
+
+#: src/ui/window.ui:147
+msgid "Copy _Digest"
+msgstr "Sao chép _Chữ số"
+
+#: src/ui/window.ui:169
+msgctxt "menu"
+msgid "_Open Digest File…"
+msgstr "_Open Tập tin …"
+
+#: src/ui/window.ui:174
+msgctxt "menu"
+msgid "_Save Digest File…"
+msgstr "_Lưu ra tập tin …"
+
+#: src/ui/window.ui:181
+#, fuzzy
+msgid "_Preferences"
+msgstr "Tùy chỉnh GtkHash"
+
+#: src/ui/window.ui:186
+msgid "_About"
+msgstr ""
+
+#: src/ui/window.ui:303 src/ui/window.ui:717
+msgid "File"
+msgstr "Tập tin"
+
+#: src/ui/window.ui:317
+#, fuzzy
+msgid "File List"
+msgstr "_Danh sách Tập tin"
+
+#: src/ui/window.ui:331
+#, fuzzy
+msgid "Text"
+msgstr "_Văn bản"
+
+#: src/ui/window.ui:374
+msgid "File:"
+msgstr "Tập tin:"
+
+#: src/ui/window.ui:387
+msgid "Text:"
+msgstr "Văn bản:"
+
+#: src/ui/window.ui:904
+#, fuzzy
+msgid "Preferences"
+msgstr "Tùy chỉnh GtkHash"
+
+#: src/ui/window.ui:922
+msgid "_Close"
+msgstr ""
+
+#: src/ui/window.ui:957
+msgid "Hash Functions"
+msgstr "Các hàm băm"
+
+#: src/ui/window.ui:988
+msgid "MAC Functions"
+msgstr "Các hàm MAC"
+
+#: src/ui/window.ui:1010
+msgid "Digest Format:"
+msgstr "Định dạng các chữ số:"
 
 #: src/util/util.c:35
 #, c-format

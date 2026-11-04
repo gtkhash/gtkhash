@@ -11,13 +11,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
-"translations/\n"
-"POT-Creation-Date: 2026-11-04 00:40+0000\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
+"POT-Creation-Date: 2026-11-04 02:32+0000\n"
 "PO-Revision-Date: 2026-10-24 12:51+0000\n"
 "Last-Translator: El Pirujo <pirujo@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/"
-"translations/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/translations/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,110 +29,6 @@ msgstr ""
 #: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Sumas de verificación"
-
-#: data/gtkhash-gtk3.ui:14
-msgid "Lowercase Hexadecimal"
-msgstr "Hexadecimal en minúsculas"
-
-#: data/gtkhash-gtk3.ui:17
-msgid "Uppercase Hexadecimal"
-msgstr "Hexadecimal en mayúsculas"
-
-#: data/gtkhash-gtk3.ui:48
-msgid "_Add"
-msgstr "_Añadir"
-
-#: data/gtkhash-gtk3.ui:79
-msgid "_Remove"
-msgstr "Eliminar"
-
-#: data/gtkhash-gtk3.ui:110
-msgid "_Clear"
-msgstr "Limpiar"
-
-#: data/gtkhash-gtk3.ui:147
-msgid "Copy _Digest"
-msgstr "Copiar el _resumen"
-
-#: data/gtkhash-gtk3.ui:169
-msgctxt "menu"
-msgid "_Open Digest File…"
-msgstr "_Abrir un archivo de resúmenes…"
-
-#: data/gtkhash-gtk3.ui:174
-msgctxt "menu"
-msgid "_Save Digest File…"
-msgstr "_Guardar los resúmenes en un archivo…"
-
-#: data/gtkhash-gtk3.ui:181
-msgid "_Preferences"
-msgstr "_Preferencias"
-
-#: data/gtkhash-gtk3.ui:186
-msgid "_About"
-msgstr "_Acerca"
-
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
-msgid "File"
-msgstr "Archivo"
-
-#: data/gtkhash-gtk3.ui:317
-msgid "File List"
-msgstr "Lista de archivos"
-
-#: data/gtkhash-gtk3.ui:331
-msgid "Text"
-msgstr "Texto"
-
-#: data/gtkhash-gtk3.ui:374
-msgid "File:"
-msgstr "Archivo:"
-
-#: data/gtkhash-gtk3.ui:387
-msgid "Text:"
-msgstr "Texto:"
-
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
-msgid "Check:"
-msgstr "Comprobar:"
-
-#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:150
-msgid "Paste digest from clipboard"
-msgstr "Pegar el resumen del portapapeles"
-
-#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:176
-msgid "HMAC Key:"
-msgstr "Clave HMAC:"
-
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
-msgid "_Hash"
-msgstr "Resumen"
-
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
-msgid "_Stop"
-msgstr "Detener"
-
-#: data/gtkhash-gtk3.ui:904
-msgid "Preferences"
-msgstr "Preferencias"
-
-#: data/gtkhash-gtk3.ui:922
-msgid "_Close"
-msgstr "_Cerrar"
-
-#: data/gtkhash-gtk3.ui:957
-msgid "Hash Functions"
-msgstr "Funciones resumen"
-
-#: data/gtkhash-gtk3.ui:988
-msgid "MAC Functions"
-msgstr "Funciones MAC"
-
-#: data/gtkhash-gtk3.ui:1010
-msgid "Digest Format:"
-msgstr "Formato del resumen:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -158,19 +52,12 @@ msgid "Calculate message digests or checksums"
 msgstr "Calcular resúmenes de mensajes o sumas de comprobación"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash es una aplicación para calcular sumas de comprobación de archivos o "
-"resúmenes de mensajes. Se ha diseñado para ser una alternativa gráfica fácil "
-"de usar para programas de línea de órdenes como md5sum."
+msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
+msgstr "GtkHash es una aplicación para calcular sumas de comprobación de archivos o resúmenes de mensajes. Se ha diseñado para ser una alternativa gráfica fácil de usar para programas de línea de órdenes como md5sum."
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
-"Las funciones resumen compatibles incluyen MD5, SHA1, SHA256, SHA512 y CRC32."
+msgstr "Las funciones resumen compatibles incluyen MD5, SHA1, SHA256, SHA512 y CRC32."
 
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:7
 msgid "GtkHash for Nautilus"
@@ -225,9 +112,7 @@ msgstr "_Guardar"
 
 #: src/callbacks.c:200
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
-"Una herramienta de escritorio para calcular resúmenes de mensajes o sumas de "
-"comprobación"
+msgstr "Una herramienta de escritorio para calcular resúmenes de mensajes o sumas de comprobación"
 
 #: src/callbacks.c:205
 msgid "translator-credits"
@@ -262,6 +147,28 @@ msgstr "Función resumen"
 msgid "Digest"
 msgstr "Digitación"
 
+#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+msgid "Check:"
+msgstr "Comprobar:"
+
+#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/ui/window.ui:478
+msgid "Paste digest from clipboard"
+msgstr "Pegar el resumen del portapapeles"
+
+#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/ui/window.ui:523
+msgid "HMAC Key:"
+msgstr "Clave HMAC:"
+
+#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+msgid "_Stop"
+msgstr "Detener"
+
+#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+msgid "_Hash"
+msgstr "Resumen"
+
 #: src/gui.c:282
 msgid "Not a regular file"
 msgstr "No es un archivo válido"
@@ -293,8 +200,7 @@ msgstr "RESUMEN"
 #: src/opts.c:101
 msgctxt " --help"
 msgid "Check digests or checksums from the specified file"
-msgstr ""
-"Comprobar los resúmenes o las sumas de comprobación del archivo especificado"
+msgstr "Comprobar los resúmenes o las sumas de comprobación del archivo especificado"
 
 #: src/opts.c:102
 msgctxt " --help"
@@ -331,6 +237,88 @@ msgstr "Mostrar información de la versión"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ARCHIVO|URI...]"
+
+#: src/ui/window.ui:14
+msgid "Lowercase Hexadecimal"
+msgstr "Hexadecimal en minúsculas"
+
+#: src/ui/window.ui:17
+msgid "Uppercase Hexadecimal"
+msgstr "Hexadecimal en mayúsculas"
+
+#: src/ui/window.ui:48
+msgid "_Add"
+msgstr "_Añadir"
+
+#: src/ui/window.ui:79
+msgid "_Remove"
+msgstr "Eliminar"
+
+#: src/ui/window.ui:110
+msgid "_Clear"
+msgstr "Limpiar"
+
+#: src/ui/window.ui:147
+msgid "Copy _Digest"
+msgstr "Copiar el _resumen"
+
+#: src/ui/window.ui:169
+msgctxt "menu"
+msgid "_Open Digest File…"
+msgstr "_Abrir un archivo de resúmenes…"
+
+#: src/ui/window.ui:174
+msgctxt "menu"
+msgid "_Save Digest File…"
+msgstr "_Guardar los resúmenes en un archivo…"
+
+#: src/ui/window.ui:181
+msgid "_Preferences"
+msgstr "_Preferencias"
+
+#: src/ui/window.ui:186
+msgid "_About"
+msgstr "_Acerca"
+
+#: src/ui/window.ui:303 src/ui/window.ui:717
+msgid "File"
+msgstr "Archivo"
+
+#: src/ui/window.ui:317
+msgid "File List"
+msgstr "Lista de archivos"
+
+#: src/ui/window.ui:331
+msgid "Text"
+msgstr "Texto"
+
+#: src/ui/window.ui:374
+msgid "File:"
+msgstr "Archivo:"
+
+#: src/ui/window.ui:387
+msgid "Text:"
+msgstr "Texto:"
+
+#: src/ui/window.ui:904
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: src/ui/window.ui:922
+msgid "_Close"
+msgstr "_Cerrar"
+
+#: src/ui/window.ui:957
+msgid "Hash Functions"
+msgstr "Funciones resumen"
+
+#: src/ui/window.ui:988
+msgid "MAC Functions"
+msgstr "Funciones MAC"
+
+#: src/ui/window.ui:1010
+msgid "Digest Format:"
+msgstr "Formato del resumen:"
 
 #: src/util/util.c:35
 #, c-format

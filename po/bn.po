@@ -6,13 +6,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
-"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
-"translations/\n"
-"POT-Creation-Date: 2026-11-04 00:40+0000\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
+"POT-Creation-Date: 2026-11-04 02:32+0000\n"
 "PO-Revision-Date: 2026-11-01 12:51+0000\n"
 "Last-Translator: Oymate <oymate@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Bengali <https://hosted.weblate.org/projects/gtkhash/"
-"translations/bn/>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/gtkhash/translations/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,110 +23,6 @@ msgstr ""
 #: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "পরীক্ষার ফল"
-
-#: data/gtkhash-gtk3.ui:14
-msgid "Lowercase Hexadecimal"
-msgstr "ছোট হাতের, হেক্সাডেসিমেল"
-
-#: data/gtkhash-gtk3.ui:17
-msgid "Uppercase Hexadecimal"
-msgstr "বড়হাতের হেক্সাডেসিমেল"
-
-#: data/gtkhash-gtk3.ui:48
-msgid "_Add"
-msgstr "_যোগ করো"
-
-#: data/gtkhash-gtk3.ui:79
-msgid "_Remove"
-msgstr "_অপসারণ করো"
-
-#: data/gtkhash-gtk3.ui:110
-msgid "_Clear"
-msgstr "_পরিষ্কার"
-
-#: data/gtkhash-gtk3.ui:147
-msgid "Copy _Digest"
-msgstr "কপি _ডাইজেস্ট"
-
-#: data/gtkhash-gtk3.ui:169
-msgctxt "menu"
-msgid "_Open Digest File…"
-msgstr "_ডাইজেস্ট ফাইল খুলুন…"
-
-#: data/gtkhash-gtk3.ui:174
-msgctxt "menu"
-msgid "_Save Digest File…"
-msgstr "_ডাইজেস্ট ফাইল সংরক্ষণ করো…"
-
-#: data/gtkhash-gtk3.ui:181
-msgid "_Preferences"
-msgstr "_পছন্দসমূহ"
-
-#: data/gtkhash-gtk3.ui:186
-msgid "_About"
-msgstr "_সম্পর্কে"
-
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
-msgid "File"
-msgstr "ফাইল"
-
-#: data/gtkhash-gtk3.ui:317
-msgid "File List"
-msgstr "ফাইল তালিকা"
-
-#: data/gtkhash-gtk3.ui:331
-msgid "Text"
-msgstr "লেখা"
-
-#: data/gtkhash-gtk3.ui:374
-msgid "File:"
-msgstr "ফাইল:"
-
-#: data/gtkhash-gtk3.ui:387
-msgid "Text:"
-msgstr "লেখা:"
-
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
-msgid "Check:"
-msgstr "পরীক্ষা করুন:"
-
-#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:150
-msgid "Paste digest from clipboard"
-msgstr "ক্লিপবোর্ড থেকে ডাইজেস্ট পেস্ট করুন"
-
-#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:176
-msgid "HMAC Key:"
-msgstr "এইচএমএসি কী:"
-
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
-msgid "_Hash"
-msgstr "_হ্যাশ"
-
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
-msgid "_Stop"
-msgstr "_থামো"
-
-#: data/gtkhash-gtk3.ui:904
-msgid "Preferences"
-msgstr "পছন্দসমূহ"
-
-#: data/gtkhash-gtk3.ui:922
-msgid "_Close"
-msgstr "_বন্ধ"
-
-#: data/gtkhash-gtk3.ui:957
-msgid "Hash Functions"
-msgstr "হ্যাশ ক্রিয়া"
-
-#: data/gtkhash-gtk3.ui:988
-msgid "MAC Functions"
-msgstr "ম্যাক ক্রিয়া"
-
-#: data/gtkhash-gtk3.ui:1010
-msgid "Digest Format:"
-msgstr "ডাইজেস্ট সজ্জা:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -152,13 +46,8 @@ msgid "Calculate message digests or checksums"
 msgstr "ডাইজেস্ট বা চেকসাম বার্তা গণনা করুন"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"ফাইল বা বার্তা ডাইজেস্টের জন্য জিটিকেহ্যাশ একটি অ্যাপ্লিকেশন। এটি এমডি৫সামের মতো "
-"কমান্ড-লাইন প্রোগ্রামগুলির গ্রাফিকাল বিকল্প, যা সহজে ব্যবহারযোগ্য।"
+msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
+msgstr "ফাইল বা বার্তা ডাইজেস্টের জন্য জিটিকেহ্যাশ একটি অ্যাপ্লিকেশন। এটি এমডি৫সামের মতো কমান্ড-লাইন প্রোগ্রামগুলির গ্রাফিকাল বিকল্প, যা সহজে ব্যবহারযোগ্য।"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
@@ -251,6 +140,28 @@ msgstr "হ্যাশ ফাংশন"
 msgid "Digest"
 msgstr "ডাইজেস্ট"
 
+#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+msgid "Check:"
+msgstr "পরীক্ষা করুন:"
+
+#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/ui/window.ui:478
+msgid "Paste digest from clipboard"
+msgstr "ক্লিপবোর্ড থেকে ডাইজেস্ট পেস্ট করুন"
+
+#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/ui/window.ui:523
+msgid "HMAC Key:"
+msgstr "এইচএমএসি কী:"
+
+#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+msgid "_Stop"
+msgstr "_থামো"
+
+#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+msgid "_Hash"
+msgstr "_হ্যাশ"
+
 #: src/gui.c:282
 msgid "Not a regular file"
 msgstr "একটি সাধারণ ফাইল না"
@@ -318,6 +229,88 @@ msgstr "সংস্করণ তথ্য প্রদর্শন করুন
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ফাইল|URI...]"
+
+#: src/ui/window.ui:14
+msgid "Lowercase Hexadecimal"
+msgstr "ছোট হাতের, হেক্সাডেসিমেল"
+
+#: src/ui/window.ui:17
+msgid "Uppercase Hexadecimal"
+msgstr "বড়হাতের হেক্সাডেসিমেল"
+
+#: src/ui/window.ui:48
+msgid "_Add"
+msgstr "_যোগ করো"
+
+#: src/ui/window.ui:79
+msgid "_Remove"
+msgstr "_অপসারণ করো"
+
+#: src/ui/window.ui:110
+msgid "_Clear"
+msgstr "_পরিষ্কার"
+
+#: src/ui/window.ui:147
+msgid "Copy _Digest"
+msgstr "কপি _ডাইজেস্ট"
+
+#: src/ui/window.ui:169
+msgctxt "menu"
+msgid "_Open Digest File…"
+msgstr "_ডাইজেস্ট ফাইল খুলুন…"
+
+#: src/ui/window.ui:174
+msgctxt "menu"
+msgid "_Save Digest File…"
+msgstr "_ডাইজেস্ট ফাইল সংরক্ষণ করো…"
+
+#: src/ui/window.ui:181
+msgid "_Preferences"
+msgstr "_পছন্দসমূহ"
+
+#: src/ui/window.ui:186
+msgid "_About"
+msgstr "_সম্পর্কে"
+
+#: src/ui/window.ui:303 src/ui/window.ui:717
+msgid "File"
+msgstr "ফাইল"
+
+#: src/ui/window.ui:317
+msgid "File List"
+msgstr "ফাইল তালিকা"
+
+#: src/ui/window.ui:331
+msgid "Text"
+msgstr "লেখা"
+
+#: src/ui/window.ui:374
+msgid "File:"
+msgstr "ফাইল:"
+
+#: src/ui/window.ui:387
+msgid "Text:"
+msgstr "লেখা:"
+
+#: src/ui/window.ui:904
+msgid "Preferences"
+msgstr "পছন্দসমূহ"
+
+#: src/ui/window.ui:922
+msgid "_Close"
+msgstr "_বন্ধ"
+
+#: src/ui/window.ui:957
+msgid "Hash Functions"
+msgstr "হ্যাশ ক্রিয়া"
+
+#: src/ui/window.ui:988
+msgid "MAC Functions"
+msgstr "ম্যাক ক্রিয়া"
+
+#: src/ui/window.ui:1010
+msgid "Digest Format:"
+msgstr "ডাইজেস্ট সজ্জা:"
 
 #: src/util/util.c:35
 #, c-format
