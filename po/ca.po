@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-11-03 00:31+0000\n"
+"POT-Creation-Date: 2026-11-04 00:40+0000\n"
 "PO-Revision-Date: 2020-07-04 23:41+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtkhash/"
@@ -234,7 +234,7 @@ msgstr "Toni Estevez <toni.estevez@gmail.com>"
 msgid "Select Files"
 msgstr "Selecciona fitxers"
 
-#: src/callbacks.c:472 src/extensions/common/properties.c:239
+#: src/callbacks.c:473 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Mostra la clau HMAC"
 
@@ -272,7 +272,7 @@ msgstr "S'ha produït un error en afegir el fitxer «%s»: %s"
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
-#: src/hash.c:183
+#: src/hash.c:206
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "El nom de la funció resum «%s» és desconegut"

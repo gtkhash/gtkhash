@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
 "translations/\n"
-"POT-Creation-Date: 2026-11-03 00:31+0000\n"
+"POT-Creation-Date: 2026-11-04 00:40+0000\n"
 "PO-Revision-Date: 2021-04-05 17:26+0000\n"
 "Last-Translator: Ahmed Eldemery <aeldemery.de@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/gtkhash/"
@@ -235,7 +235,7 @@ msgstr "Ahmed Eldemery, aeldemery.de at gmail"
 msgid "Select Files"
 msgstr "اختر الملفات"
 
-#: src/callbacks.c:472 src/extensions/common/properties.c:239
+#: src/callbacks.c:473 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "أ_ظهر مفتاح HMAC"
 
@@ -273,7 +273,7 @@ msgstr "فشل في إضافة ملف: \"%s\":%s"
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
-#: src/hash.c:183
+#: src/hash.c:206
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "دالة تحقق غير معروفةِ الإسم \"%s\""
