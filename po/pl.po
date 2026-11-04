@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-04 23:24+0100\n"
-"PO-Revision-Date: 2026-10-18 20:24+0000\n"
+"PO-Revision-Date: 2026-11-04 23:08+0000\n"
 "Last-Translator: Matthaiks <kityn@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/translations/pl/>\n"
 "Language: pl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.11.dev0\n"
+"X-Generator: Weblate 2026.11.1.dev0\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
 #: src/extensions/caja/module.c:51 src/extensions/nautilus/properties.c:154
@@ -331,4 +331,4 @@ msgstr[2] "Pozostało %u sekund"
 #: src/util/util.c:65
 #, c-format
 msgid "%1$s of %2$s - %3$s (%4$s/sec)"
-msgstr ""
+msgstr "%1$s z %2$s - %3$s (%4$s/s)"
