@@ -4,7 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # Tristan Heaven <tristan@tristanheaven.net>, 2018, 2019, 2020, 2026.
 # Oymate <dhruboadittya96@gmail.com>, 2020.
-# Tristan Heaven <tristanheaven@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"

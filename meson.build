@@ -57,7 +57,6 @@ assert(get_option('warning_level').to_int() >= 2)
 compiler_options = [
     '-fno-common',
     '-fvisibility=hidden',
-    '-pedantic',
     '-Wbad-function-cast',
     '-Wcast-align',
     '-Werror=implicit-function-declaration',
