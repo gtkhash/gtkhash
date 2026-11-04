@@ -326,8 +326,8 @@ msgstr[1] "%u seconden resterend"
 #. %2$s is the file size (e.g. "4.8 GB"),
 #. %3$s is the estimated time remaining (e.g. "3 minutes left"), and
 #. %4$s is the amount of data processed per second (e.g. "19.9 MB").
-#. Full example: "41.9 MB of 4.8 GB - 3 minutes left (19.9 MB/sec)".
+#. Full example: "41.9 MB of 4.8 GB - 3 minutes left (19.9 MB/s)".
 #: src/util/util.c:65
 #, c-format
-msgid "%1$s of %2$s - %3$s (%4$s/sec)"
+msgid "%1$s of %2$s - %3$s (%4$s/s)"
 msgstr ""

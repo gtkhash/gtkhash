@@ -61,8 +61,8 @@ char *gtkhash_format_progress(const goffset file_size,
 	// %2$s is the file size (e.g. "4.8 GB"),
 	// %3$s is the estimated time remaining (e.g. "3 minutes left"), and
 	// %4$s is the amount of data processed per second (e.g. "19.9 MB").
-	// Full example: "41.9 MB of 4.8 GB - 3 minutes left (19.9 MB/sec)".
-	text = g_strdup_printf(_("%1$s of %2$s - %3$s (%4$s/sec)"),
+	// Full example: "41.9 MB of 4.8 GB - 3 minutes left (19.9 MB/s)".
+	text = g_strdup_printf(_("%1$s of %2$s - %3$s (%4$s/s)"),
 		total_read_str, file_size_str, time_left_str, speed_str);
 
 	g_free(speed_str);
