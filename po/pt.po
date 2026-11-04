@@ -7,13 +7,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
-"translations/\n"
-"POT-Creation-Date: 2026-11-04 00:40+0000\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
+"POT-Creation-Date: 2026-11-04 02:32+0000\n"
 "PO-Revision-Date: 2023-06-25 09:07+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/gtkhash/"
-"translations/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/gtkhash/translations/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,114 +24,6 @@ msgstr ""
 #: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Somas de verificação"
-
-#: data/gtkhash-gtk3.ui:14
-msgid "Lowercase Hexadecimal"
-msgstr "Hexadecimal em minúsculas"
-
-#: data/gtkhash-gtk3.ui:17
-msgid "Uppercase Hexadecimal"
-msgstr "Hexadecimal em maiúsculas"
-
-#: data/gtkhash-gtk3.ui:48
-msgid "_Add"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:79
-msgid "_Remove"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:110
-msgid "_Clear"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:147
-msgid "Copy _Digest"
-msgstr "Copiar _resumo"
-
-#: data/gtkhash-gtk3.ui:169
-msgctxt "menu"
-msgid "_Open Digest File…"
-msgstr "Abrir ficheir_o de resumo…"
-
-#: data/gtkhash-gtk3.ui:174
-msgctxt "menu"
-msgid "_Save Digest File…"
-msgstr "Gravar ficheiro de re_sumo…"
-
-#: data/gtkhash-gtk3.ui:181
-#, fuzzy
-msgid "_Preferences"
-msgstr "Preferências do GtkHash"
-
-#: data/gtkhash-gtk3.ui:186
-msgid "_About"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
-msgid "File"
-msgstr "Ficheiro"
-
-#: data/gtkhash-gtk3.ui:317
-#, fuzzy
-msgid "File List"
-msgstr "_Lista de ficheiros"
-
-#: data/gtkhash-gtk3.ui:331
-#, fuzzy
-msgid "Text"
-msgstr "_Texto"
-
-#: data/gtkhash-gtk3.ui:374
-msgid "File:"
-msgstr "Ficheiro:"
-
-#: data/gtkhash-gtk3.ui:387
-msgid "Text:"
-msgstr "Texto:"
-
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
-msgid "Check:"
-msgstr "Verificar:"
-
-#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:150
-msgid "Paste digest from clipboard"
-msgstr "Colar resumo da área de transferência"
-
-#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:176
-msgid "HMAC Key:"
-msgstr "Chave HMAC:"
-
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
-msgid "_Hash"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
-msgid "_Stop"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:904
-#, fuzzy
-msgid "Preferences"
-msgstr "Preferências do GtkHash"
-
-#: data/gtkhash-gtk3.ui:922
-msgid "_Close"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:957
-msgid "Hash Functions"
-msgstr "Funções de hash"
-
-#: data/gtkhash-gtk3.ui:988
-msgid "MAC Functions"
-msgstr "Funções de MAC"
-
-#: data/gtkhash-gtk3.ui:1010
-msgid "Digest Format:"
-msgstr "Formato do resumo:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -157,20 +47,12 @@ msgid "Calculate message digests or checksums"
 msgstr "Calcula resumos de mensagens e somas de verificação (checksums)"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash é uma aplicação para calcular somas de verificação (checksums) e "
-"resumos de mensagens (message digest) de ficheiros. Foi projetado para ser "
-"fácil de usar e para ser uma alternativa gráfica aos programas de linha de "
-"comandos como o md5sum."
+msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
+msgstr "GtkHash é uma aplicação para calcular somas de verificação (checksums) e resumos de mensagens (message digest) de ficheiros. Foi projetado para ser fácil de usar e para ser uma alternativa gráfica aos programas de linha de comandos como o md5sum."
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
-"As funções de hash suportadas incluem MD5, SHA1, SHA256, SHA512 e CRC32."
+msgstr "As funções de hash suportadas incluem MD5, SHA1, SHA256, SHA512 e CRC32."
 
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:7
 msgid "GtkHash for Nautilus"
@@ -224,9 +106,7 @@ msgstr "_Guardar"
 
 #: src/callbacks.c:200
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
-"Um utilitário para calcular resumos de mensagens (message digest) e somas de "
-"verificação (checksums)"
+msgstr "Um utilitário para calcular resumos de mensagens (message digest) e somas de verificação (checksums)"
 
 #: src/callbacks.c:205
 msgid "translator-credits"
@@ -263,6 +143,28 @@ msgstr "Função hash"
 msgid "Digest"
 msgstr "Resumo"
 
+#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+msgid "Check:"
+msgstr "Verificar:"
+
+#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/ui/window.ui:478
+msgid "Paste digest from clipboard"
+msgstr "Colar resumo da área de transferência"
+
+#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/ui/window.ui:523
+msgid "HMAC Key:"
+msgstr "Chave HMAC:"
+
+#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+msgid "_Stop"
+msgstr ""
+
+#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+msgid "_Hash"
+msgstr ""
+
 #: src/gui.c:282
 msgid "Not a regular file"
 msgstr "Não é um ficheiro normal"
@@ -284,8 +186,7 @@ msgstr "Nome de função hash desconhecida \"%s\""
 #: src/opts.c:96
 msgctxt " --help"
 msgid "Check against the specified digest or checksum"
-msgstr ""
-"Comparar com o resumo especificado ou com a soma de verificação (checksum)"
+msgstr "Comparar com o resumo especificado ou com a soma de verificação (checksum)"
 
 #: src/opts.c:97
 msgctxt " --help"
@@ -333,6 +234,92 @@ msgstr "Mostrar informações da versão"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FICHEIRO|URI...]"
+
+#: src/ui/window.ui:14
+msgid "Lowercase Hexadecimal"
+msgstr "Hexadecimal em minúsculas"
+
+#: src/ui/window.ui:17
+msgid "Uppercase Hexadecimal"
+msgstr "Hexadecimal em maiúsculas"
+
+#: src/ui/window.ui:48
+msgid "_Add"
+msgstr ""
+
+#: src/ui/window.ui:79
+msgid "_Remove"
+msgstr ""
+
+#: src/ui/window.ui:110
+msgid "_Clear"
+msgstr ""
+
+#: src/ui/window.ui:147
+msgid "Copy _Digest"
+msgstr "Copiar _resumo"
+
+#: src/ui/window.ui:169
+msgctxt "menu"
+msgid "_Open Digest File…"
+msgstr "Abrir ficheir_o de resumo…"
+
+#: src/ui/window.ui:174
+msgctxt "menu"
+msgid "_Save Digest File…"
+msgstr "Gravar ficheiro de re_sumo…"
+
+#: src/ui/window.ui:181
+#, fuzzy
+msgid "_Preferences"
+msgstr "Preferências do GtkHash"
+
+#: src/ui/window.ui:186
+msgid "_About"
+msgstr ""
+
+#: src/ui/window.ui:303 src/ui/window.ui:717
+msgid "File"
+msgstr "Ficheiro"
+
+#: src/ui/window.ui:317
+#, fuzzy
+msgid "File List"
+msgstr "_Lista de ficheiros"
+
+#: src/ui/window.ui:331
+#, fuzzy
+msgid "Text"
+msgstr "_Texto"
+
+#: src/ui/window.ui:374
+msgid "File:"
+msgstr "Ficheiro:"
+
+#: src/ui/window.ui:387
+msgid "Text:"
+msgstr "Texto:"
+
+#: src/ui/window.ui:904
+#, fuzzy
+msgid "Preferences"
+msgstr "Preferências do GtkHash"
+
+#: src/ui/window.ui:922
+msgid "_Close"
+msgstr ""
+
+#: src/ui/window.ui:957
+msgid "Hash Functions"
+msgstr "Funções de hash"
+
+#: src/ui/window.ui:988
+msgid "MAC Functions"
+msgstr "Funções de MAC"
+
+#: src/ui/window.ui:1010
+msgid "Digest Format:"
+msgstr "Formato do resumo:"
 
 #: src/util/util.c:35
 #, c-format

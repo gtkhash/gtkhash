@@ -8,13 +8,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
-"translations/\n"
-"POT-Creation-Date: 2026-11-04 00:40+0000\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
+"POT-Creation-Date: 2026-11-04 02:32+0000\n"
 "PO-Revision-Date: 2026-10-18 17:46+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
-"Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
-"gtkhash/translations/en_GB/>\n"
+"Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/gtkhash/translations/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,110 +26,6 @@ msgstr ""
 #: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Checksums"
-
-#: data/gtkhash-gtk3.ui:14
-msgid "Lowercase Hexadecimal"
-msgstr "Lowercase Hexadecimal"
-
-#: data/gtkhash-gtk3.ui:17
-msgid "Uppercase Hexadecimal"
-msgstr "Uppercase Hexadecimal"
-
-#: data/gtkhash-gtk3.ui:48
-msgid "_Add"
-msgstr "_Add"
-
-#: data/gtkhash-gtk3.ui:79
-msgid "_Remove"
-msgstr "_Remove"
-
-#: data/gtkhash-gtk3.ui:110
-msgid "_Clear"
-msgstr "_Clear"
-
-#: data/gtkhash-gtk3.ui:147
-msgid "Copy _Digest"
-msgstr "Copy _Digest"
-
-#: data/gtkhash-gtk3.ui:169
-msgctxt "menu"
-msgid "_Open Digest File…"
-msgstr "_Open Digest File…"
-
-#: data/gtkhash-gtk3.ui:174
-msgctxt "menu"
-msgid "_Save Digest File…"
-msgstr "_Save Digest File…"
-
-#: data/gtkhash-gtk3.ui:181
-msgid "_Preferences"
-msgstr "_Preferences"
-
-#: data/gtkhash-gtk3.ui:186
-msgid "_About"
-msgstr "_About"
-
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
-msgid "File"
-msgstr "File"
-
-#: data/gtkhash-gtk3.ui:317
-msgid "File List"
-msgstr "File List"
-
-#: data/gtkhash-gtk3.ui:331
-msgid "Text"
-msgstr "Text"
-
-#: data/gtkhash-gtk3.ui:374
-msgid "File:"
-msgstr "File:"
-
-#: data/gtkhash-gtk3.ui:387
-msgid "Text:"
-msgstr "Text:"
-
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
-msgid "Check:"
-msgstr "Check:"
-
-#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:150
-msgid "Paste digest from clipboard"
-msgstr "Paste digest from clipboard"
-
-#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:176
-msgid "HMAC Key:"
-msgstr "HMAC Key:"
-
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
-msgid "_Hash"
-msgstr "_Hash"
-
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
-msgid "_Stop"
-msgstr "_Stop"
-
-#: data/gtkhash-gtk3.ui:904
-msgid "Preferences"
-msgstr "Preferences"
-
-#: data/gtkhash-gtk3.ui:922
-msgid "_Close"
-msgstr "_Close"
-
-#: data/gtkhash-gtk3.ui:957
-msgid "Hash Functions"
-msgstr "Hash Functions"
-
-#: data/gtkhash-gtk3.ui:988
-msgid "MAC Functions"
-msgstr "MAC Functions"
-
-#: data/gtkhash-gtk3.ui:1010
-msgid "Digest Format:"
-msgstr "Digest Format:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -155,14 +49,8 @@ msgid "Calculate message digests or checksums"
 msgstr "Calculate message digests or checksums"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
+msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
+msgstr "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
@@ -259,6 +147,28 @@ msgstr "Hash Function"
 msgid "Digest"
 msgstr "Digest"
 
+#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+msgid "Check:"
+msgstr "Check:"
+
+#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/ui/window.ui:478
+msgid "Paste digest from clipboard"
+msgstr "Paste digest from clipboard"
+
+#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/ui/window.ui:523
+msgid "HMAC Key:"
+msgstr "HMAC Key:"
+
+#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+msgid "_Stop"
+msgstr "_Stop"
+
+#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+msgid "_Hash"
+msgstr "_Hash"
+
 #: src/gui.c:282
 msgid "Not a regular file"
 msgstr "Not a regular file"
@@ -326,6 +236,88 @@ msgstr "Show version information"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI…]"
+
+#: src/ui/window.ui:14
+msgid "Lowercase Hexadecimal"
+msgstr "Lowercase Hexadecimal"
+
+#: src/ui/window.ui:17
+msgid "Uppercase Hexadecimal"
+msgstr "Uppercase Hexadecimal"
+
+#: src/ui/window.ui:48
+msgid "_Add"
+msgstr "_Add"
+
+#: src/ui/window.ui:79
+msgid "_Remove"
+msgstr "_Remove"
+
+#: src/ui/window.ui:110
+msgid "_Clear"
+msgstr "_Clear"
+
+#: src/ui/window.ui:147
+msgid "Copy _Digest"
+msgstr "Copy _Digest"
+
+#: src/ui/window.ui:169
+msgctxt "menu"
+msgid "_Open Digest File…"
+msgstr "_Open Digest File…"
+
+#: src/ui/window.ui:174
+msgctxt "menu"
+msgid "_Save Digest File…"
+msgstr "_Save Digest File…"
+
+#: src/ui/window.ui:181
+msgid "_Preferences"
+msgstr "_Preferences"
+
+#: src/ui/window.ui:186
+msgid "_About"
+msgstr "_About"
+
+#: src/ui/window.ui:303 src/ui/window.ui:717
+msgid "File"
+msgstr "File"
+
+#: src/ui/window.ui:317
+msgid "File List"
+msgstr "File List"
+
+#: src/ui/window.ui:331
+msgid "Text"
+msgstr "Text"
+
+#: src/ui/window.ui:374
+msgid "File:"
+msgstr "File:"
+
+#: src/ui/window.ui:387
+msgid "Text:"
+msgstr "Text:"
+
+#: src/ui/window.ui:904
+msgid "Preferences"
+msgstr "Preferences"
+
+#: src/ui/window.ui:922
+msgid "_Close"
+msgstr "_Close"
+
+#: src/ui/window.ui:957
+msgid "Hash Functions"
+msgstr "Hash Functions"
+
+#: src/ui/window.ui:988
+msgid "MAC Functions"
+msgstr "MAC Functions"
+
+#: src/ui/window.ui:1010
+msgid "Digest Format:"
+msgstr "Digest Format:"
 
 #: src/util/util.c:35
 #, c-format

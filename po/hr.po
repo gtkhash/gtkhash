@@ -6,19 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
-"translations/\n"
-"POT-Creation-Date: 2026-11-04 00:40+0000\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
+"POT-Creation-Date: 2026-11-04 02:32+0000\n"
 "PO-Revision-Date: 2023-07-29 21:02+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/gtkhash/"
-"translations/hr/>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/gtkhash/translations/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 5.0-dev\n"
 "X-Launchpad-Export-Date: 2014-04-23 05:49+0000\n"
 
@@ -27,114 +24,6 @@ msgstr ""
 #: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Kontrolni zbrojevi"
-
-#: data/gtkhash-gtk3.ui:14
-msgid "Lowercase Hexadecimal"
-msgstr "Mala slova, heksadecimalno"
-
-#: data/gtkhash-gtk3.ui:17
-msgid "Uppercase Hexadecimal"
-msgstr "Velika slova, heksadecimalno"
-
-#: data/gtkhash-gtk3.ui:48
-msgid "_Add"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:79
-msgid "_Remove"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:110
-msgid "_Clear"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:147
-msgid "Copy _Digest"
-msgstr "Kopiraj _sažetak"
-
-#: data/gtkhash-gtk3.ui:169
-msgctxt "menu"
-msgid "_Open Digest File…"
-msgstr "_Otvori datoteku sažetka …"
-
-#: data/gtkhash-gtk3.ui:174
-msgctxt "menu"
-msgid "_Save Digest File…"
-msgstr "_Spremi datoteku sažetka …"
-
-#: data/gtkhash-gtk3.ui:181
-#, fuzzy
-msgid "_Preferences"
-msgstr "GtkHash osobitosti"
-
-#: data/gtkhash-gtk3.ui:186
-msgid "_About"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
-msgid "File"
-msgstr "Datoteka"
-
-#: data/gtkhash-gtk3.ui:317
-#, fuzzy
-msgid "File List"
-msgstr "Popis _datoteka"
-
-#: data/gtkhash-gtk3.ui:331
-#, fuzzy
-msgid "Text"
-msgstr "_Tekst"
-
-#: data/gtkhash-gtk3.ui:374
-msgid "File:"
-msgstr "Datoteka:"
-
-#: data/gtkhash-gtk3.ui:387
-msgid "Text:"
-msgstr "Tekst:"
-
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
-msgid "Check:"
-msgstr "Provjera:"
-
-#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:150
-msgid "Paste digest from clipboard"
-msgstr "Umetni sažetak iz međuspremnika"
-
-#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:176
-msgid "HMAC Key:"
-msgstr "HMAC ključ:"
-
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
-msgid "_Hash"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
-msgid "_Stop"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:904
-#, fuzzy
-msgid "Preferences"
-msgstr "GtkHash osobitosti"
-
-#: data/gtkhash-gtk3.ui:922
-msgid "_Close"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:957
-msgid "Hash Functions"
-msgstr "Hash funkcije"
-
-#: data/gtkhash-gtk3.ui:988
-msgid "MAC Functions"
-msgstr "MAC funkcije"
-
-#: data/gtkhash-gtk3.ui:1010
-msgid "Digest Format:"
-msgstr "Format sažetka:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -158,14 +47,8 @@ msgid "Calculate message digests or checksums"
 msgstr "Izračunaj sažetke poruka ili kontrolne sume"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash je program za računanje kontrolnih zbrojeva datoteka ili sažetaka "
-"poruka. Zamišljen je da bude jednostavan u upotrebi i kao grafička "
-"alternativa programima naredbenog retka poput md5sum."
+msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
+msgstr "GtkHash je program za računanje kontrolnih zbrojeva datoteka ili sažetaka poruka. Zamišljen je da bude jednostavan u upotrebi i kao grafička alternativa programima naredbenog retka poput md5sum."
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
@@ -223,8 +106,7 @@ msgstr "_Spremi"
 
 #: src/callbacks.c:200
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
-"Uslužni program za izračunavanje sažetaka poruka ili kontrolnih zbrojeva"
+msgstr "Uslužni program za izračunavanje sažetaka poruka ili kontrolnih zbrojeva"
 
 #: src/callbacks.c:205
 msgid "translator-credits"
@@ -260,6 +142,28 @@ msgstr "Hash funkcija"
 #: src/extensions/common/properties.ui:97
 msgid "Digest"
 msgstr "Sažetak"
+
+#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+msgid "Check:"
+msgstr "Provjera:"
+
+#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/ui/window.ui:478
+msgid "Paste digest from clipboard"
+msgstr "Umetni sažetak iz međuspremnika"
+
+#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/ui/window.ui:523
+msgid "HMAC Key:"
+msgstr "HMAC ključ:"
+
+#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+msgid "_Stop"
+msgstr ""
+
+#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+msgid "_Hash"
+msgstr ""
 
 #: src/gui.c:282
 msgid "Not a regular file"
@@ -330,6 +234,92 @@ msgstr "Prikaži podatke verzije"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[DATOTEKA|URI …]"
+
+#: src/ui/window.ui:14
+msgid "Lowercase Hexadecimal"
+msgstr "Mala slova, heksadecimalno"
+
+#: src/ui/window.ui:17
+msgid "Uppercase Hexadecimal"
+msgstr "Velika slova, heksadecimalno"
+
+#: src/ui/window.ui:48
+msgid "_Add"
+msgstr ""
+
+#: src/ui/window.ui:79
+msgid "_Remove"
+msgstr ""
+
+#: src/ui/window.ui:110
+msgid "_Clear"
+msgstr ""
+
+#: src/ui/window.ui:147
+msgid "Copy _Digest"
+msgstr "Kopiraj _sažetak"
+
+#: src/ui/window.ui:169
+msgctxt "menu"
+msgid "_Open Digest File…"
+msgstr "_Otvori datoteku sažetka …"
+
+#: src/ui/window.ui:174
+msgctxt "menu"
+msgid "_Save Digest File…"
+msgstr "_Spremi datoteku sažetka …"
+
+#: src/ui/window.ui:181
+#, fuzzy
+msgid "_Preferences"
+msgstr "GtkHash osobitosti"
+
+#: src/ui/window.ui:186
+msgid "_About"
+msgstr ""
+
+#: src/ui/window.ui:303 src/ui/window.ui:717
+msgid "File"
+msgstr "Datoteka"
+
+#: src/ui/window.ui:317
+#, fuzzy
+msgid "File List"
+msgstr "Popis _datoteka"
+
+#: src/ui/window.ui:331
+#, fuzzy
+msgid "Text"
+msgstr "_Tekst"
+
+#: src/ui/window.ui:374
+msgid "File:"
+msgstr "Datoteka:"
+
+#: src/ui/window.ui:387
+msgid "Text:"
+msgstr "Tekst:"
+
+#: src/ui/window.ui:904
+#, fuzzy
+msgid "Preferences"
+msgstr "GtkHash osobitosti"
+
+#: src/ui/window.ui:922
+msgid "_Close"
+msgstr ""
+
+#: src/ui/window.ui:957
+msgid "Hash Functions"
+msgstr "Hash funkcije"
+
+#: src/ui/window.ui:988
+msgid "MAC Functions"
+msgstr "MAC funkcije"
+
+#: src/ui/window.ui:1010
+msgid "Digest Format:"
+msgstr "Format sažetka:"
 
 #: src/util/util.c:35
 #, c-format

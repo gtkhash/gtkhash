@@ -8,19 +8,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
-"translations/\n"
-"POT-Creation-Date: 2026-11-04 00:40+0000\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
+"POT-Creation-Date: 2026-11-04 02:32+0000\n"
 "PO-Revision-Date: 2026-10-18 20:24+0000\n"
 "Last-Translator: Matthaiks <kityn@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/"
-"translations/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/translations/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 2026.11.dev0\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
@@ -28,110 +25,6 @@ msgstr ""
 #: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Sumy kontrolne"
-
-#: data/gtkhash-gtk3.ui:14
-msgid "Lowercase Hexadecimal"
-msgstr "Szesnastkowy małymi znakami"
-
-#: data/gtkhash-gtk3.ui:17
-msgid "Uppercase Hexadecimal"
-msgstr "Szesnastkowy wielkimi znakami"
-
-#: data/gtkhash-gtk3.ui:48
-msgid "_Add"
-msgstr "_Dodaj"
-
-#: data/gtkhash-gtk3.ui:79
-msgid "_Remove"
-msgstr "_Usuń"
-
-#: data/gtkhash-gtk3.ui:110
-msgid "_Clear"
-msgstr "_Wyczyść"
-
-#: data/gtkhash-gtk3.ui:147
-msgid "Copy _Digest"
-msgstr "_Skopiuj skrót"
-
-#: data/gtkhash-gtk3.ui:169
-msgctxt "menu"
-msgid "_Open Digest File…"
-msgstr "_Otwórz plik skrótu…"
-
-#: data/gtkhash-gtk3.ui:174
-msgctxt "menu"
-msgid "_Save Digest File…"
-msgstr "Zapi_sz plik skrótu…"
-
-#: data/gtkhash-gtk3.ui:181
-msgid "_Preferences"
-msgstr "_Preferencje"
-
-#: data/gtkhash-gtk3.ui:186
-msgid "_About"
-msgstr "_Informacje"
-
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
-msgid "File"
-msgstr "Plik"
-
-#: data/gtkhash-gtk3.ui:317
-msgid "File List"
-msgstr "Lista plików"
-
-#: data/gtkhash-gtk3.ui:331
-msgid "Text"
-msgstr "Tekst"
-
-#: data/gtkhash-gtk3.ui:374
-msgid "File:"
-msgstr "Plik:"
-
-#: data/gtkhash-gtk3.ui:387
-msgid "Text:"
-msgstr "Tekst:"
-
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
-msgid "Check:"
-msgstr "Sprawdzanie:"
-
-#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:150
-msgid "Paste digest from clipboard"
-msgstr "Wkleja skrót ze schowka"
-
-#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:176
-msgid "HMAC Key:"
-msgstr "Klucz HMAC:"
-
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
-msgid "_Hash"
-msgstr "_Suma kontrolna"
-
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
-msgid "_Stop"
-msgstr "Za_trzymaj"
-
-#: data/gtkhash-gtk3.ui:904
-msgid "Preferences"
-msgstr "Preferencje"
-
-#: data/gtkhash-gtk3.ui:922
-msgid "_Close"
-msgstr "_Zamknij"
-
-#: data/gtkhash-gtk3.ui:957
-msgid "Hash Functions"
-msgstr "Funkcje sum kontrolnych"
-
-#: data/gtkhash-gtk3.ui:988
-msgid "MAC Functions"
-msgstr "Funkcje MAC"
-
-#: data/gtkhash-gtk3.ui:1010
-msgid "Digest Format:"
-msgstr "Format skrótu:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -155,19 +48,12 @@ msgid "Calculate message digests or checksums"
 msgstr "Obliczanie skrótów wiadomości i sum kontrolnych"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash to program do obliczania sum kontrolnych plików i skrótów "
-"wiadomości. Jest zaprojektowany tak, aby był łatwą w użyciu, graficzną "
-"alternatywą dla programów wiersza poleceń, takich jak md5sum."
+msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
+msgstr "GtkHash to program do obliczania sum kontrolnych plików i skrótów wiadomości. Jest zaprojektowany tak, aby był łatwą w użyciu, graficzną alternatywą dla programów wiersza poleceń, takich jak md5sum."
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
-"Obsługiwane funkcje sum kontrolnych: MD5, SHA1, SHA256, SHA512 i CRC32."
+msgstr "Obsługiwane funkcje sum kontrolnych: MD5, SHA1, SHA256, SHA512 i CRC32."
 
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:7
 msgid "GtkHash for Nautilus"
@@ -258,6 +144,28 @@ msgstr "Funkcja sum kontrolnych"
 msgid "Digest"
 msgstr "Skrót"
 
+#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+msgid "Check:"
+msgstr "Sprawdzanie:"
+
+#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/ui/window.ui:478
+msgid "Paste digest from clipboard"
+msgstr "Wkleja skrót ze schowka"
+
+#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/ui/window.ui:523
+msgid "HMAC Key:"
+msgstr "Klucz HMAC:"
+
+#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+msgid "_Stop"
+msgstr "Za_trzymaj"
+
+#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+msgid "_Hash"
+msgstr "_Suma kontrolna"
+
 #: src/gui.c:282
 msgid "Not a regular file"
 msgstr "Nie jest zwykłym plikiem"
@@ -325,6 +233,88 @@ msgstr "Wyświetla informacje o wersji"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[PLIK|URI…]"
+
+#: src/ui/window.ui:14
+msgid "Lowercase Hexadecimal"
+msgstr "Szesnastkowy małymi znakami"
+
+#: src/ui/window.ui:17
+msgid "Uppercase Hexadecimal"
+msgstr "Szesnastkowy wielkimi znakami"
+
+#: src/ui/window.ui:48
+msgid "_Add"
+msgstr "_Dodaj"
+
+#: src/ui/window.ui:79
+msgid "_Remove"
+msgstr "_Usuń"
+
+#: src/ui/window.ui:110
+msgid "_Clear"
+msgstr "_Wyczyść"
+
+#: src/ui/window.ui:147
+msgid "Copy _Digest"
+msgstr "_Skopiuj skrót"
+
+#: src/ui/window.ui:169
+msgctxt "menu"
+msgid "_Open Digest File…"
+msgstr "_Otwórz plik skrótu…"
+
+#: src/ui/window.ui:174
+msgctxt "menu"
+msgid "_Save Digest File…"
+msgstr "Zapi_sz plik skrótu…"
+
+#: src/ui/window.ui:181
+msgid "_Preferences"
+msgstr "_Preferencje"
+
+#: src/ui/window.ui:186
+msgid "_About"
+msgstr "_Informacje"
+
+#: src/ui/window.ui:303 src/ui/window.ui:717
+msgid "File"
+msgstr "Plik"
+
+#: src/ui/window.ui:317
+msgid "File List"
+msgstr "Lista plików"
+
+#: src/ui/window.ui:331
+msgid "Text"
+msgstr "Tekst"
+
+#: src/ui/window.ui:374
+msgid "File:"
+msgstr "Plik:"
+
+#: src/ui/window.ui:387
+msgid "Text:"
+msgstr "Tekst:"
+
+#: src/ui/window.ui:904
+msgid "Preferences"
+msgstr "Preferencje"
+
+#: src/ui/window.ui:922
+msgid "_Close"
+msgstr "_Zamknij"
+
+#: src/ui/window.ui:957
+msgid "Hash Functions"
+msgstr "Funkcje sum kontrolnych"
+
+#: src/ui/window.ui:988
+msgid "MAC Functions"
+msgstr "Funkcje MAC"
+
+#: src/ui/window.ui:1010
+msgid "Digest Format:"
+msgstr "Format skrótu:"
 
 #: src/util/util.c:35
 #, c-format

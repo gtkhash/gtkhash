@@ -8,20 +8,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
-"translations/\n"
-"POT-Creation-Date: 2026-11-04 00:40+0000\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
+"POT-Creation-Date: 2026-11-04 02:32+0000\n"
 "PO-Revision-Date: 2026-10-15 00:15+0000\n"
-"Last-Translator: Roi Klevansky "
-"<roi_klevansky@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Hebrew <https://hosted.weblate.org/projects/gtkhash/"
-"translations/he/>\n"
+"Last-Translator: Roi Klevansky <roi_klevansky@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Hebrew <https://hosted.weblate.org/projects/gtkhash/translations/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
-"n % 10 == 0) ? 2 : 3));\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Weblate 2026.11.dev0\n"
 "X-Launchpad-Export-Date: 2016-01-29 05:16+0000\n"
 
@@ -30,114 +26,6 @@ msgstr ""
 #: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "סיכומי ביקורות"
-
-#: data/gtkhash-gtk3.ui:14
-msgid "Lowercase Hexadecimal"
-msgstr "הקסדצימלי באותיות קטנות"
-
-#: data/gtkhash-gtk3.ui:17
-msgid "Uppercase Hexadecimal"
-msgstr "הקסדצימלי באותיות גדולות"
-
-#: data/gtkhash-gtk3.ui:48
-msgid "_Add"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:79
-msgid "_Remove"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:110
-msgid "_Clear"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:147
-msgid "Copy _Digest"
-msgstr "העתקת קוד _גיבוב"
-
-#: data/gtkhash-gtk3.ui:169
-msgctxt "menu"
-msgid "_Open Digest File…"
-msgstr "_פתיחת קובץ קוד גיבוב…"
-
-#: data/gtkhash-gtk3.ui:174
-msgctxt "menu"
-msgid "_Save Digest File…"
-msgstr "_שמירת קוד גיבוב לקובץ…"
-
-#: data/gtkhash-gtk3.ui:181
-#, fuzzy
-msgid "_Preferences"
-msgstr "העדפות GtkHash"
-
-#: data/gtkhash-gtk3.ui:186
-msgid "_About"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
-msgid "File"
-msgstr "קובץ"
-
-#: data/gtkhash-gtk3.ui:317
-#, fuzzy
-msgid "File List"
-msgstr "רשימת_קבצים"
-
-#: data/gtkhash-gtk3.ui:331
-#, fuzzy
-msgid "Text"
-msgstr "_טקסט"
-
-#: data/gtkhash-gtk3.ui:374
-msgid "File:"
-msgstr "קובץ:"
-
-#: data/gtkhash-gtk3.ui:387
-msgid "Text:"
-msgstr "טקסט:"
-
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
-msgid "Check:"
-msgstr "בדיקה מול:"
-
-#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:150
-msgid "Paste digest from clipboard"
-msgstr "הדבקת קוד גיבוב מלוח ההעתקה"
-
-#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:176
-msgid "HMAC Key:"
-msgstr "מפתח HMAC:"
-
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
-msgid "_Hash"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
-msgid "_Stop"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:904
-#, fuzzy
-msgid "Preferences"
-msgstr "העדפות GtkHash"
-
-#: data/gtkhash-gtk3.ui:922
-msgid "_Close"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:957
-msgid "Hash Functions"
-msgstr "פונקציות גיבוב"
-
-#: data/gtkhash-gtk3.ui:988
-msgid "MAC Functions"
-msgstr "פונקציות MAC"
-
-#: data/gtkhash-gtk3.ui:1010
-msgid "Digest Format:"
-msgstr "תסדיר קוד גיבוב:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -161,13 +49,8 @@ msgid "Calculate message digests or checksums"
 msgstr "חישוב קוד גיבוב או סיכום ביקורת"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash הוא כלי לשולחן עבודה לחישוב קוד גיבוב או סיכום ביקורת. הכלי נועד "
-"לספק חלופה גרפית קלה לשימוש, לתכניות שורת פקודה כמו md5sum."
+msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
+msgstr "GtkHash הוא כלי לשולחן עבודה לחישוב קוד גיבוב או סיכום ביקורת. הכלי נועד לספק חלופה גרפית קלה לשימוש, לתכניות שורת פקודה כמו md5sum."
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
@@ -263,6 +146,28 @@ msgstr "פונקציית גיבוב"
 msgid "Digest"
 msgstr "קוד גיבוב"
 
+#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+msgid "Check:"
+msgstr "בדיקה מול:"
+
+#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/ui/window.ui:478
+msgid "Paste digest from clipboard"
+msgstr "הדבקת קוד גיבוב מלוח ההעתקה"
+
+#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/ui/window.ui:523
+msgid "HMAC Key:"
+msgstr "מפתח HMAC:"
+
+#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+msgid "_Stop"
+msgstr ""
+
+#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+msgid "_Hash"
+msgstr ""
+
 #: src/gui.c:282
 msgid "Not a regular file"
 msgstr "לא קובץ רגיל"
@@ -332,6 +237,92 @@ msgstr "הצגת מידע על הגרסה"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FILE|URI...]"
+
+#: src/ui/window.ui:14
+msgid "Lowercase Hexadecimal"
+msgstr "הקסדצימלי באותיות קטנות"
+
+#: src/ui/window.ui:17
+msgid "Uppercase Hexadecimal"
+msgstr "הקסדצימלי באותיות גדולות"
+
+#: src/ui/window.ui:48
+msgid "_Add"
+msgstr ""
+
+#: src/ui/window.ui:79
+msgid "_Remove"
+msgstr ""
+
+#: src/ui/window.ui:110
+msgid "_Clear"
+msgstr ""
+
+#: src/ui/window.ui:147
+msgid "Copy _Digest"
+msgstr "העתקת קוד _גיבוב"
+
+#: src/ui/window.ui:169
+msgctxt "menu"
+msgid "_Open Digest File…"
+msgstr "_פתיחת קובץ קוד גיבוב…"
+
+#: src/ui/window.ui:174
+msgctxt "menu"
+msgid "_Save Digest File…"
+msgstr "_שמירת קוד גיבוב לקובץ…"
+
+#: src/ui/window.ui:181
+#, fuzzy
+msgid "_Preferences"
+msgstr "העדפות GtkHash"
+
+#: src/ui/window.ui:186
+msgid "_About"
+msgstr ""
+
+#: src/ui/window.ui:303 src/ui/window.ui:717
+msgid "File"
+msgstr "קובץ"
+
+#: src/ui/window.ui:317
+#, fuzzy
+msgid "File List"
+msgstr "רשימת_קבצים"
+
+#: src/ui/window.ui:331
+#, fuzzy
+msgid "Text"
+msgstr "_טקסט"
+
+#: src/ui/window.ui:374
+msgid "File:"
+msgstr "קובץ:"
+
+#: src/ui/window.ui:387
+msgid "Text:"
+msgstr "טקסט:"
+
+#: src/ui/window.ui:904
+#, fuzzy
+msgid "Preferences"
+msgstr "העדפות GtkHash"
+
+#: src/ui/window.ui:922
+msgid "_Close"
+msgstr ""
+
+#: src/ui/window.ui:957
+msgid "Hash Functions"
+msgstr "פונקציות גיבוב"
+
+#: src/ui/window.ui:988
+msgid "MAC Functions"
+msgstr "פונקציות MAC"
+
+#: src/ui/window.ui:1010
+msgid "Digest Format:"
+msgstr "תסדיר קוד גיבוב:"
 
 #: src/util/util.c:35
 #, fuzzy, c-format

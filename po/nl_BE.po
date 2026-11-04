@@ -5,13 +5,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
-"translations/\n"
-"POT-Creation-Date: 2026-11-04 00:40+0000\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
+"POT-Creation-Date: 2026-11-04 02:32+0000\n"
 "PO-Revision-Date: 2019-06-18 19:03+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
-"Language-Team: Flemish <https://hosted.weblate.org/projects/gtkhash/"
-"translations/nl_BE/>\n"
+"Language-Team: Flemish <https://hosted.weblate.org/projects/gtkhash/translations/nl_BE/>\n"
 "Language: nl_BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,118 +23,6 @@ msgstr ""
 #, fuzzy
 msgid "Checksums"
 msgstr "Controle:"
-
-#: data/gtkhash-gtk3.ui:14
-msgid "Lowercase Hexadecimal"
-msgstr "Hexadecimaal kleine letters"
-
-#: data/gtkhash-gtk3.ui:17
-msgid "Uppercase Hexadecimal"
-msgstr "Hexadecimaal hoofdletters"
-
-#: data/gtkhash-gtk3.ui:48
-msgid "_Add"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:79
-msgid "_Remove"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:110
-msgid "_Clear"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:147
-msgid "Copy _Digest"
-msgstr "_Digest kopiëren"
-
-#: data/gtkhash-gtk3.ui:169
-#, fuzzy
-msgctxt "menu"
-msgid "_Open Digest File…"
-msgstr "Digest-bestand openen"
-
-#: data/gtkhash-gtk3.ui:174
-#, fuzzy
-msgctxt "menu"
-msgid "_Save Digest File…"
-msgstr "Digest-bestand opslaan"
-
-#: data/gtkhash-gtk3.ui:181
-#, fuzzy
-msgid "_Preferences"
-msgstr "GtkHash-voorkeuren"
-
-#: data/gtkhash-gtk3.ui:186
-msgid "_About"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
-msgid "File"
-msgstr "Bestand"
-
-#: data/gtkhash-gtk3.ui:317
-#, fuzzy
-msgid "File List"
-msgstr "Bestands_lijst"
-
-#: data/gtkhash-gtk3.ui:331
-#, fuzzy
-msgid "Text"
-msgstr "Te_kst"
-
-#: data/gtkhash-gtk3.ui:374
-msgid "File:"
-msgstr "Bestand:"
-
-#: data/gtkhash-gtk3.ui:387
-msgid "Text:"
-msgstr "Tekst:"
-
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
-msgid "Check:"
-msgstr "Controle:"
-
-#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:150
-msgid "Paste digest from clipboard"
-msgstr "Digest kopiëren van klembord"
-
-#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:176
-msgid "HMAC Key:"
-msgstr "HMAC-sleutel:"
-
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
-msgid "_Hash"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
-msgid "_Stop"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:904
-#, fuzzy
-msgid "Preferences"
-msgstr "GtkHash-voorkeuren"
-
-#: data/gtkhash-gtk3.ui:922
-msgid "_Close"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:957
-#, fuzzy
-msgid "Hash Functions"
-msgstr "Hashfuncties:"
-
-#: data/gtkhash-gtk3.ui:988
-#, fuzzy
-msgid "MAC Functions"
-msgstr "Hashfuncties:"
-
-#: data/gtkhash-gtk3.ui:1010
-msgid "Digest Format:"
-msgstr "Digestformaat:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -160,14 +46,8 @@ msgid "Calculate message digests or checksums"
 msgstr "Berichtdigests of controlesommen berekenen"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash is een toepassing voor het berekenen van bestandscontrolesommen en "
-"berichtdigests. Ze is ontworpen als eenvoudig te gebruiken grafisch "
-"alternatief voor opdrachtregelprogramma’s als md5sum."
+msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
+msgstr "GtkHash is een toepassing voor het berekenen van bestandscontrolesommen en berichtdigests. Ze is ontworpen als eenvoudig te gebruiken grafisch alternatief voor opdrachtregelprogramma’s als md5sum."
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
@@ -226,9 +106,7 @@ msgstr "Op_slaan"
 
 #: src/callbacks.c:200
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
-"Een bureaubladhulpmiddel voor het berekenen van berichtdigests of "
-"controlesommen"
+msgstr "Een bureaubladhulpmiddel voor het berekenen van berichtdigests of controlesommen"
 
 #: src/callbacks.c:205
 msgid "translator-credits"
@@ -264,6 +142,28 @@ msgstr "Hashfunctie"
 #: src/extensions/common/properties.ui:97
 msgid "Digest"
 msgstr "Digest"
+
+#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+msgid "Check:"
+msgstr "Controle:"
+
+#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/ui/window.ui:478
+msgid "Paste digest from clipboard"
+msgstr "Digest kopiëren van klembord"
+
+#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/ui/window.ui:523
+msgid "HMAC Key:"
+msgstr "HMAC-sleutel:"
+
+#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+msgid "_Stop"
+msgstr ""
+
+#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+msgid "_Hash"
+msgstr ""
 
 #: src/gui.c:282
 msgid "Not a regular file"
@@ -334,6 +234,96 @@ msgstr "Versieinformatie tonen"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[BESTAND|URI...]"
+
+#: src/ui/window.ui:14
+msgid "Lowercase Hexadecimal"
+msgstr "Hexadecimaal kleine letters"
+
+#: src/ui/window.ui:17
+msgid "Uppercase Hexadecimal"
+msgstr "Hexadecimaal hoofdletters"
+
+#: src/ui/window.ui:48
+msgid "_Add"
+msgstr ""
+
+#: src/ui/window.ui:79
+msgid "_Remove"
+msgstr ""
+
+#: src/ui/window.ui:110
+msgid "_Clear"
+msgstr ""
+
+#: src/ui/window.ui:147
+msgid "Copy _Digest"
+msgstr "_Digest kopiëren"
+
+#: src/ui/window.ui:169
+#, fuzzy
+msgctxt "menu"
+msgid "_Open Digest File…"
+msgstr "Digest-bestand openen"
+
+#: src/ui/window.ui:174
+#, fuzzy
+msgctxt "menu"
+msgid "_Save Digest File…"
+msgstr "Digest-bestand opslaan"
+
+#: src/ui/window.ui:181
+#, fuzzy
+msgid "_Preferences"
+msgstr "GtkHash-voorkeuren"
+
+#: src/ui/window.ui:186
+msgid "_About"
+msgstr ""
+
+#: src/ui/window.ui:303 src/ui/window.ui:717
+msgid "File"
+msgstr "Bestand"
+
+#: src/ui/window.ui:317
+#, fuzzy
+msgid "File List"
+msgstr "Bestands_lijst"
+
+#: src/ui/window.ui:331
+#, fuzzy
+msgid "Text"
+msgstr "Te_kst"
+
+#: src/ui/window.ui:374
+msgid "File:"
+msgstr "Bestand:"
+
+#: src/ui/window.ui:387
+msgid "Text:"
+msgstr "Tekst:"
+
+#: src/ui/window.ui:904
+#, fuzzy
+msgid "Preferences"
+msgstr "GtkHash-voorkeuren"
+
+#: src/ui/window.ui:922
+msgid "_Close"
+msgstr ""
+
+#: src/ui/window.ui:957
+#, fuzzy
+msgid "Hash Functions"
+msgstr "Hashfuncties:"
+
+#: src/ui/window.ui:988
+#, fuzzy
+msgid "MAC Functions"
+msgstr "Hashfuncties:"
+
+#: src/ui/window.ui:1010
+msgid "Digest Format:"
+msgstr "Digestformaat:"
 
 #: src/util/util.c:35
 #, c-format

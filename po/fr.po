@@ -9,13 +9,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
-"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
-"translations/\n"
-"POT-Creation-Date: 2026-11-04 00:40+0000\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
+"POT-Creation-Date: 2026-11-04 02:32+0000\n"
 "PO-Revision-Date: 2021-12-02 01:50+0000\n"
 "Last-Translator: aezjrareareare <jeromechaland@riseup.net>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/gtkhash/"
-"translations/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/gtkhash/translations/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,114 +27,6 @@ msgstr ""
 #: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "Sommes de contrôle"
-
-#: data/gtkhash-gtk3.ui:14
-msgid "Lowercase Hexadecimal"
-msgstr "Hexadécimal en minuscule"
-
-#: data/gtkhash-gtk3.ui:17
-msgid "Uppercase Hexadecimal"
-msgstr "Hexadécimal en majuscule"
-
-#: data/gtkhash-gtk3.ui:48
-msgid "_Add"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:79
-msgid "_Remove"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:110
-msgid "_Clear"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:147
-msgid "Copy _Digest"
-msgstr "Copier le con_densat"
-
-#: data/gtkhash-gtk3.ui:169
-msgctxt "menu"
-msgid "_Open Digest File…"
-msgstr "_Ouvrir un fichier de condensat"
-
-#: data/gtkhash-gtk3.ui:174
-msgctxt "menu"
-msgid "_Save Digest File…"
-msgstr "_Enregistrer le condensat"
-
-#: data/gtkhash-gtk3.ui:181
-#, fuzzy
-msgid "_Preferences"
-msgstr "Préférences GtkHash"
-
-#: data/gtkhash-gtk3.ui:186
-msgid "_About"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
-msgid "File"
-msgstr "Fichier"
-
-#: data/gtkhash-gtk3.ui:317
-#, fuzzy
-msgid "File List"
-msgstr "_Liste de fichiers"
-
-#: data/gtkhash-gtk3.ui:331
-#, fuzzy
-msgid "Text"
-msgstr "_Texte"
-
-#: data/gtkhash-gtk3.ui:374
-msgid "File:"
-msgstr "Fichier :"
-
-#: data/gtkhash-gtk3.ui:387
-msgid "Text:"
-msgstr "Texte :"
-
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
-msgid "Check:"
-msgstr "Vérifier :"
-
-#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:150
-msgid "Paste digest from clipboard"
-msgstr "Coller le condensat depuis le presse-papier"
-
-#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:176
-msgid "HMAC Key:"
-msgstr "Clé HMAC :"
-
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
-msgid "_Hash"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
-msgid "_Stop"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:904
-#, fuzzy
-msgid "Preferences"
-msgstr "Préférences GtkHash"
-
-#: data/gtkhash-gtk3.ui:922
-msgid "_Close"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:957
-msgid "Hash Functions"
-msgstr "Fonctions de hachage"
-
-#: data/gtkhash-gtk3.ui:988
-msgid "MAC Functions"
-msgstr "Fonctions de code d’authentification de message"
-
-#: data/gtkhash-gtk3.ui:1010
-msgid "Digest Format:"
-msgstr "Format du condensat :"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -160,21 +50,12 @@ msgid "Calculate message digests or checksums"
 msgstr "Calcule des condensats ou des sommes de contrôle"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash est une application permettant de calculer les sommes de contrôle ou "
-"les condensats de fichier. Elle est conçue pour être une alternative "
-"graphique aux programmes en ligne de commande comme md5sum, et facile à "
-"utiliser."
+msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
+msgstr "GtkHash est une application permettant de calculer les sommes de contrôle ou les condensats de fichier. Elle est conçue pour être une alternative graphique aux programmes en ligne de commande comme md5sum, et facile à utiliser."
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
-"Les fonctions de hachage prises en charge sont MD5, SHA-1, SHA-256, SHA-512 "
-"et le code cyclique CRC32."
+msgstr "Les fonctions de hachage prises en charge sont MD5, SHA-1, SHA-256, SHA-512 et le code cyclique CRC32."
 
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:7
 msgid "GtkHash for Nautilus"
@@ -228,8 +109,7 @@ msgstr "Enregi_strer"
 
 #: src/callbacks.c:200
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
-"Un utilitaire GTK+ pour calculer des condensats ou des sommes de contrôle"
+msgstr "Un utilitaire GTK+ pour calculer des condensats ou des sommes de contrôle"
 
 #: src/callbacks.c:205
 msgid "translator-credits"
@@ -267,6 +147,28 @@ msgstr "Fonction de hachage"
 #: src/extensions/common/properties.ui:97
 msgid "Digest"
 msgstr "Condensat"
+
+#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+msgid "Check:"
+msgstr "Vérifier :"
+
+#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/ui/window.ui:478
+msgid "Paste digest from clipboard"
+msgstr "Coller le condensat depuis le presse-papier"
+
+#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/ui/window.ui:523
+msgid "HMAC Key:"
+msgstr "Clé HMAC :"
+
+#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+msgid "_Stop"
+msgstr ""
+
+#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+msgid "_Hash"
+msgstr ""
 
 #: src/gui.c:282
 msgid "Not a regular file"
@@ -337,6 +239,92 @@ msgstr "Affiche les informations de version"
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[FICHIER|URI…]"
+
+#: src/ui/window.ui:14
+msgid "Lowercase Hexadecimal"
+msgstr "Hexadécimal en minuscule"
+
+#: src/ui/window.ui:17
+msgid "Uppercase Hexadecimal"
+msgstr "Hexadécimal en majuscule"
+
+#: src/ui/window.ui:48
+msgid "_Add"
+msgstr ""
+
+#: src/ui/window.ui:79
+msgid "_Remove"
+msgstr ""
+
+#: src/ui/window.ui:110
+msgid "_Clear"
+msgstr ""
+
+#: src/ui/window.ui:147
+msgid "Copy _Digest"
+msgstr "Copier le con_densat"
+
+#: src/ui/window.ui:169
+msgctxt "menu"
+msgid "_Open Digest File…"
+msgstr "_Ouvrir un fichier de condensat"
+
+#: src/ui/window.ui:174
+msgctxt "menu"
+msgid "_Save Digest File…"
+msgstr "_Enregistrer le condensat"
+
+#: src/ui/window.ui:181
+#, fuzzy
+msgid "_Preferences"
+msgstr "Préférences GtkHash"
+
+#: src/ui/window.ui:186
+msgid "_About"
+msgstr ""
+
+#: src/ui/window.ui:303 src/ui/window.ui:717
+msgid "File"
+msgstr "Fichier"
+
+#: src/ui/window.ui:317
+#, fuzzy
+msgid "File List"
+msgstr "_Liste de fichiers"
+
+#: src/ui/window.ui:331
+#, fuzzy
+msgid "Text"
+msgstr "_Texte"
+
+#: src/ui/window.ui:374
+msgid "File:"
+msgstr "Fichier :"
+
+#: src/ui/window.ui:387
+msgid "Text:"
+msgstr "Texte :"
+
+#: src/ui/window.ui:904
+#, fuzzy
+msgid "Preferences"
+msgstr "Préférences GtkHash"
+
+#: src/ui/window.ui:922
+msgid "_Close"
+msgstr ""
+
+#: src/ui/window.ui:957
+msgid "Hash Functions"
+msgstr "Fonctions de hachage"
+
+#: src/ui/window.ui:988
+msgid "MAC Functions"
+msgstr "Fonctions de code d’authentification de message"
+
+#: src/ui/window.ui:1010
+msgid "Digest Format:"
+msgstr "Format du condensat :"
 
 #: src/util/util.c:35
 #, c-format

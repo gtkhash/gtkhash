@@ -7,14 +7,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
-"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/"
-"translations/\n"
-"POT-Creation-Date: 2026-11-04 00:40+0000\n"
+"Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
+"POT-Creation-Date: 2026-11-04 02:32+0000\n"
 "PO-Revision-Date: 2026-10-20 06:51+0000\n"
-"Last-Translator: Temuri Doghonadze "
-"<norwayfun@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Georgian <https://hosted.weblate.org/projects/gtkhash/"
-"translations/ka/>\n"
+"Last-Translator: Temuri Doghonadze <norwayfun@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Georgian <https://hosted.weblate.org/projects/gtkhash/translations/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,110 +24,6 @@ msgstr ""
 #: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
 msgid "Checksums"
 msgstr "საკონტროლო ჯამები"
-
-#: data/gtkhash-gtk3.ui:14
-msgid "Lowercase Hexadecimal"
-msgstr "თექვსმეტობითი პატარა ასოებით"
-
-#: data/gtkhash-gtk3.ui:17
-msgid "Uppercase Hexadecimal"
-msgstr "თექვსმეტობითი დიდი ასოებით"
-
-#: data/gtkhash-gtk3.ui:48
-msgid "_Add"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:79
-msgid "_Remove"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:110
-msgid "_Clear"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:147
-msgid "Copy _Digest"
-msgstr "_დაიჯესტის კოპირება"
-
-#: data/gtkhash-gtk3.ui:169
-msgctxt "menu"
-msgid "_Open Digest File…"
-msgstr "დაი_ჯესტის ფაილის გახსნა…"
-
-#: data/gtkhash-gtk3.ui:174
-msgctxt "menu"
-msgid "_Save Digest File…"
-msgstr "დაიჯე_სტის ფაილის შენახვა…"
-
-#: data/gtkhash-gtk3.ui:181
-msgid "_Preferences"
-msgstr "_მორგება"
-
-#: data/gtkhash-gtk3.ui:186
-msgid "_About"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:303 data/gtkhash-gtk3.ui:717
-msgid "File"
-msgstr "ფაილი"
-
-#: data/gtkhash-gtk3.ui:317
-msgid "File List"
-msgstr "ფაილების სია"
-
-#: data/gtkhash-gtk3.ui:331
-msgid "Text"
-msgstr "ტექსტი"
-
-#: data/gtkhash-gtk3.ui:374
-msgid "File:"
-msgstr "ფაილი:"
-
-#: data/gtkhash-gtk3.ui:387
-msgid "Text:"
-msgstr "ტექსტი:"
-
-#: data/gtkhash-gtk3.ui:400 src/extensions/common/properties.ui:135
-msgid "Check:"
-msgstr "ჩართვა:"
-
-#: data/gtkhash-gtk3.ui:458 data/gtkhash-gtk3.ui:478
-#: src/extensions/common/properties.ui:150
-msgid "Paste digest from clipboard"
-msgstr "დაიჯესტის ჩასმა ბუფერიდან"
-
-#: data/gtkhash-gtk3.ui:496 data/gtkhash-gtk3.ui:523
-#: src/extensions/common/properties.ui:176
-msgid "HMAC Key:"
-msgstr "HMAC გასაღები:"
-
-#: data/gtkhash-gtk3.ui:820 src/extensions/common/properties.ui:310
-msgid "_Hash"
-msgstr "_ჰეში"
-
-#: data/gtkhash-gtk3.ui:859 src/extensions/common/properties.ui:271
-msgid "_Stop"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:904
-msgid "Preferences"
-msgstr "მორგება"
-
-#: data/gtkhash-gtk3.ui:922
-msgid "_Close"
-msgstr ""
-
-#: data/gtkhash-gtk3.ui:957
-msgid "Hash Functions"
-msgstr "ჰეშის ფუნქციები"
-
-#: data/gtkhash-gtk3.ui:988
-msgid "MAC Functions"
-msgstr "MAC-ის ფუნქციები"
-
-#: data/gtkhash-gtk3.ui:1010
-msgid "Digest Format:"
-msgstr "დაიჯესტის ფორმატი:"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -154,19 +47,12 @@ msgid "Calculate message digests or checksums"
 msgstr "გამთოვალეთ შეტყობინების დაიჯესტები, ან საკონტროლო ჯამები"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
-msgid ""
-"GtkHash is an application for computing file checksums, or message digests. "
-"It's designed to be an easy to use, graphical alternative to command-line "
-"programs such as md5sum."
-msgstr ""
-"GtkHash აპლიკაციაა ფაილის საკონტროლო ჯამების, ან შეტყობინების დაიჯესტების "
-"გამოსათვლელად. მისი დანიშნულებაა, იყოს იოლი გამოსაყენებლად და წარმოადგენდეს "
-"გრაფიკულ ალტერნატივას ისეთი პროგრამებისთვის, როგორიცაა md5sum."
+msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
+msgstr "GtkHash აპლიკაციაა ფაილის საკონტროლო ჯამების, ან შეტყობინების დაიჯესტების გამოსათვლელად. მისი დანიშნულებაა, იყოს იოლი გამოსაყენებლად და წარმოადგენდეს გრაფიკულ ალტერნატივას ისეთი პროგრამებისთვის, როგორიცაა md5sum."
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:15
 msgid "Supported hash functions include MD5, SHA1, SHA256, SHA512 and CRC32."
-msgstr ""
-"მხარდაჭერილი ჰეშის ფუნქციები შეიცავს: MD5, SHA1, SHA256, SHA512 and CRC32."
+msgstr "მხარდაჭერილი ჰეშის ფუნქციები შეიცავს: MD5, SHA1, SHA256, SHA512 and CRC32."
 
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:7
 msgid "GtkHash for Nautilus"
@@ -220,9 +106,7 @@ msgstr "_შენახვა"
 
 #: src/callbacks.c:200
 msgid "A desktop utility for computing message digests or checksums"
-msgstr ""
-"კომპიუტერის პროგრამა შეტყობინების დაიჯესტების, ან საკონტროლო ჯამების "
-"გამოსათვლელად"
+msgstr "კომპიუტერის პროგრამა შეტყობინების დაიჯესტების, ან საკონტროლო ჯამების გამოსათვლელად"
 
 #: src/callbacks.c:205
 msgid "translator-credits"
@@ -256,6 +140,28 @@ msgstr "ჰეშის ფუნქცია"
 #: src/extensions/common/properties.ui:97
 msgid "Digest"
 msgstr "დაიჯესტი"
+
+#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+msgid "Check:"
+msgstr "ჩართვა:"
+
+#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/ui/window.ui:478
+msgid "Paste digest from clipboard"
+msgstr "დაიჯესტის ჩასმა ბუფერიდან"
+
+#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/ui/window.ui:523
+msgid "HMAC Key:"
+msgstr "HMAC გასაღები:"
+
+#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+msgid "_Stop"
+msgstr ""
+
+#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+msgid "_Hash"
+msgstr "_ჰეში"
 
 #: src/gui.c:282
 msgid "Not a regular file"
@@ -324,6 +230,88 @@ msgstr "ვერსიის ინფორმაციის ჩვენე�
 msgctxt " --help"
 msgid "[FILE|URI...]"
 msgstr "[ფაილი|URI...]"
+
+#: src/ui/window.ui:14
+msgid "Lowercase Hexadecimal"
+msgstr "თექვსმეტობითი პატარა ასოებით"
+
+#: src/ui/window.ui:17
+msgid "Uppercase Hexadecimal"
+msgstr "თექვსმეტობითი დიდი ასოებით"
+
+#: src/ui/window.ui:48
+msgid "_Add"
+msgstr ""
+
+#: src/ui/window.ui:79
+msgid "_Remove"
+msgstr ""
+
+#: src/ui/window.ui:110
+msgid "_Clear"
+msgstr ""
+
+#: src/ui/window.ui:147
+msgid "Copy _Digest"
+msgstr "_დაიჯესტის კოპირება"
+
+#: src/ui/window.ui:169
+msgctxt "menu"
+msgid "_Open Digest File…"
+msgstr "დაი_ჯესტის ფაილის გახსნა…"
+
+#: src/ui/window.ui:174
+msgctxt "menu"
+msgid "_Save Digest File…"
+msgstr "დაიჯე_სტის ფაილის შენახვა…"
+
+#: src/ui/window.ui:181
+msgid "_Preferences"
+msgstr "_მორგება"
+
+#: src/ui/window.ui:186
+msgid "_About"
+msgstr ""
+
+#: src/ui/window.ui:303 src/ui/window.ui:717
+msgid "File"
+msgstr "ფაილი"
+
+#: src/ui/window.ui:317
+msgid "File List"
+msgstr "ფაილების სია"
+
+#: src/ui/window.ui:331
+msgid "Text"
+msgstr "ტექსტი"
+
+#: src/ui/window.ui:374
+msgid "File:"
+msgstr "ფაილი:"
+
+#: src/ui/window.ui:387
+msgid "Text:"
+msgstr "ტექსტი:"
+
+#: src/ui/window.ui:904
+msgid "Preferences"
+msgstr "მორგება"
+
+#: src/ui/window.ui:922
+msgid "_Close"
+msgstr ""
+
+#: src/ui/window.ui:957
+msgid "Hash Functions"
+msgstr "ჰეშის ფუნქციები"
+
+#: src/ui/window.ui:988
+msgid "MAC Functions"
+msgstr "MAC-ის ფუნქციები"
+
+#: src/ui/window.ui:1010
+msgid "Digest Format:"
+msgstr "დაიჯესტის ფორმატი:"
 
 #: src/util/util.c:35
 #, c-format
