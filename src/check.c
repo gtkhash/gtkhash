@@ -334,8 +334,9 @@ void check_file_save(const char * const filename)
 			}
 			case GUI_VIEW_FILE_LIST: {
 				enum hash_func_e prev = HASH_FUNC_INVALID;
+				const int rows = list_get_rows();
 
-				for (unsigned int row = 0; row < list.rows; row++) {
+				for (int row = 0; row < rows; row++) {
 					char *digest = list_get_digest(row, i);
 
 					if (digest && *digest) {

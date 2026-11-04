@@ -427,7 +427,7 @@ static void test_opt_check_file(void)
 		g_assert(hash.funcs[HASH_FUNC_MD5].supported);
 		g_assert(hash.funcs[HASH_FUNC_MD5].enabled);
 		g_assert(gui.view == GUI_VIEW_FILE_LIST);
-		g_assert(list.rows == 9);
+		g_assert(list_get_rows() == 9);
 
 		// OK to exit before finish, with warnings
 		g_test_expect_message(G_LOG_DOMAIN, G_LOG_LEVEL_WARNING, "*");
@@ -596,7 +596,7 @@ static void test_opt_file_list(void)
 		delay();
 
 		g_assert(gui.view == GUI_VIEW_FILE_LIST);
-		g_assert(list.rows == 2);
+		g_assert(list_get_rows() == 2);
 
 		char *digest;
 		while (!(digest = list_get_digest(1, HASH_FUNC_MD5)) || !*digest)
@@ -608,7 +608,7 @@ static void test_opt_file_list(void)
 		delay();
 		list_remove_selection();
 		delay();
-		g_assert(list.rows == 0);
+		g_assert(list_get_rows() == 0);
 
 		exit(EXIT_SUCCESS);
 	}
