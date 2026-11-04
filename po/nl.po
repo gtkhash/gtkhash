@@ -4,20 +4,21 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # Nathan Follens <nthn@unseen.is>, 2018, 2019.
 # Mikachu <micah.sh@proton.me>, 2024.
+# Tristan Heaven <tristan@tristanheaven.net>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-04 02:32+0000\n"
-"PO-Revision-Date: 2024-03-16 16:01+0000\n"
-"Last-Translator: Mikachu <micah.sh@proton.me>\n"
+"PO-Revision-Date: 2026-11-04 17:52+0000\n"
+"Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtkhash/translations/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 2026.11.1.dev0\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
@@ -205,16 +206,14 @@ msgid "FILE|URI"
 msgstr "BESTAND|URI"
 
 #: src/opts.c:106
-#, fuzzy
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
-msgstr "Schakel de aangegeven hashfunctie in (bv. MD5)"
+msgstr ""
 
 #: src/opts.c:107
-#, fuzzy
 msgctxt " --help"
 msgid "[+-]FUNCTION"
-msgstr "FUNCTIE"
+msgstr ""
 
 #: src/opts.c:111
 msgctxt " --help"
@@ -271,9 +270,8 @@ msgid "_Save Digest File…"
 msgstr "_Digest-bestand opslaan…"
 
 #: src/ui/window.ui:181
-#, fuzzy
 msgid "_Preferences"
-msgstr "GtkHash-voorkeuren"
+msgstr ""
 
 #: src/ui/window.ui:186
 msgid "_About"
@@ -284,14 +282,12 @@ msgid "File"
 msgstr "Bestand"
 
 #: src/ui/window.ui:317
-#, fuzzy
 msgid "File List"
-msgstr "Bestands_lijst"
+msgstr ""
 
 #: src/ui/window.ui:331
-#, fuzzy
 msgid "Text"
-msgstr "Te_kst"
+msgstr ""
 
 #: src/ui/window.ui:374
 msgid "File:"
@@ -302,9 +298,8 @@ msgid "Text:"
 msgstr "Tekst:"
 
 #: src/ui/window.ui:904
-#, fuzzy
 msgid "Preferences"
-msgstr "GtkHash-voorkeuren"
+msgstr ""
 
 #: src/ui/window.ui:922
 msgid "_Close"

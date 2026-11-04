@@ -2,20 +2,21 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Moo <hazap@hotmail.com>, 2018, 2019, 2020.
+# Tristan Heaven <tristan@tristanheaven.net>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-04 02:32+0000\n"
-"PO-Revision-Date: 2020-07-03 16:41+0000\n"
-"Last-Translator: Moo <hazap@hotmail.com>\n"
+"PO-Revision-Date: 2026-11-04 17:52+0000\n"
+"Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/gtkhash/translations/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 2026.11.1.dev0\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
 #: src/extensions/caja/module.c:51 src/extensions/nautilus/properties.c:154
@@ -108,7 +109,7 @@ msgstr "Darbalaukio paslaugų programa, skirta maišos reikšmių ar kontrolinė
 
 #: src/callbacks.c:205
 msgid "translator-credits"
-msgstr "Išvertė: Moo"
+msgstr "Moo"
 
 #: src/callbacks.c:235
 msgid "Select Files"
@@ -200,16 +201,14 @@ msgid "FILE|URI"
 msgstr "FAILAS|URI"
 
 #: src/opts.c:106
-#, fuzzy
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
-msgstr "Įjungti nurodytą maišos funkciją (pvz., MD5)"
+msgstr ""
 
 #: src/opts.c:107
-#, fuzzy
 msgctxt " --help"
 msgid "[+-]FUNCTION"
-msgstr "FUNKCIJA"
+msgstr ""
 
 #: src/opts.c:111
 msgctxt " --help"
@@ -266,9 +265,8 @@ msgid "_Save Digest File…"
 msgstr "Į_rašyti maišos reikšmių failą…"
 
 #: src/ui/window.ui:181
-#, fuzzy
 msgid "_Preferences"
-msgstr "GtkHash nuostatos"
+msgstr ""
 
 #: src/ui/window.ui:186
 msgid "_About"
@@ -279,14 +277,12 @@ msgid "File"
 msgstr "Failas"
 
 #: src/ui/window.ui:317
-#, fuzzy
 msgid "File List"
-msgstr "Failų _sąrašas"
+msgstr ""
 
 #: src/ui/window.ui:331
-#, fuzzy
 msgid "Text"
-msgstr "_Tekstas"
+msgstr ""
 
 #: src/ui/window.ui:374
 msgid "File:"
@@ -297,9 +293,8 @@ msgid "Text:"
 msgstr "Tekstas:"
 
 #: src/ui/window.ui:904
-#, fuzzy
 msgid "Preferences"
-msgstr "GtkHash nuostatos"
+msgstr ""
 
 #: src/ui/window.ui:922
 msgid "_Close"

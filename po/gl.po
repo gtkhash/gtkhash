@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-04 02:32+0000\n"
-"PO-Revision-Date: 2026-10-15 23:15+0000\n"
+"PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/gtkhash/translations/gl/>\n"
 "Language: gl\n"
@@ -16,15 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
-"X-Generator: Weblate 2026.11.dev0\n"
+"X-Generator: Weblate 2026.11.1.dev0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
 #: src/extensions/caja/module.c:51 src/extensions/nautilus/properties.c:154
 #: src/extensions/nemo/module.c:52 src/extensions/thunar/module.c:55
-#, fuzzy
 msgid "Checksums"
-msgstr "Gardar o valor hash"
+msgstr ""
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
@@ -94,14 +93,12 @@ msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr ""
 
 #: src/callbacks.c:80
-#, fuzzy
 msgid "All Files"
-msgstr "Seleccionar os ficheiros"
+msgstr ""
 
 #: src/callbacks.c:124 src/callbacks.c:128
-#, fuzzy
 msgid "Save Digest File"
-msgstr "Gardar o valor hash"
+msgstr ""
 
 #: src/callbacks.c:125 src/callbacks.c:131
 msgid "_Save"
@@ -112,11 +109,10 @@ msgid "A desktop utility for computing message digests or checksums"
 msgstr ""
 
 #: src/callbacks.c:205
-#, fuzzy
 msgid "translator-credits"
 msgstr ""
 "Marcos Lans https://launchpad.net/~markooss\n"
-"Miguel Anxo Bouzada https://launchpad.net/~mbouzada\n"
+"Miguel Anxo Bouzada https://launchpad.net/~mbouzada"
 
 #: src/callbacks.c:235
 msgid "Select Files"
@@ -203,16 +199,14 @@ msgid "Check digests or checksums from the specified file"
 msgstr ""
 
 #: src/opts.c:102
-#, fuzzy
 msgctxt " --help"
 msgid "FILE|URI"
-msgstr "[FICHEIRO|URI...]"
+msgstr ""
 
 #: src/opts.c:106
-#, fuzzy
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
-msgstr "Produciuse un fallo ao activar todas as funcións hash admitidas."
+msgstr ""
 
 #: src/opts.c:107
 msgctxt " --help"
@@ -235,10 +229,9 @@ msgid "Show version information"
 msgstr ""
 
 #: src/opts.c:120
-#, fuzzy
 msgctxt " --help"
 msgid "[FILE|URI...]"
-msgstr "[FICHEIRO|URI...]"
+msgstr ""
 
 #: src/ui/window.ui:14
 msgid "Lowercase Hexadecimal"
@@ -265,16 +258,14 @@ msgid "Copy _Digest"
 msgstr ""
 
 #: src/ui/window.ui:169
-#, fuzzy
 msgctxt "menu"
 msgid "_Open Digest File…"
-msgstr "Gardar o valor hash"
+msgstr ""
 
 #: src/ui/window.ui:174
-#, fuzzy
 msgctxt "menu"
 msgid "_Save Digest File…"
-msgstr "Gardar o valor hash"
+msgstr ""
 
 #: src/ui/window.ui:181
 msgid "_Preferences"
@@ -289,14 +280,12 @@ msgid "File"
 msgstr ""
 
 #: src/ui/window.ui:317
-#, fuzzy
 msgid "File List"
-msgstr "_Lista de ficheiros"
+msgstr ""
 
 #: src/ui/window.ui:331
-#, fuzzy
 msgid "Text"
-msgstr "_Texto"
+msgstr ""
 
 #: src/ui/window.ui:374
 msgid "File:"
@@ -315,14 +304,12 @@ msgid "_Close"
 msgstr ""
 
 #: src/ui/window.ui:957
-#, fuzzy
 msgid "Hash Functions"
-msgstr "Función de hash"
+msgstr ""
 
 #: src/ui/window.ui:988
-#, fuzzy
 msgid "MAC Functions"
-msgstr "Función de hash"
+msgstr ""
 
 #: src/ui/window.ui:1010
 msgid "Digest Format:"

@@ -2,20 +2,21 @@
 # Copyright (C) YEAR GtkHash authors
 # This file is distributed under the same license as the gtkhash package.
 # Cao Nguyen <intansemc2@gmail.com>, 2021.
+# Tristan Heaven <tristan@tristanheaven.net>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-04 02:32+0000\n"
-"PO-Revision-Date: 2021-01-22 00:39+0000\n"
-"Last-Translator: Cao Nguyen <intansemc2@gmail.com>\n"
+"PO-Revision-Date: 2026-11-04 17:52+0000\n"
+"Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/gtkhash/translations/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 2026.11.1.dev0\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
 #: src/extensions/caja/module.c:51 src/extensions/nautilus/properties.c:154
@@ -202,16 +203,14 @@ msgid "FILE|URI"
 msgstr "TẬP TIN|URI"
 
 #: src/opts.c:106
-#, fuzzy
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
-msgstr "Sử dụng một hàm băm đặc biệt (ví dụ như MD5)"
+msgstr ""
 
 #: src/opts.c:107
-#, fuzzy
 msgctxt " --help"
 msgid "[+-]FUNCTION"
-msgstr "HÀM BĂM"
+msgstr ""
 
 #: src/opts.c:111
 msgctxt " --help"
@@ -268,9 +267,8 @@ msgid "_Save Digest File…"
 msgstr "_Lưu ra tập tin …"
 
 #: src/ui/window.ui:181
-#, fuzzy
 msgid "_Preferences"
-msgstr "Tùy chỉnh GtkHash"
+msgstr ""
 
 #: src/ui/window.ui:186
 msgid "_About"
@@ -281,14 +279,12 @@ msgid "File"
 msgstr "Tập tin"
 
 #: src/ui/window.ui:317
-#, fuzzy
 msgid "File List"
-msgstr "_Danh sách Tập tin"
+msgstr ""
 
 #: src/ui/window.ui:331
-#, fuzzy
 msgid "Text"
-msgstr "_Văn bản"
+msgstr ""
 
 #: src/ui/window.ui:374
 msgid "File:"
@@ -299,9 +295,8 @@ msgid "Text:"
 msgstr "Văn bản:"
 
 #: src/ui/window.ui:904
-#, fuzzy
 msgid "Preferences"
-msgstr "Tùy chỉnh GtkHash"
+msgstr ""
 
 #: src/ui/window.ui:922
 msgid "_Close"
