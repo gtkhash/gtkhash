@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-04 02:32+0000\n"
+"POT-Creation-Date: 2026-11-04 23:24+0100\n"
 "PO-Revision-Date: 2026-10-19 08:05+0000\n"
 "Last-Translator: bittin1ddc447d824349b2 <bittin1ddc447d824349b2@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/gtkhash/translations/sv/>\n"
@@ -124,11 +124,6 @@ msgstr "Välj filer"
 msgid "_Show HMAC Key"
 msgstr "_Visa HMAC-nyckel"
 
-#: src/check.c:230
-#, c-format
-msgid "Failed to read check file \"%s\": %s"
-msgstr "Det gick inte att läsa kontrollfilen \"%s\": %s"
-
 #: src/extensions/common/properties.ui:12
 msgid "_Copy Digest"
 msgstr "_Kopiera sammandrag"
@@ -167,16 +162,11 @@ msgstr "_Stoppa"
 msgid "_Hash"
 msgstr "_Hash"
 
-#: src/gui.c:282
+#: src/gui.c:281
 msgid "Not a regular file"
 msgstr "Inte en vanlig fil"
 
-#: src/gui.c:305
-#, c-format
-msgid "Failed to add file \"%s\": %s"
-msgstr "Det gick inte att lägga till filen \"%s\": %s"
-
-#: src/gui.c:350
+#: src/gui.c:351
 msgid "Discarding invalid characters from digest"
 msgstr "Tar bort ogiltiga tecken från sammanfattningen"
 
@@ -317,21 +307,27 @@ msgstr "MAC-funktioner"
 msgid "Digest Format:"
 msgstr "Sammandragsformat:"
 
-#: src/util/util.c:35
+#: src/util/util.c:36
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
 msgstr[0] "%u minut kvar"
 msgstr[1] "%u minuter kvar"
 
-#: src/util/util.c:39
+#: src/util/util.c:40
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
 msgstr[0] "%u sekund kvar"
 msgstr[1] "%u sekunder kvar"
 
-#: src/util/util.c:58
+#. Translators: This string is displayed when processing data from a file
+#. %1$s is the amount of data processed so far (e.g. "41.9 MB")
+#. %2$s is the file size (e.g. "4.8 GB")
+#. %3$s is the estimated time remaining (e.g. "3 minutes left")
+#. %4$s is the amount of data processed per second (e.g. "19.9 MB")
+#. Full example: "41.9 MB of 4.8 GB - 3 minutes left (19.9 MB/sec)"
+#: src/util/util.c:65
 #, c-format
-msgid "%s of %s - %s (%s/sec)"
-msgstr "%s av %s - %s (%s/sek)"
+msgid "%1$s of %2$s - %3$s (%4$s/sec)"
+msgstr ""
