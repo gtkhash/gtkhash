@@ -36,7 +36,7 @@ parts:
       - -Dprefix=/usr
       - -Dstrip=true
     override-build: |
-      sed -i '/^Icon=/s:=.*:=${SNAP}/meta/gui/gtkhash.svg:' "${CRAFT_PART_SRC}"/data/org.gtkhash.gtkhash.desktop.in
+      sed -i '/^Icon=/s:=.*:=${SNAP}/meta/gui/gtkhash.svg:' "${CRAFT_PART_SRC}"/data/applications/org.gtkhash.gtkhash.desktop.in
       craftctl default
       mkdir -vp -- "${CRAFT_PART_INSTALL}"/meta/gui
       cp -vf -- "${CRAFT_PART_SRC}"/data/icons/org.gtkhash.gtkhash.svg "${CRAFT_PART_INSTALL}"/meta/gui/gtkhash.svg
