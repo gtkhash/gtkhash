@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-05 01:01+0100\n"
-"PO-Revision-Date: 2026-10-19 08:05+0000\n"
+"PO-Revision-Date: 2026-11-05 06:51+0000\n"
 "Last-Translator: Oğuz Ersen <ersen@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/translations/tr/>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.11.dev0\n"
+"X-Generator: Weblate 2026.11.1.dev0\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
@@ -336,4 +336,4 @@ msgstr[1] "%u saniye daha kaldı"
 #: src/util/util.c:65
 #, c-format
 msgid "%1$s of %2$s - %3$s (%4$s/s)"
-msgstr ""
+msgstr "%1$s / %2$s - %3$s (%4$s/s)"
