@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-05 00:36+0100\n"
+"POT-Creation-Date: 2026-11-05 01:01+0100\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/gtkhash/translations/hr/>\n"
@@ -79,47 +79,47 @@ msgstr ""
 msgid "Open Digest File"
 msgstr "Otvori datoteku sažetka"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:242
-#: src/callbacks.c:248
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:237
+#: src/callbacks.c:243
 msgid "_Open"
 msgstr "_Otvori"
 
-#: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:125
-#: src/callbacks.c:130 src/callbacks.c:242 src/callbacks.c:247
+#: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
+#: src/callbacks.c:125 src/callbacks.c:237 src/callbacks.c:242
 msgid "_Cancel"
 msgstr "O_dustani"
 
-#: src/callbacks.c:75
+#: src/callbacks.c:71
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Datoteke sažetka/kontrolnog zbroja (*.sha1, *.md5, *.sfv, …)"
 
-#: src/callbacks.c:80
+#: src/callbacks.c:76
 msgid "All Files"
 msgstr "Sve datoteke"
 
-#: src/callbacks.c:124 src/callbacks.c:128
+#: src/callbacks.c:119 src/callbacks.c:123
 msgid "Save Digest File"
 msgstr "Spremi datoteku sažetka"
 
-#: src/callbacks.c:125 src/callbacks.c:131
+#: src/callbacks.c:120 src/callbacks.c:126
 msgid "_Save"
 msgstr "_Spremi"
 
-#: src/callbacks.c:200
+#: src/callbacks.c:195
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "Uslužni program za izračunavanje sažetaka poruka ili kontrolnih zbrojeva"
 
-#: src/callbacks.c:205
+#: src/callbacks.c:200
 msgid "translator-credits"
 msgstr ""
 "gogo https://launchpad.net/~trebelnik-stefina\n"
 "Milo Ivir <mail@milotype.de>, 2020."
 
-#: src/callbacks.c:235
+#: src/callbacks.c:230
 msgid "Select Files"
 msgstr "Odaberi datoteke"
 
-#: src/callbacks.c:473 src/extensions/common/properties.c:239
+#: src/callbacks.c:468 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Prikaži HMAC ključ"
 

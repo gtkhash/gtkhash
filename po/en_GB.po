@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-05 00:36+0100\n"
+"POT-Creation-Date: 2026-11-05 01:01+0100\n"
 "PO-Revision-Date: 2026-11-04 22:40+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/gtkhash/translations/en_GB/>\n"
@@ -79,37 +79,37 @@ msgstr "hash;checksum;digest;md5;sha1;sha256;crc32;"
 msgid "Open Digest File"
 msgstr "Open Digest File"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:242
-#: src/callbacks.c:248
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:237
+#: src/callbacks.c:243
 msgid "_Open"
 msgstr "_Open"
 
-#: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:125
-#: src/callbacks.c:130 src/callbacks.c:242 src/callbacks.c:247
+#: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
+#: src/callbacks.c:125 src/callbacks.c:237 src/callbacks.c:242
 msgid "_Cancel"
 msgstr "_Cancel"
 
-#: src/callbacks.c:75
+#: src/callbacks.c:71
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 
-#: src/callbacks.c:80
+#: src/callbacks.c:76
 msgid "All Files"
 msgstr "All Files"
 
-#: src/callbacks.c:124 src/callbacks.c:128
+#: src/callbacks.c:119 src/callbacks.c:123
 msgid "Save Digest File"
 msgstr "Save Digest File"
 
-#: src/callbacks.c:125 src/callbacks.c:131
+#: src/callbacks.c:120 src/callbacks.c:126
 msgid "_Save"
 msgstr "_Save"
 
-#: src/callbacks.c:200
+#: src/callbacks.c:195
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "A desktop utility for computing message digests or checksums"
 
-#: src/callbacks.c:205
+#: src/callbacks.c:200
 msgid "translator-credits"
 msgstr ""
 "Abhishek https://launchpad.net/~ar.abhishek\n"
@@ -117,11 +117,11 @@ msgstr ""
 "Stefan Pynappels https://launchpad.net/~stefan-pynappels\n"
 "Tristan Heaven"
 
-#: src/callbacks.c:235
+#: src/callbacks.c:230
 msgid "Select Files"
 msgstr "Select Files"
 
-#: src/callbacks.c:473 src/extensions/common/properties.c:239
+#: src/callbacks.c:468 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Show HMAC Key"
 

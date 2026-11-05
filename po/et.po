@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-05 00:36+0100\n"
+"POT-Creation-Date: 2026-11-05 01:01+0100\n"
 "PO-Revision-Date: 2026-11-04 17:53+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/gtkhash/translations/et/>\n"
@@ -77,45 +77,45 @@ msgstr ""
 msgid "Open Digest File"
 msgstr "Ava kokkuvõtte fail"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:242
-#: src/callbacks.c:248
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:237
+#: src/callbacks.c:243
 msgid "_Open"
 msgstr "_Ava"
 
-#: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:125
-#: src/callbacks.c:130 src/callbacks.c:242 src/callbacks.c:247
+#: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
+#: src/callbacks.c:125 src/callbacks.c:237 src/callbacks.c:242
 msgid "_Cancel"
 msgstr "_Tühista"
 
-#: src/callbacks.c:75
+#: src/callbacks.c:71
 msgid "Digest/Checksum Files (*.sha1, *.md5, *.sfv, …)"
 msgstr "Kokkuvõtte/kontrollsumma failid (*.sha1, *.md5, *.sfv, …)"
 
-#: src/callbacks.c:80
+#: src/callbacks.c:76
 msgid "All Files"
 msgstr "Kõik failid"
 
-#: src/callbacks.c:124 src/callbacks.c:128
+#: src/callbacks.c:119 src/callbacks.c:123
 msgid "Save Digest File"
 msgstr "Salvesta kokkuvõttefail"
 
-#: src/callbacks.c:125 src/callbacks.c:131
+#: src/callbacks.c:120 src/callbacks.c:126
 msgid "_Save"
 msgstr "_Salvesta"
 
-#: src/callbacks.c:200
+#: src/callbacks.c:195
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "Töölaua utiil sõnumite kokkuvõtete või kontrollsummade arvutamiseks"
 
-#: src/callbacks.c:205
+#: src/callbacks.c:200
 msgid "translator-credits"
 msgstr "vaba, 2023😎️"
 
-#: src/callbacks.c:235
+#: src/callbacks.c:230
 msgid "Select Files"
 msgstr "Vali Failid"
 
-#: src/callbacks.c:473 src/extensions/common/properties.c:239
+#: src/callbacks.c:468 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Näita HMAC võtit"
 
