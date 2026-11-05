@@ -1,6 +1,5 @@
 [![Build Status](https://github.com/gtkhash/gtkhash/actions/workflows/build.yml/badge.svg)](https://github.com/gtkhash/gtkhash/actions/workflows/build.yml)
 [![Flake Status](https://github.com/gtkhash/gtkhash/actions/workflows/flake.yml/badge.svg)](https://github.com/gtkhash/gtkhash/actions/workflows/flake.yml)
-[![MSYS2 Status](https://github.com/gtkhash/gtkhash/actions/workflows/msys2.yml/badge.svg)](https://github.com/gtkhash/gtkhash/actions/workflows/msys2.yml)
 [![Test Coverage](https://codecov.io/gh/gtkhash/gtkhash/branch/master/graph/badge.svg)](https://app.codecov.io/gh/gtkhash/gtkhash)
 [![Translations](https://hosted.weblate.org/widgets/gtkhash/-/svg-badge.svg)](https://hosted.weblate.org/engage/gtkhash/)
 [![Snap Status](https://snapcraft.io/gtkhash/badge.svg)](https://snapcraft.io/gtkhash/builds)
