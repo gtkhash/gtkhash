@@ -336,6 +336,13 @@ subdir('data')
 subdir('src')
 subdir('tests')
 
+# .gitattributes `export-ignore` would break `github:gtkhash/gtkhash` flake references
+meson.add_dist_script(
+    find_program('sh'),
+    '-c',
+    'rm -vf -- "${MESON_DIST_ROOT}"/flake.nix "${MESON_DIST_ROOT}"/flake.lock',
+)
+
 gnome.post_install(
     glib_compile_schemas: enable_schemas,
     gtk_update_icon_cache: enable_icons,
