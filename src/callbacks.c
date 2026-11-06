@@ -208,15 +208,12 @@ static void on_action_about(void)
 
 static void on_filechooserbutton_selection_changed(void)
 {
-	bool enabled = gtkhash_hash_func_count_enabled(hash.funcs);
-	char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
-		gui.filechooserbutton));
+	const bool enabled = gtkhash_hash_func_count_enabled(hash.funcs);
+	char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(gui.filechooserbutton));
 
-	if (enabled && uri) {
-		g_free(uri);
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), true);
-	} else
-		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), false);
+	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), enabled && uri);
+
+	g_free(uri);
 
 	gui_clear_digests();
 }
