@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -89,6 +89,7 @@ void gtkhash_hmac_stop(struct hash_func_s *func)
 	g_assert(func->block_size > 0);
 	g_assert(func->hmac_data);
 
+	gtkhash_hash_lib_stop(func->hmac_data);
 	gtkhash_hmac_deinit(func);
 }
 
