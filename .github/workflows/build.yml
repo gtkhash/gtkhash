@@ -15,6 +15,7 @@ jobs:
     runs-on: ${{ matrix.os.runner || 'ubuntu-26.04' }}
     container:
       image: ${{ matrix.os.image }}
+      options: --privileged
     env:
       NO_AT_BRIDGE: 1
       DEBIAN_FRONTEND: noninteractive
@@ -111,7 +112,11 @@ jobs:
         run: meson compile -C _build
 
       - name: meson test
-        run: xvfb-run -a -s "-screen 0 800x600x24" meson test -C _build -v
+        run: |
+          ninja -C _build tests/0.bytes tests/10M.bytes
+          GTKHASH_TEST_BLKDEV_EMPTY=$(losetup --find --show _build/tests/0.bytes) \
+          GTKHASH_TEST_BLKDEV_DATA=$(losetup --find --show _build/tests/10M.bytes) \
+          xvfb-run -a -s "-screen 0 800x600x24" meson test -C _build -v
 
       - name: meson install
         run: meson install -C _build --destdir _install

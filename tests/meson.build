@@ -61,7 +61,7 @@ if build_gtkhash
         )
     endforeach
 
-    foreach prefix : ['/hash/lib/any', '/opt', '/digest-format']
+    foreach prefix : ['/hash/lib/any', '/hash/dev/blk', '/hash/dev/chr', '/opt', '/digest-format']
         test(
             prefix,
             gtkhash_test,

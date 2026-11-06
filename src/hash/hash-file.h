@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -30,6 +30,10 @@
 
 struct hash_file_s;
 
+GFileInfo *gtkhash_hash_file_query_info(GFile *file, GCancellable *cancellable, GError **error);
+bool gtkhash_hash_file_info_is_supported(GFileInfo *info);
+bool gtkhash_hash_file_type_is_supported(GFileType file_type, const char *mime_type,
+	const char *uri);
 void gtkhash_hash_file_cancel(struct hash_file_s *data);
 struct hash_file_s *gtkhash_hash_file_new(struct hash_func_s *funcs);
 void gtkhash_hash_file_free(struct hash_file_s *data);
@@ -41,13 +45,14 @@ void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
 // Callbacks
 //
 
-// Called periodically to report file hash progress
-void gtkhash_hash_file_report_cb(void *data, goffset file_size,
-	goffset total_read, GTimer *timer);
+// Called periodically to report file hash progress (known file size)
+void gtkhash_hash_file_report_cb(void *data, goffset file_size, goffset total_read, GTimer *timer);
+
+// Called periodically to report file hash progress (unknown file size)
+void gtkhash_hash_file_report_unknown_cb(void *data, goffset total_read, GTimer *timer);
 
 // Called with digest result for each enabled hash function
-void gtkhash_hash_file_digest_cb(enum hash_func_e id, const char *digest,
-	void *data);
+void gtkhash_hash_file_digest_cb(enum hash_func_e id, const char *digest, void *data);
 
 // Called after hashing is complete
 void gtkhash_hash_file_finish_cb(void *data);

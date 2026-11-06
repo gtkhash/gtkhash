@@ -28,6 +28,8 @@
 #include "util.h"
 #include "../main.h"
 
+#define PROGRESS_TEXT_MIN_ELAPSED 0.25
+
 static char *gtkhash_format_time_left(const unsigned int s)
 {
 	if (s > 60) {
@@ -42,19 +44,20 @@ static char *gtkhash_format_time_left(const unsigned int s)
 	}
 }
 
-char *gtkhash_format_progress(const goffset file_size,
-	const goffset total_read, const double elapsed)
+char *gtkhash_format_progress(const goffset file_size, const goffset total_read,
+	const double elapsed)
 {
 	g_assert(file_size > 0);
 	g_assert(total_read > 0);
-	g_assert(elapsed > 0);
+
+	if (elapsed < PROGRESS_TEXT_MIN_ELAPSED)
+		return NULL;
 
 	const unsigned int s = elapsed / total_read * (file_size - total_read);
 	char *time_left_str = gtkhash_format_time_left(s);
 	char *total_read_str = g_format_size(total_read);
 	char *file_size_str = g_format_size(file_size);
 	char *speed_str = g_format_size(total_read / elapsed);
-	char *text;
 
 	// Translators: This text is displayed while processing data from a file.
 	// %1$s is the amount of data processed so far (e.g. "41.9 MB"),
@@ -62,13 +65,35 @@ char *gtkhash_format_progress(const goffset file_size,
 	// %3$s is the estimated time remaining (e.g. "3 minutes left"), and
 	// %4$s is the amount of data processed per second (e.g. "19.9 MB").
 	// Full example: "41.9 MB of 4.8 GB - 3 minutes left (19.9 MB/s)".
-	text = g_strdup_printf(_("%1$s of %2$s - %3$s (%4$s/s)"),
+	char *text = g_strdup_printf(_("%1$s of %2$s - %3$s (%4$s/s)"),
 		total_read_str, file_size_str, time_left_str, speed_str);
 
 	g_free(speed_str);
 	g_free(file_size_str);
 	g_free(total_read_str);
 	g_free(time_left_str);
+
+	return text;
+}
+
+char *gtkhash_format_progress_unknown(const goffset total_read, const double elapsed)
+{
+	g_assert(total_read > 0);
+
+	if (elapsed < PROGRESS_TEXT_MIN_ELAPSED)
+		return NULL;
+
+	char *total_read_str = g_format_size(total_read);
+	char *speed_str = g_format_size(total_read / elapsed);
+
+	// Translators: This text is displayed while processing data.
+	// %1$s is the amount of data processed so far (e.g. "41.9 MB"), and
+	// %2$s is the amount of data processed per second (e.g. "19.9 MB").
+	// Full example: "41.9 MB read (19.9 MB/s)".
+	char *text = g_strdup_printf(_("%1$s read (%2$s/s)"), total_read_str, speed_str);
+
+	g_free(speed_str);
+	g_free(total_read_str);
 
 	return text;
 }

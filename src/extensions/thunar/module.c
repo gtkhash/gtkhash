@@ -30,6 +30,7 @@
 
 #include "../common/module.h"
 #include "../common/properties.h"
+#include "../../hash/hash-file.h"
 
 static GList *gtkhash_properties_get_pages(G_GNUC_UNUSED ThunarxPropertyPageProvider *provider,
 	GList *files)
@@ -39,14 +40,15 @@ static GList *gtkhash_properties_get_pages(G_GNUC_UNUSED ThunarxPropertyPageProv
 		return NULL;
 
 	GFileInfo *info = thunarx_file_info_get_file_info(files->data);
-	GFileType type = g_file_info_get_file_type(info);
-	g_object_unref(info);
-
-	// Only display page for regular files
-	if (type != G_FILE_TYPE_REGULAR)
-		return NULL;
-
 	char *uri = thunarx_file_info_get_uri(files->data);
+
+	const bool supported = uri && gtkhash_hash_file_info_is_supported(info);
+	g_clear_object(&info);
+
+	if (!supported) {
+		g_free(uri);
+		return NULL;
+	}
 
 	struct page_s *page = gtkhash_properties_new_page(uri);
 	if (!page)

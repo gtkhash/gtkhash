@@ -89,17 +89,29 @@ void gtkhash_hash_string_digest_cb(const enum hash_func_e id, const char *digest
 void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data, const goffset file_size,
 	const goffset total_read, GTimer *timer)
 {
-	gtk_progress_bar_set_fraction(gui.progressbar,
-		(double)total_read /
-		(double)file_size);
+	gtk_progress_bar_set_fraction(gui.progressbar, (double)total_read / (double)file_size);
 
 	const double elapsed = g_timer_elapsed(timer, NULL);
-	if (elapsed <= 1)
-		return;
 
 	char *text = gtkhash_format_progress(file_size, total_read, elapsed);
-	gtk_progress_bar_set_text(gui.progressbar, text);
-	g_free(text);
+	if (text) {
+		gtk_progress_bar_set_text(gui.progressbar, text);
+		g_free(text);
+	}
+}
+
+void gtkhash_hash_file_report_unknown_cb(G_GNUC_UNUSED void *data, const goffset total_read,
+	GTimer *timer)
+{
+	gtk_progress_bar_pulse(gui.progressbar);
+
+	const double elapsed = g_timer_elapsed(timer, NULL);
+
+	char *text = gtkhash_format_progress_unknown(total_read, elapsed);
+	if (text) {
+		gtk_progress_bar_set_text(gui.progressbar, text);
+		g_free(text);
+	}
 }
 
 void gtkhash_hash_file_digest_cb(const enum hash_func_e id, const char *digest,

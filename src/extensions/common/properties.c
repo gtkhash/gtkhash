@@ -394,7 +394,7 @@ struct page_s *gtkhash_properties_new_page(char *uri)
 	GError *error = NULL;
 	if (gtk_builder_add_from_resource(builder, PROPERTIES_XML_RESOURCE, &error) == 0) {
 		g_warning("failed to load resource: %s", error->message);
-		g_error_free(error);
+		g_clear_error(&error);
 		g_object_unref(builder);
 		g_free(uri);
 

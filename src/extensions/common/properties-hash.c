@@ -31,26 +31,38 @@
 #include "../../hash/digest-format.h"
 #include "../../util/util.h"
 
-void gtkhash_hash_file_report_cb(void *data, const goffset file_size,
-	const goffset total_read, GTimer *timer)
+void gtkhash_hash_file_report_cb(void *data, const goffset file_size, const goffset total_read,
+	GTimer *timer)
 {
 	struct page_s *page = data;
 
-	gtk_progress_bar_set_fraction(page->progressbar,
-		(double)total_read /
-		(double)file_size);
+	gtk_progress_bar_set_fraction(page->progressbar, (double)total_read / (double)file_size);
 
 	const double elapsed = g_timer_elapsed(timer, NULL);
-	if (elapsed <= 1)
-		return;
 
 	char *text = gtkhash_format_progress(file_size, total_read, elapsed);
-	gtk_progress_bar_set_text(page->progressbar, text);
-	g_free(text);
+	if (text) {
+		gtk_progress_bar_set_text(page->progressbar, text);
+		g_free(text);
+	}
 }
 
-void gtkhash_hash_file_digest_cb(const enum hash_func_e id,
-	const char *digest, void *data)
+void gtkhash_hash_file_report_unknown_cb(void *data, const goffset total_read, GTimer *timer)
+{
+	struct page_s *page = data;
+
+	gtk_progress_bar_pulse(page->progressbar);
+
+	const double elapsed = g_timer_elapsed(timer, NULL);
+
+	char *text = gtkhash_format_progress_unknown(total_read, elapsed);
+	if (text) {
+		gtk_progress_bar_set_text(page->progressbar, text);
+		g_free(text);
+	}
+}
+
+void gtkhash_hash_file_digest_cb(const enum hash_func_e id, const char *digest, void *data)
 {
 	gtkhash_properties_list_set_digest(data, id, digest);
 }
@@ -71,8 +83,8 @@ void gtkhash_hash_file_stop_cb(void *data)
 	gtkhash_properties_idle((struct page_s *)data);
 }
 
-void gtkhash_properties_hash_start(struct page_s *page,
-	struct hash_func_s *func, const uint8_t *hmac_key, const size_t key_size)
+void gtkhash_properties_hash_start(struct page_s *page, struct hash_func_s *func,
+	const uint8_t *hmac_key, const size_t key_size)
 {
 	// Single-function hash
 	if (func) {
@@ -83,8 +95,7 @@ void gtkhash_properties_hash_start(struct page_s *page,
 		}
 	}
 
-	gtkhash_hash_file(page->hfile, page->uri, DIGEST_FORMAT_HEX_LOWER,
-		hmac_key, key_size, page);
+	gtkhash_hash_file(page->hfile, page->uri, DIGEST_FORMAT_HEX_LOWER, hmac_key, key_size, page);
 }
 
 void gtkhash_properties_hash_stop(struct page_s *page)

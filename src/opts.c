@@ -132,7 +132,7 @@ void opts_preinit(int *argc, char ***argv)
 
 	if (error) {
 		g_warning("%s", error->message);
-		g_error_free(error);
+		g_clear_error(&error);
 		free_opts();
 		exit(EXIT_FAILURE);
 	}

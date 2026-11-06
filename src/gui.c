@@ -37,6 +37,7 @@
 #include "resources.h"
 #include "uri-digest.h"
 #include "hash/digest-format.h"
+#include "hash/hash-file.h"
 #include "hash/hash-func.h"
 #include "util/util.h"
 
@@ -265,30 +266,30 @@ static bool gui_try_uri(const char * const uri)
 	GFile *file = g_file_new_for_uri(uri);
 
 	GError *error = NULL;
-	GFileInfo *info = g_file_query_info(file, G_FILE_ATTRIBUTE_STANDARD_TYPE,
-		G_FILE_QUERY_INFO_NONE, NULL, &error);
+	GFileInfo *info = gtkhash_hash_file_query_info(file, NULL, &error);
 
 	if (!info) {
 		gtkhash_file_error(file, error);
-		g_error_free(error);
+		g_clear_error(&error);
 	} else {
-		const GFileType type = g_file_info_get_file_type(info);
-		g_object_unref(info);
-
-		if (type == G_FILE_TYPE_DIRECTORY) // TODO
-			g_message("%s: %s", uri, g_strerror(EISDIR));
-		else if (type != G_FILE_TYPE_REGULAR)
-			g_message("%s: %s", uri, _("Not a regular file"));
-		else {
+		if (!gtkhash_hash_file_info_is_supported(info)) {
+			const GFileType type = g_file_info_get_file_type(info);
+			if (type == G_FILE_TYPE_DIRECTORY) // TODO
+				g_message("%s: %s", uri, g_strerror(EISDIR));
+			else
+				g_message("%s: %s", uri, g_strerror(ENOTSUP));
+		} else {
 			GFileInputStream *fis = g_file_read(file, NULL, &error);
 			if (fis) {
 				g_object_unref(fis);
 				readable = true;
 			} else {
 				gtkhash_file_error(file, error);
-				g_error_free(error);
+				g_clear_error(&error);
 			}
 		}
+
+		g_object_unref(info);
 	}
 
 	g_object_unref(file);
