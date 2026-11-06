@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2022 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -92,7 +92,7 @@ bool gtkhash_hash_lib_gcrypt_is_supported(const enum hash_func_e id)
 		return false;
 	}
 
-	if (G_UNLIKELY(gcry_md_open(&data.h, data.algo, 0) != GPG_ERR_NO_ERROR)) {
+	if (gcry_md_open(&data.h, data.algo, 0) != GPG_ERR_NO_ERROR) {
 		g_debug("gcry_md_open failed (%d)", id);
 		return false;
 	}

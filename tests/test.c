@@ -44,6 +44,12 @@ static void delay(void)
 	}
 }
 
+static void trap_subprocess(void)
+{
+	g_test_trap_subprocess(NULL, 20 * G_USEC_PER_SEC, 0);
+	g_test_trap_assert_passed();
+}
+
 static void select_gui_view(const enum gui_view_e view)
 {
 	gui_set_view(view);
@@ -69,7 +75,7 @@ static void select_digest_format(const enum digest_format_e format)
 	g_assert_true(gui_get_digest_format() == format);
 }
 
-static void test_hash_func_digest(const enum hash_func_e id, const char *text,
+static void check_hash_func_digest(const enum hash_func_e id, const char *text,
 	const char *hmac, const char *digest)
 {
 	gtk_entry_set_text(gui.entry_check_text, digest);
@@ -103,7 +109,7 @@ static void test_hash_func(const struct hash_func_s *func)
 #define t(FUNC, TEXT, DIGEST) \
 	if (func->id == G_PASTE(HASH_FUNC_, FUNC)) { \
 		select_hash_func(func->id, true); \
-		test_hash_func_digest(func->id, TEXT, NULL, DIGEST); \
+		check_hash_func_digest(func->id, TEXT, NULL, DIGEST); \
 		tested = true; \
 	}
 
@@ -203,7 +209,7 @@ static void test_hash_func_hmac(const struct hash_func_s *func)
 #define t(FUNC, TEXT, HMAC, DIGEST) \
 	if (func->id == G_PASTE(HASH_FUNC_, FUNC)) { \
 		select_hash_func(func->id, true); \
-		test_hash_func_digest(func->id, TEXT, HMAC, DIGEST); \
+		check_hash_func_digest(func->id, TEXT, HMAC, DIGEST); \
 		tested = true; \
 	}
 
@@ -353,7 +359,7 @@ static void test_opt_help(void)
 {
 	if (g_test_subprocess()) {
 		int argc;
-		char **argv;
+		g_auto(GStrv) argv = NULL;
 		g_shell_parse_argv("t --help", &argc, &argv, NULL);
 
 		opts_preinit(&argc, &argv);
@@ -361,8 +367,7 @@ static void test_opt_help(void)
 		exit(EXIT_FAILURE);
 	}
 
-	g_test_trap_subprocess(NULL, 0, 0);
-	g_test_trap_assert_passed();
+	trap_subprocess();
 	g_test_trap_assert_stdout("*--help*");
 	g_test_trap_assert_stdout("*--version*");
 }
@@ -371,7 +376,7 @@ static void test_opt_version(void)
 {
 	if (g_test_subprocess()) {
 		int argc;
-		char **argv;
+		g_auto(GStrv) argv = NULL;
 		g_shell_parse_argv("t --version", &argc, &argv, NULL);
 
 		opts_preinit(&argc, &argv);
@@ -379,8 +384,7 @@ static void test_opt_version(void)
 		exit(EXIT_FAILURE);
 	}
 
-	g_test_trap_subprocess(NULL, 0, 0);
-	g_test_trap_assert_passed();
+	trap_subprocess();
 	g_test_trap_assert_stdout(PACKAGE_STRING "*");
 }
 
@@ -388,7 +392,7 @@ static void test_opt_check_text(void)
 {
 	if (g_test_subprocess()) {
 		int argc;
-		char **argv;
+		g_auto(GStrv) argv = NULL;
 		g_shell_parse_argv("t -c fail -t aa --check 0123abcdef", &argc, &argv, NULL);
 
 		opts_preinit(&argc, &argv);
@@ -399,12 +403,11 @@ static void test_opt_check_text(void)
 		exit(EXIT_SUCCESS);
 	}
 
-	g_test_trap_subprocess(NULL, 0, 0);
-	g_test_trap_assert_passed();
+	trap_subprocess();
 	g_test_trap_assert_stdout("0123abcdef*");
 }
 
-G_NORETURN static gboolean test_exit_success(G_GNUC_UNUSED void *data)
+G_NORETURN static gboolean exit_success(G_GNUC_UNUSED void *data)
 {
 	exit(EXIT_SUCCESS);
 }
@@ -413,12 +416,11 @@ static void test_opt_check_file(void)
 {
 	if (g_test_subprocess()) {
 		int argc;
-		char **argv;
-		char *args = g_strdup_printf("t --check-file '%s'",
+		g_auto(GStrv) argv = NULL;
+		g_autofree char *args = g_strdup_printf("t --check-file '%s'",
 			g_test_get_filename(G_TEST_BUILT, "test.md5sum", NULL));
 
 		g_shell_parse_argv(args, &argc, &argv, NULL);
-		g_free(args);
 
 		opts_preinit(&argc, &argv);
 		opts_postinit();
@@ -431,7 +433,7 @@ static void test_opt_check_file(void)
 
 		// OK to exit before finish, with warnings
 		g_test_expect_message(G_LOG_DOMAIN, G_LOG_LEVEL_WARNING, "*");
-		g_timeout_add_seconds(1, test_exit_success, NULL);
+		g_timeout_add_seconds(1, exit_success, NULL);
 
 		for (;;)
 			gtk_main_iteration_do(false);
@@ -439,8 +441,7 @@ static void test_opt_check_file(void)
 		exit(EXIT_FAILURE);
 	}
 
-	g_test_trap_subprocess(NULL, 0, 0);
-	g_test_trap_assert_passed();
+	trap_subprocess();
 	g_test_trap_assert_stderr("*notfound.bytes*");
 }
 
@@ -468,9 +469,9 @@ static void test_opt_function_enable(void)
 			exit(EXIT_FAILURE);
 
 		// Enable the function from cmdline
-		char *str = g_strdup_printf("%s %s", "t --function XX -f", hash.funcs[id].name);
+		g_autofree char *str = g_strdup_printf("%s %s", "t --function XX -f", hash.funcs[id].name);
 		int argc;
-		char **argv;
+		g_auto(GStrv) argv = NULL;
 		g_shell_parse_argv(str, &argc, &argv, NULL);
 
 		opts_preinit(&argc, &argv);
@@ -483,15 +484,14 @@ static void test_opt_function_enable(void)
 			exit(EXIT_FAILURE);
 	}
 
-	g_test_trap_subprocess(NULL, 0, 0);
-	g_test_trap_assert_passed();
+	trap_subprocess();
 	g_test_trap_assert_stderr("*Unknown*XX*");
 }
 
 static void test_opt_function_disable(void)
 {
 	if (g_test_subprocess()) {
-		GString *args = g_string_new("t");
+		g_autoptr(GString) args = g_string_new("t");
 
 		// Enable all functions
 		for (int i = 0; i < HASH_FUNCS_N; i++) {
@@ -510,9 +510,8 @@ static void test_opt_function_disable(void)
 		g_string_append_printf(args, " -- '%s'",
 			g_test_get_filename(G_TEST_BUILT, "10M.bytes", NULL));
 		int argc;
-		char **argv;
+		g_auto(GStrv) argv = NULL;
 		g_shell_parse_argv(args->str, &argc, &argv, NULL);
-		g_string_free(args, true);
 
 		opts_preinit(&argc, &argv);
 		opts_postinit();
@@ -524,20 +523,18 @@ static void test_opt_function_disable(void)
 			exit(EXIT_FAILURE);
 	}
 
-	g_test_trap_subprocess(NULL, 0, 0);
-	g_test_trap_assert_passed();
+	trap_subprocess();
 }
 
 static void test_opt_file(void)
 {
 	if (g_test_subprocess()) {
 		int argc;
-		char **argv;
-		char *args = g_strdup_printf("t -- '%s'",
+		g_auto(GStrv) argv = NULL;
+		g_autofree char *args = g_strdup_printf("t -- '%s'",
 			g_test_get_filename(G_TEST_BUILT, "10M.bytes", NULL));
 
 		g_shell_parse_argv(args, &argc, &argv, NULL);
-		g_free(args);
 
 		select_hash_func(HASH_FUNC_MD5, true);
 
@@ -569,8 +566,7 @@ static void test_opt_file(void)
 		exit(EXIT_SUCCESS);
 	}
 
-	g_test_trap_subprocess(NULL, 0, 0);
-	g_test_trap_assert_passed();
+	trap_subprocess();
 	g_test_trap_assert_stdout(
 		"*f1c9645dbc14efddc7d8a322685f26eb*"
 		"*f1c9645dbc14efddc7d8a322685f26eb*"
@@ -581,13 +577,12 @@ static void test_opt_file_list(void)
 {
 	if (g_test_subprocess()) {
 		int argc;
-		char **argv;
-		char *args = g_strdup_printf("t -- '%s' '%s'",
+		g_auto(GStrv) argv = NULL;
+		g_autofree char *args = g_strdup_printf("t -- '%s' '%s'",
 			g_test_get_filename(G_TEST_BUILT, "0.bytes", NULL),
 			g_test_get_filename(G_TEST_BUILT, "0.bytes", NULL));
 
 		g_shell_parse_argv(args, &argc, &argv, NULL);
-		g_free(args);
 
 		select_hash_func(HASH_FUNC_MD5, true);
 
@@ -598,11 +593,10 @@ static void test_opt_file_list(void)
 		g_assert(gui.view == GUI_VIEW_FILE_LIST);
 		g_assert(list_get_rows() == 2);
 
-		char *digest;
+		g_autofree char *digest = NULL;
 		while (!(digest = list_get_digest(1, HASH_FUNC_MD5)) || !*digest)
 			gtk_main_iteration_do(false);
 		puts(digest);
-		g_free(digest);
 
 		gtk_tree_selection_select_all(gui.treeselection);
 		delay();
@@ -613,8 +607,7 @@ static void test_opt_file_list(void)
 		exit(EXIT_SUCCESS);
 	}
 
-	g_test_trap_subprocess(NULL, 0, 0);
-	g_test_trap_assert_passed();
+	trap_subprocess();
 	g_test_trap_assert_stdout("*d41d8cd98f00b204e9800998ecf8427e*");
 }
 
@@ -630,8 +623,7 @@ static void test_digest_format_hex_lower(void)
 		exit(EXIT_SUCCESS);
 	}
 
-	g_test_trap_subprocess(NULL, 0, 0);
-	g_test_trap_assert_passed();
+	trap_subprocess();
 	g_test_trap_assert_stdout("*d41d8cd98f00b204e9800998ecf8427e*");
 }
 
@@ -647,8 +639,7 @@ static void test_digest_format_hex_upper(void)
 		exit(EXIT_SUCCESS);
 	}
 
-	g_test_trap_subprocess(NULL, 0, 0);
-	g_test_trap_assert_passed();
+	trap_subprocess();
 	g_test_trap_assert_stdout("*D41D8CD98F00B204E9800998ECF8427E*");
 }
 
@@ -664,12 +655,113 @@ static void test_digest_format_base64(void)
 		exit(EXIT_SUCCESS);
 	}
 
-	g_test_trap_subprocess(NULL, 0, 0);
-	g_test_trap_assert_passed();
+	trap_subprocess();
 	g_test_trap_assert_stdout("*1B2M2Y8AsgTpgAmY7PhCfg==*");
 }
 
-static void test_init(void)
+static void check_hash_file_md5(const char *uri, const char *digest)
+{
+	if (!g_file_test(uri, G_FILE_TEST_EXISTS)) {
+		g_test_skip("missing");
+		return;
+	}
+
+	if (g_test_subprocess()) {
+		g_autofree char *args = g_strdup_printf("t -- %s", uri);
+		int argc;
+		g_auto(GStrv) argv = NULL;
+		g_shell_parse_argv(args, &argc, &argv, NULL);
+
+		select_hash_func(HASH_FUNC_MD5, true);
+
+		opts_preinit(&argc, &argv);
+		opts_postinit();
+		delay();
+
+		g_assert(gui.view == GUI_VIEW_FILE);
+
+		while (!*gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file))
+			gtk_main_iteration_do(false);
+		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file));
+
+		exit(EXIT_SUCCESS);
+	}
+
+	trap_subprocess();
+
+	g_autofree char *pattern = g_strdup_printf("*%s*", digest);
+	g_test_trap_assert_stdout(pattern);
+}
+
+static void test_hash_dev_blk_empty(void)
+{
+	const char *dev = g_getenv("GTKHASH_TEST_BLKDEV_EMPTY");
+
+	if (!dev || !*dev) {
+		g_test_skip("missing");
+		return;
+	}
+
+	check_hash_file_md5(dev, "d41d8cd98f00b204e9800998ecf8427e"); // 0.bytes
+}
+
+static void test_hash_dev_blk_data(void)
+{
+	const char *dev = g_getenv("GTKHASH_TEST_BLKDEV_DATA");
+
+	if (!dev || !*dev) {
+		g_test_skip("missing");
+		return;
+	}
+
+	check_hash_file_md5(dev, "f1c9645dbc14efddc7d8a322685f26eb"); // 10M.bytes
+}
+
+static void test_hash_dev_chr_null(void)
+{
+	check_hash_file_md5("/dev/null", "d41d8cd98f00b204e9800998ecf8427e");
+}
+
+static void test_hash_dev_chr_zero(void)
+{
+	if (!g_file_test("/dev/zero", G_FILE_TEST_EXISTS)) {
+		g_test_skip("missing");
+		return;
+	}
+
+	// Hash /dev/zero until cancelled
+	if (g_test_subprocess()) {
+		int argc;
+		g_auto(GStrv) argv = NULL;
+		g_shell_parse_argv("t -- /dev/zero", &argc, &argv, NULL);
+
+		select_hash_func(HASH_FUNC_MD5, true);
+
+		opts_preinit(&argc, &argv);
+		opts_postinit();
+		delay();
+
+		g_assert(gui.view == GUI_VIEW_FILE);
+
+		// Wait for some hashing progress
+		while (g_strcmp0(gtk_progress_bar_get_text(gui.progressbar), " ") == 0)
+			gtk_main_iteration_do(false);
+
+		// Cancel hashing
+		gtk_button_clicked(gui.button_stop);
+		while (gtk_widget_get_sensitive(GTK_WIDGET(gui.button_stop)))
+			gtk_main_iteration_do(false);
+
+		// No digest
+		g_assert_true(gtk_entry_get_text_length(gui.hash_widgets[HASH_FUNC_MD5].entry_file) == 0);
+
+		exit(EXIT_SUCCESS);
+	}
+
+	trap_subprocess();
+}
+
+static void add_tests(void)
 {
 	select_gui_view(GUI_VIEW_TEXT);
 
@@ -680,11 +772,10 @@ static void test_init(void)
 		if (lib && !hash.funcs[i].supported)
 			continue;
 
-		char *path = g_strdup_printf("/hash/lib/%s/%s", lib ? lib : "any",
+		g_autofree char *path = g_strdup_printf("/hash/lib/%s/%s", lib ? lib : "any",
 			hash.funcs[i].name);
 		g_test_add_data_func(path, &hash.funcs[i],
 			(GTestDataFunc)test_hash_func);
-		g_free(path);
 	}
 
 	// Test HMAC
@@ -692,11 +783,10 @@ static void test_init(void)
 		if (lib && (!hash.funcs[i].supported || !hash.funcs[i].hmac_supported))
 			continue;
 
-		char *path = g_strdup_printf("/hash/lib/%s/HMAC-%s", lib ? lib : "any",
+		g_autofree char *path = g_strdup_printf("/hash/lib/%s/HMAC-%s", lib ? lib : "any",
 			hash.funcs[i].name);
 		g_test_add_data_func(path, &hash.funcs[i],
 			(GTestDataFunc)test_hash_func_hmac);
-		g_free(path);
 	}
 
 	if (lib)
@@ -716,6 +806,14 @@ static void test_init(void)
 	g_test_add_func("/digest-format/base64", test_digest_format_base64);
 	g_test_add_func("/digest-format/hex-lower", test_digest_format_hex_lower);
 	g_test_add_func("/digest-format/hex-upper", test_digest_format_hex_upper);
+
+	// Test hashing block devices
+	g_test_add_func("/hash/dev/blk/empty", test_hash_dev_blk_empty);
+	g_test_add_func("/hash/dev/blk/data", test_hash_dev_blk_data);
+
+	// Test hashing character devices
+	g_test_add_func("/hash/dev/chr/null", test_hash_dev_chr_null);
+	g_test_add_func("/hash/dev/chr/zero", test_hash_dev_chr_zero);
 }
 
 int main(int argc, char **argv)
@@ -734,7 +832,7 @@ int main(int argc, char **argv)
 	gtk_widget_show_now(GTK_WIDGET(gui.dialog));
 
 	callbacks_init();
-	test_init();
+	add_tests();
 
 	g_test_set_nonfatal_assertions();
 	const int status = g_test_run();

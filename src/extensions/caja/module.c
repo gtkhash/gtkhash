@@ -29,6 +29,7 @@
 
 #include "../common/module.h"
 #include "../common/properties.h"
+#include "../../hash/hash-file.h"
 
 static GList *gtkhash_properties_get_pages(G_GNUC_UNUSED CajaPropertyPageProvider *provider,
 	GList *files)
@@ -37,11 +38,17 @@ static GList *gtkhash_properties_get_pages(G_GNUC_UNUSED CajaPropertyPageProvide
 	if (!files || files->next)
 		return NULL;
 
-	// Only display page for regular files
-	if (caja_file_info_get_file_type(files->data) != G_FILE_TYPE_REGULAR)
-		return NULL;
-
+	const GFileType file_type = caja_file_info_get_file_type(files->data);
 	char *uri = caja_file_info_get_uri(files->data);
+
+	char *mime_type = caja_file_info_get_mime_type(files->data);
+	const bool supported = gtkhash_hash_file_type_is_supported(file_type, mime_type, uri);
+	g_free(mime_type);
+
+	if (!supported) {
+		g_free(uri);
+		return NULL;
+	}
 
 	struct page_s *page = gtkhash_properties_new_page(uri);
 	if (!page)

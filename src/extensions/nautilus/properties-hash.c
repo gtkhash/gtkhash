@@ -35,16 +35,26 @@ void gtkhash_hash_file_report_cb(void *data, const goffset file_size, const goff
 {
 	struct model_s *model = data;
 
-	if (file_size <= 0 || total_read <= 0)
-		return;
-
 	const double elapsed = g_timer_elapsed(timer, NULL);
-	if (elapsed <= 0)
-		return;
 
 	char *text = gtkhash_format_progress(file_size, total_read, elapsed);
-	gtkhash_properties_model_set_progress(model, text);
-	g_free(text);
+	if (text) {
+		gtkhash_properties_model_set_progress(model, text);
+		g_free(text);
+	}
+}
+
+void gtkhash_hash_file_report_unknown_cb(void *data, const goffset total_read, GTimer *timer)
+{
+	struct model_s *model = data;
+
+	const double elapsed = g_timer_elapsed(timer, NULL);
+
+	char *text = gtkhash_format_progress_unknown(total_read, elapsed);
+	if (text) {
+		gtkhash_properties_model_set_progress(model, text);
+		g_free(text);
+	}
 }
 
 void gtkhash_hash_file_digest_cb(const enum hash_func_e id, const char *digest, void *data)

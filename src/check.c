@@ -24,6 +24,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <errno.h>
 #include <gtk/gtk.h>
 
 #include "check.h"
@@ -33,6 +34,7 @@
 #include "list.h"
 #include "uri-digest.h"
 #include "hash/hash-func.h"
+#include "hash/hash-file.h"
 #include "util/util.h"
 
 #define CHECK_FORMAT_N 3
@@ -227,13 +229,30 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 {
 	g_assert(file);
 
-	char *data = NULL;
 	GError *error = NULL;
+	GFileInfo *info = gtkhash_hash_file_query_info(file, NULL, &error);
+
+	if (!info) {
+		gtkhash_file_error(file, error);
+		g_clear_error(&error);
+		return ud_list;
+	}
+
+	const GFileType type = g_file_info_get_file_type(info);
+	g_object_unref(info);
+
+	if (type != G_FILE_TYPE_REGULAR) {
+		char *uri = g_file_get_uri(file);
+		g_message("%s: %s", uri, g_strerror(ENOTSUP));
+		g_free(uri);
+		return ud_list;
+	}
+
 	GFileInputStream *fis = g_file_read(file, NULL, &error);
 
 	if (!fis) {
 		gtkhash_file_error(file, error);
-		g_error_free(error);
+		g_clear_error(&error);
 		return ud_list;
 	}
 
@@ -241,7 +260,6 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 
 	char *line = NULL;
 	gsize len = 0;
-	error = NULL;
 
 	while ((line = g_data_input_stream_read_line_utf8(dis, &len, NULL, &error))) {
 		enum hash_func_e id = HASH_FUNC_INVALID;
@@ -266,13 +284,12 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 		char *uri = g_file_get_uri(file);
 		g_message("%s: %s", uri, error->message);
 		g_free(uri);
-		g_error_free(error);
+		g_clear_error(&error);
 	} else
 		check_file_enable_hinted_hash_func(file);
 
 	g_object_unref(dis);
 	g_object_unref(fis);
-	g_free(data);
 
 	return ud_list;
 }
@@ -399,8 +416,7 @@ void check_init(void)
 
 		if (error) {
 			g_warning("g_regex_new(): %s", error->message);
-			g_error_free(error);
-			error = NULL;
+			g_clear_error(&error);
 		}
 	}
 }
