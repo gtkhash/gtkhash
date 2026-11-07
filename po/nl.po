@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-06 22:06+0100\n"
+"POT-Creation-Date: 2026-11-07 15:00+0100\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/gtkhash/translations/nl/>\n"
@@ -81,13 +81,13 @@ msgstr ""
 msgid "Open Digest File"
 msgstr "Digest-bestand openen"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:237
-#: src/callbacks.c:243
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:234
+#: src/callbacks.c:240
 msgid "_Open"
 msgstr "_Openen"
 
 #: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
-#: src/callbacks.c:125 src/callbacks.c:237 src/callbacks.c:242
+#: src/callbacks.c:125 src/callbacks.c:234 src/callbacks.c:239
 msgid "_Cancel"
 msgstr "_Annuleren"
 
@@ -117,11 +117,11 @@ msgstr ""
 "cumulus007 https://launchpad.net/~cumulus-007\n"
 "Nathan Follens <nthn@unseen.is>"
 
-#: src/callbacks.c:230
+#: src/callbacks.c:227
 msgid "Select Files"
 msgstr "Bestanden selecteren"
 
-#: src/callbacks.c:468 src/extensions/common/properties.c:239
+#: src/callbacks.c:465 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "HMAC-_sleutel tonen"
 
