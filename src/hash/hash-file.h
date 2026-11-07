@@ -51,13 +51,10 @@ void gtkhash_hash_file_report_cb(void *data, goffset file_size, goffset total_re
 // Called periodically to report file hash progress (unknown file size)
 void gtkhash_hash_file_report_unknown_cb(void *data, goffset total_read, GTimer *timer);
 
-// Called with digest result for each enabled hash function
-void gtkhash_hash_file_digest_cb(enum hash_func_e id, const char *digest, void *data);
+// Called after file hashing is completed, with digests from all enabled hash functions
+void gtkhash_hash_file_finish_cb(void *data, const char * const *digests);
 
-// Called after hashing is complete
-void gtkhash_hash_file_finish_cb(void *data);
-
-// Called after hashing is canceled
+// Called after file hashing is cancelled
 void gtkhash_hash_file_stop_cb(void *data);
 
 #endif

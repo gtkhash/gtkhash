@@ -42,8 +42,7 @@ struct model_s {
 };
 
 void gtkhash_properties_model_set_progress(struct model_s *model, const char *progress);
-void gtkhash_properties_model_add_digest(struct model_s *model, const char *name,
-	const char *digest);
+void gtkhash_properties_model_add_digests(struct model_s *model, const char * const *digests);
 void gtkhash_properties_register(GTypeModule *module);
 
 #endif

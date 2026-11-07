@@ -60,7 +60,9 @@ static void hash_queue_start(void)
 	gtk_progress_bar_set_fraction(gui.progressbar, 0.0);
 	gtk_progress_bar_set_text(gui.progressbar, " ");
 
-	hash_file_start(list_get_uri(iter));
+	char *uri = list_get_uri(iter);
+	hash_file_start(uri);
+	g_free(uri);
 }
 
 static bool hash_queue_next(void)
@@ -76,14 +78,13 @@ static bool hash_queue_next(void)
 	return false;
 }
 
-void gtkhash_hash_string_finish_cb(void)
+void gtkhash_hash_string_finish_cb(const char * const *digests)
 {
-	gui_check_digests();
-}
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		if (digests[i])
+			gtk_entry_set_text(gui.hash_widgets[i].entry_text, digests[i]);
 
-void gtkhash_hash_string_digest_cb(const enum hash_func_e id, const char *digest)
-{
-	gtk_entry_set_text(gui.hash_widgets[id].entry_text, digest);
+	gui_check_digests();
 }
 
 void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data, const goffset file_size,
@@ -114,42 +115,33 @@ void gtkhash_hash_file_report_unknown_cb(G_GNUC_UNUSED void *data, const goffset
 	}
 }
 
-void gtkhash_hash_file_digest_cb(const enum hash_func_e id, const char *digest,
-	G_GNUC_UNUSED void *data)
+void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data, const char * const *digests)
 {
 	switch (gui.view) {
 		case GUI_VIEW_FILE:
-			gtk_entry_set_text(gui.hash_widgets[id].entry_file, digest);
+			for (int i = 0; i < HASH_FUNCS_N; i++)
+				if (digests[i])
+					gtk_entry_set_text(gui.hash_widgets[i].entry_file, digests[i]);
+
+			// Reset enabled state following single-function hash
+			gui_update_hash_funcs();
 			break;
 		case GUI_VIEW_FILE_LIST:
-			list_set_digest(hash_queue_peek(), id, digest);
+			list_set_digests(hash_queue_peek(), digests);
+
+			if (hash_queue_next())
+				return;
 			break;
 		default:
 			g_assert_not_reached();
-	}
-}
-
-void gtkhash_hash_file_finish_cb(void *uri)
-{
-	g_free(uri);
-
-	if (gui.view == GUI_VIEW_FILE_LIST) {
-		list_check_digests(hash_queue_peek());
-
-		if (hash_queue_next())
-			return;
-	} else {
-		// Reset enabled state following single-function hash
-		gui_update_hash_funcs();
 	}
 
 	gui_check_digests();
 	gui_set_state(GUI_STATE_IDLE);
 }
 
-void gtkhash_hash_file_stop_cb(void *uri)
+void gtkhash_hash_file_stop_cb(G_GNUC_UNUSED void *data)
 {
-	g_free(uri);
 	g_clear_pointer(&hash_priv.iters, g_ptr_array_unref);
 
 	if (gui.view != GUI_VIEW_FILE_LIST) {
@@ -160,7 +152,7 @@ void gtkhash_hash_file_stop_cb(void *uri)
 	gui_set_state(GUI_STATE_IDLE);
 }
 
-void hash_file_start(char *uri)
+void hash_file_start(const char *uri)
 {
 	g_assert(gtkhash_hash_func_count_enabled(hash.funcs));
 
@@ -169,7 +161,7 @@ void hash_file_start(char *uri)
 	size_t key_size = 0;
 	const uint8_t *hmac_key = gui_get_hmac_key(&key_size);
 
-	gtkhash_hash_file(hash_priv.hfile, uri, format, hmac_key, key_size, uri);
+	gtkhash_hash_file(hash_priv.hfile, uri, format, hmac_key, key_size, NULL);
 }
 
 void hash_file_list_start(void)

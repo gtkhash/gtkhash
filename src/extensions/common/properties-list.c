@@ -58,7 +58,7 @@ void gtkhash_properties_list_update_enabled(struct page_s *page, char *path_str)
 
 	gtk_list_store_set(page->liststore, &iter,
 		COL_ENABLED, enabled,
-		COL_DIGEST, "",
+		COL_DIGEST, NULL,
 		-1);
 
 	page->funcs[id].enabled = enabled;
@@ -102,7 +102,7 @@ void gtkhash_properties_list_update_hash_func_names(struct page_s *page)
 
 		gtk_list_store_set(page->liststore, &iter,
 			COL_HASH_FUNC, hmac_enabled ? page->funcs[id].hmac_name : page->funcs[id].name,
-			COL_DIGEST, "",
+			COL_DIGEST, NULL,
 			-1);
 	} while (gtk_tree_model_iter_next(model, &iter));
 }
@@ -114,7 +114,7 @@ void gtkhash_properties_list_clear_digests(struct page_s *page)
 		return;
 
 	do {
-		gtk_list_store_set(page->liststore, &iter, COL_DIGEST, "", -1);
+		gtk_list_store_set(page->liststore, &iter, COL_DIGEST, NULL, -1);
 	} while (gtk_tree_model_iter_next(GTK_TREE_MODEL(page->liststore), &iter));
 }
 
@@ -127,13 +127,14 @@ void gtkhash_properties_list_check_digests(struct page_s *page)
 	GtkTreeIter iter;
 	if (*check && gtk_tree_model_get_iter_first(model, &iter)) {
 		do {
-			char *digest = NULL;
-			gtk_tree_model_get(model, &iter, COL_DIGEST, &digest, -1);
+			GValue value = G_VALUE_INIT;
+			gtk_tree_model_get_value(model, &iter, COL_DIGEST, &value);
+			const char *digest = g_value_get_string(&value);
 
 			if (gtkhash_digest_format_compare(check, digest, DIGEST_FORMAT_HEX_LOWER))
 				icon = "object-select-symbolic";
 
-			g_free(digest);
+			g_value_unset(&value);
 		} while (!icon && gtk_tree_model_iter_next(model, &iter));
 	}
 
@@ -195,7 +196,7 @@ bool gtkhash_properties_list_hash_selected(struct page_s *page)
 	int id;
 	gtk_tree_model_get(filter_model, &filter_iter, COL_ID, &id, -1);
 
-	gtkhash_properties_list_set_digest(page, id, "");
+	gtkhash_properties_list_set_digest(page, id, NULL);
 
 	if (gtk_toggle_button_get_active(page->togglebutton_hmac)) {
 		const uint8_t *hmac_key = (uint8_t *)gtk_entry_get_text(page->entry_hmac);
@@ -268,7 +269,6 @@ void gtkhash_properties_list_init(struct page_s *page)
 			COL_ID, i,
 			COL_ENABLED, page->funcs[i].enabled,
 			COL_HASH_FUNC, page->funcs[i].name,
-			COL_DIGEST, "",
 			-1);
 	}
 

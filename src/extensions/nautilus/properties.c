@@ -88,21 +88,20 @@ void gtkhash_properties_model_set_progress(struct model_s *model, const char *pr
 	g_list_model_items_changed(G_LIST_MODEL(model), 0, removed, 1);
 }
 
-void gtkhash_properties_model_add_digest(struct model_s *model, const char *name,
-	const char *digest)
+void gtkhash_properties_model_add_digests(struct model_s *model, const char * const *digests)
 {
-	if (model->state == MODEL_STATE_BUSY) {
-		model->state = MODEL_STATE_DONE;
+	const unsigned int removed = model->items->len;
 
-		const unsigned int removed = model->items->len;
-		if (removed > 0) {
-			g_ptr_array_set_size(model->items, 0);
-			g_list_model_items_changed(G_LIST_MODEL(model), 0, removed, 0);
-		}
+	g_ptr_array_set_size(model->items, 0);
+
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!digests[i])
+			continue;
+
+		g_ptr_array_add(model->items, nautilus_properties_item_new(model->funcs[i].name, digests[i]));
 	}
 
-	g_ptr_array_add(model->items, nautilus_properties_item_new(name, digest ? digest : ""));
-	g_list_model_items_changed(G_LIST_MODEL(model), model->items->len - 1, 0, 1);
+	g_list_model_items_changed(G_LIST_MODEL(model), 0, removed, model->items->len);
 }
 
 static void gtkhash_properties_model_deinit(struct model_s *model, G_GNUC_UNUSED GObject *object)

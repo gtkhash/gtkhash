@@ -643,8 +643,7 @@ void gui_update(void)
 			gtk_widget_show(GTK_WIDGET(gui.hseparator_buttons));
 			gtk_widget_show(GTK_WIDGET(gui.button_hash));
 
-			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
-				gui.filechooserbutton));
+			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(gui.filechooserbutton));
 			if (uri) {
 				gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), funcs_enabled);
 				g_free(uri);
@@ -854,11 +853,13 @@ void gui_start_hash(void)
 
 	switch (gui.view) {
 		case GUI_VIEW_FILE: {
+			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(gui.filechooserbutton));
+			if (!uri)
+				return;
 			gui_clear_digests();
 			gui_set_state(GUI_STATE_BUSY);
-			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(
-				gui.filechooserbutton));
 			hash_file_start(uri);
+			g_free(uri);
 			break;
 		}
 		case GUI_VIEW_FILE_LIST:
