@@ -13,7 +13,7 @@ src/extensions/common/properties-hash.c
 src/extensions/common/properties-list.c
 src/extensions/common/properties-prefs.c
 src/extensions/common/properties.c
-src/extensions/common/properties.ui
+src/extensions/common/ui/properties.ui
 src/extensions/nautilus/module.c
 src/extensions/nautilus/properties-hash.c
 src/extensions/nautilus/properties-prefs.c

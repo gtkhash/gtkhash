@@ -6,11 +6,7 @@ libmodule = static_library(
 )
 
 if build_caja or build_nemo or build_thunar
-    properties_resources = gnome.compile_resources(
-        'properties-resources',
-        'properties.gresource.xml',
-        c_name: 'gtkhash_properties_resources',
-    )
+    subdir('ui')
 
     libproperties = static_library(
         'properties',
