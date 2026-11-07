@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-06 22:06+0100\n"
+"POT-Creation-Date: 2026-11-07 15:00+0100\n"
 "PO-Revision-Date: 2026-11-07 13:51+0000\n"
 "Last-Translator: Szia Tomi <sziatomi@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/translations/hu/>\n"
@@ -82,13 +82,13 @@ msgstr "GtkHash a Thunarhoz"
 msgid "Open Digest File"
 msgstr "Kivonatfájl megnyitása"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:237
-#: src/callbacks.c:243
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:234
+#: src/callbacks.c:240
 msgid "_Open"
 msgstr "Meg_nyitás"
 
 #: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
-#: src/callbacks.c:125 src/callbacks.c:237 src/callbacks.c:242
+#: src/callbacks.c:125 src/callbacks.c:234 src/callbacks.c:239
 msgid "_Cancel"
 msgstr "M_egszakítás"
 
@@ -116,11 +116,11 @@ msgstr "Asztali segédprogram üzenetkivonatok vagy ellenőrző összegek kiszá
 msgid "translator-credits"
 msgstr "sziatomi <sziatomi01@gmail.com>"
 
-#: src/callbacks.c:230
+#: src/callbacks.c:227
 msgid "Select Files"
 msgstr "Fájlok kiválasztása"
 
-#: src/callbacks.c:468 src/extensions/common/properties.c:239
+#: src/callbacks.c:465 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "HMAC kulcs _megjelenítése"
 
