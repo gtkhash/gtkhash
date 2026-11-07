@@ -126,10 +126,9 @@ void list_append_row(const char * const uri, const char * const check)
 	char *tooltip = g_markup_escape_text(basename, -1);
 
 	gtk_list_store_insert_with_values(gui.liststore, NULL, -1,
-		COL_ICON_NAME, "",
 		COL_PNAME, pname,
 		COL_TOOLTIP, tooltip,
-		COL_CHECK, check ? check : "",
+		COL_CHECK, check,
 		-1);
 
 	g_free(tooltip);
@@ -143,14 +142,19 @@ void list_append_row(const char * const uri, const char * const check)
 
 void list_remove_selection(void)
 {
-	if (gtk_tree_selection_count_selected_rows(gui.treeselection) == list_get_rows()) {
+	const int selected_rows = gtk_tree_selection_count_selected_rows(gui.treeselection);
+
+	if (selected_rows == list_get_rows()) {
 		list_clear();
 		return;
 	}
 
 	GList *paths = gtk_tree_selection_get_selected_rows(gui.treeselection, &gui.treemodel);
 
-	GtkTreeIter *iters = g_new(GtkTreeIter, g_list_length(paths));
+	// Avoid "selection-changed" signals
+	gtk_tree_selection_unselect_all(gui.treeselection);
+
+	GtkTreeIter *iters = g_new(GtkTreeIter, selected_rows);
 	int iters_n = 0;
 
 	for (GList *i = paths; i != NULL; i = i->next) {
@@ -189,10 +193,10 @@ GPtrArray *list_get_iters(void)
 
 static GFile *list_get_iter_file(GtkTreeIter *iter)
 {
-	char *pname;
-	gtk_tree_model_get(gui.treemodel, iter, COL_PNAME, &pname, -1);
-	GFile *file = g_file_parse_name(pname);
-	g_free(pname);
+	GValue value = G_VALUE_INIT;
+	gtk_tree_model_get_value(gui.treemodel, iter, COL_PNAME, &value);
+	GFile *file = g_file_parse_name(g_value_get_string(&value));
+	g_value_unset(&value);
 
 	return file;
 }
@@ -240,13 +244,65 @@ static void list_scroll_to_next(const GtkTreeIter *iter)
 	gtk_tree_path_free(path);
 }
 
-void list_set_digest(GtkTreeIter *iter, const enum hash_func_e id, const char * const digest)
+// Returns a static string or NULL
+static const char *list_status_icon_name(const char * const check, const char * const *digests)
 {
-	g_assert(HASH_FUNC_IS_VALID(id));
+	if (!check || !*check)
+		return NULL;
+
+	const enum digest_format_e format = gui_get_digest_format();
+
+	bool has_digest = false;
+	bool match = false;
+
+	for (int i = 0; (i < HASH_FUNCS_N) && !match; i++) {
+		if (!digests[i])
+			continue;
+		if (*digests[i])
+			has_digest = true;
+
+		match = gtkhash_digest_format_compare(digests[i], check, format);
+	}
+
+	if (has_digest)
+		return match ? "object-select-symbolic" : "window-close-symbolic";
+
+	return NULL;
+}
+
+void list_set_digests(GtkTreeIter *iter, const char * const *digests)
+{
+	int cols[HASH_FUNCS_N + 1];
+	GValue vals[HASH_FUNCS_N + 1] = { G_VALUE_INIT };
+	int vals_n = 0;
+
+	GValue check_value = G_VALUE_INIT;
+	gtk_tree_model_get_value(gui.treemodel, iter, COL_CHECK, &check_value);
+
+	cols[vals_n] = COL_ICON_NAME;
+	g_value_init(&vals[vals_n], G_TYPE_STRING);
+	const char *check = g_value_get_string(&check_value);
+	g_value_set_static_string(&vals[vals_n], list_status_icon_name(check, digests));
+	vals_n++;
+
+	g_value_unset(&check_value);
+
+	for (int i = 0; i < HASH_FUNCS_N; i++) {
+		if (!digests[i])
+			continue;
+
+		cols[vals_n] = list_priv.hash_cols[i];
+		g_value_init(&vals[vals_n], G_TYPE_STRING);
+		g_value_set_string(&vals[vals_n], digests[i]);
+		vals_n++;
+	}
 
 	list_scroll_to_next(iter);
 
-	gtk_list_store_set(gui.liststore, iter, list_priv.hash_cols[id], digest, -1);
+	gtk_list_store_set_valuesv(gui.liststore, iter, cols, vals, vals_n);
+
+	for (int i = 0; i < vals_n; i++)
+		g_value_unset(&vals[i]);
 }
 
 char *list_get_digest(const int row, const enum hash_func_e id)
@@ -313,50 +369,105 @@ bool list_has_digests(void)
 	return false;
 }
 
-void list_check_digests(GtkTreeIter *iter)
+static void list_check_digests(GtkTreeIter *iter)
 {
-	char *check;
-	gtk_tree_model_get(gui.treemodel, iter, COL_CHECK, &check, -1);
+	GValue check_value = G_VALUE_INIT;
+	GValue icon_value = G_VALUE_INIT;
 
-	const char *icon_name = "";
-	bool has_digest = false;
-	bool match = false;
+	gtk_tree_model_get_value(gui.treemodel, iter, COL_CHECK, &check_value);
+	gtk_tree_model_get_value(gui.treemodel, iter, COL_ICON_NAME, &icon_value);
+
+	const char *check = g_value_get_string(&check_value);
+	const char *old_icon = g_value_get_string(&icon_value);
+	const char *new_icon = NULL;
 
 	if (check && *check) {
-		const enum digest_format_e format = gui_get_digest_format();
+		GValue values[HASH_FUNCS_N] = { G_VALUE_INIT };
+		const char *digests[HASH_FUNCS_N] = { NULL };
 
-		for (int i = 0; (i < HASH_FUNCS_N) && !match; i++) {
+		for (int i = 0; i < HASH_FUNCS_N; i++) {
 			if (!hash.funcs[i].enabled)
 				continue;
 
-			char *digest;
-			gtk_tree_model_get(gui.treemodel, iter, list_priv.hash_cols[i], &digest, -1);
-
-			if (digest && *digest)
-				has_digest = true;
-
-			match = gtkhash_digest_format_compare(digest, check, format);
-
-			g_free(digest);
+			gtk_tree_model_get_value(gui.treemodel, iter, list_priv.hash_cols[i], &values[i]);
+			digests[i] = g_value_get_string(&values[i]);
 		}
 
-		if (has_digest)
-			icon_name = match ? "object-select-symbolic" : "window-close-symbolic";
+		new_icon = list_status_icon_name(check, (const char * const *)digests);
+
+		for (int i = 0; i < HASH_FUNCS_N; i++)
+			g_value_unset(&values[i]);
 	}
 
-	g_free(check);
+	g_value_unset(&check_value);
 
-	gtk_list_store_set(gui.liststore, iter, COL_ICON_NAME, icon_name, -1);
+	if (g_strcmp0(old_icon, new_icon) != 0)
+		gtk_list_store_set(gui.liststore, iter, COL_ICON_NAME, new_icon, -1);
+
+	g_value_unset(&icon_value);
+}
+
+static int list_suspend_sort(GtkSortType *order)
+{
+	int col_id;
+	*order = GTK_SORT_ASCENDING;
+
+	if (!gtk_tree_sortable_get_sort_column_id(GTK_TREE_SORTABLE(gui.liststore), &col_id, order))
+		return GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID;
+
+	// Ignore columns which are not modified by bulk updates
+	switch (col_id) {
+		case COL_PNAME:
+		case COL_CHECK:
+			return GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID;
+		default:
+			break;
+	}
+
+	gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(gui.liststore),
+		GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID, GTK_SORT_ASCENDING);
+
+	return col_id;
+}
+
+static void list_restore_sort(const int col_id, const GtkSortType order)
+{
+	if (col_id == GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID)
+		return;
+
+	gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(gui.liststore), col_id, order);
 }
 
 void list_check_all_digests(void)
 {
+	// Suspend for faster row updates
+	GtkSortType order;
+	const int col_id = list_suspend_sort(&order);
+
 	GPtrArray *iters = list_get_iters();
 
 	for (unsigned int i = 0; i < iters->len; i++)
 		list_check_digests(iters->pdata[i]);
 
 	g_ptr_array_unref(iters);
+
+	list_restore_sort(col_id, order);
+}
+
+static void list_suspend_signal(const char * const name)
+{
+	const guint signal = g_signal_lookup(name, GTK_TYPE_TREE_MODEL);
+	g_signal_handlers_block_matched(gui.treemodel, G_SIGNAL_MATCH_ID | G_SIGNAL_MATCH_DATA,
+		signal, 0, NULL, NULL, gui.treeview);
+}
+
+static void list_restore_signal(const char * const name)
+{
+	const guint signal = g_signal_lookup(name, GTK_TYPE_TREE_MODEL);
+	g_signal_handlers_unblock_matched(gui.treemodel, G_SIGNAL_MATCH_ID | G_SIGNAL_MATCH_DATA,
+		signal, 0, NULL, NULL, gui.treeview);
+
+	gtk_widget_queue_draw(GTK_WIDGET(gui.treeview));
 }
 
 void list_clear_digests(void)
@@ -367,7 +478,7 @@ void list_clear_digests(void)
 
 	cols[vals_n] = COL_ICON_NAME;
 	g_value_init(&vals[vals_n], G_TYPE_STRING);
-	g_value_set_static_string(&vals[vals_n], "");
+	g_value_set_string(&vals[vals_n], NULL);
 	vals_n++;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
@@ -376,9 +487,14 @@ void list_clear_digests(void)
 
 		cols[vals_n] = list_priv.hash_cols[i];
 		g_value_init(&vals[vals_n], G_TYPE_STRING);
-		g_value_set_static_string(&vals[vals_n], "");
+		g_value_set_string(&vals[vals_n], NULL);
 		vals_n++;
 	}
+
+	// Suspend for faster row updates
+	GtkSortType order;
+	const int col_id = list_suspend_sort(&order);
+	list_suspend_signal("row-changed");
 
 	GPtrArray *iters = list_get_iters();
 
@@ -389,12 +505,20 @@ void list_clear_digests(void)
 		g_value_unset(&vals[i]);
 
 	g_ptr_array_unref(iters);
+
+	list_restore_signal("row-changed");
+	list_restore_sort(col_id, order);
 }
 
 void list_clear(void)
 {
+	// Temporarily remove treemodel so treeview doesn't have to handle any signals
+	gtk_tree_view_set_model(gui.treeview, NULL);
+
 	gtk_list_store_clear(gui.liststore);
 	list_priv.show_status = false;
+
+	gtk_tree_view_set_model(gui.treeview, gui.treemodel);
 
 	list_update();
 }

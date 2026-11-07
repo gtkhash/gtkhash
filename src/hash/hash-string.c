@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -39,23 +39,24 @@ void gtkhash_hash_string(struct hash_func_s *funcs, const char * const str,
 
 	const size_t len = strlen(str);
 
+	char *digests[HASH_FUNCS_N] = { NULL };
+
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!funcs[i].enabled)
 			continue;
 
-		gtkhash_hash_lib_start(&funcs[i], hmac_key, key_size);
-
 		// Assuming this won't take too long
+		gtkhash_hash_lib_start(&funcs[i], hmac_key, key_size);
 		gtkhash_hash_lib_update(&funcs[i], (const uint8_t *)str, len);
-
 		gtkhash_hash_lib_finish(&funcs[i]);
 
-		char *digest = gtkhash_hash_func_get_digest(&funcs[i], format);
-		gtkhash_hash_string_digest_cb(funcs[i].id, digest);
-		g_free(digest);
+		digests[i] = gtkhash_hash_func_get_digest(&funcs[i], format);
 
 		gtkhash_hash_func_clear_digest(&funcs[i]);
 	}
 
-	gtkhash_hash_string_finish_cb();
+	gtkhash_hash_string_finish_cb((const char * const *)digests);
+
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		g_free(digests[i]);
 }

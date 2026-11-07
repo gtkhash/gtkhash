@@ -62,9 +62,9 @@ enum hash_file_state_e {
 struct hash_file_s {
 	goffset file_size, total_read;
 	const void *cb_data;
-	const char *uri;
+	char *uri;
 	GFile *file;
-	const uint8_t *hmac_key;
+	uint8_t *hmac_key;
 	size_t key_size;
 	GCancellable *cancellable;
 	GFileInputStream *stream;
@@ -545,21 +545,21 @@ static gboolean gtkhash_hash_file_callback_stop_func(void *cb_data)
 
 static gboolean gtkhash_hash_file_callback_finish_func(struct hash_file_s *data)
 {
+	char *digests[HASH_FUNCS_N] = { NULL };
+
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!data->funcs[i].enabled)
 			continue;
 
-		char *digest = gtkhash_hash_func_get_digest(&data->funcs[i],
-			data->format);
-
-		gtkhash_hash_file_digest_cb(i, digest, (void *)data->cb_data);
-
-		g_free(digest);
+		digests[i] = gtkhash_hash_func_get_digest(&data->funcs[i], data->format);
 
 		gtkhash_hash_func_clear_digest(&data->funcs[i]);
 	}
 
-	gtkhash_hash_file_finish_cb((void *)data->cb_data);
+	gtkhash_hash_file_finish_cb((void *)data->cb_data, (const char * const *)digests);
+
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		g_free(digests[i]);
 
 	return G_SOURCE_REMOVE;
 }
@@ -574,6 +574,8 @@ static void gtkhash_hash_file_callback(struct hash_file_s *data)
 	else
 		g_idle_add(G_SOURCE_FUNC(gtkhash_hash_file_callback_finish_func), data);
 
+	g_clear_pointer(&data->uri, g_free);
+	g_clear_pointer(&data->hmac_key, g_free);
 	g_clear_object(&data->cancellable);
 }
 
@@ -609,9 +611,9 @@ void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
 	g_assert(data->source == 0);
 	g_assert(!data->cancellable);
 
-	data->uri = uri;
+	data->uri = g_strdup(uri);
 	data->format = format;
-	data->hmac_key = hmac_key;
+	data->hmac_key = g_memdup2(hmac_key, key_size);
 	data->key_size = key_size;
 	data->cb_data = cb_data;
 	data->cancellable = g_cancellable_new();
@@ -658,6 +660,8 @@ void gtkhash_hash_file_free(struct hash_file_s *data)
 	g_assert(data->report_source == 0);
 	g_assert(data->source == 0);
 
+	g_clear_pointer(&data->uri, g_free);
+	g_clear_pointer(&data->hmac_key, g_free);
 	g_mutex_clear(&data->mtx);
 
 	g_free(data);

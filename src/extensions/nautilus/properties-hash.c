@@ -57,24 +57,22 @@ void gtkhash_hash_file_report_unknown_cb(void *data, const goffset total_read, G
 	}
 }
 
-void gtkhash_hash_file_digest_cb(const enum hash_func_e id, const char *digest, void *data)
+void gtkhash_hash_file_finish_cb(void *data, const char * const *digests)
 {
 	struct model_s *model = data;
 
-	gtkhash_properties_model_add_digest(model, model->funcs[id].name, digest);
-}
+	gtkhash_properties_model_add_digests(model, digests);
 
-void gtkhash_hash_file_finish_cb(void *data)
-{
-	struct model_s *model = data;
-
-	model->state = MODEL_STATE_DONE; // If not already set by _add_digest()
+	model->state = MODEL_STATE_DONE;
 	g_object_unref(model);
 }
 
 void gtkhash_hash_file_stop_cb(void *data)
 {
-	gtkhash_hash_file_finish_cb(data);
+	struct model_s *model = data;
+
+	model->state = MODEL_STATE_DONE;
+	g_object_unref(model);
 }
 
 void gtkhash_properties_hash_start(struct model_s *model)

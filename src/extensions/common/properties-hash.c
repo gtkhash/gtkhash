@@ -62,13 +62,12 @@ void gtkhash_hash_file_report_unknown_cb(void *data, const goffset total_read, G
 	}
 }
 
-void gtkhash_hash_file_digest_cb(const enum hash_func_e id, const char *digest, void *data)
+void gtkhash_hash_file_finish_cb(void *data, const char * const *digests)
 {
-	gtkhash_properties_list_set_digest(data, id, digest);
-}
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		if (digests[i])
+			gtkhash_properties_list_set_digest(data, i, digests[i]);
 
-void gtkhash_hash_file_finish_cb(void *data)
-{
 	// Reset enabled state following single-function hash
 	gtkhash_properties_list_reset_enabled(data);
 
