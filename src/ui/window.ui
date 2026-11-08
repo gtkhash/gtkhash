@@ -682,7 +682,6 @@
                       <object class="GtkTreeView" id="treeview">
                         <property name="can-focus">True</property>
                         <property name="rubber-banding">True</property>
-                        <property name="rules-hint">True</property>
                         <property name="search-column">1</property>
                         <property name="show-expanders">False</property>
                         <property name="tooltip-column">2</property>
