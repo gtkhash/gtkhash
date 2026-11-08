@@ -359,12 +359,11 @@ static void test_opt_help(void)
 {
 	if (g_test_subprocess()) {
 		int argc;
-		g_auto(GStrv) argv = NULL;
+		char **argv;
 		g_shell_parse_argv("t --help", &argc, &argv, NULL);
 
-		opts_preinit(&argc, &argv);
-
-		exit(EXIT_FAILURE);
+		opts_preinit(argv);
+		g_assert_not_reached();
 	}
 
 	trap_subprocess();
@@ -376,12 +375,11 @@ static void test_opt_version(void)
 {
 	if (g_test_subprocess()) {
 		int argc;
-		g_auto(GStrv) argv = NULL;
+		char **argv;
 		g_shell_parse_argv("t --version", &argc, &argv, NULL);
 
-		opts_preinit(&argc, &argv);
-
-		exit(EXIT_FAILURE);
+		opts_preinit(argv);
+		g_assert_not_reached();
 	}
 
 	trap_subprocess();
@@ -392,10 +390,12 @@ static void test_opt_check_text(void)
 {
 	if (g_test_subprocess()) {
 		int argc;
-		g_auto(GStrv) argv = NULL;
+		char **argv;
 		g_shell_parse_argv("t -c fail -t aa --check 0123abcdef", &argc, &argv, NULL);
 
-		opts_preinit(&argc, &argv);
+		opts_preinit(argv);
+		g_strfreev(argv);
+
 		opts_postinit();
 		delay();
 
@@ -416,13 +416,16 @@ static void test_opt_check_file(void)
 {
 	if (g_test_subprocess()) {
 		int argc;
-		g_auto(GStrv) argv = NULL;
-		g_autofree char *args = g_strdup_printf("t --check-file '%s'",
+		char **argv;
+		char *args = g_strdup_printf("t --check-file '%s'",
 			g_test_get_filename(G_TEST_BUILT, "test.md5sum", NULL));
 
 		g_shell_parse_argv(args, &argc, &argv, NULL);
+		g_free(args);
 
-		opts_preinit(&argc, &argv);
+		opts_preinit(argv);
+		g_strfreev(argv);
+
 		opts_postinit();
 		delay();
 
@@ -438,7 +441,7 @@ static void test_opt_check_file(void)
 		for (;;)
 			gtk_main_iteration_do(false);
 
-		exit(EXIT_FAILURE);
+		g_assert_not_reached();
 	}
 
 	trap_subprocess();
@@ -469,12 +472,15 @@ static void test_opt_function_enable(void)
 			exit(EXIT_FAILURE);
 
 		// Enable the function from cmdline
-		g_autofree char *str = g_strdup_printf("%s %s", "t --function XX -f", hash.funcs[id].name);
+		char *str = g_strdup_printf("%s %s", "t --function XX -f", hash.funcs[id].name);
 		int argc;
-		g_auto(GStrv) argv = NULL;
+		char **argv;
 		g_shell_parse_argv(str, &argc, &argv, NULL);
+		g_free(str);
 
-		opts_preinit(&argc, &argv);
+		opts_preinit(argv);
+		g_strfreev(argv);
+
 		opts_postinit();
 		delay();
 
@@ -491,7 +497,7 @@ static void test_opt_function_enable(void)
 static void test_opt_function_disable(void)
 {
 	if (g_test_subprocess()) {
-		g_autoptr(GString) args = g_string_new("t");
+		GString *args = g_string_new("t");
 
 		// Enable all functions
 		for (int i = 0; i < HASH_FUNCS_N; i++) {
@@ -509,11 +515,16 @@ static void test_opt_function_disable(void)
 
 		g_string_append_printf(args, " -- '%s'",
 			g_test_get_filename(G_TEST_BUILT, "10M.bytes", NULL));
-		int argc;
-		g_auto(GStrv) argv = NULL;
-		g_shell_parse_argv(args->str, &argc, &argv, NULL);
 
-		opts_preinit(&argc, &argv);
+		int argc;
+		char **argv;
+
+		g_shell_parse_argv(args->str, &argc, &argv, NULL);
+		g_string_free(args, true);
+
+		opts_preinit(argv);
+		g_strfreev(argv);
+
 		opts_postinit();
 		delay();
 
@@ -530,15 +541,18 @@ static void test_opt_file(void)
 {
 	if (g_test_subprocess()) {
 		int argc;
-		g_auto(GStrv) argv = NULL;
-		g_autofree char *args = g_strdup_printf("t -- '%s'",
+		char **argv;
+		char *args = g_strdup_printf("t -- '%s'",
 			g_test_get_filename(G_TEST_BUILT, "10M.bytes", NULL));
 
 		g_shell_parse_argv(args, &argc, &argv, NULL);
+		g_free(args);
 
 		select_hash_func(HASH_FUNC_MD5, true);
 
-		opts_preinit(&argc, &argv);
+		opts_preinit(argv);
+		g_strfreev(argv);
+
 		opts_postinit();
 		delay();
 
@@ -577,26 +591,30 @@ static void test_opt_file_list(void)
 {
 	if (g_test_subprocess()) {
 		int argc;
-		g_auto(GStrv) argv = NULL;
-		g_autofree char *args = g_strdup_printf("t -- '%s' '%s'",
+		char **argv;
+		char *args = g_strdup_printf("t -- '%s' '%s'",
 			g_test_get_filename(G_TEST_BUILT, "0.bytes", NULL),
 			g_test_get_filename(G_TEST_BUILT, "0.bytes", NULL));
 
 		g_shell_parse_argv(args, &argc, &argv, NULL);
+		g_free(args);
 
 		select_hash_func(HASH_FUNC_MD5, true);
 
-		opts_preinit(&argc, &argv);
+		opts_preinit(argv);
+		g_strfreev(argv);
+
 		opts_postinit();
 		delay();
 
 		g_assert(gui.view == GUI_VIEW_FILE_LIST);
 		g_assert(list_get_rows() == 2);
 
-		g_autofree char *digest = NULL;
-		while (!(digest = list_get_digest(1, HASH_FUNC_MD5)) || !*digest)
+		char *digest;
+		while (!(digest = list_get_digest(1, HASH_FUNC_MD5)))
 			gtk_main_iteration_do(false);
 		puts(digest);
+		g_free(digest);
 
 		gtk_tree_selection_select_all(gui.treeselection);
 		delay();
@@ -667,14 +685,18 @@ static void check_hash_file_md5(const char *uri, const char *digest)
 	}
 
 	if (g_test_subprocess()) {
-		g_autofree char *args = g_strdup_printf("t -- %s", uri);
 		int argc;
-		g_auto(GStrv) argv = NULL;
+		char **argv;
+		char *args = g_strdup_printf("t -- %s", uri);
+
 		g_shell_parse_argv(args, &argc, &argv, NULL);
+		g_free(args);
 
 		select_hash_func(HASH_FUNC_MD5, true);
 
-		opts_preinit(&argc, &argv);
+		opts_preinit(argv);
+		g_strfreev(argv);
+
 		opts_postinit();
 		delay();
 
@@ -689,8 +711,9 @@ static void check_hash_file_md5(const char *uri, const char *digest)
 
 	trap_subprocess();
 
-	g_autofree char *pattern = g_strdup_printf("*%s*", digest);
+	char *pattern = g_strdup_printf("*%s*", digest);
 	g_test_trap_assert_stdout(pattern);
+	g_free(pattern);
 }
 
 static void test_hash_dev_blk_empty(void)
@@ -732,12 +755,14 @@ static void test_hash_dev_chr_zero(void)
 	// Hash /dev/zero until cancelled
 	if (g_test_subprocess()) {
 		int argc;
-		g_auto(GStrv) argv = NULL;
+		char **argv;
 		g_shell_parse_argv("t -- /dev/zero", &argc, &argv, NULL);
 
 		select_hash_func(HASH_FUNC_MD5, true);
 
-		opts_preinit(&argc, &argv);
+		opts_preinit(argv);
+		g_strfreev(argv);
+
 		opts_postinit();
 		delay();
 
@@ -772,10 +797,11 @@ static void add_tests(void)
 		if (lib && !hash.funcs[i].supported)
 			continue;
 
-		g_autofree char *path = g_strdup_printf("/hash/lib/%s/%s", lib ? lib : "any",
+		char *path = g_strdup_printf("/hash/lib/%s/%s", lib ? lib : "any",
 			hash.funcs[i].name);
 		g_test_add_data_func(path, &hash.funcs[i],
 			(GTestDataFunc)test_hash_func);
+		g_free(path);
 	}
 
 	// Test HMAC
@@ -783,10 +809,11 @@ static void add_tests(void)
 		if (lib && (!hash.funcs[i].supported || !hash.funcs[i].hmac_supported))
 			continue;
 
-		g_autofree char *path = g_strdup_printf("/hash/lib/%s/HMAC-%s", lib ? lib : "any",
+		char *path = g_strdup_printf("/hash/lib/%s/HMAC-%s", lib ? lib : "any",
 			hash.funcs[i].name);
 		g_test_add_data_func(path, &hash.funcs[i],
 			(GTestDataFunc)test_hash_func_hmac);
+		g_free(path);
 	}
 
 	if (lib)

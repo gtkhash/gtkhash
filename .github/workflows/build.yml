@@ -16,9 +16,12 @@ jobs:
     container:
       image: ${{ matrix.os.image }}
       options: --privileged
+    defaults:
+      run:
+        shell: bash
     env:
-      NO_AT_BRIDGE: 1
       DEBIAN_FRONTEND: noninteractive
+      NO_AT_BRIDGE: 1
     strategy:
       fail-fast: false
       matrix:
@@ -30,7 +33,9 @@ jobs:
             image: mirror.gcr.io/library/debian:stable
           - name: debian-testing
             image: mirror.gcr.io/library/debian:testing
-            dist: true
+            coverage: gcc
+            dist: gcc
+            sanitize: clang
           - name: ubuntu-22.04-lts
             image: mirror.gcr.io/library/ubuntu:22.04
           - name: ubuntu-24.04-lts
@@ -54,10 +59,14 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Install dependencies
+        env:
+          CC: ${{ matrix.compiler }}
         run: |
+          opt_cc() { [[ $1 == "${CC}" ]] && echo "$2" || :; }
           opt_pkg() { apt-cache show "$1" >/dev/null 2>&1 && echo "$1" || :; }
           apt-get install -y \
-            ${{ matrix.compiler }} \
+            $(opt_cc clang "clang llvm") \
+            $(opt_cc gcc gcc) \
             $(opt_pkg libblake3-dev) \
             appstream \
             curl \
@@ -88,10 +97,14 @@ jobs:
       - name: meson setup
         env:
           CC: ${{ matrix.compiler }}
+          COVERAGE_CC: ${{ matrix.os.coverage }}
+          SANITIZE_CC: ${{ matrix.os.sanitize }}
         run: |
+          opt_cc() { [[ $1 == "${CC}" ]] && echo "$2" || :; }
           has_pkg() { apt-cache show "$1" >/dev/null 2>&1 && echo true || echo false; }
           meson setup _build \
-            -Db_coverage=true \
+            $(opt_cc "${COVERAGE_CC}" "-Db_coverage=true") \
+            $(opt_cc "${SANITIZE_CC}" "-Db_sanitize=address,undefined -Db_lundef=false") \
             -Dblake2=true \
             -Dblake3=$(has_pkg libblake3-dev) \
             -Dgcrypt=true \
@@ -116,28 +129,32 @@ jobs:
           ninja -C _build tests/0.bytes tests/10M.bytes
           GTKHASH_TEST_BLKDEV_EMPTY=$(losetup --find --show _build/tests/0.bytes) \
           GTKHASH_TEST_BLKDEV_DATA=$(losetup --find --show _build/tests/10M.bytes) \
-          xvfb-run -a -s "-screen 0 800x600x24" meson test -C _build -v
+          xvfb-run -a -s "-screen 0 800x600x24" meson test -C _build --print-errorlogs
+
+      - name: Print meson testlog.txt
+        if: always()
+        run: cat _build/meson-logs/testlog.txt || true
 
       - name: meson install
         run: meson install -C _build --destdir _install
 
       - name: Generate test coverage report
-        if: matrix.os.dist && matrix.compiler == 'gcc'
+        if: matrix.os.coverage == matrix.compiler
         run: ninja -C _build coverage-xml
 
       - name: Upload test coverage report to Codecov
-        if: matrix.os.dist && matrix.compiler == 'gcc'
+        if: matrix.os.coverage == matrix.compiler
         uses: codecov/codecov-action@v7
         with:
           files: _build/meson-logs/coverage.xml
           verbose: true
 
       - name: meson dist
-        if: matrix.os.dist && matrix.compiler == 'gcc'
+        if: matrix.os.dist == matrix.compiler
         run: meson dist -C _build --no-tests
 
       - uses: actions/upload-artifact@v7
-        if: matrix.os.dist && matrix.compiler == 'gcc'
+        if: matrix.os.dist == matrix.compiler
         with:
           name: gtkhash-${{ github.sha }}
           path: _build/meson-dist/*

@@ -90,6 +90,8 @@ static enum check_format_e check_regex_match(const char * const line,
 			continue;
 		if (g_regex_match(check_priv.regex[i], line, 0, info))
 			return i;
+		g_match_info_free(*info);
+		*info = NULL;
 	}
 
 	return CHECK_FORMAT_UNKNOWN;
@@ -112,10 +114,9 @@ static bool check_file_parse_line(const char * const line,
 
 		g_match_info_free(info);
 		return true;
-	} else {
-		g_match_info_free(info);
-		return false;
 	}
+
+	return false;
 }
 
 static void check_file_enable_hinted_hash_func(GFile *file)

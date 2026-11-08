@@ -8,7 +8,7 @@ endif
 if build_gtkhash
     subdir('ui')
 
-    gtkhash_common_sources = [
+    gtkhash_common_sources = files(
         'callbacks.c',
         'check.c',
         'gui.c',
@@ -16,7 +16,7 @@ if build_gtkhash
         'list.c',
         'opts.c',
         'uri-digest.c',
-    ]
+    )
 
     gtkhash = executable(
         'gtkhash',
