@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-07 15:00+0100\n"
+"POT-Creation-Date: 2026-11-08 11:47+0100\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/gtkhash/translations/lt/>\n"
@@ -38,7 +38,7 @@ msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
 msgstr ""
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
-#: src/extensions/caja/module.c:58 src/extensions/nautilus/properties.c:161
+#: src/extensions/caja/module.c:58 src/extensions/nautilus/properties.c:160
 #: src/extensions/nemo/module.c:59 src/extensions/thunar/module.c:57
 msgid "Checksums"
 msgstr "Kontrolinės sumos"
@@ -120,41 +120,41 @@ msgstr "Pasirinkite failus"
 msgid "_Show HMAC Key"
 msgstr "_Rodyti HMAC raktą"
 
-#: src/extensions/common/properties.ui:12
+#: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
 msgstr "_Kopijuoti maišos reikšmę"
 
-#: src/extensions/common/properties.ui:27
+#: src/extensions/common/ui/properties.ui:27
 msgid "Show _Disabled Hash Functions"
 msgstr "Rodyti iš_jungtas maišos funkcijas"
 
-#: src/extensions/common/properties.ui:84
+#: src/extensions/common/ui/properties.ui:84
 msgid "Hash Function"
 msgstr "Maišos funkcija"
 
-#: src/extensions/common/properties.ui:97
+#: src/extensions/common/ui/properties.ui:97
 msgid "Digest"
 msgstr "Maišos reikšmė"
 
-#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+#: src/extensions/common/ui/properties.ui:135 src/ui/window.ui:400
 msgid "Check:"
 msgstr "Patikrinti:"
 
-#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/extensions/common/ui/properties.ui:150 src/ui/window.ui:458
 #: src/ui/window.ui:478
 msgid "Paste digest from clipboard"
 msgstr "Įdėti maišos reikšmę iš iškarpinės"
 
-#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/extensions/common/ui/properties.ui:176 src/ui/window.ui:496
 #: src/ui/window.ui:523
 msgid "HMAC Key:"
 msgstr "HMAC raktas:"
 
-#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+#: src/extensions/common/ui/properties.ui:271 src/ui/window.ui:859
 msgid "_Stop"
 msgstr ""
 
-#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+#: src/extensions/common/ui/properties.ui:310 src/ui/window.ui:820
 msgid "_Hash"
 msgstr ""
 
@@ -162,7 +162,7 @@ msgstr ""
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
-#: src/hash.c:218
+#: src/hash.c:210
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Nežinomas maišos funkcijos pavadinimas \"%s\""
