@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-07 15:00+0100\n"
+"POT-Creation-Date: 2026-11-08 11:47+0100\n"
 "PO-Revision-Date: 2026-10-16 08:51+0000\n"
 "Last-Translator: nautilusx <nautilusx@users.noreply.hosted.weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtkhash/translations/de/>\n"
@@ -45,7 +45,7 @@ msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
 msgstr "hash;checksum;digest;md5;sha1;sha256;crc32;"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
-#: src/extensions/caja/module.c:58 src/extensions/nautilus/properties.c:161
+#: src/extensions/caja/module.c:58 src/extensions/nautilus/properties.c:160
 #: src/extensions/nemo/module.c:59 src/extensions/thunar/module.c:57
 msgid "Checksums"
 msgstr "Prüfsummen"
@@ -133,41 +133,41 @@ msgstr "Dateien auswählen"
 msgid "_Show HMAC Key"
 msgstr "_Zeige HMAC Schlüssel"
 
-#: src/extensions/common/properties.ui:12
+#: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
 msgstr "_Digest kopieren"
 
-#: src/extensions/common/properties.ui:27
+#: src/extensions/common/ui/properties.ui:27
 msgid "Show _Disabled Hash Functions"
 msgstr "_Deaktivierte Hash-Funktionen anzeigen"
 
-#: src/extensions/common/properties.ui:84
+#: src/extensions/common/ui/properties.ui:84
 msgid "Hash Function"
 msgstr "Hash Funktion"
 
-#: src/extensions/common/properties.ui:97
+#: src/extensions/common/ui/properties.ui:97
 msgid "Digest"
 msgstr "Digest"
 
-#: src/extensions/common/properties.ui:135 src/ui/window.ui:400
+#: src/extensions/common/ui/properties.ui:135 src/ui/window.ui:400
 msgid "Check:"
 msgstr "Prüfung:"
 
-#: src/extensions/common/properties.ui:150 src/ui/window.ui:458
+#: src/extensions/common/ui/properties.ui:150 src/ui/window.ui:458
 #: src/ui/window.ui:478
 msgid "Paste digest from clipboard"
 msgstr "Digest aus der Zwischenablage einfügen"
 
-#: src/extensions/common/properties.ui:176 src/ui/window.ui:496
+#: src/extensions/common/ui/properties.ui:176 src/ui/window.ui:496
 #: src/ui/window.ui:523
 msgid "HMAC Key:"
 msgstr "HMAC Schlüssel:"
 
-#: src/extensions/common/properties.ui:271 src/ui/window.ui:859
+#: src/extensions/common/ui/properties.ui:271 src/ui/window.ui:859
 msgid "_Stop"
 msgstr "_Stopp"
 
-#: src/extensions/common/properties.ui:310 src/ui/window.ui:820
+#: src/extensions/common/ui/properties.ui:310 src/ui/window.ui:820
 msgid "_Hash"
 msgstr "_Hash"
 
@@ -175,7 +175,7 @@ msgstr "_Hash"
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
-#: src/hash.c:218
+#: src/hash.c:210
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Unbekannter Name der Hash-Funktion \"%s\""
