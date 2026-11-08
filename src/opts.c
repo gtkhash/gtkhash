@@ -88,7 +88,7 @@ static char *filename_arg_to_uri(const char * const arg)
 	return uri;
 }
 
-void opts_preinit(int *argc, char ***argv)
+void opts_preinit(char **argv)
 {
 	GOptionEntry entries[] = {
 		{
@@ -127,8 +127,11 @@ void opts_preinit(int *argc, char ***argv)
 
 	g_option_context_add_main_entries(context, entries, GETTEXT_PACKAGE);
 	g_option_context_add_group(context, gtk_get_option_group(false));
-	g_option_context_parse(context, argc, argv, &error);
+
+	char **strv = g_strdupv(argv);
+	g_option_context_parse_strv(context, &strv, &error);
 	g_option_context_free(context);
+	g_strfreev(strv);
 
 	if (error) {
 		g_warning("%s", error->message);

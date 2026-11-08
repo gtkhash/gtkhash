@@ -42,7 +42,7 @@ static void nls_init(void)
 }
 #endif
 
-int main(int argc, char **argv)
+int main(G_GNUC_UNUSED int argc, char **argv)
 {
 #if ENABLE_NLS
 	nls_init();
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 
 	hash_init();
 
-	opts_preinit(&argc, &argv);
+	opts_preinit(argv);
 	gui_init();
 	prefs_init();
 	check_init();

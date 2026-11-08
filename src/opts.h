@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2019 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -20,7 +20,7 @@
 #ifndef GTKHASH_OPTS_H
 #define GTKHASH_OPTS_H
 
-void opts_preinit(int *argc, char ***argv);
+void opts_preinit(char **argv);
 void opts_postinit(void);
 
 #endif

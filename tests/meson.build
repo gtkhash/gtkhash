@@ -1,12 +1,7 @@
 if build_gtkhash
-    gtkhash_test_sources = []
-    foreach s : gtkhash_common_sources
-        gtkhash_test_sources += '../src/' + s
-    endforeach
-
     gtkhash_test = executable(
         'gtkhash-test',
-        gtkhash_test_sources,
+        gtkhash_common_sources,
         gtkhash_resources,
         'test.c',
         include_directories: [
@@ -20,7 +15,11 @@ if build_gtkhash
         dependencies: gtk,
     )
 
-    test_files = []
+    configure_file(
+        input: 'lsan.supp',
+        output: 'lsan.supp',
+        copy: true,
+    )
 
     configure_file(
         input: 'test.md5sum.in',
@@ -30,13 +29,9 @@ if build_gtkhash
         },
     )
 
-    bytes_tests_values = [
-        '0',
-        '1',
-        '10M',
-        '5G',
-    ]
-    foreach bytes_test : bytes_tests_values
+    test_files = []
+
+    foreach bytes_test : ['0', '1', '10M', '5G']
         filename = '@0@.bytes'.format(bytes_test)
         test_files += custom_target(
             filename,
@@ -50,12 +45,17 @@ if build_gtkhash
         )
     endforeach
 
+    test_env = [
+        'LSAN_OPTIONS=suppressions=lsan.supp',
+    ]
+
     foreach lib, functions : hash_libs
         test(
             '/hash/lib/@0@'.format(lib),
             gtkhash_test,
             depends: test_files,
-            env: ['GTKHASH_TEST_LIB=@0@'.format(lib)],
+            env: test_env + ['GTKHASH_TEST_LIB=@0@'.format(lib)],
+            workdir: meson.current_build_dir(),
             protocol: 'tap',
             suite: 'tests',
         )
@@ -67,6 +67,8 @@ if build_gtkhash
             gtkhash_test,
             depends: test_files,
             args: ['-r', prefix],
+            env: test_env,
+            workdir: meson.current_build_dir(),
             protocol: 'tap',
             suite: 'tests',
         )
