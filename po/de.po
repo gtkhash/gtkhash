@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-08 11:47+0100\n"
+"POT-Creation-Date: 2026-11-09 01:09+0000\n"
 "PO-Revision-Date: 2026-10-16 08:51+0000\n"
 "Last-Translator: nautilusx <nautilusx@users.noreply.hosted.weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtkhash/translations/de/>\n"
@@ -163,15 +163,15 @@ msgstr "Digest aus der Zwischenablage einfügen"
 msgid "HMAC Key:"
 msgstr "HMAC Schlüssel:"
 
-#: src/extensions/common/ui/properties.ui:271 src/ui/window.ui:859
+#: src/extensions/common/ui/properties.ui:271 src/ui/window.ui:858
 msgid "_Stop"
 msgstr "_Stopp"
 
-#: src/extensions/common/ui/properties.ui:310 src/ui/window.ui:820
+#: src/extensions/common/ui/properties.ui:310 src/ui/window.ui:819
 msgid "_Hash"
 msgstr "_Hash"
 
-#: src/gui.c:352
+#: src/gui.c:347
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
@@ -272,7 +272,7 @@ msgstr "_Einstellungen"
 msgid "_About"
 msgstr "_Über"
 
-#: src/ui/window.ui:303 src/ui/window.ui:717
+#: src/ui/window.ui:303 src/ui/window.ui:716
 msgid "File"
 msgstr "Datei"
 
@@ -292,23 +292,23 @@ msgstr "Datei:"
 msgid "Text:"
 msgstr "Text:"
 
-#: src/ui/window.ui:904
+#: src/ui/window.ui:903
 msgid "Preferences"
 msgstr "Einstellungen"
 
-#: src/ui/window.ui:922
+#: src/ui/window.ui:921
 msgid "_Close"
 msgstr "_Schließen"
 
-#: src/ui/window.ui:957
+#: src/ui/window.ui:956
 msgid "Hash Functions"
 msgstr "Hash-Funktionen"
 
-#: src/ui/window.ui:988
+#: src/ui/window.ui:987
 msgid "MAC Functions"
 msgstr "MAC-Funktionen"
 
-#: src/ui/window.ui:1010
+#: src/ui/window.ui:1009
 msgid "Digest Format:"
 msgstr "Digest-Format:"
 
