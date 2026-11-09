@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-08 11:47+0100\n"
+"POT-Creation-Date: 2026-11-09 01:09+0000\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/translations/es/>\n"
@@ -157,15 +157,15 @@ msgstr "Pegar el resumen del portapapeles"
 msgid "HMAC Key:"
 msgstr "Clave HMAC:"
 
-#: src/extensions/common/ui/properties.ui:271 src/ui/window.ui:859
+#: src/extensions/common/ui/properties.ui:271 src/ui/window.ui:858
 msgid "_Stop"
 msgstr "Detener"
 
-#: src/extensions/common/ui/properties.ui:310 src/ui/window.ui:820
+#: src/extensions/common/ui/properties.ui:310 src/ui/window.ui:819
 msgid "_Hash"
 msgstr "Resumen"
 
-#: src/gui.c:352
+#: src/gui.c:347
 msgid "Discarding invalid characters from digest"
 msgstr "Descartando caracteres no válidos del resumen"
 
@@ -266,7 +266,7 @@ msgstr "_Preferencias"
 msgid "_About"
 msgstr "_Acerca"
 
-#: src/ui/window.ui:303 src/ui/window.ui:717
+#: src/ui/window.ui:303 src/ui/window.ui:716
 msgid "File"
 msgstr "Archivo"
 
@@ -286,23 +286,23 @@ msgstr "Archivo:"
 msgid "Text:"
 msgstr "Texto:"
 
-#: src/ui/window.ui:904
+#: src/ui/window.ui:903
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: src/ui/window.ui:922
+#: src/ui/window.ui:921
 msgid "_Close"
 msgstr "_Cerrar"
 
-#: src/ui/window.ui:957
+#: src/ui/window.ui:956
 msgid "Hash Functions"
 msgstr "Funciones resumen"
 
-#: src/ui/window.ui:988
+#: src/ui/window.ui:987
 msgid "MAC Functions"
 msgstr "Funciones MAC"
 
-#: src/ui/window.ui:1010
+#: src/ui/window.ui:1009
 msgid "Digest Format:"
 msgstr "Formato del resumen:"
 

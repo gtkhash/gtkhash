@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-08 11:47+0100\n"
+"POT-Creation-Date: 2026-11-09 01:09+0000\n"
 "PO-Revision-Date: 2026-11-06 22:51+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/gtkhash/translations/en_US/>\n"
@@ -149,15 +149,15 @@ msgstr "Paste digest from clipboard"
 msgid "HMAC Key:"
 msgstr "HMAC Key:"
 
-#: src/extensions/common/ui/properties.ui:271 src/ui/window.ui:859
+#: src/extensions/common/ui/properties.ui:271 src/ui/window.ui:858
 msgid "_Stop"
 msgstr "_Stop"
 
-#: src/extensions/common/ui/properties.ui:310 src/ui/window.ui:820
+#: src/extensions/common/ui/properties.ui:310 src/ui/window.ui:819
 msgid "_Hash"
 msgstr "_Hash"
 
-#: src/gui.c:352
+#: src/gui.c:347
 msgid "Discarding invalid characters from digest"
 msgstr "Discarding invalid characters from digest"
 
@@ -258,7 +258,7 @@ msgstr "_Preferences"
 msgid "_About"
 msgstr "_About"
 
-#: src/ui/window.ui:303 src/ui/window.ui:717
+#: src/ui/window.ui:303 src/ui/window.ui:716
 msgid "File"
 msgstr "File"
 
@@ -278,23 +278,23 @@ msgstr "File:"
 msgid "Text:"
 msgstr "Text:"
 
-#: src/ui/window.ui:904
+#: src/ui/window.ui:903
 msgid "Preferences"
 msgstr "Preferences"
 
-#: src/ui/window.ui:922
+#: src/ui/window.ui:921
 msgid "_Close"
 msgstr "_Close"
 
-#: src/ui/window.ui:957
+#: src/ui/window.ui:956
 msgid "Hash Functions"
 msgstr "Hash Functions"
 
-#: src/ui/window.ui:988
+#: src/ui/window.ui:987
 msgid "MAC Functions"
 msgstr "MAC Functions"
 
-#: src/ui/window.ui:1010
+#: src/ui/window.ui:1009
 msgid "Digest Format:"
 msgstr "Digest Format:"
 
