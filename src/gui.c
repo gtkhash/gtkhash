@@ -183,11 +183,6 @@ static void gui_init_hash_funcs(void)
 		gtk_widget_set_can_focus(GTK_WIDGET(gui.hash_widgets[i].label_file), false);
 		gtk_container_add(GTK_CONTAINER(gui.vbox_outputlabels),
 			GTK_WIDGET(gui.hash_widgets[i].label_file));
-		GValue xalign = G_VALUE_INIT;
-		g_value_init(&xalign, G_TYPE_FLOAT);
-		g_value_set_float(&xalign, 0);
-		g_object_set_property(G_OBJECT(gui.hash_widgets[i].label_file),
-			"xalign", &xalign);
 
 		// Text view func labels
 		gui.hash_widgets[i].label_text = GTK_LABEL(gtk_label_new(NULL));
@@ -534,7 +529,7 @@ void gui_update_hash_func_labels(const bool hmac_enabled)
 			hash.funcs[i].hmac_name : hash.funcs[i].name);
 
 		if (gui.view == GUI_VIEW_FILE)
-			gtk_button_set_label(GTK_BUTTON(gui.hash_widgets[i].label_file), label);
+			g_object_set(gui.hash_widgets[i].label_file, "text", label, NULL);
 		else
 			gtk_label_set_text(gui.hash_widgets[i].label_text, label);
 
