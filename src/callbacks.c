@@ -334,6 +334,16 @@ static gboolean on_treeview_button_press_event(G_GNUC_UNUSED GtkWidget *widget,
 	return GDK_EVENT_PROPAGATE;
 }
 
+static gboolean on_treeview_key_press_event(G_GNUC_UNUSED GtkWidget *widget, GdkEventKey *event)
+{
+	if (event->keyval == GDK_KEY_Delete || event->keyval == GDK_KEY_KP_Delete) {
+		list_remove_selection();
+		return GDK_EVENT_STOP;
+	}
+
+	return GDK_EVENT_PROPAGATE;
+}
+
 static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget, GdkDragContext *context,
 	G_GNUC_UNUSED int x, G_GNUC_UNUSED int y, GtkSelectionData *selection,
 	G_GNUC_UNUSED unsigned int info, unsigned int t, G_GNUC_UNUSED void *data)
@@ -552,6 +562,7 @@ void callbacks_init(void)
 	CON(gui.treeselection,                  "changed",             on_treeselection_changed);
 	CON(gui.treeview,                       "popup-menu",          on_treeview_popup_menu);
 	CON(gui.treeview,                       "button-press-event",  on_treeview_button_press_event);
+	CON(gui.treeview,                       "key-press-event",     on_treeview_key_press_event);
 	CON(gui.treeview,                       "drag-data-received",  on_treeview_drag_data_received);
 	CON(gui.menuitem_treeview_add,          "activate",            on_button_add_clicked);
 	CON(gui.menuitem_treeview_remove,       "activate",            list_remove_selection);
