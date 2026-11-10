@@ -304,10 +304,10 @@ nettle_funcs = detected_nettle_functions + [
 
 # Matches preferred order from src/hash/hash-lib.c
 hash_libs = {
-    'blake2': ['BLAKE2b', 'BLAKE2s', 'BLAKE2bp', 'BLAKE2sp'],
     'blake3': ['BLAKE3'],
     'xxhash': ['XXH32', 'XXH64', 'XXH3', 'XXH128'],
     'gcrypt': gcrypt_funcs,
+    'blake2': ['BLAKE2b', 'BLAKE2s', 'BLAKE2bp', 'BLAKE2sp'],
     'libcrypto': libcrypto_funcs,
     'mbedtls': mbedtls_funcs,
     'nettle': nettle_funcs,
