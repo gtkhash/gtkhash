@@ -4,6 +4,7 @@ if build_gtkhash
         gtkhash_common_sources,
         gtkhash_resources,
         'test.c',
+        'test-check.c',
         include_directories: [
             root_include,
             include_directories('../src'),
@@ -31,15 +32,15 @@ if build_gtkhash
 
     test_files = []
 
-    foreach bytes_test : ['0', '1', '10M', '5G']
-        filename = '@0@.bytes'.format(bytes_test)
+    foreach bytes : ['0', '1', '10M', '5G']
+        filename = bytes + '.bytes'
         test_files += custom_target(
             filename,
             output: filename,
             command: [
                 'truncate',
                 '-s',
-                '@0@'.format(bytes_test),
+                bytes,
                 '@OUTPUT@',
             ],
         )
@@ -49,28 +50,37 @@ if build_gtkhash
         'LSAN_OPTIONS=suppressions=lsan.supp',
     ]
 
+    test_kwargs = {
+        'depends': test_files,
+        'env': test_env,
+        'workdir': meson.current_build_dir(),
+        'protocol': 'tap',
+        'suite': 'tests',
+    }
+
     foreach lib, functions : hash_libs
         test(
-            '/hash/lib/@0@'.format(lib),
+            '/hash/lib/' + lib,
             gtkhash_test,
-            depends: test_files,
-            env: test_env + ['GTKHASH_TEST_LIB=@0@'.format(lib)],
-            workdir: meson.current_build_dir(),
-            protocol: 'tap',
-            suite: 'tests',
+            kwargs: test_kwargs + {
+                'env': test_env + ['GTKHASH_TEST_LIB=' + lib],
+            },
         )
     endforeach
 
-    foreach prefix : ['/hash/lib/any', '/hash/dev/blk', '/hash/dev/chr', '/opt', '/digest-format']
+    foreach prefix : [
+        '/hash/lib/any',
+        '/hash/dev/blk',
+        '/hash/dev/chr',
+        '/opt',
+        '/digest-format',
+        '/check',
+    ]
         test(
             prefix,
             gtkhash_test,
-            depends: test_files,
+            kwargs: test_kwargs,
             args: ['-r', prefix],
-            env: test_env,
-            workdir: meson.current_build_dir(),
-            protocol: 'tap',
-            suite: 'tests',
         )
     endforeach
 endif

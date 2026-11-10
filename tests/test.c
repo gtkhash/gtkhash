@@ -27,6 +27,7 @@
 #include <stdlib.h>
 #include <gtk/gtk.h>
 
+#include "test.h"
 #include "callbacks.h"
 #include "check.h"
 #include "gui.h"
@@ -120,7 +121,7 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(BLAKE2SP,    "", "dd0e891776933f43c7d032b08a917e25741f8aa9a12c12e1cac8801500f2ca4f");
 	t(BLAKE3,      "", "af1349b9f5f9a1a6a0404dea36dcc9499bcb25c9adc112b7cc9a93cae41f3262");
 	t(CRC32,       "", "00000000");
-	t(GOST,        "", "ce85b99cc46752fffee35cab9a7b0278abb4c2d2055cff685af4912c49490f8d");
+	t(GOST94,      "", "ce85b99cc46752fffee35cab9a7b0278abb4c2d2055cff685af4912c49490f8d");
 	t(MD2,         "", "8350e5a3e24c153df2275c9f80692773");
 	t(MD4,         "", "31d6cfe0d16ae931b73c59d7e0c089c0");
 	t(MD5,         "", "d41d8cd98f00b204e9800998ecf8427e");
@@ -146,7 +147,7 @@ static void test_hash_func(const struct hash_func_s *func)
 
 	t(CRC32,       "The quick brown fox jumps over the lazy dog", "414fa339");
 	t(BLAKE2B,     "The quick brown fox jumps over the lazy dog", "a8add4bdddfd93e4877d2746e62817b116364a1fa7bc148d95090bc7333b3673f82401cf7aa2e4cb1ecd90296e3f14cb5413f8ed77be73045b13914cdcd6a918");
-	t(GOST,        "The quick brown fox jumps over the lazy dog", "77b7fa410c9ac58a25f49bca7d0468c9296529315eaca76bd1a10f376d1f4294");
+	t(GOST94,      "The quick brown fox jumps over the lazy dog", "77b7fa410c9ac58a25f49bca7d0468c9296529315eaca76bd1a10f376d1f4294");
 	t(MD2,         "The quick brown fox jumps over the lazy dog", "03d85a0d629d2c442e987525319fc471");
 	t(MD4,         "The quick brown fox jumps over the lazy dog", "1bee69a46ba811185c194762abaeae90");
 	t(MD5,         "The quick brown fox jumps over the lazy dog", "9e107d9d372bb6826bd81d3542a419d6");
@@ -841,6 +842,9 @@ static void add_tests(void)
 	// Test hashing character devices
 	g_test_add_func("/hash/dev/chr/null", test_hash_dev_chr_null);
 	g_test_add_func("/hash/dev/chr/zero", test_hash_dev_chr_zero);
+
+	// Test checksum file parsing
+	test_check_add_tests();
 }
 
 int main(int argc, char **argv)

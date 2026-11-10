@@ -37,15 +37,6 @@
 #include "hash/hash-file.h"
 #include "util/util.h"
 
-#define CHECK_FORMAT_N 3
-
-enum check_format_e {
-	CHECK_FORMAT_UNKNOWN = -1,
-	CHECK_FORMAT_BSD,
-	CHECK_FORMAT_GNU,
-	CHECK_FORMAT_SFV,
-};
-
 struct {
 	GRegex *regex[CHECK_FORMAT_N];
 	const char * const pattern[CHECK_FORMAT_N];
@@ -56,11 +47,11 @@ struct {
 	.pattern = {
 		[CHECK_FORMAT_BSD] =
 			"^[ \t]*"
-			"(?<FUNCTION>[[:upper:][:digit:]-]{3,16})" // capture FUNCTION
-			" \\("
-			"(?<FILENAME>.+)"                          // capture FILENAME
-			"\\) = "
-			"(?<DIGEST>[[:xdigit:]]{8,})"              // capture DIGEST
+			"(?<FUNCTION>[[:alpha:]]{2}[[:alnum:]-]{1,14})" // capture FUNCTION (e.g. "MD5", "BLAKE2b")
+			" *\\("
+			"(?<FILENAME>.+)"                               // capture FILENAME
+			"\\)[ \t]*=[ \t]*"
+			"(?<DIGEST>[[:xdigit:]]{8,})"                   // capture DIGEST
 			"\\r?$",
 
 		[CHECK_FORMAT_GNU] =
@@ -71,11 +62,10 @@ struct {
 			"\\r?$",
 
 		[CHECK_FORMAT_SFV] =
-			"^[ \t]*"
-			"(?<FILENAME>[^;].*?[^ ]*)"   // capture FILENAME
-			"[ ]+"
+			"^(?<FILENAME>[^;].*?)"       // capture FILENAME
+			"[ \t]"
 			"(?<DIGEST>[[:xdigit:]]{8})"  // capture DIGEST (8 hex chars)
-			"\\r?$",
+			"[[:space:]]*$",
 	},
 };
 
@@ -97,12 +87,17 @@ static enum check_format_e check_regex_match(const char * const line,
 	return CHECK_FORMAT_UNKNOWN;
 }
 
-static bool check_file_parse_line(const char * const line,
-	enum hash_func_e *id, char **filename, char **digest)
+enum check_format_e check_file_parse_line(const char * const line, enum hash_func_e *id,
+	char **filename, char **digest)
 {
 	GMatchInfo *info = NULL;
+	const enum check_format_e format = check_regex_match(line, &info);
 
-	if (check_regex_match(line, &info) != CHECK_FORMAT_UNKNOWN) {
+	*id = HASH_FUNC_INVALID;
+	*filename = NULL;
+	*digest = NULL;
+
+	if (format != CHECK_FORMAT_UNKNOWN) {
 		char *function = g_match_info_fetch_named(info, "FUNCTION");
 		if (function) {
 			*id = gtkhash_hash_func_get_id_from_name(function);
@@ -113,10 +108,20 @@ static bool check_file_parse_line(const char * const line,
 		*digest = g_match_info_fetch_named(info, "DIGEST");
 
 		g_match_info_free(info);
-		return true;
+
+		// Ignore stdin filenames (e.g. `echo | md5sum`)
+		if ((g_strcmp0(*filename, "-") == 0) ||
+			(g_strcmp0(*filename, "stdin") == 0) ||
+			(g_strcmp0(*filename, "(stdin)") == 0))
+		{
+			*id = HASH_FUNC_INVALID;
+			g_clear_pointer(filename, g_free);
+			g_clear_pointer(digest, g_free);
+			return CHECK_FORMAT_UNKNOWN;
+		}
 	}
 
-	return false;
+	return format;
 }
 
 static void check_file_enable_hinted_hash_func(GFile *file)
@@ -268,7 +273,7 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 		char *digest = NULL;
 
 		if ((len >= 8) &&
-			check_file_parse_line(line, &id, &filename, &digest))
+			check_file_parse_line(line, &id, &filename, &digest) != CHECK_FORMAT_UNKNOWN)
 		{
 			if (HASH_FUNC_IS_VALID(id))
 				gui_enable_hash_func(id);
