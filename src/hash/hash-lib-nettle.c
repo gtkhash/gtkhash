@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -45,7 +45,7 @@ static bool gtkhash_hash_lib_nettle_set_meta(const enum hash_func_e id,
 	const struct nettle_hash **meta)
 {
 	switch (id) {
-		case HASH_FUNC_GOST:        *meta = &nettle_gosthash94;  break;
+		case HASH_FUNC_GOST94:      *meta = &nettle_gosthash94;  break;
 		case HASH_FUNC_MD2:         *meta = &nettle_md2;         break;
 		case HASH_FUNC_MD4:         *meta = &nettle_md4;         break;
 		case HASH_FUNC_MD5:         *meta = &nettle_md5;         break;

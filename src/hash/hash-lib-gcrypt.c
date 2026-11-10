@@ -48,7 +48,7 @@ static bool gtkhash_hash_lib_gcrypt_set_algo(const enum hash_func_e id,
 		case HASH_FUNC_BLAKE2S:     *algo = GCRY_MD_BLAKE2S_256;  break;
 #endif
 		case HASH_FUNC_CRC32:       *algo = GCRY_MD_CRC32;        break;
-		case HASH_FUNC_GOST:        *algo = GCRY_MD_GOSTR3411_94; break;
+		case HASH_FUNC_GOST94:      *algo = GCRY_MD_GOSTR3411_94; break;
 		case HASH_FUNC_MD4:         *algo = GCRY_MD_MD4;          break;
 		case HASH_FUNC_MD5:         *algo = GCRY_MD_MD5;          break;
 		case HASH_FUNC_RIPEMD160:   *algo = GCRY_MD_RMD160;       break;

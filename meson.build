@@ -213,7 +213,7 @@ hash_functions = [
     'BLAKE2sp',
     'BLAKE3',
     'CRC32',
-    'GOST',
+    'GOST94',
     'MD2',
     'MD4',
     'MD5',
@@ -241,7 +241,7 @@ hash_functions = [
 
 gcrypt_funcs = detected_gcrypt_functions + [
     'CRC32',
-    'GOST',
+    'GOST94',
     'MD4',
     'MD5',
     'RIPEMD160',
@@ -286,7 +286,7 @@ mbedtls_funcs = detected_mbedtls_functions + [
 ]
 
 nettle_funcs = detected_nettle_functions + [
-    'GOST',
+    'GOST94',
     'MD2',
     'MD4',
     'MD5',

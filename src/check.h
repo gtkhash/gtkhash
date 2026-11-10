@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -20,7 +20,22 @@
 #ifndef GTKHASH_CHECK_H
 #define GTKHASH_CHECK_H
 
+#include <gtk/gtk.h>
+
+#include "hash/hash-func.h"
+
+#define CHECK_FORMAT_N 3
+
+enum check_format_e {
+	CHECK_FORMAT_UNKNOWN = -1,
+	CHECK_FORMAT_BSD,
+	CHECK_FORMAT_GNU,
+	CHECK_FORMAT_SFV,
+};
+
 GSList *check_file_load(GSList *ud_list, GFile *file);
+enum check_format_e check_file_parse_line(const char *line, enum hash_func_e *id, char **filename,
+	char **digest);
 void check_file_save(const char *filename);
 void check_file_add_filters(GtkFileFilter *filter);
 void check_init(void);

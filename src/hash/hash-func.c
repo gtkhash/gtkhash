@@ -42,7 +42,7 @@ static const struct {
 	[HASH_FUNC_BLAKE2SP]    = { "BLAKE2sp",    "",               32,   0 },
 	[HASH_FUNC_BLAKE3]      = { "BLAKE3",      "",               32,   0 },
 	[HASH_FUNC_CRC32]       = { "CRC32",       "",                4,   0 },
-	[HASH_FUNC_GOST]        = { "GOST",        "",               32,   0 },
+	[HASH_FUNC_GOST94]      = { "GOST94",      "",               32,   0 },
 	[HASH_FUNC_MD2]         = { "MD2",         "",               16,   0 },
 	[HASH_FUNC_MD4]         = { "MD4",         "",               16,   0 },
 	[HASH_FUNC_MD5]         = { "MD5",         "HMAC-MD5",       16,  64 },
@@ -68,6 +68,23 @@ static const struct {
 	[HASH_FUNC_XXH128]      = { "XXH128",      "",               16,   0 },
 };
 
+static const struct {
+	const char * const name;
+	const enum hash_func_e id;
+} hash_func_aliases[] = {
+	{ "BLAKE2B-512", HASH_FUNC_BLAKE2B },
+	{ "BLAKE2S-256", HASH_FUNC_BLAKE2S },
+	{ "GOST",        HASH_FUNC_GOST94 },
+	{ "GOST12-256",  HASH_FUNC_STREEBOG256 },
+	{ "GOST12-512",  HASH_FUNC_STREEBOG512 },
+	{ "RIPEMD-160",  HASH_FUNC_RIPEMD160 },
+	{ "RMD160",      HASH_FUNC_RIPEMD160 },
+	{ "SHA2-224",    HASH_FUNC_SHA224 },
+	{ "SHA2-256",    HASH_FUNC_SHA256 },
+	{ "SHA2-384",    HASH_FUNC_SHA384 },
+	{ "SHA2-512",    HASH_FUNC_SHA512 },
+};
+
 enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name)
 {
 	g_assert(name);
@@ -75,6 +92,10 @@ enum hash_func_e gtkhash_hash_func_get_id_from_name(const char *name)
 	for (int i = 0; i < HASH_FUNCS_N; i++)
 		if (g_ascii_strcasecmp(name, hash_func_data[i].name) == 0)
 			return i;
+
+	for (size_t i = 0; i < G_N_ELEMENTS(hash_func_aliases); i++)
+		if (g_ascii_strcasecmp(name, hash_func_aliases[i].name) == 0)
+			return hash_func_aliases[i].id;
 
 	return HASH_FUNC_INVALID;
 }
