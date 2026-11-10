@@ -487,9 +487,6 @@ static void gui_action_save_as_set_enabled(void)
 				}
 			}
 			break;
-		case GUI_VIEW_TEXT:
-			sensitive = gtkhash_hash_func_count_enabled(hash.funcs);
-			break;
 		case GUI_VIEW_FILE_LIST:
 			sensitive = list_has_digests();
 			break;

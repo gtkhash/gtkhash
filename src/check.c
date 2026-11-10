@@ -336,18 +336,6 @@ void check_file_save(const char * const filename)
 
 				break;
 			}
-			case GUI_VIEW_TEXT: {
-				const bool hmac_enabled = gtk_toggle_button_get_active(gui.togglebutton_hmac_text);
-
-				g_string_append_printf(string, "# %s\n",
-					(hmac_enabled && hash.funcs[i].hmac_supported) ?
-					hash.funcs[i].hmac_name : hash.funcs[i].name);
-				g_string_append_printf(string, "%s  \"%s\"\n",
-					gtk_entry_get_text(gui.hash_widgets[i].entry_text),
-					gtk_entry_get_text(gui.entry_text));
-
-				break;
-			}
 			case GUI_VIEW_FILE_LIST: {
 				enum hash_func_e prev = HASH_FUNC_INVALID;
 				const int rows = list_get_rows();
