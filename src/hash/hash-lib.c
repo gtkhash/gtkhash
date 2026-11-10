@@ -75,9 +75,6 @@ static const struct {
 	uint8_t *(* const finish)(struct hash_func_s *func, size_t *size);
 } hash_lib_data[] = {
 	// Ordered by preference (matches meson.build)
-#if ENABLE_BLAKE2
-	HASH_LIB_DATA(blake2)
-#endif
 #if ENABLE_BLAKE3
 	HASH_LIB_DATA(blake3)
 #endif
@@ -86,6 +83,9 @@ static const struct {
 #endif
 #if ENABLE_GCRYPT
 	HASH_LIB_DATA(gcrypt)
+#endif
+#if ENABLE_BLAKE2
+	HASH_LIB_DATA(blake2)
 #endif
 #if ENABLE_LIBCRYPTO
 	HASH_LIB_DATA(libcrypto)
