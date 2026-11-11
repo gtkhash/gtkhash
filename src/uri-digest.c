@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -40,28 +40,17 @@ void uri_digest_free_full(struct uri_digest_s *ud)
 	if (!ud)
 		return;
 
-	if (ud->uri) {
-		g_free(ud->uri);
-		ud->uri = NULL;
-	}
-	if (ud->digest) {
-		g_free(ud->digest);
-		ud->digest = NULL;
-	}
-
+	g_free(ud->uri);
+	g_free(ud->digest);
 	g_free(ud);
 }
 
 GSList *uri_digest_list_from_uri_list(GSList *uris)
 {
-	if (!uris)
-		return NULL;
-
 	GSList *ud_list = NULL;
 
-	do {
-		ud_list = g_slist_prepend(ud_list, uri_digest_new(uris->data, NULL));
-	} while ((uris = g_slist_next(uris)));
+	for (; uris; uris = uris->next)
+		ud_list = g_slist_prepend(ud_list, uri_digest_new(g_strdup(uris->data), NULL));
 
 	return g_slist_reverse(ud_list);
 }
@@ -74,14 +63,9 @@ GSList *uri_digest_list_from_uri_strv(char **uris)
 	GSList *ud_list = NULL;
 
 	for (int i = 0; uris[i]; i++)
-		ud_list = g_slist_prepend(ud_list, uri_digest_new(uris[i], NULL));
+		ud_list = g_slist_prepend(ud_list, uri_digest_new(g_strdup(uris[i]), NULL));
 
 	return g_slist_reverse(ud_list);
-}
-
-void uri_digest_list_free(GSList *ud_list)
-{
-	g_slist_free_full(ud_list, g_free);
 }
 
 void uri_digest_list_free_full(GSList *ud_list)
