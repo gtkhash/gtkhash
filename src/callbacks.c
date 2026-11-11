@@ -259,10 +259,12 @@ static void on_button_add_clicked(void)
 			GSList *uris = gtk_file_chooser_get_uris(chooser);
 			GSList *ud_list = uri_digest_list_from_uri_list(uris);
 
-			gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST);
+			if (ud_list) {
+				gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST);
+				uri_digest_list_free_full(ud_list);
+			}
 
-			uri_digest_list_free_full(ud_list);
-			g_slist_free(uris);
+			g_slist_free_full(uris, g_free);
 		} else
 			g_assert_not_reached();
 	}
@@ -355,10 +357,15 @@ static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget, GdkD
 	}
 
 	GSList *ud_list = uri_digest_list_from_uri_strv(uris);
+	if (!ud_list) {
+		g_strfreev(uris);
+		gtk_drag_finish(context, false, true, t);
+		return;
+	}
 
 	gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST);
 
-	uri_digest_list_free(ud_list);
+	uri_digest_list_free_full(ud_list);
 	g_strfreev(uris);
 
 	gtk_drag_finish(context, true, true, t);
