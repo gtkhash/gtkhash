@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-10 23:11+0100\n"
+"POT-Creation-Date: 2026-11-11 01:07+0100\n"
 "PO-Revision-Date: 2026-11-07 13:51+0000\n"
 "Last-Translator: Szia Tomi <sziatomi@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/translations/hu/>\n"
@@ -120,7 +120,7 @@ msgstr "sziatomi <sziatomi01@gmail.com>"
 msgid "Select Files"
 msgstr "Fájlok kiválasztása"
 
-#: src/callbacks.c:465 src/extensions/common/properties.c:239
+#: src/callbacks.c:475 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "HMAC kulcs _megjelenítése"
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-10 23:11+0100\n"
+"POT-Creation-Date: 2026-11-11 01:07+0100\n"
 "PO-Revision-Date: 2026-11-06 22:51+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/gtkhash/translations/en_US/>\n"
@@ -115,7 +115,7 @@ msgstr "Tristan Heaven"
 msgid "Select Files"
 msgstr "Select Files"
 
-#: src/callbacks.c:465 src/extensions/common/properties.c:239
+#: src/callbacks.c:475 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Show HMAC Key"
 

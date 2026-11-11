@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-10 23:11+0100\n"
+"POT-Creation-Date: 2026-11-11 01:07+0100\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/gtkhash/translations/id/>\n"
@@ -120,7 +120,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "Pilih Berkas"
 
-#: src/callbacks.c:465 src/extensions/common/properties.c:239
+#: src/callbacks.c:475 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Lihat Kunci HMAC"
 
