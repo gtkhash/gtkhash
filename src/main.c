@@ -33,20 +33,11 @@
 #include "prefs.h"
 #include "check.h"
 
-#if ENABLE_NLS
-static void nls_init(void)
+int main(G_GNUC_UNUSED int argc, char **argv)
 {
 	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
 	textdomain(GETTEXT_PACKAGE);
-}
-#endif
-
-int main(G_GNUC_UNUSED int argc, char **argv)
-{
-#if ENABLE_NLS
-	nls_init();
-#endif
 
 	hash_init();
 

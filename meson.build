@@ -36,7 +36,6 @@ config.set_quoted('VERSION', meson.project_version())
 config.set10('ENABLE_NATIVE_FILE_CHOOSER', get_option('native-file-chooser'))
 
 gettext_package = meson.project_name()
-config.set10('ENABLE_NLS', true)
 config.set_quoted('GETTEXT_PACKAGE', gettext_package)
 config.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 

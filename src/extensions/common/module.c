@@ -59,10 +59,8 @@ GType gtkhash_module_register_type(GTypeModule *module, const GType provider_typ
 
 	g_type_module_add_interface(module, gtkhash_module_type, provider_type, &interface_info);
 
-#if ENABLE_NLS
 	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
-#endif
 
 	return gtkhash_module_type;
 }
