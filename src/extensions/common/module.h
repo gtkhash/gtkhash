@@ -22,12 +22,7 @@
 
 #include <glib.h>
 #include <glib-object.h>
-
-#if ENABLE_NLS
-	#include <glib/gi18n-lib.h>
-#else
-	#define _(STR) (STR)
-#endif
+#include <glib/gi18n-lib.h>
 
 GType gtkhash_module_get_type(void);
 GType gtkhash_module_register_type(GTypeModule *module, const GType provider_type,

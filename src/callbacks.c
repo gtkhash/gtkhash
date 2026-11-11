@@ -196,9 +196,7 @@ static void on_action_about(void)
 			"license-type", GTK_LICENSE_GPL_2_0,
 			"logo-icon-name", APPLICATION_ID,
 			"program-name", PACKAGE_NAME,
-#if ENABLE_NLS
 			"translator-credits", _("translator-credits"),
-#endif
 			"version", version,
 			"website", "https://github.com/gtkhash/gtkhash",
 			NULL);

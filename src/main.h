@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2020 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -20,11 +20,6 @@
 #ifndef GTKHASH_MAIN_H
 #define GTKHASH_MAIN_H
 
-#if ENABLE_NLS
-	#include <glib/gi18n.h>
-#else
-	#define _(STR) (STR)
-	#define C_(CONTEXT, STR) (STR)
-#endif
+#include <glib/gi18n.h>
 
 #endif
