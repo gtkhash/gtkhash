@@ -47,6 +47,7 @@ struct {
 	.pattern = {
 		[CHECK_FORMAT_BSD] =
 			"^[ \t]*"
+			"(?<ESCAPED>\\\\)?"                             // capture ESCAPED (indicates FILENAME is escaped)
 			"(?<FUNCTION>[[:alpha:]]{2}[[:alnum:]-]{1,14})" // capture FUNCTION (e.g. "MD5", "BLAKE2b")
 			" *\\("
 			"(?<FILENAME>.+)"                               // capture FILENAME
@@ -56,6 +57,7 @@ struct {
 
 		[CHECK_FORMAT_GNU] =
 			"^[ \t]*"
+			"(?<ESCAPED>\\\\)?"           // capture ESCAPED (indicates FILENAME is escaped)
 			"(?<DIGEST>[[:xdigit:]]{8,})" // capture DIGEST (8+ hex chars)
 			"[ \t][ *]?"                  // '*' indicates binary mode (md5sum -b)
 			"(?<FILENAME>.+)"             // capture FILENAME
@@ -69,8 +71,7 @@ struct {
 	},
 };
 
-static enum check_format_e check_regex_match(const char * const line,
-	GMatchInfo **info)
+static enum check_format_e check_regex_match(const char * const line, GMatchInfo **info)
 {
 	if (!line || !*line)
 		return CHECK_FORMAT_UNKNOWN;
@@ -87,6 +88,39 @@ static enum check_format_e check_regex_match(const char * const line,
 	return CHECK_FORMAT_UNKNOWN;
 }
 
+// Unescape filename in-place
+static bool check_unescape_filename(char *filename)
+{
+	size_t r = 0, w = 0;
+
+	for (; filename[r]; r++) {
+		if (filename[r] != '\\') {
+			filename[w] = filename[r];
+			w++;
+			continue;
+		}
+
+		switch (filename[r + 1]) {
+			case '\\':
+				filename[w] = '\\';
+				break;
+			case 'n':
+				filename[w] = '\n';
+				break;
+			default:
+				// Invalid or unknown escaping
+				return false;
+		}
+
+		r++;
+		w++;
+	}
+
+	filename[w] = '\0';
+
+	return true;
+}
+
 enum check_format_e check_file_parse_line(const char * const line, enum hash_func_e *id,
 	char **filename, char **digest)
 {
@@ -98,6 +132,8 @@ enum check_format_e check_file_parse_line(const char * const line, enum hash_fun
 	*digest = NULL;
 
 	if (format != CHECK_FORMAT_UNKNOWN) {
+		char *escaped = g_match_info_fetch_named(info, "ESCAPED");
+
 		char *function = g_match_info_fetch_named(info, "FUNCTION");
 		if (function) {
 			*id = gtkhash_hash_func_get_id_from_name(function);
@@ -108,6 +144,16 @@ enum check_format_e check_file_parse_line(const char * const line, enum hash_fun
 		*digest = g_match_info_fetch_named(info, "DIGEST");
 
 		g_match_info_free(info);
+
+		if (escaped && *escaped && !check_unescape_filename(*filename)) {
+			*id = HASH_FUNC_INVALID;
+			g_clear_pointer(filename, g_free);
+			g_clear_pointer(digest, g_free);
+			g_free(escaped);
+			return CHECK_FORMAT_UNKNOWN;
+		}
+
+		g_free(escaped);
 
 		// Ignore stdin filenames (e.g. `echo | md5sum`)
 		if ((g_strcmp0(*filename, "-") == 0) ||
@@ -281,7 +327,8 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 			ud_list = check_file_add_uri(ud_list, file, filename, digest);
 			g_free(filename);
 			g_free(digest);
-		}
+		} else
+			g_debug("ignoring line: \"%s\"", line);
 
 		g_free(line);
 	}
