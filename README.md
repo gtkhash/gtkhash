@@ -18,18 +18,14 @@ SHA2 (SHA256/SHA512), SHA3 and BLAKE2.
 It's designed to be an easy to use, graphical alternative to command-line
 tools such as md5sum.
 
-Features:
+Features
+--------
 * Support for verifying checksum files from sfv, sha256sum, etc.
 * Keyed hashing (HMAC)
 * Parallel/multi-threaded hash calculation
 * Remote file access using GIO/GVfs
 * File manager integration
 * Small and fast
-
-GtkHash is free software: you can redistribute it and/or modify it under the
-terms of the GNU General Public License as published by the Free Software
-Foundation, either version 2 of the License, or (at your option) any later
-version.
 
 Dependencies
 ------------
@@ -80,3 +76,11 @@ Alternatively, updated .po files can be submitted as a Pull Request or Issue on
 GitHub:
 
 https://github.com/gtkhash/gtkhash
+
+Copying
+-------
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation, either version 2 of the
+License, or (at your option) any later version.
+
+See [COPYING](COPYING) and [COPYING.OpenSSL](COPYING.OpenSSL).
