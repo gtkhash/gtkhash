@@ -17,12 +17,12 @@
  *   along with GtkHash. If not, see <https://gnu.org/licenses/gpl-2.0.txt>.
  *
  *   In addition, as a special exception, the copyright holders give
- *   permission to link the code of GtkHash with the OpenSSL library (or
+ *   permission to link the code of this program with the OpenSSL library (or
  *   with modified versions of it that use the same license as the OpenSSL
  *   library), and distribute the linked executables. You must obey the GNU
  *   General Public License in all respects for all of the code used other
- *   than OpenSSL. If you modify this file, you may extend this exception to
- *   your version of the file, but you are not obligated to do so. If you do
+ *   than OpenSSL. If you modify this program, you may extend this exception to
+ *   your version of the program, but you are not obligated to do so. If you do
  *   not wish to do so, delete this exception statement from your version.
  */
 
