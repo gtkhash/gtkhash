@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-11 01:07+0100\n"
+"POT-Creation-Date: 2026-11-12 15:56+0100\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/gtkhash/translations/it/>\n"
@@ -82,13 +82,13 @@ msgstr ""
 msgid "Open Digest File"
 msgstr "Apri file Digest"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:234
-#: src/callbacks.c:240
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:232
+#: src/callbacks.c:238
 msgid "_Open"
 msgstr "_Apri"
 
 #: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
-#: src/callbacks.c:125 src/callbacks.c:234 src/callbacks.c:239
+#: src/callbacks.c:125 src/callbacks.c:232 src/callbacks.c:237
 msgid "_Cancel"
 msgstr "_Annulla"
 
@@ -112,15 +112,15 @@ msgstr "_Salva"
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "Un'utility desktop per calcolare digest o checksum di file"
 
-#: src/callbacks.c:200
+#: src/callbacks.c:199
 msgid "translator-credits"
 msgstr ""
 
-#: src/callbacks.c:227
+#: src/callbacks.c:225
 msgid "Select Files"
 msgstr "Seleziona i file"
 
-#: src/callbacks.c:475 src/extensions/common/properties.c:239
+#: src/callbacks.c:480 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Mostra chiave HMAC"
 
