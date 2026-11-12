@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-11 01:07+0100\n"
+"POT-Creation-Date: 2026-11-12 15:56+0100\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/gtkhash/translations/he/>\n"
@@ -82,13 +82,13 @@ msgstr ""
 msgid "Open Digest File"
 msgstr "פתיחת קובץ קוד גיבוב"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:234
-#: src/callbacks.c:240
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:232
+#: src/callbacks.c:238
 msgid "_Open"
 msgstr "_פתיחה"
 
 #: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
-#: src/callbacks.c:125 src/callbacks.c:234 src/callbacks.c:239
+#: src/callbacks.c:125 src/callbacks.c:232 src/callbacks.c:237
 msgid "_Cancel"
 msgstr "_ביטול"
 
@@ -112,18 +112,18 @@ msgstr "_שמירה"
 msgid "A desktop utility for computing message digests or checksums"
 msgstr "כלי לשולחן עבודה לחישוב קוד גיבוב או סיכום ביקורת"
 
-#: src/callbacks.c:200
+#: src/callbacks.c:199
 msgid "translator-credits"
 msgstr ""
 "ttv20 https://launchpad.net/~ttv200\n"
 "Roi Klevansky https://gitlab.com/RoiKlevansky\n"
 "Yaron Shahrabani https://github.com/yarons"
 
-#: src/callbacks.c:227
+#: src/callbacks.c:225
 msgid "Select Files"
 msgstr "בחירת קבצים"
 
-#: src/callbacks.c:475 src/extensions/common/properties.c:239
+#: src/callbacks.c:480 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "ה_צגת מפתח HMAC"
 
