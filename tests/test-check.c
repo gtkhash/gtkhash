@@ -38,7 +38,8 @@
 #define DIGEST_HEX_96  DIGEST_HEX_64 DIGEST_HEX_32
 #define DIGEST_HEX_128 DIGEST_HEX_64 DIGEST_HEX_64
 
-#define FILENAME " ; a ) \\ b / ✅ \t"
+#define FILENAME     " ; a ) \\ b / ✅ \t"
+#define FILENAME_ESC " ; a ) \\\\ b / ✅ \t"
 
 static const struct test_data_s {
 	const char *name;           // test name
@@ -114,10 +115,12 @@ static const struct test_data_s {
 	//
 	// CHECK_FORMAT_BSD: Accepted variants
 	//
-	{ "bsd-lower-func-name", "md5 (" FILENAME ") = " DIGEST_HEX_32,      CHECK_FORMAT_BSD, HASH_FUNC_MD5, FILENAME, DIGEST_HEX_32 },
-	{ "bsd-leading-space",   " MD5 (" FILENAME ") = " DIGEST_HEX_32,     CHECK_FORMAT_BSD, HASH_FUNC_MD5, FILENAME, DIGEST_HEX_32 },
-	{ "bsd-leading-tab",     "\tMD5 (" FILENAME ") = " DIGEST_HEX_32,    CHECK_FORMAT_BSD, HASH_FUNC_MD5, FILENAME, DIGEST_HEX_32 },
-	{ "bsd-dos-line-ending", "MD5 (" FILENAME ") = " DIGEST_HEX_32 "\r", CHECK_FORMAT_BSD, HASH_FUNC_MD5, FILENAME, DIGEST_HEX_32 },
+	{ "bsd-lower-func-name",   "md5 (" FILENAME ") = " DIGEST_HEX_32,        CHECK_FORMAT_BSD, HASH_FUNC_MD5, FILENAME,      DIGEST_HEX_32 },
+	{ "bsd-leading-space",    " MD5 (" FILENAME ") = " DIGEST_HEX_32,        CHECK_FORMAT_BSD, HASH_FUNC_MD5, FILENAME,      DIGEST_HEX_32 },
+	{ "bsd-leading-tab",     "\tMD5 (" FILENAME ") = " DIGEST_HEX_32,        CHECK_FORMAT_BSD, HASH_FUNC_MD5, FILENAME,      DIGEST_HEX_32 },
+	{ "bsd-escaped",         "\\MD5 (" FILENAME_ESC ") = " DIGEST_HEX_32,    CHECK_FORMAT_BSD, HASH_FUNC_MD5, FILENAME,      DIGEST_HEX_32 },
+	{ "bsd-escaped-lf",      "\\MD5 (" FILENAME_ESC "\\n) = " DIGEST_HEX_32, CHECK_FORMAT_BSD, HASH_FUNC_MD5, FILENAME "\n", DIGEST_HEX_32 },
+	{ "bsd-dos-line-ending",   "MD5 (" FILENAME ") = " DIGEST_HEX_32 "\r",   CHECK_FORMAT_BSD, HASH_FUNC_MD5, FILENAME,      DIGEST_HEX_32 },
 
 	//
 	// CHECK_FORMAT_GNU: `md5sum` output
@@ -146,11 +149,13 @@ static const struct test_data_s {
 	//
 	// CHECK_FORMAT_GNU: Accepted variants
 	//
-	{ "gnu-leading-space",   " " DIGEST_HEX_64 "  " FILENAME,  CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME,     DIGEST_HEX_64 },
-	{ "gnu-leading-tab",     "\t" DIGEST_HEX_64 "  " FILENAME, CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME,     DIGEST_HEX_64 },
-	{ "gnu-dos-line-ending", DIGEST_HEX_64 "  " FILENAME "\r", CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME,     DIGEST_HEX_64 },
-	{ "gnu-tab-separator",   DIGEST_HEX_64 "\t " FILENAME,     CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME,     DIGEST_HEX_64 },
-	{ "gnu-or-sfv",          DIGEST_HEX_32 "  " DIGEST_HEX_8,  CHECK_FORMAT_GNU, HASH_FUNC_INVALID, DIGEST_HEX_8, DIGEST_HEX_32 },
+	{ "gnu-leading-space",    " " DIGEST_HEX_64 "  "  FILENAME,           CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME,      DIGEST_HEX_64 },
+	{ "gnu-leading-tab",     "\t" DIGEST_HEX_64 "  "  FILENAME,           CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME,      DIGEST_HEX_64 },
+	{ "gnu-escaped",         "\\" DIGEST_HEX_64 "  "  FILENAME_ESC,       CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME,      DIGEST_HEX_64 },
+	{ "gnu-escaped-lf",      "\\" DIGEST_HEX_64 "  "  FILENAME_ESC "\\n", CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME "\n", DIGEST_HEX_64 },
+	{ "gnu-dos-line-ending",      DIGEST_HEX_64 "  "  FILENAME "\r",      CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME,      DIGEST_HEX_64 },
+	{ "gnu-tab-separator",        DIGEST_HEX_64 "\t " FILENAME,           CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME,      DIGEST_HEX_64 },
+	{ "gnu-or-sfv",               DIGEST_HEX_32 "  "  DIGEST_HEX_8,       CHECK_FORMAT_GNU, HASH_FUNC_INVALID, DIGEST_HEX_8,  DIGEST_HEX_32 },
 
 	//
 	// CHECK_FORMAT_SFV: `cksfv` output
@@ -160,10 +165,11 @@ static const struct test_data_s {
 	//
 	// CHECK_FORMAT_SFV: Accepted variants
 	//
-	{ "sfv-trailing-space",  FILENAME " "  DIGEST_HEX_8 " ",  CHECK_FORMAT_SFV, HASH_FUNC_INVALID, FILENAME, DIGEST_HEX_8 },
-	{ "sfv-trailing-tab",    FILENAME " "  DIGEST_HEX_8 "\t", CHECK_FORMAT_SFV, HASH_FUNC_INVALID, FILENAME, DIGEST_HEX_8 },
-	{ "sfv-dos-line-ending", FILENAME " "  DIGEST_HEX_8 "\r", CHECK_FORMAT_SFV, HASH_FUNC_INVALID, FILENAME, DIGEST_HEX_8 },
-	{ "sfv-tab-separator",   FILENAME "\t" DIGEST_HEX_8,      CHECK_FORMAT_SFV, HASH_FUNC_INVALID, FILENAME, DIGEST_HEX_8 },
+	{ "sfv-trailing-space",     FILENAME " "  DIGEST_HEX_8 " ",  CHECK_FORMAT_SFV, HASH_FUNC_INVALID,      FILENAME, DIGEST_HEX_8 },
+	{ "sfv-trailing-tab",       FILENAME " "  DIGEST_HEX_8 "\t", CHECK_FORMAT_SFV, HASH_FUNC_INVALID,      FILENAME, DIGEST_HEX_8 },
+	{ "sfv-dos-line-ending",    FILENAME " "  DIGEST_HEX_8 "\r", CHECK_FORMAT_SFV, HASH_FUNC_INVALID,      FILENAME, DIGEST_HEX_8 },
+	{ "sfv-tab-separator",      FILENAME "\t" DIGEST_HEX_8,      CHECK_FORMAT_SFV, HASH_FUNC_INVALID,      FILENAME, DIGEST_HEX_8 },
+	{ "sfv-no-unescape",   "\\" FILENAME " "  DIGEST_HEX_8,      CHECK_FORMAT_SFV, HASH_FUNC_INVALID, "\\" FILENAME, DIGEST_HEX_8 },
 
 	//
 	// CHECK_FORMAT_UNKNOWN: Invalid / ignored
@@ -180,6 +186,7 @@ static const struct test_data_s {
 	{ "gnu-stdin-cksum",    DIGEST_HEX_32 "  -",                         CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
 	{ "gnu-stdin-openssl",  DIGEST_HEX_32 " *stdin",                     CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
 	{ "gnu-stdin-rhash",    DIGEST_HEX_32 "  (stdin)",                   CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
+	{ "gnu-esc-invalid",    "\\" DIGEST_HEX_64 "  " FILENAME "\\",       CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
 	{ "sfv-comment",        ";" FILENAME " " DIGEST_HEX_8,               CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
 	{ "sfv-trailing-chars", FILENAME " " DIGEST_HEX_8 "+++",             CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
 	{ "sfv-short-digest",   FILENAME " " DIGEST_HEX_7,                   CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
