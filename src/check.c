@@ -37,9 +37,12 @@
 #include "hash/hash-file.h"
 #include "util/util.h"
 
+#define CHECK_LINE_MIN 10
+#define CHECK_LINE_MAX 8192
+
 struct {
-	GRegex *regex[CHECK_FORMAT_N];
-	const char * const pattern[CHECK_FORMAT_N];
+	GRegex *regex[CHECK_FORMATS_N];
+	const char * const pattern[CHECK_FORMATS_N];
 } check_priv = {
 	.regex = {
 		NULL, NULL, NULL
@@ -64,7 +67,7 @@ struct {
 			"\\r?$",
 
 		[CHECK_FORMAT_SFV] =
-			"^(?<FILENAME>[^;].*?)"       // capture FILENAME
+			"^(?<FILENAME>.+?)"           // capture FILENAME
 			"[ \t]"
 			"(?<DIGEST>[[:xdigit:]]{8})"  // capture DIGEST (8 hex chars)
 			"[[:space:]]*$",
@@ -73,10 +76,7 @@ struct {
 
 static enum check_format_e check_regex_match(const char * const line, GMatchInfo **info)
 {
-	if (!line || !*line)
-		return CHECK_FORMAT_UNKNOWN;
-
-	for (enum check_format_e i = 0; i < CHECK_FORMAT_N; i++) {
+	for (enum check_format_e i = 0; i < CHECK_FORMATS_N; i++) {
 		if (!check_priv.regex[i])
 			continue;
 		if (g_regex_match(check_priv.regex[i], line, 0, info))
@@ -85,7 +85,34 @@ static enum check_format_e check_regex_match(const char * const line, GMatchInfo
 		*info = NULL;
 	}
 
-	return CHECK_FORMAT_UNKNOWN;
+	return CHECK_FORMAT_INVALID;
+}
+
+static enum check_format_e check_line_classify(const char * const line, const gsize len,
+	GMatchInfo **info)
+{
+	if (!line)
+		return CHECK_FORMAT_INVALID;
+
+	if (len == 1 && line[0] == '\r')
+		return CHECK_FORMAT_COMMENT;
+
+	switch (line[0]) {
+		case '\0':
+		case '#':
+		case ';':
+			return CHECK_FORMAT_COMMENT;
+		default:
+			break;
+	}
+
+	if ((len < CHECK_LINE_MIN) || (len > CHECK_LINE_MAX))
+		return CHECK_FORMAT_INVALID;
+
+	if (!g_utf8_validate_len(line, len, NULL))
+		return CHECK_FORMAT_INVALID;
+
+	return check_regex_match(line, info);
 }
 
 // Unescape filename in-place
@@ -121,17 +148,17 @@ static bool check_unescape_filename(char *filename)
 	return true;
 }
 
-enum check_format_e check_file_parse_line(const char * const line, enum hash_func_e *id,
+enum check_format_e check_line_parse(const char * const line, const gsize len, enum hash_func_e *id,
 	char **filename, char **digest)
 {
-	GMatchInfo *info = NULL;
-	const enum check_format_e format = check_regex_match(line, &info);
-
 	*id = HASH_FUNC_INVALID;
 	*filename = NULL;
 	*digest = NULL;
 
-	if (format != CHECK_FORMAT_UNKNOWN) {
+	GMatchInfo *info = NULL;
+	const enum check_format_e format = check_line_classify(line, len, &info);
+
+	if (CHECK_FORMAT_IS_VALID(format)) {
 		char *escaped = g_match_info_fetch_named(info, "ESCAPED");
 
 		char *function = g_match_info_fetch_named(info, "FUNCTION");
@@ -150,7 +177,7 @@ enum check_format_e check_file_parse_line(const char * const line, enum hash_fun
 			g_clear_pointer(filename, g_free);
 			g_clear_pointer(digest, g_free);
 			g_free(escaped);
-			return CHECK_FORMAT_UNKNOWN;
+			return CHECK_FORMAT_INVALID;
 		}
 
 		g_free(escaped);
@@ -163,7 +190,7 @@ enum check_format_e check_file_parse_line(const char * const line, enum hash_fun
 			*id = HASH_FUNC_INVALID;
 			g_clear_pointer(filename, g_free);
 			g_clear_pointer(digest, g_free);
-			return CHECK_FORMAT_UNKNOWN;
+			return CHECK_FORMAT_INVALID;
 		}
 	}
 
@@ -294,9 +321,9 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 	g_object_unref(info);
 
 	if (type != G_FILE_TYPE_REGULAR) {
-		char *uri = g_file_get_uri(file);
-		g_message("%s: %s", uri, g_strerror(ENOTSUP));
-		g_free(uri);
+		char *pname = g_file_get_parse_name(file);
+		g_message("%s: %s", pname, g_strerror(ENOTSUP));
+		g_free(pname);
 		return ud_list;
 	}
 
@@ -312,35 +339,50 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 
 	char *line = NULL;
 	gsize len = 0;
+	char *pname = g_file_get_parse_name(file);
+	unsigned long valid_n = 0, invalid_n = 0;
 
-	while ((line = g_data_input_stream_read_line_utf8(dis, &len, NULL, &error))) {
+	while ((line = g_data_input_stream_read_line(dis, &len, NULL, &error))) {
 		enum hash_func_e id = HASH_FUNC_INVALID;
 		char *filename = NULL;
 		char *digest = NULL;
+		const enum check_format_e format = check_line_parse(line, len, &id, &filename, &digest);
 
-		if ((len >= 8) &&
-			check_file_parse_line(line, &id, &filename, &digest) != CHECK_FORMAT_UNKNOWN)
-		{
+		if (format == CHECK_FORMAT_COMMENT) {
+			g_free(line);
+			continue;
+		}
+
+		if (CHECK_FORMAT_IS_VALID(format) && filename && *filename && digest && *digest) {
 			if (HASH_FUNC_IS_VALID(id))
 				gui_enable_hash_func(id);
-
+			valid_n++;
 			ud_list = check_file_add_uri(ud_list, file, filename, digest);
-			g_free(filename);
-			g_free(digest);
 		} else
-			g_debug("ignoring line: \"%s\"", line);
+			invalid_n++;
 
+		g_free(filename);
+		g_free(digest);
 		g_free(line);
 	}
 
 	if (error) {
-		char *uri = g_file_get_uri(file);
-		g_message("%s: %s", uri, error->message);
-		g_free(uri);
+		g_message("%s: %s", pname, error->message);
 		g_clear_error(&error);
 	} else
 		check_file_enable_hinted_hash_func(file);
 
+	if (invalid_n) {
+		g_message(g_dngettext(GETTEXT_PACKAGE,
+			"%s: Ignored %lu invalid line",
+			"%s: Ignored %lu invalid lines", invalid_n),
+			pname, invalid_n);
+	}
+
+	if (!valid_n)
+		g_message(_("%s: No valid lines found"), pname);
+
+	g_free(pname);
 	g_object_unref(dis);
 	g_object_unref(fis);
 
@@ -451,7 +493,7 @@ void check_file_add_filters(GtkFileFilter *filter)
 
 void check_init(void)
 {
-	for (enum check_format_e i = 0; i < CHECK_FORMAT_N; i++) {
+	for (enum check_format_e i = 0; i < CHECK_FORMATS_N; i++) {
 		GError *error = NULL;
 		check_priv.regex[i] = g_regex_new(check_priv.pattern[i], 0, 0, &error);
 
@@ -464,7 +506,7 @@ void check_init(void)
 
 void check_deinit(void)
 {
-	for (enum check_format_e i = 0; i < CHECK_FORMAT_N; i++) {
+	for (enum check_format_e i = 0; i < CHECK_FORMATS_N; i++) {
 		if (check_priv.regex[i]) {
 			g_regex_unref(check_priv.regex[i]);
 			check_priv.regex[i] = NULL;

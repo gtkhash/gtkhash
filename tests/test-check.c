@@ -21,6 +21,7 @@
 	#include "config.h"
 #endif
 
+#include <string.h>
 #include <glib.h>
 
 #include "test.h"
@@ -44,7 +45,7 @@
 static const struct test_data_s {
 	const char *name;           // test name
 	const char *line;           // test line
-	enum check_format_e format; // expected format, or CHECK_FORMAT_UNKNOWN
+	enum check_format_e format; // expected format, or CHECK_FORMAT_INVALID
 	enum hash_func_e id;        // expected FUNCTION, or HASH_FUNC_INVALID
 	const char *filename;       // expected FILENAME
 	const char *digest;         // expected DIGEST
@@ -155,6 +156,7 @@ static const struct test_data_s {
 	{ "gnu-escaped-lf",      "\\" DIGEST_HEX_64 "  "  FILENAME_ESC "\\n", CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME "\n", DIGEST_HEX_64 },
 	{ "gnu-dos-line-ending",      DIGEST_HEX_64 "  "  FILENAME "\r",      CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME,      DIGEST_HEX_64 },
 	{ "gnu-tab-separator",        DIGEST_HEX_64 "\t " FILENAME,           CHECK_FORMAT_GNU, HASH_FUNC_INVALID, FILENAME,      DIGEST_HEX_64 },
+	{ "gnu-min-line",             DIGEST_HEX_8  "  "  "_",                CHECK_FORMAT_GNU, HASH_FUNC_INVALID, "_",           DIGEST_HEX_8 },
 	{ "gnu-or-sfv",               DIGEST_HEX_32 "  "  DIGEST_HEX_8,       CHECK_FORMAT_GNU, HASH_FUNC_INVALID, DIGEST_HEX_8,  DIGEST_HEX_32 },
 
 	//
@@ -170,27 +172,33 @@ static const struct test_data_s {
 	{ "sfv-dos-line-ending",    FILENAME " "  DIGEST_HEX_8 "\r", CHECK_FORMAT_SFV, HASH_FUNC_INVALID,      FILENAME, DIGEST_HEX_8 },
 	{ "sfv-tab-separator",      FILENAME "\t" DIGEST_HEX_8,      CHECK_FORMAT_SFV, HASH_FUNC_INVALID,      FILENAME, DIGEST_HEX_8 },
 	{ "sfv-no-unescape",   "\\" FILENAME " "  DIGEST_HEX_8,      CHECK_FORMAT_SFV, HASH_FUNC_INVALID, "\\" FILENAME, DIGEST_HEX_8 },
+	{ "sfv-min-line",           "_"      " "  DIGEST_HEX_8,      CHECK_FORMAT_SFV, HASH_FUNC_INVALID,      "_",      DIGEST_HEX_8 },
 
 	//
-	// CHECK_FORMAT_UNKNOWN: Invalid / ignored
+	// CHECK_FORMAT_COMMENT
 	//
-	{ "empty-line",         "",                                          CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "plain-text",         "hello world",                               CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "comment",            "# comment",                                 CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "bsd-trailing-chars", "MD5 (" FILENAME ") = " DIGEST_HEX_32 "+++", CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "bsd-short-digest",   "MD5 (" FILENAME ") = " DIGEST_HEX_7,        CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "bsd-stdin-cksum",    "MD5 (-) = " DIGEST_HEX_32,                  CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "bsd-stdin-openssl",  "MD5(stdin)= " DIGEST_HEX_32,                CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "bsd-stdin-rhash",    "MD5   ((stdin)) = " DIGEST_HEX_32,          CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "gnu-short-digest",   DIGEST_HEX_7 "  " FILENAME,                  CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "gnu-stdin-cksum",    DIGEST_HEX_32 "  -",                         CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "gnu-stdin-openssl",  DIGEST_HEX_32 " *stdin",                     CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "gnu-stdin-rhash",    DIGEST_HEX_32 "  (stdin)",                   CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "gnu-esc-invalid",    "\\" DIGEST_HEX_64 "  " FILENAME "\\",       CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "sfv-comment",        ";" FILENAME " " DIGEST_HEX_8,               CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "sfv-trailing-chars", FILENAME " " DIGEST_HEX_8 "+++",             CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "sfv-short-digest",   FILENAME " " DIGEST_HEX_7,                   CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
-	{ "sfv-long-digest",    FILENAME " " DIGEST_HEX_9,                   CHECK_FORMAT_UNKNOWN, HASH_FUNC_INVALID, NULL, NULL },
+	{ "empty-line",  "",          CHECK_FORMAT_COMMENT, HASH_FUNC_INVALID, NULL, NULL },
+	{ "gnu-comment", "# comment", CHECK_FORMAT_COMMENT, HASH_FUNC_INVALID, NULL, NULL },
+	{ "sfv-comment", "; comment", CHECK_FORMAT_COMMENT, HASH_FUNC_INVALID, NULL, NULL },
+
+	//
+	// CHECK_FORMAT_INVALID
+	//
+	{ "plain-text",         "hello world",                               CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "invalid-utf8",       DIGEST_HEX_16 "  \xe9",                      CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "bsd-trailing-chars", "MD5 (" FILENAME ") = " DIGEST_HEX_32 "+++", CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "bsd-short-digest",   "MD5 (" FILENAME ") = " DIGEST_HEX_7,        CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "bsd-stdin-cksum",    "MD5 (-) = " DIGEST_HEX_32,                  CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "bsd-stdin-openssl",  "MD5(stdin)= " DIGEST_HEX_32,                CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "bsd-stdin-rhash",    "MD5   ((stdin)) = " DIGEST_HEX_32,          CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "gnu-short-digest",   DIGEST_HEX_7 "  " FILENAME,                  CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "gnu-stdin-cksum",    DIGEST_HEX_32 "  -",                         CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "gnu-stdin-openssl",  DIGEST_HEX_32 " *stdin",                     CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "gnu-stdin-rhash",    DIGEST_HEX_32 "  (stdin)",                   CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "gnu-esc-invalid",    "\\" DIGEST_HEX_64 "  " FILENAME "\\",       CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "sfv-trailing-chars", FILENAME " " DIGEST_HEX_8 "+++",             CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "sfv-short-digest",   FILENAME " " DIGEST_HEX_7,                   CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
+	{ "sfv-long-digest",    FILENAME " " DIGEST_HEX_9,                   CHECK_FORMAT_INVALID, HASH_FUNC_INVALID, NULL, NULL },
 };
 
 static void test_check_parse_line(const void *data)
@@ -201,10 +209,12 @@ static void test_check_parse_line(const void *data)
 	char *filename = NULL;
 	char *digest = NULL;
 
-	const enum check_format_e format = check_file_parse_line(t->line, &id, &filename, &digest);
+	const enum check_format_e format = check_line_parse(t->line, strlen(t->line),
+		&id, &filename, &digest);
+
 	g_assert_cmpint(format, ==, t->format);
 
-	if (t->format == CHECK_FORMAT_UNKNOWN) {
+	if (!CHECK_FORMAT_IS_VALID(t->format)) {
 		g_assert_cmpint(id, ==, HASH_FUNC_INVALID);
 		g_assert_null(filename);
 		g_assert_null(digest);

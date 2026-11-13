@@ -269,10 +269,12 @@ static bool gui_try_uri(const char * const uri)
 	} else {
 		if (!gtkhash_hash_file_info_is_supported(info)) {
 			const GFileType type = g_file_info_get_file_type(info);
+			char *pname = g_file_get_parse_name(file);
 			if (type == G_FILE_TYPE_DIRECTORY) // TODO
-				g_message("%s: %s", uri, g_strerror(EISDIR));
+				g_message("%s: %s", pname, g_strerror(EISDIR));
 			else
-				g_message("%s: %s", uri, g_strerror(ENOTSUP));
+				g_message("%s: %s", pname, g_strerror(ENOTSUP));
+			g_free(pname);
 		} else {
 			GFileInputStream *fis = g_file_read(file, NULL, &error);
 			if (fis) {
