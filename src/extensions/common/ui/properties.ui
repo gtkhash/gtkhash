@@ -96,7 +96,9 @@
                 <property name="sizing">autosize</property>
                 <property name="title" translatable="yes">Digest</property>
                 <child>
-                  <object class="GtkCellRendererText" id="cellrenderertext_digest"/>
+                  <object class="GtkCellRendererText" id="cellrenderertext_digest">
+                    <property name="family">Monospace</property>
+                  </object>
                   <!-- Custom child fragments -->
                   <attributes>
                     <attribute name="text">3</attribute>
@@ -151,6 +153,9 @@
                     <property name="secondary-icon-activatable">False</property>
                     <property name="truncate-multiline">True</property>
                     <property name="visible">True</property>
+                    <style>
+                      <class name="monospace"/>
+                    </style>
                   </object>
                   <packing>
                     <property name="expand">True</property>
