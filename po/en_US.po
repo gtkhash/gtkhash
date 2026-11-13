@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-12 15:56+0100\n"
+"POT-Creation-Date: 2026-11-13 20:20+0100\n"
 "PO-Revision-Date: 2026-11-06 22:51+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/gtkhash/translations/en_US/>\n"
@@ -119,6 +119,18 @@ msgstr "Select Files"
 msgid "_Show HMAC Key"
 msgstr "_Show HMAC Key"
 
+#: src/check.c:377
+#, c-format
+msgid "%s: Ignored %lu invalid line"
+msgid_plural "%s: Ignored %lu invalid lines"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/check.c:383
+#, c-format
+msgid "%s: No valid lines found"
+msgstr ""
+
 #: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
 msgstr "_Copy Digest"
@@ -157,7 +169,7 @@ msgstr "_Stop"
 msgid "_Hash"
 msgstr "_Hash"
 
-#: src/gui.c:347
+#: src/gui.c:349
 msgid "Discarding invalid characters from digest"
 msgstr "Discarding invalid characters from digest"
 

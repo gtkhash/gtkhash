@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-12 15:56+0100\n"
+"POT-Creation-Date: 2026-11-13 20:20+0100\n"
 "PO-Revision-Date: 2026-11-07 13:51+0000\n"
 "Last-Translator: Szia Tomi <sziatomi@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/translations/hu/>\n"
@@ -124,6 +124,18 @@ msgstr "Fájlok kiválasztása"
 msgid "_Show HMAC Key"
 msgstr "HMAC kulcs _megjelenítése"
 
+#: src/check.c:377
+#, c-format
+msgid "%s: Ignored %lu invalid line"
+msgid_plural "%s: Ignored %lu invalid lines"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/check.c:383
+#, c-format
+msgid "%s: No valid lines found"
+msgstr ""
+
 #: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
 msgstr "Kivonat másol_ása"
@@ -162,7 +174,7 @@ msgstr "_Leállítás"
 msgid "_Hash"
 msgstr "_Hash"
 
-#: src/gui.c:347
+#: src/gui.c:349
 msgid "Discarding invalid characters from digest"
 msgstr "Érvénytelen karakterek eltávolítása a kivonatból"
 

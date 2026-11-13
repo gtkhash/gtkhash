@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-12 15:56+0100\n"
+"POT-Creation-Date: 2026-11-13 20:20+0100\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/gtkhash/translations/bn/>\n"
@@ -121,6 +121,18 @@ msgstr "ফাইল নির্বাচন করুন"
 msgid "_Show HMAC Key"
 msgstr "_এইচএমএসি(HMAC) কী দেখান"
 
+#: src/check.c:377
+#, c-format
+msgid "%s: Ignored %lu invalid line"
+msgid_plural "%s: Ignored %lu invalid lines"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/check.c:383
+#, c-format
+msgid "%s: No valid lines found"
+msgstr ""
+
 #: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
 msgstr "_কপি ডাইজেস্ট"
@@ -159,7 +171,7 @@ msgstr "_থামো"
 msgid "_Hash"
 msgstr "_হ্যাশ"
 
-#: src/gui.c:347
+#: src/gui.c:349
 msgid "Discarding invalid characters from digest"
 msgstr "অবৈধ অক্ষর ডাইজেস্ট থেকে বাদ দেওয়া হচ্ছে"
 
