@@ -440,7 +440,7 @@ static void test_opt_check_file(void)
 		g_timeout_add_seconds(1, exit_success, NULL);
 
 		for (;;)
-			gtk_main_iteration_do(false);
+			gtk_main_iteration_do(true);
 
 		g_assert_not_reached();
 	}
@@ -561,21 +561,21 @@ static void test_opt_file(void)
 
 		// Started from cmdline
 		while (!*gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file))
-			gtk_main_iteration_do(false);
+			gtk_main_iteration_do(true);
 		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file));
 
 		// Started from Hash button
 		gtk_button_clicked(gui.button_hash);
 		delay();
 		while (!*gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file))
-			gtk_main_iteration_do(false);
+			gtk_main_iteration_do(true);
 		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file));
 
 		// Started from function label
 		gtk_button_clicked(GTK_BUTTON(gui.hash_widgets[HASH_FUNC_MD5].label_file));
 		delay();
 		while (!*gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file))
-			gtk_main_iteration_do(false);
+			gtk_main_iteration_do(true);
 		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file));
 
 		exit(EXIT_SUCCESS);
@@ -613,7 +613,7 @@ static void test_opt_file_list(void)
 
 		char *digest;
 		while (!(digest = list_get_digest(1, HASH_FUNC_MD5)))
-			gtk_main_iteration_do(false);
+			gtk_main_iteration_do(true);
 		puts(digest);
 		g_free(digest);
 
@@ -704,7 +704,7 @@ static void check_hash_file_md5(const char *uri, const char *digest)
 		g_assert(gui.view == GUI_VIEW_FILE);
 
 		while (!*gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file))
-			gtk_main_iteration_do(false);
+			gtk_main_iteration_do(true);
 		puts(gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file));
 
 		exit(EXIT_SUCCESS);
@@ -771,12 +771,12 @@ static void test_hash_dev_chr_zero(void)
 
 		// Wait for some hashing progress
 		while (g_strcmp0(gtk_progress_bar_get_text(gui.progressbar), " ") == 0)
-			gtk_main_iteration_do(false);
+			gtk_main_iteration_do(true);
 
 		// Cancel hashing
 		gtk_button_clicked(gui.button_stop);
 		while (gtk_widget_get_sensitive(GTK_WIDGET(gui.button_stop)))
-			gtk_main_iteration_do(false);
+			gtk_main_iteration_do(true);
 
 		// No digest
 		g_assert_true(gtk_entry_get_text_length(gui.hash_widgets[HASH_FUNC_MD5].entry_file) == 0);
