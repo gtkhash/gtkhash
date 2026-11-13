@@ -684,7 +684,6 @@
                         <property name="rubber-banding">True</property>
                         <property name="search-column">1</property>
                         <property name="show-expanders">False</property>
-                        <property name="tooltip-column">2</property>
                         <property name="visible">True</property>
                         <child internal-child="selection">
                           <object class="GtkTreeSelection" id="treeselection">
@@ -723,9 +722,6 @@
                             </child>
                           </object>
                         </child>
-                        <style>
-                          <class name="monospace"/>
-                        </style>
                       </object>
                     </child>
                   </object>

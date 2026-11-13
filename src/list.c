@@ -36,9 +36,8 @@
 enum {
 	COL_ICON_NAME, // 0
 	COL_PNAME,     // 1
-	COL_TOOLTIP,   // 2
-	COL_CHECK,     // 3
-	COL_DIGESTS,   // 4+
+	COL_CHECK,     // 2
+	COL_DIGESTS,   // 3+
 };
 
 struct {
@@ -58,8 +57,10 @@ void list_init(void)
 			continue;
 
 		list_priv.hash_cols[i] = cols;
+		GtkCellRenderer *renderer = gtk_cell_renderer_text_new();
+		g_object_set(renderer, "family", "Monospace", NULL);
 		list_priv.view_cols[i] = gtk_tree_view_column_new_with_attributes(
-			hash.funcs[i].name, gtk_cell_renderer_text_new(), "text", cols, NULL);
+			hash.funcs[i].name, renderer, "text", cols, NULL);
 		gtk_tree_view_column_set_resizable(list_priv.view_cols[i], true);
 		gtk_tree_view_column_set_min_width(list_priv.view_cols[i], 10);
 		gtk_tree_view_append_column(gui.treeview, list_priv.view_cols[i]);
@@ -69,7 +70,6 @@ void list_init(void)
 	GType types[cols];
 	types[COL_ICON_NAME] = G_TYPE_STRING;
 	types[COL_PNAME]     = G_TYPE_STRING;
-	types[COL_TOOLTIP]   = G_TYPE_STRING;
 	types[COL_CHECK]     = G_TYPE_STRING;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
@@ -122,17 +122,12 @@ void list_append_row(const char * const uri, const char * const check)
 
 	GFile *file = g_file_new_for_uri(uri);
 	char *pname = g_file_get_parse_name(file);
-	char *basename = g_filename_display_basename(pname);
-	char *tooltip = g_markup_escape_text(basename, -1);
 
 	gtk_list_store_insert_with_values(gui.liststore, NULL, -1,
 		COL_PNAME, pname,
-		COL_TOOLTIP, tooltip,
 		COL_CHECK, check,
 		-1);
 
-	g_free(tooltip);
-	g_free(basename);
 	g_free(pname);
 	g_object_unref(file);
 
@@ -456,14 +451,14 @@ void list_check_all_digests(void)
 
 static void list_suspend_signal(const char * const name)
 {
-	const guint signal = g_signal_lookup(name, GTK_TYPE_TREE_MODEL);
+	const unsigned int signal = g_signal_lookup(name, GTK_TYPE_TREE_MODEL);
 	g_signal_handlers_block_matched(gui.treemodel, G_SIGNAL_MATCH_ID | G_SIGNAL_MATCH_DATA,
 		signal, 0, NULL, NULL, gui.treeview);
 }
 
 static void list_restore_signal(const char * const name)
 {
-	const guint signal = g_signal_lookup(name, GTK_TYPE_TREE_MODEL);
+	const unsigned int signal = g_signal_lookup(name, GTK_TYPE_TREE_MODEL);
 	g_signal_handlers_unblock_matched(gui.treemodel, G_SIGNAL_MATCH_ID | G_SIGNAL_MATCH_DATA,
 		signal, 0, NULL, NULL, gui.treeview);
 
