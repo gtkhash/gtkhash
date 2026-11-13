@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-13 20:20+0100\n"
-"PO-Revision-Date: 2026-11-06 22:51+0000\n"
+"PO-Revision-Date: 2026-11-13 19:32+0000\n"
 "Last-Translator: Matthaiks <kityn@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/translations/pl/>\n"
 "Language: pl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.11.2.dev0\n"
+"X-Generator: Weblate 2026.12.dev0\n"
 
 #: data/applications/org.gtkhash.gtkhash.desktop.in:2
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:7
@@ -128,14 +128,14 @@ msgstr "_Klucz HMAC"
 #, c-format
 msgid "%s: Ignored %lu invalid line"
 msgid_plural "%s: Ignored %lu invalid lines"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s: zignorowano %lu niepoprawny wiersz"
+msgstr[1] "%s: zignorowano %lu niepoprawne wiersze"
+msgstr[2] "%s: zignorowano %lu niepoprawnych wierszy"
 
 #: src/check.c:383
 #, c-format
 msgid "%s: No valid lines found"
-msgstr ""
+msgstr "%s: nie znaleziono poprawnych wierszy"
 
 #: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
