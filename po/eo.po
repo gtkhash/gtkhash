@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-13 20:20+0100\n"
+"POT-Creation-Date: 2026-11-14 14:18+0100\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/gtkhash/translations/eo/>\n"
@@ -152,25 +152,25 @@ msgstr "Haketa Funkcio"
 msgid "Digest"
 msgstr "Haketaĵo"
 
-#: src/extensions/common/ui/properties.ui:135 src/ui/window.ui:400
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:400
 msgid "Check:"
 msgstr "Kontrolo:"
 
-#: src/extensions/common/ui/properties.ui:150 src/ui/window.ui:458
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:458
 #: src/ui/window.ui:478
 msgid "Paste digest from clipboard"
 msgstr "Alglui haketaĵon el tondujo"
 
-#: src/extensions/common/ui/properties.ui:176 src/ui/window.ui:496
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:496
 #: src/ui/window.ui:523
 msgid "HMAC Key:"
 msgstr "HMAK-Ŝlosilo:"
 
-#: src/extensions/common/ui/properties.ui:271 src/ui/window.ui:858
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:854
 msgid "_Stop"
 msgstr ""
 
-#: src/extensions/common/ui/properties.ui:310 src/ui/window.ui:819
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:815
 msgid "_Hash"
 msgstr ""
 
@@ -275,7 +275,7 @@ msgstr ""
 msgid "_About"
 msgstr ""
 
-#: src/ui/window.ui:303 src/ui/window.ui:716
+#: src/ui/window.ui:303 src/ui/window.ui:715
 msgid "File"
 msgstr "Dosiero"
 
@@ -295,23 +295,23 @@ msgstr "Dosiero:"
 msgid "Text:"
 msgstr "Teksto:"
 
-#: src/ui/window.ui:903
+#: src/ui/window.ui:899
 msgid "Preferences"
 msgstr ""
 
-#: src/ui/window.ui:921
+#: src/ui/window.ui:917
 msgid "_Close"
 msgstr ""
 
-#: src/ui/window.ui:956
+#: src/ui/window.ui:952
 msgid "Hash Functions"
 msgstr "Haketaj Funkcioj"
 
-#: src/ui/window.ui:987
+#: src/ui/window.ui:983
 msgid "MAC Functions"
 msgstr "MAK-Funkcioj"
 
-#: src/ui/window.ui:1009
+#: src/ui/window.ui:1005
 msgid "Digest Format:"
 msgstr "Formo de Haketaĵo:"
 

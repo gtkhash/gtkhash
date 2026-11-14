@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-13 20:20+0100\n"
+"POT-Creation-Date: 2026-11-14 14:18+0100\n"
 "PO-Revision-Date: 2026-11-14 09:51+0000\n"
 "Last-Translator: bittin1ddc447d824349b2 <bittin1ddc447d824349b2@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/gtkhash/translations/sv/>\n"
@@ -153,25 +153,25 @@ msgstr "Hashfunktion"
 msgid "Digest"
 msgstr "Sammandrag"
 
-#: src/extensions/common/ui/properties.ui:135 src/ui/window.ui:400
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:400
 msgid "Check:"
 msgstr "Kontroll:"
 
-#: src/extensions/common/ui/properties.ui:150 src/ui/window.ui:458
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:458
 #: src/ui/window.ui:478
 msgid "Paste digest from clipboard"
 msgstr "Klistra in sammandrag från urklipp"
 
-#: src/extensions/common/ui/properties.ui:176 src/ui/window.ui:496
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:496
 #: src/ui/window.ui:523
 msgid "HMAC Key:"
 msgstr "HMAC-nyckel:"
 
-#: src/extensions/common/ui/properties.ui:271 src/ui/window.ui:858
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:854
 msgid "_Stop"
 msgstr "_Stoppa"
 
-#: src/extensions/common/ui/properties.ui:310 src/ui/window.ui:819
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:815
 msgid "_Hash"
 msgstr "_Hash"
 
@@ -276,7 +276,7 @@ msgstr "_Inställningar"
 msgid "_About"
 msgstr "_Om"
 
-#: src/ui/window.ui:303 src/ui/window.ui:716
+#: src/ui/window.ui:303 src/ui/window.ui:715
 msgid "File"
 msgstr "Fil"
 
@@ -296,23 +296,23 @@ msgstr "Fil:"
 msgid "Text:"
 msgstr "Text:"
 
-#: src/ui/window.ui:903
+#: src/ui/window.ui:899
 msgid "Preferences"
 msgstr "Inställningar"
 
-#: src/ui/window.ui:921
+#: src/ui/window.ui:917
 msgid "_Close"
 msgstr "_Stäng"
 
-#: src/ui/window.ui:956
+#: src/ui/window.ui:952
 msgid "Hash Functions"
 msgstr "Hashfunktioner"
 
-#: src/ui/window.ui:987
+#: src/ui/window.ui:983
 msgid "MAC Functions"
 msgstr "MAC-funktioner"
 
-#: src/ui/window.ui:1009
+#: src/ui/window.ui:1005
 msgid "Digest Format:"
 msgstr "Sammandragsformat:"
 
