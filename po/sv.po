@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-13 20:20+0100\n"
-"PO-Revision-Date: 2026-11-07 21:11+0000\n"
+"PO-Revision-Date: 2026-11-14 09:51+0000\n"
 "Last-Translator: bittin1ddc447d824349b2 <bittin1ddc447d824349b2@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/gtkhash/translations/sv/>\n"
 "Language: sv\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.11.2.dev0\n"
+"X-Generator: Weblate 2026.12.dev0\n"
 "X-Launchpad-Export-Date: 2012-06-30 05:10+0000\n"
 
 #: data/applications/org.gtkhash.gtkhash.desktop.in:2
@@ -129,13 +129,13 @@ msgstr "_Visa HMAC-nyckel"
 #, c-format
 msgid "%s: Ignored %lu invalid line"
 msgid_plural "%s: Ignored %lu invalid lines"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s: Ignorerad %lu ogiltig rad"
+msgstr[1] "%s: Ignorerade %lu ogiltiga rader"
 
 #: src/check.c:383
 #, c-format
 msgid "%s: No valid lines found"
-msgstr ""
+msgstr "%s: Inga giltiga rader hittades"
 
 #: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
