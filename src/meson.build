@@ -10,7 +10,6 @@ if build_gtkhash
 
     gtkhash_common_sources = files(
         'callbacks.c',
-        'check.c',
         'gui.c',
         'hash.c',
         'list.c',
@@ -22,6 +21,7 @@ if build_gtkhash
         'gtkhash',
         gtkhash_common_sources,
         gtkhash_resources,
+        'check.c',
         'main.c',
         'prefs.c',
         include_directories: root_include,

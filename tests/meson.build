@@ -47,6 +47,8 @@ if build_gtkhash
     endforeach
 
     test_env = [
+        'GIO_USE_VFS=local',
+        'GSETTINGS_BACKEND=memory',
         'LSAN_OPTIONS=suppressions=lsan.supp',
     ]
 
