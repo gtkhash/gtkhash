@@ -22,8 +22,6 @@
 
 #include <gtk/gtk.h>
 
-#include "hash/hash-func.h"
-
 #define CHECK_FORMATS_N 3
 #define CHECK_FORMAT_IS_VALID(X) (((X) >= 0) && ((X) < CHECK_FORMATS_N))
 
@@ -35,8 +33,6 @@ enum check_format_e {
 	CHECK_FORMAT_SFV,
 };
 
-enum check_format_e check_line_parse(const char *line, gsize len, enum hash_func_e *id,
-	char **filename, char **digest);
 GSList *check_file_load(GSList *ud_list, GFile *file);
 void check_file_save(const char *filename);
 void check_file_add_filters(GtkFileFilter *filter);

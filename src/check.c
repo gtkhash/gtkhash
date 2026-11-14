@@ -148,8 +148,8 @@ static bool check_unescape_filename(char *filename)
 	return true;
 }
 
-enum check_format_e check_line_parse(const char * const line, const gsize len, enum hash_func_e *id,
-	char **filename, char **digest)
+static enum check_format_e check_line_parse(const char * const line, const gsize len,
+	enum hash_func_e *id, char **filename, char **digest)
 {
 	*id = HASH_FUNC_INVALID;
 	*filename = NULL;
@@ -237,8 +237,8 @@ static void check_file_enable_hinted_hash_func(GFile *file)
 	g_free(basename);
 }
 
-static GSList *check_file_add_uri(GSList *ud_list, GFile *file,
-	const char * const filename, const char * const digest)
+static GSList *check_file_add_uri(GSList *ud_list, GFile *file, const char * const filename,
+	const char * const digest)
 {
 	g_assert(file);
 	g_assert(filename && *filename);
@@ -247,7 +247,32 @@ static GSList *check_file_add_uri(GSList *ud_list, GFile *file,
 	GFile *target = NULL;
 
 	if (g_path_is_absolute(filename)) {
-		target = g_file_new_for_path(filename);
+		// Only allow a single leading "/" as "//" would be interpreted as a URI network-path
+		const char *abs_filename = filename;
+		while (abs_filename[1] == '/')
+			abs_filename++;
+
+		if (g_file_is_native(file)) {
+			// Absolute path on local system
+			target = g_file_new_for_path(abs_filename);
+		} else {
+			// Absolute path on remote system
+			char *uri = g_file_get_uri(file);
+			char *path = g_uri_escape_string(abs_filename, G_URI_RESERVED_CHARS_ALLOWED_IN_PATH, true);
+			GError *error = NULL;
+			char *target_uri = g_uri_resolve_relative(uri, path, G_URI_FLAGS_NONE, &error);
+			if (target_uri) {
+				target = g_file_new_for_uri(target_uri);
+			} else {
+				char *pname = g_file_get_parse_name(file);
+				g_message("%s: %s", pname, error->message);
+				g_free(pname);
+			}
+			g_clear_error(&error);
+			g_free(target_uri);
+			g_free(path);
+			g_free(uri);
+		}
 	} else {
 		// Assume path is relative to the check file
 		GFile *dir = g_file_get_parent(file);

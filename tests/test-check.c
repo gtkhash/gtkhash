@@ -25,8 +25,10 @@
 #include <glib.h>
 
 #include "test.h"
-#include "check.h"
 #include "hash.h"
+#include "uri-digest.h"
+
+#include "check.c"
 
 #define DIGEST_HEX_7   "0aA0aA0"
 #define DIGEST_HEX_8   "0aA0aA0a"
@@ -42,14 +44,14 @@
 #define FILENAME     " ; a ) \\ b / ✅ \t"
 #define FILENAME_ESC " ; a ) \\\\ b / ✅ \t"
 
-static const struct test_data_s {
+static const struct test_parse_data_s {
 	const char *name;           // test name
 	const char *line;           // test line
 	enum check_format_e format; // expected format, or CHECK_FORMAT_INVALID
 	enum hash_func_e id;        // expected FUNCTION, or HASH_FUNC_INVALID
 	const char *filename;       // expected FILENAME
 	const char *digest;         // expected DIGEST
-} test_data[] = {
+} test_parse_data[] = {
 	//
 	// CHECK_FORMAT_BSD: GNU coreutils `cksum --tag` output
 	//
@@ -203,7 +205,7 @@ static const struct test_data_s {
 
 static void test_check_parse_line(const void *data)
 {
-	const struct test_data_s *t = data;
+	const struct test_parse_data_s *t = data;
 
 	enum hash_func_e id = HASH_FUNC_INVALID;
 	char *filename = NULL;
@@ -232,11 +234,47 @@ static void test_check_parse_line(const void *data)
 	g_free(digest);
 }
 
+static const struct test_uri_data_s {
+	const char *name;       // test name
+	const char *check_uri;  // check file URI
+	const char *filename;   // filename read from check file
+	const char *target_uri; // expected target URI
+} test_uri_data[] = {
+	{ "native-absolute", "file:///not-tmp/test%20file.sha256",               "///tmp/test file.iso", "file:///tmp/test%20file.iso" },
+	{ "native-relative", "file:///tmp/test%20file.sha256",                   "dir/test file.iso",    "file:///tmp/dir/test%20file.iso" },
+	{ "remote-absolute", "sftp://user@host:2222/not-tmp/test%20file.sha256", "///tmp/test file.iso", "sftp://user@host:2222/tmp/test%20file.iso" },
+	{ "remote-relative", "sftp://user@host:2222/tmp/test%20file.sha256",     "dir/test file.iso",    "sftp://user@host:2222/tmp/dir/test%20file.iso" },
+};
+
+static void test_check_file_add_uri(const void *data)
+{
+	const struct test_uri_data_s *t = data;
+
+	GFile *file = g_file_new_for_uri(t->check_uri);
+	GSList *ud_list = check_file_add_uri(NULL, file, t->filename, DIGEST_HEX_128);
+
+	g_assert_nonnull(ud_list);
+
+	const struct uri_digest_s *ud = ud_list->data;
+
+	g_assert_cmpstr(ud->uri, ==, t->target_uri);
+	g_assert_cmpstr(ud->digest, ==, DIGEST_HEX_128);
+
+	uri_digest_list_free_full(ud_list);
+	g_object_unref(file);
+}
+
 void test_check_add_tests(void)
 {
-	for (size_t i = 0; i < G_N_ELEMENTS(test_data); i++) {
-		char *path = g_strdup_printf("/check/parse/%s", test_data[i].name);
-		g_test_add_data_func(path, &test_data[i], test_check_parse_line);
+	for (size_t i = 0; i < G_N_ELEMENTS(test_parse_data); i++) {
+		char *path = g_strdup_printf("/check/parse/%s", test_parse_data[i].name);
+		g_test_add_data_func(path, &test_parse_data[i], test_check_parse_line);
+		g_free(path);
+	}
+
+	for (size_t i = 0; i < G_N_ELEMENTS(test_uri_data); i++) {
+		char *path = g_strdup_printf("/check/uri/%s", test_uri_data[i].name);
+		g_test_add_data_func(path, &test_uri_data[i], test_check_file_add_uri);
 		g_free(path);
 	}
 }
