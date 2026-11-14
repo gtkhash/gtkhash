@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-13 20:20+0100\n"
+"POT-Creation-Date: 2026-11-14 14:18+0100\n"
 "PO-Revision-Date: 2026-10-16 08:51+0000\n"
 "Last-Translator: nautilusx <nautilusx@users.noreply.hosted.weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/gtkhash/translations/de/>\n"
@@ -161,25 +161,25 @@ msgstr "Hash Funktion"
 msgid "Digest"
 msgstr "Digest"
 
-#: src/extensions/common/ui/properties.ui:135 src/ui/window.ui:400
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:400
 msgid "Check:"
 msgstr "Prüfung:"
 
-#: src/extensions/common/ui/properties.ui:150 src/ui/window.ui:458
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:458
 #: src/ui/window.ui:478
 msgid "Paste digest from clipboard"
 msgstr "Digest aus der Zwischenablage einfügen"
 
-#: src/extensions/common/ui/properties.ui:176 src/ui/window.ui:496
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:496
 #: src/ui/window.ui:523
 msgid "HMAC Key:"
 msgstr "HMAC Schlüssel:"
 
-#: src/extensions/common/ui/properties.ui:271 src/ui/window.ui:858
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:854
 msgid "_Stop"
 msgstr "_Stopp"
 
-#: src/extensions/common/ui/properties.ui:310 src/ui/window.ui:819
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:815
 msgid "_Hash"
 msgstr "_Hash"
 
@@ -284,7 +284,7 @@ msgstr "_Einstellungen"
 msgid "_About"
 msgstr "_Über"
 
-#: src/ui/window.ui:303 src/ui/window.ui:716
+#: src/ui/window.ui:303 src/ui/window.ui:715
 msgid "File"
 msgstr "Datei"
 
@@ -304,23 +304,23 @@ msgstr "Datei:"
 msgid "Text:"
 msgstr "Text:"
 
-#: src/ui/window.ui:903
+#: src/ui/window.ui:899
 msgid "Preferences"
 msgstr "Einstellungen"
 
-#: src/ui/window.ui:921
+#: src/ui/window.ui:917
 msgid "_Close"
 msgstr "_Schließen"
 
-#: src/ui/window.ui:956
+#: src/ui/window.ui:952
 msgid "Hash Functions"
 msgstr "Hash-Funktionen"
 
-#: src/ui/window.ui:987
+#: src/ui/window.ui:983
 msgid "MAC Functions"
 msgstr "MAC-Funktionen"
 
-#: src/ui/window.ui:1009
+#: src/ui/window.ui:1005
 msgid "Digest Format:"
 msgstr "Digest-Format:"
 
