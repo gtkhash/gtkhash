@@ -25,6 +25,7 @@
 #undef G_DISABLE_CAST_CHECKS
 
 #include <stdlib.h>
+#include <glib/gstdio.h>
 #include <gtk/gtk.h>
 
 #include "test.h"
@@ -795,6 +796,43 @@ static void test_hash_dev_chr_zero(void)
 	trap_subprocess();
 }
 
+static void check_hash_file_md5_inaccurate_size(const char *filename)
+{
+	GStatBuf statbuf;
+	if (g_stat(filename, &statbuf) != 0) {
+		g_test_skip("missing");
+		return;
+	}
+
+	char *contents = NULL;
+	gsize len = 0;
+	if (!g_file_get_contents(filename, &contents, &len, NULL)) {
+		g_test_skip("unreadable");
+		return;
+	}
+
+	// Confirming inaccurate file size
+	g_assert_cmpint(statbuf.st_size, !=, len);
+
+	GChecksum *checksum = g_checksum_new(G_CHECKSUM_MD5);
+	g_checksum_update(checksum, (const uint8_t *)contents, len);
+
+	check_hash_file_md5(filename, NULL, g_checksum_get_string(checksum));
+
+	g_free(contents);
+	g_checksum_free(checksum);
+}
+
+static void test_hash_file_proc(void)
+{
+	check_hash_file_md5_inaccurate_size("/proc/version");
+}
+
+static void test_hash_file_sys(void)
+{
+	check_hash_file_md5_inaccurate_size("/sys/kernel/vmcoreinfo");
+}
+
 static void check_hash_file_md5_hmac(const size_t key_size, const char *digest)
 {
 	char *key = g_malloc0(key_size + 1);
@@ -808,26 +846,26 @@ static void check_hash_file_md5_hmac(const size_t key_size, const char *digest)
 	g_free(key);
 }
 
-static void test_hash_hmac_key_zero(void)
+static void test_hash_file_hmac_key_zero(void)
 {
 	check_hash_file_md5_hmac(0, "069ae042daa1893db55db3d88e52fd39");
 }
 
-static void test_hash_hmac_key_lt_block(void)
+static void test_hash_file_hmac_key_lt_block(void)
 {
 	const size_t key_size = hash.funcs[HASH_FUNC_MD5].block_size - 1;
 	g_assert_cmpuint(key_size, <, hash.funcs[HASH_FUNC_MD5].block_size);
 	check_hash_file_md5_hmac(key_size, "32984c072fe4506427517ab703ea1ad9");
 }
 
-static void test_hash_hmac_key_eq_block(void)
+static void test_hash_file_hmac_key_eq_block(void)
 {
 	const size_t key_size = hash.funcs[HASH_FUNC_MD5].block_size;
 	g_assert_cmpuint(key_size, ==, hash.funcs[HASH_FUNC_MD5].block_size);
 	check_hash_file_md5_hmac(key_size, "b30ae7eb7c8f2c6dbe84b209cbb8cc63");
 }
 
-static void test_hash_hmac_key_gt_block(void)
+static void test_hash_file_hmac_key_gt_block(void)
 {
 	const size_t key_size = hash.funcs[HASH_FUNC_MD5].block_size + 1;
 	g_assert_cmpuint(key_size, >, hash.funcs[HASH_FUNC_MD5].block_size);
@@ -890,11 +928,15 @@ static void add_tests(void)
 	g_test_add_func("/hash/dev/chr/null", test_hash_dev_chr_null);
 	g_test_add_func("/hash/dev/chr/zero", test_hash_dev_chr_zero);
 
+	// Test hashing files with inaccurate file sizes
+	g_test_add_func("/hash/file/proc", test_hash_file_proc);
+	g_test_add_func("/hash/file/sys", test_hash_file_sys);
+
 	// Test hashing files with HMAC enabled
-	g_test_add_func("/hash/hmac/key-zero", test_hash_hmac_key_zero);
-	g_test_add_func("/hash/hmac/key-lt-block", test_hash_hmac_key_lt_block);
-	g_test_add_func("/hash/hmac/key-eq-block", test_hash_hmac_key_eq_block);
-	g_test_add_func("/hash/hmac/key-gt-block", test_hash_hmac_key_gt_block);
+	g_test_add_func("/hash/file/hmac/key-zero", test_hash_file_hmac_key_zero);
+	g_test_add_func("/hash/file/hmac/key-lt-block", test_hash_file_hmac_key_lt_block);
+	g_test_add_func("/hash/file/hmac/key-eq-block", test_hash_file_hmac_key_eq_block);
+	g_test_add_func("/hash/file/hmac/key-gt-block", test_hash_file_hmac_key_gt_block);
 
 	// Test checksum file parsing
 	test_check_add_tests();

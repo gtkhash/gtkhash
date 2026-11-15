@@ -77,7 +77,6 @@ struct hash_file_s {
 	int threads;
 	unsigned int report_source;
 	unsigned int source;
-	bool size_known;
 	GMutex mtx;
 };
 
@@ -106,9 +105,9 @@ void gtkhash_hash_file_cancel(struct hash_file_s *data)
 static gboolean gtkhash_hash_file_report_source_func(struct hash_file_s *data)
 {
 	if (data->report_source && data->total_read) {
-		if (data->size_known)
+		if (data->file_size > 0)
 			gtkhash_hash_file_report_cb((void *)data->cb_data, data->file_size,
-				data->total_read, data->timer);
+				MIN(data->total_read, data->file_size), data->timer);
 		else
 			gtkhash_hash_file_report_unknown_cb((void *)data->cb_data,
 				data->total_read, data->timer);
@@ -144,6 +143,9 @@ GFileInfo *gtkhash_hash_file_query_info(GFile *file, GCancellable *cancellable, 
 
 static enum hash_file_type_e gtkhash_hash_file_info_get_type(GFileInfo *info)
 {
+	if (!g_file_info_has_attribute(info, G_FILE_ATTRIBUTE_STANDARD_TYPE))
+		return HASH_FILE_TYPE_UNSUPPORTED;
+
 	switch (g_file_info_get_file_type(info)) {
 		case G_FILE_TYPE_REGULAR:
 			return HASH_FILE_TYPE_REGULAR;
@@ -246,7 +248,6 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 	data->timer = g_timer_new();
 	data->total_read = 0;
 	data->file_size = 0;
-	data->size_known = false;
 
 	data->state = HASH_FILE_STATE_OPEN;
 }
@@ -286,8 +287,6 @@ static void gtkhash_hash_file_open(struct hash_file_s *data)
 static goffset gtkhash_hash_file_get_block_device_size(GFileInputStream *stream,
 	GCancellable *cancellable, GError **error)
 {
-	g_assert(error);
-
 	GSeekable *seekable = G_SEEKABLE(stream);
 
 	if (!g_seekable_can_seek(seekable)) {
@@ -327,14 +326,12 @@ static void gtkhash_hash_file_get_size_finish(G_GNUC_UNUSED GObject *source, GAs
 	} else {
 		switch (gtkhash_hash_file_info_get_type(info)) {
 			case HASH_FILE_TYPE_REGULAR:
-				data->size_known = true;
-				data->file_size = g_file_info_get_size(info);
-				if (data->file_size == 0)
-					data->state = HASH_FILE_STATE_HASH;
-				else {
-					data->state = HASH_FILE_STATE_READ;
-					gtkhash_hash_file_add_report_source(data);
-				}
+				if (g_file_info_has_attribute(info, G_FILE_ATTRIBUTE_STANDARD_SIZE))
+					data->file_size = g_file_info_get_size(info);
+				else
+					data->file_size = 0;
+				data->state = HASH_FILE_STATE_READ;
+				gtkhash_hash_file_add_report_source(data);
 				break;
 
 			case HASH_FILE_TYPE_BLOCK_DEVICE:
@@ -346,18 +343,12 @@ static void gtkhash_hash_file_get_size_finish(G_GNUC_UNUSED GObject *source, GAs
 					data->state = HASH_FILE_STATE_CLOSE;
 					g_cancellable_cancel(data->cancellable);
 				} else {
-					data->size_known = true;
-					if (data->file_size == 0)
-						data->state = HASH_FILE_STATE_HASH;
-					else {
-						data->state = HASH_FILE_STATE_READ;
-						gtkhash_hash_file_add_report_source(data);
-					}
+					data->state = HASH_FILE_STATE_READ;
+					gtkhash_hash_file_add_report_source(data);
 				}
 				break;
 
 			case HASH_FILE_TYPE_CHARACTER_DEVICE:
-				data->size_known = false;
 				data->file_size = 0;
 				data->state = HASH_FILE_STATE_READ;
 				gtkhash_hash_file_add_report_source(data);
@@ -402,26 +393,20 @@ static void gtkhash_hash_file_read_finish(G_GNUC_UNUSED GObject *source,
 		g_warning("failed to read file (%s)", data->uri);
 		g_cancellable_cancel(data->cancellable);
 	} else if (data->just_read == 0) {
-		if (!data->size_known) {
-			// Normal EOF for character device
-			data->state = HASH_FILE_STATE_CLOSE;
-		} else {
-			g_warning("unexpected EOF (%s)", data->uri);
-			g_cancellable_cancel(data->cancellable);
+		// Reached EOF
+		if (data->file_size > 0 && data->total_read != data->file_size) {
+			// File size changed or was inaccurate
+			g_debug("expected %" G_GOFFSET_FORMAT " bytes, read %" G_GOFFSET_FORMAT " (%s)",
+				data->file_size, data->total_read, data->uri);
 		}
+		data->state = HASH_FILE_STATE_CLOSE;
 	} else if (data->just_read > 0) {
 		if (data->total_read == 0) {
 			// Resetting here excludes the initial OPEN and GET_SIZE time
 			g_timer_reset(data->timer);
 		}
 		data->total_read += data->just_read;
-		if (data->size_known && (data->total_read > data->file_size)) {
-			g_warning("read %" G_GOFFSET_FORMAT
-				" more bytes than expected (%s)", data->total_read -
-				data->file_size, data->uri);
-			g_cancellable_cancel(data->cancellable);
-		} else
-			data->state = HASH_FILE_STATE_HASH;
+		data->state = HASH_FILE_STATE_HASH;
 	}
 
 	if (g_cancellable_is_cancelled(data->cancellable))
@@ -483,10 +468,7 @@ static void gtkhash_hash_file_hash_done(struct hash_file_s *data)
 		return;
 	}
 
-	if (data->size_known && (data->total_read >= data->file_size))
-		data->state = HASH_FILE_STATE_CLOSE;
-	else
-		data->state = HASH_FILE_STATE_READ;
+	data->state = HASH_FILE_STATE_READ;
 }
 
 static void gtkhash_hash_file_close_finish(G_GNUC_UNUSED GObject *source, GAsyncResult *res,
@@ -642,7 +624,6 @@ struct hash_file_s *gtkhash_hash_file_new(struct hash_func_s *funcs)
 	g_atomic_int_set(&data->threads, 0);
 	data->report_source = 0;
 	data->source = 0;
-	data->size_known = false;
 	g_mutex_init(&data->mtx);
 
 	return data;

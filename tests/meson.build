@@ -74,7 +74,7 @@ if build_gtkhash
         '/hash/lib/any',
         '/hash/dev/blk',
         '/hash/dev/chr',
-        '/hash/hmac',
+        '/hash/file',
         '/opt',
         '/digest-format',
         '/check',
