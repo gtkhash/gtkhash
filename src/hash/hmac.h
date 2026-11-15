@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2007-2016 Tristan Heaven <tristan@tristanheaven.net>
+ *   Copyright (C) 2007-2026 Tristan Heaven <tristan@tristanheaven.net>
  *
  *   This file is part of GtkHash.
  *
@@ -29,9 +29,15 @@
 
 #include "hash-func.h"
 
-void gtkhash_hmac_start(struct hash_func_s *func, const uint8_t *key,
-	size_t key_size);
+struct hmac_s {
+	uint8_t *key;
+	size_t key_size;
+};
+
+struct hmac_s *gtkhash_hmac_new(const uint8_t *key, size_t key_size);
+void gtkhash_hmac_start(struct hash_func_s *func, const struct hmac_s *hmac);
 void gtkhash_hmac_stop(struct hash_func_s *func);
 void gtkhash_hmac_finish(struct hash_func_s *func);
+void gtkhash_hmac_free(struct hmac_s *hmac);
 
 #endif

@@ -39,6 +39,8 @@ void gtkhash_hash_string(struct hash_func_s *funcs, const char * const str,
 
 	const size_t len = strlen(str);
 
+	struct hmac_s *hmac = gtkhash_hmac_new(hmac_key, key_size);
+
 	char *digests[HASH_FUNCS_N] = { NULL };
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
@@ -46,7 +48,7 @@ void gtkhash_hash_string(struct hash_func_s *funcs, const char * const str,
 			continue;
 
 		// Assuming this won't take too long
-		gtkhash_hash_lib_start(&funcs[i], hmac_key, key_size);
+		gtkhash_hash_lib_start(&funcs[i], hmac);
 		gtkhash_hash_lib_update(&funcs[i], (const uint8_t *)str, len);
 		gtkhash_hash_lib_finish(&funcs[i]);
 
@@ -59,4 +61,6 @@ void gtkhash_hash_string(struct hash_func_s *funcs, const char * const str,
 
 	for (int i = 0; i < HASH_FUNCS_N; i++)
 		g_free(digests[i]);
+
+	gtkhash_hmac_free(hmac);
 }

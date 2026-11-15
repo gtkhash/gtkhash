@@ -678,7 +678,7 @@ static void test_digest_format_base64(void)
 	g_test_trap_assert_stdout("*1B2M2Y8AsgTpgAmY7PhCfg==*");
 }
 
-static void check_hash_file_md5(const char *uri, const char *digest)
+static void check_hash_file_md5(const char *uri, const char *hmac, const char *digest)
 {
 	if (!g_file_test(uri, G_FILE_TEST_EXISTS)) {
 		g_test_skip("missing");
@@ -694,6 +694,14 @@ static void check_hash_file_md5(const char *uri, const char *digest)
 		g_free(args);
 
 		select_hash_func(HASH_FUNC_MD5, true);
+
+		if (hmac) {
+			select_gui_view(GUI_VIEW_FILE);
+			gtk_toggle_button_set_active(gui.dialog_togglebutton_show_hmac, true);
+			gtk_toggle_button_set_active(gui.togglebutton_hmac_file, true);
+			gtk_entry_set_text(gui.entry_hmac_file, hmac);
+			delay();
+		}
 
 		opts_preinit(argv);
 		g_strfreev(argv);
@@ -726,7 +734,7 @@ static void test_hash_dev_blk_empty(void)
 		return;
 	}
 
-	check_hash_file_md5(dev, "d41d8cd98f00b204e9800998ecf8427e"); // 0.bytes
+	check_hash_file_md5(dev, NULL, "d41d8cd98f00b204e9800998ecf8427e"); // 0.bytes
 }
 
 static void test_hash_dev_blk_data(void)
@@ -738,12 +746,12 @@ static void test_hash_dev_blk_data(void)
 		return;
 	}
 
-	check_hash_file_md5(dev, "f1c9645dbc14efddc7d8a322685f26eb"); // 10M.bytes
+	check_hash_file_md5(dev, NULL, "f1c9645dbc14efddc7d8a322685f26eb"); // 10M.bytes
 }
 
 static void test_hash_dev_chr_null(void)
 {
-	check_hash_file_md5("/dev/null", "d41d8cd98f00b204e9800998ecf8427e");
+	check_hash_file_md5("/dev/null", NULL, "d41d8cd98f00b204e9800998ecf8427e");
 }
 
 static void test_hash_dev_chr_zero(void)
@@ -785,6 +793,45 @@ static void test_hash_dev_chr_zero(void)
 	}
 
 	trap_subprocess();
+}
+
+static void check_hash_file_md5_hmac(const size_t key_size, const char *digest)
+{
+	char *key = g_malloc0(key_size + 1);
+	memset(key, 'a', key_size);
+
+	g_assert_cmpuint(strlen(key), ==, key_size);
+
+	const char *filename = g_test_get_filename(G_TEST_BUILT, "1.bytes", NULL);
+	check_hash_file_md5(filename, key, digest);
+
+	g_free(key);
+}
+
+static void test_hash_hmac_key_zero(void)
+{
+	check_hash_file_md5_hmac(0, "069ae042daa1893db55db3d88e52fd39");
+}
+
+static void test_hash_hmac_key_lt_block(void)
+{
+	const size_t key_size = hash.funcs[HASH_FUNC_MD5].block_size - 1;
+	g_assert_cmpuint(key_size, <, hash.funcs[HASH_FUNC_MD5].block_size);
+	check_hash_file_md5_hmac(key_size, "32984c072fe4506427517ab703ea1ad9");
+}
+
+static void test_hash_hmac_key_eq_block(void)
+{
+	const size_t key_size = hash.funcs[HASH_FUNC_MD5].block_size;
+	g_assert_cmpuint(key_size, ==, hash.funcs[HASH_FUNC_MD5].block_size);
+	check_hash_file_md5_hmac(key_size, "b30ae7eb7c8f2c6dbe84b209cbb8cc63");
+}
+
+static void test_hash_hmac_key_gt_block(void)
+{
+	const size_t key_size = hash.funcs[HASH_FUNC_MD5].block_size + 1;
+	g_assert_cmpuint(key_size, >, hash.funcs[HASH_FUNC_MD5].block_size);
+	check_hash_file_md5_hmac(key_size, "2e9f15852229ffbc9fbe85661bab39e0");
 }
 
 static void add_tests(void)
@@ -842,6 +889,12 @@ static void add_tests(void)
 	// Test hashing character devices
 	g_test_add_func("/hash/dev/chr/null", test_hash_dev_chr_null);
 	g_test_add_func("/hash/dev/chr/zero", test_hash_dev_chr_zero);
+
+	// Test hashing files with HMAC enabled
+	g_test_add_func("/hash/hmac/key-zero", test_hash_hmac_key_zero);
+	g_test_add_func("/hash/hmac/key-lt-block", test_hash_hmac_key_lt_block);
+	g_test_add_func("/hash/hmac/key-eq-block", test_hash_hmac_key_eq_block);
+	g_test_add_func("/hash/hmac/key-gt-block", test_hash_hmac_key_gt_block);
 
 	// Test checksum file parsing
 	test_check_add_tests();
