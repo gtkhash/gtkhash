@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-14 14:18+0100\n"
+"POT-Creation-Date: 2026-11-15 01:06+0000\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/gtkhash/translations/ja/>\n"
@@ -126,13 +126,13 @@ msgstr "ファイルの選択"
 msgid "_Show HMAC Key"
 msgstr "HMAC キーの表示(_S)"
 
-#: src/check.c:377
+#: src/check.c:402
 #, c-format
 msgid "%s: Ignored %lu invalid line"
 msgid_plural "%s: Ignored %lu invalid lines"
 msgstr[0] ""
 
-#: src/check.c:383
+#: src/check.c:408
 #, c-format
 msgid "%s: No valid lines found"
 msgstr ""
