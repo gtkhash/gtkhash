@@ -64,8 +64,7 @@ struct hash_file_s {
 	const void *cb_data;
 	char *uri;
 	GFile *file;
-	uint8_t *hmac_key;
-	size_t key_size;
+	struct hmac_s *hmac;
 	GCancellable *cancellable;
 	GFileInputStream *stream;
 	gssize just_read;
@@ -226,7 +225,7 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (data->funcs[i].enabled) {
-			gtkhash_hash_lib_start(&data->funcs[i], data->hmac_key, data->key_size);
+			gtkhash_hash_lib_start(&data->funcs[i], data->hmac);
 			funcs_enabled++;
 		}
 	}
@@ -575,7 +574,7 @@ static void gtkhash_hash_file_callback(struct hash_file_s *data)
 		g_idle_add(G_SOURCE_FUNC(gtkhash_hash_file_callback_finish_func), data);
 
 	g_clear_pointer(&data->uri, g_free);
-	g_clear_pointer(&data->hmac_key, g_free);
+	g_clear_pointer(&data->hmac, gtkhash_hmac_free);
 	g_clear_object(&data->cancellable);
 }
 
@@ -613,8 +612,7 @@ void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
 
 	data->uri = g_strdup(uri);
 	data->format = format;
-	data->hmac_key = g_memdup2(hmac_key, key_size);
-	data->key_size = key_size;
+	data->hmac = gtkhash_hmac_new(hmac_key, key_size);
 	data->cb_data = cb_data;
 	data->cancellable = g_cancellable_new();
 
@@ -631,8 +629,7 @@ struct hash_file_s *gtkhash_hash_file_new(struct hash_func_s *funcs)
 	data->cb_data = NULL;
 	data->uri = NULL;
 	data->file = NULL;
-	data->hmac_key = NULL;
-	data->key_size = 0;
+	data->hmac = NULL;
 	data->cancellable = NULL;
 	data->stream = NULL;
 	data->just_read = 0;
@@ -661,7 +658,7 @@ void gtkhash_hash_file_free(struct hash_file_s *data)
 	g_assert(data->source == 0);
 
 	g_clear_pointer(&data->uri, g_free);
-	g_clear_pointer(&data->hmac_key, g_free);
+	g_clear_pointer(&data->hmac, gtkhash_hmac_free);
 	g_mutex_clear(&data->mtx);
 
 	g_free(data);

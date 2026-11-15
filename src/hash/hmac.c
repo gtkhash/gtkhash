@@ -31,34 +31,48 @@
 #include "hash-lib.h"
 #include "digest.h"
 
-void gtkhash_hmac_start(struct hash_func_s *func, const uint8_t *key,
-	const size_t key_size)
+struct hmac_s *gtkhash_hmac_new(const uint8_t * const key, const size_t key_size)
+{
+	g_assert(key || key_size == 0);
+
+	// NULL key disables HMAC
+	if (!key)
+		return NULL;
+
+	struct hmac_s *hmac = g_new(struct hmac_s, 1);
+	hmac->key = key_size ? g_memdup2(key, key_size) : NULL;
+	hmac->key_size = key_size;
+
+	return hmac;
+}
+
+void gtkhash_hmac_start(struct hash_func_s *func, const struct hmac_s *hmac)
 {
 	g_assert(func);
 	g_assert(func->hmac_supported);
 	g_assert(func->block_size > 0);
-	g_assert(key);
+	g_assert(hmac);
 
 	func->hmac_data = g_new(struct hash_func_s, 1);
 
 	uint8_t padded_key[func->block_size];
-	memset(padded_key, 0, func->block_size);
+	memset(padded_key, 0, sizeof(padded_key));
 
-	if (key_size > func->block_size) {
+	if (hmac->key_size > func->block_size) {
 		gtkhash_hash_func_init(func->hmac_data, func->id);
 		func->hmac_data->enabled = true;
 
-		gtkhash_hash_lib_start(func->hmac_data, NULL, 0);
-		gtkhash_hash_lib_update(func->hmac_data, key, key_size);
+		gtkhash_hash_lib_start(func->hmac_data, NULL);
+		gtkhash_hash_lib_update(func->hmac_data, hmac->key, hmac->key_size);
 		gtkhash_hash_lib_finish(func->hmac_data);
 
-		size_t newsize = func->hmac_data->digest_size;
+		const size_t newsize = func->hmac_data->digest_size;
 		g_assert((newsize > 0) && (newsize <= func->block_size));
 		memcpy(padded_key, func->hmac_data->digest->bin, newsize);
 
 		gtkhash_hash_func_deinit(func->hmac_data);
-	} else
-		memcpy(padded_key, key, key_size);
+	} else if (hmac->key_size > 0)
+		memcpy(padded_key, hmac->key, hmac->key_size);
 
 	uint8_t pad[func->block_size];
 
@@ -68,7 +82,7 @@ void gtkhash_hmac_start(struct hash_func_s *func, const uint8_t *key,
 
 	gtkhash_hash_func_init(func->hmac_data, func->id);
 	func->hmac_data->enabled = true;
-	gtkhash_hash_lib_start(func->hmac_data, NULL, 0);
+	gtkhash_hash_lib_start(func->hmac_data, NULL);
 
 	for (int i = 0; i < func->block_size; i++)
 		pad[i] = 0x5c ^ padded_key[i];
@@ -78,8 +92,7 @@ void gtkhash_hmac_start(struct hash_func_s *func, const uint8_t *key,
 static void gtkhash_hmac_deinit(struct hash_func_s *func)
 {
 	gtkhash_hash_func_deinit(func->hmac_data);
-	g_free(func->hmac_data);
-	func->hmac_data = NULL;
+	g_clear_pointer(&func->hmac_data, g_free);
 }
 
 void gtkhash_hmac_stop(struct hash_func_s *func)
@@ -107,4 +120,13 @@ void gtkhash_hmac_finish(struct hash_func_s *func)
 	gtkhash_hash_func_set_digest(func, digest, func->hmac_data->digest_size);
 
 	gtkhash_hmac_deinit(func);
+}
+
+void gtkhash_hmac_free(struct hmac_s *hmac)
+{
+	if (!hmac)
+		return;
+
+	g_free(hmac->key);
+	g_free(hmac);
 }

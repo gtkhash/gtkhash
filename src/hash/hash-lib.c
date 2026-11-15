@@ -136,8 +136,7 @@ bool gtkhash_hash_lib_is_supported(const enum hash_func_e id)
 	return (hash_libs[id] != HASH_LIB_INVALID);
 }
 
-void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
-	const size_t key_size)
+void gtkhash_hash_lib_start(struct hash_func_s *func, const struct hmac_s *hmac)
 {
 	g_assert(func);
 	g_assert(func->supported);
@@ -147,8 +146,8 @@ void gtkhash_hash_lib_start(struct hash_func_s *func, const uint8_t *hmac_key,
 
 	hash_lib_data[hash_libs[func->id]].start(func);
 
-	if (hmac_key && func->hmac_supported)
-		gtkhash_hmac_start(func, hmac_key, key_size);
+	if (hmac && func->hmac_supported)
+		gtkhash_hmac_start(func, hmac);
 }
 
 void gtkhash_hash_lib_update(struct hash_func_s *func, const uint8_t *buffer,
