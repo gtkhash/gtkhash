@@ -22,6 +22,7 @@
 #endif
 
 #include <stdlib.h>
+#include <limits.h>
 #include <glib.h>
 #include <gio/gio.h>
 
@@ -53,7 +54,10 @@ char *gtkhash_format_progress(const goffset file_size, const goffset total_read,
 	if (elapsed < PROGRESS_TEXT_MIN_ELAPSED)
 		return NULL;
 
-	const unsigned int s = elapsed / total_read * (file_size - total_read);
+	const unsigned int s = CLAMP((elapsed / total_read) * (file_size - total_read), 0, UINT_MAX);
+	if (s == UINT_MAX)
+		return gtkhash_format_progress_unknown(total_read, elapsed);
+
 	char *time_left_str = gtkhash_format_time_left(s);
 	char *total_read_str = g_format_size(total_read);
 	char *file_size_str = g_format_size(file_size);
