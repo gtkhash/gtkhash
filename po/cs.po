@@ -4,26 +4,27 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 # Pavel Borecki <pavel.borecki@gmail.com>, 2022, 2026.
 # Tristan Heaven <tristan@tristanheaven.net>, 2026.
+# Pavel Borecki <pavelbo@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-15 01:06+0000\n"
-"PO-Revision-Date: 2026-11-04 17:52+0000\n"
-"Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
+"PO-Revision-Date: 2026-11-16 13:59+0000\n"
+"Last-Translator: Pavel Borecki <pavelbo@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/gtkhash/translations/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.11.1.dev0\n"
+"X-Generator: Weblate 2026.12.dev0\n"
 "X-Launchpad-Export-Date: 2012-07-14 06:30+0000\n"
 
 #: data/applications/org.gtkhash.gtkhash.desktop.in:2
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:7
 msgid "GtkHash"
-msgstr ""
+msgstr "GtkHash"
 
 #: data/applications/org.gtkhash.gtkhash.desktop.in:3
 msgid "Checksum Calculator"
@@ -37,7 +38,7 @@ msgstr "Vypočítává digest zpráv nebo kontrolní součty"
 
 #: data/applications/org.gtkhash.gtkhash.desktop.in:5
 msgid "hash;checksum;digest;md5;sha1;sha256;crc32;"
-msgstr ""
+msgstr "otisk;kontrolní součet;výtah;md5;sha1;sha256;crc32;"
 
 #: data/extensions/caja/libgtkhash-caja.desktop.in.in:3
 #: src/extensions/caja/module.c:58 src/extensions/nautilus/properties.c:160
@@ -47,14 +48,14 @@ msgstr "Kontrolní součty"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:7
 msgid "GtkHash for Caja"
-msgstr ""
+msgstr "GtkHash pro Caja"
 
 #: data/metainfo/org.gtkhash.caja.metainfo.xml.in.in:8
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:8
 #: data/metainfo/org.gtkhash.nemo.metainfo.xml.in.in:9
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:8
 msgid "Show checksums in file properties"
-msgstr ""
+msgstr "Zobrazovat kontrolní součty ve vlastnostech souborů"
 
 #: data/metainfo/org.gtkhash.gtkhash.metainfo.xml.in.in:10
 msgid "GtkHash is an application for computing file checksums, or message digests. It's designed to be an easy to use, graphical alternative to command-line programs such as md5sum."
@@ -66,15 +67,15 @@ msgstr "Mezi podporované funkce pro vytváření otisků patří MD5, SHA1, SHA
 
 #: data/metainfo/org.gtkhash.nautilus.metainfo.xml.in.in:7
 msgid "GtkHash for Nautilus"
-msgstr ""
+msgstr "GtkHash pro Nautilus"
 
 #: data/metainfo/org.gtkhash.nemo.metainfo.xml.in.in:8
 msgid "GtkHash for Nemo"
-msgstr ""
+msgstr "GtkHash pro Nemo"
 
 #: data/metainfo/org.gtkhash.thunar.metainfo.xml.in.in:7
 msgid "GtkHash for Thunar"
-msgstr ""
+msgstr "GtkHash pro Thunar"
 
 #: src/callbacks.c:53 src/callbacks.c:57
 msgid "Open Digest File"
@@ -130,14 +131,14 @@ msgstr "_Zobrazit HMAC klíč"
 #, c-format
 msgid "%s: Ignored %lu invalid line"
 msgid_plural "%s: Ignored %lu invalid lines"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s: ignorován %lu neplatný řádek"
+msgstr[1] "%s: ignorovány %lu neplatné řádky"
+msgstr[2] "%s: ignorováno %lu neplatných řádků"
 
 #: src/check.c:408
 #, c-format
 msgid "%s: No valid lines found"
-msgstr ""
+msgstr "%s: Nenalezeny žádné platné řádky"
 
 #: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
@@ -171,15 +172,15 @@ msgstr "HMAC klíč:"
 
 #: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:854
 msgid "_Stop"
-msgstr ""
+msgstr "Za_stavit"
 
 #: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:815
 msgid "_Hash"
-msgstr ""
+msgstr "_Otisk"
 
 #: src/gui.c:349
 msgid "Discarding invalid characters from digest"
-msgstr ""
+msgstr "Zahazování neplatných znaků z výtahu (digest)"
 
 #: src/hash.c:210
 #, c-format
@@ -209,12 +210,12 @@ msgstr "FILE|URI"
 #: src/opts.c:106
 msgctxt " --help"
 msgid "Enable or disable the specified hash function"
-msgstr ""
+msgstr "Povolit nebo zakázat konkrétní funkci pro vytváření otisku"
 
 #: src/opts.c:107
 msgctxt " --help"
 msgid "[+-]FUNCTION"
-msgstr ""
+msgstr "[+-]FUNKCE"
 
 #: src/opts.c:111
 msgctxt " --help"
@@ -246,15 +247,15 @@ msgstr "Šestnáctkové (hexadecimální) velkými písmeny"
 
 #: src/ui/window.ui:48
 msgid "_Add"
-msgstr ""
+msgstr "Přid_at"
 
 #: src/ui/window.ui:79
 msgid "_Remove"
-msgstr ""
+msgstr "Odeb_rat"
 
 #: src/ui/window.ui:110
 msgid "_Clear"
-msgstr ""
+msgstr "_Vyčistit"
 
 #: src/ui/window.ui:147
 msgid "Copy _Digest"
@@ -272,11 +273,11 @@ msgstr "_Uložit soubor s digestem…"
 
 #: src/ui/window.ui:181
 msgid "_Preferences"
-msgstr ""
+msgstr "_Předvolby"
 
 #: src/ui/window.ui:186
 msgid "_About"
-msgstr ""
+msgstr "O _aplikaci"
 
 #: src/ui/window.ui:303 src/ui/window.ui:715
 msgid "File"
@@ -284,11 +285,11 @@ msgstr "Soubor"
 
 #: src/ui/window.ui:317
 msgid "File List"
-msgstr ""
+msgstr "Seznam souborů"
 
 #: src/ui/window.ui:331
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: src/ui/window.ui:374
 msgid "File:"
@@ -300,11 +301,11 @@ msgstr "Text:"
 
 #: src/ui/window.ui:899
 msgid "Preferences"
-msgstr ""
+msgstr "Předvolby"
 
 #: src/ui/window.ui:917
 msgid "_Close"
-msgstr ""
+msgstr "_Zavřít"
 
 #: src/ui/window.ui:952
 msgid "Hash Functions"
@@ -343,7 +344,7 @@ msgstr[2] "zbývá %u sekund"
 #: src/util/util.c:68
 #, c-format
 msgid "%1$s of %2$s - %3$s (%4$s/s)"
-msgstr ""
+msgstr "%1$s z %2$s – %3$s (%4$s/s)"
 
 #. Translators: This text is displayed while processing data.
 #. %1$s is the amount of data processed so far (e.g. "41.9 MB"), and
@@ -352,4 +353,4 @@ msgstr ""
 #: src/util/util.c:93
 #, c-format
 msgid "%1$s read (%2$s/s)"
-msgstr ""
+msgstr "%1$s přečteno (%2$s/s)"
