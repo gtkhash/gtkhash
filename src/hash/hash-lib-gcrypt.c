@@ -70,7 +70,7 @@ static bool gtkhash_hash_lib_gcrypt_set_algo(const enum hash_func_e id,
 		case HASH_FUNC_STREEBOG256: *algo = GCRY_MD_STRIBOG256;   break;
 		case HASH_FUNC_STREEBOG512: *algo = GCRY_MD_STRIBOG512;   break;
 #endif
-		case HASH_FUNC_TIGER192:    *algo = GCRY_MD_TIGER;        break;
+		case HASH_FUNC_TIGER:       *algo = GCRY_MD_TIGER1;       break;
 		case HASH_FUNC_WHIRLPOOL:   *algo = GCRY_MD_WHIRLPOOL;    break;
 
 		default:

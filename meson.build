@@ -231,7 +231,7 @@ hash_functions = [
     'SM3',
     'STREEBOG256',
     'STREEBOG512',
-    'TIGER192',
+    'TIGER',
     'WHIRLPOOL',
     'XXH32',
     'XXH64',
@@ -250,7 +250,7 @@ gcrypt_funcs = detected_gcrypt_functions + [
     'SHA256',
     'SHA384',
     'SHA512',
-    'TIGER192',
+    'TIGER',
     'WHIRLPOOL',
 ]
 

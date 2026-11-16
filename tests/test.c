@@ -139,7 +139,7 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(SM3,         "", "1ab21d8355cfa17f8e61194831e81a8f22bec8c728fefb747ed035eb5082aa2b");
 	t(STREEBOG256, "", "3f539a213e97c802cc229d474c6aa32a825a360b2a933a949fd925208d9ce1bb");
 	t(STREEBOG512, "", "8e945da209aa869f0455928529bcae4679e9873ab707b55315f56ceb98bef0a7362f715528356ee83cda5f2aac4c6ad2ba3a715c1bcd81cb8e9f90bf4c1c1a8a");
-	t(TIGER192,    "", "24f0130c63ac933216166e76b1bb925ff373de2d49584e7a");
+	t(TIGER,       "", "3293ac630c13f0245f92bbb1766e16167a4e58492dde73f3");
 	t(WHIRLPOOL,   "", "19fa61d75522a4669b44e39c1d2e1726c530232130d407f89afee0964997f7a73e83be698b288febcf88e3e03c4f0757ea8964e59b63d93708b138cc42a66eb3");
 	t(XXH32,       "", "02cc5d05");
 	t(XXH64,       "", "ef46db3751d8e999");
@@ -164,6 +164,7 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(SHA3_512,    "The quick brown fox jumps over the lazy dog", "01dedd5de4ef14642445ba5f5b97c15e47b9ad931326e4b0727cd94cefc44fff23f07bf543139939b49128caf436dc1bdee54fcb24023a08d9403f9b4bf0d450");
 	t(STREEBOG256, "The quick brown fox jumps over the lazy dog", "3e7dea7f2384b6c5a3d0e24aaa29c05e89ddd762145030ec22c71a6db8b2c1f4");
 	t(STREEBOG512, "The quick brown fox jumps over the lazy dog", "d2b793a0bb6cb5904828b5b6dcfb443bb8f33efc06ad09368878ae4cdc8245b97e60802469bed1e7c21a64ff0b179a6a1e0bb74d92965450a0adab69162c00fe");
+	t(TIGER,       "The quick brown fox jumps over the lazy dog", "6d12a41e72e644f017b6f0e2f7b44c6285f06dd5d2c5b075");
 	t(WHIRLPOOL,   "The quick brown fox jumps over the lazy dog", "b97de512e91e3828b40d2b0fdce9ceb3c4a71f9bea8d88e75c4fa854df36725fd2b52eb6544edcacd6f8beddfea403cb55ae31f03ad62a5ef54e42ee82c3fb35");
 	t(XXH32,       "The quick brown fox jumps over the lazy dog", "e85ea4de");
 	t(XXH64,       "The quick brown fox jumps over the lazy dog", "0b242d361fda71bc");
@@ -177,7 +178,7 @@ static void test_hash_func(const struct hash_func_s *func)
 	t(BLAKE3,   "abc", "6437b3ac38465133ffb63b75273a8db548c558465d79db03fd359c6cd5bd9d85");
 	t(CRC32,    "abc", "352441c2");
 	t(SM3,      "abc", "66c7f0f462eeedd9d1f2d46bdc10e4e24167c4875cf2f7a2297da02b8f4ba8e0");
-	t(TIGER192, "abc", "f258c1e88414ab2a527ab541ffc5b8bf935f7b951c132951");
+	t(TIGER,    "abc", "2aab1484e8c158f2bfb8c5ff41b57a525129131c957b5f93");
 	t(XXH32,    "abc", "32d153ff");
 	t(XXH64,    "abc", "44bc2cf5ad770999");
 	t(XXH3,     "abc", "78af5f94892f3950");
