@@ -60,7 +60,7 @@ static const struct {
 	[HASH_FUNC_SM3]         = { "SM3",         "",               32,   0 },
 	[HASH_FUNC_STREEBOG256] = { "STREEBOG256", "",               32,   0 },
 	[HASH_FUNC_STREEBOG512] = { "STREEBOG512", "",               64,   0 },
-	[HASH_FUNC_TIGER192]    = { "TIGER192",    "",               24,   0 },
+	[HASH_FUNC_TIGER]       = { "TIGER",       "",               24,   0 },
 	[HASH_FUNC_WHIRLPOOL]   = { "WHIRLPOOL",   "",               64,   0 },
 	[HASH_FUNC_XXH32]       = { "XXH32",       "",                4,   0 },
 	[HASH_FUNC_XXH64]       = { "XXH64",       "",                8,   0 },
