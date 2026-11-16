@@ -22,11 +22,13 @@
             libb2
             libblake3
             libgcrypt
+            librsvg # libpixbufloader_svg
             xxhash
             zlib
           ];
           nativeCheckInputs = with pkgs; [
             hicolor-icon-theme
+            librsvg # libpixbufloader_svg
             xvfb-run
           ];
           preConfigure = ''
@@ -54,7 +56,6 @@
           ]);
           buildInputs = common.buildInputs ++ (with pkgs; [
             gtk3
-            librsvg # libpixbufloader_svg
           ]);
           meta = common.meta // {
             mainProgram = "gtkhash";

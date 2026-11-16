@@ -185,6 +185,7 @@ enable_schemas = build_gtkhash or enable_extensions
 
 add_project_arguments('-DHAVE_CONFIG_H', language: 'c')
 root_include = include_directories('.')
+src_include = include_directories('src')
 configure_file(
     output: 'config.h',
     configuration: config,
