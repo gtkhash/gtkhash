@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-15 01:06+0000\n"
+"POT-Creation-Date: 2026-11-16 18:14+0100\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/gtkhash/translations/ca/>\n"
@@ -313,14 +313,14 @@ msgstr "Funcions MAC"
 msgid "Digest Format:"
 msgstr "Format del resum:"
 
-#: src/util/util.c:38
+#: src/util/util.c:39
 #, c-format
 msgid "%u minute left"
 msgid_plural "%u minutes left"
 msgstr[0] "falta %u minut"
 msgstr[1] "falten %u minuts"
 
-#: src/util/util.c:42
+#: src/util/util.c:43
 #, c-format
 msgid "%u second left"
 msgid_plural "%u seconds left"
@@ -333,7 +333,7 @@ msgstr[1] "falten %u segons"
 #. %3$s is the estimated time remaining (e.g. "3 minutes left"), and
 #. %4$s is the amount of data processed per second (e.g. "19.9 MB").
 #. Full example: "41.9 MB of 4.8 GB - 3 minutes left (19.9 MB/s)".
-#: src/util/util.c:68
+#: src/util/util.c:72
 #, c-format
 msgid "%1$s of %2$s - %3$s (%4$s/s)"
 msgstr ""
@@ -342,7 +342,7 @@ msgstr ""
 #. %1$s is the amount of data processed so far (e.g. "41.9 MB"), and
 #. %2$s is the amount of data processed per second (e.g. "19.9 MB").
 #. Full example: "41.9 MB read (19.9 MB/s)".
-#: src/util/util.c:93
+#: src/util/util.c:97
 #, c-format
 msgid "%1$s read (%2$s/s)"
 msgstr ""
