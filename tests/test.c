@@ -366,7 +366,7 @@ static void test_opt_help(void)
 		g_shell_parse_argv("t --help", &argc, &argv, NULL);
 
 		opts_preinit(argv);
-		g_assert_not_reached();
+		exit(EXIT_FAILURE);
 	}
 
 	trap_subprocess();
@@ -382,7 +382,7 @@ static void test_opt_version(void)
 		g_shell_parse_argv("t --version", &argc, &argv, NULL);
 
 		opts_preinit(argv);
-		g_assert_not_reached();
+		exit(EXIT_FAILURE);
 	}
 
 	trap_subprocess();
@@ -432,23 +432,20 @@ static void test_opt_check_file(void)
 		opts_postinit();
 		delay();
 
-		g_assert(hash.funcs[HASH_FUNC_MD5].supported);
-		g_assert(hash.funcs[HASH_FUNC_MD5].enabled);
-		g_assert(gui.view == GUI_VIEW_FILE_LIST);
-		g_assert(list_get_rows() == 9);
+		g_assert_true(hash.funcs[HASH_FUNC_MD5].supported);
+		g_assert_true(hash.funcs[HASH_FUNC_MD5].enabled);
+		g_assert_true(gui.view == GUI_VIEW_FILE_LIST);
+		g_assert_cmpint(list_get_rows(), ==, 10);
 
-		// OK to exit before finish, with warnings
-		g_test_expect_message(G_LOG_DOMAIN, G_LOG_LEVEL_WARNING, "*");
 		g_timeout_add_seconds(1, exit_success, NULL);
 
 		for (;;)
 			gtk_main_iteration_do(true);
 
-		g_assert_not_reached();
+		exit(EXIT_FAILURE);
 	}
 
 	trap_subprocess();
-	g_test_trap_assert_stderr("*notfound.bytes*");
 }
 
 static void test_opt_function_enable(void)
@@ -559,7 +556,7 @@ static void test_opt_file(void)
 		opts_postinit();
 		delay();
 
-		g_assert(gui.view == GUI_VIEW_FILE);
+		g_assert_true(gui.view == GUI_VIEW_FILE);
 
 		// Started from cmdline
 		while (!*gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file))
@@ -610,8 +607,8 @@ static void test_opt_file_list(void)
 		opts_postinit();
 		delay();
 
-		g_assert(gui.view == GUI_VIEW_FILE_LIST);
-		g_assert(list_get_rows() == 2);
+		g_assert_true(gui.view == GUI_VIEW_FILE_LIST);
+		g_assert_cmpint(list_get_rows(), ==, 2);
 
 		char *digest;
 		while (!(digest = list_get_digest(1, HASH_FUNC_MD5)))
@@ -623,7 +620,7 @@ static void test_opt_file_list(void)
 		delay();
 		list_remove_selection();
 		delay();
-		g_assert(list_get_rows() == 0);
+		g_assert_cmpint(list_get_rows(), ==, 0);
 
 		exit(EXIT_SUCCESS);
 	}
@@ -711,7 +708,7 @@ static void check_hash_file_md5(const char *uri, const char *hmac, const char *d
 		opts_postinit();
 		delay();
 
-		g_assert(gui.view == GUI_VIEW_FILE);
+		g_assert_true(gui.view == GUI_VIEW_FILE);
 
 		while (!*gtk_entry_get_text(gui.hash_widgets[HASH_FUNC_MD5].entry_file))
 			gtk_main_iteration_do(true);
@@ -777,7 +774,7 @@ static void test_hash_dev_chr_zero(void)
 		opts_postinit();
 		delay();
 
-		g_assert(gui.view == GUI_VIEW_FILE);
+		g_assert_true(gui.view == GUI_VIEW_FILE);
 
 		// Wait for some hashing progress
 		while (g_strcmp0(gtk_progress_bar_get_text(gui.progressbar), " ") == 0)

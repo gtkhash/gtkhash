@@ -27,11 +27,13 @@
 void list_init(void);
 int list_get_rows(void);
 void list_update(void);
-void list_append_row(const char *uri, const char *check);
+void list_append_row(const char *uri, const char *check, const char *icon, const char *error);
 void list_remove_selection(void);
 GPtrArray *list_get_iters(void);
 char *list_get_uri(GtkTreeIter *iter);
 char *list_get_basename(int row);
+void list_set_error(GtkTreeIter *iter, const char *message, const char *icon);
+char *list_get_error(GtkTreeIter *iter);
 void list_set_digests(GtkTreeIter *iter, const char * const *digests);
 char *list_get_digest(int row, enum hash_func_e id);
 char *list_get_selected_digest(enum hash_func_e id);

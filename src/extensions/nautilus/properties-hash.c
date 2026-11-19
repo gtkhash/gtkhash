@@ -67,6 +67,16 @@ void gtkhash_hash_file_finish_cb(void *data, const char * const *digests)
 	g_object_unref(model);
 }
 
+void gtkhash_hash_file_error_cb(void *data, const GError * const error)
+{
+	struct model_s *model = data;
+
+	gtkhash_properties_model_set_progress(model, error->message);
+
+	model->state = MODEL_STATE_DONE;
+	g_object_unref(model);
+}
+
 void gtkhash_hash_file_stop_cb(void *data)
 {
 	struct model_s *model = data;

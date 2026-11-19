@@ -33,7 +33,7 @@ enum check_format_e {
 	CHECK_FORMAT_SFV,
 };
 
-GSList *check_file_load(GSList *ud_list, GFile *file);
+GSList *check_file_load(GSList *ud_list, GFile *file, GPtrArray *warnings);
 void check_file_save(const char *filename);
 void check_file_add_filters(GtkFileFilter *filter);
 void check_init(void);

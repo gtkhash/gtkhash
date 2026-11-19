@@ -25,6 +25,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
+#include <errno.h>
 #include <sys/stat.h>
 #include <glib.h>
 
@@ -66,6 +67,7 @@ struct hash_file_s {
 	GFile *file;
 	struct hmac_s *hmac;
 	GCancellable *cancellable;
+	GError *error;
 	GFileInputStream *stream;
 	gssize just_read;
 	uint8_t *buffer;
@@ -132,7 +134,8 @@ static void gtkhash_hash_file_remove_report_source(struct hash_file_s *data)
 	}
 }
 
-GFileInfo *gtkhash_hash_file_query_info(GFile *file, GCancellable *cancellable, GError **error)
+static GFileInfo *gtkhash_hash_file_query_info(GFile *file, GCancellable *cancellable,
+	GError **error)
 {
 	if (!file)
 		return NULL;
@@ -234,13 +237,16 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 
 	g_assert(funcs_enabled > 0);
 
-	// Determine max number of threads to use
-	const int cpus = g_get_num_processors();
-	const int threads = CLAMP(MIN(funcs_enabled, cpus), 1, HASH_FUNCS_N);
+	// Create on first use
+	if (!data->thread_pool) {
+		const int cpus = g_get_num_processors();
+		const int threads = MIN(cpus, HASH_FUNCS_N);
+		data->thread_pool = g_thread_pool_new((GFunc)gtkhash_hash_file_hash_thread_func,
+			data, threads, false, NULL);
+		g_assert(data->thread_pool);
+	}
 
 	g_atomic_int_set(&data->threads, 0);
-	data->thread_pool = g_thread_pool_new(
-		(GFunc)gtkhash_hash_file_hash_thread_func, data, threads, true, NULL);
 
 	data->file = g_file_new_for_uri(data->uri);
 	data->just_read = 0;
@@ -255,17 +261,16 @@ static void gtkhash_hash_file_start(struct hash_file_s *data)
 static void gtkhash_hash_file_open_finish(G_GNUC_UNUSED GObject *source,
 	GAsyncResult *res, struct hash_file_s *data)
 {
-	data->stream = g_file_read_finish(data->file, res, NULL);
-	if (!data->stream && !g_cancellable_is_cancelled(data->cancellable)) {
-		g_warning("failed to open file (%s)", data->uri);
-		g_cancellable_cancel(data->cancellable);
-	}
+	data->stream = g_file_read_finish(data->file, res, &data->error);
 
 	if (g_cancellable_is_cancelled(data->cancellable)) {
+		g_clear_error(&data->error);
 		if (data->stream)
 			data->state = HASH_FILE_STATE_CLOSE;
 		else
 			data->state = HASH_FILE_STATE_FINISH;
+	} else if (!data->stream) {
+		data->state = HASH_FILE_STATE_FINISH;
 	} else
 		data->state = HASH_FILE_STATE_GET_SIZE;
 
@@ -309,20 +314,15 @@ static goffset gtkhash_hash_file_get_block_device_size(GFileInputStream *stream,
 static void gtkhash_hash_file_get_size_finish(G_GNUC_UNUSED GObject *source, GAsyncResult *res,
 	struct hash_file_s *data)
 {
-	GError *error = NULL;
-	GFileInfo *info = g_file_input_stream_query_info_finish(data->stream, res, &error);
+	GFileInfo *info = g_file_input_stream_query_info_finish(data->stream, res, &data->error);
 
 	if (g_cancellable_is_cancelled(data->cancellable)) {
-		g_clear_error(&error);
+		g_clear_error(&data->error);
 		g_clear_object(&info);
 
 		data->state = HASH_FILE_STATE_CLOSE;
 	} else if (!info) {
-		g_warning("failed to query info (%s): %s", data->uri, error->message);
-		g_clear_error(&error);
-
 		data->state = HASH_FILE_STATE_CLOSE;
-		g_cancellable_cancel(data->cancellable);
 	} else {
 		switch (gtkhash_hash_file_info_get_type(info)) {
 			case HASH_FILE_TYPE_REGULAR:
@@ -336,12 +336,9 @@ static void gtkhash_hash_file_get_size_finish(G_GNUC_UNUSED GObject *source, GAs
 
 			case HASH_FILE_TYPE_BLOCK_DEVICE:
 				data->file_size = gtkhash_hash_file_get_block_device_size(data->stream,
-					data->cancellable, &error);
+					data->cancellable, &data->error);
 				if (data->file_size < 0) {
-					g_warning("failed to get size (%s): %s", data->uri, error->message);
-					g_clear_error(&error);
 					data->state = HASH_FILE_STATE_CLOSE;
-					g_cancellable_cancel(data->cancellable);
 				} else {
 					data->state = HASH_FILE_STATE_READ;
 					gtkhash_hash_file_add_report_source(data);
@@ -354,11 +351,14 @@ static void gtkhash_hash_file_get_size_finish(G_GNUC_UNUSED GObject *source, GAs
 				gtkhash_hash_file_add_report_source(data);
 				break;
 
-			default:
-				g_warning("unsupported file type (%s)", data->uri);
+			default: {
+				char *pname = g_file_get_parse_name(data->file);
+				g_set_error(&data->error, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED,
+					"%s: %s", pname, g_strerror(ENOTSUP));
+				g_free(pname);
 				data->state = HASH_FILE_STATE_CLOSE;
-				g_cancellable_cancel(data->cancellable);
 				break;
+			}
 		}
 
 		g_object_unref(info);
@@ -387,11 +387,13 @@ static void gtkhash_hash_file_read_finish(G_GNUC_UNUSED GObject *source,
 	GAsyncResult *res, struct hash_file_s *data)
 {
 	data->just_read = g_input_stream_read_finish(
-		G_INPUT_STREAM(data->stream), res, NULL);
+		G_INPUT_STREAM(data->stream), res, &data->error);
 
-	if (data->just_read == -1 && !g_cancellable_is_cancelled(data->cancellable)) {
-		g_warning("failed to read file (%s)", data->uri);
-		g_cancellable_cancel(data->cancellable);
+	if (g_cancellable_is_cancelled(data->cancellable)) {
+		g_clear_error(&data->error);
+		data->state = HASH_FILE_STATE_CLOSE;
+	} else if (data->just_read == -1) {
+		data->state = HASH_FILE_STATE_CLOSE;
 	} else if (data->just_read == 0) {
 		// Reached EOF
 		if (data->file_size > 0 && data->total_read != data->file_size) {
@@ -400,7 +402,7 @@ static void gtkhash_hash_file_read_finish(G_GNUC_UNUSED GObject *source,
 				data->file_size, data->total_read, data->uri);
 		}
 		data->state = HASH_FILE_STATE_CLOSE;
-	} else if (data->just_read > 0) {
+	} else {
 		if (data->total_read == 0) {
 			// Resetting here excludes the initial OPEN and GET_SIZE time
 			g_timer_reset(data->timer);
@@ -408,9 +410,6 @@ static void gtkhash_hash_file_read_finish(G_GNUC_UNUSED GObject *source,
 		data->total_read += data->just_read;
 		data->state = HASH_FILE_STATE_HASH;
 	}
-
-	if (g_cancellable_is_cancelled(data->cancellable))
-		data->state = HASH_FILE_STATE_CLOSE;
 
 	gtkhash_hash_file_add_source(data);
 }
@@ -497,7 +496,7 @@ static void gtkhash_hash_file_close(struct hash_file_s *data)
 
 static void gtkhash_hash_file_finish(struct hash_file_s *data)
 {
-	if (g_cancellable_is_cancelled(data->cancellable)) {
+	if (data->error || g_cancellable_is_cancelled(data->cancellable)) {
 		for (int i = 0; i < HASH_FUNCS_N; i++)
 			if (data->funcs[i].enabled)
 				gtkhash_hash_lib_stop(&data->funcs[i]);
@@ -511,15 +510,25 @@ static void gtkhash_hash_file_finish(struct hash_file_s *data)
 	g_clear_pointer(&data->buffer, g_free);
 	g_clear_pointer(&data->timer, g_timer_destroy);
 
-	g_thread_pool_free(data->thread_pool, true, false);
-	data->thread_pool = NULL;
-
 	data->state = HASH_FILE_STATE_CALLBACK;
 }
 
-static gboolean gtkhash_hash_file_callback_stop_func(void *cb_data)
+static gboolean gtkhash_hash_file_callback_stop_func(struct hash_file_s *data)
 {
-	gtkhash_hash_file_stop_cb(cb_data);
+	g_clear_error(&data->error);
+
+	gtkhash_hash_file_stop_cb((void *)data->cb_data);
+
+	return G_SOURCE_REMOVE;
+}
+
+static gboolean gtkhash_hash_file_callback_error_func(struct hash_file_s *data)
+{
+	GError *error = g_steal_pointer(&data->error);
+
+	gtkhash_hash_file_error_cb((void *)data->cb_data, error);
+
+	g_clear_error(&error);
 
 	return G_SOURCE_REMOVE;
 }
@@ -551,7 +560,9 @@ static void gtkhash_hash_file_callback(struct hash_file_s *data)
 	data->state = HASH_FILE_STATE_IDLE;
 
 	if (g_cancellable_is_cancelled(data->cancellable))
-		g_idle_add(gtkhash_hash_file_callback_stop_func, (void *)data->cb_data);
+		g_idle_add(G_SOURCE_FUNC(gtkhash_hash_file_callback_stop_func), data);
+	else if (data->error)
+		g_idle_add(G_SOURCE_FUNC(gtkhash_hash_file_callback_error_func), data);
 	else
 		g_idle_add(G_SOURCE_FUNC(gtkhash_hash_file_callback_finish_func), data);
 
@@ -591,6 +602,7 @@ void gtkhash_hash_file(struct hash_file_s *data, const char *uri,
 	g_assert(data->report_source == 0);
 	g_assert(data->source == 0);
 	g_assert(!data->cancellable);
+	g_assert(!data->error);
 
 	data->uri = g_strdup(uri);
 	data->format = format;
@@ -613,6 +625,7 @@ struct hash_file_s *gtkhash_hash_file_new(struct hash_func_s *funcs)
 	data->file = NULL;
 	data->hmac = NULL;
 	data->cancellable = NULL;
+	data->error = NULL;
 	data->stream = NULL;
 	data->just_read = 0;
 	data->buffer = NULL;
@@ -638,8 +651,14 @@ void gtkhash_hash_file_free(struct hash_file_s *data)
 	g_assert(data->report_source == 0);
 	g_assert(data->source == 0);
 
+	if (data->thread_pool) {
+		g_thread_pool_free(data->thread_pool, true, false);
+		data->thread_pool = NULL;
+	}
+
 	g_clear_pointer(&data->uri, g_free);
 	g_clear_pointer(&data->hmac, gtkhash_hmac_free);
+	g_clear_error(&data->error);
 	g_mutex_clear(&data->mtx);
 
 	g_free(data);

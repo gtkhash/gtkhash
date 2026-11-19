@@ -35,18 +35,16 @@
 
 enum {
 	COL_ICON_NAME, // 0
-	COL_PNAME,     // 1
+	COL_FILE,      // 1
 	COL_CHECK,     // 2
-	COL_DIGESTS,   // 3+
+	COL_ERROR,     // 3
+	COL_DIGESTS,   // 4+
 };
 
 struct {
 	GtkTreeViewColumn *view_cols[HASH_FUNCS_N];
 	int hash_cols[HASH_FUNCS_N];
-	bool show_status;
-} list_priv = {
-	.show_status = false,
-};
+} list_priv;
 
 void list_init(void)
 {
@@ -69,8 +67,9 @@ void list_init(void)
 
 	GType types[cols];
 	types[COL_ICON_NAME] = G_TYPE_STRING;
-	types[COL_PNAME]     = G_TYPE_STRING;
+	types[COL_FILE]      = G_TYPE_STRING;
 	types[COL_CHECK]     = G_TYPE_STRING;
+	types[COL_ERROR]     = G_TYPE_STRING;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!hash.funcs[i].supported)
@@ -108,15 +107,14 @@ void list_update(void)
 		gtk_tree_view_column_set_visible(col, hash.funcs[i].enabled);
 	}
 
-	gtk_tree_view_column_set_visible(gui.treeviewcolumn_status, list_priv.show_status);
-
 	const bool has_rows = (list_get_rows() > 0);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_clear), has_rows);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.menuitem_treeview_clear), has_rows);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), has_rows && enabled);
 }
 
-void list_append_row(const char * const uri, const char * const check)
+void list_append_row(const char * const uri, const char * const check, const char * const icon,
+	const char * const error)
 {
 	g_assert(uri);
 
@@ -124,15 +122,14 @@ void list_append_row(const char * const uri, const char * const check)
 	char *pname = g_file_get_parse_name(file);
 
 	gtk_list_store_insert_with_values(gui.liststore, NULL, -1,
-		COL_PNAME, pname,
+		COL_ICON_NAME, icon,
+		COL_FILE, pname,
 		COL_CHECK, check,
+		COL_ERROR, error,
 		-1);
 
 	g_free(pname);
 	g_object_unref(file);
-
-	if (check)
-		list_priv.show_status = true;
 }
 
 void list_remove_selection(void)
@@ -189,7 +186,7 @@ GPtrArray *list_get_iters(void)
 static GFile *list_get_iter_file(GtkTreeIter *iter)
 {
 	GValue value = G_VALUE_INIT;
-	gtk_tree_model_get_value(gui.treemodel, iter, COL_PNAME, &value);
+	gtk_tree_model_get_value(gui.treemodel, iter, COL_FILE, &value);
 	GFile *file = g_file_parse_name(g_value_get_string(&value));
 	g_value_unset(&value);
 
@@ -240,8 +237,12 @@ static void list_scroll_to_next(const GtkTreeIter *iter)
 }
 
 // Returns a static string or NULL
-static const char *list_status_icon_name(const char * const check, const char * const *digests)
+static const char *list_get_icon(const char * const check, const char * const error,
+	const char * const *digests, const char * const old_icon)
 {
+	if (error && *error)
+		return old_icon;
+
 	if (!check || !*check)
 		return NULL;
 
@@ -260,27 +261,31 @@ static const char *list_status_icon_name(const char * const check, const char * 
 	}
 
 	if (has_digest)
-		return match ? "object-select-symbolic" : "window-close-symbolic";
+		return match ? GUI_ICON_CHECK_MATCH : GUI_ICON_CHECK_MISMATCH;
 
 	return NULL;
 }
 
 void list_set_digests(GtkTreeIter *iter, const char * const *digests)
 {
-	int cols[HASH_FUNCS_N + 1];
-	GValue vals[HASH_FUNCS_N + 1] = { G_VALUE_INIT };
-	int vals_n = 0;
+	int cols[HASH_FUNCS_N + 2];
+	GValue vals[HASH_FUNCS_N + 2] = { G_VALUE_INIT };
 
 	GValue check_value = G_VALUE_INIT;
 	gtk_tree_model_get_value(gui.treemodel, iter, COL_CHECK, &check_value);
-
-	cols[vals_n] = COL_ICON_NAME;
-	g_value_init(&vals[vals_n], G_TYPE_STRING);
 	const char *check = g_value_get_string(&check_value);
-	g_value_set_static_string(&vals[vals_n], list_status_icon_name(check, digests));
-	vals_n++;
+
+	cols[0] = COL_ICON_NAME;
+	g_value_init(&vals[0], G_TYPE_STRING);
+	g_value_set_static_string(&vals[0], list_get_icon(check, NULL, digests, NULL));
 
 	g_value_unset(&check_value);
+
+	cols[1] = COL_ERROR;
+	g_value_init(&vals[1], G_TYPE_STRING);
+	g_value_set_string(&vals[1], NULL);
+
+	int vals_n = 2;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!digests[i])
@@ -298,6 +303,37 @@ void list_set_digests(GtkTreeIter *iter, const char * const *digests)
 
 	for (int i = 0; i < vals_n; i++)
 		g_value_unset(&vals[i]);
+}
+
+void list_set_error(GtkTreeIter *iter, const char * const message, const char * const icon)
+{
+	g_assert(message);
+	g_assert(icon);
+
+	list_scroll_to_next(iter);
+
+	gtk_list_store_set(gui.liststore, iter,
+		COL_ERROR, message,
+		COL_ICON_NAME, icon,
+		-1);
+}
+
+char *list_get_error(GtkTreeIter *iter)
+{
+	g_assert(iter);
+
+	GValue error_value = G_VALUE_INIT;
+	gtk_tree_model_get_value(gui.treemodel, iter, COL_ERROR, &error_value);
+	const char *error = g_value_get_string(&error_value);
+
+	char *text = NULL;
+
+	if (error && *error)
+		text = g_strdup(error);
+
+	g_value_unset(&error_value);
+
+	return text;
 }
 
 char *list_get_digest(const int row, const enum hash_func_e id)
@@ -366,20 +402,22 @@ bool list_has_digests(void)
 
 static void list_check_digests(GtkTreeIter *iter)
 {
-	GValue check_value = G_VALUE_INIT;
 	GValue icon_value = G_VALUE_INIT;
+	GValue check_value = G_VALUE_INIT;
+	GValue error_value = G_VALUE_INIT;
 
-	gtk_tree_model_get_value(gui.treemodel, iter, COL_CHECK, &check_value);
 	gtk_tree_model_get_value(gui.treemodel, iter, COL_ICON_NAME, &icon_value);
+	gtk_tree_model_get_value(gui.treemodel, iter, COL_CHECK, &check_value);
+	gtk_tree_model_get_value(gui.treemodel, iter, COL_ERROR, &error_value);
 
-	const char *check = g_value_get_string(&check_value);
 	const char *old_icon = g_value_get_string(&icon_value);
-	const char *new_icon = NULL;
+	const char *check = g_value_get_string(&check_value);
+	const char *error = g_value_get_string(&error_value);
+
+	GValue values[HASH_FUNCS_N] = { G_VALUE_INIT };
+	const char *digests[HASH_FUNCS_N] = { NULL };
 
 	if (check && *check) {
-		GValue values[HASH_FUNCS_N] = { G_VALUE_INIT };
-		const char *digests[HASH_FUNCS_N] = { NULL };
-
 		for (int i = 0; i < HASH_FUNCS_N; i++) {
 			if (!hash.funcs[i].enabled)
 				continue;
@@ -387,14 +425,15 @@ static void list_check_digests(GtkTreeIter *iter)
 			gtk_tree_model_get_value(gui.treemodel, iter, list_priv.hash_cols[i], &values[i]);
 			digests[i] = g_value_get_string(&values[i]);
 		}
-
-		new_icon = list_status_icon_name(check, (const char * const *)digests);
-
-		for (int i = 0; i < HASH_FUNCS_N; i++)
-			g_value_unset(&values[i]);
 	}
 
+	const char *new_icon = list_get_icon(check, error, (const char * const *)digests, old_icon);
+
+	for (int i = 0; i < HASH_FUNCS_N; i++)
+		g_value_unset(&values[i]);
+
 	g_value_unset(&check_value);
+	g_value_unset(&error_value);
 
 	if (g_strcmp0(old_icon, new_icon) != 0)
 		gtk_list_store_set(gui.liststore, iter, COL_ICON_NAME, new_icon, -1);
@@ -412,7 +451,7 @@ static int list_suspend_sort(GtkSortType *order)
 
 	// Ignore columns which are not modified by bulk updates
 	switch (col_id) {
-		case COL_PNAME:
+		case COL_FILE:
 		case COL_CHECK:
 			return GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID;
 		default:
@@ -467,14 +506,18 @@ static void list_restore_signal(const char * const name)
 
 void list_clear_digests(void)
 {
-	int cols[HASH_FUNCS_N + 1];
-	GValue vals[HASH_FUNCS_N + 1] = { G_VALUE_INIT };
-	int vals_n = 0;
+	int cols[HASH_FUNCS_N + 2];
+	GValue vals[HASH_FUNCS_N + 2] = { G_VALUE_INIT };
 
-	cols[vals_n] = COL_ICON_NAME;
-	g_value_init(&vals[vals_n], G_TYPE_STRING);
-	g_value_set_string(&vals[vals_n], NULL);
-	vals_n++;
+	cols[0] = COL_ICON_NAME;
+	g_value_init(&vals[0], G_TYPE_STRING);
+	g_value_set_string(&vals[0], NULL);
+
+	cols[1] = COL_ERROR;
+	g_value_init(&vals[1], G_TYPE_STRING);
+	g_value_set_string(&vals[1], NULL);
+
+	int vals_n = 2;
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!hash.funcs[i].supported)
@@ -511,7 +554,6 @@ void list_clear(void)
 	gtk_tree_view_set_model(gui.treeview, NULL);
 
 	gtk_list_store_clear(gui.liststore);
-	list_priv.show_status = false;
 
 	gtk_tree_view_set_model(gui.treeview, gui.treemodel);
 

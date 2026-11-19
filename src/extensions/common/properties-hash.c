@@ -74,6 +74,17 @@ void gtkhash_hash_file_finish_cb(void *data, const char * const *digests)
 	gtkhash_properties_idle(data);
 }
 
+void gtkhash_hash_file_error_cb(void *data, const GError * const error)
+{
+	struct page_s *page = data;
+
+	gtkhash_hash_file_stop_cb(data);
+
+	gtk_progress_bar_set_fraction(page->progressbar, 0.0);
+	gtk_progress_bar_set_text(page->progressbar, error->message);
+	gtk_widget_show(GTK_WIDGET(page->progressbar));
+}
+
 void gtkhash_hash_file_stop_cb(void *data)
 {
 	// Reset enabled state following single-function hash

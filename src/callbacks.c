@@ -84,23 +84,23 @@ static void on_action_open(void)
 #endif
 		GSList *files = gtk_file_chooser_get_files(chooser);
 		GSList *ud_list = NULL;
+		GPtrArray *warnings = g_ptr_array_new_with_free_func(g_free);
 
 		for (GSList *p = files; p; p = p->next)
 			if (p->data)
-				ud_list = check_file_load(ud_list, p->data);
+				ud_list = check_file_load(ud_list, p->data, warnings);
 
-		if (ud_list) {
-			ud_list = g_slist_reverse(ud_list);
+		ud_list = g_slist_reverse(ud_list);
 
-			if (gui.view == GUI_VIEW_FILE_LIST)
-				gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST);
-			else
-				gui_add_ud_list(ud_list, GUI_VIEW_INVALID);
+		if (gui.view == GUI_VIEW_FILE_LIST)
+			gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST, warnings);
+		else
+			gui_add_ud_list(ud_list, GUI_VIEW_INVALID, warnings);
 
-			gui_update();
+		gui_update();
 
-			uri_digest_list_free_full(ud_list);
-		}
+		g_ptr_array_free(warnings, true);
+		uri_digest_list_free_full(ud_list);
 
 		g_slist_free_full(files, g_object_unref);
 	}
@@ -204,15 +204,16 @@ static void on_action_about(void)
 	g_free(version);
 }
 
-static void on_filechooserbutton_selection_changed(void)
+static void on_filechooserbutton_selection_changed(GtkFileChooser *chooser, G_GNUC_UNUSED void *data)
 {
 	const bool enabled = gtkhash_hash_func_count_enabled(hash.funcs);
-	char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(gui.filechooserbutton));
+	char *uri = gtk_file_chooser_get_uri(chooser);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_hash), enabled && uri);
 
 	g_free(uri);
 
+	gui_clear_messages(GTK_MESSAGE_ERROR);
 	gui_clear_digests();
 }
 
@@ -258,7 +259,7 @@ static void on_button_add_clicked(void)
 			GSList *ud_list = uri_digest_list_from_uri_list(uris);
 
 			if (ud_list) {
-				gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST);
+				gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST, NULL);
 				uri_digest_list_free_full(ud_list);
 			}
 
@@ -344,6 +345,24 @@ static gboolean on_treeview_key_press_event(G_GNUC_UNUSED GtkWidget *widget, Gdk
 	return GDK_EVENT_PROPAGATE;
 }
 
+static gboolean on_treeview_query_tooltip(GtkTreeView *treeview, int x, int y,
+	gboolean keyboard_mode, GtkTooltip *tooltip, G_GNUC_UNUSED void *data)
+{
+	GtkTreeIter iter;
+	if (!gtk_tree_view_get_tooltip_context(treeview, &x, &y, keyboard_mode, NULL, NULL, &iter))
+		return GDK_EVENT_PROPAGATE;
+
+	char *text = list_get_error(&iter);
+	if (!text)
+		return GDK_EVENT_PROPAGATE;
+
+	gtk_tooltip_set_text(tooltip, text);
+
+	g_free(text);
+
+	return GDK_EVENT_STOP;
+}
+
 static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget, GdkDragContext *context,
 	G_GNUC_UNUSED int x, G_GNUC_UNUSED int y, GtkSelectionData *selection,
 	G_GNUC_UNUSED unsigned int info, unsigned int t, G_GNUC_UNUSED void *data)
@@ -361,7 +380,7 @@ static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget, GdkD
 		return;
 	}
 
-	gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST);
+	gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST, NULL);
 
 	uri_digest_list_free_full(ud_list);
 	g_strfreev(uris);
@@ -385,12 +404,6 @@ static void on_button_hash_clicked(G_GNUC_UNUSED GtkButton *button,
 	struct hash_func_s *func)
 {
 	if (gui.view == GUI_VIEW_FILE) {
-		// Workaround for when user clicks Cancel in FileChooserDialog and
-		// uri is changed without emitting the "selection-changed" signal
-		on_filechooserbutton_selection_changed();
-		if (!gtk_widget_get_sensitive(GTK_WIDGET(gui.button_hash)))
-			return;
-
 		// Single-function hash
 		if (func) {
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
@@ -545,8 +558,6 @@ void callbacks_init(void)
 	CON(gui.togglebutton_view_file,         "toggled",             on_togglebutton_view_toggled);
 	CON(gui.togglebutton_view_file_list,    "toggled",             on_togglebutton_view_toggled);
 	CON(gui.togglebutton_view_text,         "toggled",             on_togglebutton_view_toggled);
-//	file-set isn't emitted when file is deleted
-//	CON(gui.filechooserbutton,              "file-set",            on_filechooserbutton_file_set);
 	CON(gui.filechooserbutton,              "selection-changed",   on_filechooserbutton_selection_changed);
 	CON(gui.entry_text,                     "changed",             hash_string);
 	CON(gui.togglebutton_hmac_file,         "toggled",             on_togglebutton_hmac_file_toggled);
@@ -568,6 +579,7 @@ void callbacks_init(void)
 	CON(gui.treeview,                       "popup-menu",          on_treeview_popup_menu);
 	CON(gui.treeview,                       "button-press-event",  on_treeview_button_press_event);
 	CON(gui.treeview,                       "key-press-event",     on_treeview_key_press_event);
+	CON(gui.treeview,                       "query-tooltip",       on_treeview_query_tooltip);
 	CON(gui.treeview,                       "drag-data-received",  on_treeview_drag_data_received);
 	CON(gui.menuitem_treeview_add,          "activate",            on_button_add_clicked);
 	CON(gui.menuitem_treeview_remove,       "activate",            list_remove_selection);

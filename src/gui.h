@@ -30,6 +30,11 @@
 #define GUI_VIEW_IS_VALID(X) (((X) >= 0) && ((X) <= GUI_VIEW_FILE_LIST))
 #define GUI_STATE_IS_VALID(X) (((X) >= 0) && ((X) <= GUI_STATE_BUSY))
 
+#define GUI_ICON_FILE_ERROR "dialog-error-symbolic"
+#define GUI_ICON_FILE_MISSING "dialog-warning-symbolic"
+#define GUI_ICON_CHECK_MATCH "object-select-symbolic"
+#define GUI_ICON_CHECK_MISMATCH "window-close-symbolic"
+
 enum gui_view_e {
 	GUI_VIEW_INVALID = -1,
 	GUI_VIEW_FILE,
@@ -66,8 +71,8 @@ extern struct gui_s {
 	GtkMenuItem *menuitem_treeview_clear;
 	GtkMenu *menu_treeview_copy;
 	GtkMenuItem *menuitem_treeview_copy;
-	GtkSeparator *hseparator_buttons;
 	GtkProgressBar *progressbar;
+	GtkBox *box_messages;
 	GtkButton *button_hash, *button_stop;
 	GtkDialog *dialog;
 	GtkGrid *dialog_grid;
@@ -85,7 +90,7 @@ extern struct gui_s {
 } gui;
 
 void gui_init(void);
-unsigned int gui_add_ud_list(GSList *ud_list, enum gui_view_e view);
+unsigned int gui_add_ud_list(GSList *ud_list, enum gui_view_e view, GPtrArray *warnings);
 void gui_add_check(const char *check);
 void gui_add_text(const char *text);
 void gui_run(void);
@@ -103,6 +108,8 @@ void gui_clear_digests(void);
 void gui_clear_all_digests(void);
 void gui_check_digests(void);
 void gui_set_state(enum gui_state_e state);
+void gui_show_message(const char *message, GtkMessageType type);
+void gui_clear_messages(GtkMessageType type);
 bool gui_is_maximised(void);
 void gui_start_hash(void);
 void gui_stop_hash(void);

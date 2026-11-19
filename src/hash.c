@@ -125,6 +125,8 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data, const char * const *d
 
 			// Reset enabled state following single-function hash
 			gui_update_hash_funcs();
+
+			gui_clear_messages(GTK_MESSAGE_ERROR);
 			break;
 		case GUI_VIEW_FILE_LIST:
 			list_set_digests(hash_queue_peek(), digests);
@@ -138,6 +140,37 @@ void gtkhash_hash_file_finish_cb(G_GNUC_UNUSED void *data, const char * const *d
 
 	gui_check_digests();
 	gui_set_state(GUI_STATE_IDLE);
+}
+
+void gtkhash_hash_file_error_cb(G_GNUC_UNUSED void *data, const GError * const error)
+{
+	bool show_error = false;
+
+	switch (gui.view) {
+		case GUI_VIEW_FILE:
+			// Reset enabled state following single-function hash
+			gui_update_hash_funcs();
+
+			show_error = true;
+			break;
+		case GUI_VIEW_FILE_LIST: {
+			const char *icon = g_error_matches(error, G_IO_ERROR, G_IO_ERROR_NOT_FOUND) ?
+				GUI_ICON_FILE_MISSING : GUI_ICON_FILE_ERROR;
+			list_set_error(hash_queue_peek(), error->message, icon);
+
+			if (hash_queue_next())
+				return;
+			break;
+		}
+		default:
+			g_assert_not_reached();
+	}
+
+	gui_check_digests();
+	gui_set_state(GUI_STATE_IDLE);
+
+	if (show_error)
+		gui_show_message(error->message, GTK_MESSAGE_ERROR);
 }
 
 void gtkhash_hash_file_stop_cb(G_GNUC_UNUSED void *data)
