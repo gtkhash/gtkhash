@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-16 18:14+0100\n"
+"POT-Creation-Date: 2026-11-20 02:04+0100\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/gtkhash/translations/ru/>\n"
@@ -82,13 +82,13 @@ msgstr ""
 msgid "Open Digest File"
 msgstr "Открыть файл дайджеста"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:232
-#: src/callbacks.c:238
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:233
+#: src/callbacks.c:239
 msgid "_Open"
 msgstr "_Открыть"
 
 #: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
-#: src/callbacks.c:125 src/callbacks.c:232 src/callbacks.c:237
+#: src/callbacks.c:125 src/callbacks.c:233 src/callbacks.c:238
 msgid "_Cancel"
 msgstr "_Отмена"
 
@@ -119,26 +119,26 @@ msgstr ""
 "Grigorii Chirkov https://launchpad.net/~ridgentsailor\n"
 "WhiteRabbit https://launchpad.net/~whiterabbit"
 
-#: src/callbacks.c:225
+#: src/callbacks.c:226
 msgid "Select Files"
 msgstr "Выбрать файлы"
 
-#: src/callbacks.c:480 src/extensions/common/properties.c:239
+#: src/callbacks.c:493 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Показать ключ HMAC"
 
-#: src/check.c:402
+#: src/check.c:383
+#, c-format
+msgid "%s: No valid lines found"
+msgstr ""
+
+#: src/check.c:386
 #, c-format
 msgid "%s: Ignored %lu invalid line"
 msgid_plural "%s: Ignored %lu invalid lines"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-#: src/check.c:408
-#, c-format
-msgid "%s: No valid lines found"
-msgstr ""
 
 #: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
@@ -156,33 +156,33 @@ msgstr "Хеш-функция"
 msgid "Digest"
 msgstr "Дайджест"
 
-#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:400
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:417
 msgid "Check:"
 msgstr "Сравнить:"
 
-#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:458
-#: src/ui/window.ui:478
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:475
+#: src/ui/window.ui:495
 msgid "Paste digest from clipboard"
 msgstr "Вставить дайджест из буфера обмена"
 
-#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:496
-#: src/ui/window.ui:523
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:513
+#: src/ui/window.ui:540
 msgid "HMAC Key:"
 msgstr "Ключ HMAC:"
 
-#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:854
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:853
 msgid "_Stop"
 msgstr ""
 
-#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:815
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:814
 msgid "_Hash"
 msgstr ""
 
-#: src/gui.c:349
+#: src/gui.c:312
 msgid "Discarding invalid characters from digest"
 msgstr ""
 
-#: src/hash.c:210
+#: src/hash.c:243
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Неизвестное имя хеш функции \"%s\""
@@ -279,7 +279,7 @@ msgstr ""
 msgid "_About"
 msgstr ""
 
-#: src/ui/window.ui:303 src/ui/window.ui:715
+#: src/ui/window.ui:303 src/ui/window.ui:726
 msgid "File"
 msgstr "Файл"
 
@@ -291,31 +291,31 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-#: src/ui/window.ui:374
+#: src/ui/window.ui:391
 msgid "File:"
 msgstr "Файл:"
 
-#: src/ui/window.ui:387
+#: src/ui/window.ui:404
 msgid "Text:"
 msgstr "Текст:"
 
-#: src/ui/window.ui:899
+#: src/ui/window.ui:897
 msgid "Preferences"
 msgstr ""
 
-#: src/ui/window.ui:917
+#: src/ui/window.ui:915
 msgid "_Close"
 msgstr ""
 
-#: src/ui/window.ui:952
+#: src/ui/window.ui:950
 msgid "Hash Functions"
 msgstr "Хеш-функции"
 
-#: src/ui/window.ui:983
+#: src/ui/window.ui:981
 msgid "MAC Functions"
 msgstr "MAC-функции"
 
-#: src/ui/window.ui:1005
+#: src/ui/window.ui:1003
 msgid "Digest Format:"
 msgstr "Формат дайджеста:"
 

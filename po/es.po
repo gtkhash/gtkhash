@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-16 18:14+0100\n"
+"POT-Creation-Date: 2026-11-20 02:04+0100\n"
 "PO-Revision-Date: 2026-11-04 17:52+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/gtkhash/translations/es/>\n"
@@ -85,13 +85,13 @@ msgstr "GtkHash para Thunar"
 msgid "Open Digest File"
 msgstr "Abrir un archivo de resúmenes"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:232
-#: src/callbacks.c:238
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:233
+#: src/callbacks.c:239
 msgid "_Open"
 msgstr "_Abrir"
 
 #: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
-#: src/callbacks.c:125 src/callbacks.c:232 src/callbacks.c:237
+#: src/callbacks.c:125 src/callbacks.c:233 src/callbacks.c:238
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -119,25 +119,25 @@ msgstr "Una herramienta de escritorio para calcular resúmenes de mensajes o sum
 msgid "translator-credits"
 msgstr "Toni Estevez <toni.estevez@gmail.com>"
 
-#: src/callbacks.c:225
+#: src/callbacks.c:226
 msgid "Select Files"
 msgstr "Seleccionar archivos"
 
-#: src/callbacks.c:480 src/extensions/common/properties.c:239
+#: src/callbacks.c:493 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Mostrar la clave HMAC"
 
-#: src/check.c:402
+#: src/check.c:383
+#, c-format
+msgid "%s: No valid lines found"
+msgstr ""
+
+#: src/check.c:386
 #, c-format
 msgid "%s: Ignored %lu invalid line"
 msgid_plural "%s: Ignored %lu invalid lines"
 msgstr[0] ""
 msgstr[1] ""
-
-#: src/check.c:408
-#, c-format
-msgid "%s: No valid lines found"
-msgstr ""
 
 #: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
@@ -155,33 +155,33 @@ msgstr "Función resumen"
 msgid "Digest"
 msgstr "Digitación"
 
-#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:400
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:417
 msgid "Check:"
 msgstr "Comprobar:"
 
-#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:458
-#: src/ui/window.ui:478
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:475
+#: src/ui/window.ui:495
 msgid "Paste digest from clipboard"
 msgstr "Pegar el resumen del portapapeles"
 
-#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:496
-#: src/ui/window.ui:523
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:513
+#: src/ui/window.ui:540
 msgid "HMAC Key:"
 msgstr "Clave HMAC:"
 
-#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:854
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:853
 msgid "_Stop"
 msgstr "Detener"
 
-#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:815
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:814
 msgid "_Hash"
 msgstr "Resumen"
 
-#: src/gui.c:349
+#: src/gui.c:312
 msgid "Discarding invalid characters from digest"
 msgstr "Descartando caracteres no válidos del resumen"
 
-#: src/hash.c:210
+#: src/hash.c:243
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "El nombre de la función resumen «%s» es desconocido"
@@ -278,7 +278,7 @@ msgstr "_Preferencias"
 msgid "_About"
 msgstr "_Acerca"
 
-#: src/ui/window.ui:303 src/ui/window.ui:715
+#: src/ui/window.ui:303 src/ui/window.ui:726
 msgid "File"
 msgstr "Archivo"
 
@@ -290,31 +290,31 @@ msgstr "Lista de archivos"
 msgid "Text"
 msgstr "Texto"
 
-#: src/ui/window.ui:374
+#: src/ui/window.ui:391
 msgid "File:"
 msgstr "Archivo:"
 
-#: src/ui/window.ui:387
+#: src/ui/window.ui:404
 msgid "Text:"
 msgstr "Texto:"
 
-#: src/ui/window.ui:899
+#: src/ui/window.ui:897
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: src/ui/window.ui:917
+#: src/ui/window.ui:915
 msgid "_Close"
 msgstr "_Cerrar"
 
-#: src/ui/window.ui:952
+#: src/ui/window.ui:950
 msgid "Hash Functions"
 msgstr "Funciones resumen"
 
-#: src/ui/window.ui:983
+#: src/ui/window.ui:981
 msgid "MAC Functions"
 msgstr "Funciones MAC"
 
-#: src/ui/window.ui:1005
+#: src/ui/window.ui:1003
 msgid "Digest Format:"
 msgstr "Formato del resumen:"
 

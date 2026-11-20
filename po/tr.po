@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-16 18:14+0100\n"
+"POT-Creation-Date: 2026-11-20 02:04+0100\n"
 "PO-Revision-Date: 2026-11-14 09:51+0000\n"
 "Last-Translator: Oğuz Ersen <ersen@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/gtkhash/translations/tr/>\n"
@@ -85,13 +85,13 @@ msgstr "Thunar için GtkHash"
 msgid "Open Digest File"
 msgstr "Özet Dosyasını Aç"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:232
-#: src/callbacks.c:238
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:233
+#: src/callbacks.c:239
 msgid "_Open"
 msgstr "_Aç"
 
 #: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
-#: src/callbacks.c:125 src/callbacks.c:232 src/callbacks.c:237
+#: src/callbacks.c:125 src/callbacks.c:233 src/callbacks.c:238
 msgid "_Cancel"
 msgstr "İ_ptal"
 
@@ -123,25 +123,25 @@ msgstr ""
 "Serdar Sağlam <teknomobil@yandex.com>\n"
 "Oğuz Ersen <oguz@ersen.moe>"
 
-#: src/callbacks.c:225
+#: src/callbacks.c:226
 msgid "Select Files"
 msgstr "Dosyaları Seç"
 
-#: src/callbacks.c:480 src/extensions/common/properties.c:239
+#: src/callbacks.c:493 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "HMAC Anahtarını _Göster"
 
-#: src/check.c:402
+#: src/check.c:383
+#, c-format
+msgid "%s: No valid lines found"
+msgstr "%s: Geçersiz satır bulunmadı"
+
+#: src/check.c:386
 #, c-format
 msgid "%s: Ignored %lu invalid line"
 msgid_plural "%s: Ignored %lu invalid lines"
 msgstr[0] "%s: %lu geçersiz satır yok sayıldı"
 msgstr[1] "%s: %lu geçersiz satır yok sayıldı"
-
-#: src/check.c:408
-#, c-format
-msgid "%s: No valid lines found"
-msgstr "%s: Geçersiz satır bulunmadı"
 
 #: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
@@ -159,33 +159,33 @@ msgstr "Hash İşlevi"
 msgid "Digest"
 msgstr "Özet"
 
-#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:400
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:417
 msgid "Check:"
 msgstr "Kontrol:"
 
-#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:458
-#: src/ui/window.ui:478
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:475
+#: src/ui/window.ui:495
 msgid "Paste digest from clipboard"
 msgstr "Panodaki özeti yapıştır"
 
-#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:496
-#: src/ui/window.ui:523
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:513
+#: src/ui/window.ui:540
 msgid "HMAC Key:"
 msgstr "HMAC Anahtarı:"
 
-#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:854
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:853
 msgid "_Stop"
 msgstr "_Durdur"
 
-#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:815
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:814
 msgid "_Hash"
 msgstr "_Hash"
 
-#: src/gui.c:349
+#: src/gui.c:312
 msgid "Discarding invalid characters from digest"
 msgstr "Özet içinden geçersiz karakterler ayıklanıyor"
 
-#: src/hash.c:210
+#: src/hash.c:243
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Bilinmeyen Hash İşlevi adı \"%s\""
@@ -282,7 +282,7 @@ msgstr "_Tercihler"
 msgid "_About"
 msgstr "_Hakkında"
 
-#: src/ui/window.ui:303 src/ui/window.ui:715
+#: src/ui/window.ui:303 src/ui/window.ui:726
 msgid "File"
 msgstr "Dosya"
 
@@ -294,31 +294,31 @@ msgstr "Dosya Listesi"
 msgid "Text"
 msgstr "Metin"
 
-#: src/ui/window.ui:374
+#: src/ui/window.ui:391
 msgid "File:"
 msgstr "Dosya:"
 
-#: src/ui/window.ui:387
+#: src/ui/window.ui:404
 msgid "Text:"
 msgstr "Metin:"
 
-#: src/ui/window.ui:899
+#: src/ui/window.ui:897
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: src/ui/window.ui:917
+#: src/ui/window.ui:915
 msgid "_Close"
 msgstr "_Kapat"
 
-#: src/ui/window.ui:952
+#: src/ui/window.ui:950
 msgid "Hash Functions"
 msgstr "Hash İşlevleri"
 
-#: src/ui/window.ui:983
+#: src/ui/window.ui:981
 msgid "MAC Functions"
 msgstr "MAC İşlevleri"
 
-#: src/ui/window.ui:1005
+#: src/ui/window.ui:1003
 msgid "Digest Format:"
 msgstr "Özet Biçimi:"
 

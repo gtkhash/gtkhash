@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-16 18:14+0100\n"
+"POT-Creation-Date: 2026-11-20 02:04+0100\n"
 "PO-Revision-Date: 2026-11-16 13:59+0000\n"
 "Last-Translator: Pavel Borecki <pavelbo@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/gtkhash/translations/cs/>\n"
@@ -81,13 +81,13 @@ msgstr "GtkHash pro Thunar"
 msgid "Open Digest File"
 msgstr "Otevřít soubor s digestem"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:232
-#: src/callbacks.c:238
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:233
+#: src/callbacks.c:239
 msgid "_Open"
 msgstr "_Otevřít"
 
 #: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
-#: src/callbacks.c:125 src/callbacks.c:232 src/callbacks.c:237
+#: src/callbacks.c:125 src/callbacks.c:233 src/callbacks.c:238
 msgid "_Cancel"
 msgstr "_Storno"
 
@@ -119,26 +119,26 @@ msgstr ""
 "Martin \"sachy\" Šácha https://launchpad.net/~sachy\n"
 "Zbyněk Schwarz https://launchpad.net/~tsbook"
 
-#: src/callbacks.c:225
+#: src/callbacks.c:226
 msgid "Select Files"
 msgstr "Vyberte soubory"
 
-#: src/callbacks.c:480 src/extensions/common/properties.c:239
+#: src/callbacks.c:493 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Zobrazit HMAC klíč"
 
-#: src/check.c:402
+#: src/check.c:383
+#, c-format
+msgid "%s: No valid lines found"
+msgstr "%s: Nenalezeny žádné platné řádky"
+
+#: src/check.c:386
 #, c-format
 msgid "%s: Ignored %lu invalid line"
 msgid_plural "%s: Ignored %lu invalid lines"
 msgstr[0] "%s: ignorován %lu neplatný řádek"
 msgstr[1] "%s: ignorovány %lu neplatné řádky"
 msgstr[2] "%s: ignorováno %lu neplatných řádků"
-
-#: src/check.c:408
-#, c-format
-msgid "%s: No valid lines found"
-msgstr "%s: Nenalezeny žádné platné řádky"
 
 #: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
@@ -156,33 +156,33 @@ msgstr "Funkce pro vytváření otisku"
 msgid "Digest"
 msgstr "Digest"
 
-#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:400
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:417
 msgid "Check:"
 msgstr "Kontrola:"
 
-#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:458
-#: src/ui/window.ui:478
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:475
+#: src/ui/window.ui:495
 msgid "Paste digest from clipboard"
 msgstr "Vložit digest ze schránky"
 
-#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:496
-#: src/ui/window.ui:523
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:513
+#: src/ui/window.ui:540
 msgid "HMAC Key:"
 msgstr "HMAC klíč:"
 
-#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:854
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:853
 msgid "_Stop"
 msgstr "Za_stavit"
 
-#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:815
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:814
 msgid "_Hash"
 msgstr "_Otisk"
 
-#: src/gui.c:349
+#: src/gui.c:312
 msgid "Discarding invalid characters from digest"
 msgstr "Zahazování neplatných znaků z výtahu (digest)"
 
-#: src/hash.c:210
+#: src/hash.c:243
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Neznámá funkce pro vytváření otisku „%s“"
@@ -279,7 +279,7 @@ msgstr "_Předvolby"
 msgid "_About"
 msgstr "O _aplikaci"
 
-#: src/ui/window.ui:303 src/ui/window.ui:715
+#: src/ui/window.ui:303 src/ui/window.ui:726
 msgid "File"
 msgstr "Soubor"
 
@@ -291,31 +291,31 @@ msgstr "Seznam souborů"
 msgid "Text"
 msgstr "Text"
 
-#: src/ui/window.ui:374
+#: src/ui/window.ui:391
 msgid "File:"
 msgstr "Soubor:"
 
-#: src/ui/window.ui:387
+#: src/ui/window.ui:404
 msgid "Text:"
 msgstr "Text:"
 
-#: src/ui/window.ui:899
+#: src/ui/window.ui:897
 msgid "Preferences"
 msgstr "Předvolby"
 
-#: src/ui/window.ui:917
+#: src/ui/window.ui:915
 msgid "_Close"
 msgstr "_Zavřít"
 
-#: src/ui/window.ui:952
+#: src/ui/window.ui:950
 msgid "Hash Functions"
 msgstr "Funkce pro vytváření otisku"
 
-#: src/ui/window.ui:983
+#: src/ui/window.ui:981
 msgid "MAC Functions"
 msgstr "MAC funkce"
 
-#: src/ui/window.ui:1005
+#: src/ui/window.ui:1003
 msgid "Digest Format:"
 msgstr "Formát digestu:"
 
