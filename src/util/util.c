@@ -24,9 +24,9 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <glib.h>
+#include <glib/gi18n.h>
 
 #include "util.h"
-#include "../main.h"
 
 #define PROGRESS_TEXT_MIN_ELAPSED 0.25
 

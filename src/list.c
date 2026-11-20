@@ -28,7 +28,6 @@
 #include <gtk/gtk.h>
 
 #include "list.h"
-#include "main.h"
 #include "hash.h"
 #include "gui.h"
 #include "hash/digest-format.h"

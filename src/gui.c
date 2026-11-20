@@ -25,11 +25,11 @@
 #include <stdbool.h>
 #include <string.h>
 #include <errno.h>
+#include <glib/gi18n.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 
 #include "gui.h"
-#include "main.h"
 #include "callbacks.h"
 #include "hash.h"
 #include "list.h"

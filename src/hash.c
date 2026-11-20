@@ -24,10 +24,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
 #include "hash.h"
-#include "main.h"
 #include "gui.h"
 #include "list.h"
 #include "hash/hash-func.h"

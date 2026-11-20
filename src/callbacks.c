@@ -24,11 +24,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 
 #include "callbacks.h"
-#include "main.h"
 #include "gui.h"
 #include "hash.h"
 #include "prefs.h"
