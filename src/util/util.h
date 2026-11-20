@@ -21,11 +21,9 @@
 #define GTKHASH_UTIL_UTIL_H
 
 #include <glib.h>
-#include <gio/gio.h>
 
 char *gtkhash_format_progress(goffset file_size, goffset total_read, double elapsed);
 char *gtkhash_format_progress_unknown(goffset total_read, double elapsed);
 char *gtkhash_filter_digest_chars(const char *text, const size_t len);
-char *gtkhash_file_error(GFile *file, const GError *error);
 
 #endif

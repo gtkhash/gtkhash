@@ -34,7 +34,6 @@
 #include "uri-digest.h"
 #include "hash/hash-func.h"
 #include "hash/hash-file.h"
-#include "util/util.h"
 
 #define CHECK_LINE_MIN 10
 #define CHECK_LINE_MAX 8192
@@ -263,9 +262,8 @@ static GSList *check_file_add_uri(GSList *ud_list, GFile *file, const char * con
 			if (target_uri) {
 				target = g_file_new_for_uri(target_uri);
 			} else {
-				char *pname = g_file_get_parse_name(file);
-				g_message("%s: %s", pname, error->message);
-				g_free(pname);
+				gtkhash_hash_file_prefix_error(file, error);
+				gui_show_message(error->message, GTK_MESSAGE_WARNING);
 			}
 			g_clear_error(&error);
 			g_free(target_uri);
@@ -337,7 +335,8 @@ GSList *check_file_load(GSList *ud_list, GFile *file, GPtrArray *warnings)
 	GFileInputStream *fis = g_file_read(file, NULL, &error);
 
 	if (!fis) {
-		g_ptr_array_add(warnings, gtkhash_file_error(file, error));
+		gtkhash_hash_file_prefix_error(file, error);
+		g_ptr_array_add(warnings, g_strdup(error->message));
 		g_clear_error(&error);
 		return ud_list;
 	}
@@ -374,7 +373,8 @@ GSList *check_file_load(GSList *ud_list, GFile *file, GPtrArray *warnings)
 	}
 
 	if (error) {
-		g_ptr_array_add(warnings, gtkhash_file_error(file, error));
+		gtkhash_hash_file_prefix_error(file, error);
+		g_ptr_array_add(warnings, g_strdup(error->message));
 		g_clear_error(&error);
 	} else {
 		check_file_enable_hinted_hash_func(file);

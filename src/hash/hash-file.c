@@ -295,7 +295,7 @@ static goffset gtkhash_hash_file_get_block_device_size(GFileInputStream *stream,
 	GSeekable *seekable = G_SEEKABLE(stream);
 
 	if (!g_seekable_can_seek(seekable)) {
-		g_set_error(error, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED, "stream is not seekable");
+		g_set_error_literal(error, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED, "Stream is not seekable");
 		return -1;
 	}
 
@@ -351,14 +351,11 @@ static void gtkhash_hash_file_get_size_finish(G_GNUC_UNUSED GObject *source, GAs
 				gtkhash_hash_file_add_report_source(data);
 				break;
 
-			default: {
-				char *pname = g_file_get_parse_name(data->file);
-				g_set_error(&data->error, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED,
-					"%s: %s", pname, g_strerror(ENOTSUP));
-				g_free(pname);
+			default:
+				g_set_error(&data->error, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED, "%s",
+					g_strerror(ENOTSUP));
 				data->state = HASH_FILE_STATE_CLOSE;
 				break;
-			}
 		}
 
 		g_object_unref(info);
@@ -496,6 +493,9 @@ static void gtkhash_hash_file_close(struct hash_file_s *data)
 
 static void gtkhash_hash_file_finish(struct hash_file_s *data)
 {
+	if (data->error)
+		gtkhash_hash_file_prefix_error(data->file, data->error);
+
 	if (data->error || g_cancellable_is_cancelled(data->cancellable)) {
 		for (int i = 0; i < HASH_FUNCS_N; i++)
 			if (data->funcs[i].enabled)
@@ -662,4 +662,18 @@ void gtkhash_hash_file_free(struct hash_file_s *data)
 	g_mutex_clear(&data->mtx);
 
 	g_free(data);
+}
+
+void gtkhash_hash_file_prefix_error(GFile *file, GError *error)
+{
+	g_assert(file);
+	g_assert(error);
+
+	char *pname = g_file_get_parse_name(file);
+
+	// Native file errors usually contain the file path
+	if (!g_strstr_len(error->message, -1, pname))
+		g_prefix_error(&error, "%s: ", pname);
+
+	g_free(pname);
 }
