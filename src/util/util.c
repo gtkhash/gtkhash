@@ -24,7 +24,6 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <glib.h>
-#include <gio/gio.h>
 
 #include "util.h"
 #include "../main.h"
@@ -128,23 +127,4 @@ char *gtkhash_filter_digest_chars(const char *text, const size_t len)
 	filtered[filtered_len] = '\0';
 
 	return filtered;
-}
-
-char *gtkhash_file_error(GFile *file, const GError *error)
-{
-	g_assert(file);
-	g_assert(error);
-
-	char *pname = g_file_get_parse_name(file);
-	char *message;
-
-	// Native file errors usually contain the file path
-	if (g_strstr_len(error->message, -1, pname))
-		message = g_strdup(error->message);
-	else
-		message = g_strdup_printf("%s: %s", pname, error->message);
-
-	g_free(pname);
-
-	return message;
 }

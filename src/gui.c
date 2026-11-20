@@ -832,6 +832,8 @@ void gui_show_message(const char * const message, const GtkMessageType type)
 {
 	g_assert(message);
 
+	g_message("%s", message);
+
 	GList *infobars = gtk_container_get_children(GTK_CONTAINER(gui.box_messages));
 	GtkInfoBar *infobar_old = NULL;
 	GtkInfoBar *infobar_new = NULL;
