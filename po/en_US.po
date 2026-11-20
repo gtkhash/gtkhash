@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-16 18:14+0100\n"
+"POT-Creation-Date: 2026-11-20 02:04+0100\n"
 "PO-Revision-Date: 2026-11-13 19:32+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/gtkhash/translations/en_US/>\n"
@@ -77,13 +77,13 @@ msgstr "GtkHash for Thunar"
 msgid "Open Digest File"
 msgstr "Open Digest File"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:232
-#: src/callbacks.c:238
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:233
+#: src/callbacks.c:239
 msgid "_Open"
 msgstr "_Open"
 
 #: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
-#: src/callbacks.c:125 src/callbacks.c:232 src/callbacks.c:237
+#: src/callbacks.c:125 src/callbacks.c:233 src/callbacks.c:238
 msgid "_Cancel"
 msgstr "_Cancel"
 
@@ -111,25 +111,25 @@ msgstr "A desktop utility for computing message digests or checksums"
 msgid "translator-credits"
 msgstr "Tristan Heaven"
 
-#: src/callbacks.c:225
+#: src/callbacks.c:226
 msgid "Select Files"
 msgstr "Select Files"
 
-#: src/callbacks.c:480 src/extensions/common/properties.c:239
+#: src/callbacks.c:493 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Show HMAC Key"
 
-#: src/check.c:402
+#: src/check.c:383
+#, c-format
+msgid "%s: No valid lines found"
+msgstr "%s: No valid lines found"
+
+#: src/check.c:386
 #, c-format
 msgid "%s: Ignored %lu invalid line"
 msgid_plural "%s: Ignored %lu invalid lines"
 msgstr[0] "%s: Ignored %lu invalid line"
 msgstr[1] "%s: Ignored %lu invalid lines"
-
-#: src/check.c:408
-#, c-format
-msgid "%s: No valid lines found"
-msgstr "%s: No valid lines found"
 
 #: src/extensions/common/ui/properties.ui:12
 msgid "_Copy Digest"
@@ -147,33 +147,33 @@ msgstr "Hash Function"
 msgid "Digest"
 msgstr "Digest"
 
-#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:400
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:417
 msgid "Check:"
 msgstr "Check:"
 
-#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:458
-#: src/ui/window.ui:478
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:475
+#: src/ui/window.ui:495
 msgid "Paste digest from clipboard"
 msgstr "Paste digest from clipboard"
 
-#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:496
-#: src/ui/window.ui:523
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:513
+#: src/ui/window.ui:540
 msgid "HMAC Key:"
 msgstr "HMAC Key:"
 
-#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:854
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:853
 msgid "_Stop"
 msgstr "_Stop"
 
-#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:815
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:814
 msgid "_Hash"
 msgstr "_Hash"
 
-#: src/gui.c:349
+#: src/gui.c:312
 msgid "Discarding invalid characters from digest"
 msgstr "Discarding invalid characters from digest"
 
-#: src/hash.c:210
+#: src/hash.c:243
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Unknown Hash Function name \"%s\""
@@ -270,7 +270,7 @@ msgstr "_Preferences"
 msgid "_About"
 msgstr "_About"
 
-#: src/ui/window.ui:303 src/ui/window.ui:715
+#: src/ui/window.ui:303 src/ui/window.ui:726
 msgid "File"
 msgstr "File"
 
@@ -282,31 +282,31 @@ msgstr "File List"
 msgid "Text"
 msgstr "Text"
 
-#: src/ui/window.ui:374
+#: src/ui/window.ui:391
 msgid "File:"
 msgstr "File:"
 
-#: src/ui/window.ui:387
+#: src/ui/window.ui:404
 msgid "Text:"
 msgstr "Text:"
 
-#: src/ui/window.ui:899
+#: src/ui/window.ui:897
 msgid "Preferences"
 msgstr "Preferences"
 
-#: src/ui/window.ui:917
+#: src/ui/window.ui:915
 msgid "_Close"
 msgstr "_Close"
 
-#: src/ui/window.ui:952
+#: src/ui/window.ui:950
 msgid "Hash Functions"
 msgstr "Hash Functions"
 
-#: src/ui/window.ui:983
+#: src/ui/window.ui:981
 msgid "MAC Functions"
 msgstr "MAC Functions"
 
-#: src/ui/window.ui:1005
+#: src/ui/window.ui:1003
 msgid "Digest Format:"
 msgstr "Digest Format:"
 
