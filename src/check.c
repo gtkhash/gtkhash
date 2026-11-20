@@ -24,7 +24,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <errno.h>
 #include <gtk/gtk.h>
 
 #include "check.h"
@@ -329,33 +328,16 @@ static GSList *check_file_add_uri(GSList *ud_list, GFile *file, const char * con
 	return ud_list;
 }
 
-GSList *check_file_load(GSList *ud_list, GFile *file)
+GSList *check_file_load(GSList *ud_list, GFile *file, GPtrArray *warnings)
 {
 	g_assert(file);
+	g_assert(warnings);
 
 	GError *error = NULL;
-	GFileInfo *info = gtkhash_hash_file_query_info(file, NULL, &error);
-
-	if (!info) {
-		gtkhash_file_error(file, error);
-		g_clear_error(&error);
-		return ud_list;
-	}
-
-	const GFileType type = g_file_info_get_file_type(info);
-	g_object_unref(info);
-
-	if (type != G_FILE_TYPE_REGULAR) {
-		char *pname = g_file_get_parse_name(file);
-		g_message("%s: %s", pname, g_strerror(ENOTSUP));
-		g_free(pname);
-		return ud_list;
-	}
-
 	GFileInputStream *fis = g_file_read(file, NULL, &error);
 
 	if (!fis) {
-		gtkhash_file_error(file, error);
+		g_ptr_array_add(warnings, gtkhash_file_error(file, error));
 		g_clear_error(&error);
 		return ud_list;
 	}
@@ -392,20 +374,20 @@ GSList *check_file_load(GSList *ud_list, GFile *file)
 	}
 
 	if (error) {
-		g_message("%s: %s", pname, error->message);
+		g_ptr_array_add(warnings, gtkhash_file_error(file, error));
 		g_clear_error(&error);
-	} else
+	} else {
 		check_file_enable_hinted_hash_func(file);
 
-	if (invalid_n) {
-		g_message(g_dngettext(GETTEXT_PACKAGE,
-			"%s: Ignored %lu invalid line",
-			"%s: Ignored %lu invalid lines", invalid_n),
-			pname, invalid_n);
+		if (!valid_n)
+			g_ptr_array_add(warnings, g_strdup_printf(_("%s: No valid lines found"), pname));
+		else if (invalid_n) {
+			g_ptr_array_add(warnings, g_strdup_printf(g_dngettext(GETTEXT_PACKAGE,
+				"%s: Ignored %lu invalid line",
+				"%s: Ignored %lu invalid lines", invalid_n),
+				pname, invalid_n));
+		}
 	}
-
-	if (!valid_n)
-		g_message(_("%s: No valid lines found"), pname);
 
 	g_free(pname);
 	g_object_unref(dis);

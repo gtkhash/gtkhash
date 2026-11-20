@@ -161,32 +161,30 @@ void opts_postinit(void)
 		gui_add_check(opts.check);
 
 	GSList *ud_list = NULL;
+	GPtrArray *messages = g_ptr_array_new_with_free_func(g_free);
 
 	if (opts.check_files) {
 		for (int i = 0; opts.check_files[i]; i++) {
 			GFile *file = g_file_new_for_commandline_arg(opts.check_files[i]);
-			ud_list = check_file_load(ud_list, file);
+			ud_list = check_file_load(ud_list, file, messages);
 			g_object_unref(file);
 		}
 	}
 
 	if (opts.files) {
 		for (int i = 0; opts.files[i]; i++) {
-			struct uri_digest_s *ud =
-				uri_digest_new(filename_arg_to_uri(opts.files[i]), NULL);
+			struct uri_digest_s *ud = uri_digest_new(filename_arg_to_uri(opts.files[i]), NULL);
 			ud_list = g_slist_prepend(ud_list, ud);
 		}
 	}
 
-	bool files_added = false;
+	ud_list = g_slist_reverse(ud_list);
+	const unsigned int added_n = gui_add_ud_list(ud_list, GUI_VIEW_INVALID, messages);
 
-	if (ud_list) {
-		ud_list = g_slist_reverse(ud_list);
-		files_added = gui_add_ud_list(ud_list, GUI_VIEW_INVALID);
-		uri_digest_list_free_full(ud_list);
-	}
+	g_ptr_array_free(messages, true);
+	uri_digest_list_free_full(ud_list);
 
-	if (files_added) {
+	if (added_n > 0) {
 		gui_update();
 		gui_start_hash();
 	} else if (opts.text) {

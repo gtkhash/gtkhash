@@ -41,7 +41,10 @@
 #include "hash/hash-func.h"
 #include "util/util.h"
 
-#define GUI_XML_RESOURCE "/org/gtkhash/window.ui"
+#define GUI_RESOURCE_INFOBAR "/org/gtkhash/infobar.ui"
+#define GUI_RESOURCE_WINDOW "/org/gtkhash/window.ui"
+
+#define GUI_MESSAGES_MAX 5
 
 struct gui_s gui = {
 	.view = GUI_VIEW_INVALID,
@@ -85,6 +88,10 @@ static void gui_init_objects(GtkBuilder *builder)
 		"togglebutton_view_file_list"));
 	gui.togglebutton_view_text = GTK_TOGGLE_BUTTON(gui_get_object(builder,
 		"togglebutton_view_text"));
+
+	// Messages
+	gui.box_messages = GTK_BOX(gui_get_object(builder,
+		"box_messages"));
 
 	// Containers
 	gui.vbox_single = GTK_BOX(gui_get_object(builder,
@@ -146,8 +153,6 @@ static void gui_init_objects(GtkBuilder *builder)
 		"menuitem_treeview_copy"));
 
 	// Buttons
-	gui.hseparator_buttons = GTK_SEPARATOR(gui_get_object(builder,
-		"hseparator_buttons"));
 	gui.button_hash = GTK_BUTTON(gui_get_object(builder,
 		"button_hash"));
 	gui.button_stop = GTK_BUTTON(gui_get_object(builder,
@@ -240,10 +245,9 @@ void gui_init(void)
 	gtk_init(NULL, NULL);
 
 	resources_register_resource();
-	GtkBuilder *builder = gtk_builder_new_from_resource(GUI_XML_RESOURCE);
+	GtkBuilder *builder = gtk_builder_new_from_resource(GUI_RESOURCE_WINDOW);
 	gui_init_objects(builder);
 	g_object_unref(builder);
-	resources_unregister_resource();
 
 	callbacks_actions_init();
 
@@ -253,90 +257,49 @@ void gui_init(void)
 	gui_set_state(GUI_STATE_IDLE);
 }
 
-static bool gui_try_uri(const char * const uri)
+unsigned int gui_add_ud_list(GSList *ud_list, const enum gui_view_e view, GPtrArray *warnings)
 {
-	g_assert(uri);
+	g_assert(ud_list || warnings);
 
-	bool readable = false;
-	GFile *file = g_file_new_for_uri(uri);
-
-	GError *error = NULL;
-	GFileInfo *info = gtkhash_hash_file_query_info(file, NULL, &error);
-
-	if (!info) {
-		gtkhash_file_error(file, error);
-		g_clear_error(&error);
-	} else {
-		if (!gtkhash_hash_file_info_is_supported(info)) {
-			const GFileType type = g_file_info_get_file_type(info);
-			char *pname = g_file_get_parse_name(file);
-			if (type == G_FILE_TYPE_DIRECTORY) // TODO
-				g_message("%s: %s", pname, g_strerror(EISDIR));
-			else
-				g_message("%s: %s", pname, g_strerror(ENOTSUP));
-			g_free(pname);
-		} else {
-			GFileInputStream *fis = g_file_read(file, NULL, &error);
-			if (fis) {
-				g_object_unref(fis);
-				readable = true;
-			} else {
-				gtkhash_file_error(file, error);
-				g_clear_error(&error);
-			}
-		}
-
-		g_object_unref(info);
+	if (!ud_list) {
+		for (unsigned int i = 0; warnings && (i < warnings->len); i++)
+			gui_show_message(g_ptr_array_index(warnings, i), GTK_MESSAGE_WARNING);
+		return 0;
 	}
 
-	g_object_unref(file);
+	enum gui_view_e target = view;
+	if (!GUI_VIEW_IS_VALID(target))
+		target = (g_slist_length(ud_list) > 1) ? GUI_VIEW_FILE_LIST : GUI_VIEW_FILE;
 
-	return readable;
-}
+	unsigned int added_n = 0;
 
-unsigned int gui_add_ud_list(GSList *ud_list, const enum gui_view_e view)
-{
-	g_assert(ud_list);
+	if (target == GUI_VIEW_FILE) {
+		struct uri_digest_s *ud = ud_list->data;
 
-	GSList *readable = NULL;
-	unsigned int readable_len = 0;
-	{
-		GSList *tmp = ud_list;
-		do {
-			struct uri_digest_s *ud = tmp->data;
-			if (!gui_try_uri(ud->uri))
-				continue;
-			readable = g_slist_prepend(readable, tmp->data);
-			readable_len++;
-		} while ((tmp = tmp->next));
-	}
-	readable = g_slist_reverse(readable);
-
-	if (!GUI_VIEW_IS_VALID(view)) {
-		if (readable_len == 1)
+		if (!GUI_VIEW_IS_VALID(view))
 			gui_set_view(GUI_VIEW_FILE);
-		else if (readable_len > 1)
-			gui_set_view(GUI_VIEW_FILE_LIST);
-	}
 
-	if (readable_len && (gui.view == GUI_VIEW_FILE)) {
-		struct uri_digest_s *ud = readable->data;
-		gtk_file_chooser_set_uri(GTK_FILE_CHOOSER(gui.filechooserbutton),
-			ud->uri);
-		if (ud->digest)
-			gtk_entry_set_text(gui.entry_check_file, ud->digest);
-	} else if (readable_len && (gui.view == GUI_VIEW_FILE_LIST)) {
-		GSList *tmp = readable;
-		do {
+		if (gtk_file_chooser_set_uri(GTK_FILE_CHOOSER(gui.filechooserbutton), ud->uri)) {
+			if (ud->digest)
+				gtk_entry_set_text(gui.entry_check_file, ud->digest);
+			added_n = 1;
+		}
+	} else {
+		if (!GUI_VIEW_IS_VALID(view))
+			gui_set_view(GUI_VIEW_FILE_LIST);
+
+		for (GSList *tmp = ud_list; tmp; tmp = tmp->next) {
 			struct uri_digest_s *ud = tmp->data;
-			list_append_row(ud->uri, ud->digest);
-		} while ((tmp = tmp->next));
+			list_append_row(ud->uri, ud->digest, NULL, NULL);
+			added_n++;
+		}
 		list_update();
 	}
 
-	g_slist_free(readable);
+	for (unsigned int i = 0; warnings && (i < warnings->len); i++)
+		gui_show_message(g_ptr_array_index(warnings, i), GTK_MESSAGE_WARNING);
 
-	return readable_len;
+	return added_n;
 }
 
 void gui_add_check(const char *check)
@@ -393,6 +356,8 @@ void gui_deinit(void)
 
 	while (gtk_events_pending())
 		gtk_main_iteration();
+
+	resources_unregister_resource();
 }
 
 void gui_set_view(const enum gui_view_e view)
@@ -599,6 +564,22 @@ static void gui_update_hmac(void)
 	gui_update_hash_func_labels(active);
 }
 
+static void gui_update_messages(void)
+{
+	GList *infobars = gtk_container_get_children(GTK_CONTAINER(gui.box_messages));
+
+	for (GList *i = infobars; i; i = i->next) {
+		GtkInfoBar *infobar = GTK_INFO_BAR(i->data);
+		const bool revealed = gtk_info_bar_get_revealed(infobar);
+		const GtkMessageType type = gtk_info_bar_get_message_type(infobar);
+
+		gtk_widget_set_visible(GTK_WIDGET(infobar), !revealed ||
+			(type == GTK_MESSAGE_WARNING) || (gui.view == GUI_VIEW_FILE));
+	}
+
+	g_list_free(infobars);
+}
+
 void gui_update(void)
 {
 	// Must call gui_set_view() before this
@@ -612,14 +593,16 @@ void gui_update(void)
 		gui_update_hmac();
 
 		if (gui.view == GUI_VIEW_FILE) {
-			gtk_widget_show(GTK_WIDGET(gui.button_add));
 			gtk_widget_hide(GTK_WIDGET(gui.button_remove));
 			gtk_widget_hide(GTK_WIDGET(gui.button_clear));
+
+			gtk_widget_show(GTK_WIDGET(gui.button_add));
 			gtk_widget_show(GTK_WIDGET(gui.box_buttons));
 		} else
 			gtk_widget_hide(GTK_WIDGET(gui.box_buttons));
 
 		gtk_widget_hide(GTK_WIDGET(gui.vbox_list));
+
 		gtk_widget_show(GTK_WIDGET(gui.vbox_single));
 	}
 
@@ -628,13 +611,12 @@ void gui_update(void)
 			gtk_widget_hide(GTK_WIDGET(gui.label_text));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_text));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_check_text));
-
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_digests_text));
+
 			gtk_widget_show(GTK_WIDGET(gui.label_file));
 			gtk_widget_show(GTK_WIDGET(gui.filechooserbutton));
 			gtk_widget_show(GTK_WIDGET(gui.entry_check_file));
 			gtk_widget_show(GTK_WIDGET(gui.vbox_digests_file));
-			gtk_widget_show(GTK_WIDGET(gui.hseparator_buttons));
 			gtk_widget_show(GTK_WIDGET(gui.button_hash));
 
 			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(gui.filechooserbutton));
@@ -650,8 +632,8 @@ void gui_update(void)
 			gtk_widget_hide(GTK_WIDGET(gui.filechooserbutton));
 			gtk_widget_hide(GTK_WIDGET(gui.entry_check_file));
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_digests_file));
-			gtk_widget_hide(GTK_WIDGET(gui.hseparator_buttons));
 			gtk_widget_hide(GTK_WIDGET(gui.button_hash));
+
 			gtk_widget_show(GTK_WIDGET(gui.label_text));
 			gtk_widget_show(GTK_WIDGET(gui.entry_text));
 			gtk_widget_show(GTK_WIDGET(gui.entry_check_text));
@@ -666,10 +648,9 @@ void gui_update(void)
 			list_update();
 
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_single));
-			gtk_widget_hide(GTK_WIDGET(gui.hseparator_buttons));
+
 			gtk_widget_show(GTK_WIDGET(gui.vbox_list));
 			gtk_widget_show(GTK_WIDGET(gui.button_hash));
-
 			gtk_widget_show(GTK_WIDGET(gui.button_add));
 			gtk_widget_show(GTK_WIDGET(gui.button_remove));
 			gtk_widget_show(GTK_WIDGET(gui.button_clear));
@@ -679,6 +660,7 @@ void gui_update(void)
 			g_assert_not_reached();
 	}
 
+	gui_update_messages();
 	gui_check_digests();
 	gui_action_save_as_set_enabled();
 }
@@ -770,15 +752,13 @@ void gui_check_digests(void)
 		const char *icon_out = NULL;
 
 		if (*str_in && gtkhash_digest_format_compare(str_in, str_out, format)) {
-			icon_out = "object-select-symbolic";
-			icon_in = "object-select-symbolic";
+			icon_out = GUI_ICON_CHECK_MATCH;
+			icon_in = GUI_ICON_CHECK_MATCH;
 		}
-		gtk_entry_set_icon_from_icon_name(entry, GTK_ENTRY_ICON_SECONDARY,
-			icon_out);
+		gtk_entry_set_icon_from_icon_name(entry, GTK_ENTRY_ICON_SECONDARY, icon_out);
 	}
 
-	gtk_entry_set_icon_from_icon_name(entry_check, GTK_ENTRY_ICON_SECONDARY,
-		icon_in);
+	gtk_entry_set_icon_from_icon_name(entry_check, GTK_ENTRY_ICON_SECONDARY, icon_in);
 }
 
 void gui_set_state(const enum gui_state_e state)
@@ -826,6 +806,86 @@ void gui_set_state(const enum gui_state_e state)
 		gtk_window_set_default(gui.window, GTK_WIDGET(gui.button_hash));
 
 	gui_action_save_as_set_enabled();
+}
+
+static void gui_message_response(GtkInfoBar *infobar, const int response, G_GNUC_UNUSED void *data)
+{
+	if (response == GTK_RESPONSE_CLOSE)
+		gtk_info_bar_set_revealed(infobar, false);
+}
+
+static GtkInfoBar *gui_message_new()
+{
+	GtkBuilder *builder = gtk_builder_new_from_resource(GUI_RESOURCE_INFOBAR);
+	GtkInfoBar *infobar = GTK_INFO_BAR(gui_get_object(builder, "infobar"));
+
+	g_object_set_data(G_OBJECT(infobar), "x-label", gui_get_object(builder, "label"));
+	g_signal_connect(infobar, "response", G_CALLBACK(gui_message_response), NULL);
+
+	gtk_container_add(GTK_CONTAINER(gui.box_messages), GTK_WIDGET(infobar));
+	g_object_unref(builder);
+
+	return infobar;
+}
+
+void gui_show_message(const char * const message, const GtkMessageType type)
+{
+	g_assert(message);
+
+	GList *infobars = gtk_container_get_children(GTK_CONTAINER(gui.box_messages));
+	GtkInfoBar *infobar_old = NULL;
+	GtkInfoBar *infobar_new = NULL;
+	unsigned int open_n = 0;
+
+	for (GList *i = infobars; i; i = i->next) {
+		GtkLabel *label = GTK_LABEL(g_object_get_data(G_OBJECT(i->data), "x-label"));
+
+		if ((gtk_info_bar_get_message_type(GTK_INFO_BAR(i->data)) == type) &&
+			(g_strcmp0(gtk_label_get_text(label), message) == 0))
+		{
+			if (gtk_info_bar_get_revealed(GTK_INFO_BAR(i->data))) {
+				// The new message is a duplicate of this one, so move it back to the top
+				gtk_box_reorder_child(GTK_BOX(gui.box_messages), GTK_WIDGET(i->data), 0);
+				g_list_free(infobars);
+				return;
+			}
+		}
+
+		if (gtk_info_bar_get_revealed(GTK_INFO_BAR(i->data))) {
+			open_n++;
+			infobar_old = GTK_INFO_BAR(i->data);
+		} else if (!infobar_new)
+			infobar_new = GTK_INFO_BAR(i->data);
+	}
+
+	g_list_free(infobars);
+
+	if (open_n >= GUI_MESSAGES_MAX)
+		gtk_info_bar_set_revealed(infobar_old, false);
+
+	if (!infobar_new)
+		infobar_new = gui_message_new();
+
+	gtk_info_bar_set_message_type(infobar_new, type);
+	gtk_label_set_text(GTK_LABEL(g_object_get_data(G_OBJECT(infobar_new), "x-label")), message);
+
+	// Move the new message to the top
+	gtk_box_reorder_child(GTK_BOX(gui.box_messages), GTK_WIDGET(infobar_new), 0);
+
+	gtk_info_bar_set_revealed(infobar_new, true);
+}
+
+void gui_clear_messages(const GtkMessageType type)
+{
+	GList *infobars = gtk_container_get_children(GTK_CONTAINER(gui.box_messages));
+
+	for (GList *i = infobars; i; i = i->next)
+		if (gtk_info_bar_get_message_type(GTK_INFO_BAR(i->data)) == type)
+			gtk_info_bar_set_revealed(GTK_INFO_BAR(i->data), false);
+
+	g_list_free(infobars);
+
+	gui_update_messages();
 }
 
 bool gui_is_maximised(void)

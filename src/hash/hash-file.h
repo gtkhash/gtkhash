@@ -30,7 +30,6 @@
 
 struct hash_file_s;
 
-GFileInfo *gtkhash_hash_file_query_info(GFile *file, GCancellable *cancellable, GError **error);
 bool gtkhash_hash_file_info_is_supported(GFileInfo *info);
 bool gtkhash_hash_file_type_is_supported(GFileType file_type, const char *mime_type,
 	const char *uri);
@@ -53,6 +52,9 @@ void gtkhash_hash_file_report_unknown_cb(void *data, goffset total_read, GTimer 
 
 // Called after file hashing is completed, with digests from all enabled hash functions
 void gtkhash_hash_file_finish_cb(void *data, const char * const *digests);
+
+// Called after file hashing has failed
+void gtkhash_hash_file_error_cb(void *data, const GError *error);
 
 // Called after file hashing is cancelled
 void gtkhash_hash_file_stop_cb(void *data);

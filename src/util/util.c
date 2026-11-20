@@ -130,17 +130,21 @@ char *gtkhash_filter_digest_chars(const char *text, const size_t len)
 	return filtered;
 }
 
-void gtkhash_file_error(GFile *file, const GError *error)
+char *gtkhash_file_error(GFile *file, const GError *error)
 {
 	g_assert(file);
 	g_assert(error);
 
-	if (g_file_is_native(file)) {
-		// message contains the file path
-		g_message("%s", error->message);
-	} else {
-		char *uri = g_file_get_uri(file);
-		g_message("%s: %s", uri, error->message);
-		g_free(uri);
-	}
+	char *pname = g_file_get_parse_name(file);
+	char *message;
+
+	// Native file errors usually contain the file path
+	if (g_strstr_len(error->message, -1, pname))
+		message = g_strdup(error->message);
+	else
+		message = g_strdup_printf("%s: %s", pname, error->message);
+
+	g_free(pname);
+
+	return message;
 }
