@@ -24,10 +24,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
 #include "opts.h"
-#include "main.h"
 #include "hash.h"
 #include "gui.h"
 #include "list.h"

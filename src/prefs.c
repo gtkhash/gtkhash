@@ -27,7 +27,6 @@
 #include <gtk/gtk.h>
 
 #include "prefs.h"
-#include "main.h"
 #include "hash.h"
 #include "gui.h"
 #include "hash/digest-format.h"
