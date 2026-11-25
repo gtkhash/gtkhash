@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-25 19:11+0100\n"
-"PO-Revision-Date: 2026-11-13 19:32+0000\n"
+"POT-Creation-Date: 2026-11-25 23:06+0100\n"
+"PO-Revision-Date: 2026-11-25 22:12+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/gtkhash/translations/en_GB/>\n"
 "Language: en_GB\n"
@@ -80,13 +80,13 @@ msgstr "GtkHash for Thunar"
 msgid "Open Digest File"
 msgstr "Open Digest File"
 
-#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:233
-#: src/callbacks.c:239
+#: src/callbacks.c:54 src/callbacks.c:60 src/callbacks.c:227
+#: src/callbacks.c:233
 msgid "_Open"
 msgstr "_Open"
 
 #: src/callbacks.c:54 src/callbacks.c:59 src/callbacks.c:120
-#: src/callbacks.c:125 src/callbacks.c:233 src/callbacks.c:238
+#: src/callbacks.c:125 src/callbacks.c:227 src/callbacks.c:232
 msgid "_Cancel"
 msgstr "_Cancel"
 
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Select Files"
 msgstr "Select Files"
 
-#: src/callbacks.c:493 src/extensions/common/properties.c:239
+#: src/callbacks.c:508 src/extensions/common/properties.c:239
 msgid "_Show HMAC Key"
 msgstr "_Show HMAC Key"
 
@@ -154,36 +154,61 @@ msgstr "Hash Function"
 msgid "Digest"
 msgstr "Digest"
 
-#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:417
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:364
 msgid "Check:"
 msgstr "Check:"
 
-#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:475
-#: src/ui/window.ui:495
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:416
+#: src/ui/window.ui:435
 msgid "Paste digest from clipboard"
 msgstr "Paste digest from clipboard"
 
-#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:513
-#: src/ui/window.ui:540
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:452
+#: src/ui/window.ui:477
 msgid "HMAC Key:"
 msgstr "HMAC Key:"
 
-#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:853
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:852
 msgid "_Stop"
 msgstr "_Stop"
 
-#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:814
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:817
 msgid "_Hash"
 msgstr "_Hash"
 
-#: src/gui.c:312
+#: src/gui.c:318
 msgid "Discarding invalid characters from digest"
 msgstr "Discarding invalid characters from digest"
 
-#: src/hash.c:243
+#: src/hash.c:259
 #, c-format
 msgid "Unknown Hash Function name \"%s\""
 msgstr "Unknown Hash Function name \"%s\""
+
+#: src/list.c:209
+#, c-format
+msgid "All (%u)"
+msgstr "All (%u)"
+
+#: src/list.c:213
+#, c-format
+msgid "Pending (%u)"
+msgstr "Pending (%u)"
+
+#: src/list.c:217
+#, c-format
+msgid "Match (%u)"
+msgstr "Match (%u)"
+
+#: src/list.c:221
+#, c-format
+msgid "Mismatch (%u)"
+msgstr "Mismatch (%u)"
+
+#: src/list.c:225
+#, c-format
+msgid "Error (%u)"
+msgstr "Error (%u)"
 
 #: src/opts.c:96
 msgctxt " --help"
@@ -243,77 +268,77 @@ msgstr "Lowercase Hexadecimal"
 msgid "Uppercase Hexadecimal"
 msgstr "Uppercase Hexadecimal"
 
-#: src/ui/window.ui:48
+#: src/ui/window.ui:43
 msgid "_Add"
 msgstr "_Add"
 
-#: src/ui/window.ui:79
+#: src/ui/window.ui:70
 msgid "_Remove"
 msgstr "_Remove"
 
-#: src/ui/window.ui:110
+#: src/ui/window.ui:97
 msgid "_Clear"
 msgstr "_Clear"
 
-#: src/ui/window.ui:147
+#: src/ui/window.ui:129
 msgid "Copy _Digest"
 msgstr "Copy _Digest"
 
-#: src/ui/window.ui:169
+#: src/ui/window.ui:150
 msgctxt "menu"
 msgid "_Open Digest File…"
 msgstr "_Open Digest File…"
 
-#: src/ui/window.ui:174
+#: src/ui/window.ui:155
 msgctxt "menu"
 msgid "_Save Digest File…"
 msgstr "_Save Digest File…"
 
-#: src/ui/window.ui:181
+#: src/ui/window.ui:162
 msgid "_Preferences"
 msgstr "_Preferences"
 
-#: src/ui/window.ui:186
+#: src/ui/window.ui:167
 msgid "_About"
 msgstr "_About"
 
-#: src/ui/window.ui:303 src/ui/window.ui:726
+#: src/ui/window.ui:261 src/ui/window.ui:647
 msgid "File"
 msgstr "File"
 
-#: src/ui/window.ui:317
+#: src/ui/window.ui:274
 msgid "File List"
 msgstr "File List"
 
-#: src/ui/window.ui:331
+#: src/ui/window.ui:287
 msgid "Text"
 msgstr "Text"
 
-#: src/ui/window.ui:391
+#: src/ui/window.ui:340
 msgid "File:"
 msgstr "File:"
 
-#: src/ui/window.ui:404
+#: src/ui/window.ui:352
 msgid "Text:"
 msgstr "Text:"
 
-#: src/ui/window.ui:897
+#: src/ui/window.ui:894
 msgid "Preferences"
 msgstr "Preferences"
 
-#: src/ui/window.ui:915
+#: src/ui/window.ui:909
 msgid "_Close"
 msgstr "_Close"
 
-#: src/ui/window.ui:950
+#: src/ui/window.ui:941
 msgid "Hash Functions"
 msgstr "Hash Functions"
 
-#: src/ui/window.ui:981
+#: src/ui/window.ui:969
 msgid "MAC Functions"
 msgstr "MAC Functions"
 
-#: src/ui/window.ui:1003
+#: src/ui/window.ui:989
 msgid "Digest Format:"
 msgstr "Digest Format:"
 
