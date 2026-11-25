@@ -435,7 +435,7 @@ static void test_opt_check_file(void)
 		g_assert_true(hash.funcs[HASH_FUNC_MD5].supported);
 		g_assert_true(hash.funcs[HASH_FUNC_MD5].enabled);
 		g_assert_true(gui.view == GUI_VIEW_FILE_LIST);
-		g_assert_cmpint(list_get_rows(), ==, 10);
+		g_assert_cmpint(list_get_store_rows(), ==, 10);
 
 		g_timeout_add_seconds(1, exit_success, NULL);
 
@@ -608,10 +608,13 @@ static void test_opt_file_list(void)
 		delay();
 
 		g_assert_true(gui.view == GUI_VIEW_FILE_LIST);
-		g_assert_cmpint(list_get_rows(), ==, 2);
+		g_assert_cmpint(list_get_store_rows(), ==, 2);
+
+		GtkTreeIter store_iter;
+		gtk_tree_model_iter_nth_child(GTK_TREE_MODEL(gui.liststore), &store_iter, NULL, 1);
 
 		char *digest;
-		while (!(digest = list_get_digest(1, HASH_FUNC_MD5)))
+		while (!(digest = list_get_digest(&store_iter, HASH_FUNC_MD5)))
 			gtk_main_iteration_do(true);
 		puts(digest);
 		g_free(digest);
@@ -620,7 +623,7 @@ static void test_opt_file_list(void)
 		delay();
 		list_remove_selection();
 		delay();
-		g_assert_cmpint(list_get_rows(), ==, 0);
+		g_assert_cmpint(list_get_store_rows(), ==, 0);
 
 		exit(EXIT_SUCCESS);
 	}
@@ -943,6 +946,9 @@ static void add_tests(void)
 int main(int argc, char **argv)
 {
 	gtk_test_init(&argc, &argv);
+
+	// GTK3 leaks memory when animations are enabled
+	g_object_set(gtk_settings_get_default(), "gtk-enable-animations", false, NULL);
 
 	hash_init();
 	gui_init();

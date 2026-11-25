@@ -30,10 +30,10 @@
 #define GUI_VIEW_IS_VALID(X) (((X) >= 0) && ((X) <= GUI_VIEW_FILE_LIST))
 #define GUI_STATE_IS_VALID(X) (((X) >= 0) && ((X) <= GUI_STATE_BUSY))
 
-#define GUI_ICON_FILE_ERROR "dialog-error-symbolic"
-#define GUI_ICON_FILE_MISSING "dialog-warning-symbolic"
 #define GUI_ICON_CHECK_MATCH "object-select-symbolic"
 #define GUI_ICON_CHECK_MISMATCH "window-close-symbolic"
+#define GUI_ICON_FILE_ERROR "dialog-error-symbolic"
+#define GUI_ICON_FILE_MISSING "dialog-warning-symbolic"
 
 enum gui_view_e {
 	GUI_VIEW_INVALID = -1,
@@ -62,16 +62,20 @@ extern struct gui_s {
 	GtkToggleButton *togglebutton_hmac_file, *togglebutton_hmac_text;
 	GtkLabel *label_file, *label_text;
 	GtkTreeView *treeview;
-	GtkTreeViewColumn *treeviewcolumn_status;
 	GtkTreeSelection *treeselection;
-	GtkTreeModel *treemodel;
 	GtkListStore *liststore;
 	GtkMenu *menu_treeview;
 	GtkMenuItem *menuitem_treeview_add, *menuitem_treeview_remove;
 	GtkMenuItem *menuitem_treeview_clear;
 	GtkMenu *menu_treeview_copy;
 	GtkMenuItem *menuitem_treeview_copy;
-	GtkProgressBar *progressbar;
+	GtkToggleButton *togglebutton_filter_all;
+	GtkToggleButton *togglebutton_filter_pending;
+	GtkToggleButton *togglebutton_filter_match;
+	GtkToggleButton *togglebutton_filter_mismatch;
+	GtkToggleButton *togglebutton_filter_error;
+	GtkSearchEntry *searchentry;
+	GtkProgressBar *progressbar, *progressbar_list;
 	GtkBox *box_messages;
 	GtkButton *button_hash, *button_stop;
 	GtkDialog *dialog;
@@ -80,6 +84,7 @@ extern struct gui_s {
 	GtkComboBox *dialog_combobox;
 	GtkButton *dialog_button_close;
 	enum gui_view_e view;
+	enum gui_state_e state;
 	struct {
 		GtkToggleButton *button;
 		GtkModelButton *label_file;

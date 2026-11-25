@@ -153,18 +153,18 @@ static void on_action_prefs(void)
 	gtk_widget_show(GTK_WIDGET(gui.dialog));
 }
 
-static void on_togglebutton_view_toggled(void)
+static void on_togglebutton_view_toggled(GtkToggleButton *button, G_GNUC_UNUSED void *data)
 {
-	enum gui_view_e view = GUI_VIEW_INVALID;
+	if (!gtk_toggle_button_get_active(button))
+		return;
 
-	if (gtk_toggle_button_get_active(gui.togglebutton_view_file))
-		view = GUI_VIEW_FILE;
-	else if (gtk_toggle_button_get_active(gui.togglebutton_view_file_list))
-		view = GUI_VIEW_FILE_LIST;
-	else if (gtk_toggle_button_get_active(gui.togglebutton_view_text))
-		view = GUI_VIEW_TEXT;
+	if (button == gui.togglebutton_view_file)
+		gui_set_view(GUI_VIEW_FILE);
+	else if (button == gui.togglebutton_view_file_list)
+		gui_set_view(GUI_VIEW_FILE_LIST);
+	else if (button == gui.togglebutton_view_text)
+		gui_set_view(GUI_VIEW_TEXT);
 
-	gui_set_view(view);
 	gui_update();
 }
 
@@ -219,17 +219,11 @@ static void on_filechooserbutton_selection_changed(GtkFileChooser *chooser, G_GN
 
 static void on_button_add_clicked(void)
 {
-	const char *title;
-	if (gui.view == GUI_VIEW_FILE)
-		title = gtk_file_chooser_button_get_title(gui.filechooserbutton);
-	else if (gui.view == GUI_VIEW_FILE_LIST)
-		title = _("Select Files");
-	else
-		g_assert_not_reached();
+	g_assert(gui.view == GUI_VIEW_FILE_LIST);
 
 #if ENABLE_NATIVE_FILE_CHOOSER
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(gtk_file_chooser_native_new(
-		title, gui.window, GTK_FILE_CHOOSER_ACTION_OPEN,
+		_("Select Files"), gui.window, GTK_FILE_CHOOSER_ACTION_OPEN,
 		_("_Open"), _("_Cancel")));
 #else
 	GtkFileChooser *chooser = GTK_FILE_CHOOSER(
@@ -240,7 +234,7 @@ static void on_button_add_clicked(void)
 			NULL));
 #endif
 
-	gtk_file_chooser_set_select_multiple(chooser, gui.view == GUI_VIEW_FILE_LIST);
+	gtk_file_chooser_set_select_multiple(chooser, true);
 	gtk_file_chooser_set_local_only(chooser, false);
 
 #if ENABLE_NATIVE_FILE_CHOOSER
@@ -248,24 +242,15 @@ static void on_button_add_clicked(void)
 #else
 	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
 #endif
-		if (gui.view == GUI_VIEW_FILE) {
-			char *uri = gtk_file_chooser_get_uri(chooser);
-			if (uri) {
-				gtk_file_chooser_set_uri(GTK_FILE_CHOOSER(gui.filechooserbutton), uri);
-				g_free(uri);
-			}
-		} else if (gui.view == GUI_VIEW_FILE_LIST) {
-			GSList *uris = gtk_file_chooser_get_uris(chooser);
-			GSList *ud_list = uri_digest_list_from_uri_list(uris);
+		GSList *uris = gtk_file_chooser_get_uris(chooser);
+		GSList *ud_list = uri_digest_list_from_uri_list(uris);
 
-			if (ud_list) {
-				gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST, NULL);
-				uri_digest_list_free_full(ud_list);
-			}
+		if (ud_list) {
+			gui_add_ud_list(ud_list, GUI_VIEW_FILE_LIST, NULL);
+			uri_digest_list_free_full(ud_list);
+		}
 
-			g_slist_free_full(uris, g_free);
-		} else
-			g_assert_not_reached();
+		g_slist_free_full(uris, g_free);
 	}
 
 #if ENABLE_NATIVE_FILE_CHOOSER
@@ -275,11 +260,13 @@ static void on_button_add_clicked(void)
 #endif
 }
 
-static void on_treeselection_changed(void)
+static void on_treeselection_changed(GtkTreeSelection *treeselection, G_GNUC_UNUSED void *data)
 {
-	const int rows = gtk_tree_selection_count_selected_rows(gui.treeselection);
-
-	gtk_widget_set_sensitive(GTK_WIDGET(gui.button_remove), (rows > 0));
+	if (gtk_widget_get_sensitive(GTK_WIDGET(gui.treeview))) {
+		const int rows = gtk_tree_selection_count_selected_rows(treeselection);
+		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_remove), (rows > 0));
+	} else
+		gtk_widget_set_sensitive(GTK_WIDGET(gui.button_remove), false);
 }
 
 static void show_menu_treeview(GdkEventButton *event)
@@ -348,11 +335,11 @@ static gboolean on_treeview_key_press_event(G_GNUC_UNUSED GtkWidget *widget, Gdk
 static gboolean on_treeview_query_tooltip(GtkTreeView *treeview, int x, int y,
 	gboolean keyboard_mode, GtkTooltip *tooltip, G_GNUC_UNUSED void *data)
 {
-	GtkTreeIter iter;
-	if (!gtk_tree_view_get_tooltip_context(treeview, &x, &y, keyboard_mode, NULL, NULL, &iter))
+	GtkTreeIter filter_iter;
+	if (!gtk_tree_view_get_tooltip_context(treeview, &x, &y, keyboard_mode, NULL, NULL, &filter_iter))
 		return GDK_EVENT_PROPAGATE;
 
-	char *text = list_get_error(&iter);
+	char *text = list_get_error(&filter_iter);
 	if (!text)
 		return GDK_EVENT_PROPAGATE;
 
@@ -388,6 +375,12 @@ static void on_treeview_drag_data_received(G_GNUC_UNUSED GtkWidget *widget, GdkD
 	gtk_drag_finish(context, true, true, t);
 }
 
+static void on_treeview_start_interactive_search(G_GNUC_UNUSED GtkTreeView *treeview,
+	G_GNUC_UNUSED void *data)
+{
+	gtk_widget_grab_focus(GTK_WIDGET(gui.searchentry));
+}
+
 static void on_menuitem_treeview_copy_activate(G_GNUC_UNUSED GtkMenuItem *menuitem,
 	struct hash_func_s *func)
 {
@@ -400,18 +393,40 @@ static void on_menuitem_treeview_copy_activate(G_GNUC_UNUSED GtkMenuItem *menuit
 	g_free(digest);
 }
 
-static void on_button_hash_clicked(G_GNUC_UNUSED GtkButton *button,
-	struct hash_func_s *func)
+static void on_togglebutton_filter_toggled(GtkToggleButton *button, G_GNUC_UNUSED void *data)
+{
+	if (!gtk_toggle_button_get_active(button))
+		return;
+
+	if (button == gui.togglebutton_filter_pending)
+		list_set_filter(LIST_FILTER_PENDING);
+	else if (button == gui.togglebutton_filter_match)
+		list_set_filter(LIST_FILTER_MATCH);
+	else if (button == gui.togglebutton_filter_mismatch)
+		list_set_filter(LIST_FILTER_MISMATCH);
+	else if (button == gui.togglebutton_filter_error)
+		list_set_filter(LIST_FILTER_ERROR);
+	else
+		list_set_filter(LIST_FILTER_ALL);
+}
+
+static void on_button_hash_clicked(G_GNUC_UNUSED GtkButton *button, struct hash_func_s *func)
 {
 	if (gui.view == GUI_VIEW_FILE) {
-		// Single-function hash
 		if (func) {
+			// Single-function hash, keep the other digests
 			for (int i = 0; i < HASH_FUNCS_N; i++) {
-				if (!hash.funcs[i].supported || i == func->id)
+				if (!hash.funcs[i].supported)
 					continue;
-				hash.funcs[i].enabled = false;
+
+				if (i == func->id)
+					gtk_entry_set_text(gui.hash_widgets[i].entry_file, "");
+				else
+					hash.funcs[i].enabled = false;
 			}
-		}
+			gui_check_digests();
+		} else
+			gui_clear_digests();
 	}
 
 	gui_start_hash();
@@ -550,46 +565,56 @@ void callbacks_init(void)
 #define CON(OBJ, SIG, CB) \
 	g_signal_connect(G_OBJECT(OBJ), SIG, G_CALLBACK(CB), NULL)
 
-	CON(gui.window,                         "delete-event",        on_window_delete_event);
-	CON(gui.action_open,                    "activate",            on_action_open);
-	CON(gui.action_save_as,                 "activate",            on_action_save_as);
-	CON(gui.action_prefs,                   "activate",            on_action_prefs);
-	CON(gui.action_about,                   "activate",            on_action_about);
-	CON(gui.togglebutton_view_file,         "toggled",             on_togglebutton_view_toggled);
-	CON(gui.togglebutton_view_file_list,    "toggled",             on_togglebutton_view_toggled);
-	CON(gui.togglebutton_view_text,         "toggled",             on_togglebutton_view_toggled);
-	CON(gui.filechooserbutton,              "selection-changed",   on_filechooserbutton_selection_changed);
-	CON(gui.entry_text,                     "changed",             hash_string);
-	CON(gui.togglebutton_hmac_file,         "toggled",             on_togglebutton_hmac_file_toggled);
-	CON(gui.togglebutton_hmac_text,         "toggled",             on_togglebutton_hmac_text_toggled);
-	CON(gui.entry_hmac_file,                "populate-popup",      on_entry_hmac_populate_popup);
-	CON(gui.entry_hmac_text,                "populate-popup",      on_entry_hmac_populate_popup);
-	CON(gui.entry_hmac_file,                "changed",             gui_clear_digests);
-	CON(gui.entry_hmac_text,                "changed",             hash_string);
-	CON(gui.entry_check_file,               "insert-text",         on_entry_check_insert_text);
-	CON(gui.entry_check_file,               "changed",             gui_check_digests);
-	CON(gui.entry_check_file,               "icon-press",          on_entry_check_icon_press);
-	CON(gui.entry_check_text,               "insert-text",         on_entry_check_insert_text);
-	CON(gui.entry_check_text,               "changed",             gui_check_digests);
-	CON(gui.entry_check_text,               "icon-press",          on_entry_check_icon_press);
-	CON(gui.button_add,                     "clicked",             on_button_add_clicked);
-	CON(gui.button_remove,                  "clicked",             list_remove_selection);
-	CON(gui.button_clear,                   "clicked",             list_clear);
-	CON(gui.treeselection,                  "changed",             on_treeselection_changed);
-	CON(gui.treeview,                       "popup-menu",          on_treeview_popup_menu);
-	CON(gui.treeview,                       "button-press-event",  on_treeview_button_press_event);
-	CON(gui.treeview,                       "key-press-event",     on_treeview_key_press_event);
-	CON(gui.treeview,                       "query-tooltip",       on_treeview_query_tooltip);
-	CON(gui.treeview,                       "drag-data-received",  on_treeview_drag_data_received);
-	CON(gui.menuitem_treeview_add,          "activate",            on_button_add_clicked);
-	CON(gui.menuitem_treeview_remove,       "activate",            list_remove_selection);
-	CON(gui.menuitem_treeview_clear,        "activate",            list_clear);
-	CON(gui.button_hash,                    "clicked",             on_button_hash_clicked);
-	CON(gui.button_stop,                    "clicked",             gui_stop_hash);
-	CON(gui.dialog,                         "delete-event",        on_dialog_delete_event);
-	CON(gui.dialog_button_close,            "clicked",             on_dialog_button_close_clicked);
-	CON(gui.dialog_togglebutton_show_hmac,  "toggled",             gui_update);
-	CON(gui.dialog_combobox,                "changed",             on_dialog_combobox_changed);
+	CON(gui.window,                        "delete-event",             on_window_delete_event);
+	CON(gui.action_open,                   "activate",                 on_action_open);
+	CON(gui.action_save_as,                "activate",                 on_action_save_as);
+	CON(gui.action_prefs,                  "activate",                 on_action_prefs);
+	CON(gui.action_about,                  "activate",                 on_action_about);
+	CON(gui.togglebutton_view_file,        "toggled",                  on_togglebutton_view_toggled);
+	CON(gui.togglebutton_view_file_list,   "toggled",                  on_togglebutton_view_toggled);
+	CON(gui.togglebutton_view_text,        "toggled",                  on_togglebutton_view_toggled);
+	CON(gui.filechooserbutton,             "selection-changed",        on_filechooserbutton_selection_changed);
+	CON(gui.entry_text,                    "changed",                  hash_string);
+	CON(gui.togglebutton_hmac_file,        "toggled",                  on_togglebutton_hmac_file_toggled);
+	CON(gui.togglebutton_hmac_text,        "toggled",                  on_togglebutton_hmac_text_toggled);
+	CON(gui.entry_hmac_file,               "populate-popup",           on_entry_hmac_populate_popup);
+	CON(gui.entry_hmac_text,               "populate-popup",           on_entry_hmac_populate_popup);
+	CON(gui.entry_hmac_file,               "changed",                  gui_clear_digests);
+	CON(gui.entry_hmac_text,               "changed",                  hash_string);
+	CON(gui.entry_check_file,              "insert-text",              on_entry_check_insert_text);
+	CON(gui.entry_check_file,              "changed",                  gui_check_digests);
+	CON(gui.entry_check_file,              "icon-press",               on_entry_check_icon_press);
+	CON(gui.entry_check_text,              "insert-text",              on_entry_check_insert_text);
+	CON(gui.entry_check_text,              "changed",                  gui_check_digests);
+	CON(gui.entry_check_text,              "icon-press",               on_entry_check_icon_press);
+	CON(gui.button_add,                    "clicked",                  on_button_add_clicked);
+	CON(gui.button_remove,                 "clicked",                  list_remove_selection);
+	CON(gui.button_clear,                  "clicked",                  list_clear);
+	CON(gui.liststore,                     "row-inserted",             list_update_status);
+	CON(gui.liststore,                     "row-changed",              list_update_status);
+	CON(gui.liststore,                     "row-deleted",              list_update_status);
+	CON(gui.treeselection,                 "changed",                  on_treeselection_changed);
+	CON(gui.treeview,                      "popup-menu",               on_treeview_popup_menu);
+	CON(gui.treeview,                      "button-press-event",       on_treeview_button_press_event);
+	CON(gui.treeview,                      "key-press-event",          on_treeview_key_press_event);
+	CON(gui.treeview,                      "query-tooltip",            on_treeview_query_tooltip);
+	CON(gui.treeview,                      "drag-data-received",       on_treeview_drag_data_received);
+	CON(gui.treeview,                      "start-interactive-search", on_treeview_start_interactive_search);
+	CON(gui.searchentry,                   "search-changed",           list_refilter);
+	CON(gui.menuitem_treeview_add,         "activate",                 on_button_add_clicked);
+	CON(gui.menuitem_treeview_remove,      "activate",                 list_remove_selection);
+	CON(gui.menuitem_treeview_clear,       "activate",                 list_clear);
+	CON(gui.togglebutton_filter_all,       "toggled",                  on_togglebutton_filter_toggled);
+	CON(gui.togglebutton_filter_pending,   "toggled",                  on_togglebutton_filter_toggled);
+	CON(gui.togglebutton_filter_match,     "toggled",                  on_togglebutton_filter_toggled);
+	CON(gui.togglebutton_filter_mismatch,  "toggled",                  on_togglebutton_filter_toggled);
+	CON(gui.togglebutton_filter_error,     "toggled",                  on_togglebutton_filter_toggled);
+	CON(gui.button_hash,                   "clicked",                  on_button_hash_clicked);
+	CON(gui.button_stop,                   "clicked",                  gui_stop_hash);
+	CON(gui.dialog,                        "delete-event",             on_dialog_delete_event);
+	CON(gui.dialog_button_close,           "clicked",                  on_dialog_button_close_clicked);
+	CON(gui.dialog_togglebutton_show_hmac, "toggled",                  gui_update);
+	CON(gui.dialog_combobox,               "changed",                  on_dialog_combobox_changed);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
 		if (!hash.funcs[i].supported)
@@ -598,9 +623,8 @@ void callbacks_init(void)
 		CON(gui.hash_widgets[i].button, "toggled", gui_update);
 		g_signal_connect(gui.hash_widgets[i].label_file, "clicked",
 			G_CALLBACK(on_button_hash_clicked), &hash.funcs[i]);
-		g_signal_connect(gui.hash_widgets[i].menuitem_treeview_copy,
-			"activate", G_CALLBACK(on_menuitem_treeview_copy_activate),
-			&hash.funcs[i]);
+		g_signal_connect(gui.hash_widgets[i].menuitem_treeview_copy, "activate",
+			G_CALLBACK(on_menuitem_treeview_copy_activate), &hash.funcs[i]);
 	}
 
 #undef CON

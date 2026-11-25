@@ -434,17 +434,17 @@ void check_file_save(const char * const filename)
 			}
 			case GUI_VIEW_FILE_LIST: {
 				enum hash_func_e prev = HASH_FUNC_INVALID;
-				const int rows = list_get_rows();
+				GPtrArray *iters = list_get_store_iters();
 
-				for (int row = 0; row < rows; row++) {
-					char *digest = list_get_digest(row, i);
+				for (unsigned int row = 0; row < iters->len; row++) {
+					char *digest = list_get_digest(g_ptr_array_index(iters, row), i);
 
 					if (digest && *digest) {
 						if (i != prev) {
 							g_string_append_printf(string, "# %s\n",
 								hash.funcs[i].name);
 						}
-						char *basename = list_get_basename(row);
+						char *basename = list_get_basename(g_ptr_array_index(iters, row));
 						g_string_append_printf(string, "%s  %s\n",
 							digest, basename);
 						g_free(basename);
@@ -453,6 +453,8 @@ void check_file_save(const char * const filename)
 					g_free(digest);
 					prev = i;
 				}
+
+				g_ptr_array_free(iters, true);
 				break;
 			}
 			default:

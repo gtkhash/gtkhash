@@ -35,7 +35,7 @@ struct uri_digest_s *uri_digest_new(char *uri, char *digest)
 	return ud;
 }
 
-void uri_digest_free_full(struct uri_digest_s *ud)
+static void uri_digest_free_full(struct uri_digest_s *ud)
 {
 	if (!ud)
 		return;
