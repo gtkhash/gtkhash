@@ -40,9 +40,11 @@ struct hash_s hash;
 static struct {
 	struct hash_file_s *hfile;
 	GPtrArray *iters;
+	unsigned int iters_total;
 } hash_priv = {
 	.hfile = NULL,
 	.iters = NULL,
+	.iters_total = 0,
 };
 
 static GtkTreeIter *hash_queue_peek(void)
@@ -55,12 +57,19 @@ static GtkTreeIter *hash_queue_peek(void)
 
 static void hash_queue_start(void)
 {
-	GtkTreeIter *iter = hash_queue_peek();
+	GtkTreeIter *store_iter = hash_queue_peek();
 
+	// Remains hidden for small files so progress doesn't appear stuck at 0%
+	gtk_widget_hide(GTK_WIDGET(gui.progressbar));
 	gtk_progress_bar_set_fraction(gui.progressbar, 0.0);
 	gtk_progress_bar_set_text(gui.progressbar, " ");
 
-	char *uri = list_get_uri(iter);
+	// Show overall progress based on number of files, not size
+	gtk_progress_bar_set_fraction(gui.progressbar_list,
+		(double)(hash_priv.iters_total - hash_priv.iters->len) /
+		(double)hash_priv.iters_total);
+
+	char *uri = list_get_uri(store_iter);
 	hash_file_start(uri);
 	g_free(uri);
 }
@@ -92,6 +101,9 @@ void gtkhash_hash_file_report_cb(G_GNUC_UNUSED void *data, const goffset file_si
 {
 	gtk_progress_bar_set_fraction(gui.progressbar, (double)total_read / (double)file_size);
 
+	if (gui.view == GUI_VIEW_FILE_LIST)
+		gtk_widget_show(GTK_WIDGET(gui.progressbar));
+
 	const double elapsed = g_timer_elapsed(timer, NULL);
 
 	char *text = gtkhash_format_progress(file_size, total_read, elapsed);
@@ -105,6 +117,9 @@ void gtkhash_hash_file_report_unknown_cb(G_GNUC_UNUSED void *data, const goffset
 	GTimer *timer)
 {
 	gtk_progress_bar_pulse(gui.progressbar);
+
+	if (gui.view == GUI_VIEW_FILE_LIST)
+		gtk_widget_show(GTK_WIDGET(gui.progressbar));
 
 	const double elapsed = g_timer_elapsed(timer, NULL);
 
@@ -197,13 +212,14 @@ void hash_file_start(const char *uri)
 	gtkhash_hash_file(hash_priv.hfile, uri, format, hmac_key, key_size, NULL);
 }
 
-void hash_file_list_start(void)
+void hash_file_list_start(GPtrArray *iters)
 {
 	g_assert(gtkhash_hash_func_count_enabled(hash.funcs));
-	g_assert(list_get_rows() > 0);
+	g_assert(iters->len);
 	g_assert(!hash_priv.iters);
 
-	hash_priv.iters = list_get_iters();
+	hash_priv.iters = iters;
+	hash_priv.iters_total = iters->len;
 	hash_queue_start();
 }
 

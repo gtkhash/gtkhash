@@ -48,11 +48,6 @@
 
 struct gui_s gui = {
 	.view = GUI_VIEW_INVALID,
-};
-
-static struct {
-	enum gui_state_e state;
-} gui_priv = {
 	.state = GUI_STATE_INVALID,
 };
 
@@ -134,8 +129,6 @@ static void gui_init_objects(GtkBuilder *builder)
 	// Tree View
 	gui.treeview = GTK_TREE_VIEW(gui_get_object(builder,
 		"treeview"));
-	gui.treeviewcolumn_status = GTK_TREE_VIEW_COLUMN(gui_get_object(builder,
-		"treeviewcolumn_status"));
 	gui.treeselection = GTK_TREE_SELECTION(gui_get_object(builder,
 		"treeselection"));
 	gui.menu_treeview = GTK_MENU(gui_get_object(builder,
@@ -151,6 +144,18 @@ static void gui_init_objects(GtkBuilder *builder)
 		"menu_treeview_copy"));
 	gui.menuitem_treeview_copy = GTK_MENU_ITEM(gui_get_object(builder,
 		"menuitem_treeview_copy"));
+	gui.togglebutton_filter_all = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"togglebutton_filter_all"));
+	gui.togglebutton_filter_pending = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"togglebutton_filter_pending"));
+	gui.togglebutton_filter_match = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"togglebutton_filter_match"));
+	gui.togglebutton_filter_mismatch = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"togglebutton_filter_mismatch"));
+	gui.togglebutton_filter_error = GTK_TOGGLE_BUTTON(gui_get_object(builder,
+		"togglebutton_filter_error"));
+	gui.searchentry = GTK_SEARCH_ENTRY(gui_get_object(builder,
+		"searchentry"));
 
 	// Buttons
 	gui.button_hash = GTK_BUTTON(gui_get_object(builder,
@@ -158,9 +163,11 @@ static void gui_init_objects(GtkBuilder *builder)
 	gui.button_stop = GTK_BUTTON(gui_get_object(builder,
 		"button_stop"));
 
-	// Progress Bar
+	// Progress Bars
 	gui.progressbar = GTK_PROGRESS_BAR(gui_get_object(builder,
 		"progressbar"));
+	gui.progressbar_list = GTK_PROGRESS_BAR(gui_get_object(builder,
+		"progressbar_list"));
 
 	// Preferences Dialog
 	gui.dialog = GTK_DIALOG(gui_get_object(builder,
@@ -185,7 +192,6 @@ static void gui_init_hash_funcs(void)
 		gui.hash_widgets[i].label_file = GTK_MODEL_BUTTON(gtk_model_button_new());
 		gtk_button_set_relief(GTK_BUTTON(gui.hash_widgets[i].label_file),
 			GTK_RELIEF_NORMAL);
-		gtk_widget_set_can_focus(GTK_WIDGET(gui.hash_widgets[i].label_file), false);
 		gtk_container_add(GTK_CONTAINER(gui.vbox_outputlabels),
 			GTK_WIDGET(gui.hash_widgets[i].label_file));
 
@@ -345,12 +351,13 @@ void gui_run(void)
 	gtk_main();
 
 	hash_file_stop();
-	while (gui_priv.state != GUI_STATE_IDLE)
+	while (gui.state != GUI_STATE_IDLE)
 		gtk_main_iteration();
 }
 
 void gui_deinit(void)
 {
+	list_deinit();
 	gtk_widget_destroy(GTK_WIDGET(gui.window));
 	g_object_unref(gui.menu_treeview);
 
@@ -436,7 +443,7 @@ const uint8_t *gui_get_hmac_key(size_t *key_size)
 
 static void gui_action_save_as_set_enabled(void)
 {
-	if (gui_priv.state == GUI_STATE_BUSY) {
+	if (gui.state == GUI_STATE_BUSY) {
 		g_simple_action_set_enabled(gui.action_save_as, false);
 		return;
 	}
@@ -455,7 +462,7 @@ static void gui_action_save_as_set_enabled(void)
 			}
 			break;
 		case GUI_VIEW_FILE_LIST:
-			sensitive = list_has_digests();
+			sensitive = (list_get_store_rows() > 0);
 			break;
 		default:
 			sensitive = false;
@@ -507,8 +514,10 @@ void gui_update_hash_funcs(void)
 		if (!hash.funcs[i].supported)
 			continue;
 
-		hash.funcs[i].enabled = gtk_toggle_button_get_active(
-			gui.hash_widgets[i].button);
+		const bool enabled = gtk_toggle_button_get_active(gui.hash_widgets[i].button);
+		const bool clear_digests = hash.funcs[i].enabled && !enabled;
+
+		hash.funcs[i].enabled = enabled;
 
 		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].label_file),
 			hash.funcs[i].enabled && gui.view == GUI_VIEW_FILE);
@@ -520,6 +529,13 @@ void gui_update_hash_funcs(void)
 			hash.funcs[i].enabled);
 		gtk_widget_set_visible(GTK_WIDGET(gui.hash_widgets[i].menuitem_treeview_copy),
 			hash.funcs[i].enabled);
+
+		if (clear_digests) {
+			// The func could be re-enabled later with different input
+			gtk_entry_set_text(gui.hash_widgets[i].entry_file, "");
+			gtk_entry_set_text(gui.hash_widgets[i].entry_text, "");
+			list_clear_digests_func(i);
+		}
 	}
 }
 
@@ -584,7 +600,7 @@ void gui_update(void)
 {
 	// Must call gui_set_view() before this
 	g_assert(GUI_VIEW_IS_VALID(gui.view));
-	g_assert(gui_priv.state == GUI_STATE_IDLE);
+	g_assert(gui.state == GUI_STATE_IDLE);
 
 	gui_update_hash_funcs();
 	const bool funcs_enabled = gtkhash_hash_func_count_enabled(hash.funcs);
@@ -592,15 +608,7 @@ void gui_update(void)
 	if ((gui.view == GUI_VIEW_FILE) || (gui.view == GUI_VIEW_TEXT)) {
 		gui_update_hmac();
 
-		if (gui.view == GUI_VIEW_FILE) {
-			gtk_widget_hide(GTK_WIDGET(gui.button_remove));
-			gtk_widget_hide(GTK_WIDGET(gui.button_clear));
-
-			gtk_widget_show(GTK_WIDGET(gui.button_add));
-			gtk_widget_show(GTK_WIDGET(gui.box_buttons));
-		} else
-			gtk_widget_hide(GTK_WIDGET(gui.box_buttons));
-
+		gtk_widget_hide(GTK_WIDGET(gui.box_buttons));
 		gtk_widget_hide(GTK_WIDGET(gui.vbox_list));
 
 		gtk_widget_show(GTK_WIDGET(gui.vbox_single));
@@ -646,14 +654,12 @@ void gui_update(void)
 			break;
 		case GUI_VIEW_FILE_LIST:
 			list_update();
+			list_update_status_now();
 
 			gtk_widget_hide(GTK_WIDGET(gui.vbox_single));
 
 			gtk_widget_show(GTK_WIDGET(gui.vbox_list));
 			gtk_widget_show(GTK_WIDGET(gui.button_hash));
-			gtk_widget_show(GTK_WIDGET(gui.button_add));
-			gtk_widget_show(GTK_WIDGET(gui.button_remove));
-			gtk_widget_show(GTK_WIDGET(gui.button_clear));
 			gtk_widget_show(GTK_WIDGET(gui.box_buttons));
 			break;
 		default:
@@ -732,7 +738,7 @@ void gui_check_digests(void)
 	const char *str_in = gtk_entry_get_text(entry_check);
 
 	for (int i = 0; i < HASH_FUNCS_N; i++) {
-		if (!hash.funcs[i].enabled)
+		if (!hash.funcs[i].supported)
 			continue;
 
 		GtkEntry *entry = NULL;
@@ -751,7 +757,7 @@ void gui_check_digests(void)
 		const char *str_out = gtk_entry_get_text(entry);
 		const char *icon_out = NULL;
 
-		if (*str_in && gtkhash_digest_format_compare(str_in, str_out, format)) {
+		if (hash.funcs[i].enabled && *str_in && gtkhash_digest_format_compare(str_in, str_out, format)) {
 			icon_out = GUI_ICON_CHECK_MATCH;
 			icon_in = GUI_ICON_CHECK_MATCH;
 		}
@@ -764,12 +770,12 @@ void gui_check_digests(void)
 void gui_set_state(const enum gui_state_e state)
 {
 	g_assert(GUI_STATE_IS_VALID(state));
-	g_assert(state != gui_priv.state);
+	g_assert(state != gui.state);
 
 	if (gui.view == GUI_VIEW_TEXT)
 		g_assert(state != GUI_STATE_BUSY);
 
-	gui_priv.state = state;
+	gui.state = state;
 
 	const bool busy = (state == GUI_STATE_BUSY);
 
@@ -780,7 +786,9 @@ void gui_set_state(const enum gui_state_e state)
 
 	gtk_progress_bar_set_fraction(gui.progressbar, 0.0);
 	gtk_progress_bar_set_text(gui.progressbar, " ");
-	gtk_widget_set_visible(GTK_WIDGET(gui.progressbar), busy);
+	gtk_progress_bar_set_fraction(gui.progressbar_list, 0.0);
+	gtk_widget_set_visible(GTK_WIDGET(gui.progressbar), busy && gui.view != GUI_VIEW_FILE_LIST);
+	gtk_widget_set_visible(GTK_WIDGET(gui.progressbar_list), busy && gui.view == GUI_VIEW_FILE_LIST);
 
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.label_file), !busy);
 	gtk_widget_set_sensitive(GTK_WIDGET(gui.filechooserbutton), !busy);
@@ -804,6 +812,11 @@ void gui_set_state(const enum gui_state_e state)
 		gtk_window_set_default(gui.window, GTK_WIDGET(gui.button_stop));
 	else
 		gtk_window_set_default(gui.window, GTK_WIDGET(gui.button_hash));
+
+	if (gui.view == GUI_VIEW_FILE_LIST) {
+		list_update();
+		list_update_status_now();
+	}
 
 	gui_action_save_as_set_enabled();
 }
@@ -912,17 +925,21 @@ void gui_start_hash(void)
 			char *uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(gui.filechooserbutton));
 			if (!uri)
 				return;
-			gui_clear_digests();
 			gui_set_state(GUI_STATE_BUSY);
 			hash_file_start(uri);
 			g_free(uri);
 			break;
 		}
-		case GUI_VIEW_FILE_LIST:
-			gui_clear_digests();
+		case GUI_VIEW_FILE_LIST: {
+			GPtrArray *iters = list_get_visible_iters();
+			if (!iters->len) {
+				g_ptr_array_free(iters, true);
+				return;
+			}
 			gui_set_state(GUI_STATE_BUSY);
-			hash_file_list_start();
+			hash_file_list_start(iters);
 			break;
+		}
 		default:
 			g_assert_not_reached();
 	}

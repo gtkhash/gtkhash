@@ -28,7 +28,6 @@ struct uri_digest_s {
 };
 
 struct uri_digest_s *uri_digest_new(char *uri, char *digest);
-void uri_digest_free_full(struct uri_digest_s *ud);
 GSList *uri_digest_list_from_uri_list(GSList *uris);
 GSList *uri_digest_list_from_uri_strv(char **uris);
 void uri_digest_list_free_full(GSList *ud_list);

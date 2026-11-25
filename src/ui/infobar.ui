@@ -4,18 +4,15 @@
   <!-- interface-name infobar.ui -->
   <requires lib="gtk+" version="3.24"/>
   <object class="GtkInfoBar" id="infobar">
-    <property name="can-focus">False</property>
     <property name="message-type">other</property>
     <property name="revealed">False</property>
     <property name="show-close-button">True</property>
     <property name="visible">True</property>
     <child internal-child="content_area">
       <object class="GtkBox">
-        <property name="can-focus">False</property>
         <property name="visible">True</property>
         <child>
           <object class="GtkLabel" id="label">
-            <property name="can-focus">False</property>
             <property name="visible">True</property>
             <property name="wrap">True</property>
             <property name="wrap-mode">word-char</property>

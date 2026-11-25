@@ -24,22 +24,38 @@
 
 #include "hash/hash-func.h"
 
+#define LIST_FILTER_IS_VALID(X) (((X) >= 0) && ((X) <= LIST_FILTER_ERROR))
+
+enum list_filter_e {
+	LIST_FILTER_ALL,
+	LIST_FILTER_PENDING,
+	LIST_FILTER_MATCH,
+	LIST_FILTER_MISMATCH,
+	LIST_FILTER_ERROR,
+};
+
 void list_init(void);
-int list_get_rows(void);
+void list_deinit(void);
+int list_get_store_rows(void);
+void list_refilter(void);
+void list_set_filter(enum list_filter_e filter);
+void list_update_status(void);
+void list_update_status_now(void);
 void list_update(void);
 void list_append_row(const char *uri, const char *check, const char *icon, const char *error);
 void list_remove_selection(void);
-GPtrArray *list_get_iters(void);
-char *list_get_uri(GtkTreeIter *iter);
-char *list_get_basename(int row);
-void list_set_error(GtkTreeIter *iter, const char *message, const char *icon);
-char *list_get_error(GtkTreeIter *iter);
-void list_set_digests(GtkTreeIter *iter, const char * const *digests);
-char *list_get_digest(int row, enum hash_func_e id);
+char *list_get_uri(GtkTreeIter *store_iter);
+char *list_get_basename(GtkTreeIter *store_iter);
+void list_set_error(GtkTreeIter *store_iter, const char *message, const char *icon);
+char *list_get_error(GtkTreeIter *filter_iter);
+GPtrArray *list_get_store_iters(void);
+GPtrArray *list_get_visible_iters(void);
+void list_set_digests(GtkTreeIter *store_iter, const char * const *digests);
+char *list_get_digest(GtkTreeIter *store_iter, enum hash_func_e id);
 char *list_get_selected_digest(enum hash_func_e id);
-bool list_has_digests(void);
 void list_check_all_digests(void);
 void list_clear_digests(void);
+void list_clear_digests_func(enum hash_func_e id);
 void list_clear(void);
 
 #endif
