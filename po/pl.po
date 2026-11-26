@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-25 23:06+0100\n"
-"PO-Revision-Date: 2026-11-13 19:32+0000\n"
+"PO-Revision-Date: 2026-11-25 23:51+0000\n"
 "Last-Translator: Matthaiks <kityn@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/translations/pl/>\n"
 "Language: pl\n"
@@ -187,27 +187,27 @@ msgstr "Nieznana nazwa funkcji sum kontrolnych „%s”"
 #: src/list.c:209
 #, c-format
 msgid "All (%u)"
-msgstr ""
+msgstr "Wszystkie (%u)"
 
 #: src/list.c:213
 #, c-format
 msgid "Pending (%u)"
-msgstr ""
+msgstr "Oczekujące (%u)"
 
 #: src/list.c:217
 #, c-format
 msgid "Match (%u)"
-msgstr ""
+msgstr "Dopasowane (%u)"
 
 #: src/list.c:221
 #, c-format
 msgid "Mismatch (%u)"
-msgstr ""
+msgstr "Niedopasowane (%u)"
 
 #: src/list.c:225
 #, c-format
 msgid "Error (%u)"
-msgstr ""
+msgstr "Błędne (%u)"
 
 #: src/opts.c:96
 msgctxt " --help"
