@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-25 23:06+0100\n"
-"PO-Revision-Date: 2026-11-14 09:51+0000\n"
+"PO-Revision-Date: 2026-11-26 07:51+0000\n"
 "Last-Translator: bittin1ddc447d824349b2 <bittin1ddc447d824349b2@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/gtkhash/translations/sv/>\n"
 "Language: sv\n"
@@ -187,27 +187,27 @@ msgstr "Okänt Hash-funktionsnamn \"%s\""
 #: src/list.c:209
 #, c-format
 msgid "All (%u)"
-msgstr ""
+msgstr "Alla (%u)"
 
 #: src/list.c:213
 #, c-format
 msgid "Pending (%u)"
-msgstr ""
+msgstr "Väntar (%u)"
 
 #: src/list.c:217
 #, c-format
 msgid "Match (%u)"
-msgstr ""
+msgstr "Matchar (%u)"
 
 #: src/list.c:221
 #, c-format
 msgid "Mismatch (%u)"
-msgstr ""
+msgstr "Missmatchning (%u)"
 
 #: src/list.c:225
 #, c-format
 msgid "Error (%u)"
-msgstr ""
+msgstr "Fel (%u)"
 
 #: src/opts.c:96
 msgctxt " --help"
