@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-25 23:06+0100\n"
+"POT-Creation-Date: 2026-11-27 17:12+0100\n"
 "PO-Revision-Date: 2026-11-16 13:59+0000\n"
 "Last-Translator: Pavel Borecki <pavelbo@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/gtkhash/translations/cs/>\n"
@@ -156,25 +156,25 @@ msgstr "Funkce pro vytváření otisku"
 msgid "Digest"
 msgstr "Digest"
 
-#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:364
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:365
 msgid "Check:"
 msgstr "Kontrola:"
 
-#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:416
-#: src/ui/window.ui:435
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:417
+#: src/ui/window.ui:436
 msgid "Paste digest from clipboard"
 msgstr "Vložit digest ze schránky"
 
-#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:452
-#: src/ui/window.ui:477
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:453
+#: src/ui/window.ui:478
 msgid "HMAC Key:"
 msgstr "HMAC klíč:"
 
-#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:852
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:853
 msgid "_Stop"
 msgstr "Za_stavit"
 
-#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:817
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:818
 msgid "_Hash"
 msgstr "_Otisk"
 
@@ -304,43 +304,43 @@ msgstr "_Předvolby"
 msgid "_About"
 msgstr "O _aplikaci"
 
-#: src/ui/window.ui:261 src/ui/window.ui:647
+#: src/ui/window.ui:262 src/ui/window.ui:648
 msgid "File"
 msgstr "Soubor"
 
-#: src/ui/window.ui:274
+#: src/ui/window.ui:275
 msgid "File List"
 msgstr "Seznam souborů"
 
-#: src/ui/window.ui:287
+#: src/ui/window.ui:288
 msgid "Text"
 msgstr "Text"
 
-#: src/ui/window.ui:340
+#: src/ui/window.ui:341
 msgid "File:"
 msgstr "Soubor:"
 
-#: src/ui/window.ui:352
+#: src/ui/window.ui:353
 msgid "Text:"
 msgstr "Text:"
 
-#: src/ui/window.ui:894
+#: src/ui/window.ui:897
 msgid "Preferences"
 msgstr "Předvolby"
 
-#: src/ui/window.ui:909
+#: src/ui/window.ui:912
 msgid "_Close"
 msgstr "_Zavřít"
 
-#: src/ui/window.ui:941
+#: src/ui/window.ui:944
 msgid "Hash Functions"
 msgstr "Funkce pro vytváření otisku"
 
-#: src/ui/window.ui:969
+#: src/ui/window.ui:972
 msgid "MAC Functions"
 msgstr "MAC funkce"
 
-#: src/ui/window.ui:989
+#: src/ui/window.ui:992
 msgid "Digest Format:"
 msgstr "Formát digestu:"
 

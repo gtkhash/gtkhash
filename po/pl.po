@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-25 23:06+0100\n"
+"POT-Creation-Date: 2026-11-27 17:12+0100\n"
 "PO-Revision-Date: 2026-11-25 23:51+0000\n"
 "Last-Translator: Matthaiks <kityn@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/gtkhash/translations/pl/>\n"
@@ -153,25 +153,25 @@ msgstr "Funkcja sum kontrolnych"
 msgid "Digest"
 msgstr "Skrót"
 
-#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:364
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:365
 msgid "Check:"
 msgstr "Sprawdzanie:"
 
-#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:416
-#: src/ui/window.ui:435
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:417
+#: src/ui/window.ui:436
 msgid "Paste digest from clipboard"
 msgstr "Wkleja skrót ze schowka"
 
-#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:452
-#: src/ui/window.ui:477
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:453
+#: src/ui/window.ui:478
 msgid "HMAC Key:"
 msgstr "Klucz HMAC:"
 
-#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:852
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:853
 msgid "_Stop"
 msgstr "Za_trzymaj"
 
-#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:817
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:818
 msgid "_Hash"
 msgstr "_Suma kontrolna"
 
@@ -301,43 +301,43 @@ msgstr "_Preferencje"
 msgid "_About"
 msgstr "_Informacje"
 
-#: src/ui/window.ui:261 src/ui/window.ui:647
+#: src/ui/window.ui:262 src/ui/window.ui:648
 msgid "File"
 msgstr "Plik"
 
-#: src/ui/window.ui:274
+#: src/ui/window.ui:275
 msgid "File List"
 msgstr "Lista plików"
 
-#: src/ui/window.ui:287
+#: src/ui/window.ui:288
 msgid "Text"
 msgstr "Tekst"
 
-#: src/ui/window.ui:340
+#: src/ui/window.ui:341
 msgid "File:"
 msgstr "Plik:"
 
-#: src/ui/window.ui:352
+#: src/ui/window.ui:353
 msgid "Text:"
 msgstr "Tekst:"
 
-#: src/ui/window.ui:894
+#: src/ui/window.ui:897
 msgid "Preferences"
 msgstr "Preferencje"
 
-#: src/ui/window.ui:909
+#: src/ui/window.ui:912
 msgid "_Close"
 msgstr "_Zamknij"
 
-#: src/ui/window.ui:941
+#: src/ui/window.ui:944
 msgid "Hash Functions"
 msgstr "Funkcje sum kontrolnych"
 
-#: src/ui/window.ui:969
+#: src/ui/window.ui:972
 msgid "MAC Functions"
 msgstr "Funkcje MAC"
 
-#: src/ui/window.ui:989
+#: src/ui/window.ui:992
 msgid "Digest Format:"
 msgstr "Format skrótu:"
 
