@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtkhash 1.4\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-25 23:06+0100\n"
+"POT-Creation-Date: 2026-11-27 17:12+0100\n"
 "PO-Revision-Date: 2026-11-04 17:53+0000\n"
 "Last-Translator: Tristan Heaven <tristan@tristanheaven.net>\n"
 "Language-Team: Moldavian <https://hosted.weblate.org/projects/gtkhash/translations/ro_MD/>\n"
@@ -150,25 +150,25 @@ msgstr ""
 msgid "Digest"
 msgstr ""
 
-#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:364
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:365
 msgid "Check:"
 msgstr "Компарацие:"
 
-#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:416
-#: src/ui/window.ui:435
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:417
+#: src/ui/window.ui:436
 msgid "Paste digest from clipboard"
 msgstr "Инсераря дайӂестулуй дин медиул де скимб"
 
-#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:452
-#: src/ui/window.ui:477
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:453
+#: src/ui/window.ui:478
 msgid "HMAC Key:"
 msgstr "Кее HMAC:"
 
-#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:852
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:853
 msgid "_Stop"
 msgstr ""
 
-#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:817
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:818
 msgid "_Hash"
 msgstr ""
 
@@ -298,43 +298,43 @@ msgstr ""
 msgid "_About"
 msgstr ""
 
-#: src/ui/window.ui:261 src/ui/window.ui:647
+#: src/ui/window.ui:262 src/ui/window.ui:648
 msgid "File"
 msgstr "Фишиер"
 
-#: src/ui/window.ui:274
+#: src/ui/window.ui:275
 msgid "File List"
 msgstr ""
 
-#: src/ui/window.ui:287
+#: src/ui/window.ui:288
 msgid "Text"
 msgstr ""
 
-#: src/ui/window.ui:340
+#: src/ui/window.ui:341
 msgid "File:"
 msgstr "Фишиер:"
 
-#: src/ui/window.ui:352
+#: src/ui/window.ui:353
 msgid "Text:"
 msgstr "Текст:"
 
-#: src/ui/window.ui:894
+#: src/ui/window.ui:897
 msgid "Preferences"
 msgstr ""
 
-#: src/ui/window.ui:909
+#: src/ui/window.ui:912
 msgid "_Close"
 msgstr ""
 
-#: src/ui/window.ui:941
+#: src/ui/window.ui:944
 msgid "Hash Functions"
 msgstr ""
 
-#: src/ui/window.ui:969
+#: src/ui/window.ui:972
 msgid "MAC Functions"
 msgstr ""
 
-#: src/ui/window.ui:989
+#: src/ui/window.ui:992
 msgid "Digest Format:"
 msgstr ""
 

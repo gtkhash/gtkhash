@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
-"POT-Creation-Date: 2026-11-25 23:06+0100\n"
+"POT-Creation-Date: 2026-11-27 17:12+0100\n"
 "PO-Revision-Date: 2026-11-16 01:51+0000\n"
 "Last-Translator: Szia Tomi <sziatomi@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/gtkhash/translations/hu/>\n"
@@ -152,25 +152,25 @@ msgstr "Hash-függvény"
 msgid "Digest"
 msgstr "Kivonat"
 
-#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:364
+#: src/extensions/common/ui/properties.ui:137 src/ui/window.ui:365
 msgid "Check:"
 msgstr "Ellenőrzés:"
 
-#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:416
-#: src/ui/window.ui:435
+#: src/extensions/common/ui/properties.ui:152 src/ui/window.ui:417
+#: src/ui/window.ui:436
 msgid "Paste digest from clipboard"
 msgstr "Hash beillesztése a vágólapról"
 
-#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:452
-#: src/ui/window.ui:477
+#: src/extensions/common/ui/properties.ui:181 src/ui/window.ui:453
+#: src/ui/window.ui:478
 msgid "HMAC Key:"
 msgstr "HMAC kulcs:"
 
-#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:852
+#: src/extensions/common/ui/properties.ui:276 src/ui/window.ui:853
 msgid "_Stop"
 msgstr "_Leállítás"
 
-#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:817
+#: src/extensions/common/ui/properties.ui:315 src/ui/window.ui:818
 msgid "_Hash"
 msgstr "_Hash"
 
@@ -300,43 +300,43 @@ msgstr "_Beállítások"
 msgid "_About"
 msgstr "_Névjegy"
 
-#: src/ui/window.ui:261 src/ui/window.ui:647
+#: src/ui/window.ui:262 src/ui/window.ui:648
 msgid "File"
 msgstr "Fájl"
 
-#: src/ui/window.ui:274
+#: src/ui/window.ui:275
 msgid "File List"
 msgstr "Fájl_lista"
 
-#: src/ui/window.ui:287
+#: src/ui/window.ui:288
 msgid "Text"
 msgstr "Szöveg"
 
-#: src/ui/window.ui:340
+#: src/ui/window.ui:341
 msgid "File:"
 msgstr "Fájl:"
 
-#: src/ui/window.ui:352
+#: src/ui/window.ui:353
 msgid "Text:"
 msgstr "Szöveg:"
 
-#: src/ui/window.ui:894
+#: src/ui/window.ui:897
 msgid "Preferences"
 msgstr "Beállítások"
 
-#: src/ui/window.ui:909
+#: src/ui/window.ui:912
 msgid "_Close"
 msgstr "_Bezárás"
 
-#: src/ui/window.ui:941
+#: src/ui/window.ui:944
 msgid "Hash Functions"
 msgstr "Hash-függvények"
 
-#: src/ui/window.ui:969
+#: src/ui/window.ui:972
 msgid "MAC Functions"
 msgstr "MAC funkciók"
 
-#: src/ui/window.ui:989
+#: src/ui/window.ui:992
 msgid "Digest Format:"
 msgstr "Kivonat formátuma:"
 
