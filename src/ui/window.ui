@@ -169,6 +169,7 @@
     </section>
   </menu>
   <object class="GtkWindow" id="window">
+    <property name="can-focus">True</property>
     <property name="default-height">340</property>
     <property name="default-width">500</property>
     <property name="icon-name">org.gtkhash.gtkhash</property>
@@ -887,6 +888,8 @@
         </child>
       </object>
     </child>
+    <!-- Custom object fragments -->
+    <initial-focus name="window"/>
   </object>
   <object class="GtkDialog" id="dialog">
     <property name="border-width">6</property>
