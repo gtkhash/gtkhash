@@ -150,6 +150,7 @@
             nettle
             ninja
             openssl
+            oxipng
             pkg-config
             sway
             thunar

@@ -19,7 +19,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-ISO="${T}/example.iso"
+ISO="${T}/gtkhash.iso"
 genisoimage -quiet -output "${ISO}" /var/empty
 sha256sum "${ISO}" > "${ISO}.sha256"
 
@@ -78,16 +78,23 @@ screenshot() {
 		-delete 0,1 \
 		+swap -compose CopyOpacity -composite \
 		-trim +repage \
-		-strip -define png:compression-level=9 \
 		"${out}"
+
+	oxipng -s -o max "${out}"
 }
 
 GTK_THEME="Adwaita" \
 	screenshot screenshots/gtkhash-screenshot-light.png \
 	-f BLAKE3 -C "${ISO}.sha256"
+
 GTK_THEME="Adwaita:dark" \
 	screenshot screenshots/gtkhash-screenshot-dark.png \
 	-f BLAKE3 -C "${ISO}.sha256"
-GTK_THEME="Adwaita" WINDOW_SIZE="600 400" \
-	screenshot screenshots/file-list.png \
+
+GTK_THEME="Adwaita" WINDOW_SIZE="650 400" \
+	screenshot screenshots/gtkhash-file-list.png \
 	-f -MD5 -f -SHA1 -f -CRC32 -C "${T}/etc.sha256"
+
+GTK_THEME="Adwaita:dark" WINDOW_SIZE="640 240" \
+	screenshot screenshots/github-social-preview.png \
+	-f -MD5 -f -SHA1 -f -CRC32 -C "${ISO}.sha256"
