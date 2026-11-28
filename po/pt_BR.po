@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtkhash\n"
 "Report-Msgid-Bugs-To: https://hosted.weblate.org/projects/gtkhash/translations/\n"
 "POT-Creation-Date: 2026-11-27 17:12+0100\n"
-"PO-Revision-Date: 2026-11-25 17:51+0000\n"
+"PO-Revision-Date: 2026-11-28 05:51+0000\n"
 "Last-Translator: Cirnos <cirnos@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/gtkhash/translations/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -303,11 +303,11 @@ msgstr "_Salvar arquivo de resumo…"
 
 #: src/ui/window.ui:162
 msgid "_Preferences"
-msgstr ""
+msgstr "_Preferências"
 
 #: src/ui/window.ui:167
 msgid "_About"
-msgstr ""
+msgstr "_Sobre"
 
 #: src/ui/window.ui:262 src/ui/window.ui:648
 msgid "File"
@@ -319,7 +319,7 @@ msgstr ""
 
 #: src/ui/window.ui:288
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: src/ui/window.ui:341
 msgid "File:"
@@ -331,7 +331,7 @@ msgstr "Texto:"
 
 #: src/ui/window.ui:897
 msgid "Preferences"
-msgstr ""
+msgstr "Preferências"
 
 #: src/ui/window.ui:912
 msgid "_Close"
@@ -372,7 +372,7 @@ msgstr[1] "%u segundos restantes"
 #: src/util/util.c:71
 #, c-format
 msgid "%1$s of %2$s - %3$s (%4$s/s)"
-msgstr ""
+msgstr "%1$s de %2$s - %3$s (%4$s/s)"
 
 #. Translators: This text is displayed while processing data.
 #. %1$s is the amount of data processed so far (e.g. "41.9 MB"), and
